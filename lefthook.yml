@@ -6,6 +6,9 @@ pre-commit:
       run: yarn lint {staged_files}
 pre-push:
   commands:
+    build:
+      run: yarn build
+
     # TODO
     # packages-audit:
     #   run: yarn audit
