@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: logan-center
+Upstream-Contact: Klein College of Media and Communication <kleinweb@temple.edu>
+Source: https://github.com/kleinweb/logan-center
+
+# Sample paragraph, commented out:
+#
+# Files: src/*
+# Copyright: $YEAR $NAME <$CONTACT>
+# License: ...

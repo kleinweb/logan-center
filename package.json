@@ -1,7 +1,14 @@
 {
   "name": "logan-center-frontend",
   "version": "0.1.0",
+  "license": "GPL-3.0-or-later",
   "private": true,
+  "packageManager": "yarn@3.2.4",
+  "engines": {
+    "node": ">=18",
+    "yarn": ">=3 <4",
+    "npm": "please-use-yarn"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
