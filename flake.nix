@@ -14,7 +14,7 @@
     treefmt-flake.url = "github:srid/treefmt-flake";
     nixago.url = "github:nix-community/nixago";
 
-    flake-parts.inputs.nixpkgs.follows = "nixpkgs";
+    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     nixago.inputs.nixpkgs.follows = "nixpkgs";
   };
 
