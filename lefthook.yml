@@ -1,0 +1,13 @@
+pre-commit:
+  parallel: true
+  commands:
+    eslint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: yarn lint {staged_files}
+pre-push:
+  commands:
+    packages-audit:
+      run: yarn audit
+      skip:
+        - merge
+        - rebase
