@@ -6,7 +6,7 @@ pre-commit:
       run: yarn lint {staged_files}
 pre-push:
   commands:
-    build:
+    build-nextjs-app:
       run: yarn build
 
     # TODO
