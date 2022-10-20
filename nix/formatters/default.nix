@@ -17,6 +17,10 @@
         command = ''nix run $PRJ_ROOT#format'';
       }
     ];
-    packages = (getSystem pkgs.system).treefmt.buildInputs ++ [];
+    packages =
+      (getSystem pkgs.system).treefmt.buildInputs
+      ++ (with pkgs; [
+        editorconfig-checker
+      ]);
   };
 }

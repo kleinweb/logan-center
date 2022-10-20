@@ -9,6 +9,9 @@ pre-commit:
     eslint:
       glob: "*.{js,ts,jsx,tsx}"
       run: yarn lint {staged_files}
+    lint-editorconfig:
+      run: editorconfig-checker {staged_files}
+
 pre-push:
   commands:
     build-nextjs-app:
