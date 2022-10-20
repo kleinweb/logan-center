@@ -10,13 +10,7 @@
     };
   };
   flake.devshellProfiles.formatters = {pkgs, ...}: {
-    commands = [
-      {
-        name = "format";
-        help = "apply formatting rules to source files";
-        command = ''nix run $PRJ_ROOT#format'';
-      }
-    ];
+    commands = [];
     packages =
       (getSystem pkgs.system).treefmt.buildInputs
       ++ (with pkgs; [

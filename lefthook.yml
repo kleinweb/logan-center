@@ -1,16 +1,19 @@
+# TODO: skip impure attrs - https://github.com/divnix/std/blob/12b3d2bcf7313e9ad790d575992fd69be3767a9f/cells/std/nixago/lefthook.nix#L12-L28
+
 commit-msg:
   scripts:
     "commitlint.sh":
       runner: nix develop --command
 
 pre-commit:
-  parallel: true
   commands:
+    format:
+      run: treefmt --no-cache --fail-on-change {staged_files}
+    lint-editorconfig:
+      run: editorconfig-checker {staged_files}
     eslint:
       glob: "*.{js,ts,jsx,tsx}"
       run: yarn lint {staged_files}
-    lint-editorconfig:
-      run: editorconfig-checker {staged_files}
 
 pre-push:
   commands:
