@@ -13,7 +13,9 @@ pre-commit:
       run: prettier --write {staged_files}
     lint-js:
       glob: "*.{js,ts,jsx,tsx}"
-      run: yarn lint {staged_files}
+      # FIXME: nextjs linter can't handle multiple files unless a separate flag
+      # is specified for each file...... so now we lint everything.....
+      run: yarn lint
 
 pre-push:
   commands:
