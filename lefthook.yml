@@ -6,12 +6,12 @@ commit-msg:
       runner: nix develop --command
 
 pre-commit:
+  parallel: true
   commands:
-    format:
-      run: treefmt --no-cache --fail-on-change {staged_files}
-    lint-editorconfig:
-      run: editorconfig-checker {staged_files}
-    eslint:
+    format-prettier:
+      glob: "*.{css,html,json,md,mdx,scss}"
+      run: prettier --write {staged_files}
+    lint-js:
       glob: "*.{js,ts,jsx,tsx}"
       run: yarn lint {staged_files}
 
