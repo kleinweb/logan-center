@@ -24,6 +24,7 @@ vendor/
 *.pem
 
 ##: cache/state files
+/.lima-vm
 *.tfstate*
 *.tfvars
 .direnv/
