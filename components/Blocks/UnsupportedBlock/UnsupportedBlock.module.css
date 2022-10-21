@@ -1,0 +1,9 @@
+.container {
+  background-color: var(--nc-ac-1);
+  margin: 1em 0;
+  padding: 1em;
+}
+
+.title {
+  margin-bottom: 0.75em;
+}

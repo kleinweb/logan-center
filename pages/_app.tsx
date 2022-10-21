@@ -1,8 +1,8 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import useInternalLinkRouting from '@/lib/hooks/useInternalLinkRouting';
+import '@/styles/new.css';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+export default function App( { Component, pageProps } ) {
+	useInternalLinkRouting();
+
+	return <Component {...pageProps} />;
 }
-
-export default MyApp

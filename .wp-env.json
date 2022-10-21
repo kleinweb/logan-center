@@ -1,0 +1,9 @@
+{
+  "config": {
+    "WP_HOME": "http://localhost:3000"
+  },
+  "plugins": ["Automattic/vip-decoupled-bundle"],
+  "mappings": {
+    ".htaccess": ".wp-env/.htaccess"
+  }
+}

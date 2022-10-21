@@ -1,0 +1,16 @@
+#import "../fragments/ContentNode.graphql"
+
+query ContentTypeByName(
+	$after: String
+	$before: String
+	$first: Int
+	$last: Int
+	$name: ID!
+) {
+	contentType(
+		id: $name
+		idType: NAME
+	) {
+		...ContentTypeFields
+	}
+}
