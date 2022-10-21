@@ -24,17 +24,17 @@ export default function PostContent( { blocks, blockMapOverrides = {} } : Props 
 			{
 				blocks.map( ( block, i ) => {
 					const attributesProps = mapAttributesToProps( block.attributes || [] );
-					const defaultProps = { block };
+          const key = `block-${i}`;
 					const Block = blockMap[ block.name ];
 
 					if ( Block ) {
-						return <Block key={`block-${i}`} {...defaultProps} {...attributesProps } />;
+						return <Block block={block} key={key} {...attributesProps } />;
 					}
 
 					// In development, highlight unsupported blocks so that they get
 					// visibility with developers.
 					if ( 'development' === process.env.NODE_ENV ) {
-						return <UnsupportedBlock key={`block-${i}`} {...defaultProps} />;
+						return <UnsupportedBlock block={block} key={key} />;
 					}
 
 					// In production, ignore unsupported blocks.
