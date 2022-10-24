@@ -8,45 +8,105 @@ in {
     pkgs,
     ...
   }: let
-    inherit (pkgs) lima docker;
+    inherit (pkgs) lima docker docker-compose;
+
+    configDir = "$PRJ_ROOT/nix/containers";
+
     limaName = config.devshell.name;
+    limaHomeDir = "$PRJ_ROOT/data/lima-vm";
+    # FIXME: make lima paths/names more flexible... `$LIMA_INSTANCE` doesn't help?
+    limaConfigFile = "${configDir}/lima/${limaName}.yml";
+
+    dockerDataHome = "$PRJ_ROOT/data/docker";
+    dockerSocketPath = "${limaHomeDir}/${limaName}/sock/docker.sock";
+    dockerContext = "lima-${limaName}";
+
     docker' = l.getExe docker;
+    docker-compose' = l.getExe docker-compose;
+    limactl' = "${lima}/bin/limactl";
 
     withCategory = attrset: attrset // {inherit category;};
     cmd = package: {inherit package category;};
   in {
     commands = [
       (cmd lima)
-      (cmd docker)
+
       (withCategory {
-        name = "docker-local-init";
-        help = "perform initial docker setup for lima vm";
+        name = "kweb-cluster-init";
+        help = "initialise and start the cluster for the first time";
         command = ''
-          ${docker'} context create lima-logan-center --docker "host=unix:///Users/cdom/.lima/logan-center/sock/docker.sock"
-          ${docker'} context use lima-logan-center
+          set -e
+          ${limactl'} start --name ${limaName} $LIMA_CONFIG_FILE
+          ${docker'} context create ${dockerContext} --docker "host=unix://${dockerSocketPath}"
+          ${docker'} context use ${dockerContext}
           ${docker'} run hello-world
+          ${docker-compose'} up --detach
+        '';
+      })
+
+      (withCategory {
+        name = "kweb-cluster-start";
+        help = "start the project cluster in a local vm";
+        command = ''
+          set -e
+          ${limactl'} start --name ${limaName}
+          ${docker-compose'} up --detach
+        '';
+      })
+
+      (withCategory {
+        name = "kweb-cluster-stop";
+        help = "destroy the container cluster and shut down the virtual machine";
+        command = ''
+          set -e
+          ${docker-compose'} down
+          ${limactl'} stop ${limaName}
+        '';
+      })
+
+      (withCategory {
+        name = "kweb-cluster-destroy";
+        help = "completely destroy the environment to start fresh";
+        command = ''
+          set -e
+          ${docker-compose'} down
+          ${limactl'} factory-reset ${limaName}
+          printf "--- [kleinweb]: removing docker data... ------------------------\n" "$PRJ_ROOT"
+          rm -rf "$PRJ_ROOT/data/docker"
+          ${limactl'} purge
         '';
       })
     ];
-    env = [
-      {
-        # FIXME: don't run command if lima is not yet running
-        # FIXME: use nix package?
-        # FIXME: requires initial setup:
-        name = "DOCKER_HOST";
-        eval = "$(limactl list ${limaName} --format 'unix://{{.Dir}}/sock/docker.sock')";
-      }
-      {
-        name = "LIMA_CONFIG_FILE";
-        eval = "$PRJ_ROOT/nix/containers/lima/${limaName}.yml";
-      }
+
+    packages = with pkgs; [
+      ##: docker utilities
+      # - provides compatibility with legacy tooling assuming the free
+      #   availability of Docker Desktop
+      docker
+      docker-compose
+    ];
+
+    env = let
+    in [
       {
         name = "LIMA_HOME";
-        eval = "$PRJ_ROOT/.lima-vm";
+        eval = limaHomeDir;
       }
       {
         name = "LIMA_INSTANCE";
         value = limaName;
+      }
+      {
+        name = "DOCKER_HOST";
+        eval = "unix://${dockerSocketPath}";
+      }
+      {
+        name = "DOCKER_SOCKET";
+        eval = "unix://${dockerSocketPath}";
+      }
+      {
+        name = "LIMA_CONFIG_FILE";
+        eval = limaConfigFile;
       }
     ];
   };
