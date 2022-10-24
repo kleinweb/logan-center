@@ -1,0 +1,37 @@
+version: '2'
+services:
+  mariadb:
+    image: docker.io/bitnami/mariadb:10.8
+    volumes:
+      - 'db-data:/bitnami/mariadb'
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=kleinweb
+      - MARIADB_DATABASE=logan_center
+  wordpress:
+    image: docker.io/bitnami/wordpress-nginx:6
+    ports:
+      - '80:8080'
+      - '443:8443'
+    volumes:
+      - 'wp-data:/bitnami/wordpress'
+    depends_on:
+      - mariadb
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - WORDPRESS_USERNAME=kleinweb
+      - WORDPRESS_PASSWORD=kleinweb
+      - WORDPRESS_BLOG_NAME='Logan Center for Urban Investigative Reporting'
+      - WORDPRESS_DATABASE_HOST=mariadb
+      - WORDPRESS_DATABASE_PORT_NUMBER=3306
+      - WORDPRESS_DATABASE_USER=kleinweb
+      - WORDPRESS_DATABASE_NAME=logan_center
+      # When starting with an existing database, bootstrapping must be skipped.
+      # - WORDPRESS_SKIP_BOOTSTRAP=yes
+volumes:
+  db-data:
+    driver: local
+  wp-data:
+    driver: local
