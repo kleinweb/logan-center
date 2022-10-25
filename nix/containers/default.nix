@@ -2,7 +2,10 @@
   inherit (self) inputs;
   l = inputs.nixpkgs.lib // builtins;
 in {
-  imports = [./devshellProfiles.nix];
+  imports = [
+    ./devshellProfiles.nix
+    ./nixagoFiles/lima-vm.nix
+  ];
   perSystem = {
     inputs',
     pkgs,

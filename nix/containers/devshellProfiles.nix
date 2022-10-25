@@ -9,24 +9,19 @@ in {
     ...
   }: let
     inherit (pkgs) lima docker docker-compose;
-
+    projectName = config.devshell.name;
     configDir = "$PRJ_ROOT/nix/containers";
-
-    limaName = config.devshell.name;
-    limaHomeDir = "$PRJ_DATA_DIR/lima-vm";
-    # FIXME: make lima paths/names more flexible... `$LIMA_INSTANCE` doesn't help?
-    limaConfigFile = "${configDir}/lima/${limaName}.yml";
-
-    dockerDataHome = "$PRJ_DATA_DIR/docker";
-    dockerSocketPath = "${limaHomeDir}/${limaName}/sock/docker.sock";
-    dockerContext = "lima-${limaName}";
+    limaHome = "$PRJ_DATA_DIR/lima-vm";
+    limaConfigFile = "${limaHome}/default.yml";
+    dockerSock = "${limaHome}/${projectName}/sock/docker.sock";
 
     docker' = l.getExe docker;
     docker-compose' = l.getExe docker-compose;
-    limactl' = "${lima}/bin/limactl";
+    limactl' = l.getExe lima;
 
     withCategory = attrset: attrset // {inherit category;};
     cmd = package: {inherit package category;};
+    export = name: eval: {inherit name eval;};
   in {
     commands = [
       (cmd lima)
@@ -36,10 +31,17 @@ in {
         help = "initialise and start the cluster for the first time";
         command = ''
           set -e
-          ${limactl'} start --name ${limaName} $LIMA_CONFIG_FILE
-          ${docker'} context create ${dockerContext} --docker "host=unix://${dockerSocketPath}"
-          ${docker'} context use ${dockerContext}
+
+          ##: create a new lima vm instance based on the specification generated
+          ##: by nixago in `./nixagoFiles/lima-vm.nix`
+          ${limactl'} start \
+            --name "$LIMA_INSTANCE" \
+            "$LIMA_HOME/$LIMA_INSTANCE.yml"
+
+          ##: run a simple test to verify docker is working
           ${docker'} run hello-world
+
+          ##: start the cluster based on the docker-compose specification
           ${docker-compose'} up --detach
         '';
       })
@@ -49,65 +51,48 @@ in {
         help = "start the project cluster in a local vm";
         command = ''
           set -e
-          ${limactl'} start --name ${limaName}
+
+          [[ -z "$(${limactl'} list --quiet)" ]] && {
+            printf "[kweb-cluster-start]: No existing Lima VMs available! Please run `kweb-cluster-init` instead.\n"
+            return 1
+          }
+
+          ${limactl'} start $LIMA_INSTANCE
           ${docker-compose'} up --detach
         '';
       })
 
       (withCategory {
         name = "kweb-cluster-stop";
-        help = "destroy the container cluster and shut down the virtual machine";
+        help = "stop the project cluster and vm";
         command = ''
           set -e
-          ${docker-compose'} down
-          ${limactl'} stop ${limaName}
+          ${limactl'} stop $LIMA_INSTANCE
         '';
       })
 
-      (withCategory {
+      {
         name = "kweb-cluster-destroy";
         help = "completely destroy the environment to start fresh";
+        category = "danger zone";
         command = ''
           set -e
-          ${docker-compose'} down
-          ${limactl'} factory-reset ${limaName}
-          printf "--- [kleinweb]: removing docker data... ------------------------\n" "$PRJ_ROOT"
-          rm -rf "$PRJ_DATA_DIR/docker"
+          ${limactl'} factory-reset $LIMA_INSTANCE
+          ${limactl'} delete $LIMA_INSTANCE
           ${limactl'} purge
         '';
-      })
+      }
     ];
 
-    packages = with pkgs; [
-      ##: docker utilities
-      # - provides compatibility with legacy tooling assuming the free
-      #   availability of Docker Desktop
-      docker
-      docker-compose
-    ];
+    packages = with pkgs; [docker docker-compose];
 
-    env = let
-    in [
-      {
-        name = "LIMA_HOME";
-        eval = limaHomeDir;
-      }
-      {
-        name = "LIMA_INSTANCE";
-        value = limaName;
-      }
-      {
-        name = "DOCKER_HOST";
-        eval = "unix://${dockerSocketPath}";
-      }
-      {
-        name = "DOCKER_SOCKET";
-        eval = "unix://${dockerSocketPath}";
-      }
-      {
-        name = "LIMA_CONFIG_FILE";
-        eval = limaConfigFile;
-      }
+    env = [
+      (export "LIMA_HOME" limaHome)
+      (export "LIMA_INSTANCE" projectName)
+      (export "DOCKER_HOST" dockerSock)
+
+      # TODO: is this necessary?
+      (export "DOCKER_SOCKET" dockerSock)
     ];
   };
 }
