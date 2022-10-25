@@ -30,8 +30,6 @@ in {
         name = "kweb-cluster-init";
         help = "initialise and start the cluster for the first time";
         command = ''
-          set -e
-
           ##: create a new lima vm instance based on the specification generated
           ##: by nixago in `./nixagoFiles/lima-vm.nix`
           ${limactl'} start \
