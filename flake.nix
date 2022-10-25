@@ -33,5 +33,10 @@
         ./nix
       ];
       systems = ["x86_64-linux" "x86_64-darwin" "aarch64-darwin" "aarch64-linux"];
+      flake.project.meta = {
+        name = "logan-center";
+        title = "Logan Center for Urban Investigative Reporting";
+        url = "https://logancenter.org";
+      };
     };
 }

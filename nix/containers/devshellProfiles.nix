@@ -1,5 +1,5 @@
 {self, ...}: let
-  inherit (self) inputs;
+  inherit (self) inputs project;
   l = inputs.nixpkgs.lib // builtins;
   category = "containers";
 in {
@@ -9,7 +9,7 @@ in {
     ...
   }: let
     inherit (pkgs) lima docker docker-compose;
-    projectName = config.devshell.name;
+    projectName = project.meta.name;
     configDir = "$PRJ_ROOT/nix/containers";
     limaHome = "$PRJ_DATA_DIR/lima-vm";
     limaConfigFile = "${limaHome}/default.yml";
