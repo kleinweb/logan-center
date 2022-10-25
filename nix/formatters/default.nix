@@ -10,7 +10,16 @@
     };
   };
   flake.devshellProfiles.formatters = {pkgs, ...}: {
-    commands = [];
+    commands = [
+      {
+        name = "format";
+        help = "format files with treefmt";
+        category = "formatters";
+        command = ''
+          ${pkgs.treefmt}/bin/treefmt --no-cache -- $@
+        '';
+      }
+    ];
     packages =
       (getSystem pkgs.system).treefmt.buildInputs
       ++ (with pkgs; [
