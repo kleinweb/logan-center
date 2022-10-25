@@ -24,7 +24,7 @@ vendor/
 *.pem
 
 ##: cache/state files
-/data/
+/.data/
 *.tfstate*
 *.tfvars
 .direnv/

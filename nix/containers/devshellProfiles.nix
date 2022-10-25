@@ -13,11 +13,11 @@ in {
     configDir = "$PRJ_ROOT/nix/containers";
 
     limaName = config.devshell.name;
-    limaHomeDir = "$PRJ_ROOT/data/lima-vm";
+    limaHomeDir = "$PRJ_DATA_DIR/lima-vm";
     # FIXME: make lima paths/names more flexible... `$LIMA_INSTANCE` doesn't help?
     limaConfigFile = "${configDir}/lima/${limaName}.yml";
 
-    dockerDataHome = "$PRJ_ROOT/data/docker";
+    dockerDataHome = "$PRJ_DATA_DIR/docker";
     dockerSocketPath = "${limaHomeDir}/${limaName}/sock/docker.sock";
     dockerContext = "lima-${limaName}";
 
@@ -72,7 +72,7 @@ in {
           ${docker-compose'} down
           ${limactl'} factory-reset ${limaName}
           printf "--- [kleinweb]: removing docker data... ------------------------\n" "$PRJ_ROOT"
-          rm -rf "$PRJ_ROOT/data/docker"
+          rm -rf "$PRJ_DATA_DIR/docker"
           ${limactl'} purge
         '';
       })
