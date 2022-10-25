@@ -38,7 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:13.4.0"],\
             ["@types/ioredis", "npm:4.28.10"],\
             ["@types/jest", "npm:29.2.0"],\
-            ["@types/node", "npm:18.11.3"],\
+            ["@types/node", "npm:18.11.5"],\
             ["@types/react", "npm:18.0.21"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@typescript-eslint/eslint-plugin", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:5.40.1"],\
@@ -51,6 +51,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-next", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:12.3.1"],\
             ["eslint-plugin-jest", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:27.1.3"],\
             ["graphql", "npm:16.6.0"],\
+            ["graphql-tag", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:2.12.6"],\
             ["ioredis", "npm:5.2.3"],\
             ["jest", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:29.2.1"],\
             ["jest-environment-jsdom", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:29.2.1"],\
@@ -59,6 +60,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:18.2.0"],\
             ["ts-jest", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:29.0.3"],\
+            ["ts-node", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=701156"]\
           ],\
           "linkType": "SOFT"\
@@ -106,7 +108,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@wry/equality", "npm:0.5.3"],\
             ["@wry/trie", "npm:0.3.2"],\
             ["graphql", "npm:16.6.0"],\
-            ["graphql-tag", "virtual:3c9d8d295c16f41a388ae081a0b99ce77159bbb9d7cfdb8987140de52052350efd97ce1d303ee5af69484096a55e95bb9d4f2fcbb7f0e827c2f9098b9b83f394#npm:2.12.6"],\
+            ["graphql-tag", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:2.12.6"],\
             ["graphql-ws", null],\
             ["hoist-non-react-statics", "npm:3.3.2"],\
             ["optimism", "npm:0.16.1"],\
@@ -1971,7 +1973,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["auto-bind", "npm:4.0.0"],\
             ["change-case-all", "npm:1.0.14"],\
             ["graphql", "npm:16.6.0"],\
-            ["graphql-tag", null],\
+            ["graphql-tag", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:2.12.6"],\
             ["tslib", "npm:2.4.0"]\
           ],\
           "packagePeers": [\
@@ -2004,7 +2006,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["change-case-all", "npm:1.0.14"],\
             ["dependency-graph", "npm:0.11.0"],\
             ["graphql", "npm:16.6.0"],\
-            ["graphql-tag", "virtual:3c9d8d295c16f41a388ae081a0b99ce77159bbb9d7cfdb8987140de52052350efd97ce1d303ee5af69484096a55e95bb9d4f2fcbb7f0e827c2f9098b9b83f394#npm:2.12.6"],\
+            ["graphql-tag", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:2.12.6"],\
             ["parse-filepath", "npm:1.0.2"],\
             ["tslib", "npm:2.4.0"]\
           ],\
@@ -3585,10 +3587,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:18.11.3", {\
-          "packageLocation": "./.yarn/cache/@types-node-npm-18.11.3-0725b6dee6-3a2a9142d8.zip/node_modules/@types/node/",\
+        ["npm:18.11.5", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-18.11.5-bb743e57ba-ac54e9287d.zip/node_modules/@types/node/",\
           "packageDependencies": [\
-            ["@types/node", "npm:18.11.3"]\
+            ["@types/node", "npm:18.11.5"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7114,10 +7116,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:3c9d8d295c16f41a388ae081a0b99ce77159bbb9d7cfdb8987140de52052350efd97ce1d303ee5af69484096a55e95bb9d4f2fcbb7f0e827c2f9098b9b83f394#npm:2.12.6", {\
-          "packageLocation": "./.yarn/__virtual__/graphql-tag-virtual-471b3a7faa/0/cache/graphql-tag-npm-2.12.6-99a5a7f6de-b15162a3d6.zip/node_modules/graphql-tag/",\
+        ["virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:2.12.6", {\
+          "packageLocation": "./.yarn/__virtual__/graphql-tag-virtual-9a9036b3ba/0/cache/graphql-tag-npm-2.12.6-99a5a7f6de-b15162a3d6.zip/node_modules/graphql-tag/",\
           "packageDependencies": [\
-            ["graphql-tag", "virtual:3c9d8d295c16f41a388ae081a0b99ce77159bbb9d7cfdb8987140de52052350efd97ce1d303ee5af69484096a55e95bb9d4f2fcbb7f0e827c2f9098b9b83f394#npm:2.12.6"],\
+            ["graphql-tag", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:2.12.6"],\
             ["@types/graphql", null],\
             ["graphql", "npm:16.6.0"],\
             ["tslib", "npm:2.4.0"]\
@@ -9012,7 +9014,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/react", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:13.4.0"],\
             ["@types/ioredis", "npm:4.28.10"],\
             ["@types/jest", "npm:29.2.0"],\
-            ["@types/node", "npm:18.11.3"],\
+            ["@types/node", "npm:18.11.5"],\
             ["@types/react", "npm:18.0.21"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@typescript-eslint/eslint-plugin", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:5.40.1"],\
@@ -9025,6 +9027,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-next", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:12.3.1"],\
             ["eslint-plugin-jest", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:27.1.3"],\
             ["graphql", "npm:16.6.0"],\
+            ["graphql-tag", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:2.12.6"],\
             ["ioredis", "npm:5.2.3"],\
             ["jest", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:29.2.1"],\
             ["jest-environment-jsdom", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:29.2.1"],\
@@ -9033,6 +9036,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:18.2.0"],\
             ["ts-jest", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:29.0.3"],\
+            ["ts-node", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=701156"]\
           ],\
           "linkType": "SOFT"\
@@ -11565,6 +11569,42 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["diff", "npm:4.0.2"],\
             ["make-error", "npm:1.3.6"],\
             ["typescript", null],\
+            ["v8-compile-cache-lib", "npm:3.0.1"],\
+            ["yn", "npm:3.1.1"]\
+          ],\
+          "packagePeers": [\
+            "@swc/core",\
+            "@swc/wasm",\
+            "@types/node",\
+            "@types/swc__core",\
+            "@types/swc__wasm",\
+            "@types/typescript",\
+            "typescript"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:10.9.1", {\
+          "packageLocation": "./.yarn/__virtual__/ts-node-virtual-77039c2865/0/cache/ts-node-npm-10.9.1-6c268be7f4-090adff130.zip/node_modules/ts-node/",\
+          "packageDependencies": [\
+            ["ts-node", "virtual:8750d9b640147db6aca9f69904f47467c1bb18ec5b9b0490ebb4efd032a26a665d41110055c1603755e6f7230ff19b747a2b8836af63a05c22a442aeada6cc73#npm:10.9.1"],\
+            ["@cspotcode/source-map-support", "npm:0.8.1"],\
+            ["@swc/core", null],\
+            ["@swc/wasm", null],\
+            ["@tsconfig/node10", "npm:1.0.9"],\
+            ["@tsconfig/node12", "npm:1.0.11"],\
+            ["@tsconfig/node14", "npm:1.0.3"],\
+            ["@tsconfig/node16", "npm:1.0.3"],\
+            ["@types/node", "npm:18.11.5"],\
+            ["@types/swc__core", null],\
+            ["@types/swc__wasm", null],\
+            ["@types/typescript", null],\
+            ["acorn", "npm:8.8.0"],\
+            ["acorn-walk", "npm:8.2.0"],\
+            ["arg", "npm:4.1.3"],\
+            ["create-require", "npm:1.1.1"],\
+            ["diff", "npm:4.0.2"],\
+            ["make-error", "npm:1.3.6"],\
+            ["typescript", "patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=701156"],\
             ["v8-compile-cache-lib", "npm:3.0.1"],\
             ["yn", "npm:3.1.1"]\
           ],\

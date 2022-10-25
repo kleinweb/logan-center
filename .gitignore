@@ -31,9 +31,7 @@ vendor/
 .eslintcache/
 .npm/
 .terraform/
-# FIXME: maybe?
-# https://github.com/Automattic/vip-go-nextjs-skeleton/blob/7085dd68e86eaf1d93027dea654b624116b74db7/.gitignore#L36-L37
-# /graphql/generated
+/graphql/generated
 
 ##: testing
 /coverage
