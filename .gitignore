@@ -20,6 +20,7 @@ vendor/
 
 ##: private/local files
 *.local
+.env
 .env*.local
 *.pem
 
@@ -61,5 +62,4 @@ out/
 
 # nixago: ignore-linked-files
 .data/lima-vm/logan-center.yml
-.data/lima-vm/default.yml
 .wp-env.json
