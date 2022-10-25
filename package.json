@@ -49,6 +49,7 @@
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "@typescript-eslint/parser": "^5.40.1",
+    "@wordpress/env": "^5.5.0",
     "autoprefixer": "^10.4.12",
     "eslint": "^8.25.0",
     "eslint-config-next": "^12.3.1",

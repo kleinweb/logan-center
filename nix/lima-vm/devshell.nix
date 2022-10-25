@@ -3,7 +3,7 @@
   l = inputs.nixpkgs.lib // builtins;
   category = "containers";
 in {
-  flake.devshellProfiles.containers = {
+  flake.devshellProfiles.lima-vm = {
     config,
     pkgs,
     ...
@@ -17,7 +17,7 @@ in {
 
     docker' = l.getExe docker;
     docker-compose' = l.getExe docker-compose;
-    limactl' = l.getExe lima;
+    limactl' = "${lima}/bin/limactl";
 
     withCategory = attrset: attrset // {inherit category;};
     cmd = package: {inherit package category;};
@@ -36,7 +36,9 @@ in {
             --name "$LIMA_INSTANCE" \
             "$LIMA_HOME/$LIMA_INSTANCE.yml"
 
-          ##: run a simple test to verify docker is working
+          ##: ensure the host's `docker` cli connects to the vm properly
+          ${docker'} context create lima-${projectName} --docker "host=${dockerSock}"
+          ${docker'} context use lima-${projectName}
           ${docker'} run hello-world
 
           ##: start the cluster based on the docker-compose specification
@@ -48,14 +50,12 @@ in {
         name = "kweb-cluster-start";
         help = "start the project cluster in a local vm";
         command = ''
-          set -e
-
           [[ -z "$(${limactl'} list --quiet)" ]] && {
             printf "[kweb-cluster-start]: No existing Lima VMs available! Please run `kweb-cluster-init` instead.\n"
             return 1
           }
 
-          ${limactl'} start $LIMA_INSTANCE
+          ${limactl'} start "$LIMA_INSTANCE"
           ${docker-compose'} up --detach
         '';
       })
@@ -65,7 +65,7 @@ in {
         help = "stop the project cluster and vm";
         command = ''
           set -e
-          ${limactl'} stop $LIMA_INSTANCE
+          ${limactl'} stop "$LIMA_INSTANCE"
         '';
       })
 
@@ -75,9 +75,10 @@ in {
         category = "danger zone";
         command = ''
           set -e
-          ${limactl'} factory-reset $LIMA_INSTANCE
-          ${limactl'} delete $LIMA_INSTANCE
-          ${limactl'} purge
+          ${limactl'} factory-reset "$LIMA_INSTANCE"
+          ${limactl'} delete "$LIMA_INSTANCE"
+          ${limactl'} prune
+          rm -rf "$LIMA_HOME/_config"
         '';
       }
     ];

@@ -3,8 +3,8 @@
   l = inputs.nixpkgs.lib // builtins;
 in {
   imports = [
-    ./devshellProfiles.nix
-    ./nixagoFiles/lima-vm.nix
+    ./devshell.nix
+    # ./nixagoFiles/lima-vm.nix
   ];
   perSystem = {
     inputs',

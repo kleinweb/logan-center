@@ -1,12 +1,7 @@
 {self, ...}: let
   inherit (self) project;
-  mkScript = text: ''
-    #!/bin/bash
-    set -eux -o pipefail
-    ${text}
-  '';
 in {
-  flake.nixagoFiles."lima-vm-config" = {
+  flake.nixagoFiles."lima-vm" = {
     output = ".data/lima-vm/${project.meta.name}.yml";
     format = "yaml";
     configData = {
@@ -50,24 +45,28 @@ in {
       provision = [
         {
           mode = "system";
-          script = mkScript ''
+          script = ''
+            #!/bin/sh
             sed -i 's/host.lima.internal.*/host.lima.internal host.docker.internal/' /etc/hosts
           '';
         }
         {
           mode = "system";
-          script = mkScript ''
+          script = ''
+            #!/bin/bash
+            set -eux -o pipefail
             command -v docker >/dev/null 2>&1 && exit 0
             export DEBIAN_FRONTEND=noninteractive
             curl -fsSL https://get.docker.com | sh
-            # NOTE: you may remove the lines below, if you prefer to use rootful docker, not rootless
             systemctl disable --now docker
             apt-get install -y uidmap dbus-user-session
           '';
         }
         {
           mode = "user";
-          script = mkScript ''
+          script = ''
+            #!/bin/bash
+            set -eux -o pipefail
             systemctl --user start dbus
             dockerd-rootless-setuptool.sh install
             docker context use rootless
@@ -76,7 +75,9 @@ in {
       ];
       probes = [
         {
-          script = mkScript ''
+          script = ''
+            #!/bin/bash
+            set -eux -o pipefail
             if ! timeout 30s bash -c "until command -v docker >/dev/null 2>&1; do sleep 3; done"; then
               echo >&2 "docker is not installed yet"
               exit 1
@@ -98,6 +99,14 @@ in {
           hostSocket = "{{.Dir}}/sock/docker.sock";
         }
       ];
+      message = ''
+        To run `docker` on the host (assumes docker-cli is installed), run the following commands:
+        ------
+        docker context create lima-{{.Name}} --docker "host=unix://{{.Dir}}/sock/docker.sock"
+        docker context use lima-{{.Name}}
+        docker run hello-world
+        ------
+      '';
     };
   };
 }
