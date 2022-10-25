@@ -9,7 +9,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    colima.url = "github:abiosoft/colima";
     devshell.url = "github:numtide/devshell";
     flake-parts.url = "github:hercules-ci/flake-parts";
     treefmt-flake.url = "github:srid/treefmt-flake";
