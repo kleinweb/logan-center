@@ -8,5 +8,7 @@
     ./formatters
     ./packages
     ./templates
+
+    ./wp-env
   ];
 }

@@ -60,3 +60,6 @@ yarn-error.log*
 next-env.d.ts
 out/
 .vercel
+
+# nixago: ignore-linked-files
+.wp-env.json

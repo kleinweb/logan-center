@@ -16,7 +16,10 @@ includes = [
     "*.mdx",
     "*.scss",
 ]
-excludes = []
+# TODO: auto-exclude generated files
+excludes = [
+  ".wp-env.json"
+]
 
 [formatter.shell]
 command = "sh"
