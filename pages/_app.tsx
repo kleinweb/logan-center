@@ -1,5 +1,5 @@
 import useInternalLinkRouting from '@/lib/hooks/useInternalLinkRouting';
-import '@/styles/new.css';
+import '@/styles/globals.css';
 
 export default function App( { Component, pageProps } ) {
 	useInternalLinkRouting();
