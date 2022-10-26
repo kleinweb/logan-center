@@ -10,15 +10,15 @@
     "yarn": "use-npm"
   },
   "scripts": {
-    "build": "next build",
     "codegen:watch": "npm run codegen -- --watch",
     "codegen": "graphql-codegen --config codegen.yml -r dotenv/config",
+    "predev": "npm run codegen:watch &",
     "dev:debug": "NODE_OPTIONS='--inspect' next dev",
     "dev": "next dev",
+    "prebuild": "npm run codegen",
+    "build": "next build",
     "lint:fix": "next lint --fix --ignore-path .gitignore",
     "lint": "next lint --ignore-path .gitignore",
-    "prebuild": "npm run codegen",
-    "predev": "npm run codegen:watch &",
     "start:debug": "NODE_OPTIONS='--inspect' next dev",
     "start": "next start",
     "test:watch": "jest --watch",
