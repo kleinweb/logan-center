@@ -5,7 +5,7 @@ import { NextMiddleware, NextRequest, NextResponse } from 'next/server';
 // https://nextjs.org/docs/middleware
 
 export const middleware: NextMiddleware = ( req: NextRequest ) => {
-	// Required health check endpoint on VIP. Do not remove.
+	// TODO: Required health check endpoint on VIP. "Do not remove."
 	if ( req.nextUrl.pathname === '/cache-healthcheck' ) {
 		return NextResponse.rewrite( new URL( '/api/healthcheck', req.url ) );
 	}

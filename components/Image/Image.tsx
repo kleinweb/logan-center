@@ -1,6 +1,6 @@
 import { ComponentProps } from 'react';
 import NextImage, { ImageLoader, ImageLoaderProps } from 'next/image';
-import VipConfig from '../../wp.config';
+import WPHostConfig from '../../wp.config';
 
 /**
  * This component wraps Next's image component to provide an image loader. An
@@ -32,7 +32,7 @@ export default function Image ( props: Props ) {
 		layout: props.layout || (props.width && props.height ? 'fixed' as const : 'intrinsic' as const),
 	};
 
-	if ( VipConfig.images.useHtmlTag && imageProps.srcSet ) {
+	if ( WPHostConfig.images.useHtmlTag && imageProps.srcSet ) {
 		return (
 			// eslint-disable-next-line @next/next/no-img-element
 			<img alt={imageProps.alt} {...imageProps} />
@@ -41,6 +41,8 @@ export default function Image ( props: Props ) {
 
 	// Only set a loader if it is actually needed. This avoids a Next.js warning:
 	// https://nextjs.org/docs/messages/next-image-missing-loader-width
+  //
+  // FIXME: update wp-content path to fit our application
 	let loader: ImageLoader;
 	if ( props.src.includes( '/wp-content/uploads/' ) ) {
 		loader = wpImageLoader;

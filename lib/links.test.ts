@@ -24,7 +24,7 @@ describe( 'extractLastTokenFromRoute', () => {
 } );
 
 describe( 'isInternalLink default implementation', () => {
-	const unmockedVipConfig = jest.requireActual( '../wp.config' );
+	const unmockedWPHostConfig = jest.requireActual( '../wp.config' );
 
 	it( 'returns true for local hostnames', function () {
 		const internalHostnames = [
@@ -33,7 +33,7 @@ describe( 'isInternalLink default implementation', () => {
 		];
 
 		internalHostnames.forEach( function ( hostname ) {
-			expect( unmockedVipConfig.links.isInternalLink( hostname ) ).toBe( true );
+			expect( unmockedWPHostConfig.links.isInternalLink( hostname ) ).toBe( true );
 		} );
 	} );
 
@@ -47,7 +47,7 @@ describe( 'isInternalLink default implementation', () => {
 		];
 
 		externalHostnames.forEach( function ( hostname ) {
-			expect( unmockedVipConfig.links.isInternalLink( hostname ) ).toBe( false );
+			expect( unmockedWPHostConfig.links.isInternalLink( hostname ) ).toBe( false );
 		} );
 	} );
 } );
