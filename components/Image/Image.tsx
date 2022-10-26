@@ -17,8 +17,22 @@ type Props = {
 	originalHeight?: number,
 } & ComponentProps<typeof NextImage>;
 
+/**
+ * Whether the application has an available image processor service.
+ *
+ * TODO: implement image processor or ditch
+ *
+ * the comments above indicate that this querystring format is intended for
+ * usage with the vip-go image processor, which we are not using. it appears
+ * unlikely to cause issues as is, but we may also want to look into introducing
+ * our own image processor. since the qs is a no-op, return the `src` as is.
+ */
+const HAS_IMAGE_PROCESSOR = false;
+
 function wpImageLoader ( { quality, src, width }: ImageLoaderProps ): string {
-	return `${src}?w=${width}&q=${quality || 75 }`;
+	return HAS_IMAGE_PROCESSOR
+    ? `${src}?w=${width}&q=${quality || 75 }`
+    : src;
 }
 
 export default function Image ( props: Props ) {
