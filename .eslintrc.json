@@ -6,11 +6,9 @@
   },
   "extends": [
     "eslint:recommended",
-    // FIXME: does this need @typescript-eslint/parser to work?
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jest/recommended",
-    "next",
     "next/core-web-vitals"
   ],
   "plugins": ["jest"],
