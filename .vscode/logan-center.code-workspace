@@ -4,5 +4,27 @@
       "path": ".."
     }
   ],
-  "settings": {}
+  "settings": {
+    "files.associations": {
+      "*.css": "tailwindcss"
+    },
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "tailwindCSS.emmetCompletions": true
+  },
+  "extensions": {
+    "recommendations": [
+      "kamadorueda.alejandra",
+      "mkhl.direnv",
+      "mikestead.dotenv",
+      "EditorConfig.EditorConfig",
+      "GraphQL.vscode-graphql",
+      "jnoortheen.nix-ide",
+      "christian-kohler.npm-intellisense",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "stylelint.vscode-stylelint"
+    ]
+  }
 }
