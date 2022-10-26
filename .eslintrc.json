@@ -1,4 +1,6 @@
 {
+  "$schema": "https://json.schemastore.org/eslintrc.json",
+  "root": true,
   "env": {
     "jest/globals": true
   },
