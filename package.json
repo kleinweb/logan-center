@@ -3,22 +3,22 @@
   "version": "0.1.0",
   "license": "GPL-3.0-or-later",
   "private": true,
-  "packageManager": "yarn@3.2.4",
+  "packageManager": "npm",
   "engines": {
     "node": ">=18",
-    "yarn": ">=3 <4",
-    "npm": "please-use-yarn"
+    "npm": ">=8",
+    "yarn": "use-npm"
   },
   "scripts": {
     "build": "next build",
-    "codegen:watch": "yarn codegen -- --watch",
+    "codegen:watch": "npm run codegen -- --watch",
     "codegen": "graphql-codegen --config codegen.yml -r dotenv/config",
     "dev:debug": "NODE_OPTIONS='--inspect' next dev",
     "dev": "next dev",
     "lint:fix": "next lint --fix --ignore-path .gitignore",
     "lint": "next lint --ignore-path .gitignore",
-    "prebuild": "yarn codegen",
-    "predev": "yarn codegen:watch &",
+    "prebuild": "npm run codegen",
+    "predev": "npm run codegen:watch &",
     "start:debug": "NODE_OPTIONS='--inspect' next dev",
     "start": "next start",
     "test:watch": "jest --watch",

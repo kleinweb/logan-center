@@ -8,10 +8,6 @@
 in {
   flake.devshellProfiles.wp-env = {pkgs, ...}: let
     category = "wp-env";
-    inherit
-      (pkgs)
-      yarn
-      ;
   in {
     commands = [
       # TODO: automated init based on nextjs-go-skeleton docs
@@ -24,7 +20,7 @@ in {
       # }
     ];
     env = [];
-    packages = with pkgs; [docker docker-compose yarn];
+    packages = with pkgs; [docker docker-compose];
   };
   ###: @wordpress/env :: <https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/>
   flake.nixagoFiles."wp-env" = {

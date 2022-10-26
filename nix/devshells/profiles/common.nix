@@ -2,10 +2,10 @@
   commands = [
     {
       category = "tools";
-      package = pkgs.yarn;
+      package = pkgs.nodePackages.npm;
     }
     {
-      category = "legal";
+      category = "tools";
       package = pkgs.reuse;
     }
   ];
