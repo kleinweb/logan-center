@@ -8,13 +8,13 @@ result
 node_modules/
 .npm/
 vendor/
-npm-debug.log*
 
 ##: private/local files
 *.local
 .env
 .env*.local
 *.pem
+*.log
 
 ##: cache/state files
 /.data/
