@@ -6,9 +6,10 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:storybook/recommended",
+    "plugin:tailwindcss/recommended",
     "next/core-web-vitals"
   ],
-  "plugins": ["jest"],
+  "plugins": ["jest", "tailwindcss"],
   "rules": {
     "@typescript-eslint/ban-ts-comment": [
       "error",
@@ -29,5 +30,21 @@
       ],
       "extends": ["plugin:jest/recommended"]
     }
-  ]
+  ],
+  "settings": {
+    "tailwindcss": {
+      "callees": ["classnames", "clsx", "ctl"],
+      "config": "tailwind.config.js",
+      "cssFiles": [
+        "**/*.css",
+        "!**/node_modules",
+        "!**/.*",
+        "!**/dist",
+        "!**/build"
+      ],
+      "cssFilesRefreshRate": 5000,
+      "removeDuplicates": true,
+      "whitelist": []
+    }
+  }
 }
