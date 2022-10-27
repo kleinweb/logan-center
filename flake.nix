@@ -38,5 +38,9 @@
         title = "Logan Center for Urban Investigative Reporting";
         url = "https://logancenter.org";
       };
+      flake.nixagoFiles."kleinweb-config-json" = {
+        output = "kleinweb.config.json";
+        configData = self.project.meta;
+      };
     };
 }
