@@ -9,7 +9,6 @@ pre-commit:
   parallel: true
   commands:
     format:
-      glob: "*.{css,html,json,md,mdx,scss}"
       run: format {staged_files}
     lint-js:
       glob: "*.{js,ts,jsx,tsx}"

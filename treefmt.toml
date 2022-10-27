@@ -9,23 +9,25 @@ excludes = []
 command = "prettier"
 options = ["--write"]
 includes = [
-    "*.css",
-    "*.html",
-    "*.json",
-    "*.md",
-    "*.mdx",
-    "*.scss",
+  "*.css",
+  "*.html",
+  "*.js",
+  "*.jsx",
+  "*.json",
+  "*.md",
+  "*.mdx",
+  "*.scss",
+  "*.ts",
+  "*.tsx",
 ]
-# TODO: auto-exclude generated files
-excludes = [
-  ".wp-env.json"
-]
+# TODO: auto-exclude generated files (via nixago?)
+excludes = [".wp-env.json"]
 
 [formatter.shell]
 command = "sh"
 options = [
-    "-eucx",
-    """
+  "-eucx",
+  """
 
 ##: 1) shellcheck
 shellcheck --external-sources --source-path=SCRIPTDIR "$@"
@@ -34,7 +36,7 @@ shellcheck --external-sources --source-path=SCRIPTDIR "$@"
 shfmt -i 2 -s -w "$@"
 
     """,
-    "--", # bash swallows the second argument when using -c
+  "--", # bash swallows the second argument when using -c
 ]
 includes = ["*.sh"]
 excludes = []

@@ -3,6 +3,9 @@
   getSystem,
   ...
 }: {
+  imports = [
+    ./nixagoFiles/prettierrc.json.nix
+  ];
   perSystem = {pkgs, ...}: {
     treefmt.formatters = {
       inherit (pkgs) alejandra shellcheck shfmt;

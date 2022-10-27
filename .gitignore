@@ -49,5 +49,6 @@ out/
 .vercel
 
 # nixago: ignore-linked-files
+.prettierrc.json
 .data/lima-vm/logan-center.yml
 .wp-env.json
