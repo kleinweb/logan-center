@@ -1,14 +1,10 @@
 {
   "$schema": "https://json.schemastore.org/eslintrc.json",
   "root": true,
-  "env": {
-    "jest/globals": true
-  },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:jest/recommended",
     "next/core-web-vitals"
   ],
   "plugins": ["jest"],
@@ -19,5 +15,18 @@
         "ts-expect-error": "allow-with-description"
       }
     ]
-  }
+  },
+  "overrides": [
+    // Only use test-related lint rules in test files.
+    {
+      "env": {
+        "jest/globals": true
+      },
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": ["plugin:jest/recommended"]
+    }
+  ]
 }
