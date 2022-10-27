@@ -8,7 +8,7 @@ export type PostContentBlockAttributes = {
  * Map an array of ContentBlock attributes to an object that can used like props.
  */
 export function mapAttributesToProps(
-  attributes: ContentBlockAttribute[]
+  attributes: ContentBlockAttribute[],
 ): PostContentBlockAttributes {
   return attributes.reduce((acc, { name, value }) => {
     // Drop attributes without a name or value.

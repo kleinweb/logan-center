@@ -5,7 +5,7 @@ enum LogLevel {
   DEBUG = 'DEBUG',
   INFO = 'INFO',
   WARN = 'WARN',
-  ERROR = 'ERROR'
+  ERROR = 'ERROR',
 }
 
 export type LogContext = {
@@ -24,7 +24,7 @@ export type LogContext = {
  * requests to non-static resources.
  */
 export function generateRequestContext(
-  serverSideContext?: GetServerSidePropsContext | GetStaticPropsContext
+  serverSideContext?: GetServerSidePropsContext | GetStaticPropsContext,
 ) {
   let requestContext: LogContext = {}
 
@@ -39,7 +39,7 @@ export function generateRequestContext(
 
     requestContext = {
       sourceId: `${sourceId}`,
-      pathName
+      pathName,
     }
 
     log('RequestContext has been generated', {}, requestContext)
@@ -52,7 +52,7 @@ export function log(
   message: string,
   context: LogContext,
   requestContext: LogContext = {},
-  level: LogLevel = LogLevel.INFO
+  level: LogLevel = LogLevel.INFO,
 ) {
   console.log(
     JSON.stringify({
@@ -60,15 +60,15 @@ export function log(
       level,
       message,
       requestContext,
-      timestamp: Math.round(Date.now() / 1000)
-    })
+      timestamp: Math.round(Date.now() / 1000),
+    }),
   )
 }
 
 export function logError(
   err: Error,
   context: LogContext,
-  requestContext: LogContext = {}
+  requestContext: LogContext = {},
 ) {
   const message = err.message || 'An unknown error occurred'
 

@@ -20,7 +20,7 @@ module.exports = {
     //
     // If you want to use the native <img /> tag and the `srcset` attribute
     // created by WordPress, then set `useHtmlTag` to true.
-    useHtmlTag: false
+    useHtmlTag: false,
   },
 
   // Links
@@ -39,7 +39,7 @@ module.exports = {
       const internalLinkHosts = [prodHostname, 'localhost', '127.0.0.1']
 
       return internalLinkHosts.includes(hostname)
-    }
+    },
   },
 
   // The WordPress endpoint used for previewing, sitemaps, and other
@@ -49,6 +49,6 @@ module.exports = {
   // trailing slash.
   wordPressEndpoint: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT.replace(
     /\/graphql(\?.*)?$/,
-    ''
-  )
+    '',
+  ),
 }

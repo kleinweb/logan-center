@@ -5,7 +5,7 @@ import getApolloClient from '@/graphql/apollo'
 import {
   ContentNodeBySlugDocument,
   ContentNodeBySlugQuery,
-  ContentNodeFieldsFragment
+  ContentNodeFieldsFragment,
 } from '@/graphql/generated'
 import { extractLastTokenFromRoute, getInternalLinkPathname } from '@/lib/links'
 
@@ -20,24 +20,26 @@ export default function Post(props: PostProps) {
   }
 
   return (
-    <Page loading={props.loading} title={props.post.title}>
+    <Page
+      loading={props.loading}
+      title={props.post.title}>
       <PostContent blocks={props.post.contentBlocks.blocks} />
     </Page>
   )
 }
 
 export const getServerSideProps: GetServerSideProps<PostProps> = async (
-  context
+  context,
 ) => {
   const queryOptions = {
     query: ContentNodeBySlugDocument,
     variables: {
-      slug: extractLastTokenFromRoute(context.query.slug)
-    }
+      slug: extractLastTokenFromRoute(context.query.slug),
+    },
   }
 
   const { data, loading } = await getApolloClient(
-    context
+    context,
   ).query<ContentNodeBySlugQuery>(queryOptions)
 
   // @TODO Disambiguate multiple slug matches.
@@ -46,7 +48,7 @@ export const getServerSideProps: GetServerSideProps<PostProps> = async (
   // SEO: Resource not found pages must send a 404 response code.
   if (!loading && !post) {
     return {
-      notFound: true
+      notFound: true,
     }
   }
 
@@ -57,15 +59,15 @@ export const getServerSideProps: GetServerSideProps<PostProps> = async (
     return {
       redirect: {
         destination: internalLinkPathname || post.link,
-        permanent: false
-      }
+        permanent: false,
+      },
     }
   }
 
   return {
     props: {
       loading,
-      post
-    }
+      post,
+    },
   }
 }

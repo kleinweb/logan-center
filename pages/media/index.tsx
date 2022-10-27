@@ -5,7 +5,7 @@ import getApolloClient from '@/graphql/apollo'
 import {
   AllMediaItemsDocument,
   AllMediaItemsQuery,
-  MediaItemFieldsFragment
+  MediaItemFieldsFragment,
 } from '@/graphql/generated'
 import styles from './index.module.css'
 
@@ -16,14 +16,16 @@ type Props = {
 
 export default function Media(props: Props) {
   return (
-    <Page loading={props.loading} title="Media Gallery">
+    <Page
+      loading={props.loading}
+      title="Media Gallery">
       <div className={styles.container}>
         {props.mediaItems.map((mediaItem) => {
           const {
             altText = '',
             id,
             mediaDetails: { height, width },
-            sourceUrl
+            sourceUrl,
           } = mediaItem
 
           // Each image is displayed in a fixed-height box of 100px. If the
@@ -62,14 +64,14 @@ export default function Media(props: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (
-  context
+  context,
 ) => {
   const queryOptions = {
-    query: AllMediaItemsDocument
+    query: AllMediaItemsDocument,
   }
 
   const { data, loading } = await getApolloClient(
-    context
+    context,
   ).query<AllMediaItemsQuery>(queryOptions)
 
   const mediaItems = data.mediaItems?.nodes
@@ -77,7 +79,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
   return {
     props: {
       loading,
-      mediaItems
-    }
+      mediaItems,
+    },
   }
 }

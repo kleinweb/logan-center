@@ -6,7 +6,7 @@ import {
   ContentNodeFieldsFragment,
   ContentTypeByNameDocument,
   ContentTypeByNameQuery,
-  ContentTypeByNameQueryVariables
+  ContentTypeByNameQueryVariables,
 } from '@/graphql/generated'
 
 type Props = {
@@ -19,7 +19,9 @@ type Props = {
 
 export default function ContentNodes(props: Props) {
   return (
-    <Page loading={props.loading} title={props.title}>
+    <Page
+      loading={props.loading}
+      title={props.title}>
       <PostList
         nextPageLink={props.nextPageLink}
         posts={props.posts}
@@ -39,7 +41,7 @@ export const getServerSideProps: GetServerSideProps<
 > = async (context) => {
   const queryParams = { ...context.query }
   const variables: ContentTypeByNameQueryVariables = {
-    name: context.params.content_type
+    name: context.params.content_type,
   }
 
   // Process pagination requests
@@ -53,11 +55,11 @@ export const getServerSideProps: GetServerSideProps<
 
   const queryOptions = {
     query: ContentTypeByNameDocument,
-    variables
+    variables,
   }
 
   const { data, error, loading } = await getApolloClient(
-    context
+    context,
   ).query<ContentTypeByNameQuery>(queryOptions)
 
   const posts = data.contentType?.contentNodes?.nodes || []
@@ -71,7 +73,7 @@ export const getServerSideProps: GetServerSideProps<
   if (hasNextPage) {
     const newQueryParams = new URLSearchParams({
       ...queryParams,
-      after: endCursor
+      after: endCursor,
     })
     newQueryParams.delete('before')
     nextPageLink = `?${newQueryParams.toString()}`
@@ -81,7 +83,7 @@ export const getServerSideProps: GetServerSideProps<
   if (hasPreviousPage) {
     const newQueryParams = new URLSearchParams({
       ...queryParams,
-      before: startCursor
+      before: startCursor,
     })
     newQueryParams.delete('after')
     previousPageLink = `?${newQueryParams.toString()}`
@@ -90,7 +92,7 @@ export const getServerSideProps: GetServerSideProps<
   // SEO: Resource not found pages must send a 404 response code.
   if (error || (!loading && !posts.length)) {
     return {
-      notFound: true
+      notFound: true,
     }
   }
 
@@ -100,7 +102,7 @@ export const getServerSideProps: GetServerSideProps<
       nextPageLink,
       posts,
       previousPageLink,
-      title
-    }
+      title,
+    },
   }
 }

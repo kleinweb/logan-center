@@ -13,7 +13,7 @@ export default function getRedisClient(): Redis {
     redisClient = new RedisClient({
       host,
       password,
-      port: parseInt(port, 10)
+      port: parseInt(port, 10),
     })
   }
 

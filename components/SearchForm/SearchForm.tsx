@@ -17,7 +17,9 @@ export default function SearchForm(props: Props) {
   }
 
   return (
-    <form className={styles.container} onSubmit={onSubmit}>
+    <form
+      className={styles.container}
+      onSubmit={onSubmit}>
       <input
         className={styles.input}
         defaultValue={props.search}

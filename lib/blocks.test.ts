@@ -4,37 +4,37 @@ test('mapAttributesToProps: returns a props-like object', function () {
   const attributes = [
     {
       name: 'foo',
-      value: 'bar'
+      value: 'bar',
     },
     {
       name: 'fizz',
-      value: 'buzz'
+      value: 'buzz',
     },
     {
       name: 'far',
-      value: 'near'
-    }
+      value: 'near',
+    },
   ]
 
   expect(mapAttributesToProps(attributes)).toEqual({
     foo: 'bar',
     fizz: 'buzz',
-    far: 'near'
+    far: 'near',
   })
 })
 
 test('mapAttributesToProps: drops attributes that have falsy names or values', function () {
   const attributes = [
     {
-      value: 'bar'
+      value: 'bar',
     },
     {
-      name: 'foo'
+      name: 'foo',
     },
     {
       name: 'far',
-      value: null
-    }
+      value: null,
+    },
   ]
 
   expect(mapAttributesToProps(attributes)).toEqual({})

@@ -18,7 +18,7 @@ export default function getApolloLink(requestContext: LogContext = {}) {
           const { locations, path } = err
           const context = {
             locations: JSON.stringify(locations),
-            path: JSON.stringify(path)
+            path: JSON.stringify(path),
           }
 
           logError(err, context, requestContext)
@@ -36,18 +36,18 @@ export default function getApolloLink(requestContext: LogContext = {}) {
 
       const debug = {
         operationName,
-        variables: JSON.stringify(variables)
+        variables: JSON.stringify(variables),
       }
 
       const startTime = Date.now()
 
       setContext(({ headers = {} }) => ({
         headers: {
-          ...headers
+          ...headers,
           // Here is where you can set custom request headers for your GraphQL
           // requests. If the request is client-side, it must be allowed by the
           // CORS policy in WPGraphQL.
-        }
+        },
       }))
 
       return forward(operation).map((data) => {
@@ -57,7 +57,7 @@ export default function getApolloLink(requestContext: LogContext = {}) {
           cacheStatus: response?.headers?.get('x-cache'),
           cacheAge: response?.headers?.get('age'),
           payloadSize: response?.body?.bytesWritten,
-          requestDurationInMs: Date.now() - startTime
+          requestDurationInMs: Date.now() - startTime,
         }
 
         log('GraphQL request', context, requestContext)
@@ -67,6 +67,6 @@ export default function getApolloLink(requestContext: LogContext = {}) {
     }),
 
     // Standard HttpLink to connect to GraphQL.
-    new HttpLink({ uri })
+    new HttpLink({ uri }),
   ])
 }

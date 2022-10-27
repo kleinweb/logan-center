@@ -23,7 +23,7 @@ const defaultBlockMap: PostContentBlockMap = {
   'core/list': List,
   'core/paragraph': Paragraph,
   'core/quote': Quote,
-  'core/table': Table
+  'core/table': Table,
 }
 
 export default defaultBlockMap

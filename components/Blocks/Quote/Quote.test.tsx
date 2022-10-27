@@ -5,7 +5,7 @@ describe('Quote', () => {
   const text =
     'How can you wonder your travels do you no good, when you carry yourself around with you?'
   const block = {
-    innerHTML: `<p>${text}</p><cite>Socrates</cite>`
+    innerHTML: `<p>${text}</p><cite>Socrates</cite>`,
   }
 
   /**
@@ -28,7 +28,12 @@ describe('Quote', () => {
   it('renders a "large" quote via a className prop provided by Gutenberg', () => {
     // See notes in component file for full explanation.
     // eslint-disable-next-line tailwindcss/no-custom-classname
-    render(<Quote block={block} className="is-style-large" />)
+    render(
+      <Quote
+        block={block}
+        className="is-style-large"
+      />,
+    )
 
     const quote = screen.getByText(text)
 

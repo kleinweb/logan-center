@@ -45,13 +45,16 @@ export default function Image(props: Props) {
       props.layout ||
       (props.width && props.height
         ? ('fixed' as const)
-        : ('intrinsic' as const))
+        : ('intrinsic' as const)),
   }
 
   if (WPHostConfig.images.useHtmlTag && imageProps.srcSet) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
-      <img alt={imageProps.alt} {...imageProps} />
+      <img
+        alt={imageProps.alt}
+        {...imageProps}
+      />
     )
   }
 
@@ -64,5 +67,10 @@ export default function Image(props: Props) {
     loader = wpImageLoader
   }
 
-  return <NextImage loader={loader} {...imageProps} />
+  return (
+    <NextImage
+      loader={loader}
+      {...imageProps}
+    />
+  )
 }

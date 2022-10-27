@@ -13,7 +13,14 @@ describe('Image', () => {
     const src = '/wp-content/uploads/you-otter-see-this.jpg'
 
     it('renders an img with a placeholder `src`', () => {
-      render(<Image alt={altText} height={height} src={src} width={width} />)
+      render(
+        <Image
+          alt={altText}
+          height={height}
+          src={src}
+          width={width}
+        />,
+      )
 
       const image = screen.getByRole('img')
 
@@ -29,7 +36,7 @@ describe('Image', () => {
           loading="eager"
           src={src}
           width={width}
-        />
+        />,
       )
 
       const image = screen.getByRole('img')
@@ -39,7 +46,14 @@ describe('Image', () => {
     })
 
     it('renders an img with alt text', () => {
-      render(<Image alt={altText} height={height} src={src} width={width} />)
+      render(
+        <Image
+          alt={altText}
+          height={height}
+          src={src}
+          width={width}
+        />,
+      )
 
       const image = screen.getByAltText(altText)
 
@@ -51,7 +65,14 @@ describe('Image', () => {
     const src = '/you-otter-see-this.jpg'
 
     it('renders an img with a placeholder `src`', () => {
-      render(<Image alt={altText} height={height} src={src} width={width} />)
+      render(
+        <Image
+          alt={altText}
+          height={height}
+          src={src}
+          width={width}
+        />,
+      )
 
       const image = screen.getByRole('img')
 
@@ -67,19 +88,26 @@ describe('Image', () => {
           loading="eager"
           src={src}
           width={width}
-        />
+        />,
       )
 
       const image = screen.getByRole('img')
 
       expect(image).toBeInTheDocument()
       expect(image.getAttribute('src')).toEqual(
-        `/_next/image?url=${encodeURIComponent(src)}&w=${minWidth}&q=75`
+        `/_next/image?url=${encodeURIComponent(src)}&w=${minWidth}&q=75`,
       )
     })
 
     it('renders an image with alt text', () => {
-      render(<Image alt={altText} height={height} src={src} width={width} />)
+      render(
+        <Image
+          alt={altText}
+          height={height}
+          src={src}
+          width={width}
+        />,
+      )
 
       const image = screen.getByAltText(altText)
 

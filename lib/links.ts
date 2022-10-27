@@ -19,7 +19,7 @@ function removeBasePath(pathname: string): string {
  *                        ^ we want this
  */
 export function extractLastTokenFromRoute(
-  routeQuery: string | string[]
+  routeQuery: string | string[],
 ): string {
   if (!Array.isArray(routeQuery)) {
     return routeQuery

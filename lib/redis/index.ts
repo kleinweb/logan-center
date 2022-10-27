@@ -4,7 +4,7 @@ import { log } from '@/lib/log'
 export async function getCacheObjectByKey<T>(
   key: string,
   ttl: number,
-  fallback: () => Promise<T>
+  fallback: () => Promise<T>,
 ) {
   const redisClient = getRedisClient()
 
@@ -26,7 +26,7 @@ export async function getCacheObjectByKey<T>(
 
       return {
         source: 'cache',
-        data: JSON.parse(cachedObject)
+        data: JSON.parse(cachedObject),
       }
     }
   }
@@ -41,6 +41,6 @@ export async function getCacheObjectByKey<T>(
 
   return {
     source: 'fallback',
-    data: fallbackObject
+    data: fallbackObject,
   }
 }

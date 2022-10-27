@@ -26,7 +26,7 @@ const { possibleTypes } = fragmentMatcher
  * `getStaticProps` is run at build time, its context is not useful.)
  */
 export default function getApolloClient(
-  serverSideContext?: GetServerSidePropsContext | GetStaticPropsContext
+  serverSideContext?: GetServerSidePropsContext | GetStaticPropsContext,
 ) {
   // Server-side / static: Return a new instance every time.
   if (isServerSide) {
@@ -35,7 +35,7 @@ export default function getApolloClient(
     return new ApolloClient({
       cache: new InMemoryCache({ possibleTypes }),
       link: getApolloLink(requestContext),
-      ssrMode: true
+      ssrMode: true,
     })
   }
 
@@ -43,7 +43,7 @@ export default function getApolloClient(
   if ('undefined' === typeof clientSideApolloClient) {
     clientSideApolloClient = new ApolloClient({
       cache: new InMemoryCache({ possibleTypes }),
-      link: getApolloLink()
+      link: getApolloLink(),
     })
   }
 

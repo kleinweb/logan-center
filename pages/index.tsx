@@ -6,7 +6,7 @@ import getApolloClient from '@/graphql/apollo'
 import {
   AllContentTypesDocument,
   AllContentTypesQuery,
-  ContentTypeFieldsFragment
+  ContentTypeFieldsFragment,
 } from '@/graphql/generated'
 
 type Props = {
@@ -83,11 +83,11 @@ export default function Home(props: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const queryOptions = {
-    query: AllContentTypesDocument
+    query: AllContentTypesDocument,
   }
 
   const { data } = await getApolloClient(context).query<AllContentTypesQuery>(
-    queryOptions
+    queryOptions,
   )
 
   const contentTypes = data.contentTypes.nodes || []
@@ -95,8 +95,8 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   return {
     props: {
       contentTypes: contentTypes.filter(
-        (contentType) => contentType.contentNodes.nodes.length
-      )
-    }
+        (contentType) => contentType.contentNodes.nodes.length,
+      ),
+    },
   }
 }

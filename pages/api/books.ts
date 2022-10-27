@@ -8,7 +8,7 @@ import { getCacheObjectByKey } from '@/lib/redis'
  */
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   // Don Quixote (Penguin Classics, English)
   // By MIGUEL DE CERVANTES SAAVEDRA

@@ -4,8 +4,8 @@ import { links } from '../wp.config'
 jest.mock('../wp.config', function () {
   return {
     links: {
-      isInternalLink: jest.fn(() => true)
-    }
+      isInternalLink: jest.fn(() => true),
+    },
   }
 })
 
@@ -37,7 +37,7 @@ describe('isInternalLink default implementation', () => {
       'local.host',
       'localhost.com',
       'mysite.example.com',
-      'mysite2.example.com'
+      'mysite2.example.com',
     ]
 
     externalHostnames.forEach(function (hostname) {
@@ -59,7 +59,7 @@ describe('getInternalLinkPathname', () => {
     const internalLinkWithQuery = 'http://localhost/howdy.html?wave=true'
 
     expect(getInternalLinkPathname(internalLinkWithQuery)).toEqual(
-      '/howdy.html?wave=true'
+      '/howdy.html?wave=true',
     )
   })
 
@@ -78,7 +78,7 @@ describe('getInternalLinkPathname', () => {
       'http://localhost:port/howdy.html',
       'ftp://localhost/howdy.html',
       'mailto:localhost',
-      'suzy@localhost'
+      'suzy@localhost',
     ]
 
     malformedLinks.forEach(function (link) {

@@ -7,7 +7,7 @@ import {
   ContentNodeFieldsFragment,
   ContentNodesBySearchTermDocument,
   ContentNodesBySearchTermQuery,
-  ContentNodesBySearchTermQueryVariables
+  ContentNodesBySearchTermQueryVariables,
 } from '@/graphql/generated'
 
 type Props = {
@@ -20,8 +20,13 @@ type Props = {
 
 export default function Search(props: Props) {
   return (
-    <Page loading={props.loading} title={`Search results for ${props.search}`}>
-      <SearchForm path="/search" search={props.search} />
+    <Page
+      loading={props.loading}
+      title={`Search results for ${props.search}`}>
+      <SearchForm
+        path="/search"
+        search={props.search}
+      />
       <PostList
         nextPageLink={props.nextPageLink}
         posts={props.posts}
@@ -45,14 +50,14 @@ export const getServerSideProps: GetServerSideProps<
       props: {
         loading: false,
         posts: [],
-        search: ''
-      }
+        search: '',
+      },
     }
   }
 
   const search = `${queryParams.s}`.trim()
   const variables: ContentNodesBySearchTermQueryVariables = {
-    search
+    search,
   }
 
   // Process pagination requests
@@ -66,11 +71,11 @@ export const getServerSideProps: GetServerSideProps<
 
   const queryOptions = {
     query: ContentNodesBySearchTermDocument,
-    variables
+    variables,
   }
 
   const { data, error, loading } = await getApolloClient(
-    context
+    context,
   ).query<ContentNodesBySearchTermQuery>(queryOptions)
 
   if (error) {
@@ -87,7 +92,7 @@ export const getServerSideProps: GetServerSideProps<
   if (hasNextPage) {
     const newQueryParams = new URLSearchParams({
       ...queryParams,
-      after: endCursor
+      after: endCursor,
     })
     newQueryParams.delete('before')
     nextPageLink = `?${newQueryParams.toString()}`
@@ -97,7 +102,7 @@ export const getServerSideProps: GetServerSideProps<
   if (hasPreviousPage) {
     const newQueryParams = new URLSearchParams({
       ...queryParams,
-      before: startCursor
+      before: startCursor,
     })
     newQueryParams.delete('after')
     previousPageLink = `?${newQueryParams.toString()}`
@@ -109,7 +114,7 @@ export const getServerSideProps: GetServerSideProps<
       nextPageLink,
       posts,
       previousPageLink,
-      search
-    }
+      search,
+    },
   }
 }
