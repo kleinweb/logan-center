@@ -18,13 +18,14 @@
       "kamadorueda.alejandra",
       "mkhl.direnv",
       "mikestead.dotenv",
-      "EditorConfig.EditorConfig",
-      "GraphQL.vscode-graphql",
+      "editorconfig.editorconfig",
+      "graphql.vscode-graphql",
       "jnoortheen.nix-ide",
       "christian-kohler.npm-intellisense",
       "esbenp.prettier-vscode",
       "bradlc.vscode-tailwindcss",
-      "stylelint.vscode-stylelint"
+      "stylelint.vscode-stylelint",
+      "dbaeumer.vscode-eslint"
     ]
   }
 }
