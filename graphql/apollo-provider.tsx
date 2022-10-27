@@ -1,10 +1,10 @@
-import { ReactNode } from 'react';
-import { ApolloProvider } from '@apollo/client';
-import getApolloClient from './apollo';
+import { ReactNode } from 'react'
+import { ApolloProvider } from '@apollo/client'
+import getApolloClient from './apollo'
 
 type Props = {
-	children: ReactNode,
-};
+  children: ReactNode
+}
 
 /**
  * This is a provider that you can *optionally* use if you have a widespread need
@@ -20,10 +20,8 @@ type Props = {
  * just those pages. Next.js's code splitting will ensure that your other pages
  * retain a smaller bundle size.
  */
-export default function ClientSideApolloProvider( props: Props ) {
-	return (
-		<ApolloProvider client={getApolloClient()}>
-			{props.children}
-		</ApolloProvider>
-	);
+export default function ClientSideApolloProvider(props: Props) {
+  return (
+    <ApolloProvider client={getApolloClient()}>{props.children}</ApolloProvider>
+  )
 }

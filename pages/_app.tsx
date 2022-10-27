@@ -1,8 +1,8 @@
-import useInternalLinkRouting from '@/lib/hooks/useInternalLinkRouting';
-import '@/styles/globals.css';
+import useInternalLinkRouting from '@/lib/hooks/useInternalLinkRouting'
+import '@/styles/globals.css'
 
-export default function App( { Component, pageProps } ) {
-	useInternalLinkRouting();
+export default function App({ Component, pageProps }) {
+  useInternalLinkRouting()
 
-	return <Component {...pageProps} />;
+  return <Component {...pageProps} />
 }

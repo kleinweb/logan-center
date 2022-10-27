@@ -1,5 +1,5 @@
-import { BlockProps } from '../index';
-import styles from './Quote.module.css';
+import { BlockProps } from '../index'
+import styles from './Quote.module.css'
 
 /**
  * This is a styled component, for the Gutenberg Quote Block
@@ -30,25 +30,25 @@ import styles from './Quote.module.css';
  */
 
 type Props = BlockProps & {
-	className?: string,
-};
+  className?: string
+}
 
-export default function Quote ( { block: { innerHTML }, ...props } : Props ) {
-	let style = styles.container;
+export default function Quote({ block: { innerHTML }, ...props }: Props) {
+  let style = styles.container
 
-	switch ( props.className ) {
-		case 'is-style-large':
-			style +=  ' ' + styles.large;
-			break;
-		// Add additional styles here
-		default:
-			// no additional class
-	}
+  switch (props.className) {
+    case 'is-style-large':
+      style += ' ' + styles.large
+      break
+    // Add additional styles here
+    default:
+    // no additional class
+  }
 
-	return (
-		<blockquote
-			className={ style }
-			dangerouslySetInnerHTML={ { __html: innerHTML } }
-		/>
-	);
+  return (
+    <blockquote
+      className={style}
+      dangerouslySetInnerHTML={{ __html: innerHTML }}
+    />
+  )
 }

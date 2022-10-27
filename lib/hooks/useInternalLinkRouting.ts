@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { getInternalLinkPathname } from '@/lib/links';
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { getInternalLinkPathname } from '@/lib/links'
 
 /**
  * Using the Link component (next/link) for internal links instead of vanilla
@@ -19,25 +19,25 @@ import { getInternalLinkPathname } from '@/lib/links';
  *
  */
 export default function useLinkRouter() {
-	const router = useRouter();
+  const router = useRouter()
 
-	useEffect( () => {
-		function captureLinks ( evt: MouseEvent ) {
-			// Narrow type to HTMLAnchorElement.
-			if ( ! ( evt.target instanceof HTMLAnchorElement ) ) {
-				return;
-			}
+  useEffect(() => {
+    function captureLinks(evt: MouseEvent) {
+      // Narrow type to HTMLAnchorElement.
+      if (!(evt.target instanceof HTMLAnchorElement)) {
+        return
+      }
 
-			// Determine if the link destination should be considered internal.
-			const internalLinkPathname = getInternalLinkPathname( evt.target.href );
-			if ( internalLinkPathname ) {
-				evt.preventDefault();
-				router.push( internalLinkPathname );
-			}
-		}
+      // Determine if the link destination should be considered internal.
+      const internalLinkPathname = getInternalLinkPathname(evt.target.href)
+      if (internalLinkPathname) {
+        evt.preventDefault()
+        router.push(internalLinkPathname)
+      }
+    }
 
-		document.body.addEventListener( 'click', captureLinks );
+    document.body.addEventListener('click', captureLinks)
 
-		return () => document.body.removeEventListener( 'click' , captureLinks );
-	}, [ router ] );
+    return () => document.body.removeEventListener('click', captureLinks)
+  }, [router])
 }

@@ -1,14 +1,14 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client';
-import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
-import fragmentMatcher from '@/graphql/generated/fragmentMatcher';
-import getApolloLink from './apollo-link';
-import { generateRequestContext } from '@/lib/log';
+import { ApolloClient, InMemoryCache } from '@apollo/client'
+import { GetServerSidePropsContext, GetStaticPropsContext } from 'next'
+import fragmentMatcher from '@/graphql/generated/fragmentMatcher'
+import getApolloLink from './apollo-link'
+import { generateRequestContext } from '@/lib/log'
 
-let clientSideApolloClient: ApolloClient<unknown>;
+let clientSideApolloClient: ApolloClient<unknown>
 
-const isServerSide = 'undefined' === typeof window;
+const isServerSide = 'undefined' === typeof window
 
-const { possibleTypes } = fragmentMatcher;
+const { possibleTypes } = fragmentMatcher
 
 /**
  * Server-side / static, Apollo client should be recreated for each request so
@@ -25,26 +25,27 @@ const { possibleTypes } = fragmentMatcher;
  * context as the first parameter for additional detail in your logging. (Since
  * `getStaticProps` is run at build time, its context is not useful.)
  */
-export default function getApolloClient ( serverSideContext?: GetServerSidePropsContext | GetStaticPropsContext ) {
-	// Server-side / static: Return a new instance every time.
-	if ( isServerSide ) {
+export default function getApolloClient(
+  serverSideContext?: GetServerSidePropsContext | GetStaticPropsContext
+) {
+  // Server-side / static: Return a new instance every time.
+  if (isServerSide) {
+    const requestContext = generateRequestContext(serverSideContext)
 
-		const requestContext = generateRequestContext(serverSideContext);
+    return new ApolloClient({
+      cache: new InMemoryCache({ possibleTypes }),
+      link: getApolloLink(requestContext),
+      ssrMode: true
+    })
+  }
 
-		return new ApolloClient( {
-			cache: new InMemoryCache( { possibleTypes } ),
-			link: getApolloLink( requestContext ),
-			ssrMode: true,
-		} );
-	}
+  // Client-side: Create and store a single instance if it doesn't yet exist.
+  if ('undefined' === typeof clientSideApolloClient) {
+    clientSideApolloClient = new ApolloClient({
+      cache: new InMemoryCache({ possibleTypes }),
+      link: getApolloLink()
+    })
+  }
 
-	// Client-side: Create and store a single instance if it doesn't yet exist.
-	if ( 'undefined' === typeof clientSideApolloClient ) {
-		clientSideApolloClient =  new ApolloClient( {
-			cache: new InMemoryCache( { possibleTypes } ),
-			link: getApolloLink(),
-		} );
-	}
-
-	return clientSideApolloClient;
+  return clientSideApolloClient
 }
