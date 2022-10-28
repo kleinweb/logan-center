@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 Temple University
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 // wp.config.js
 // ==============
 // IMPORTANT: wp.config.js is not parsed by Webpack, Babel, or Typescript.

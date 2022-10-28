@@ -1,9 +1,7 @@
 {
-  "name": "logan-center-frontend",
+  "name": "logan-center",
   "version": "0.1.0",
-  "license": "GPL-3.0-or-later",
-  "private": true,
-  "packageManager": "npm",
+  "license": "GPL-3.0-or-later OR MIT",
   "engines": {
     "node": ">=18",
     "npm": ">=8",

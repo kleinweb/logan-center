@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Temple University
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 # TODO: skip impure attrs - https://github.com/divnix/std/blob/12b3d2bcf7313e9ad790d575992fd69be3767a9f/cells/std/nixago/lefthook.nix#L12-L28
 
 commit-msg:
