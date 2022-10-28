@@ -1,9 +1,13 @@
+// SPDX-FileCopyrightText: 2022 Temple University
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 const path = require('path')
 
 module.exports = {
   stories: [
     '../stories/**/*.stories.mdx',
-    '../stories/**/*.stories.@(js|jsx|ts|tsx)'
+    '../stories/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
     '@storybook/addon-links',
@@ -11,13 +15,13 @@ module.exports = {
     '@storybook/addon-interactions',
     'storybook-addon-next',
     'storybook-addon-headless',
-    'storybook-addon-designs'
+    'storybook-addon-designs',
   ],
   webpackFinal: async (config) => {
     // Enable @ symbol aliases.
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': path.resolve(__dirname, '../')
+      '@': path.resolve(__dirname, '../'),
     }
 
     // Enable sourcemaps in Storybook.
@@ -27,16 +31,16 @@ module.exports = {
         {
           loader: 'postcss-loader',
           options: {
-            sourceMap: true
-          }
-        }
-      ]
+            sourceMap: true,
+          },
+        },
+      ],
     })
 
     return config
   },
   framework: '@storybook/react',
   core: {
-    builder: '@storybook/builder-webpack5'
-  }
+    builder: '@storybook/builder-webpack5',
+  },
 }
