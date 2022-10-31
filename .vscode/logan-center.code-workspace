@@ -27,7 +27,8 @@
       "bradlc.vscode-tailwindcss",
       "stylelint.vscode-stylelint",
       "dbaeumer.vscode-eslint",
-      "dawidd6.debian-vscode"
+      "dawidd6.debian-vscode",
+      "unifiedjs.vscode-mdx"
     ]
   }
 }
