@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Logan Center for Urban Investigative Reporting
 Upstream-Contact: Klein College of Media and Communication <kleinweb@temple.edu>
-Source: https://templelogancenter.org
+Source: https://github.com/kleinweb/logan-center
 
 # Sample paragraph, commented out:
 #
