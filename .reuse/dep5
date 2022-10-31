@@ -1,10 +1,22 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: Logan Center for Urban Investigative Reporting
 Upstream-Contact: Klein College of Media and Communication <kleinweb@temple.edu>
+Copyright: Temple University <kleinweb@temple.edu>
+License: GPL-3.0-or-later
 Source: https://github.com/kleinweb/logan-center
 
-# Sample paragraph, commented out:
-#
-# Files: src/*
-# Copyright: $YEAR $NAME <$CONTACT>
-# License: ...
+Files: *
+Copyright: 2022 Temple University
+License: GPL-3.0-or-later
+
+Files: jest.*.js
+       *.config.js*
+       *.*rc.json
+       .gitignore
+       *.lock
+       package*.json
+       renovate.json
+       tsconfig.json
+       *.code-workspace
+Copyright: 2022 Temple University <kleinweb@temple.edu>
+License: CC0-1.0
