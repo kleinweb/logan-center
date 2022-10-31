@@ -23,6 +23,10 @@ pre-commit:
 pre-push:
   commands:
     build-nextjs-app:
-      run: npm run build
+      run: |
+        # FIXME: the wp-env instance should not be necessary here, but until
+        # there's a live environment, there's no other graphql endpoint
+        npm run start:wp
+        npm run build
     validate-licensing:
       run: reuse lint
