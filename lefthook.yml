@@ -24,3 +24,5 @@ pre-push:
   commands:
     build-nextjs-app:
       run: npm run build
+    validate-licensing:
+      run: reuse lint
