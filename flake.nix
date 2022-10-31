@@ -39,7 +39,7 @@
       flake.project.meta = {
         name = "logan-center";
         title = "Logan Center for Urban Investigative Reporting";
-        url = "https://logancenter.org";
+        url = "https://templelogancenter.org";
       };
       flake.nixagoFiles."kleinweb-config-json" = {
         output = "kleinweb.config.json";
