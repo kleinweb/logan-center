@@ -48,7 +48,13 @@ module.exports = {
       '4xl': '3.25rem',
     },
     fontFamily: {
-      'sans-serif': 'URW DIN',
+      sans: 'urw-din, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif',
+    },
+    // Font weights are listed explicitly because they will need to be added to
+    // the font stack (e.g. Adobe Fonts) before being usable in CSS.
+    fontWeight: {
+      normal: 400,
+      bold: 700,
     },
     borderRadius: {
       none: '0',
