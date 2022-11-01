@@ -5,7 +5,7 @@
   commands = [
     {
       category = "tools";
-      package = pkgs.nodePackages.npm;
+      package = pkgs.nodePackages.pnpm;
     }
     {
       category = "tools";
