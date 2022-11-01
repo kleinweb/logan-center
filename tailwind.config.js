@@ -4,10 +4,7 @@
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./{components,pages,stories}/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     colors: {
       slate: {
