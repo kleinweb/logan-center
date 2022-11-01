@@ -20,20 +20,6 @@ module.exports = {
       ...config.resolve.alias,
       '@': path.resolve(__dirname, '../'),
     }
-
-    // Enable sourcemaps in Storybook.
-    config.module.rules.push({
-      test: /\.css$/i,
-      use: [
-        {
-          loader: 'postcss-loader',
-          options: {
-            sourceMap: true,
-          },
-        },
-      ],
-    })
-
     return config
   },
   framework: '@storybook/react',
