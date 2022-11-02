@@ -10,10 +10,10 @@ module.exports = {
       slate: {
         100: '#e5f2f2',
         300: '#d1d4db',
-        700: '#263542',
+        700: '#263542', // "primary dark"
       },
       teal: {
-        500: '#779f9e',
+        500: '#779f9e', // "primary highlight"
       },
       neutral: {
         500: '#616161',
