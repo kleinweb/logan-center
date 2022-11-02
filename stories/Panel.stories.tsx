@@ -1,11 +1,10 @@
-import { Button } from '../components/Buttons'
-
-import { HeadingTwo, Paragraph } from './Text.stories'
+import { HeadingTwo } from '@/components/Headings'
+import { Button } from '@/components/Buttons'
 
 export const Hero = () => (
   <div>
     <HeadingTwo>TKTKTK</HeadingTwo>
-    <Paragraph>lorem lorem lorem</Paragraph>
+    <p>lorem lorem lorem</p>
     <div>
       <Button href="#">
         Button 1 <span>caret</span>
