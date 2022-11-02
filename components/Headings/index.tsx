@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 Temple University <kleinweb@temple.edu>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 export const classes = {
   heading: {
     h1: 'text-3xl font-bold',
