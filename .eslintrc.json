@@ -5,7 +5,6 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:storybook/recommended",
     "plugin:tailwindcss/recommended",
     "next/core-web-vitals"
   ],
