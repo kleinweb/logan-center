@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import { ComponentProps } from 'react'
-import NextImage, { ImageLoader, ImageLoaderProps } from 'next/image'
+import NextImage, { ImageLoader, ImageLoaderProps } from 'next/legacy/image'
 import WPHostConfig from '../../wp.config'
 
 /**
