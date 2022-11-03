@@ -10,10 +10,10 @@ export const Hero = () => (
     <HeadingTwo>TKTKTK</HeadingTwo>
     <p>lorem lorem lorem</p>
     <div>
-      <Button href="#">
+      <Button>
         Button 1 <span>caret</span>
       </Button>
-      <Button href="#">
+      <Button>
         Button 2 <span>caret</span>
       </Button>
     </div>
