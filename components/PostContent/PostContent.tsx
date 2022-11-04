@@ -32,24 +32,13 @@ export default function PostContent({ blocks, blockMapOverrides = {} }: Props) {
         const Block = blockMap[block.name]
 
         if (Block) {
-          return (
-            <Block
-              block={block}
-              key={key}
-              {...attributesProps}
-            />
-          )
+          return <Block block={block} key={key} {...attributesProps} />
         }
 
         // In development, highlight unsupported blocks so that they get
         // visibility with developers.
         if ('development' === process.env.NODE_ENV) {
-          return (
-            <UnsupportedBlock
-              block={block}
-              key={key}
-            />
-          )
+          return <UnsupportedBlock block={block} key={key} />
         }
 
         // In production, ignore unsupported blocks.

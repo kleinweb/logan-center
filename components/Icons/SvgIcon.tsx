@@ -16,9 +16,7 @@ const defaultAttrs: React.ComponentPropsWithoutRef<'svg'> = {
 }
 
 export const SvgIcon = (props: { children: ReactNode }) => (
-  <svg
-    className="inline-flex"
-    {...defaultAttrs}>
+  <svg className="inline-flex" {...defaultAttrs}>
     {props.children}
   </svg>
 )

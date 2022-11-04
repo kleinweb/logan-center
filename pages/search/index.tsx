@@ -25,13 +25,8 @@ type Props = {
 
 export default function Search(props: Props) {
   return (
-    <Page
-      loading={props.loading}
-      title={`Search results for ${props.search}`}>
-      <SearchForm
-        path="/search"
-        search={props.search}
-      />
+    <Page loading={props.loading} title={`Search results for ${props.search}`}>
+      <SearchForm path="/search" search={props.search} />
       <PostList
         nextPageLink={props.nextPageLink}
         posts={props.posts}

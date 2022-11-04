@@ -19,9 +19,7 @@ export default function PostList(props: Props) {
       <ul>
         {props.posts.map((post) => (
           <li key={post.databaseId}>
-            <Link
-              href={getInternalLinkPathname(post.link)}
-              legacyBehavior>
+            <Link href={getInternalLinkPathname(post.link)} legacyBehavior>
               {post.title}
             </Link>
           </li>

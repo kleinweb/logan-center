@@ -12,10 +12,5 @@ type Props = BlockProps & {
 }
 
 export default function ImageBlock(props: Props) {
-  return (
-    <Image
-      {...props}
-      alt={props.alt}
-    />
-  )
+  return <Image {...props} alt={props.alt} />
 }

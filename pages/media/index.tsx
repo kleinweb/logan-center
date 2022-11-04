@@ -21,9 +21,7 @@ type Props = {
 
 export default function Media(props: Props) {
   return (
-    <Page
-      loading={props.loading}
-      title="Media Gallery">
+    <Page loading={props.loading} title="Media Gallery">
       <div className={styles.container}>
         {props.mediaItems.map((mediaItem) => {
           const {
@@ -42,7 +40,8 @@ export default function Media(props: Props) {
               href={sourceUrl}
               key={id}
               rel="noreferrer"
-              target="_blank">
+              target="_blank"
+            >
               {height < 100 ? (
                 <Image
                   alt={altText}

@@ -24,9 +24,7 @@ type Props = {
 
 export default function ContentNodes(props: Props) {
   return (
-    <Page
-      loading={props.loading}
-      title={props.title}>
+    <Page loading={props.loading} title={props.title}>
       <PostList
         nextPageLink={props.nextPageLink}
         posts={props.posts}

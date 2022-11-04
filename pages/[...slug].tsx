@@ -25,9 +25,7 @@ export default function Post(props: PostProps) {
   }
 
   return (
-    <Page
-      loading={props.loading}
-      title={props.post.title}>
+    <Page loading={props.loading} title={props.post.title}>
       <PostContent blocks={props.post.contentBlocks.blocks} />
     </Page>
   )

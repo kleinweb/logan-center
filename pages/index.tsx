@@ -66,9 +66,7 @@ export default function Home(props: Props) {
         <ul>
           {props.contentTypes.map((contentType) => (
             <li key={contentType.name}>
-              <Link
-                href={`/latest/${contentType.name}`}
-                legacyBehavior>
+              <Link href={`/latest/${contentType.name}`} legacyBehavior>
                 {contentType.name}
               </Link>
             </li>
