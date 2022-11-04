@@ -16,6 +16,7 @@
       "@/graphql/*": ["graphql/*"],
       "@/lib/*": ["lib/*"],
       "@/pages/*": ["pages/*"],
+      "@/public/*": ["public/*"],
       "@/styles/*": ["styles/*"]
     },
     "resolveJsonModule": true,

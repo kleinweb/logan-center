@@ -4,6 +4,7 @@
 
 import type { Story } from '@ladle/react'
 import Button, { COLORS, Props, VARIANTS } from '@/components/Buttons'
+import { ChevronRight, Icon } from '@/components/Icons'
 
 const defaultArgs = {
   children: 'Default',
@@ -30,6 +31,22 @@ DefaultButton.args = {
   children: 'Button Dafoe',
 }
 DefaultButton.argTypes = defaultArgTypes
+
+export const ButtonWithIcon = Template.bind({})
+ButtonWithIcon.args = {
+  ...defaultArgs,
+  children: (
+    <>
+      Button Dafoe{' '}
+      <div className="-mr-2 mt-[-2px]">
+        <Icon label="Read More">
+          <ChevronRight />
+        </Icon>
+      </div>
+    </>
+  ),
+}
+ButtonWithIcon.argTypes = defaultArgTypes
 
 export const SparseButton = Template.bind({})
 SparseButton.args = {

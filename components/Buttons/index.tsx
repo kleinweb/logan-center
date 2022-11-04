@@ -83,13 +83,14 @@ export default function Button({
     <a
       className={clsx(
         [
-          'inline-block',
+          'inline-flex',
           'py-1',
           'px-2',
           'font-bold',
           'uppercase',
           'cursor-pointer',
           'border-2',
+          'align-middle',
         ],
         BORDER_CLSX[color],
         isSolid

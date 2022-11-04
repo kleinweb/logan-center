@@ -8,6 +8,7 @@
     containers
     common
     formatters
+    image-optimisation
     nixago-setup-hook
     ;
 in {
@@ -21,6 +22,7 @@ in {
         common
         containers
         formatters
+        image-optimisation
         nixago-setup-hook
       ];
     };

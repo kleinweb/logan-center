@@ -18,7 +18,6 @@
     ]
   },
   "overrides": [
-    // Only use test-related lint rules in test files.
     {
       "env": {
         "jest/globals": true

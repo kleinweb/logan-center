@@ -16,5 +16,7 @@
     ./templates
 
     ./wp-env
+
+    ./image-optimisation.nix
   ];
 }
