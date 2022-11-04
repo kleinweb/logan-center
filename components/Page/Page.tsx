@@ -38,17 +38,9 @@ export default function Page(props: Props) {
     <>
       <Head>
         <title>{props.title}</title>
-        {props.ogTitle && (
-          <meta
-            content={props.ogTitle}
-            property="og:title"
-          />
-        )}
+        {props.ogTitle && <meta content={props.ogTitle} property="og:title" />}
         {props.canonicalLink && (
-          <link
-            href={props.canonicalLink}
-            rel="canonical"
-          />
+          <link href={props.canonicalLink} rel="canonical" />
         )}
         {props.feedLink && (
           <link

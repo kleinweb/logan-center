@@ -96,7 +96,8 @@ export default function Button({
         isSolid
           ? ['hover:bg-white', SOLID_VARIANT[color]]
           : ['bg-white', SPARSE_VARIANT[color]],
-      )}>
+      )}
+    >
       {children}
     </a>
   )

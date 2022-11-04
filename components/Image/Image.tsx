@@ -56,10 +56,7 @@ export default function Image(props: Props) {
   if (WPHostConfig.images.useHtmlTag && imageProps.srcSet) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
-      <img
-        alt={imageProps.alt}
-        {...imageProps}
-      />
+      <img alt={imageProps.alt} {...imageProps} />
     )
   }
 
@@ -72,10 +69,5 @@ export default function Image(props: Props) {
     loader = wpImageLoader
   }
 
-  return (
-    <NextImage
-      loader={loader}
-      {...imageProps}
-    />
-  )
+  return <NextImage loader={loader} {...imageProps} />
 }

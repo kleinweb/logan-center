@@ -46,9 +46,7 @@ export const AllIcons = () => (
     <PageTitle>All Icons</PageTitle>
     <GroupWrapper>
       {Object.entries(allIcons).map(([iconName, Icon]) => (
-        <IconWrapper
-          label={iconName}
-          key={iconName}>
+        <IconWrapper label={iconName} key={iconName}>
           <Icon />
         </IconWrapper>
       ))}
@@ -64,9 +62,7 @@ export const GroupedIcons = () => (
         <GroupTitle>{groupName}</GroupTitle>
         <GroupWrapper key={groupName}>
           {Object.entries(icons).map(([iconName, Icon]) => (
-            <IconWrapper
-              label={iconName}
-              key={iconName}>
+            <IconWrapper label={iconName} key={iconName}>
               <Icon />
             </IconWrapper>
           ))}
