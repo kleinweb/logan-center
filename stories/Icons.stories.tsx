@@ -17,6 +17,11 @@ import {
 } from '@/components/Icons'
 import { ReactNode } from 'react'
 
+export default {
+  title: 'Atoms/Icons',
+  component: Icon,
+}
+
 const iconsets = {
   Chevron: [ChevronDown, ChevronLeft, ChevronRight, ChevronUp],
   Social: [Facebook, Instagram, Twitter],

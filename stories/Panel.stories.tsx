@@ -5,6 +5,10 @@
 import { HeadingTwo } from '@/components/Headings'
 import Button from '@/components/Buttons'
 
+export default {
+  title: 'Components/Panels',
+}
+
 export const Hero = () => (
   <div>
     <HeadingTwo>TKTKTK</HeadingTwo>
