@@ -5,6 +5,7 @@
 import { PageTitle } from '@/components/Headings'
 import {
   allIcons,
+  Icon,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
@@ -26,8 +27,10 @@ type WrapperProps = {
   children: ReactNode
 }
 
-const IconWrapper = (props: WrapperProps) => (
-  <div className="text-white mr-2">{props.children}</div>
+const IconWrapper = ({ label, children }: WrapperProps & { label: string }) => (
+  <div className="text-white mr-2">
+    <Icon label={label}>{children}</Icon>
+  </div>
 )
 
 const GroupTitle = (props: WrapperProps) => (
@@ -43,7 +46,9 @@ export const AllIcons = () => (
     <PageTitle>All Icons</PageTitle>
     <GroupWrapper>
       {Object.entries(allIcons).map(([iconName, Icon]) => (
-        <IconWrapper key={iconName}>
+        <IconWrapper
+          label={iconName}
+          key={iconName}>
           <Icon />
         </IconWrapper>
       ))}
@@ -59,7 +64,9 @@ export const GroupedIcons = () => (
         <GroupTitle>{groupName}</GroupTitle>
         <GroupWrapper key={groupName}>
           {Object.entries(icons).map(([iconName, Icon]) => (
-            <IconWrapper key={iconName}>
+            <IconWrapper
+              label={iconName}
+              key={iconName}>
               <Icon />
             </IconWrapper>
           ))}

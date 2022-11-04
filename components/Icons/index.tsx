@@ -6,5 +6,7 @@ import * as lucideIcons from './lucide'
 
 export const allIcons = { ...lucideIcons }
 
+export { default as Icon } from './Icon'
+
 export * from './lucide'
 export * from './SvgIcon'
