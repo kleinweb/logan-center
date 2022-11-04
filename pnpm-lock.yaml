@@ -27,6 +27,7 @@ specifiers:
   autoprefixer: ^10.4.13
   clsx: ^1.2.1
   cross-fetch: ^3.1.5
+  css-loader: ^6.7.1
   dotenv: ^16.0.3
   eslint: ^8.26.0
   eslint-config-next: ^13.0.1
@@ -46,10 +47,12 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   storybook: ^7.0.0-alpha.47
+  style-loader: ^3.3.1
   tailwindcss: ^3.2.1
   ts-jest: ^29.0.3
   ts-node: ^10.9.1
   typescript: ^4.8.4
+  webpack: ^5.74.0
 
 dependencies:
   '@apollo/client': 3.7.1_gdcq4dv6opitr3wbfwyjmanyra
@@ -87,6 +90,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.42.0_wyqvi574yv7oiwfeinomdzmc3m
   '@wordpress/env': 5.6.0
   autoprefixer: 10.4.13_postcss@8.4.18
+  css-loader: 6.7.1_webpack@5.74.0
   eslint: 8.26.0
   eslint-config-next: 13.0.1_wyqvi574yv7oiwfeinomdzmc3m
   eslint-plugin-jest: 27.1.3_vg4o634kebbkmy67d6ljsnmtoy
@@ -99,10 +103,12 @@ devDependencies:
   prettier: 2.7.1
   prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
   storybook: 7.0.0-alpha.47_yalvw3r2waubxycyb7k7qsruca
+  style-loader: 3.3.1_webpack@5.74.0
   tailwindcss: 3.2.1_neo3lunb2qpadwxplzw7r2isgm
   ts-jest: 29.0.3_zirzprs4t2a7jfvdvoyvhpmuom
   ts-node: 10.9.1_cbe7ovvae6zqfnmtgctpgpys54
   typescript: 4.8.4
+  webpack: 5.74.0_esbuild@0.14.54
 
 packages:
 
@@ -4338,20 +4344,20 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.9
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
     dev: true
 
   /@types/eslint/8.4.9:
     resolution: {integrity: sha512-jFCSo4wJzlHQLCpceUhUnXdrPuCNOjGFMQ8Eg6JXxlz3QaCKOb7eGi2cephQdM4XTYsNej69P9JDJ1zqNIbncQ==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
     dev: true
 
   /@types/estree-jsx/1.0.0:
     resolution: {integrity: sha512-3qvGd0z8F2ENTGr/GG1yViqfiKmRfrXVx5sJyHGFu3z7m5g5utCQtGp/g29JnjflhtQJBv1WDQukHiT58xPcYQ==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
     dev: true
 
   /@types/estree/0.0.51:
