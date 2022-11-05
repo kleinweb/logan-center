@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+# SPDX-FileCopyrightText: 2022 Temple University
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+reuse lint
+
+# FIXME: the wp-env instance should not be necessary here, but until
+# there's a live environment, there's no other graphql endpoint
+pnpm start:wp
+pnpm build
