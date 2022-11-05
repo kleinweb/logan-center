@@ -13,8 +13,6 @@
     }
   ];
   packages = with pkgs; [
-    commitlint
-    lefthook
     nodejs
   ];
   env = [];
