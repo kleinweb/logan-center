@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "arcanis.vscode-zipfs",
+    "bradlc.vscode-tailwindcss",
+    "christian-kohler.npm-intellisense",
+    "dawidd6.debian-vscode",
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "graphql.vscode-graphql",
+    "jnoortheen.nix-ide",
+    "kamadorueda.alejandra",
+    "mikestead.dotenv",
+    "mkhl.direnv",
+    "stylelint.vscode-stylelint",
+    "unifiedjs.vscode-mdx"
+  ]
+}

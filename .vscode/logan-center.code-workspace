@@ -5,30 +5,21 @@
     }
   ],
   "settings": {
-    "files.associations": {
-      "*.css": "tailwindcss",
-      "dep5": "debian-copyright"
-    },
-    "editor.quickSuggestions": {
-      "strings": true
-    },
-    "tailwindCSS.emmetCompletions": true
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
   },
-  "extensions": {
-    "recommendations": [
-      "kamadorueda.alejandra",
-      "mkhl.direnv",
-      "mikestead.dotenv",
-      "editorconfig.editorconfig",
-      "graphql.vscode-graphql",
-      "jnoortheen.nix-ide",
-      "christian-kohler.npm-intellisense",
-      "esbenp.prettier-vscode",
-      "bradlc.vscode-tailwindcss",
-      "stylelint.vscode-stylelint",
-      "dbaeumer.vscode-eslint",
-      "dawidd6.debian-vscode",
-      "unifiedjs.vscode-mdx"
-    ]
+  "eslint.nodePath": ".yarn/sdks",
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "dep5": "debian-copyright"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.emmetCompletions": true
   }
 }
