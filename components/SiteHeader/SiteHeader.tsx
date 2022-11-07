@@ -6,7 +6,7 @@
 import { ReactNode } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
-import Image from '../Image/Image'
+import Image from 'next/image'
 
 type Props = {
   headerLink?: ReactNode
@@ -28,8 +28,6 @@ export default function SiteHeader(props: Props) {
     <>
       <div className="">
         <Image
-          originalWidth={400}
-          originalHeight={70}
           className="w-full"
           // FIXME: this really should not be a PNG!
           src="/assets/logos/png/logo--graphic--duo-light.png"
@@ -38,7 +36,7 @@ export default function SiteHeader(props: Props) {
         />
         <div>
           <h1 className="relative">
-            <span className="font-bold text-4xl block">Logan Center</span>
+            <span className="block text-4xl font-bold">Logan Center</span>
             <span className="absolute right-0">
               For Urban Investigative Reporting
             </span>
@@ -49,17 +47,15 @@ export default function SiteHeader(props: Props) {
           src="/assets/logos/png/logo--full--duo-light.png"
           // FIXME: DRY up the site title -- typos are very dangerous here
           alt="Logo of the Logan Center for Urban Investigative Journalism"
-          originalWidth="289"
-          originalHeight="108"
         /> */}
       </div>
-      <nav className="flex flex-col mt-2">
+      <nav className="mt-2 flex flex-col">
         {navItems.map(([path, label]) => (
           <Link
             key={label}
             href={path}
             className={clsx(
-              'uppercase py-1 px-2 mb-2 -ml-2',
+              'mb-2 -ml-2 py-1 px-2 uppercase',
               // FIXME: this is a stand-in for the currently-active page -- disabled as a visual reminder
               // 'Home' === label && 'font-bold text-teal-500',
             )}
