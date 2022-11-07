@@ -50,13 +50,22 @@ export default function Page(props: Props) {
             type="application/rss+xml"
           />
         )}
+        <link rel="stylesheet" href="https://use.typekit.net/cwz8dss.css" />
       </Head>
-      <SiteHeader headerLink={props.headerLink} />
-      <main>
-        <h1>{props.title}</h1>
-        {props.children}
+      <header className="px-5 py-3 md:pt-5 bg-slate-700 text-white">
+        <SiteHeader headerLink={props.headerLink} />
+      </header>
+      <hr />
+      <main className="block">
+        <div className="px-3">
+          <h1>{props.title}</h1>
+          {props.children}
+        </div>
       </main>
-      <SiteFooter />
+      <hr />
+      <footer className="bg-slate-700  p-10 md:pt-5 text-white">
+        <SiteFooter />
+      </footer>
     </>
   )
 }
