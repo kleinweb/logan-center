@@ -4,9 +4,9 @@
 
 reuse lint
 
-pnpm test
+yarn test
 
 # FIXME: the wp-env instance should not be necessary here, but until
 # there's a live environment, there's no other graphql endpoint
-pnpm start:wp
-pnpm build
+yarn start:wp
+yarn build

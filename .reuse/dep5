@@ -8,10 +8,11 @@ Source: https://github.com/kleinweb/logan-center
 Files: jest.*.js
        *.config.js*
        *.*rc.json
+       *.lock
        .gitignore
-       flake.lock
+       .yarnrc.yml
+       .yarn/*
        package.json
-       pnpm-lock.yaml
        renovate.json
        tsconfig.json
        *.code-workspace

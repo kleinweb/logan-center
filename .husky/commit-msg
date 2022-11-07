@@ -2,4 +2,4 @@
 # SPDX-FileCopyrightText: 2022 Temple University
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-pnpm exec commitlint --edit "$1"
+yarn exec commitlint --edit "$1"
