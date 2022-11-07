@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import { GetServerSideProps } from 'next'
-import Image from '@/components/Image/Image'
+import Image from 'next/image'
 import Page from '@/components/Page/Page'
 import getApolloClient from '@/graphql/apollo'
 import {
@@ -44,18 +44,18 @@ export default function Media(props: Props) {
             >
               {height < 100 ? (
                 <Image
+                  src={sourceUrl}
                   alt={altText}
                   layout="fill"
                   objectFit="cover"
                   objectPosition="0"
-                  src={sourceUrl}
                 />
               ) : (
                 <Image
+                  src={sourceUrl}
                   alt={altText}
                   layout="intrinsic"
                   height={100}
-                  src={sourceUrl}
                   width={(width / height) * 100}
                 />
               )}

@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import { BlockProps } from '../index'
-import Image from '@/components/Image/Image'
+import Image from 'next/image'
 
 type Props = BlockProps & {
   src: string
