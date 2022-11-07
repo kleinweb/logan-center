@@ -28,6 +28,8 @@ export default function SiteHeader(props: Props) {
     <>
       <div className="">
         <Image
+          width={400}
+          height={70}
           className="w-full"
           // FIXME: this really should not be a PNG!
           src="/assets/logos/png/logo--graphic--duo-light.png"
@@ -43,6 +45,9 @@ export default function SiteHeader(props: Props) {
           </h1>
         </div>
         {/* <Image
+          width="289"
+          height="108"
+
           // FIXME: this really should not be a PNG!
           src="/assets/logos/png/logo--full--duo-light.png"
           // FIXME: DRY up the site title -- typos are very dangerous here
