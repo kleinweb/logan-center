@@ -5,11 +5,12 @@
 # shellcheck disable=1091
 . "$(dirname -- "$0")/_/husky.sh"
 
-reuse lint
+# FIXME
+# reuse lint
 
-yarn test
+yarn turbo test
 
 # FIXME: the wp-env instance should not be necessary here, but until
 # there's a live environment, there's no other graphql endpoint
-yarn start:wp
-yarn build
+yarn workspace wordpress-app wp-env start
+yarn turbo build

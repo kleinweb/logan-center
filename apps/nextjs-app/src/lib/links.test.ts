@@ -4,9 +4,9 @@
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import { extractLastTokenFromRoute, getInternalLinkPathname } from './links'
-import { links } from '../wp.config'
+import { links } from '@/../wp.config'
 
-jest.mock('../wp.config', function () {
+jest.mock('@/../wp.config', function () {
   return {
     links: {
       isInternalLink: jest.fn(() => true),
@@ -26,7 +26,7 @@ describe('extractLastTokenFromRoute', () => {
 })
 
 describe('isInternalLink default implementation', () => {
-  const unmockedWPHostConfig = jest.requireActual('../wp.config')
+  const unmockedWPHostConfig = jest.requireActual('@/../wp.config')
 
   it('returns true for local hostnames', function () {
     const internalHostnames = ['127.0.0.1', 'localhost']
