@@ -23,16 +23,34 @@ export default function SiteFooter() {
           <p>Philadelphia, PA 19122</p>
         </address>
       </div>
-      <hr className="block my-5 border-neutral-500 mb-8" />
+      <hr className="my-5 mb-8 block border-neutral-500" />
       <div className="flex justify-center">
         <Icon label="Follow us on Twitter">
-          <Twitter />
+          <a
+            href="https://twitter.com/TULoganCenter"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Twitter />
+          </a>
         </Icon>
         <Icon label="Follow us on Facebook">
-          <Facebook />
+          <a
+            href="https://www.facebook.com/tulogancenter/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Facebook />
+          </a>
         </Icon>
         <Icon label="Follow us on Instagram">
-          <Instagram />
+          <a
+            href="https://www.facebook.com/tulogancenter/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Instagram />
+          </a>
         </Icon>
       </div>
     </>
