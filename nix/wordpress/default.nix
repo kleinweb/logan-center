@@ -15,6 +15,7 @@ in {
     commands = [
       {
         inherit category;
+        name = "composer";
         package = pkgs.php81Packages.composer;
       }
     ];
@@ -23,18 +24,16 @@ in {
   };
   ###: @wordpress/env :: <https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/>
   flake.nixagoFiles."wp-env" = {
-    output = "apps/wordpress-app/.wp-env.json";
+    output = "apps/wp-env/.wp-env.json";
     configData = {
-      # core = "WordPress/WordPress#6.0.3";
       phpVersion = "8.1";
-      # FIXME: handle with composer/nix for real dependency version management
       plugins = ["Automattic/vip-decoupled-bundle"];
       themes = [];
 
       ##: wp-config constants
       config = {
-        "WP_HOME" = "http://localhost:3000"; #     <- frontend :: next.js
-        # "WP_SITEURL" = "http://localhost"; #  <- backend :: wordpress
+        "WP_HOME" = "http://localhost:3000"; #  <- frontend :: next.js
+        # "WP_SITEURL" = "http://localhost"; #    <- backend :: wordpress
         "WP_ENVIRONMENT_TYPE" = "local";
         "WP_TESTS_TITLE" = project.meta.name;
         "WP_TESTS_EMAIL" = "kleinweb@temple.edu";

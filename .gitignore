@@ -56,7 +56,7 @@ tmp/
 *.tsbuildinfo
 
 # nixago: ignore-linked-files
-apps/wordpress-app/.wp-env.json
+apps/wp-env/.wp-env.json
 kleinweb.config.json
 .prettierrc.json
 .data/lima-vm/logan-center.yml
