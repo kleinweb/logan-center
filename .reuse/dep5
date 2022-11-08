@@ -5,17 +5,16 @@ Copyright: Temple University <kleinweb@temple.edu>
 License: GPL-3.0-or-later
 Source: https://github.com/kleinweb/logan-center
 
-Files: jest.*.js
-       *.config.js*
+Files: *.config.js*
        *.*rc.json
+       *.*rc.yml
        *.lock
        .gitignore
-       .yarnrc.yml
+       .vscode/*
        .yarn/*
        package.json
        renovate.json
        tsconfig.json
-       *.code-workspace
 Copyright: 2022 Temple University <kleinweb@temple.edu>
 License: CC0-1.0
 
