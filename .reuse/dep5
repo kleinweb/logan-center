@@ -5,25 +5,23 @@ Copyright: Temple University <kleinweb@temple.edu>
 License: GPL-3.0-or-later
 Source: https://github.com/kleinweb/logan-center
 
-Files: *.config.js*
-       *.*rc.json
-       *.*rc.yml
+Files: *.*rc.json
        *.lock
-       .gitignore
+       */.gitignore
        .vscode/*
        .yarn/*
-       package.json
+       */package.json
        renovate.json
-       tsconfig.json
+       */tsconfig.json
 Copyright: 2022 Temple University <kleinweb@temple.edu>
 License: CC0-1.0
 
 # https://github.com/lucide-icons/lucide/blob/810cd848763b3174f1842ae46bbaee26135ed5a3/LICENSE
-Files: public/assets/icons/*
+Files: packages/ui/assets/icons/*
 Copyright: 2013-2022 Cole Bemis
            2022 Lucide Contributors
 License: ISC and MIT
 
-Files: public/assets/logos/*
+Files: packages/ui/assets/logos/*
 Copyright: 2022 Temple University
 License: LicenseRef-UNLICENSED

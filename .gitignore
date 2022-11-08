@@ -7,10 +7,10 @@
 ##: build artifacts
 build
 result
+dist/
 
 ##: node/npm/yarn
 node_modules/
-.npm/
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -22,9 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-##: composer
-vendor/
-
 ##: private/local files
 *.local
 .env
@@ -33,16 +30,16 @@ vendor/
 *.log
 
 ##: cache/state files
-/.data/
+.data/
 *.tfstate*
 *.tfvars
 .direnv/
 .eslintcache/
 .terraform/
-/graphql/generated
+.turbo
 
 ##: testing
-/coverage
+coverage
 
 ##: virtual machine images
 *.qcow2
@@ -58,14 +55,8 @@ tmp/
 ##: javascript/typescript
 *.tsbuildinfo
 
-##: next.js
-.next/
-next-env.d.ts
-out/
-.vercel
-
 # nixago: ignore-linked-files
+apps/wordpress-app/.wp-env.json
 kleinweb.config.json
 .prettierrc.json
 .data/lima-vm/logan-center.yml
-.wp-env.json

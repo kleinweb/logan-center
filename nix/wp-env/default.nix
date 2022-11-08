@@ -27,7 +27,7 @@ in {
   };
   ###: @wordpress/env :: <https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/>
   flake.nixagoFiles."wp-env" = {
-    output = ".wp-env.json";
+    output = "apps/wordpress-app/.wp-env.json";
     configData = {
       # FIXME: set to `null` after 6.1 release
       # https://github.com/Automattic/vip-decoupled-bundle/pull/57#issuecomment-1202067748
