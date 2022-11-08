@@ -37,11 +37,8 @@ export default function SiteHeader(props: Props) {
           alt="Logo of the Logan Center for Urban Investigative Journalism"
         />
         <div>
-          <h1 className="relative">
-            <span className="block text-4xl font-bold">Logan Center</span>
-            <span className="absolute right-0">
-              For Urban Investigative Reporting
-            </span>
+          <h1 className="sr-only">
+            Logan Center For Urban Investigative Reporting
           </h1>
         </div>
         {/* <Image
