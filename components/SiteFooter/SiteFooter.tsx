@@ -15,7 +15,7 @@ export default function SiteFooter() {
     <>
       <div className="mb-8">
         <address className="not-italic leading-snug">
-          <p className="font-bold leading-tight mb-1">
+          <p className="mb-1 font-bold leading-tight">
             Klein College of Media and Communication
           </p>
           <p>Annenberg Hall</p>

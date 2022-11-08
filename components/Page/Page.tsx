@@ -52,7 +52,7 @@ export default function Page(props: Props) {
         )}
         <link rel="stylesheet" href="https://use.typekit.net/cwz8dss.css" />
       </Head>
-      <header className="px-5 py-3 md:pt-5 bg-slate-700 text-white">
+      <header className="bg-slate-700 px-5 py-3 text-white md:pt-5">
         <SiteHeader headerLink={props.headerLink} />
       </header>
       <hr />
@@ -63,7 +63,7 @@ export default function Page(props: Props) {
         </div>
       </main>
       <hr />
-      <footer className="bg-slate-700  p-10 md:pt-5 text-white">
+      <footer className="bg-slate-700  p-10 text-white md:pt-5">
         <SiteFooter />
       </footer>
     </>
