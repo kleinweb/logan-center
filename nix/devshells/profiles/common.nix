@@ -11,8 +11,13 @@
       category = "tools";
       package = pkgs.reuse;
     }
+    {
+      category = "deploy";
+      package = pkgs.flyctl;
+    }
   ];
   packages = with pkgs; [
+    cachix
     nodejs
   ];
   env = [];

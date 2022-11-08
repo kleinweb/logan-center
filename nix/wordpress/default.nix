@@ -9,18 +9,14 @@
   inherit (self) project;
   l = lib // builtins;
 in {
-  flake.devshellProfiles.wp-env = {pkgs, ...}: let
-    category = "wp-env";
+  flake.devshellProfiles.wordpress = {pkgs, ...}: let
+    category = "wordpress";
   in {
     commands = [
-      # TODO: automated init based on nextjs-go-skeleton docs
-      # {
-      #   inherit category;
-      #   name = "wp-env-up";
-      #   command = ''
-
-      #   '';
-      # }
+      {
+        inherit category;
+        package = pkgs.php81Packages.composer;
+      }
     ];
     env = [];
     packages = with pkgs; [docker docker-compose];
@@ -29,10 +25,8 @@ in {
   flake.nixagoFiles."wp-env" = {
     output = "apps/wordpress-app/.wp-env.json";
     configData = {
-      # FIXME: set to `null` after 6.1 release
-      # https://github.com/Automattic/vip-decoupled-bundle/pull/57#issuecomment-1202067748
-      core = "WordPress/WordPress#6.0.3";
-      phpVersion = "8.0";
+      # core = "WordPress/WordPress#6.0.3";
+      phpVersion = "8.1";
       # FIXME: handle with composer/nix for real dependency version management
       plugins = ["Automattic/vip-decoupled-bundle"];
       themes = [];
