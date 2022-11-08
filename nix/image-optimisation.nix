@@ -24,7 +24,7 @@ in {
     commands = [
       (cmd' "png" ''
         ${l.getExe oxipng} --opt 3 --strip safe \
-          $PRJ_ASSETS_DIR/logos/png/*.png
+          $PRJ_ASSETS_DIR/logos/*.png
       '')
       (cmd' "svg" ''
         ${l.getExe svgo} --folder $PRJ_ASSETS_DIR/icons
