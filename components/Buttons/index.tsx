@@ -84,7 +84,7 @@ export default function Button({
       className={clsx(
         [
           'inline-flex',
-          'py-1',
+          'py-0',
           'px-2',
           'font-bold',
           'uppercase',
