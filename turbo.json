@@ -1,10 +1,23 @@
 {
+  "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build": {
-      "outputs": [".next/**"]
+      "outputs": ["dist/**", ".next/**"],
+      "dependsOn": ["^build", "codegen"]
+    },
+    "codegen":{
+      "outputs": [ "./graphql/generated/**" ]
     },
     "lint": {
       "outputs": []
+    },
+    "test":{
+      "dependsOn": ["lint", "build"],
+      "outputs": [],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts"]
+    },
+    "dev": {
+      "cache": false
     }
   }
 }

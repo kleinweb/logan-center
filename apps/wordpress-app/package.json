@@ -1,0 +1,16 @@
+{
+  "name": "wordpress-app",
+  "private": true,
+  "version": "0.1.0",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "dev": "wp-env start"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@wordpress/env": "^5.6.0",
+    "ts-node": "^10.9.1",
+    "turbo": "^1.6.3",
+    "typescript": "^4.8.4"
+  }
+}

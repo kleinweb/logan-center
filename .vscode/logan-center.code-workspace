@@ -1,25 +1,38 @@
 {
   "folders": [
     {
+      "name": "project-root",
       "path": ".."
+    },
+    {
+      "name": "nextjs-app",
+      "path": "../apps/nextjs-app"
+    },
+    {
+      "name": "wordpress-app",
+      "path": "../apps/wordpress-app"
     }
   ],
   "settings": {
-  "search.exclude": {
-    "**/.yarn": true,
-    "**/.pnp.*": true
-  },
-  "eslint.nodePath": ".yarn/sdks",
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-  "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "files.associations": {
-    "*.css": "tailwindcss",
-    "dep5": "debian-copyright"
-  },
-  "editor.quickSuggestions": {
-    "strings": true
-  },
-  "tailwindCSS.emmetCompletions": true
+    "search.exclude": {
+      "**/.yarn": true,
+      "**/.pnp.*": true
+    },
+    "eslint.nodePath": ".yarn/sdks",
+    "eslint.workingDirectories": [
+      "./apps/nextjs-app",
+      "./apps/wordpress-app",
+    ],
+    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+    "typescript.tsdk": ".yarn/sdks/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "files.associations": {
+      "*.css": "tailwindcss",
+      "dep5": "debian-copyright"
+    },
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "tailwindCSS.emmetCompletions": true
   }
 }
