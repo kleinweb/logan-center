@@ -6,7 +6,9 @@
 import { ReactNode } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
-import Image from 'next/image'
+
+import LogoFull from '@/public/assets/logos/logo--full--duo.svg'
+import LogoMinimal from '@/public/assets/logos/logo--gfx--duo.svg'
 
 type Props = {
   headerLink?: ReactNode
@@ -25,39 +27,23 @@ const navItems = [
  */
 export default function SiteHeader(props: Props) {
   return (
-    <>
-      <div className="">
-        <Image
-          width={400}
-          height={70}
-          className="w-full"
-          // FIXME: this really should not be a PNG!
-          src="/assets/logos/logo--graphic--duo-light.png"
-          // FIXME: DRY up the site title -- typos are very dangerous here
-          alt="Logo of the Logan Center for Urban Investigative Journalism"
-        />
+    <div className="flex align-middle">
+      <Link href="/" className="grow block">
+        <LogoMinimal className="block min-[468px]:hidden" />
+        <LogoFull className="hidden min-[468px]:block max-h-16" />
         <div>
           <h1 className="sr-only">
             Logan Center For Urban Investigative Reporting
           </h1>
         </div>
-        {/* <Image
-          width="289"
-          height="108"
-
-          // FIXME: this really should not be a PNG!
-          src="/assets/logos/logo--full--duo-light.png"
-          // FIXME: DRY up the site title -- typos are very dangerous here
-          alt="Logo of the Logan Center for Urban Investigative Journalism"
-        /> */}
-      </div>
-      <nav className="mt-2 flex flex-col">
+      </Link>
+      <nav className="items-center flex">
         {navItems.map(([path, label]) => (
           <Link
             key={label}
             href={path}
             className={clsx(
-              'mb-2 -ml-2 py-1 px-2 uppercase',
+              'px-2 uppercase first:ml-2 last:-mr-2',
               // FIXME: this is a stand-in for the currently-active page -- disabled as a visual reminder
               // 'Home' === label && 'font-bold text-teal-500',
             )}
@@ -72,6 +58,6 @@ export default function SiteHeader(props: Props) {
           </>
         )}
       </nav>
-    </>
+    </div>
   )
 }
