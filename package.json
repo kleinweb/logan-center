@@ -57,6 +57,7 @@
     "@storybook/nextjs": "^7.0.0-alpha.48",
     "@storybook/react": "^7.0.0-alpha.48",
     "@storybook/testing-library": "^0.0.13",
+    "@svgr/webpack": "^6.5.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@types/ioredis": "^5.0.0",
