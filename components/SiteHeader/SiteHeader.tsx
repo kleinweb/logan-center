@@ -32,7 +32,7 @@ export default function SiteHeader(props: Props) {
           height={70}
           className="w-full"
           // FIXME: this really should not be a PNG!
-          src="/assets/logos/png/logo--graphic--duo-light.png"
+          src="/assets/logos/logo--graphic--duo-light.png"
           // FIXME: DRY up the site title -- typos are very dangerous here
           alt="Logo of the Logan Center for Urban Investigative Journalism"
         />
@@ -46,7 +46,7 @@ export default function SiteHeader(props: Props) {
           height="108"
 
           // FIXME: this really should not be a PNG!
-          src="/assets/logos/png/logo--full--duo-light.png"
+          src="/assets/logos/logo--full--duo-light.png"
           // FIXME: DRY up the site title -- typos are very dangerous here
           alt="Logo of the Logan Center for Urban Investigative Journalism"
         /> */}
