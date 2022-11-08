@@ -10,10 +10,10 @@
   "scripts": {
     "prepare": "husky install",
     "codegen": "graphql-codegen --config codegen.yml -r dotenv/config",
-    "watch": "concurrently --kill-others-on-fail -n w: 'yarn:watch:*'",
+    "dev": "turbo watch:codegen watch:next",
     "watch:codegen": "yarn codegen -- --watch",
     "watch:next": "next dev",
-    "watch-debug": "concurrently -n w: 'yarn:watch-debug:*'",
+    "watch-debug": "turbo watch-debug:next",
     "watch-debug:next": "NODE_OPTIONS='--inspect' next dev",
     "lint": "next lint --ignore-path .gitignore",
     "lint:fix": "next lint --fix --ignore-path .gitignore",
