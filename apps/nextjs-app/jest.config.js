@@ -13,7 +13,7 @@ const createJestConfig = nextJest({
 const customJestConfig = {
   moduleDirectories: ['node_modules', '<rootDir>/'],
   moduleNameMapper: {
-    '^@/(components|graphql|lib|pages|styles)/(.*)$': '<rootDir>/$1/$2',
+    '^@/(components|graphql|lib|pages|styles)/(.*)$': '<rootDir>/src/$1/$2',
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testEnvironment: 'jest-environment-jsdom',

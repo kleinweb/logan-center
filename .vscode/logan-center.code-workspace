@@ -5,12 +5,28 @@
       "path": ".."
     },
     {
-      "name": "nextjs-app",
+      "name": "apps/nextjs-app",
       "path": "../apps/nextjs-app"
     },
     {
-      "name": "wordpress-app",
+      "name": "apps/wordpress-app",
       "path": "../apps/wordpress-app"
+    },
+    {
+      "name": "packages/ui",
+      "path": "../packages/ui"
+    },
+    {
+      "name": "packages/tsconfig",
+      "path": "../packages/tsconfig"
+    },
+    {
+      "name": "packages/tailwind-config",
+      "path": "../packages/tailwind-config"
+    },
+    {
+      "name": "packages/eslint-config-custom",
+      "path": "../packages/eslint-config-custom"
     }
   ],
   "settings": {

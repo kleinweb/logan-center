@@ -1,7 +1,4 @@
-/graphql/generated
-
 ##: next.js
 .next/
-next-env.d.ts
 out/
 .vercel

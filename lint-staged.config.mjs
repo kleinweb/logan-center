@@ -10,7 +10,8 @@ const buildEslintCommand = (filenames) =>
     .join(' --file ')}`
 
 export default {
-  '*.{js,jsx,ts,tsx}': [buildEslintCommand],
-  '**/*.ts?(x)': () => 'tsc -p tsconfig.json --noEmit',
+  // FIXME: per-workspace
+  // '*.{js,jsx,ts,tsx}': [buildEslintCommand],
+  // '**/*.ts?(x)': () => 'tsc -p tsconfig.json --noEmit',
   '*': 'prettier --ignore-unknown --write',
 }
