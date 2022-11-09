@@ -2,10 +2,11 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import { Facebook, Icon, Instagram, Twitter } from 'ui'
+import Container from '../Container'
 
 export default function SiteFooter() {
   return (
-    <>
+    <Container>
       <div className="mb-8">
         <address className="not-italic leading-snug">
           <p className="mb-1 font-bold leading-tight">
@@ -46,6 +47,6 @@ export default function SiteFooter() {
           </a>
         </Icon>
       </div>
-    </>
+    </Container>
   )
 }

@@ -3,6 +3,8 @@
 
 import Layout from '@/components/Layout'
 import Post from '@/components/Post'
+import PostHeader from '@/components/Post/PostHeader'
+import { SITE_NAME } from '@/lib/constants'
 import PostType from '@/lib/interfaces/post'
 import Link from 'next/link'
 
@@ -23,6 +25,7 @@ const post: PostType = {
 export default function Podcast() {
   return (
     <Layout>
+      <PostHeader title={SITE_NAME} coverImage={post.coverImage} />
       <div>
         Back to <Link href="/">Home</Link>
       </div>

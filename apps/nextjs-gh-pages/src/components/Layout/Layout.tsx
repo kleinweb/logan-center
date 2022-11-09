@@ -2,33 +2,25 @@
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import { ReactNode } from 'react'
-import Head from 'next/head'
 
-import SiteHeader from '@/components/SiteHeader'
-import SiteFooter from '@/components/SiteFooter'
+import SiteHeader from '../SiteHeader'
+import SiteFooter from '../SiteFooter'
+import Meta from '../Meta'
 
 type Props = {
   children: ReactNode
-  title: string
 }
 
 export default function Layout(props: Props) {
   return (
     <>
-      <Head>
-        <title>{props.title}</title>
-        {/* FIXME: favicon (tu logo?) */}
-        {/* <link rel="icon" href="/favicon.ico" /> */}
-      </Head>
+      <Meta />
       <header className="bg-slate-700 px-5 py-3 text-white md:pt-5">
         <SiteHeader />
       </header>
-      <main className="block">
-        <div className="px-3">
-          <h1>{props.title}</h1>
-          {props.children}
-        </div>
-      </main>
+      <div className="min-h-screen">
+        <main className="block">{props.children}</main>
+      </div>
       <footer className="bg-slate-700 p-10 text-white md:pt-5">
         <SiteFooter />
       </footer>
