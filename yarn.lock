@@ -3493,7 +3493,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.11.9":
+"@types/node@npm:*, @types/node@npm:^18.11.5, @types/node@npm:^18.11.9":
   version: 18.11.9
   resolution: "@types/node@npm:18.11.9"
   checksum: 7b7d90894dd1ae9b6836e49ace5bdea55cc08806a508e38851e333f1ad77ec81ea6dca58e6a2444ad0471fee965b9908cc1ef06028eebca9c20d54729df98bab
@@ -3535,7 +3535,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.0.8":
+"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.0.7, @types/react-dom@npm:^18.0.8":
   version: 18.0.8
   resolution: "@types/react-dom@npm:18.0.8"
   dependencies:
@@ -3544,7 +3544,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.0.25":
+"@types/react@npm:*, @types/react@npm:^18.0.23, @types/react@npm:^18.0.25":
   version: 18.0.25
   resolution: "@types/react@npm:18.0.25"
   dependencies:
@@ -9691,7 +9691,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:^13.0.2":
+"next@npm:^13.0.2, next@npm:latest":
   version: 13.0.2
   resolution: "next@npm:13.0.2"
   dependencies:
@@ -9799,6 +9799,20 @@ __metadata:
     tsconfig: "workspace:*"
     typescript: "npm:^4.8.4"
     ui: "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"nextjs-gh-pages-0839bb@workspace:apps/nextjs-gh-pages":
+  version: 0.0.0-use.local
+  resolution: "nextjs-gh-pages-0839bb@workspace:apps/nextjs-gh-pages"
+  dependencies:
+    "@types/node": "npm:^18.11.5"
+    "@types/react": "npm:^18.0.23"
+    "@types/react-dom": "npm:^18.0.7"
+    next: "npm:latest"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+    typescript: "npm:^4.8.4"
   languageName: unknown
   linkType: soft
 
