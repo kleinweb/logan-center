@@ -52,7 +52,7 @@
       "./apps/wordpress-app"
     ],
     "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-    "typescript.tsdk": ".yarn/sdks/typescript/lib",
+    "typescript.tsdk": "project-root/.yarn/sdks/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "files.associations": {
       "*.css": "tailwindcss",
