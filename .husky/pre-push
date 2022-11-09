@@ -7,8 +7,4 @@
 
 reuse lint
 yarn turbo test
-
-# FIXME: the wp-env instance should not be necessary here, but until
-# there's a live environment, there's no other graphql endpoint
-yarn workspace wp-env wp-env start
-yarn turbo build
+yarn turbo lint
