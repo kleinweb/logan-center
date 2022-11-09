@@ -1,34 +1,38 @@
 <!--
-SPDX-FileCopyrightText: 2021 Automattic
 SPDX-FileCopyrightText: 2022 Temple University
-
-SPDX-License-Identifier: CC0-1.0 or MIT
+SPDX-License-Identifier: CC0-1.0
 -->
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with
-[`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Logan Center for Urban Investigative Reporting
+
+This web project is produced by the Digital Initiatives team at Temple
+University's Klein College of Media and Communication.
+
+In its initial stages, the project consists of a static Next.js site hosted on
+GitHub Pages from this repo.
+
+In the near future, the Next.js fronted will ingest content from WordPress.
 
 ## Getting Started
 
-First, run the development server:
+Work in progress.
+
+### Prerequisites
+
+- Nix
+- Docker Desktop
+- Direnv (recommended)
+
+### Initial Setup
 
 ```bash
-yarn run dev
+direnv allow
+yarn install
+yarn turbo build
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page
-auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello). This
-endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are
-treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead
-of React pages.
 
 ## Learn More
 
@@ -42,12 +46,9 @@ You can check out
 [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your
 feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Licenses
 
-The easiest way to deploy your Next.js app is to use the
-[Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-from the creators of Next.js.
+This project is primarily licensed under the GNU Public License version 3.0 or
+later, though some code is derived from other sources with other licenses.
 
-Check out our
-[Next.js deployment documentation](https://nextjs.org/docs/deployment) for more
-details.
+See [`./.reuse/dep5`](./.reuse/dep5) for detailed information.

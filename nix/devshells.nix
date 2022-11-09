@@ -4,7 +4,6 @@
   inherit (self) inputs project devshellProfiles;
   l = inputs.nixpkgs.lib // builtins;
 in {
-  imports = [./profiles];
   perSystem = {inputs', ...}: let
     inherit (inputs'.devshell.legacyPackages) mkShell;
   in {
@@ -12,5 +11,24 @@ in {
       inherit (project.meta) name;
       imports = l.attrValues devshellProfiles;
     };
+  };
+
+  flake.devshellProfiles.core = {pkgs, ...}: {
+    packages = with pkgs; [cachix nodejs];
+    env = [];
+    commands = [
+      {
+        category = "tools";
+        package = pkgs.nodePackages.yarn;
+      }
+      {
+        category = "tools";
+        package = pkgs.reuse;
+      }
+      {
+        category = "deploy";
+        package = pkgs.flyctl;
+      }
+    ];
   };
 }

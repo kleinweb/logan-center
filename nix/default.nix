@@ -5,13 +5,10 @@
   imports = [
     ./flake-modules
 
-    ./containers
-    ./devshells
     ./formatters
-    ./packages
-    ./templates
-    ./wordpress
 
+    ./devshells.nix
     ./image-optimisation.nix
+    ./wordpress.nix
   ];
 }
