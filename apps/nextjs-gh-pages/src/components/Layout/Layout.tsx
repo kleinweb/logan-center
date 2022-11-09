@@ -3,15 +3,16 @@
 
 import { ReactNode } from 'react'
 import Head from 'next/head'
-import SiteFooter from '@/components/SiteFooter/SiteFooter'
+
 import SiteHeader from '@/components/SiteHeader/SiteHeader'
+import SiteFooter from '@/components/SiteFooter/SiteFooter'
 
 type Props = {
   children: ReactNode
   title: string
 }
 
-export default function Page(props: Props) {
+export default function Layout(props: Props) {
   return (
     <>
       <Head>
