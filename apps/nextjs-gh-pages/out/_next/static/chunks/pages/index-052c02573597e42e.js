@@ -20,11 +20,11 @@
       var l,
         c,
         r,
-        t = e(9884),
-        s = e(7569),
-        m = e.n(s),
-        n = e(1320),
-        a = e.n(n),
+        m = e(9884),
+        t = e(7569),
+        n = e.n(t),
+        s = e(1320),
+        a = e.n(s),
         Z = e(2651),
         i = Object.defineProperty,
         o = Object.defineProperties,
@@ -32,7 +32,7 @@
         f = Object.getOwnPropertySymbols,
         x = Object.prototype.hasOwnProperty,
         V = Object.prototype.propertyIsEnumerable,
-        j = (h, v, e) =>
+        u = (h, v, e) =>
           v in h
             ? i(h, v, {
                 enumerable: !0,
@@ -41,12 +41,12 @@
                 value: e,
               })
             : (h[v] = e),
-        p = (h, v) => {
-          for (var e in v || (v = {})) x.call(v, e) && j(h, e, v[e])
-          if (f) for (var e of f(v)) V.call(v, e) && j(h, e, v[e])
+        j = (h, v) => {
+          for (var e in v || (v = {})) x.call(v, e) && u(h, e, v[e])
+          if (f) for (var e of f(v)) V.call(v, e) && u(h, e, v[e])
           return h
         },
-        u = (h, v) => o(h, d(v)),
+        p = (h, v) => o(h, d(v)),
         g = { Slate: 'slate', Teal: 'teal', Red: 'red' }
       g.Red, g.Slate, g.Teal, g.Red, g.Slate, g.Teal, g.Red, g.Slate, g.Teal
       var b = {}
@@ -56,8 +56,8 @@
         ChevronDown: () => _,
         ChevronLeft: () => H,
         ChevronRight: () => N,
-        ChevronUp: () => k,
-        Facebook: () => M,
+        ChevronUp: () => M,
+        Facebook: () => k,
         Instagram: () => O,
         Mail: () => E,
         Twitter: () => C,
@@ -73,36 +73,36 @@
           strokeWidth: 2,
         },
         y = (h) =>
-          (0, t.jsx)(
+          (0, m.jsx)(
             'svg',
-            u(p({ className: 'inline-flex' }, w), { children: h.children }),
+            p(j({ className: 'inline-flex' }, w), { children: h.children }),
           ),
         _ = () =>
-          (0, t.jsx)(y, {
-            children: (0, t.jsx)('path', { d: 'm6 9 6 6 6-6' }),
+          (0, m.jsx)(y, {
+            children: (0, m.jsx)('path', { d: 'm6 9 6 6 6-6' }),
           }),
         H = () =>
-          (0, t.jsx)(y, {
-            children: (0, t.jsx)('path', { d: 'm15 18-6-6 6-6' }),
+          (0, m.jsx)(y, {
+            children: (0, m.jsx)('path', { d: 'm15 18-6-6 6-6' }),
           }),
         N = () =>
-          (0, t.jsx)(y, {
-            children: (0, t.jsx)('path', { d: 'm9 18 6-6-6-6' }),
-          }),
-        k = () =>
-          (0, t.jsx)(y, {
-            children: (0, t.jsx)('path', { d: 'm18 15-6-6-6 6' }),
+          (0, m.jsx)(y, {
+            children: (0, m.jsx)('path', { d: 'm9 18 6-6-6-6' }),
           }),
         M = () =>
-          (0, t.jsx)(y, {
-            children: (0, t.jsx)('path', {
+          (0, m.jsx)(y, {
+            children: (0, m.jsx)('path', { d: 'm18 15-6-6-6 6' }),
+          }),
+        k = () =>
+          (0, m.jsx)(y, {
+            children: (0, m.jsx)('path', {
               d: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z',
             }),
           }),
         O = () =>
-          (0, t.jsxs)(y, {
+          (0, m.jsxs)(y, {
             children: [
-              (0, t.jsx)('rect', {
+              (0, m.jsx)('rect', {
                 x: '2',
                 y: '2',
                 width: '20',
@@ -110,90 +110,90 @@
                 rx: '5',
                 ry: '5',
               }),
-              (0, t.jsx)('path', {
+              (0, m.jsx)('path', {
                 d: 'M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01',
               }),
             ],
           }),
         E = () =>
-          (0, t.jsxs)(y, {
+          (0, m.jsxs)(y, {
             children: [
-              (0, t.jsx)('rect', {
+              (0, m.jsx)('rect', {
                 x: '2',
                 y: '4',
                 width: '20',
                 height: '16',
                 rx: '2',
               }),
-              (0, t.jsx)('path', {
+              (0, m.jsx)('path', {
                 d: 'm22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7',
               }),
             ],
           }),
         C = () =>
-          (0, t.jsx)(y, {
-            children: (0, t.jsx)('path', {
+          (0, m.jsx)(y, {
+            children: (0, m.jsx)('path', {
               d: 'M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z',
             }),
           })
       function F({ children: h, label: v }) {
         let e = Z.Children.only(h)
-        return (0, t.jsxs)(t.Fragment, {
+        return (0, m.jsxs)(m.Fragment, {
           children: [
             Z.cloneElement(e, { 'aria-hidden': 'true', focusable: 'false' }),
-            (0, t.jsx)('span', { className: 'sr-only', children: v }),
+            (0, m.jsx)('span', { className: 'sr-only', children: v }),
           ],
         })
       }
       function P() {
-        return (0, t.jsxs)(t.Fragment, {
+        return (0, m.jsxs)(m.Fragment, {
           children: [
-            (0, t.jsx)('div', {
+            (0, m.jsx)('div', {
               className: 'mb-8',
-              children: (0, t.jsxs)('address', {
+              children: (0, m.jsxs)('address', {
                 className: 'not-italic leading-snug',
                 children: [
-                  (0, t.jsx)('p', {
+                  (0, m.jsx)('p', {
                     className: 'mb-1 font-bold leading-tight',
                     children: 'Klein College of Media and Communication',
                   }),
-                  (0, t.jsx)('p', { children: 'Annenberg Hall' }),
-                  (0, t.jsx)('p', { children: '2020 N. 13th St.' }),
-                  (0, t.jsx)('p', { children: 'Philadelphia, PA 19122' }),
+                  (0, m.jsx)('p', { children: 'Annenberg Hall' }),
+                  (0, m.jsx)('p', { children: '2020 N. 13th St.' }),
+                  (0, m.jsx)('p', { children: 'Philadelphia, PA 19122' }),
                 ],
               }),
             }),
-            (0, t.jsx)('hr', {
+            (0, m.jsx)('hr', {
               className: 'my-5 mb-8 block border-neutral-500',
             }),
-            (0, t.jsxs)('div', {
+            (0, m.jsxs)('div', {
               className: 'flex justify-center',
               children: [
-                (0, t.jsx)(F, {
+                (0, m.jsx)(F, {
                   label: 'Follow us on Twitter',
-                  children: (0, t.jsx)('a', {
+                  children: (0, m.jsx)('a', {
                     href: 'https://twitter.com/TULoganCenter',
                     target: '_blank',
                     rel: 'noreferrer',
-                    children: (0, t.jsx)(C, {}),
+                    children: (0, m.jsx)(C, {}),
                   }),
                 }),
-                (0, t.jsx)(F, {
+                (0, m.jsx)(F, {
                   label: 'Follow us on Facebook',
-                  children: (0, t.jsx)('a', {
+                  children: (0, m.jsx)('a', {
                     href: 'https://www.facebook.com/tulogancenter/',
                     target: '_blank',
                     rel: 'noreferrer',
-                    children: (0, t.jsx)(M, {}),
+                    children: (0, m.jsx)(k, {}),
                   }),
                 }),
-                (0, t.jsx)(F, {
+                (0, m.jsx)(F, {
                   label: 'Follow us on Instagram',
-                  children: (0, t.jsx)('a', {
+                  children: (0, m.jsx)('a', {
                     href: 'https://www.facebook.com/tulogancenter/',
                     target: '_blank',
                     rel: 'noreferrer',
-                    children: (0, t.jsx)(O, {}),
+                    children: (0, m.jsx)(O, {}),
                   }),
                 }),
               ],
@@ -201,7 +201,7 @@
           ],
         })
       }
-      p({}, b)
+      j({}, b)
       var R = function () {
         for (var h, v, e = 0, l = ''; e < arguments.length; )
           (h = arguments[e++]) &&
@@ -309,31 +309,31 @@
         ['/podcast', 'Podcast'],
       ]
       function S() {
-        return (0, t.jsxs)('div', {
+        return (0, m.jsxs)('div', {
           className: 'flex align-middle',
           children: [
-            (0, t.jsxs)(m(), {
+            (0, m.jsxs)(n(), {
               href: '/',
               className: 'grow block',
               children: [
-                (0, t.jsx)(U, { className: 'block min-[468px]:hidden' }),
-                (0, t.jsx)(I, {
+                (0, m.jsx)(U, { className: 'block min-[468px]:hidden' }),
+                (0, m.jsx)(I, {
                   className: 'hidden min-[468px]:block max-h-16',
                 }),
-                (0, t.jsx)('div', {
-                  children: (0, t.jsx)('h1', {
+                (0, m.jsx)('div', {
+                  children: (0, m.jsx)('h1', {
                     className: 'sr-only',
                     children: 'Logan Center For Urban Investigative Reporting',
                   }),
                 }),
               ],
             }),
-            (0, t.jsx)('nav', {
+            (0, m.jsx)('nav', {
               className: 'items-center flex',
               children: A.map((h) => {
                 let [v, e] = h
-                return (0, t.jsx)(
-                  m(),
+                return (0, m.jsx)(
+                  n(),
                   {
                     href: v,
                     className: R('px-2 uppercase first:ml-2 last:-mr-2'),
@@ -347,44 +347,36 @@
         })
       }
       function z(h) {
-        return (0, t.jsxs)(t.Fragment, {
+        return (0, m.jsxs)(m.Fragment, {
           children: [
-            (0, t.jsxs)(a(), {
-              children: [
-                (0, t.jsx)('title', { children: h.title }),
-                (0, t.jsx)('link', {
-                  rel: 'stylesheet',
-                  href: 'https://use.typekit.net/cwz8dss.css',
-                }),
-              ],
+            (0, m.jsx)(a(), {
+              children: (0, m.jsx)('title', { children: h.title }),
             }),
-            (0, t.jsx)('header', {
+            (0, m.jsx)('header', {
               className: 'bg-slate-700 px-5 py-3 text-white md:pt-5',
-              children: (0, t.jsx)(S, {}),
+              children: (0, m.jsx)(S, {}),
             }),
-            (0, t.jsx)('hr', {}),
-            (0, t.jsx)('main', {
+            (0, m.jsx)('main', {
               className: 'block',
-              children: (0, t.jsxs)('div', {
+              children: (0, m.jsxs)('div', {
                 className: 'px-3',
-                children: [(0, t.jsx)('h1', { children: h.title }), h.children],
+                children: [(0, m.jsx)('h1', { children: h.title }), h.children],
               }),
             }),
-            (0, t.jsx)('hr', {}),
-            (0, t.jsx)('footer', {
+            (0, m.jsx)('footer', {
               className: 'bg-slate-700 p-10 text-white md:pt-5',
-              children: (0, t.jsx)(P, {}),
+              children: (0, m.jsx)(P, {}),
             }),
           ],
         })
       }
       function B() {
-        return (0, t.jsx)(z, {
+        return (0, m.jsx)(z, {
           title: 'Logan Center for Urban Investigative Reporting',
-          children: (0, t.jsxs)('div', {
+          children: (0, m.jsxs)('div', {
             children: [
               'Hello World. ',
-              (0, t.jsx)(m(), { href: '/about', children: 'About' }),
+              (0, m.jsx)(n(), { href: '/about', children: 'About' }),
             ],
           }),
         })
@@ -395,7 +387,7 @@
     },
   },
   function (h) {
-    h.O(0, [774, 569, 888, 179], function () {
+    h.O(0, [569, 774, 888, 179], function () {
       return h((h.s = 8024))
     }),
       (_N_E = h.O())

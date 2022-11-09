@@ -50,6 +50,7 @@ export default function Page(props: Props) {
             type="application/rss+xml"
           />
         )}
+        {/* FIXME: this needs to go elsewhere -- see https://nextjs.org/docs/messages/no-stylesheets-in-head-component */}
         <link rel="stylesheet" href="https://use.typekit.net/cwz8dss.css" />
       </Head>
       <header className="bg-slate-700 px-5 py-3 text-white md:pt-5">

@@ -3493,7 +3493,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.11.5, @types/node@npm:^18.11.9":
+"@types/node@npm:*, @types/node@npm:^18.11.9":
   version: 18.11.9
   resolution: "@types/node@npm:18.11.9"
   checksum: 7b7d90894dd1ae9b6836e49ace5bdea55cc08806a508e38851e333f1ad77ec81ea6dca58e6a2444ad0471fee965b9908cc1ef06028eebca9c20d54729df98bab
@@ -3535,7 +3535,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.0.7, @types/react-dom@npm:^18.0.8":
+"@types/react-dom@npm:^18.0.0, @types/react-dom@npm:^18.0.8":
   version: 18.0.8
   resolution: "@types/react-dom@npm:18.0.8"
   dependencies:
@@ -3544,7 +3544,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.0.23, @types/react@npm:^18.0.25":
+"@types/react@npm:*, @types/react@npm:^18.0.25":
   version: 18.0.25
   resolution: "@types/react@npm:18.0.25"
   dependencies:
@@ -9691,7 +9691,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:^13.0.2, next@npm:latest":
+"next@npm:^13.0.2":
   version: 13.0.2
   resolution: "next@npm:13.0.2"
   dependencies:
@@ -9802,17 +9802,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"nextjs-gh-pages-0839bb@workspace:apps/nextjs-gh-pages":
+"nextjs-gh-pages@workspace:apps/nextjs-gh-pages":
   version: 0.0.0-use.local
-  resolution: "nextjs-gh-pages-0839bb@workspace:apps/nextjs-gh-pages"
+  resolution: "nextjs-gh-pages@workspace:apps/nextjs-gh-pages"
   dependencies:
-    "@types/node": "npm:^18.11.5"
-    "@types/react": "npm:^18.0.23"
-    "@types/react-dom": "npm:^18.0.7"
-    next: "npm:latest"
+    "@svgr/webpack": "npm:^6.5.1"
+    "@types/node": "npm:^18.11.9"
+    "@types/react": "npm:^18.0.25"
+    "@types/react-dom": "npm:^18.0.8"
+    "@typescript-eslint/eslint-plugin": "npm:^5.42.1"
+    "@typescript-eslint/parser": "npm:^5.42.1"
+    autoprefixer: "npm:^10.4.13"
+    clsx: "npm:^1.2.1"
+    eslint: "npm:^8.27.0"
+    eslint-config-custom: "workspace:*"
+    eslint-plugin-tailwindcss: "npm:^3.6.2"
+    next: "npm:^13.0.2"
+    postcss: "npm:^8.4.18"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
+    tailwind-config: "workspace:*"
+    tailwindcss: "npm:^3.2.2"
+    tsconfig: "workspace:*"
     typescript: "npm:^4.8.4"
+    ui: "workspace:*"
   languageName: unknown
   linkType: soft
 

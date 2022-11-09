@@ -1,33 +1,33 @@
 ;(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
-  [521],
+  [906],
   {
-    3440: function (n, u, i) {
+    6357: function (n, c, i) {
       ;(window.__NEXT_P = window.__NEXT_P || []).push([
-        '/about',
+        '/podcast',
         function () {
-          return i(2265)
+          return i(4128)
         },
       ])
     },
-    2265: function (n, u, i) {
+    4128: function (n, c, i) {
       'use strict'
-      i.r(u),
-        i.d(u, {
+      i.r(c),
+        i.d(c, {
           default: function () {
-            return c
+            return r
           },
         })
       var t = i(9884),
-        e = i(7569),
-        r = i.n(e)
-      function c() {
+        u = i(7569),
+        e = i.n(u)
+      function r() {
         return (0, t.jsxs)('div', {
           children: [
-            (0, t.jsx)('div', { children: 'About' }),
+            (0, t.jsx)('div', { children: 'Podcast' }),
             (0, t.jsxs)('div', {
               children: [
                 'Back to ',
-                (0, t.jsx)(r(), { href: '/', children: 'Home' }),
+                (0, t.jsx)(e(), { href: '/', children: 'Home' }),
               ],
             }),
           ],
@@ -36,8 +36,8 @@
     },
   },
   function (n) {
-    n.O(0, [774, 569, 888, 179], function () {
-      return n((n.s = 3440))
+    n.O(0, [569, 774, 888, 179], function () {
+      return n((n.s = 6357))
     }),
       (_N_E = n.O())
   },
