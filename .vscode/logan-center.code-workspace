@@ -1,8 +1,8 @@
 {
   "folders": [
     {
-      "name": "project-root",
-      "path": ".."
+      "name": "apps/nextjs-gh-pages",
+      "path": "../apps/nextjs-gh-pages"
     },
     {
       "name": "apps/nextjs-app",
@@ -13,35 +13,46 @@
       "path": "../apps/wordpress-app"
     },
     {
-      "name": "apps/wp-env",
-      "path": "../apps/wp-env"
-    },
-    {
       "name": "packages/ui",
       "path": "../packages/ui"
-    },
-    {
-      "name": "packages/tsconfig",
-      "path": "../packages/tsconfig"
     },
     {
       "name": "packages/tailwind-config",
       "path": "../packages/tailwind-config"
     },
     {
+      "name": "packages/tsconfig",
+      "path": "../packages/tsconfig"
+    },
+    {
       "name": "packages/eslint-config-custom",
       "path": "../packages/eslint-config-custom"
+    },
+    {
+      "name": "apps/wp-env",
+      "path": "../apps/wp-env"
+    },
+    {
+      "name": "project-root",
+      "path": ".."
     }
   ],
   "settings": {
     "search.exclude": {
+      "**/.next": true,
+      "**/.pnp.*": true,
       "**/.yarn": true,
-      "**/.pnp.*": true
+      "**/build": true,
+      "**/out": true
     },
     "eslint.nodePath": ".yarn/sdks",
-    "eslint.workingDirectories": ["./apps/nextjs-app", "./apps/wordpress-app"],
+    "eslint.workingDirectories": [
+      "./apps/nextjs-app",
+      "./apps/nextjs-gh-pages",
+      "./apps/wordpress-app"
+    ],
     "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-    "typescript.tsdk": ".yarn/sdks/typescript/lib",
+    "typescript.tsdk": "project-root/.yarn/sdks/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "files.associations": {
       "*.css": "tailwindcss",
