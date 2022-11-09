@@ -4,8 +4,8 @@
 import { ReactNode } from 'react'
 import Head from 'next/head'
 
-import SiteHeader from '@/components/SiteHeader/SiteHeader'
-import SiteFooter from '@/components/SiteFooter/SiteFooter'
+import SiteHeader from '@/components/SiteHeader'
+import SiteFooter from '@/components/SiteFooter'
 
 type Props = {
   children: ReactNode
