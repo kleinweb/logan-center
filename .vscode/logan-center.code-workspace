@@ -39,8 +39,11 @@
   ],
   "settings": {
     "search.exclude": {
+      "**/.next": true,
+      "**/.pnp.*": true,
       "**/.yarn": true,
-      "**/.pnp.*": true
+      "**/build": true,
+      "**/out": true
     },
     "eslint.nodePath": ".yarn/sdks",
     "eslint.workingDirectories": [

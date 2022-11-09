@@ -55,6 +55,11 @@ tmp/
 ##: javascript/typescript
 *.tsbuildinfo
 
+##: next.js
+.next/
+.next-env.d.ts
+.vercel
+
 # nixago: ignore-linked-files
 apps/wp-env/.wp-env.json
 kleinweb.config.json
