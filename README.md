@@ -31,6 +31,13 @@ yarn install
 yarn turbo build
 ```
 
+### Development
+
+```sh
+# yarn turbo dev
+yarn workspace nextjs-gh-pages dev
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 result.
 
@@ -48,7 +55,9 @@ feedback and contributions are welcome!
 
 ## Licenses
 
-This project is primarily licensed under the GNU Public License version 3.0 or
-later, though some code is derived from other sources with other licenses.
+This project is primarily licensed under the GNU General Public License version
+3.0 or later, though some code is derived from other sources with other
+licenses.
 
-See [`./.reuse/dep5`](./.reuse/dep5) for detailed information.
+See [`./.reuse/dep5`](./.reuse/dep5) and [`./LICENSES`](./LICENSES/) for
+detailed information.
