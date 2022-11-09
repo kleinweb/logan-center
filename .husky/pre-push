@@ -5,9 +5,7 @@
 # shellcheck disable=1091
 . "$(dirname -- "$0")/_/husky.sh"
 
-# FIXME
-# reuse lint
-
+reuse lint
 yarn turbo test
 
 # FIXME: the wp-env instance should not be necessary here, but until
