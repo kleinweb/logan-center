@@ -9,7 +9,7 @@
   l = lib // builtins;
 in {
   flake.devshellProfiles.image-optimisation = {pkgs, ...}: let
-    inherit (pkgs) jpegoptim oxipng;
+    inherit (pkgs) fd jpegoptim oxipng;
     inherit (pkgs.nodePackages) svgo;
     category = "tools";
     withCategory = attrs: attrs // {inherit category;};
@@ -20,15 +20,16 @@ in {
       help = "run ${type} image optimisations";
     });
     export = name: eval: {inherit name eval;};
+    findAll = ext: "${l.getExe fd} --type f --extension ${ext} . $PRJ_ASSETS_DIR";
+    execAll = ext: cmd: "${findAll ext} --exec-batch ${cmd} {}";
+    execEach = ext: cmd: "${findAll ext} --exec ${cmd} {}";
   in {
     commands = [
       (cmd' "png" ''
-        ${l.getExe oxipng} --opt 3 --strip safe \
-          $PRJ_ASSETS_DIR/logos/*.png
+        ${execAll "png" "${l.getExe oxipng} --opt 3 --strip safe"}
       '')
       (cmd' "svg" ''
-        ${l.getExe svgo} --folder $PRJ_ASSETS_DIR/icons
-        ${l.getExe svgo} --folder $PRJ_ASSETS_DIR/logos
+        ${execEach "svg" (l.getExe svgo)}
       '')
     ];
     env = [
