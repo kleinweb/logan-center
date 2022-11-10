@@ -3,7 +3,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build", "^codegen"],
-      "outputs": ["dist/**", ".next/**", "build/**"]
+      "outputs": ["dist/**", ".next/**", "build/**", "out/**"]
     },
     "codegen": {
       "outputs": ["graphql/generated/**"]
