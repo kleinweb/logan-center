@@ -3897,6 +3897,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@yarnpkg/core@npm:^4.0.0-rc.28":
+  version: 4.0.0-rc.28
+  resolution: "@yarnpkg/core@npm:4.0.0-rc.28"
+  dependencies:
+    "@arcanis/slice-ansi": "npm:^1.1.1"
+    "@types/semver": "npm:^7.1.0"
+    "@types/treeify": "npm:^1.0.0"
+    "@yarnpkg/fslib": "npm:^3.0.0-rc.28"
+    "@yarnpkg/libzip": "npm:^3.0.0-rc.28"
+    "@yarnpkg/parsers": "npm:^3.0.0-rc.28"
+    "@yarnpkg/shell": "npm:^4.0.0-rc.28"
+    camelcase: "npm:^5.3.1"
+    chalk: "npm:^3.0.0"
+    ci-info: "npm:^3.2.0"
+    clipanion: "npm:^3.2.0-rc.10"
+    cross-spawn: "npm:7.0.3"
+    diff: "npm:^5.1.0"
+    globby: "npm:^11.0.1"
+    got: "npm:^11.7.0"
+    lodash: "npm:^4.17.15"
+    micromatch: "npm:^4.0.2"
+    p-limit: "npm:^2.2.0"
+    semver: "npm:^7.1.2"
+    strip-ansi: "npm:^6.0.0"
+    tar: "npm:^6.0.5"
+    tinylogic: "npm:^2.0.0"
+    treeify: "npm:^1.1.0"
+    tslib: "npm:^2.4.0"
+    tunnel: "npm:^0.0.6"
+  checksum: 5420d28b7757cb7ad46347f1da80cd03cf0811d68d14ce4e1dc4e41534cd36353d1261afa8f097e2a4001f1a50b101f88bfe589de3b7f6cf3d2cdd4f15ffbdfa
+  languageName: node
+  linkType: hard
+
 "@yarnpkg/fslib@npm:^3.0.0-rc.27":
   version: 3.0.0-rc.27
   resolution: "@yarnpkg/fslib@npm:3.0.0-rc.27"
