@@ -20,11 +20,6 @@ export default function SiteHeader() {
         <Link href="/" className="grow block">
           <LogoMinimal className="block min-[468px]:hidden" />
           <LogoFull className="hidden min-[468px]:block max-h-16" />
-          <div>
-            <h1 className="sr-only">
-              Logan Center For Urban Investigative Reporting
-            </h1>
-          </div>
         </Link>
         <nav className="items-center flex">
           {navItems.map(([path, label]) => (
