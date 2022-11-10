@@ -14,4 +14,12 @@ module.exports = {
     // https://github.com/typescript-eslint/typescript-eslint/issues/131
     'no-undef': 0,
   },
+  overrides: [
+    {
+      files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+      rules: {
+        'import/no-anonymous-default-export': 'off',
+      },
+    },
+  ],
 }

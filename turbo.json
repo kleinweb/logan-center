@@ -3,13 +3,18 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build", "^codegen"],
-      "outputs": ["dist/**", ".next/**", "build/**"]
+      "outputs": ["dist/**", ".next/**", "build/**", "out/**"]
     },
     "codegen": {
       "outputs": ["graphql/generated/**"]
     },
-    "lint": {
+    "type-check": {
       "dependsOn": ["^build"],
+      "inputs": ["*.tsx", "*.ts"],
+      "outputs": []
+    },
+    "lint": {
+      "dependsOn": ["^type-check", "^build"],
       "outputs": []
     },
     "test": {
