@@ -3,7 +3,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { Facebook, Icon, Instagram, Twitter } from 'ui'
+import { Twitter, Facebook, Instagram } from 'lucide-react'
+
+import { Icon } from 'ui'
 
 /**
  * Server-side data loading must take place in pages. If you need to load data

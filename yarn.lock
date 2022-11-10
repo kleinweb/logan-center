@@ -9289,6 +9289,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lucide-react@npm:^0.99.0":
+  version: 0.99.0
+  resolution: "lucide-react@npm:0.99.0"
+  peerDependencies:
+    prop-types: ^15.7.2
+    react: ^16.5.1 || ^17.0.0 || ^18.0.0
+  checksum: 69201ad718a0f54d04364f18c352b0e89e2db7e1006d7eff41cd19fe471145b7825a283a742eac8ce6d13fbe8b59daa67a179cd37550387712d5982ea3d34535
+  languageName: node
+  linkType: hard
+
 "lz-string@npm:^1.4.4":
   version: 1.4.4
   resolution: "lz-string@npm:1.4.4"
@@ -9783,6 +9793,7 @@ __metadata:
     ioredis: "npm:^5.2.4"
     jest: "npm:^29.3.0"
     jest-environment-jsdom: "npm:^29.3.0"
+    lucide-react: "npm:^0.99.0"
     next: "npm:^13.0.2"
     postcss: "npm:^8.4.18"
     react: "npm:^18.2.0"
@@ -9812,6 +9823,7 @@ __metadata:
     eslint: "npm:^8.27.0"
     eslint-config-custom: "workspace:*"
     eslint-plugin-tailwindcss: "npm:^3.6.2"
+    lucide-react: "npm:^0.99.0"
     next: "npm:^13.0.2"
     postcss: "npm:^8.4.18"
     react: "npm:^18.2.0"
@@ -12499,6 +12511,7 @@ __metadata:
     eslint: "npm:^8.0.0"
     eslint-config-custom: "workspace:*"
     eslint-plugin-tailwindcss: "npm:^3.6.2"
+    lucide-react: "npm:^0.99.0"
     next: "npm:^13.0.2"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"

@@ -1,8 +1,8 @@
 // SPDX-FileCopyrightText: 2022 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import { Facebook, Icon, Instagram, Twitter } from 'ui'
 import Container from '../Container'
+import SocialIcons from './SocialIcons'
 
 export default function SiteFooter() {
   return (
@@ -19,33 +19,7 @@ export default function SiteFooter() {
       </div>
       <hr className="my-5 mb-8 block border-neutral-500" />
       <div className="flex justify-center">
-        <Icon label="Follow us on Twitter">
-          <a
-            href="https://twitter.com/TULoganCenter"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Twitter />
-          </a>
-        </Icon>
-        <Icon label="Follow us on Facebook">
-          <a
-            href="https://www.facebook.com/tulogancenter/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Facebook />
-          </a>
-        </Icon>
-        <Icon label="Follow us on Instagram">
-          <a
-            href="https://www.facebook.com/tulogancenter/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Instagram />
-          </a>
-        </Icon>
+        <SocialIcons />
       </div>
     </Container>
   )

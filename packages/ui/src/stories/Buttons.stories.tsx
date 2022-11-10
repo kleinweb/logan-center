@@ -2,8 +2,10 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+import { ChevronRight } from 'lucide-react'
+
 import Button, { VARIANTS } from '@/components/Buttons'
-import { ChevronRight, Icon } from '@/components/Icons'
+import { Icon } from '@/components/Icons'
 
 export default {
   title: 'Atoms/Buttons',
