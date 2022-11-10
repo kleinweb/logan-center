@@ -10817,7 +10817,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -12709,6 +12709,7 @@ __metadata:
     concurrently: "npm:^7.2.2"
     eslint: "npm:^7.32.0"
     eslint-config-custom: "workspace:*"
+    eslint-plugin-tailwindcss: "npm:^3.6.2"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     rimraf: "npm:^3.0.2"
