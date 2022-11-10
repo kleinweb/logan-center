@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build && next export",
     "deploy": "next build && touch out/.nojekyll && git add out/ && git commit -m \"ci(gh-pages): deploy\" && git subtree push --prefix out origin gh-pages",
-    "lint": "next lint",
+    "lint": "yarn lint:types && next lint",
     "lint:types": "tsc --noEmit"
   },
   "dependencies": {
