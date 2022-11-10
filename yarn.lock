@@ -3388,6 +3388,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/gtag.js@npm:^0.0.12":
+  version: 0.0.12
+  resolution: "@types/gtag.js@npm:0.0.12"
+  checksum: 7bc22c6467ff742edc5358dd8747980dc372b327dda86f2d46bd189e3db0d5376b71d95c955fc5cef749bbe64579b444b6ce86d014b4cae563aaa9a7e931e9cf
+  languageName: node
+  linkType: hard
+
 "@types/http-cache-semantics@npm:*":
   version: 4.0.1
   resolution: "@types/http-cache-semantics@npm:4.0.1"
@@ -9969,6 +9976,7 @@ __metadata:
   resolution: "nextjs-gh-pages@workspace:apps/nextjs-gh-pages"
   dependencies:
     "@svgr/webpack": "npm:^6.5.1"
+    "@types/gtag.js": "npm:^0.0.12"
     "@types/node": "npm:^18.11.9"
     "@types/react": "npm:^18.0.25"
     "@types/react-dom": "npm:^18.0.8"

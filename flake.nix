@@ -38,7 +38,11 @@
       };
       flake.nixagoFiles."kleinweb-config-json" = {
         output = "kleinweb.config.json";
-        configData = self.project.meta;
+        configData =
+          self.project.meta
+          // {
+            gaId = "G-XGLD9S5QW3";
+          };
       };
     };
 
