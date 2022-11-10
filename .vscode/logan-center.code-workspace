@@ -5,16 +5,16 @@
       "path": "../apps/nextjs-gh-pages"
     },
     {
+      "name": "packages/ui",
+      "path": "../packages/ui"
+    },
+    {
       "name": "apps/nextjs-app",
       "path": "../apps/nextjs-app"
     },
     {
       "name": "apps/wordpress-app",
       "path": "../apps/wordpress-app"
-    },
-    {
-      "name": "packages/ui",
-      "path": "../packages/ui"
     },
     {
       "name": "packages/tailwind-config",
@@ -46,12 +46,8 @@
       "**/out": true
     },
     "eslint.nodePath": ".yarn/sdks",
-    "eslint.workingDirectories": [
-      "./apps/nextjs-app",
-      "./apps/nextjs-gh-pages",
-      "./apps/wordpress-app"
-    ],
-    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+    "eslint.workingDirectories": ["./packages/*", "./apps/*"],
+    "prettier.prettierPath": "project-root/.yarn/sdks/prettier/index.js",
     "typescript.tsdk": "project-root/.yarn/sdks/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "files.associations": {
@@ -61,6 +57,9 @@
     "editor.quickSuggestions": {
       "strings": true
     },
-    "tailwindCSS.emmetCompletions": true
+    "tailwindCSS.emmetCompletions": true,
+    "eslint.packageManager": "yarn",
+    "npm.packageManager": "yarn",
+    "stylelint.packageManager": "yarn"
   }
 }

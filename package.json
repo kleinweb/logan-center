@@ -37,6 +37,7 @@
     "apps/*"
   ],
   "dependencies": {
+    "@yarnpkg/pnpify": "^4.0.0-rc.28",
     "@yarnpkg/sdks": "^3.0.0-rc.27",
     "dotenv-cli": "^6.0.0",
     "graphql": "^16.6.0",
