@@ -27,6 +27,7 @@ in {
     commands = [
       (cmd' "jpeg" ''
         ${execAll "jpeg" "${l.getExe jpegoptim} --strip-all"}
+        ${execAll "jpg" "${l.getExe jpegoptim} --strip-all"}
       '')
       (cmd' "png" ''
         ${execAll "png" "${l.getExe oxipng} --opt 3 --strip safe"}
