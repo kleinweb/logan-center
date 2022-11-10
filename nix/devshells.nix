@@ -26,6 +26,10 @@ in {
         package = pkgs.reuse;
       }
       {
+        category = "tools";
+        package = pkgs.pastel;
+      }
+      {
         category = "deploy";
         package = pkgs.flyctl;
       }
