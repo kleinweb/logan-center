@@ -7,9 +7,9 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
+    "type-check": "tsc --noEmit",
     "start": "next start",
-    "test": "jest",
-    "lint:types": "tsc --noEmit"
+    "test": "jest"
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",

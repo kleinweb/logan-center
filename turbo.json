@@ -8,8 +8,13 @@
     "codegen": {
       "outputs": ["graphql/generated/**"]
     },
-    "lint": {
+    "type-check": {
       "dependsOn": ["^build"],
+      "inputs": ["*.tsx", "*.ts"],
+      "outputs": []
+    },
+    "lint": {
+      "dependsOn": ["^type-check", "^build"],
       "outputs": []
     },
     "test": {
