@@ -14,7 +14,7 @@ in {
   };
 
   flake.devshellProfiles.core = {pkgs, ...}: {
-    packages = with pkgs; [cachix nodejs];
+    packages = with pkgs; [cachix fd nodejs ripgrep];
     env = [];
     commands = [
       {
