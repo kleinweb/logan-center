@@ -2,24 +2,35 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import { PageTitle } from '@/components/Headings'
 import {
-  allIcons,
-  Icon,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
   ChevronUp,
   Facebook,
   Instagram,
-  Mail,
   Twitter,
-} from '@/components/Icons'
+  Mail,
+} from 'lucide-react'
+
+import { PageTitle } from '@/components/Headings'
+import { Icon } from '@/components/Icons'
 import { ReactNode } from 'react'
 
 export default {
   title: 'Atoms/Icons',
   component: Icon,
+}
+
+const allIcons = {
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+  Facebook,
+  Instagram,
+  Twitter,
+  Mail,
 }
 
 const iconsets = {
