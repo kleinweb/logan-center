@@ -12,11 +12,13 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --external react && tailwindcss -i ./src/styles.css -o ./dist/styles.css",
     "dev": "concurrently \"tsup src/index.ts --format esm,cjs --dts --external react --watch\" \"tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch\"",
+    "lint": "eslint --ext=js,jsx,ts,tsx,cjs,mjs .",
     "type-check": "tsc --noEmit",
     "clean": "rimraf dist"
   },
   "dependencies": {
     "clsx": "^1.2.1",
+    "next": "^13.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -27,6 +29,7 @@
     "concurrently": "^7.2.2",
     "eslint": "^7.32.0",
     "eslint-config-custom": "workspace:*",
+    "eslint-plugin-tailwindcss": "^3.6.2",
     "rimraf": "^3.0.2",
     "tailwind-config": "workspace:*",
     "tailwindcss": "^3.1.5",

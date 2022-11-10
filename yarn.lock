@@ -12710,6 +12710,7 @@ __metadata:
     eslint: "npm:^7.32.0"
     eslint-config-custom: "workspace:*"
     eslint-plugin-tailwindcss: "npm:^3.6.2"
+    next: "npm:^13.0.2"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     rimraf: "npm:^3.0.2"
