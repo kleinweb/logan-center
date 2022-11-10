@@ -17,7 +17,7 @@
     "email": "kleinweb+bugs@temple.edu"
   },
   "homepage": "https://templelogancenter.org",
-  "packageManager": "yarn@4.0.0-rc.27",
+  "packageManager": "yarn@4.0.0-rc.28",
   "engines": {
     "node": ">=18",
     "npm": "use-yarn"
