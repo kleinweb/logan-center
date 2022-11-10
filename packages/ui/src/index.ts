@@ -6,4 +6,5 @@ export * from './components/Buttons'
 export * from './components/Headings'
 export * from './components/Icons'
 
+export { ActiveLink } from './components/ActiveLink'
 export { ImageObject } from './components/Image'
