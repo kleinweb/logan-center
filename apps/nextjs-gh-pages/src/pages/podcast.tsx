@@ -3,14 +3,14 @@
 
 import Layout from '@/components/Layout'
 import Post from '@/components/Post'
-import PostType from '@/lib/interfaces/post'
+import { PageSchema } from '@/lib/interfaces/post'
 import Link from 'next/link'
 
-const post: PostType = {
+const post: PageSchema = {
   slug: 'podcast',
   title: 'Podcast',
   // FIXME: what is this format?
-  coverImage: 'TODO',
+  // coverImage: 'TODO',
   // HACK: manually specify children
   content: '',
   excerpt: 'The Logan Center podcast in coordination with WHYY',
