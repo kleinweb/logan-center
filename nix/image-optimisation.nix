@@ -36,7 +36,7 @@ in {
       '')
     ];
     env = [
-      (export "PRJ_ASSETS_DIR" "$PRJ_ROOT/public/assets")
+      (export "PRJ_ASSETS_DIR" "$PRJ_ROOT/packages/ui/assets")
     ];
     packages = [
       svgo
