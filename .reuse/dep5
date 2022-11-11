@@ -24,7 +24,6 @@ Files: */*.md
        .gitignore
        .prettierignore
        .vscode/*
-       .yarn/*
        *.json
        *.md
        *.lock

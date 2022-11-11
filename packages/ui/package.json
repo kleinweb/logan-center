@@ -27,12 +27,12 @@
     "@types/react-dom": "^18.0.8",
     "concurrently": "^7.5.0",
     "eslint": "^8.27.0",
-    "eslint-config-custom": "workspace:*",
+    "eslint-config-custom": "*",
     "eslint-plugin-tailwindcss": "^3.6.2",
     "rimraf": "^3.0.2",
-    "tailwind-config": "workspace:*",
+    "tailwind-config": "*",
     "tailwindcss": "^3.2.3",
-    "tsconfig": "workspace:*",
+    "tsconfig": "*",
     "tsup": "^6.4.0",
     "typescript": "^4.8.4"
   }

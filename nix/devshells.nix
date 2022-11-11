@@ -19,7 +19,7 @@ in {
     commands = [
       {
         category = "tools";
-        package = pkgs.nodePackages.yarn;
+        package = pkgs.nodePackages.npm;
       }
       {
         category = "tools";

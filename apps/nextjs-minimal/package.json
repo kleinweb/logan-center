@@ -16,7 +16,7 @@
     "next": "^13.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ui": "workspace:*"
+    "ui": "*"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
@@ -28,12 +28,12 @@
     "@typescript-eslint/parser": "^5.42.1",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.27.0",
-    "eslint-config-custom": "workspace:*",
+    "eslint-config-custom": "*",
     "eslint-plugin-tailwindcss": "^3.6.2",
     "postcss": "^8.4.19",
-    "tailwind-config": "workspace:*",
+    "tailwind-config": "*",
     "tailwindcss": "^3.2.3",
-    "tsconfig": "workspace:*",
+    "tsconfig": "*",
     "typescript": "^4.8.4"
   }
 }
