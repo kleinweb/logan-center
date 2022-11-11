@@ -10,8 +10,7 @@
 
 # next.js
 /.next/
-# The `out` directory should not be ignored by version control
-# /out/
+/out/
 
 # production
 /build
@@ -34,4 +33,3 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts

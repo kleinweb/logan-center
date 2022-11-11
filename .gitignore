@@ -8,6 +8,7 @@
 build
 result
 dist/
+.next/
 
 ##: node/npm/yarn
 node_modules/
@@ -57,7 +58,6 @@ tmp/
 
 ##: next.js
 .next/
-.next-env.d.ts
 .vercel
 
 # nixago: ignore-linked-files
