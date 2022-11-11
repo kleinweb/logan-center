@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { wordPressEndpoint } from '@/../wp.config'
+import { wordPressEndpoint } from '@/wp.config'
 
 const robotsTxt = `
 User-agent: *

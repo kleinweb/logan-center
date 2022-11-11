@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import { extractLastTokenFromRoute, getInternalLinkPathname } from './links'
-import { links } from '@/../wp.config'
+import { links } from '../wp.config'
 
 jest.mock('@/../wp.config', function () {
   return {

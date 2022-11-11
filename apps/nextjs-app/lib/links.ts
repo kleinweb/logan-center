@@ -3,8 +3,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import config from '@/../next.config'
-import { links } from '@/../wp.config'
+import config from '../next.config'
+import { links } from '../wp.config'
 
 const basePathRemover = new RegExp(`^${config.basePath}/*`)
 
