@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import Link from 'next/link'
-import clsx from 'clsx'
 
 import LogoFull from 'ui/assets/logos/logo--full--duo.svg'
 import LogoMinimal from 'ui/assets/logos/logo--gfx--duo.svg'
