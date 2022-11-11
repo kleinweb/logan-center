@@ -12,7 +12,7 @@ import Layout from '@/components/Layout/Layout'
 import Container from '@/components/Container'
 
 import heroImage from 'shared-assets/images/photos/ncm_williamdickschool-3.jpg'
-import podcastImage from 'shared-assets/images/podcast--poster--cropped.png'
+import podcastImage from 'shared-assets/images/podcast--poster--art_only.jpg'
 
 const pageTitle = `Home | ${SITE_NAME}`
 
@@ -69,6 +69,7 @@ export default function Home() {
                 src={podcastImage}
                 alt={__('Promotional poster for the podcast.')}
                 aspect="banner"
+                className="object-top"
               />
             </Link>
           </div>
