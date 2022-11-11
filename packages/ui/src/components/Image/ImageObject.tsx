@@ -1,17 +1,27 @@
 // SPDX-FileCopyrightText: 2022 Temple University
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+import cn from 'clsx'
 import Image from 'next/image'
 
 type Props = {
   src: string
   alt: string
+  aspect?: 'video' | 'banner' | 'square'
 }
 
-export default function ImageObject(props: Props) {
+export default function ImageObject({ aspect = 'video', src, alt }: Props) {
   return (
-    <div className="aspect-video relative object-cover overflow-hidden">
-      <Image src={props.src} alt={props.alt} fill />
+    <div
+      className={cn(
+        aspect === 'video' && 'aspect-w-16 aspect-h-9',
+        aspect === 'square' && 'aspect-w-1 aspect-h-1',
+        aspect === 'banner' && 'aspect-w-3 aspect-h-1',
+        'relative',
+        'overflow-hidden',
+      )}
+    >
+      <Image src={src} alt={alt} className="object-cover relative top-2" fill />
     </div>
   )
 }

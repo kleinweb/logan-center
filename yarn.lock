@@ -3200,6 +3200,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tailwindcss/aspect-ratio@npm:^0.4.2":
+  version: 0.4.2
+  resolution: "@tailwindcss/aspect-ratio@npm:0.4.2"
+  peerDependencies:
+    tailwindcss: ">=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1"
+  checksum: 5260acd11c253ee7b38fa3ce6105799aee0e56ac269698133bbfdd1932af4e57dfcb116c776a456ccf6d2ce7460590bae66960bdce404139c66625edcca27b5a
+  languageName: node
+  linkType: hard
+
 "@tannin/compile@npm:^1.1.0":
   version: 1.1.0
   resolution: "@tannin/compile@npm:1.1.0"
@@ -12228,6 +12237,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "tailwind-config@workspace:packages/tailwind-config"
   dependencies:
+    "@tailwindcss/aspect-ratio": "npm:^0.4.2"
     tailwindcss: "npm:^3.2.3"
   languageName: unknown
   linkType: soft
