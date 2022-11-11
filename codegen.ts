@@ -3,10 +3,10 @@ import type { CodegenConfig } from '@graphql-codegen/cli'
 const config: CodegenConfig = {
   overwrite: true,
   schema: '${NEXT_PUBLIC_GRAPHQL_ENDPOINT}',
-  documents: ['src/**/*.tsx', 'src/**/*.graphql'],
+  documents: ['./**/*.tsx', './**/*.graphql'],
   ignoreNoDocuments: true, // for better experience with the watcher
   generates: {
-    'src/graphql/generated': {
+    'graphql/generated': {
       preset: 'client',
       plugins: [],
     },
