@@ -44,17 +44,17 @@ type WrapperProps = {
 }
 
 const IconWrapper = ({ label, children }: WrapperProps & { label: string }) => (
-  <div className="text-white mr-2">
+  <div className="mr-2 text-white">
     <Icon label={label}>{children}</Icon>
   </div>
 )
 
 const GroupTitle = (props: WrapperProps) => (
-  <h3 className="text-lg font-bold dark:text-white mb-2">{props.children}</h3>
+  <h3 className="mb-2 text-lg font-bold dark:text-white">{props.children}</h3>
 )
 
 const GroupWrapper = (props: WrapperProps) => (
-  <div className="bg-slate-700 p-4 flex text-white">{props.children}</div>
+  <div className="flex bg-slate-700 p-4 text-white">{props.children}</div>
 )
 
 export const AllIcons = () => (

@@ -12,7 +12,7 @@ export default function LinkButton({ href, children, ...rest }: Props) {
     <Link href={href}>
       <Button {...rest}>
         {children}
-        <span className="inline-block -mr-2">
+        <span className="-mr-2 inline-block">
           <ChevronRight />
         </span>
       </Button>
