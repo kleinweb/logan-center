@@ -10109,9 +10109,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"nextjs-gh-pages@workspace:apps/nextjs-gh-pages":
+"nextjs-minimal@workspace:apps/nextjs-minimal":
   version: 0.0.0-use.local
-  resolution: "nextjs-gh-pages@workspace:apps/nextjs-gh-pages"
+  resolution: "nextjs-minimal@workspace:apps/nextjs-minimal"
   dependencies:
     "@svgr/webpack": "npm:^6.5.1"
     "@types/gtag.js": "npm:^0.0.12"
