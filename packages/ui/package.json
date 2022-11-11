@@ -11,8 +11,7 @@
   "scripts": {
     "build": "tsup ./index.ts --format esm,cjs --dts --external react && tailwindcss -i ./styles.css -o ./dist/styles.css",
     "dev": "concurrently \"tsup ./index.ts --format esm,cjs --dts --external react --watch\" \"tailwindcss -i ./styles.css -o ./dist/styles.css --watch\"",
-    "lint": "eslint --ext=js,jsx,ts,tsx,cjs,mjs .",
-    "type-check": "tsc --noEmit",
+    "lint": "tsc --noEmit && eslint --ext=js,jsx,ts,tsx,cjs,mjs .",
     "clean": "rimraf dist"
   },
   "dependencies": {

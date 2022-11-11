@@ -6,6 +6,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 reuse lint
-yarn turbo type-check
 yarn turbo test
 yarn turbo lint

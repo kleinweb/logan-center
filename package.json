@@ -26,7 +26,6 @@
     "prepare": "husky install",
     "dev": "dotenv -- turbo run dev --parallel",
     "lint": "turbo run lint",
-    "type-check": "turbo run type-check",
     "test": "turbo run test",
     "clean": "turbo run clean",
     "build": "turbo run build",

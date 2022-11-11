@@ -2,19 +2,10 @@
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": ["^build", "^codegen"],
-      "outputs": ["dist/**", ".next/**", "build/**"]
-    },
-    "codegen": {
-      "outputs": ["graphql/generated/**"]
-    },
-    "type-check": {
       "dependsOn": ["^build"],
-      "inputs": ["*.tsx", "*.ts"],
-      "outputs": []
+      "outputs": ["dist/**", ".next/**"]
     },
     "lint": {
-      "dependsOn": ["^type-check", "^build"],
       "outputs": []
     },
     "test": {
