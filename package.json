@@ -19,7 +19,7 @@
   "homepage": "https://templelogancenter.org",
   "packageManager": "yarn@4.0.0-rc.28",
   "engines": {
-    "node": ">=18",
+    "node": ">=16",
     "npm": "use-yarn"
   },
   "scripts": {
