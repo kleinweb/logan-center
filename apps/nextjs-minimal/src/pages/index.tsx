@@ -65,7 +65,7 @@ export default function Home() {
             <Link href="/podcast">
               <BannerImage
                 alt={__('Promotional poster for the podcast.')}
-                src="/logan-center/assets/images/podcast--poster--cropped.png"
+                src="/shared/images/podcast--poster--cropped.png"
               />
             </Link>
           </div>

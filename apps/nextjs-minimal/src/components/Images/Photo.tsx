@@ -8,10 +8,7 @@ type Props = {
   alt: string
 }
 
-// FIXME: account for `basePath` etc
-const photosBasePath = '/logan-center/assets/images/photos'
-
 export default function Photo(props: Props) {
-  const src = `${photosBasePath}/${props.path}`
+  const src = `/shared/images/photos/${props.path}`
   return <ImageObject src={src} alt={props.alt} />
 }

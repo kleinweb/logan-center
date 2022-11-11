@@ -5,8 +5,7 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist",
-    "./styles.css": "./dist/styles.css",
-    "./assets/": "./assets/"
+    "./styles.css": "./dist/styles.css"
   },
   "license": "GPL-3.0-or-later",
   "scripts": {

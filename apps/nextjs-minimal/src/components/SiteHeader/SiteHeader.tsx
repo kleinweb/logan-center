@@ -3,8 +3,8 @@
 
 import Link from 'next/link'
 
-import LogoFull from 'ui/assets/logos/logo--full--duo.svg'
-import LogoMinimal from 'ui/assets/logos/logo--gfx--duo.svg'
+import LogoFull from '@/../public/shared/logos/logo--full--duo.svg'
+import LogoMinimal from '@/../public/shared/logos/logo--gfx--duo.svg'
 import Container from '../Container'
 import { ActiveLink } from 'ui'
 
