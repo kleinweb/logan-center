@@ -25,6 +25,10 @@
       "path": "../packages/shared-assets"
     },
     {
+      "name": "packages/temple-assets",
+      "path": "../packages/temple-assets"
+    },
+    {
       "name": "packages/tsconfig",
       "path": "../packages/tsconfig"
     },
