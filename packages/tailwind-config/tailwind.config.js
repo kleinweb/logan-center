@@ -2,18 +2,25 @@
 // SPDX-FileCopyrightText: 2022 Vercel
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
+const primaryPalette = {
+  light: 'hsl(38, 35%, 94%)',
+  accent: 'hsl(178, 38%, 43%)',
+  dark: 'hsl(208, 27%, 20%)',
+}
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [`src/**/*.{js,ts,jsx,tsx,mdx}`],
   theme: {
     colors: {
+      primary: primaryPalette,
       slate: {
         100: '#e5f2f2',
         300: '#d1d4db',
-        700: '#263542', // "primary dark"
+        700: primaryPalette.dark,
       },
       teal: {
-        500: '#779f9e', // "primary highlight"
+        500: primaryPalette.accent, // "primary highlight"
       },
       neutral: {
         500: '#616161',
@@ -23,7 +30,7 @@ module.exports = {
         600: '#e92c2b',
       },
       stone: {
-        100: '#f5f1ea',
+        100: primaryPalette.light,
       },
       amber: {
         600: '#c48f57',
