@@ -20,7 +20,7 @@ in {
       help = "run ${type} image optimisations";
     });
     export = name: eval: {inherit name eval;};
-    findAll = ext: "${l.getExe fd} --type f --extension ${ext} . $PRJ_ASSETS_DIR";
+    findAll = ext: "${l.getExe fd} --type f --extension ${ext} . $PRJ_ROOT/static/assets";
     execAll = ext: cmd: "${findAll ext} --exec-batch ${cmd} {}";
     execEach = ext: cmd: "${findAll ext} --exec ${cmd} {}";
   in {
@@ -35,9 +35,6 @@ in {
       (cmd' "svg" ''
         ${execEach "svg" (l.getExe svgo)}
       '')
-    ];
-    env = [
-      (export "PRJ_ASSETS_DIR" "$PRJ_ROOT/packages/ui/assets")
     ];
     packages = [
       svgo

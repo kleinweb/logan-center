@@ -35,7 +35,7 @@ yarn turbo build
 
 ```sh
 # yarn turbo dev
-yarn workspace nextjs-gh-pages dev
+yarn workspace nextjs-minimal dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the

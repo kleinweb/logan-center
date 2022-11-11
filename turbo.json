@@ -3,7 +3,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build", "^codegen"],
-      "outputs": ["dist/**", ".next/**", "build/**", "out/**"]
+      "outputs": ["dist/**", ".next/**", "build/**"]
     },
     "codegen": {
       "outputs": ["graphql/generated/**"]
@@ -19,7 +19,7 @@
     },
     "test": {
       "outputs": ["coverage/**"],
-      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts"]
+      "inputs": ["**/*.tsx", "**/*.ts", "test/**/*.ts"]
     },
     "dev": {
       "cache": false

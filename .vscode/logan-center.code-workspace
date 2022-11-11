@@ -1,8 +1,8 @@
 {
   "folders": [
     {
-      "name": "apps/nextjs-gh-pages",
-      "path": "../apps/nextjs-gh-pages"
+      "name": "apps/nextjs-minimal",
+      "path": "../apps/nextjs-minimal"
     },
     {
       "name": "packages/ui",

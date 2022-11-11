@@ -4,7 +4,7 @@ module.exports = {
   extends: ['custom'],
   settings: {
     next: {
-      rootDir: ['apps/nextjs-app/', 'apps/nextjs-gh-pages/'],
+      rootDir: ['apps/nextjs-app/', 'apps/nextjs-minimal/'],
     },
   },
 }

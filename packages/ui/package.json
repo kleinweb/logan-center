@@ -5,21 +5,20 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist",
-    "./styles.css": "./dist/styles.css",
-    "./assets/": "./assets/"
+    "./styles.css": "./dist/styles.css"
   },
   "license": "GPL-3.0-or-later",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react && tailwindcss -i ./src/styles.css -o ./dist/styles.css",
-    "dev": "concurrently \"tsup src/index.ts --format esm,cjs --dts --external react --watch\" \"tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch\"",
+    "build": "tsup ./index.ts --format esm,cjs --dts --external react && tailwindcss -i ./styles.css -o ./dist/styles.css",
+    "dev": "concurrently \"tsup ./index.ts --format esm,cjs --dts --external react --watch\" \"tailwindcss -i ./styles.css -o ./dist/styles.css --watch\"",
     "lint": "eslint --ext=js,jsx,ts,tsx,cjs,mjs .",
     "type-check": "tsc --noEmit",
     "clean": "rimraf dist"
   },
   "dependencies": {
     "clsx": "^1.2.1",
-    "lucide-react": "^0.99.0",
-    "next": "^13.0.2",
+    "lucide-react": "^0.100.0",
+    "next": "^13.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
