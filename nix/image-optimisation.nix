@@ -32,7 +32,7 @@ in {
     });
 
     ##: executors
-    findAll = ext: "${l.getExe fd} --type f --extension ${ext} . $PRJ_ROOT/static/assets";
+    findAll = ext: "${l.getExe fd} --type f --extension ${ext} .";
     execBatch = ext: cmd: "${findAll ext} --exec-batch ${cmd} {}";
     execEach = ext: cmd: "${findAll ext} --exec ${cmd} {}";
 
