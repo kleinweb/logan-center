@@ -2,10 +2,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import cn from 'clsx'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 
 type Props = {
-  src: string
+  src: StaticImageData
   alt: string
   aspect?: 'video' | 'banner' | 'square'
 }
@@ -21,7 +21,7 @@ export default function ImageObject({ aspect = 'video', src, alt }: Props) {
         'overflow-hidden',
       )}
     >
-      <Image src={src} alt={alt} className="object-cover relative top-2" fill />
+      <Image src={src} alt={alt} className="relative top-2 object-cover" fill />
     </div>
   )
 }

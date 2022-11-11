@@ -21,6 +21,10 @@
       "path": "../packages/tailwind-config"
     },
     {
+      "name": "packages/shared-assets",
+      "path": "../packages/shared-assets"
+    },
+    {
       "name": "packages/tsconfig",
       "path": "../packages/tsconfig"
     },

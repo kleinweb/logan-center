@@ -3,8 +3,8 @@
 
 import Link from 'next/link'
 
-import LogoFull from '@/../public/shared/logos/logo--full--duo.svg'
-import LogoMinimal from '@/../public/shared/logos/logo--gfx--duo.svg'
+import LogoFull from 'shared-assets/logos/logo--full--duo.svg'
+import LogoMinimal from 'shared-assets/logos/logo--gfx--duo.svg'
 import Container from '../Container'
 import { ActiveLink } from 'ui'
 
@@ -17,11 +17,11 @@ export default function SiteHeader() {
   return (
     <Container>
       <div className="flex align-middle">
-        <Link href="/" className="grow block">
+        <Link href="/" className="block grow">
           <LogoMinimal className="block min-[468px]:hidden" />
-          <LogoFull className="hidden min-[468px]:block max-h-16" />
+          <LogoFull className="hidden max-h-16 min-[468px]:block" />
         </Link>
-        <nav className="items-center flex">
+        <nav className="flex items-center">
           {navItems.map(([path, label]) => (
             <li key={label} className="list-none">
               <ActiveLink href={path} activeClassName="text-teal-500 font-bold">

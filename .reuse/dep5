@@ -35,6 +35,6 @@ Copyright: 2022 Temple University <kleinweb@temple.edu>
            2021 Automattic
 License: GPL-3.0-or-later OR MIT
 
-Files: static/assets/*
+Files: packages/shared-assets/*
 Copyright: 2022 Temple University
 License: CC-BY-NC-ND-4.0
