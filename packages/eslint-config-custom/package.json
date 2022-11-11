@@ -5,10 +5,10 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "eslint-config-next": "^13.0.2",
+    "eslint-config-next": "^13.0.3",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-turbo": "^0.0.4",
-    "eslint-plugin-jest": "^27.1.4",
+    "eslint-plugin-jest": "^27.1.5",
     "eslint-plugin-react": "7.31.10",
     "eslint-plugin-tailwindcss": "^3.6.2"
   },

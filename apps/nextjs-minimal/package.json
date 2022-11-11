@@ -13,8 +13,8 @@
   "dependencies": {
     "@wordpress/i18n": "^4.21.0",
     "clsx": "^1.2.1",
-    "lucide-react": "^0.99.0",
-    "next": "^13.0.2",
+    "lucide-react": "^0.100.0",
+    "next": "^13.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "ui": "workspace:*"
@@ -31,7 +31,7 @@
     "eslint": "^8.27.0",
     "eslint-config-custom": "workspace:*",
     "eslint-plugin-tailwindcss": "^3.6.2",
-    "postcss": "^8.4.18",
+    "postcss": "^8.4.19",
     "tailwind-config": "workspace:*",
     "tailwindcss": "^3.2.3",
     "tsconfig": "workspace:*",
