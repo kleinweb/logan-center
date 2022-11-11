@@ -7,6 +7,7 @@ import clsx from 'clsx'
 import LogoFull from 'ui/assets/logos/logo--full--duo.svg'
 import LogoMinimal from 'ui/assets/logos/logo--gfx--duo.svg'
 import Container from '../Container'
+import { ActiveLink } from 'ui'
 
 const navItems = [
   ['/', 'Home'],
@@ -23,17 +24,11 @@ export default function SiteHeader() {
         </Link>
         <nav className="items-center flex">
           {navItems.map(([path, label]) => (
-            <Link
-              key={label}
-              href={path}
-              className={clsx(
-                'px-2 uppercase first:ml-2 last:-mr-2',
-                // FIXME: this is a stand-in for the currently-active page -- disabled as a visual reminder
-                // 'Home' === label && 'font-bold text-teal-500',
-              )}
-            >
-              {label}
-            </Link>
+            <li key={label} className="list-none">
+              <ActiveLink href={path} activeClassName="text-teal-500 font-bold">
+                <a className="px-2 uppercase first:ml-2 last:-mr-2">{label}</a>
+              </ActiveLink>
+            </li>
           ))}
         </nav>
       </div>
