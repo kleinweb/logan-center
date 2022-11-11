@@ -1,16 +1,21 @@
 // SPDX-FileCopyrightText: 2022 Temple University
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import cn from 'clsx'
-import Image, { StaticImageData } from 'next/image'
+import cn, { ClassValue } from 'clsx'
+import Image, { ImageProps as NextImageProps } from 'next/image'
 
-type Props = {
-  src: StaticImageData
-  alt: string
+type ImageObjectProps = NextImageProps & {
+  className?: ClassValue
   aspect?: 'video' | 'banner' | 'square'
 }
 
-export default function ImageObject({ aspect = 'video', src, alt }: Props) {
+export default function ImageObject({
+  src,
+  alt,
+  aspect = 'video',
+  className = '',
+  ...imageProps
+}: ImageObjectProps) {
   return (
     <div
       className={cn(
@@ -21,7 +26,13 @@ export default function ImageObject({ aspect = 'video', src, alt }: Props) {
         'overflow-hidden',
       )}
     >
-      <Image src={src} alt={alt} className="relative top-2 object-cover" fill />
+      <Image
+        {...imageProps}
+        src={src}
+        alt={alt}
+        className={cn(className, 'relative', 'object-cover')}
+        fill
+      />
     </div>
   )
 }
