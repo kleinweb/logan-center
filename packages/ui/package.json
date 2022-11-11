@@ -9,8 +9,8 @@
   },
   "license": "GPL-3.0-or-later",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react && tailwindcss -i ./src/styles.css -o ./dist/styles.css",
-    "dev": "concurrently \"tsup src/index.ts --format esm,cjs --dts --external react --watch\" \"tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch\"",
+    "build": "tsup ./src/index.ts --format esm,cjs --dts --external react && tailwindcss -i ./src/styles.css -o ./dist/styles.css",
+    "dev": "concurrently \"tsup ./src/index.ts --format esm,cjs --dts --external react --watch\" \"tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch\"",
     "lint": "TIMING=1 eslint \"**/*.ts*\"",
     "clean": "rm -rf dist"
   },
