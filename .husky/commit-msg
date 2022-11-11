@@ -5,4 +5,4 @@
 # shellcheck disable=1091
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn exec commitlint --edit "$1"
+npm exec -- commitlint --edit "${1}"

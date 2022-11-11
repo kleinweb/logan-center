@@ -21,6 +21,10 @@
       "path": "../packages/tailwind-config"
     },
     {
+      "name": "packages/shared-assets",
+      "path": "../packages/shared-assets"
+    },
+    {
       "name": "packages/tsconfig",
       "path": "../packages/tsconfig"
     },
@@ -38,17 +42,7 @@
     }
   ],
   "settings": {
-    "search.exclude": {
-      "**/.next": true,
-      "**/.pnp.*": true,
-      "**/.yarn": true,
-      "**/build": true,
-      "**/out": true
-    },
-    "eslint.nodePath": ".yarn/sdks",
     "eslint.workingDirectories": ["./packages/*", "./apps/*"],
-    "prettier.prettierPath": "project-root/.yarn/sdks/prettier/index.js",
-    "typescript.tsdk": "project-root/.yarn/sdks/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "files.associations": {
       "*.css": "tailwindcss",
@@ -57,9 +51,6 @@
     "editor.quickSuggestions": {
       "strings": true
     },
-    "tailwindCSS.emmetCompletions": true,
-    "eslint.packageManager": "yarn",
-    "npm.packageManager": "yarn",
-    "stylelint.packageManager": "yarn"
+    "tailwindCSS.emmetCompletions": true
   }
 }

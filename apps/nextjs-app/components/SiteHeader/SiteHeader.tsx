@@ -7,8 +7,8 @@ import { ReactNode } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
 
-import LogoFull from '@/../public/shared/logos/logo--full--duo.svg'
-import LogoMinimal from '@/../public/shared/logos/logo--gfx--duo.svg'
+import LogoFull from 'shared-assets/logos/logo--full--duo.svg'
+import LogoMinimal from 'shared-assets/logos/logo--gfx--duo.svg'
 
 type Props = {
   headerLink?: ReactNode
@@ -28,16 +28,16 @@ const navItems = [
 export default function SiteHeader(props: Props) {
   return (
     <div className="flex align-middle">
-      <Link href="/" className="grow block">
+      <Link href="/" className="block grow">
         <LogoMinimal className="block min-[468px]:hidden" />
-        <LogoFull className="hidden min-[468px]:block max-h-16" />
+        <LogoFull className="hidden max-h-16 min-[468px]:block" />
         <div>
           <h1 className="sr-only">
             Logan Center For Urban Investigative Reporting
           </h1>
         </div>
       </Link>
-      <nav className="items-center flex">
+      <nav className="flex items-center">
         {navItems.map(([path, label]) => (
           <Link
             key={label}

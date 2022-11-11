@@ -17,13 +17,12 @@
     "email": "kleinweb+bugs@temple.edu"
   },
   "homepage": "https://templelogancenter.org",
-  "packageManager": "yarn@4.0.0-rc.28",
   "engines": {
     "node": ">=16",
-    "npm": "use-yarn"
+    "npm": ">=8"
   },
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "npx husky install",
     "dev": "dotenv -- turbo run dev --parallel",
     "lint": "turbo run lint",
     "test": "turbo run test",
@@ -36,8 +35,6 @@
     "apps/*"
   ],
   "dependencies": {
-    "@yarnpkg/pnpify": "^4.0.0-rc.28",
-    "@yarnpkg/sdks": "^3.0.0-rc.28",
     "dotenv-cli": "^6.0.0",
     "graphql": "^16.6.0",
     "graphql-config": "^4.3.6",
@@ -53,7 +50,7 @@
     "@types/rimraf": "^3.0.2",
     "commitlint": "^17.2.0",
     "eslint": "^8.27.0",
-    "eslint-config-custom": "workspace:*",
+    "eslint-config-custom": "*",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
