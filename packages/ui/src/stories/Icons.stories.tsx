@@ -13,7 +13,7 @@ import {
   Mail,
 } from 'lucide-react'
 
-import { PageTitle } from '@/components/Headings'
+import { HeadingOne } from '@/components/Headings'
 import { Icon } from '@/components/Icons'
 import { ReactNode } from 'react'
 
@@ -59,7 +59,7 @@ const GroupWrapper = (props: WrapperProps) => (
 
 export const AllIcons = () => (
   <>
-    <PageTitle>All Icons</PageTitle>
+    <HeadingOne>All Icons</HeadingOne>
     <GroupWrapper>
       {Object.entries(allIcons).map(([iconName, Icon]) => (
         <IconWrapper label={iconName} key={iconName}>
@@ -72,7 +72,7 @@ export const AllIcons = () => (
 
 export const GroupedIcons = () => (
   <>
-    <PageTitle>Grouped Icons</PageTitle>
+    <HeadingOne>Grouped Icons</HeadingOne>
     {Object.entries(iconsets).map(([groupName, icons]) => (
       <>
         <GroupTitle>{groupName}</GroupTitle>

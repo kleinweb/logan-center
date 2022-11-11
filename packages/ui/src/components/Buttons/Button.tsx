@@ -1,5 +1,4 @@
 // SPDX-FileCopyrightText: 2022 Temple University <kleinweb@temple.edu>
-//
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import clsx, { ClassValue } from 'clsx'
@@ -18,7 +17,7 @@ export const VARIANTS = {
 type Color = typeof COLORS[keyof typeof COLORS]
 type Variant = typeof VARIANTS[keyof typeof VARIANTS]
 
-export type Props = {
+export interface Props {
   children: React.ReactNode
   color?: Color
   variant?: Variant
@@ -80,7 +79,7 @@ export default function Button({
   const isSolid = variant === 'solid'
 
   return (
-    <a
+    <div
       className={clsx(
         [
           'inline-flex',
@@ -99,6 +98,6 @@ export default function Button({
       )}
     >
       {children}
-    </a>
+    </div>
   )
 }

@@ -14,7 +14,7 @@ in {
   };
 
   flake.devshellProfiles.core = {pkgs, ...}: {
-    packages = with pkgs; [cachix nodejs];
+    packages = with pkgs; [cachix fd nodejs ripgrep];
     env = [];
     commands = [
       {
@@ -24,6 +24,10 @@ in {
       {
         category = "tools";
         package = pkgs.reuse;
+      }
+      {
+        category = "tools";
+        package = pkgs.pastel;
       }
       {
         category = "deploy";
