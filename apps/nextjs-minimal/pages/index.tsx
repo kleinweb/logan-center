@@ -31,10 +31,7 @@ export default function Home() {
 
       <h1 className="sr-only">{pageTitle}</h1>
 
-      <ImageObject
-        src={heroImage}
-        alt="An empty Philadelphia street near the William Dick School."
-      />
+      <ImageObject src={heroImage} alt="" aria-hidden />
 
       <div className="bg-slate-100 py-6">
         <Container>
