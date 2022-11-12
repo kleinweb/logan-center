@@ -15,6 +15,7 @@ import BarsMotif from 'shared-assets/decorations/motif--island.svg'
 
 import heroImage from 'shared-assets/images/photos/ncm_williamdickschool-3.jpg'
 import podcastImage from 'shared-assets/images/podcast--poster--art_only.jpg'
+import youGotThisImage from 'shared-assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'
 
 const pageTitle = `Home | ${SITE_NAME}`
 
@@ -135,6 +136,8 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      <ImageObject src={youGotThisImage} alt="" aria-hidden />
     </Layout>
   )
 }
