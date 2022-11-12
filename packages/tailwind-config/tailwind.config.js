@@ -35,6 +35,9 @@ module.exports = {
       amber: {
         600: '#c48f57',
       },
+      Temple: {
+        Cherry: 'var(--tu--color--cherry)',
+      },
       Klein: {
         Eggshell: '#f3f2ea',
         Taupe: '#b9a681',
