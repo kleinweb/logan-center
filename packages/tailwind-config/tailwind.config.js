@@ -8,6 +8,10 @@ const primaryPalette = {
   dark: 'hsl(208, 27%, 20%)', //    => #253441
 }
 
+const secondaryPalette = {
+  light: 'hsla(180, 33%, 92%, 1)', // => #E5F2F2
+}
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [`./**/*.{js,ts,jsx,tsx,mdx}`],
@@ -15,7 +19,7 @@ module.exports = {
     colors: {
       primary: primaryPalette,
       slate: {
-        100: '#e5f2f2',
+        100: secondaryPalette.light,
         300: '#d1d4db',
         700: primaryPalette.dark,
       },
