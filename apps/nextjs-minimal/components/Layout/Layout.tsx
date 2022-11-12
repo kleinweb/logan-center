@@ -15,7 +15,7 @@ export default function Layout(props: Props) {
   return (
     <>
       <Meta />
-      <header className="bg-slate-700 px-5 py-3 text-white md:pt-5">
+      <header className="bg-slate-700 py-3 text-white">
         <SiteHeader />
       </header>
       <div className="min-h-screen">
