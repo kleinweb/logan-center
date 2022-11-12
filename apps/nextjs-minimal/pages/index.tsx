@@ -104,6 +104,37 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      <section className="py-6">
+        <Container>
+          <div className="text-primary-accent relative -mt-24 flex py-8">
+            <BarsMotif />
+          </div>
+          <div className="space-y-5 space-y-reverse">
+            <h2 className="text-primary-dark mb-5 text-2xl font-bold uppercase leading-snug tracking-wider">
+              Education Disparities Project
+            </h2>
+
+            <div className="mb-5">
+              <p className="text-base">
+                {__(
+                  `Temple's Logan Center for Urban Investigative Reporting and Billy Penn at WHYY are partnering on a yearlong reporting project examining disparities within the Philly School District, with the goal of identifying solutions that can lift up underserved schools and increase equity in public education.`,
+                  'logan-center',
+                )}
+              </p>
+            </div>
+
+            <div className="text-right">
+              <LinkButton
+                href="https://billypenn.com/stories/education-disparities-in-philadelphia/"
+                color="red"
+              >
+                Read More
+              </LinkButton>
+            </div>
+          </div>
+        </Container>
+      </section>
     </Layout>
   )
 }
