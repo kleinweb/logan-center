@@ -11,8 +11,10 @@ import { SITE_NAME } from '@/lib/constants'
 import Layout from '@/components/Layout/Layout'
 import Container from '@/components/Container'
 
+import BarsMotif from 'shared-assets/decorations/motif--island.svg'
+
 import heroImage from 'shared-assets/images/photos/ncm_williamdickschool-3.jpg'
-import podcastImage from 'shared-assets/images/podcast--poster--cropped.png'
+import podcastImage from 'shared-assets/images/podcast--poster--art_only.jpg'
 
 const pageTitle = `Home | ${SITE_NAME}`
 
@@ -69,14 +71,18 @@ export default function Home() {
                 src={podcastImage}
                 alt={__('Promotional poster for the podcast.')}
                 aspect="banner"
+                className="object-top"
               />
             </Link>
           </div>
         </Container>
       </section>
 
-      <section className="bg-primary-light py-6">
+      <section className="bg-primary-light mt-20 py-6">
         <Container>
+          <div className="text-primary-accent relative -mt-24 flex flex-row-reverse py-8">
+            <BarsMotif />
+          </div>
           <div className="space-y-5 space-y-reverse">
             <h2 className="mb-5 text-2xl font-bold uppercase leading-snug tracking-wider text-red-600">
               About the Logan Center

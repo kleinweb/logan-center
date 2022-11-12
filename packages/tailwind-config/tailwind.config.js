@@ -3,9 +3,9 @@
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 const primaryPalette = {
-  light: 'hsl(38, 35%, 94%)',
-  accent: 'hsl(178, 38%, 43%)',
-  dark: 'hsl(208, 27%, 20%)',
+  light: 'hsl(38, 35%, 94%)', //    => #F5F1EA
+  accent: 'hsl(178, 38%, 43%)', //  => #449795
+  dark: 'hsl(208, 27%, 20%)', //    => #253441
 }
 
 /** @type {import('tailwindcss').Config} */
@@ -34,6 +34,9 @@ module.exports = {
       },
       amber: {
         600: '#c48f57',
+      },
+      Temple: {
+        Cherry: 'var(--tu--color--cherry)',
       },
       Klein: {
         Eggshell: '#f3f2ea',

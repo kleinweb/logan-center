@@ -25,6 +25,10 @@
       "path": "../packages/shared-assets"
     },
     {
+      "name": "packages/temple-assets",
+      "path": "../packages/temple-assets"
+    },
+    {
       "name": "packages/tsconfig",
       "path": "../packages/tsconfig"
     },
@@ -51,6 +55,7 @@
     "editor.quickSuggestions": {
       "strings": true
     },
-    "tailwindCSS.emmetCompletions": true
+    "tailwindCSS.emmetCompletions": true,
+    "typescript.tsdk": "project-root/node_modules/typescript/lib"
   }
 }
