@@ -3,38 +3,36 @@
 
 import { Twitter, Facebook, Instagram } from 'lucide-react'
 
-import { Icon } from 'ui'
-
 export default function SocialIcons() {
   return (
-    <>
-      <Icon label="Follow us on Twitter">
-        <a
-          href="https://twitter.com/TULoganCenter"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Twitter strokeWidth={0} fill="currentColor" />
-        </a>
-      </Icon>
-      <Icon label="Follow us on Facebook">
-        <a
-          href="https://www.facebook.com/tulogancenter/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Facebook strokeWidth={0} fill="currentColor" />
-        </a>
-      </Icon>
-      <Icon label="Follow us on Instagram">
-        <a
-          href="https://www.facebook.com/tulogancenter/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Instagram />
-        </a>
-      </Icon>
-    </>
+    <div className="text-xs">
+      <a
+        href="https://twitter.com/TULoganCenter"
+        target="_blank"
+        rel="noreferrer external"
+        className="mr-4 inline-flex items-center justify-center rounded-full border border-white/10 p-2.5"
+        title="Follow us on Twitter"
+      >
+        <Twitter strokeWidth={0} fill="currentColor" />
+      </a>
+      <a
+        href="https://www.facebook.com/tulogancenter/"
+        target="_blank"
+        rel="noreferrer external"
+        className="mr-4 inline-flex items-center justify-center rounded-full border border-white/10 p-2.5"
+        title="Follow us on Facebook"
+      >
+        <Facebook strokeWidth={0} fill="currentColor" />
+      </a>
+      <a
+        href="https://www.instagram.com/tulogancenter/"
+        target="_blank"
+        rel="noreferrer external"
+        className="mr-4 inline-flex items-center justify-center rounded-full border border-white/10 p-2.5"
+        title="Follow us on Instagram"
+      >
+        <Instagram />
+      </a>
+    </div>
   )
 }

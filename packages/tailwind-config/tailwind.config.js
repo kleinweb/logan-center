@@ -16,8 +16,16 @@ const secondaryPalette = {
 module.exports = {
   content: [`./**/*.{js,ts,jsx,tsx,mdx}`],
   theme: {
+    screens: {
+      xs: '568px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+    },
     colors: {
       primary: primaryPalette,
+      secondary: secondaryPalette,
       slate: {
         100: secondaryPalette.light,
         300: '#d1d4db',
@@ -50,6 +58,8 @@ module.exports = {
       black: '#000000',
     },
     fontSize: {
+      '2xs': '0.75rem',
+      xs: '0.875rem',
       sm: '1rem',
       base: '1.125rem',
       lg: '1.25rem',
@@ -66,13 +76,6 @@ module.exports = {
     fontWeight: {
       normal: 400,
       bold: 700,
-    },
-    borderRadius: {
-      none: '0',
-      xs: '0.3125rem',
-      sm: '0.375rem',
-      default: '0.5625rem',
-      lg: '1.875rem',
     },
     extend: {},
   },
