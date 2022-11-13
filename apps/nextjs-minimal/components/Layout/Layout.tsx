@@ -21,7 +21,7 @@ export default function Layout(props: Props) {
       <div className="min-h-screen">
         <main className="block">{props.children}</main>
       </div>
-      <footer className="bg-slate-700 p-10 text-white md:pt-5">
+      <footer className="bg-slate-700 py-10 px-5 text-white md:pt-5">
         <SiteFooter />
       </footer>
     </>

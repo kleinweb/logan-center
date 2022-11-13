@@ -17,7 +17,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "ui": "*",
-    "shared-assets": "*"
+    "shared-assets": "*",
+    "temple-assets": "*"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
