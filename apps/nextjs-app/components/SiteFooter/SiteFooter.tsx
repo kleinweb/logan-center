@@ -31,7 +31,7 @@ export default function SiteFooter() {
           <a
             href="https://twitter.com/TULoganCenter"
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer external"
           >
             <Twitter />
           </a>
@@ -40,7 +40,7 @@ export default function SiteFooter() {
           <a
             href="https://www.facebook.com/tulogancenter/"
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer external"
           >
             <Facebook />
           </a>
@@ -49,7 +49,7 @@ export default function SiteFooter() {
           <a
             href="https://www.facebook.com/tulogancenter/"
             target="_blank"
-            rel="noreferrer"
+            rel="noreferrer external"
           >
             <Instagram />
           </a>
