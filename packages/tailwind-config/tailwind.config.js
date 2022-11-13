@@ -18,6 +18,7 @@ module.exports = {
   theme: {
     colors: {
       primary: primaryPalette,
+      secondary: secondaryPalette,
       slate: {
         100: secondaryPalette.light,
         300: '#d1d4db',
