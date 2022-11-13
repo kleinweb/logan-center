@@ -70,13 +70,6 @@ module.exports = {
       normal: 400,
       bold: 700,
     },
-    borderRadius: {
-      none: '0',
-      xs: '0.3125rem',
-      sm: '0.375rem',
-      default: '0.5625rem',
-      lg: '1.875rem',
-    },
     extend: {},
   },
   corePlugins: {
