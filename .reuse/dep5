@@ -5,11 +5,8 @@ Copyright: Temple University <kleinweb@temple.edu>
 License: GPL-3.0-or-later
 Source: https://github.com/kleinweb/logan-center
 
-Files:
-       apps/nextjs-minimal/*
-       packages/eslint-config-custom/*
-       packages/tsconfig/*
-       packages/ui/*
+Files: apps/*
+       packages/*
        codegen.ts
        .eslintrc.js
        *.yaml
@@ -36,5 +33,9 @@ Copyright: 2022 Temple University <kleinweb@temple.edu>
 License: GPL-3.0-or-later OR MIT
 
 Files: packages/shared-assets/*
-Copyright: 2022 Temple University
+Copyright: 2022 Temple University <kleinweb@temple.edu>
 License: CC-BY-NC-ND-4.0
+
+Files: packages/temple-assets/*
+Copyright: 2022 Temple University <brand@temple.edu>
+License: LicenseRef-TU-Trademark-Policy

@@ -1,0 +1,14 @@
+{
+  "name": "temple-assets",
+  "author": {
+    "name": "Temple University",
+    "email": "brand@temple.edu",
+    "url": "https://finance.temple.edu/business-operations/trademark-licensing"
+  },
+  "private": true,
+  "version": "1.0.0",
+  "files": [
+    "./logos"
+  ],
+  "license": "LicenseRef-TU-Trademark-Policy"
+}

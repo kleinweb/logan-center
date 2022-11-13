@@ -1,18 +1,22 @@
 {
   "name": "ui",
   "version": "0.1.0",
+  "license": "GPL-3.0-or-later",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist",
     "./styles.css": "./dist/styles.css"
   },
-  "license": "GPL-3.0-or-later",
   "scripts": {
-    "build": "tsup ./src/index.ts --format esm,cjs --dts --external react && tailwindcss -i ./src/styles.css -o ./dist/styles.css",
-    "dev": "concurrently \"tsup ./src/index.ts --format esm,cjs --dts --external react --watch\" \"tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch\"",
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
+    "dev": "concurrently 'npm:dev:*'",
+    "dev:js": "npm run build:js --watch",
+    "dev:css": "npm run build:css --watch",
     "lint": "TIMING=1 eslint \"**/*.ts*\"",
-    "clean": "rm -rf dist"
+    "clean": "rimraf dist"
   },
   "dependencies": {
     "clsx": "^1.2.1",

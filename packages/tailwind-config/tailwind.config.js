@@ -3,19 +3,31 @@
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 const primaryPalette = {
-  light: 'hsl(38, 35%, 94%)',
-  accent: 'hsl(178, 38%, 43%)',
-  dark: 'hsl(208, 27%, 20%)',
+  light: 'hsl(38, 35%, 94%)', //    => #F5F1EA
+  accent: 'hsl(178, 38%, 43%)', //  => #449795
+  dark: 'hsl(208, 27%, 20%)', //    => #253441
+}
+
+const secondaryPalette = {
+  light: 'hsla(180, 33%, 92%, 1)', // => #E5F2F2
 }
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [`./**/*.{js,ts,jsx,tsx,mdx}`],
   theme: {
+    screens: {
+      xs: '568px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+    },
     colors: {
       primary: primaryPalette,
+      secondary: secondaryPalette,
       slate: {
-        100: '#e5f2f2',
+        100: secondaryPalette.light,
         300: '#d1d4db',
         700: primaryPalette.dark,
       },
@@ -35,6 +47,9 @@ module.exports = {
       amber: {
         600: '#c48f57',
       },
+      Temple: {
+        Cherry: 'var(--tu--color--cherry)',
+      },
       Klein: {
         Eggshell: '#f3f2ea',
         Taupe: '#b9a681',
@@ -43,6 +58,8 @@ module.exports = {
       black: '#000000',
     },
     fontSize: {
+      '2xs': '0.75rem',
+      xs: '0.875rem',
       sm: '1rem',
       base: '1.125rem',
       lg: '1.25rem',
@@ -59,13 +76,6 @@ module.exports = {
     fontWeight: {
       normal: 400,
       bold: 700,
-    },
-    borderRadius: {
-      none: '0',
-      xs: '0.3125rem',
-      sm: '0.375rem',
-      default: '0.5625rem',
-      lg: '1.875rem',
     },
     extend: {},
   },

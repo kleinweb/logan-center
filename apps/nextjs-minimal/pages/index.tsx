@@ -11,8 +11,11 @@ import { SITE_NAME } from '@/lib/constants'
 import Layout from '@/components/Layout/Layout'
 import Container from '@/components/Container'
 
+import BarsMotif from 'shared-assets/decorations/motif--island.svg'
+
 import heroImage from 'shared-assets/images/photos/ncm_williamdickschool-3.jpg'
-import podcastImage from 'shared-assets/images/podcast--poster--cropped.png'
+import podcastImage from 'shared-assets/images/podcast--poster--art_only.jpg'
+import youGotThisImage from 'shared-assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'
 
 const pageTitle = `Home | ${SITE_NAME}`
 
@@ -28,14 +31,11 @@ export default function Home() {
 
       <h1 className="sr-only">{pageTitle}</h1>
 
-      <ImageObject
-        src={heroImage}
-        alt="An empty Philadelphia street near the William Dick School."
-      />
+      <ImageObject src={heroImage} alt="" aria-hidden />
 
       <div className="bg-slate-100 py-6">
         <Container>
-          <h2 className="mb-5 text-2xl font-bold leading-tight">
+          <h2 className="text-primary-dark mb-5 text-2xl font-bold leading-tight">
             {__(
               'Investigating the issues affecting urban communities',
               'logan-center',
@@ -48,7 +48,7 @@ export default function Home() {
       <section className="py-6">
         <Container>
           <div className="space-y-5 space-y-reverse">
-            <h2 className="mb-5 text-right text-2xl font-bold uppercase leading-snug tracking-wider">
+            <h2 className="text-primary-dark mb-5 text-right text-2xl font-bold uppercase leading-snug tracking-wider">
               {__('Listen to our new podcast', 'logan-center')}
             </h2>
             <div className="mb-5">
@@ -69,14 +69,18 @@ export default function Home() {
                 src={podcastImage}
                 alt={__('Promotional poster for the podcast.')}
                 aspect="banner"
+                className="object-top"
               />
             </Link>
           </div>
         </Container>
       </section>
 
-      <section className="bg-primary-light py-6">
+      <section className="bg-primary-light mt-20 pt-6 pb-12">
         <Container>
+          <div className="text-primary-accent relative -mt-24 flex flex-row-reverse py-8">
+            <BarsMotif />
+          </div>
           <div className="space-y-5 space-y-reverse">
             <h2 className="mb-5 text-2xl font-bold uppercase leading-snug tracking-wider text-red-600">
               About the Logan Center
@@ -98,6 +102,39 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      <section className="py-6">
+        <Container>
+          <div className="text-primary-accent relative -mt-24 flex py-8">
+            <BarsMotif />
+          </div>
+          <div className="space-y-5 space-y-reverse">
+            <h2 className="text-primary-dark mb-5 text-2xl font-bold uppercase leading-snug tracking-wider">
+              Education Disparities Project
+            </h2>
+
+            <div className="mb-5">
+              <p className="text-base">
+                {__(
+                  `Temple's Logan Center for Urban Investigative Reporting and Billy Penn at WHYY are partnering on a yearlong reporting project examining disparities within the Philly School District, with the goal of identifying solutions that can lift up underserved schools and increase equity in public education.`,
+                  'logan-center',
+                )}
+              </p>
+            </div>
+
+            <div className="text-right">
+              <LinkButton
+                href="https://billypenn.com/stories/education-disparities-in-philadelphia/"
+                color="red"
+              >
+                Read More
+              </LinkButton>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <ImageObject src={youGotThisImage} alt="" aria-hidden />
     </Layout>
   )
 }
