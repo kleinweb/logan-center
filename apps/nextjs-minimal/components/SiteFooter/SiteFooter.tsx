@@ -8,6 +8,7 @@ import TempleLogo from 'temple-assets/logos/temple--logo.svg'
 import LogoFull from 'shared-assets/logos/logo--full--duo.svg'
 import { Icon } from 'ui'
 import Link from 'next/link'
+import Colophon from './Colophon'
 
 export default function SiteFooter() {
   return (
@@ -33,9 +34,10 @@ export default function SiteFooter() {
         </Link>
       </div>
       <hr className="my-5 border-white/10" />
-      <div className="flex justify-center">
+      <div className="mb-5 flex justify-center">
         <SocialIcons />
       </div>
+      <Colophon />
     </Container>
   )
 }
