@@ -13,8 +13,8 @@
     "build:js": "tsup src/index.ts --format esm,cjs --dts --external react",
     "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
     "dev": "concurrently 'npm:dev:*'",
-    "dev:js": "npm run build:js --watch",
-    "dev:css": "npm run build:css --watch",
+    "dev:js": "npm run build:js -- --watch",
+    "dev:css": "npm run build:css -- --watch",
     "lint": "TIMING=1 eslint \"**/*.ts*\"",
     "clean": "rimraf dist"
   },
