@@ -1,8 +1,12 @@
 {
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
+    "copy": {
+      "dependsOn": ["clean"],
+      "outputs": ["public/assets/**"]
+    },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["copy", "^build"],
       "outputs": ["dist/**", ".next/**", "build/**"]
     },
     "lint": {
@@ -14,6 +18,7 @@
       "inputs": ["**/*.tsx", "**/*.ts", "test/**/*.ts"]
     },
     "dev": {
+      "dependsOn": ["copy"],
       "cache": false
     },
     "clean": {

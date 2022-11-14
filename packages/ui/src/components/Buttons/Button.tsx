@@ -17,7 +17,7 @@ export const VARIANTS = {
 type Color = typeof COLORS[keyof typeof COLORS]
 type Variant = typeof VARIANTS[keyof typeof VARIANTS]
 
-export interface Props {
+export type ButtonProps = {
   children: React.ReactNode
   color?: Color
   variant?: Variant
@@ -73,9 +73,9 @@ const BORDER_CLSX: Record<Color, ClassValue> = {
 
 export default function Button({
   children,
-  color = COLORS.Slate,
-  variant = 'solid',
-}: Props) {
+  color = COLORS.Red,
+  variant = VARIANTS.Solid,
+}: ButtonProps) {
   const isSolid = variant === 'solid'
 
   return (

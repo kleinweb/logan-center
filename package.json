@@ -28,6 +28,7 @@
     "test": "turbo run test",
     "clean": "turbo run clean",
     "build": "turbo run build",
+    "copy": "turbo run copy",
     "codegen": "graphql-codegen --config codegen.ts"
   },
   "workspaces": [
