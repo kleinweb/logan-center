@@ -4,7 +4,6 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { __ } from '@wordpress/i18n'
-import { ExternalLink } from 'lucide-react'
 
 import { Button, ButtonWithIcon, ImageObject } from 'ui'
 
@@ -89,8 +88,9 @@ export default function Home() {
                   target="_blank"
                 >
                   <Button>
-                    Listen Now on WHYY
-                    <ExternalLink className="relative bottom-[0.5px] -mr-1 py-1 pl-1" />
+                    <span className="after:content-['_↗']">
+                      Listen Now on WHYY
+                    </span>
                   </Button>
                 </Link>
               </div>
@@ -168,8 +168,9 @@ export default function Home() {
                   target="_blank"
                 >
                   <Button>
-                    Read more on Billy Penn
-                    <ExternalLink className="relative bottom-[0.5px] -mr-1 py-1 pl-1" />
+                    <span className="after:content-['_↗']">
+                      Read more on Billy Penn
+                    </span>
                   </Button>
                 </Link>
               </div>

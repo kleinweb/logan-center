@@ -4,7 +4,6 @@
 import clsx from 'clsx'
 import Link, { LinkProps } from 'next/link'
 import { __ } from '@wordpress/i18n'
-import { ExternalLink } from 'lucide-react'
 
 import { ActiveLink as ActiveLinkComponent } from 'ui'
 import { ActiveLinkProps as ActiveLinkComponentProps } from 'ui'
@@ -60,10 +59,9 @@ export default function SiteHeader() {
               <a
                 rel="noreferrer external"
                 target="_blank"
-                className={clsx('inline-flex items-center', navLinkStyles)}
+                className={clsx("after:content-['_↗']", navLinkStyles)}
               >
                 {__('About', 'logan-center')}
-                <ExternalLink className="h-4" />
               </a>
             </NavItem>
           </ul>
