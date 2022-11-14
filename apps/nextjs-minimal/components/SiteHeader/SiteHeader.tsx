@@ -21,8 +21,8 @@ type ActiveLinkProps = {
 
 const LogoInline = () => (
   <Link href="/" className="flex gap-1">
-    <LogoMinimal />
-    <LogoText />
+    <LogoMinimal className="w-full" />
+    <LogoText className="w-full" />
   </Link>
 )
 
