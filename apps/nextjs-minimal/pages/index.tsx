@@ -33,25 +33,31 @@ export default function Home() {
 
       <h1 className="sr-only">{pageTitle}</h1>
 
-      <ImageObject src={heroImage} alt="" aria-hidden />
+      <div className="relative mb-6 md:mb-24">
+        <ImageObject src={heroImage} alt="" aria-hidden />
 
-      <div className="mb-6 bg-slate-100 py-6">
-        <Container>
-          <div className="mb-6 space-y-5">
-            <h2 className="text-primary-dark text-xl font-bold leading-tight md:text-2xl">
-              {__(
-                'Investigating the issues affecting urban communities',
-                'logan-center',
-              )}
-            </h2>
-            <p className="text-base">
-              {__(
-                `Klein College’s Logan Center for Urban Investigative Reporting focuses on the issues facing Philadelphia and other large American cities, including gun violence, economic inequality, education and health disparities, crumbling infrastructure and eroding trust in institutions.`,
-                'logan-center',
-              )}
-            </p>
+        <div className="relative mx-auto md:container">
+          <div className="grid grid-cols-12 grid-rows-1 gap-2 md:absolute md:-bottom-16 md:px-5">
+            <div className="col-span-full bg-slate-100 py-6 md:col-span-10 md:py-12 md:pb-16 lg:col-span-8">
+              <div className="container relative mx-auto px-5 md:px-10">
+                <div className="space-y-5">
+                  <h2 className="text-primary-dark text-xl font-bold leading-tight md:text-2xl">
+                    {__(
+                      'Investigating the issues affecting urban communities',
+                      'logan-center',
+                    )}
+                  </h2>
+                  <p className="text-base">
+                    {__(
+                      `Klein College’s Logan Center for Urban Investigative Reporting focuses on the issues facing Philadelphia and other large American cities, including gun violence, economic inequality, education and health disparities, crumbling infrastructure and eroding trust in institutions.`,
+                      'logan-center',
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-        </Container>
+        </div>
       </div>
 
       <section className="mb-6 py-6">
