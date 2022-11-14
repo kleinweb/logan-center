@@ -8,7 +8,7 @@ import TempleLogo from 'temple-assets/logos/temple--logo.svg'
 import LogoFull from 'shared-assets/logos/logo--full--duo.svg'
 import { Icon } from 'ui'
 import Link from 'next/link'
-import Colophon from './Colophon'
+import FinePrint from './FinePrint'
 
 export default function SiteFooter() {
   return (
@@ -37,7 +37,7 @@ export default function SiteFooter() {
       <div className="mb-5 flex justify-center">
         <SocialIcons />
       </div>
-      <Colophon />
+      <FinePrint />
     </Container>
   )
 }
