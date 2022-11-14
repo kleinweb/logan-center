@@ -89,7 +89,7 @@ export default function Home() {
                   target="_blank"
                 >
                   <Button>
-                    Listen Now
+                    Listen Now on WHYY
                     <ExternalLink className="relative bottom-[0.5px] -mr-1 py-1 pl-1" />
                   </Button>
                 </Link>
@@ -168,7 +168,7 @@ export default function Home() {
                   target="_blank"
                 >
                   <Button>
-                    Read more
+                    Read more on Billy Penn
                     <ExternalLink className="relative bottom-[0.5px] -mr-1 py-1 pl-1" />
                   </Button>
                 </Link>
