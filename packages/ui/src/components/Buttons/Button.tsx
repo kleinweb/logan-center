@@ -73,8 +73,8 @@ const BORDER_CLSX: Record<Color, ClassValue> = {
 
 export default function Button({
   children,
-  color = COLORS.Slate,
-  variant = 'solid',
+  color = COLORS.Red,
+  variant = VARIANTS.Solid,
 }: ButtonProps) {
   const isSolid = variant === 'solid'
 
