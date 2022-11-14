@@ -19,6 +19,9 @@ import podcastImage from 'shared-assets/images/podcast--poster--art_only.jpg'
 import youGotThisImage from 'shared-assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'
 
 const pageTitle = `Home | ${SITE_NAME}`
+const podcastInfoUrl =
+  'https://whyy.org/programs/stop-and-frisk-revisit-or-resist/'
+
 const aboutLoganDoc = `Klein College of Media and Communication launched the Jonathan Logan Family Foundation Center for Urban Investigative Reporting in the summer of 2021 thanks to a $1.2 million founding grant from the Jonathan Logan Family Foundation of Berkeley, California. The Center focuses exclusively on the issues facing Philadelphia and other large American cities such as gun violence, economic inequality, education and health disparities, crumbling infrastructure and eroding trust in institutions. Through the Logan Center, Klein students and faculty report not only on these problems, but on potential solutions, closely examining what has worked well in other cities across the nation and the globe.`
 
 export default function Home() {
@@ -75,7 +78,7 @@ export default function Home() {
 
               <div className="text-right">
                 <Link
-                  href="https://whyy.org/programs/stop-and-frisk-revisit-or-resist/"
+                  href={podcastInfoUrl}
                   rel="noreferrer external"
                   target="_blank"
                 >
@@ -88,7 +91,11 @@ export default function Home() {
             </div>
 
             <div className="order-1 mb-6">
-              <Link href="/podcast">
+              <Link
+                href={podcastInfoUrl}
+                rel="noreferrer external"
+                target="_blank"
+              >
                 <ImageObject
                   src={podcastImage}
                   alt={__('Promotional poster for the podcast.')}
