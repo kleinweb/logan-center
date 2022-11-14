@@ -1,7 +1,7 @@
 import { ChevronRight } from 'lucide-react'
 import Link, { LinkProps } from 'next/link'
 import Button from './Button'
-import type { Props as ButtonProps } from './Button'
+import type { ButtonProps as ButtonProps } from './Button'
 
 type Props = ButtonProps & {
   href: LinkProps['href']
