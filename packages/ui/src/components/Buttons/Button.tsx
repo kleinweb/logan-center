@@ -17,7 +17,7 @@ export const VARIANTS = {
 type Color = typeof COLORS[keyof typeof COLORS]
 type Variant = typeof VARIANTS[keyof typeof VARIANTS]
 
-export interface Props {
+export type ButtonProps = {
   children: React.ReactNode
   color?: Color
   variant?: Variant
@@ -75,7 +75,7 @@ export default function Button({
   children,
   color = COLORS.Slate,
   variant = 'solid',
-}: Props) {
+}: ButtonProps) {
   const isSolid = variant === 'solid'
 
   return (
