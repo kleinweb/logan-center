@@ -50,9 +50,12 @@ export default function SiteHeader() {
         </div>
         <nav>
           <ul className="flex items-center justify-end">
+            {/*
+            FIXME: disabled until podcast page is ready
             <NavItem href="/podcast">
               <a className={navLinkStyles}>{__('Podcast')}</a>
             </NavItem>
+            */}
             <NavItem href="https://klein.temple.edu/news/2021/07/klein-college-establishes-logan-center-urban-investigative-reporting">
               <a
                 rel="noreferrer external"
