@@ -44,8 +44,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.13.12",
-    "@graphql-codegen/client-preset": "1.1.3",
+    "@graphql-codegen/cli": "2.15.0",
+    "@graphql-codegen/client-preset": "1.2.0",
     "@types/node": "^18.11.9",
     "@types/prettier": "^2.7.1",
     "@types/rimraf": "^3.0.2",
@@ -55,7 +55,7 @@
     "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
-    "prettier-plugin-tailwindcss": "^0.1.13",
+    "prettier-plugin-tailwindcss": "^0.2.0",
     "rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
     "turbo": "^1.6.3",
