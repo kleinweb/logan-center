@@ -19,6 +19,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "@wordpress/i18n": "^4.22.0",
     "clsx": "^1.2.1",
     "lucide-react": "^0.104.0",
     "next": "^13.0.3",
