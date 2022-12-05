@@ -25,7 +25,8 @@
     "next": "^13.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "shared-assets": "*"
+    "shared-assets": "*",
+    "temple-assets": "*"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
