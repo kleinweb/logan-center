@@ -31,6 +31,7 @@
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "concurrently": "^7.5.0",
+    "esbuild-plugin-svgr": "^1.0.1",
     "eslint": "^8.27.0",
     "eslint-config-custom": "*",
     "eslint-plugin-tailwindcss": "^3.6.2",
