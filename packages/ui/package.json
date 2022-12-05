@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "npm run build:js && npm run build:css",
-    "build:js": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "build:js": "tsup --format esm,cjs --dts",
     "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
     "dev": "concurrently 'npm:dev:*'",
     "dev:js": "npm run build:js -- --watch",
