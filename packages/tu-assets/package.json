@@ -1,5 +1,5 @@
 {
-  "name": "temple-assets",
+  "name": "tu-assets",
   "author": {
     "name": "Temple University",
     "email": "brand@temple.edu",
@@ -15,10 +15,13 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc && npm run build:js",
-    "build:js": "rollup -c",
+    "build": "npm run build:js",
+    "build:js": "tsc && rollup -c",
     "dev": "npm run build:js --watch",
     "clean": "rimraf ./dist"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^10.0.1",
@@ -28,8 +31,5 @@
     "rollup": "^3.6.0",
     "tsconfig": "*",
     "typescript": "^4.8.4"
-  },
-  "dependencies": {
-    "react": "^18.2.0"
   }
 }

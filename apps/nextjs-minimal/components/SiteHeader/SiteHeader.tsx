@@ -10,8 +10,8 @@ import { ActiveLinkProps as ActiveLinkComponentProps } from 'ui'
 
 import Container from '../Container'
 
-import LogoMinimal from 'shared-assets/logos/logo--gfx--duo.svg'
-import LogoText from 'shared-assets/logos/logo--text.svg'
+import LogoMinimal from 'site-assets/logos/logo--gfx--duo.svg'
+import LogoText from 'site-assets/logos/logo--text.svg'
 
 type ActiveLinkProps = {
   href: LinkProps['href']

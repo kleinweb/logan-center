@@ -11,11 +11,11 @@ import { SITE_NAME } from '@/lib/constants'
 import Layout from '@/components/Layout/Layout'
 import Container from '@/components/Container'
 
-import BarsMotif from 'shared-assets/decorations/motif--island.svg'
+import BarsMotif from 'site-assets/decorations/motif--island.svg'
 
-import heroImage from 'shared-assets/images/photos/ncm_williamdickschool-3.jpg'
-import podcastImage from 'shared-assets/images/podcast--poster--art_only.jpg'
-import youGotThisImage from 'shared-assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'
+import heroImage from 'site-assets/images/photos/ncm_williamdickschool-3.jpg'
+import podcastImage from 'site-assets/images/podcast--poster--art_only.jpg'
+import youGotThisImage from 'site-assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'
 
 const pageTitle = `Home | ${SITE_NAME}`
 const podcastInfoUrl =

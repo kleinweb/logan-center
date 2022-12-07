@@ -3,8 +3,8 @@
 # vercel cannot handle symlinked files, so assets that must be served publicly
 # need to be copied into place during deployments. since we already have the
 # files, they should not be added to git more than once.
+/public/assets/site/
 /public/assets/shared/
-/public/assets/temple/
 
 # dependencies
 /node_modules

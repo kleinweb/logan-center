@@ -32,10 +32,10 @@ Copyright: 2022 Temple University <kleinweb@temple.edu>
            2021 Automattic
 License: GPL-3.0-or-later OR MIT
 
-Files: packages/shared-assets/*
+Files: packages/site-assets/*
 Copyright: 2022 Temple University <kleinweb@temple.edu>
 License: CC-BY-NC-ND-4.0
 
-Files: packages/temple-assets/*
+Files: packages/tu-assets/*
 Copyright: 2022 Temple University <brand@temple.edu>
 License: LicenseRef-TU-Trademark-Policy
