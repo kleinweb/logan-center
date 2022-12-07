@@ -4,8 +4,8 @@
 import Container from '../Container'
 import SocialIcons from './SocialIcons'
 
-import { TempleLogo } from 'temple-assets'
-import LogoFull from 'shared-assets/logos/logo--full--duo.svg'
+import { TempleLogo } from 'tu-assets'
+import LogoFull from 'site-assets/logos/logo--full--duo.svg'
 import { Icon } from 'ui'
 import Link from 'next/link'
 import FinePrint from './FinePrint'

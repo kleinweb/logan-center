@@ -10,8 +10,8 @@
     "lint": "tsc --noEmit && next lint",
     "clean": "rimraf public/assets/{shared,temple}",
     "copy": "concurrently 'npm:copy:*'",
-    "copy:shared-assets": "cp -R ../../packages/shared-assets ./public/assets/shared",
-    "copy:temple-assets": "cp -R ../../packages/temple-assets ./public/assets/temple"
+    "copy:site-assets": "cp -R ../../packages/site-assets ./public/assets/site",
+    "copy:tu-assets": "cp -R ../../packages/tu-assets ./public/assets/shared"
   },
   "dependencies": {
     "@wordpress/i18n": "^4.21.0",
@@ -20,8 +20,8 @@
     "next": "^13.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "shared-assets": "*",
-    "temple-assets": "*",
+    "site-assets": "*",
+    "tu-assets": "*",
     "ui": "*"
   },
   "devDependencies": {
