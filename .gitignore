@@ -48,6 +48,7 @@ tmp/
 
 ##: javascript/typescript
 *.tsbuildinfo
+*.map
 
 ##: next.js
 .next/
@@ -57,4 +58,3 @@ tmp/
 apps/wp-env/.wp-env.json
 kleinweb.config.json
 .prettierrc.json
-*.map
