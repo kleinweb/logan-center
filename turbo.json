@@ -6,7 +6,7 @@
       "outputs": ["public/assets/**"]
     },
     "build": {
-      "dependsOn": ["copy", "^build"],
+      "dependsOn": ["^clean", "copy", "^build"],
       "outputs": ["dist/**", ".next/**", "build/**"]
     },
     "lint": {
