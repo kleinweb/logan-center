@@ -30,8 +30,9 @@ in {
         package = pkgs.pastel;
       }
       {
+        name = "copilot";
         category = "deploy";
-        package = pkgs.flyctl;
+        package = pkgs.copilot-cli;
       }
     ];
   };
