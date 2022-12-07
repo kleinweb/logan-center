@@ -7,7 +7,7 @@ import { TempleLogoIcon } from 'tu-assets'
 
 export default function KleinBanner() {
   return (
-    <div className="bg-neutral-800 text-white">
+    <div className="bg-slate-900 text-white">
       <div className="container relative mx-auto flex items-center justify-end px-5">
         <a
           href="https://klein.temple.edu"
@@ -15,8 +15,10 @@ export default function KleinBanner() {
           rel="noreferrer"
           className="flex items-center gap-4 uppercase tracking-wide"
         >
-          <p className="grow font-bold">{__('Explore')} klein.temple.edu</p>
-          <div className="h-[40px] w-[40px] bg-white">
+          <p className="text-2xs grow font-semibold">
+            {__('Explore')} klein.temple.edu
+          </p>
+          <div className="h-[30px] w-[30px] bg-white">
             <TempleLogoIcon />
           </div>
         </a>

@@ -30,6 +30,8 @@ module.exports = {
         100: secondaryPalette.light,
         300: '#d1d4db',
         700: primaryPalette.dark,
+        // TODO: confirm color params
+        900: 'hsl(208, 27%, 15%)',
       },
       teal: {
         500: primaryPalette.accent, // "primary highlight"

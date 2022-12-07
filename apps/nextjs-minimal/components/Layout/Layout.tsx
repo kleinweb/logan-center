@@ -3,20 +3,27 @@
 
 import { ReactNode } from 'react'
 
+import { KleinBanner } from 'ui'
+
 import SiteHeader from '../SiteHeader'
 import SiteFooter from '../SiteFooter'
 import Meta from '../Meta'
 
-type Props = {
+type LayoutProps = {
   children: ReactNode
 }
 
-export default function Layout(props: Props) {
+export default function Layout(props: LayoutProps) {
   return (
     <>
       <Meta />
-      <header className="bg-slate-700 py-3 text-white">
-        <SiteHeader />
+      <header className="flex flex-col">
+        <div className="order-2 bg-slate-700 py-3 text-white">
+          <SiteHeader />
+        </div>
+        <div className="order-1">
+          <KleinBanner />
+        </div>
       </header>
       <div className="min-h-screen">
         <main className="block">{props.children}</main>
