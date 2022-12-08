@@ -15,9 +15,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run build:js",
+    "build": "yarn build:js",
     "build:js": "tsc && rollup -c",
-    "dev": "npm run build:js --watch",
+    "dev": "yarn build:js --watch",
     "clean": "rimraf ./dist"
   },
   "dependencies": {
@@ -29,7 +29,7 @@
     "@types/react": "^18.0.26",
     "rimraf": "^3.0.2",
     "rollup": "^3.6.0",
-    "tsconfig": "*",
+    "tsconfig": "workspace:*",
     "typescript": "^4.8.4"
   }
 }

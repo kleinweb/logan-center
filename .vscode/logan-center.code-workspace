@@ -46,16 +46,22 @@
     }
   ],
   "settings": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "eslint.nodePath": ".yarn/sdks",
     "eslint.workingDirectories": ["./packages/*", "./apps/*"],
-    "typescript.enablePromptUseWorkspaceTsdk": true,
     "files.associations": {
       "*.css": "tailwindcss",
       "dep5": "debian-copyright"
     },
-    "editor.quickSuggestions": {
-      "strings": true
+    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+    "search.exclude": {
+      "**/.yarn": true,
+      "**/.pnp.*": true
     },
     "tailwindCSS.emmetCompletions": true,
-    "typescript.tsdk": "project-root/node_modules/typescript/lib"
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.tsdk": ".yarn/sdks/typescript/lib"
   }
 }

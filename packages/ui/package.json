@@ -9,36 +9,35 @@
     "./styles.css": "./dist/styles.css"
   },
   "scripts": {
-    "build": "npm run build:js && npm run build:css",
+    "build": "yarn build:js && yarn build:css",
     "build:js": "tsup --format esm,cjs --dts",
     "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
-    "dev": "concurrently 'npm:dev:*'",
-    "dev:js": "npm run build:js -- --watch",
-    "dev:css": "npm run build:css -- --watch",
+    "dev": "concurrently 'yarn:dev:*'",
+    "dev:js": "yarn build:js -- --watch",
+    "dev:css": "yarn build:css -- --watch",
     "lint": "TIMING=1 eslint \"**/*.ts*\"",
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@wordpress/i18n": "^4.22.0",
     "clsx": "^1.2.1",
     "lucide-react": "^0.104.0",
     "next": "^13.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "site-assets": "*",
-    "tu-assets": "*"
+    "site-assets": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "concurrently": "^7.5.0",
+    "esbuild-plugin-svgr": "^1.0.1",
     "eslint": "^8.27.0",
-    "eslint-config-custom": "*",
+    "eslint-config-custom": "workspace:*",
     "eslint-plugin-tailwindcss": "^3.6.2",
     "rimraf": "^3.0.2",
-    "tailwind-config": "*",
+    "tailwind-config": "workspace:*",
     "tailwindcss": "^3.2.4",
-    "tsconfig": "*",
+    "tsconfig": "workspace:*",
     "tsup": "^6.4.0",
     "typescript": "^4.8.4"
   }
