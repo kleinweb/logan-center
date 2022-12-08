@@ -1,7 +1,9 @@
 // SPDX-FileCopyrightText: 2022 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import clsx, { ClassValue } from 'clsx'
+import clsx from 'clsx'
+import type { ClassValue } from 'clsx'
+import * as React from 'react'
 
 export const COLORS = {
   Slate: 'slate',

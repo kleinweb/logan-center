@@ -18,9 +18,11 @@ License: GPL-3.0-or-later
 Files: */*.md
        */.gitignore
        */.prettierignore
+       .gitattributes
        .gitignore
        .prettierignore
        .vscode/*
+       .yarn/*
        *.json
        *.md
        *.lock

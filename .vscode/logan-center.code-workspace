@@ -62,6 +62,6 @@
     },
     "tailwindCSS.emmetCompletions": true,
     "typescript.enablePromptUseWorkspaceTsdk": true,
-    "typescript.tsdk": ".yarn/sdks/typescript/lib"
+    "typescript.tsdk": "project-root/.yarn/sdks/typescript/lib"
   }
 }

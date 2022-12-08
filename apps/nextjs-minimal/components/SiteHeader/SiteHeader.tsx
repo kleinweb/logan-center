@@ -5,13 +5,13 @@ import clsx from 'clsx'
 import Link, { LinkProps } from 'next/link'
 import { __ } from '@wordpress/i18n'
 
-import { ActiveLink as ActiveLinkComponent } from 'ui'
-import { ActiveLinkProps as ActiveLinkComponentProps } from 'ui'
+import { ActiveLink as ActiveLinkComponent } from '@kleinweb/logan-center__ui'
+import { ActiveLinkProps as ActiveLinkComponentProps } from '@kleinweb/logan-center__ui'
 
 import Container from '../Container'
 
-import LogoMinimal from 'site-assets/logos/logo--gfx--duo.svg'
-import LogoText from 'site-assets/logos/logo--text.svg'
+import LogoMinimal from '@kleinweb/logan-center__site-assets/logos/logo--gfx--duo.svg'
+import LogoText from '@kleinweb/logan-center__site-assets/logos/logo--text.svg'
 
 type ActiveLinkProps = {
   href: LinkProps['href']
