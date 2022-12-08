@@ -5,7 +5,7 @@
 
 import { Twitter, Facebook, Instagram } from 'lucide-react'
 
-import { Icon } from 'ui'
+import { Icon } from '@kleinweb/logan-center__ui'
 
 /**
  * Server-side data loading must take place in pages. If you need to load data

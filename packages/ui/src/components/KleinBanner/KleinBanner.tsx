@@ -3,7 +3,7 @@
 
 import { __ } from '@wordpress/i18n'
 
-import { TempleLogoIcon } from 'tu-assets'
+import { TempleLogoIcon } from '@kleinweb/tu-assets'
 
 export default function KleinBanner() {
   return (

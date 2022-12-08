@@ -1,5 +1,5 @@
 {
-  "name": "wp-env",
+  "name": "@kleinweb/logan-center--wp-env",
   "private": true,
   "version": "0.1.0",
   "license": "GPL-3.0-or-later",
@@ -7,6 +7,6 @@
     "dev": "wp-env start"
   },
   "devDependencies": {
-    "@wordpress/env": "^5.6.0"
+    "@wordpress/env": "^5.7.0"
   }
 }

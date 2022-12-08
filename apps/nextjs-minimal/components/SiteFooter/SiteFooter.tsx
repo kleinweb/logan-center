@@ -4,9 +4,9 @@
 import Container from '../Container'
 import SocialIcons from './SocialIcons'
 
-import { TempleLogo } from 'tu-assets'
-import LogoFull from 'site-assets/logos/logo--full--duo.svg'
-import { Icon } from 'ui'
+import { TempleLogo } from '@kleinweb/tu-assets'
+import LogoFull from '@kleinweb/logan-center__site-assets/logos/logo--full--duo.svg'
+import { Icon } from '@kleinweb/logan-center__ui'
 import Link from 'next/link'
 import FinePrint from './FinePrint'
 
