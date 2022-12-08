@@ -3,7 +3,7 @@
 
 import { ReactNode } from 'react'
 
-import { KleinBanner } from 'ui'
+import { KleinBanner } from '@kleinweb/logan-center__ui'
 
 import SiteHeader from '../SiteHeader'
 import SiteFooter from '../SiteFooter'

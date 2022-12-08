@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['custom'],
+  extends: ['@kleinweb/eslint-config-custom'],
   rules: {
     '@next/next/no-html-link-for-pages': 'off',
   },

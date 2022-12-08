@@ -1,10 +1,10 @@
 // SPDX-FileCopyrightText: 2022 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { ReactNode } from 'react'
+import * as React from 'react'
 
 type Props = {
-  children?: ReactNode
+  children?: React.ReactNode
 }
 
 const Container = ({ children }: Props) => {
