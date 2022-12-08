@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "tsc --noEmit && next lint",
     "clean": "rimraf public/assets/{shared,temple}",
-    "copy": "concurrently 'npm:copy:*'",
+    "copy": "concurrently 'yarn:copy:*'",
     "copy:site-assets": "cp -R ../../packages/site-assets ./public/assets/site",
     "copy:tu-assets": "cp -R ../../packages/tu-assets ./public/assets/shared"
   },
@@ -20,9 +20,9 @@
     "next": "^13.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "site-assets": "*",
-    "tu-assets": "*",
-    "ui": "*"
+    "site-assets": "workspace:*",
+    "tu-assets": "workspace:*",
+    "ui": "workspace:*"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
@@ -35,13 +35,13 @@
     "autoprefixer": "^10.4.13",
     "concurrently": "^7.5.0",
     "eslint": "^8.27.0",
-    "eslint-config-custom": "*",
+    "eslint-config-custom": "workspace:*",
     "eslint-plugin-tailwindcss": "^3.6.2",
     "postcss": "^8.4.19",
     "rimraf": "^3.0.2",
-    "tailwind-config": "*",
+    "tailwind-config": "workspace:*",
     "tailwindcss": "^3.2.4",
-    "tsconfig": "*",
+    "tsconfig": "workspace:*",
     "typescript": "^4.8.4"
   }
 }

@@ -1,0 +1,4 @@
+# Prevent massive diffs for yarn internal updates.
+# <https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored>
+/.yarn/releases/** binary
+/.yarn/plugins/** binary
