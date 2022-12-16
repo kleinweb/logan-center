@@ -82,9 +82,13 @@ module.exports = {
       sans: 'urw-din, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif',
     },
     // Font weights are listed explicitly because they will need to be added to
-    // the font stack (e.g. Adobe Fonts) before being usable in CSS.
+    // the font stack (e.g. Adobe Fonts fka Typekit) before being usable in CSS.
+    // https://fonts.adobe.com/my_fonts#web_projects-section
     fontWeight: {
       normal: 400,
+      // Note that Adobe refers to this weight simply as "Demi". We use the
+      // more-common and more-obvious "Semibold" terminology.
+      semibold: 600,
       bold: 700,
     },
     extend: {},
