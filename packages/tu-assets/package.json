@@ -1,0 +1,35 @@
+{
+  "name": "tu-assets",
+  "author": {
+    "name": "Temple University",
+    "email": "brand@temple.edu",
+    "url": "https://finance.temple.edu/business-operations/trademark-licensing"
+  },
+  "private": true,
+  "version": "1.0.0",
+  "license": "LicenseRef-TU-Trademark-Policy",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run build:js",
+    "build:js": "tsc && rollup -c",
+    "dev": "npm run build:js --watch",
+    "clean": "rimraf ./dist"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^10.0.1",
+    "@svgr/rollup": "^6.5.1",
+    "@types/react": "^18.0.26",
+    "rimraf": "^3.0.2",
+    "rollup": "^3.6.0",
+    "tsconfig": "*",
+    "typescript": "^4.8.4"
+  }
+}

@@ -30,12 +30,22 @@ module.exports = {
         100: secondaryPalette.light,
         300: '#d1d4db',
         700: primaryPalette.dark,
+        // TODO: confirm color params
+        900: 'hsl(208, 27%, 15%)',
       },
       teal: {
         500: primaryPalette.accent, // "primary highlight"
       },
       neutral: {
-        500: '#616161',
+        100: 'hsl(0, 0%, 90%)',
+        200: 'hsl(0, 0%, 80%)',
+        300: 'hsl(0, 0%, 70%)',
+        400: 'hsl(0, 0%, 60%)',
+        500: 'hsl(0, 0%, 50%)',
+        600: 'hsl(0, 0%, 40%)',
+        700: 'hsl(0, 0%, 30%)',
+        800: 'hsl(0, 0%, 20%)',
+        900: 'hsl(0, 0%, 10%)',
       },
       red: {
         300: '#e2b28e',
@@ -72,9 +82,13 @@ module.exports = {
       sans: 'urw-din, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif',
     },
     // Font weights are listed explicitly because they will need to be added to
-    // the font stack (e.g. Adobe Fonts) before being usable in CSS.
+    // the font stack (e.g. Adobe Fonts fka Typekit) before being usable in CSS.
+    // https://fonts.adobe.com/my_fonts#web_projects-section
     fontWeight: {
       normal: 400,
+      // Note that Adobe refers to this weight simply as "Demi". We use the
+      // more-common and more-obvious "Semibold" terminology.
+      semibold: 600,
       bold: 700,
     },
     extend: {},

@@ -25,7 +25,7 @@ export default function SiteFooter() {
           <p>Philadelphia, PA 19122</p>
         </address>
       </div>
-      <hr className="my-5 mb-8 block border-neutral-500" />
+      <hr className="my-5 mb-8 block border-neutral-400" />
       <div className="flex justify-center">
         <Icon label="Follow us on Twitter">
           <a

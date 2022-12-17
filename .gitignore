@@ -48,6 +48,7 @@ tmp/
 
 ##: javascript/typescript
 *.tsbuildinfo
+*.map
 
 ##: next.js
 .next/

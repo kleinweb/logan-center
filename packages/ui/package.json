@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "npm run build:js && npm run build:css",
-    "build:js": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "build:js": "tsup --format esm,cjs --dts",
     "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
     "dev": "concurrently 'npm:dev:*'",
     "dev:js": "npm run build:js -- --watch",
@@ -19,15 +19,16 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
+    "@wordpress/i18n": "^4.22.0",
     "clsx": "^1.2.1",
     "lucide-react": "^0.104.0",
     "next": "^13.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "shared-assets": "*"
+    "site-assets": "*",
+    "tu-assets": "*"
   },
   "devDependencies": {
-    "@svgr/webpack": "^6.5.1",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "concurrently": "^7.5.0",

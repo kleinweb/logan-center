@@ -21,12 +21,12 @@
       "path": "../packages/tailwind-config"
     },
     {
-      "name": "packages/shared-assets",
-      "path": "../packages/shared-assets"
+      "name": "packages/tu-assets",
+      "path": "../packages/tu-assets"
     },
     {
-      "name": "packages/temple-assets",
-      "path": "../packages/temple-assets"
+      "name": "packages/site-assets",
+      "path": "../packages/site-assets"
     },
     {
       "name": "packages/tsconfig",
