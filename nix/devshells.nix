@@ -23,6 +23,10 @@ in {
       }
       {
         category = "tools";
+        package = pkgs.just;
+      }
+      {
+        category = "tools";
         package = pkgs.reuse;
       }
       {
