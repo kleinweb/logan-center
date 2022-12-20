@@ -33,8 +33,13 @@
     "codegen": "graphql-codegen --config codegen.ts"
   },
   "workspaces": [
-    "packages/*",
-    "apps/*"
+    "packages/eslint-config-custom",
+    "packages/site-assets",
+    "packages/tailwind-config",
+    "packages/tsconfig",
+    "packages/tu-assets",
+    "packages/ui",
+    "apps/nextjs-minimal"
   ],
   "dependencies": {
     "dotenv-cli": "^6.0.0",
