@@ -23,7 +23,7 @@
     "npm": "use-yarn-instead"
   },
   "scripts": {
-    "prepare": "yarn husky install",
+    "prepare": "husky install",
     "dev": "dotenv -- turbo run dev --parallel",
     "lint": "turbo run lint",
     "test": "turbo run test",
