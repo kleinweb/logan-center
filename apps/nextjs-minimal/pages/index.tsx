@@ -5,17 +5,17 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { __ } from '@wordpress/i18n'
 
-import { Button, ButtonWithIcon, ImageObject } from 'ui'
+import { Button, ButtonWithIcon, ImageObject } from '@kleinweb/logan-center__ui'
 
 import { SITE_NAME } from '@/lib/constants'
 import Layout from '@/components/Layout/Layout'
 import Container from '@/components/Container'
 
-import BarsMotif from 'site-assets/decorations/motif--island.svg'
+import BarsMotif from '@kleinweb/logan-center__site-assets/decorations/motif--island.svg'
 
-import heroImage from 'site-assets/images/photos/ncm_williamdickschool-3.jpg'
-import podcastImage from 'site-assets/images/podcast--poster--art_only.jpg'
-import youGotThisImage from 'site-assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'
+import heroImage from '@kleinweb/logan-center__site-assets/images/photos/ncm_williamdickschool-3.jpg'
+import podcastImage from '@kleinweb/logan-center__site-assets/images/podcast--poster--art_only.jpg'
+import youGotThisImage from '@kleinweb/logan-center__site-assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'
 
 const pageTitle = `Home | ${SITE_NAME}`
 const podcastInfoUrl =

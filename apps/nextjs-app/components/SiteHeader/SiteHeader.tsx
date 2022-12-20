@@ -7,8 +7,8 @@ import { ReactNode } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
 
-import LogoFull from 'site-assets/logos/logo--full--duo.svg'
-import LogoMinimal from 'site-assets/logos/logo--gfx--duo.svg'
+import LogoFull from '@kleinweb/logan-center__site-assets/logos/logo--full--duo.svg'
+import LogoMinimal from '@kleinweb/logan-center__site-assets/logos/logo--gfx--duo.svg'
 
 type Props = {
   headerLink?: ReactNode

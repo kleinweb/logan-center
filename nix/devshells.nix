@@ -18,8 +18,16 @@ in {
     env = [];
     commands = [
       {
+        # NOTE: This yarn package is only used for initial bootstrapping. After
+        # the first run, yarn will manage its own versions. This setup comes
+        # with a fair amount of caveats, but assures both backward- and
+        # forward-compatibility, which is one of yarn's advertised features.
+        package = pkgs.yarn;
         category = "tools";
-        package = pkgs.nodePackages.npm;
+      }
+      {
+        category = "tools";
+        package = pkgs.just;
       }
       {
         category = "tools";
@@ -31,7 +39,7 @@ in {
       }
       {
         name = "copilot";
-        category = "deploy";
+        category = "deployments";
         package = pkgs.copilot-cli;
       }
     ];

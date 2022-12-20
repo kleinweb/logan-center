@@ -1,11 +1,12 @@
 {
-  "extends": "tsconfig/react-library.json",
-  "include": ["src/*", "globals.d.ts"],
-  "exclude": ["dist", "build", "node_modules"],
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "../tsconfig/react-library.json",
+  "include": ["src/**/*"],
+  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
-    "outDir": "dist",
     "declaration": true,
-    "declarationDir": ".",
-    "lib": ["DOM", "ES2015"]
+    "declarationDir": "dist",
+    "lib": ["DOM", "ES2015"],
+    "outDir": "dist"
   }
 }

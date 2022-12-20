@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd ../.. && yarn turbo build --filter=@kleinweb/logan-center--nextjs-minimal",
+  "devCommand": "cd ../.. && yarn turbo dev --filter=@kleinweb/logan-center--nextjs-minimal",
+  "installCommand": "cd ../.. && yarn install --immutable"
+}
