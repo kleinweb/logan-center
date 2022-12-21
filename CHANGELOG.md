@@ -2,6 +2,57 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.2.1 - 2022-12-21
+#### Bug Fixes
+- **(assets)** hard-code cherry fill color in tu logo icon svg - (46328a9) - Chris Montgomery
+- **(assets:logo)** remove fixed w/h on logo icon - (56b412d) - Chris Montgomery
+- **(ci)** `clean` before `build` - (9ea6d7c) - Chris Montgomery
+- **(deps)** update dependency lucide-react to ^0.104.0 - (504ac23) - renovate[bot]
+- **(deps)** update dependency eslint-plugin-react to v7.31.11 - (7489933) - renovate[bot]
+- **(env:vscode)** remove workspace file in favor of `settings.json` - (5b356d3) - Chris Montgomery
+- **(formatting)** ignore generated typescript declarations - (2ce7c9e) - Chris Montgomery
+- **(tu-assets|logos)** update svg with proper fill - (5988922) - Chris Montgomery
+- **(ui)** set ts `include` to existing `src` dir instead of root - (89d522e) - Chris Montgomery
+- **(ui|builds)** mark all deps as `external` for `tsup` - (4f860aa) - Chris Montgomery
+- specify workspaces explicitly to avoid `nextjs-app` for now - (b70f414) - Chris Montgomery
+#### Build system
+- handle misbehaving peer dependency specifications - (5456fcb) - Chris Montgomery
+#### Continuous Integration
+- remove usages of `private` attribute from `just` tasks - (730b402) - Chris Montgomery
+- add vercel configuration file for yarn support - (84c4301) - Chris Montgomery
+#### Features
+- **(builds)** add cocogitto for semantic versioning/changelogs - (fc7592a) - Chris Montgomery
+- **(devshells)** replace flyctl with copilot-cli - (70d6f61) - Chris Montgomery
+- **(icons)** replace `ExternalLink` icon with `↗` as external link indicator - (4b3a732) - Chris Montgomery
+- **(siteFooter|legal)** add link to university privacy statement - (87b46b3) - Chris Montgomery
+- **(temple-assets)** package svgs with rollup and svgr - (56c4cb3) - Chris Montgomery
+- **(tw|fonts)** add semibold weight - (ee9096f) - Chris Montgomery
+- **(ui)** add component for klein recirc banner - (8c735e7) - Chris Montgomery
+- **(ui)** add `svgr` support - (28551e4) - Chris Montgomery
+- **(ui:color)** extend neutral color palette to include full range - (85b754e) - Chris Montgomery
+- add `just` tasks - (4f5b28f) - Chris Montgomery
+- add klein recirc banner above site header - (5484fc2) - Chris Montgomery
+#### Miscellaneous Chores
+- **(deps)** yarn upgrade - (6f2f5a4) - Chris Montgomery
+- **(deps)** yarn@3.3.0 - (e8a2f73) - Chris Montgomery
+- **(deps)** update dependency @graphql-codegen/client-preset to v1.2.1 - (ba3ff57) - renovate[bot]
+- **(deps)** update graphqlcodegenerator monorepo - (388e845) - renovate[bot]
+- **(deps)** update dependency prettier-plugin-tailwindcss to ^0.2.0 - (572d63a) - renovate[bot]
+- **(deps)** update dependency @graphql-codegen/cli to v2.13.12 - (e74f23a) - renovate[bot]
+- **(nix)** set cachix cache name via env var - (057aad7) - Chris Montgomery
+- **(ui)** add `tsup` config file - (3826317) - Chris Montgomery
+- **(ui:deps)** add `@wordpress/i18n` - (3b8070e) - Chris Montgomery
+- **(version)** v0.2.0 - (4f33735) - Chris Montgomery
+- align version numbers across workspaces - (5614d05) - Chris Montgomery
+- yarn eslint sdk update - (37aba67) - Chris Montgomery
+- revert "fix(home|content): reverting rogue cta language changes"This reverts commit b30bff1d39eb3b35be41cfa503209e3b0ee05afc. - (402c03c) - Chris Montgomery
+#### Refactoring
+- **(assets)** rename `{shared,temple}-assets`->`{site,tu}-assets` - (d383917) - Chris Montgomery
+- **(siteFooter)** rename `Colophon` to `FinePrint` - (64cacaa) - Chris Montgomery
+- use npm scoped names + various fixes for yarn - (2730f9a) - Chris Montgomery
+
+- - -
+
 ## v0.2.0 - 2022-12-21
 #### Bug Fixes
 - **(assets)** hard-code cherry fill color in tu logo icon svg (#84) - (27d3195) - chris montgomery
