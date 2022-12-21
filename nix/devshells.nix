@@ -15,13 +15,19 @@ in {
 
   flake.devshellProfiles.core = {pkgs, ...}: {
     packages = with pkgs; [cachix fd nodejs ripgrep];
-    env = [];
+    env = [
+      {
+        name = "CACHIX_CACHE_NAME";
+        value = "kleintu";
+      }
+    ];
     commands = [
       {
         # NOTE: This yarn package is only used for initial bootstrapping. After
-        # the first run, yarn will manage its own versions. This setup comes
-        # with a fair amount of caveats, but assures both backward- and
-        # forward-compatibility, which is one of yarn's advertised features.
+        # the first run, yarn will manage its own versions. This setup assures
+        # both backward- and forward-compatibility, which is one of yarn's
+        # advertised features. That said, the newer versions of yarn come with
+        # some caveats, requiring the frequent use of the `yarn sdks` command.
         package = pkgs.yarn;
         category = "tools";
       }
@@ -37,11 +43,12 @@ in {
         category = "tools";
         package = pkgs.pastel;
       }
-      {
-        name = "copilot";
-        category = "deployments";
-        package = pkgs.copilot-cli;
-      }
+      # TODO: something?
+      # {
+      #   name = "copilot";
+      #   category = "deployments";
+      #   package = pkgs.copilot-cli;
+      # }
     ];
   };
 }
