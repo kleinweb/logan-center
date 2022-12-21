@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2022 Temple University <kleinweb@temple.edu>
+# SPDX-License-Identifier: CC0-1.0
+
+tag_prefix = "v"
+ignore_merge_commits = true
+branch_whitelist = []
+pre_bump_hooks = []
+post_bump_hooks = []
+
+[commit_types]
+
+[changelog]
+path = "CHANGELOG.md"
+authors = []
+
+[bump_profiles]
