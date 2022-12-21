@@ -17,14 +17,14 @@
     nixago.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {
+  outputs = inputs @ {
     self,
     flake-parts,
     treefmt-flake,
     ...
   }:
     flake-parts.lib.mkFlake
-    {inherit self;}
+    {inherit inputs;}
     {
       imports = [
         treefmt-flake.flakeModule
