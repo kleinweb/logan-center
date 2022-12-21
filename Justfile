@@ -18,12 +18,13 @@ docs-license := 'CC-BY-SA-4.0'
 public-domain-license := 'CC0-1.0'
 
 ##: binary cache
-cachix-cache-name := 'kleinweb'
+cachix-cache-name := env_var('CACHIX_CACHE_NAME')
 cachix-exec := "cachix watch-exec --jobs 2 " + cachix-cache-name
 
 ##: directories/paths
 prj-root := env_var('PRJ_ROOT')
-# `package.json` runnables
+
+# make node/yarn `package.json` runnables available to tasks
 export PATH := "./node_modules/.bin:" + env_var('PATH')
 
 
