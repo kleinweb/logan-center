@@ -34,12 +34,14 @@ export PATH := "./node_modules/.bin:" + env_var('PATH')
 fmt *FILES=prj-root:
   treefmt --no-cache {{FILES}}
 
+# <- Check Nix files for issues
+check *FILES=prj-root: (_deadnix "check" FILES) (_statix "check" FILES)
+
 # <- Write automatic linter fixes to files
-fix *FILES=prj-root: (deadnix "fix" FILES) (statix "fix" FILES)
+fix *FILES=prj-root: (_deadnix "fix" FILES) (_statix "fix" FILES)
 
 # <- Run `statix`
-[private]
-statix action +FILES=prj-root:
+_statix action +FILES=prj-root:
   @ # Note that stderr is silenced due to an upstream bug
   @ # https://github.com/nerdypepper/statix/issues/59
   @ for f in {{FILES}}; do \
@@ -47,8 +49,7 @@ statix action +FILES=prj-root:
   done
 
 # <- Run `deadnix` with sane options
-[private]
-deadnix action +FILES=prj-root:
+_deadnix action +FILES=prj-root:
   @deadnix \
     {{ if action == "fix" { "--edit" } else { "--fail" } }} \
     --no-underscore \
