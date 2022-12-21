@@ -43,6 +43,10 @@ in {
         category = "tools";
         package = pkgs.pastel;
       }
+      {
+        category = "tools";
+        package = pkgs.cocogitto;
+      }
       # TODO: something?
       # {
       #   name = "copilot";
