@@ -18,7 +18,7 @@ export default function Layout(props: LayoutProps) {
     <>
       <Meta />
       <header className="flex flex-col">
-        <div className="order-2 bg-slate-700 py-3 text-white">
+        <div className="order-2 bg-slate-700 py-1 text-white lg:py-2">
           <SiteHeader />
         </div>
         <div className="order-1">
