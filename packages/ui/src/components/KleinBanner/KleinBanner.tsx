@@ -18,7 +18,10 @@ export default function KleinBanner() {
           <p className="text-2xs grow font-semibold">
             {__('Explore')} klein.temple.edu
           </p>
-          <div className="h-[30px] w-[30px] bg-white">
+          {/* NOTE: `aspect-ratio` is an option here too, but considering that
+          its browser support is not quite in the optimal range of ~95% as of 2023-01,
+          it's best to play it safe for branding in such a prominent location. */}
+          <div className="h-7 w-7 bg-white sm:h-9 sm:w-9">
             <TempleLogoIcon />
           </div>
         </a>

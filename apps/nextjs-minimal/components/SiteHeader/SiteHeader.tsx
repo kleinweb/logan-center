@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2022 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import clsx from 'clsx'
+import cn from 'clsx'
 import Link, { LinkProps } from 'next/link'
 import { __ } from '@wordpress/i18n'
 
@@ -10,44 +10,36 @@ import { ActiveLinkProps as ActiveLinkComponentProps } from '@kleinweb/logan-cen
 
 import Container from '../Container'
 
-import LogoMinimal from '@kleinweb/logan-center__site-assets/logos/logo--gfx--duo.svg'
-import LogoText from '@kleinweb/logan-center__site-assets/logos/logo--text.svg'
+import LogoFull from '@kleinweb/logan-center__site-assets/logos/logo--full--duo.svg'
 
 type ActiveLinkProps = {
   href: LinkProps['href']
   children: ActiveLinkComponentProps['children']
 }
 
-const LogoInline = () => (
-  <Link href="/" className="flex gap-1">
-    <LogoMinimal className="w-full" />
-    <LogoText className="w-full" />
-  </Link>
-)
-
 const NavItem = (props: ActiveLinkProps) => (
-  <li className="text-xs first:ml-2 last:-mr-2">
-    <ActiveLinkComponent
-      href={props.href}
-      activeClassName="text-teal-500 font-bold"
-    >
+  <li
+    className={cn(
+      'text-xs font-semibold',
+      'first:ml-1 last:-mr-1',
+      'sm:first:ml-2 sm:last:-mr-2',
+      'md:text-sm',
+    )}
+  >
+    <ActiveLinkComponent href={props.href} activeClassName="text-teal-500">
       {props.children}
     </ActiveLinkComponent>
   </li>
 )
 
-const navLinkStyles = 'p-2 uppercase'
-
 export default function SiteHeader() {
   return (
     <Container>
       <div className="flex items-center justify-between">
-        <div className="grow">
-          <div className="max-w-sm">
-            <LogoInline />
-          </div>
-        </div>
-        <nav>
+        <Link href="/">
+          <LogoFull className="h-18 md:h-20 xl:h-24" />
+        </Link>
+        <nav className="grow">
           <ul className="flex items-center justify-end">
             {/*
             FIXME: disabled until podcast page is ready
@@ -59,7 +51,10 @@ export default function SiteHeader() {
               <a
                 rel="noreferrer external"
                 target="_blank"
-                className={clsx("after:content-['_↗']", navLinkStyles)}
+                className={cn(
+                  "after:content-['_↗']",
+                  'whitespace-nowrap px-1 py-2 uppercase sm:px-2',
+                )}
               >
                 {__('About', 'logan-center')}
               </a>
