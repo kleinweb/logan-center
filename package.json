@@ -50,8 +50,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.16.1",
-    "@graphql-codegen/client-preset": "1.2.3",
+    "@graphql-codegen/cli": "2.16.3",
+    "@graphql-codegen/client-preset": "1.2.5",
     "@kleinweb/eslint-config-custom": "workspace:*",
     "@types/node": "^18.11.17",
     "@types/prettier": "^2.7.2",
