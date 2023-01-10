@@ -1,6 +1,6 @@
 {
   "name": "@kleinweb/logan-center",
-  "packageManager": "yarn@4.0.0-rc.34",
+  "packageManager": "yarn@4.0.0-rc.35",
   "version": "0.1.0",
   "license": "GPL-3.0-or-later",
   "private": true,
