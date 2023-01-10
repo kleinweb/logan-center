@@ -12,18 +12,12 @@ import Container from '../Container'
 
 import LogoMinimal from '@kleinweb/logan-center__site-assets/logos/logo--gfx--duo.svg'
 import LogoText from '@kleinweb/logan-center__site-assets/logos/logo--text.svg'
+import LogoFull from '@kleinweb/logan-center__site-assets/logos/logo--full--duo.svg'
 
 type ActiveLinkProps = {
   href: LinkProps['href']
   children: ActiveLinkComponentProps['children']
 }
-
-const LogoInline = () => (
-  <Link href="/" className="flex gap-1">
-    <LogoMinimal className="w-full" />
-    <LogoText className="w-full" />
-  </Link>
-)
 
 const NavItem = (props: ActiveLinkProps) => (
   <li className="text-xs first:ml-2 last:-mr-2">
@@ -36,18 +30,24 @@ const NavItem = (props: ActiveLinkProps) => (
   </li>
 )
 
-const navLinkStyles = 'p-2 uppercase'
-
 export default function SiteHeader() {
   return (
     <Container>
       <div className="flex items-center justify-between">
-        <div className="grow">
+        <div className="shrink">
           <div className="max-w-sm">
-            <LogoInline />
+            <Link href="/">
+              <div className="flex gap-1 sm:hidden">
+                <LogoMinimal className="w-full" />
+                <LogoText className="w-full" />
+              </div>
+              <div className="hidden w-[25vh] gap-1 sm:flex sm:flex-col">
+                <LogoFull className="w-full" />
+              </div>
+            </Link>
           </div>
         </div>
-        <nav>
+        <nav className="grow">
           <ul className="flex items-center justify-end">
             {/*
             FIXME: disabled until podcast page is ready
@@ -59,7 +59,10 @@ export default function SiteHeader() {
               <a
                 rel="noreferrer external"
                 target="_blank"
-                className={clsx("after:content-['_↗']", navLinkStyles)}
+                className={clsx(
+                  "after:content-['_↗']",
+                  'whitespace-nowrap p-2 uppercase',
+                )}
               >
                 {__('About', 'logan-center')}
               </a>
