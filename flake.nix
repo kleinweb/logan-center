@@ -17,33 +17,13 @@
     nixago.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {
-    self,
-    flake-parts,
-    treefmt-flake,
-    ...
-  }:
-    flake-parts.lib.mkFlake
-    {inherit self;}
-    {
+  outputs = {flake-parts, ...} @ inputs:
+    flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
-        treefmt-flake.flakeModule
+        inputs.treefmt-flake.flakeModule
         ./nix
       ];
       systems = ["x86_64-linux" "x86_64-darwin" "aarch64-darwin" "aarch64-linux"];
-      flake.project.meta = {
-        name = "logan-center";
-        title = "Logan Center for Urban Investigative Reporting";
-        url = "https://templelogancenter.org";
-      };
-      flake.nixagoFiles."kleinweb-config-json" = {
-        output = "kleinweb.config.json";
-        configData =
-          self.project.meta
-          // {
-            gaId = "G-XGLD9S5QW3";
-          };
-      };
     };
 
   nixConfig = {
