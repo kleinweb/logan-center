@@ -23,11 +23,13 @@ in {
     ];
     commands = [
       {
-        # NOTE: This yarn package is only used for initial bootstrapping. After
-        # the first run, yarn will manage its own versions. This setup assures
-        # both backward- and forward-compatibility, which is one of yarn's
-        # advertised features. That said, the newer versions of yarn come with
-        # some caveats, requiring the frequent use of the `yarn sdks` command.
+        # NOTE: This yarn package is only used for initial bootstrapping.
+        # After the first run, yarn will manage its own versions.
+        # This setup assures both backward- and forward-compatibility,
+        # which is one of yarn's advertised features. That said,
+        # the newer versions of yarn come with some caveats,
+        # requiring the frequent use of the `yarn sdks` command
+        # unless using the `node-modules` linker.
         package = pkgs.yarn;
         category = "tools";
       }
@@ -47,12 +49,6 @@ in {
         category = "tools";
         package = pkgs.cocogitto;
       }
-      # TODO: something?
-      # {
-      #   name = "copilot";
-      #   category = "deployments";
-      #   package = pkgs.copilot-cli;
-      # }
     ];
   };
 }

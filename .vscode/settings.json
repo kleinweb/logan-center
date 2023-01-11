@@ -2,7 +2,6 @@
   "editor.quickSuggestions": {
     "strings": true
   },
-  "eslint.nodePath": ".yarn/sdks",
   "eslint.workingDirectories": [
     "./packages/*",
     "./apps/*"
@@ -15,8 +14,8 @@
     "**/.yarn": true,
     "**/.pnp.*": true
   },
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "prettier.prettierPath": "node_modules/prettier/index.js",
+  "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.formatOnSave": true,
   "npm.packageManager": "yarn",
