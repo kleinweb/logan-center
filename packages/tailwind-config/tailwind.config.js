@@ -1,6 +1,5 @@
-// SPDX-FileCopyrightText: 2022 Temple University
-// SPDX-FileCopyrightText: 2022 Vercel
-// SPDX-License-Identifier: GPL-3.0-or-later OR MIT
+// SPDX-FileCopyrightText: 2022-2023 Temple University
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 const primaryPalette = {
   light: 'hsl(38, 35%, 94%)', //    => #F5F1EA
