@@ -2,7 +2,7 @@
   "name": "@kleinweb/eslint-config-custom",
   "version": "0.1.0",
   "main": "index.js",
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
     "eslint-config-next": "^13.1.1",
     "eslint-config-prettier": "^8.6.0",
