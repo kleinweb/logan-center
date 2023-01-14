@@ -3,13 +3,16 @@
 
 import Link from 'next/link'
 import Head from 'next/head'
+import Image from 'next/image'
 import { __ } from '@wordpress/i18n'
 
-import { Button, ButtonWithIcon, ImageObject } from '@kleinweb/logan-center__ui'
+import { Button, ButtonWithIcon } from '@kleinweb/logan-center__ui'
 
 import { SITE_NAME } from '@/lib/constants'
 import Layout from '@/components/Layout/Layout'
 import Container from '@/components/Container'
+
+import Hero from './Home/Hero'
 
 import BarsMotif from '@kleinweb/logan-center__site-assets/decorations/motif--island.svg'
 
@@ -97,18 +100,18 @@ export default function Home() {
             </div>
 
             <div className="order-1 mb-6">
-              <Link
-                href={podcastInfoUrl}
-                rel="noreferrer external"
-                target="_blank"
-              >
-                <ImageObject
-                  src={podcastImage}
-                  alt={__('Promotional poster for the podcast.')}
-                  aspect="banner"
-                  className="object-top"
-                />
-              </Link>
+              <div className="aspect-banner overflow-hidden">
+                <Link
+                  href={podcastInfoUrl}
+                  rel="noreferrer external"
+                  target="_blank"
+                >
+                  <Image
+                    src={podcastImage}
+                    alt={__('Promotional poster for the podcast.')}
+                  />
+                </Link>
+              </div>
             </div>
           </div>
         </Container>
@@ -179,7 +182,9 @@ export default function Home() {
         </Container>
       </section>
 
-      <ImageObject src={youGotThisImage} alt="" aria-hidden />
+      <div className="aspect-video overflow-hidden">
+        <Image src={youGotThisImage} alt="" aria-hidden />
+      </div>
     </Layout>
   )
 }

@@ -2745,7 +2745,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@kleinweb/logan-center__tailwind-config@workspace:packages/tailwind-config"
   dependencies:
-    "@tailwindcss/aspect-ratio": "npm:^0.4.2"
     tailwindcss: "npm:^3.2.4"
   languageName: unknown
   linkType: soft
@@ -3276,15 +3275,6 @@ __metadata:
   dependencies:
     defer-to-connect: "npm:^1.0.1"
   checksum: 08c340133b8541c827235c01f6cc02d8a3c5e48d5397f4af6127587793067a12833ed903dae60b406b9644702bb1aedc877c7dacb44afe4d4feb9ac7a6919bee
-  languageName: node
-  linkType: hard
-
-"@tailwindcss/aspect-ratio@npm:^0.4.2":
-  version: 0.4.2
-  resolution: "@tailwindcss/aspect-ratio@npm:0.4.2"
-  peerDependencies:
-    tailwindcss: ">=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1"
-  checksum: 5260acd11c253ee7b38fa3ce6105799aee0e56ac269698133bbfdd1932af4e57dfcb116c776a456ccf6d2ce7460590bae66960bdce404139c66625edcca27b5a
   languageName: node
   linkType: hard
 

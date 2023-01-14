@@ -90,11 +90,10 @@ module.exports = {
       semibold: 600,
       bold: 700,
     },
-    extend: {},
+    extend: {
+      aspectRatio: {
+        banner: '3 / 1',
+      },
+    },
   },
-  corePlugins: {
-    // https://github.com/tailwindlabs/tailwindcss-aspect-ratio#compatibility-with-default-aspect-ratio-utilities
-    aspectRatio: false,
-  },
-  plugins: [require('@tailwindcss/aspect-ratio')],
 }
