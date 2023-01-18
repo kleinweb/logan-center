@@ -82,7 +82,7 @@ module.exports = {
     },
     // Font weights are listed explicitly because they will need to be added to
     // the font stack (e.g. Adobe Fonts fka Typekit) before being usable in CSS.
-    // https://fonts.adobe.com/my_fonts#web_projects-section
+    // <https://fonts.adobe.com/my_fonts#web_projects-section>
     fontWeight: {
       normal: 400,
       // Note that Adobe refers to this weight simply as "Demi". We use the
@@ -94,6 +94,15 @@ module.exports = {
       aspectRatio: {
         banner: '3 / 1',
         cinematic: '64 / 27', // a.k.a. "ultrawide" or "21:9" (a marketing term) <https://en.wikipedia.org/wiki/21:9_aspect_ratio>
+      },
+      // Reference: // <https://tailwindcss.com/docs/customizing-spacing#default-spacing-scale>
+
+      // NOTE: keys *MUST* be strings -- `prettier` should not change this.
+      // TODO: this *might* be an upstream bug in `prettier-plugin-tailwind`
+      //       but first double-check that it's configured properly
+      // prettier-ignore
+      spacing: {
+        '18': '4.5rem',
       },
     },
   },
