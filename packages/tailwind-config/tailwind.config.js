@@ -93,6 +93,7 @@ module.exports = {
     extend: {
       aspectRatio: {
         banner: '3 / 1',
+        cinematic: '64 / 27', // a.k.a. "ultrawide" or "21:9" (a marketing term) <https://en.wikipedia.org/wiki/21:9_aspect_ratio>
       },
     },
   },
