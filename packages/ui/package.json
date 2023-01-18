@@ -13,8 +13,8 @@
     "build:js": "tsup --format esm,cjs --dts",
     "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css",
     "dev": "concurrently 'yarn:dev:*'",
-    "dev:js": "yarn build:js -- --watch",
-    "dev:css": "yarn build:css -- --watch",
+    "dev:js": "tsup --format esm,cjs --dts --watch",
+    "dev:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
     "lint": "TIMING=1 eslint \"**/*.ts*\"",
     "clean": "rimraf dist"
   },
