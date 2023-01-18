@@ -21,9 +21,9 @@
   "dependencies": {
     "@kleinweb/logan-center__site-assets": "workspace:*",
     "@kleinweb/tu-assets": "workspace:*",
-    "@wordpress/i18n": "^4.24.0",
+    "@wordpress/i18n": "^4.25.0",
     "clsx": "^1.2.1",
-    "lucide-react": "^0.105.0-alpha.4",
+    "lucide-react": "^0.105.0",
     "next": "^13.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -36,9 +36,9 @@
     "@types/react-dom": "^18.0.10",
     "concurrently": "^7.6.0",
     "esbuild-plugin-svgr": "^1.0.1",
-    "eslint": "^8.31.0",
+    "eslint": "^8.32.0",
     "eslint-plugin-tailwindcss": "^3.8.0",
-    "rimraf": "^3.0.2",
+    "rimraf": "^4.1.1",
     "tailwindcss": "^3.2.4",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4"
