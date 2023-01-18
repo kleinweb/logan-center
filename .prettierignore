@@ -1,5 +1,3 @@
-/.vscode/*.json
-
 **/.next/**
 **/dist/**
 **/build/**

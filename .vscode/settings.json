@@ -2,10 +2,7 @@
   "editor.quickSuggestions": {
     "strings": true
   },
-  "eslint.workingDirectories": [
-    "./packages/*",
-    "./apps/*"
-  ],
+  "eslint.workingDirectories": ["./packages/*", "./apps/*"],
   "files.associations": {
     "*.css": "tailwindcss",
     "dep5": "debian-copyright"
@@ -20,5 +17,7 @@
   "editor.formatOnSave": true,
   "npm.packageManager": "yarn",
   "stylelint.packageManager": "yarn",
-  "eslint.packageManager": "yarn"
+  "eslint.packageManager": "yarn",
+  "prettier.configPath": ".prettierrc.json",
+  "prettier.requireConfig": true
 }

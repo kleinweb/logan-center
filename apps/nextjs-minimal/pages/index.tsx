@@ -3,17 +3,19 @@
 
 import Link from 'next/link'
 import Head from 'next/head'
+import Image from 'next/image'
 import { __ } from '@wordpress/i18n'
 
-import { Button, ButtonWithIcon, ImageObject } from '@kleinweb/logan-center__ui'
+import { Button, ButtonWithIcon } from '@kleinweb/logan-center__ui'
 
 import { SITE_NAME } from '@/lib/constants'
 import Layout from '@/components/Layout/Layout'
 import Container from '@/components/Container'
 
+import Hero from './Home/Hero'
+
 import BarsMotif from '@kleinweb/logan-center__site-assets/decorations/motif--island.svg'
 
-import heroImage from '@kleinweb/logan-center__site-assets/images/photos/ncm_williamdickschool-3.jpg'
 import podcastImage from '@kleinweb/logan-center__site-assets/images/podcast--poster--art_only.jpg'
 import youGotThisImage from '@kleinweb/logan-center__site-assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'
 
@@ -33,14 +35,14 @@ export default function Home() {
       <h1 className="sr-only">{pageTitle}</h1>
 
       <div className="relative mb-6 md:mb-24">
-        <ImageObject src={heroImage} alt="" aria-hidden />
+        <Hero />
 
         <div className="relative mx-auto md:container">
           <div className="grid grid-cols-12 grid-rows-1 gap-2 md:absolute md:-bottom-16 md:px-5">
-            <div className="col-span-full bg-slate-100 py-6 md:col-span-10 md:py-12 md:pb-16 lg:col-span-8">
+            <div className="col-span-full bg-slate-100 py-6 md:py-12 md:pb-16 lg:col-span-8 xl:col-span-6">
               <div className="container relative mx-auto px-5 md:px-10">
                 <div className="space-y-5">
-                  <h2 className="text-primary-dark text-xl font-bold leading-tight md:text-2xl">
+                  <h2 className="text-xl font-bold leading-tight text-primary-dark md:text-2xl">
                     {__(
                       'Investigating the issues affecting urban communities',
                       'logan-center',
@@ -63,7 +65,7 @@ export default function Home() {
         <Container>
           <div className="flex flex-col">
             <div className="order-2 mb-3 flex flex-col">
-              <h2 className="text-primary-dark order-2 mb-2 text-right text-xl font-bold uppercase leading-tight tracking-wider">
+              <h2 className="order-2 mb-2 text-right text-xl font-bold uppercase leading-tight tracking-wider text-primary-dark">
                 {__('Stop and Frisk: Revisit or Resist', 'logan-center')}
               </h2>
               <h3 className="order-1 mb-1 text-right text-base font-bold uppercase tracking-wider text-red-600">
@@ -97,26 +99,26 @@ export default function Home() {
             </div>
 
             <div className="order-1 mb-6">
-              <Link
-                href={podcastInfoUrl}
-                rel="noreferrer external"
-                target="_blank"
-              >
-                <ImageObject
-                  src={podcastImage}
-                  alt={__('Promotional poster for the podcast.')}
-                  aspect="banner"
-                  className="object-top"
-                />
-              </Link>
+              <div className="aspect-banner overflow-hidden">
+                <Link
+                  href={podcastInfoUrl}
+                  rel="noreferrer external"
+                  target="_blank"
+                >
+                  <Image
+                    src={podcastImage}
+                    alt={__('Promotional poster for the podcast.')}
+                  />
+                </Link>
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
-      <section className="bg-primary-light mt-20 py-6 pb-20">
+      <section className="mt-20 bg-primary-light py-6 pb-20">
         <Container>
-          <div className="text-primary-accent relative -mt-24 flex flex-row-reverse py-8">
+          <div className="relative -mt-24 flex flex-row-reverse py-8 text-primary-accent">
             <BarsMotif />
           </div>
 
@@ -138,12 +140,12 @@ export default function Home() {
 
       <section className="pt-6 pb-16">
         <Container>
-          <div className="text-primary-accent relative -mt-24 flex py-8">
+          <div className="relative -mt-24 flex py-8 text-primary-accent">
             <BarsMotif />
           </div>
           <div className="flex flex-col">
             <div className="order-2 mb-3 flex flex-col">
-              <h2 className="text-primary-dark order-2 mb-2 text-right text-xl font-bold uppercase leading-tight tracking-wider">
+              <h2 className="order-2 mb-2 text-right text-xl font-bold uppercase leading-tight tracking-wider text-primary-dark">
                 {__('Education Disparities Project', 'logan-center')}
               </h2>
               <h3 className="order-1 mb-1 text-right text-base font-bold uppercase tracking-wider text-red-600">
@@ -179,7 +181,9 @@ export default function Home() {
         </Container>
       </section>
 
-      <ImageObject src={youGotThisImage} alt="" aria-hidden />
+      <div className="aspect-video overflow-hidden">
+        <Image src={youGotThisImage} alt="" aria-hidden />
+      </div>
     </Layout>
   )
 }

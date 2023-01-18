@@ -1,6 +1,5 @@
-// SPDX-FileCopyrightText: 2022 Temple University
-// SPDX-FileCopyrightText: 2022 Vercel
-// SPDX-License-Identifier: GPL-3.0-or-later OR MIT
+// SPDX-FileCopyrightText: 2022-2023 Temple University
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 const primaryPalette = {
   light: 'hsl(38, 35%, 94%)', //    => #F5F1EA
@@ -91,11 +90,11 @@ module.exports = {
       semibold: 600,
       bold: 700,
     },
-    extend: {},
+    extend: {
+      aspectRatio: {
+        banner: '3 / 1',
+        cinematic: '64 / 27', // a.k.a. "ultrawide" or "21:9" (a marketing term) <https://en.wikipedia.org/wiki/21:9_aspect_ratio>
+      },
+    },
   },
-  corePlugins: {
-    // https://github.com/tailwindlabs/tailwindcss-aspect-ratio#compatibility-with-default-aspect-ratio-utilities
-    aspectRatio: false,
-  },
-  plugins: [require('@tailwindcss/aspect-ratio')],
 }
