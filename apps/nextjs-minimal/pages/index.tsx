@@ -181,8 +181,8 @@ export default function Home() {
         </Container>
       </section>
 
-      <div className="aspect-video overflow-hidden">
-        <Image src={youGotThisImage} alt="" aria-hidden />
+      <div className="relative aspect-video overflow-hidden">
+        <Image src={youGotThisImage} alt="" aria-hidden fill />
       </div>
     </Layout>
   )
