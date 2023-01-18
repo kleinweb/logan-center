@@ -1,6 +1,6 @@
 {
   "name": "@kleinweb/logan-center--nextjs-minimal",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "license": "GPL-3.0-or-later",
   "scripts": {
@@ -16,12 +16,13 @@
     "@kleinweb/logan-center__site-assets": "workspace:*",
     "@kleinweb/logan-center__ui": "workspace:*",
     "@kleinweb/tu-assets": "workspace:*",
-    "@wordpress/i18n": "^4.23.0",
+    "@wordpress/i18n": "^4.25.0",
     "clsx": "^1.2.1",
-    "lucide-react": "^0.105.0-alpha.4",
-    "next": "^13.0.7",
+    "lucide-react": "^0.105.0",
+    "next": "^13.1.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-player": "^2.11.0"
   },
   "devDependencies": {
     "@kleinweb/eslint-config-custom": "workspace:*",
@@ -29,17 +30,17 @@
     "@kleinweb/tsconfig": "workspace:*",
     "@svgr/webpack": "^6.5.1",
     "@types/gtag.js": "^0.0.12",
-    "@types/node": "^18.11.17",
+    "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
-    "@types/react-dom": "^18.0.9",
-    "@typescript-eslint/eslint-plugin": "^5.47.0",
-    "@typescript-eslint/parser": "^5.47.0",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
     "autoprefixer": "^10.4.13",
     "concurrently": "^7.6.0",
-    "eslint": "^8.30.0",
-    "eslint-plugin-tailwindcss": "^3.7.1",
-    "postcss": "^8.4.20",
-    "rimraf": "^3.0.2",
+    "eslint": "^8.32.0",
+    "eslint-plugin-tailwindcss": "^3.8.0",
+    "postcss": "^8.4.21",
+    "rimraf": "^4.1.1",
     "tailwindcss": "^3.2.4",
     "typescript": "^4.9.4"
   }

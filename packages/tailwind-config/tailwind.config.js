@@ -1,6 +1,5 @@
-// SPDX-FileCopyrightText: 2022 Temple University
-// SPDX-FileCopyrightText: 2022 Vercel
-// SPDX-License-Identifier: GPL-3.0-or-later OR MIT
+// SPDX-FileCopyrightText: 2022-2023 Temple University
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 const primaryPalette = {
   light: 'hsl(38, 35%, 94%)', //    => #F5F1EA
@@ -83,7 +82,7 @@ module.exports = {
     },
     // Font weights are listed explicitly because they will need to be added to
     // the font stack (e.g. Adobe Fonts fka Typekit) before being usable in CSS.
-    // https://fonts.adobe.com/my_fonts#web_projects-section
+    // <https://fonts.adobe.com/my_fonts#web_projects-section>
     fontWeight: {
       normal: 400,
       // Note that Adobe refers to this weight simply as "Demi". We use the
@@ -91,11 +90,15 @@ module.exports = {
       semibold: 600,
       bold: 700,
     },
-    extend: {},
+    extend: {
+      aspectRatio: {
+        banner: '3 / 1',
+        cinematic: '64 / 27', // a.k.a. "ultrawide" or "21:9" (a marketing term) <https://en.wikipedia.org/wiki/21:9_aspect_ratio>
+      },
+      // Reference: <https://tailwindcss.com/docs/customizing-spacing#default-spacing-scale>
+      spacing: {
+        18: '4.5rem',
+      },
+    },
   },
-  corePlugins: {
-    // https://github.com/tailwindlabs/tailwindcss-aspect-ratio#compatibility-with-default-aspect-ratio-utilities
-    aspectRatio: false,
-  },
-  plugins: [require('@tailwindcss/aspect-ratio')],
 }

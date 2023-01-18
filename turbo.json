@@ -2,7 +2,6 @@
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "copy": {
-      "dependsOn": ["clean"],
       "outputs": ["public/assets/**"]
     },
     "build": {
@@ -10,8 +9,7 @@
       "outputs": ["dist/**", ".next/**", "build/**"]
     },
     "lint": {
-      "dependsOn": ["^build"],
-      "outputs": []
+      "dependsOn": ["^build"]
     },
     "test": {
       "outputs": ["coverage/**"],
@@ -19,7 +17,8 @@
     },
     "dev": {
       "dependsOn": ["copy"],
-      "cache": false
+      "cache": false,
+      "persistent": true
     },
     "clean": {
       "cache": false

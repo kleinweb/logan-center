@@ -77,3 +77,20 @@ license-cc +FILES:
 # <- Add a public domain CC0-1.0 license header to the specified files
 license-public-domain +FILES:
   reuse addheader -l {{public-domain-license}} -c '{{copyright}}' {{FILES}}
+
+
+###: MISC ======================================================================
+
+##: References:
+# - <https://ffmpeg.org/ffmpeg-utils.html#Time-duration>
+
+# <- Capture a frame from a video file at the given `mm:ss` timestamp
+vcap-thumb input time='00:00' ext='jpeg':
+  ffmpeg -ss '{{time}}' -i {{ absolute_path(input) }} -frames 1 -f image2 \
+    '{{ without_extension(input) }}-thumb.{{ext}}'
+
+# Source: <https://superuser.com/a/1448673>
+# <- Capture the last frame from a video file
+vcap-thumb-last input ext='jpeg':
+  ffmpeg -sseof -1 -i {{ absolute_path(input) }} -update 1 -q:v 1 -f image2 \
+    '{{ without_extension(input) }}-last-thumb.{{ext}}'
