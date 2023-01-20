@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Temple University <kleinweb@temple.edu>
+// SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import cn from 'clsx'
@@ -17,7 +17,7 @@ const CoverImage = ({ title, src, slug }: Props) => {
       src={src}
       alt={`Cover Image for ${title}`}
       className={cn('shadow-sm', {
-        'hover:shadow-lg transition-shadow duration-200': slug,
+        'transition-shadow duration-200 hover:shadow-lg': slug,
       })}
     />
   )

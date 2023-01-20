@@ -12,7 +12,7 @@ Files: apps/*
        *.yaml
        *.yml
        */*.d.ts
-Copyright: 2022 Temple University <kleinweb@temple.edu>
+Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: GPL-3.0-or-later
 
 Files: */*.md
@@ -26,18 +26,18 @@ Files: */*.md
        *.json
        *.md
        *.lock
-Copyright: 2022 Temple University <kleinweb@temple.edu>
+Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: CC0-1.0
 
 Files: apps/nextjs-app/*
-Copyright: 2022 Temple University <kleinweb@temple.edu>
+Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
            2021 Automattic
 License: GPL-3.0-or-later OR MIT
 
 Files: packages/site-assets/*
-Copyright: 2022 Temple University <kleinweb@temple.edu>
+Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: CC-BY-NC-ND-4.0
 
 Files: packages/tu-assets/*
-Copyright: 2022 Temple University <brand@temple.edu>
+Copyright: 2022-2023 Temple University <brand@temple.edu>
 License: LicenseRef-TU-Trademark-Policy
