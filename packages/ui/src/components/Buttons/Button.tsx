@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Temple University <kleinweb@temple.edu>
+// SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import clsx from 'clsx'
@@ -16,8 +16,8 @@ export const VARIANTS = {
   Sparse: 'sparse',
 } as const
 
-type Color = typeof COLORS[keyof typeof COLORS]
-type Variant = typeof VARIANTS[keyof typeof VARIANTS]
+type Color = (typeof COLORS)[keyof typeof COLORS]
+type Variant = (typeof VARIANTS)[keyof typeof VARIANTS]
 
 export type ButtonProps = {
   children: React.ReactNode
