@@ -10,7 +10,6 @@
     ./devshells.nix
     ./image-optimisation.nix
     ./project.nix
-    ./vercel.nix
     ./wordpress.nix
   ];
 }
