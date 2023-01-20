@@ -13,6 +13,8 @@ GitHub Pages from this repo.
 
 In the near future, the Next.js fronted will ingest content from WordPress.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d85e3d5a-7bc5-4b50-a66c-5a2ce249d665/deploy-status)](https://app.netlify.com/sites/templelogancenter/deploys)
+
 ## Getting Started
 
 Work in progress.
