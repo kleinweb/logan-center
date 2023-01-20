@@ -57,7 +57,6 @@ tmp/
 ##: devops
 *.tfstate*
 .terraform/
-.vercel
 
 # nixago: ignore-linked-files
 apps/wp-env/.wp-env.json
