@@ -6,9 +6,6 @@
   getSystem,
   ...
 }: {
-  imports = [
-    ./nixagoFiles/prettierrc.json.nix
-  ];
   flake.devshellProfiles.formatters = {pkgs, ...}: {
     commands = [
       {
