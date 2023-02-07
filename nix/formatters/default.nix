@@ -1,11 +1,6 @@
 # SPDX-FileCopyrightText: 2022-2023 Temple University
-#
 # SPDX-License-Identifier: GPL-3.0-or-later
-{
-  self,
-  getSystem,
-  ...
-}: {
+{getSystem, ...}: {
   perSystem = {pkgs, ...}: {
     treefmt.formatters = {
       inherit (pkgs) alejandra shellcheck shfmt;
@@ -15,8 +10,8 @@
   flake.devshellProfiles.formatters = {pkgs, ...}: {
     commands = [
       {
-        name = "format";
-        help = "format files with treefmt";
+        name = "fmt";
+        help = "apply formatting fixes to files (default: all project files)";
         category = "formatters";
         command = ''
           ${pkgs.treefmt}/bin/treefmt --no-cache -- $@
