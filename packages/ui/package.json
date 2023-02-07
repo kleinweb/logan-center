@@ -23,7 +23,7 @@
     "@kleinweb/tu-assets": "workspace:*",
     "@wordpress/i18n": "^4.25.0",
     "clsx": "^1.2.1",
-    "lucide-react": "^0.105.0",
+    "lucide-react": "^0.112.0",
     "next": "^13.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

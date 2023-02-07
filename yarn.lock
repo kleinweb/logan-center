@@ -2691,7 +2691,7 @@ __metadata:
     concurrently: "npm:^7.6.0"
     eslint: "npm:^8.32.0"
     eslint-plugin-tailwindcss: "npm:^3.8.0"
-    lucide-react: "npm:^0.105.0"
+    lucide-react: "npm:^0.112.0"
     next: "npm:^13.1.2"
     postcss: "npm:^8.4.21"
     react: "npm:^18.2.0"
@@ -2767,7 +2767,7 @@ __metadata:
     esbuild-plugin-svgr: "npm:^1.0.1"
     eslint: "npm:^8.32.0"
     eslint-plugin-tailwindcss: "npm:^3.8.0"
-    lucide-react: "npm:^0.105.0"
+    lucide-react: "npm:^0.112.0"
     next: "npm:^13.1.2"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
@@ -8365,12 +8365,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:^0.105.0":
-  version: 0.105.0
-  resolution: "lucide-react@npm:0.105.0"
+"lucide-react@npm:^0.112.0":
+  version: 0.112.0
+  resolution: "lucide-react@npm:0.112.0"
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0
-  checksum: 4e26befb6ca9038e23170d20bc56b9b6fc93bfd2f4d7319b6e44858907394c009d24bdc3c1c1d20fc75aa7ec81c146741858e2b18286cef470fd5a3498718444
+  checksum: cdaf20a99c78be22535d3a694b9d208b3607a372c637366a10eb6dac52591373da582a87a346d5f902f619f9e8bdd5c706ee762147e910a84a09c4c5e97b2b28
   languageName: node
   linkType: hard
 
