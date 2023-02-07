@@ -24,9 +24,14 @@ export PATH := "./node_modules/.bin:" + env_var('PATH')
 
 ###: LINTING/FORMATTING ========================================================
 
+# FIXME:
+# ❯ just fmt
+# treefmt --no-cache /Users/cdom/Developer/work/projects/logan-center
+# thread 'main' panicked at 'assertion failed: command.is_absolute()', src/formatter.rs:165:9
+
 # [fmt]:		Format files with treefmt
-fmt *FILES=prj-root:
-  treefmt --no-cache {{FILES}}
+# fmt *FILES=prj-root:
+#   treefmt --no-cache {{FILES}}
 
 # [lint]:		Check Nix files for issues
 check *FILES=prj-root: (_deadnix "check" FILES) (_statix "check" FILES)
@@ -42,7 +47,7 @@ _statix action +FILES=prj-root:
     statix {{action}} -- "$f" 2>/dev/null; \
   done
 
-# <- Run `deadnix` with sane options
+# [nix]:		Run `deadnix` with sane options
 _deadnix action +FILES=prj-root:
   @deadnix \
     {{ if action == "fix" { "--edit" } else { "--fail" } }} \

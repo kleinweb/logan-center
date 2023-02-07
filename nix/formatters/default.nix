@@ -1,5 +1,4 @@
 # SPDX-FileCopyrightText: 2022-2023 Temple University
-#
 # SPDX-License-Identifier: GPL-3.0-or-later
 {
   self,
@@ -10,7 +9,7 @@
     commands = [
       {
         name = "fmt";
-        help = "format files with treefmt";
+        help = "apply formatting fixes to files (default: all project files)";
         category = "formatters";
         command = ''
           ${pkgs.treefmt}/bin/treefmt --no-cache -- $@
