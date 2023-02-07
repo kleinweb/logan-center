@@ -21,8 +21,13 @@ prj-root := env_var('PRJ_ROOT')
 # make node/yarn `package.json` runnables available to tasks
 export PATH := "./node_modules/.bin:" + env_var('PATH')
 
+###: DEVELOPMENT ===================================================================================
 
-###: LINTING/FORMATTING ========================================================
+wp-env *ARGS:
+  wp-env ARGS
+
+
+###: LINTING/FORMATTING ============================================================================
 
 # FIXME:
 # ❯ just fmt
@@ -55,7 +60,7 @@ _deadnix action +FILES=prj-root:
     {{FILES}}
 
 
-###: LICENSING =================================================================
+###: LICENSING =====================================================================================
 
 copyright := 'Temple University <kleinweb@temple.edu>'
 
@@ -85,7 +90,7 @@ license-cc +FILES: (_annotate  'CC-BY-NC-SA-4.0' FILES)
 license-public-domain +FILES: (_annotate  'CC0-1.0' FILES)
 
 
-###: MEDIA ======================================================================
+###: MEDIA =========================================================================================
 
 ##: References:
 # - <https://ffmpeg.org/ffmpeg-utils.html#Time-duration>

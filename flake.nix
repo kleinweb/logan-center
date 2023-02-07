@@ -5,21 +5,53 @@
   description = "logan-center";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    devshell.url = "github:numtide/devshell";
+    #: core frameworks
+    std.url = "github:divnix/std";
+    std.inputs.nixpkgs.follows = "nixpkgs";
+    dmerge.follows = "std/dmerge";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixago.url = "github:nix-community/nixago";
 
-    devshell.inputs.nixpkgs.follows = "nixpkgs";
-    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
-    nixago.inputs.nixpkgs.follows = "nixpkgs";
+    # NOTE: <divnix/yants>'s licensing is unclear:
+    #       <https://github.com/divnix/yants/issues/4>
+    #       <https://cs.tvl.fyi/depot/-/blob/nix/yants/README.md?subtree=true>
+    #       note, however, that <divnix/yants> does retain the original's
+    #       subtree `Apache-2.0` license copyright to Google LLC:
+    #       <https://github.com/divnix/yants/blob/d7253ea436060f598c5d0ef3b22594fd28e7eab2/flake.nix#L1-L2>
+    #       it's not clear how much <divnix/yants> differs from the original
+    #       because *its git history was erased*.
+    #       for safety and consistency with <divnix/std>,
+    #       we will track its `yants` input for now...
+    yants.follows = "std/yants";
+
+    #: dev tools
+    statix.url = "github:nerdypepper/statix";
+
+    #: nixos/nixpkgs
+    nixos.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.follows = "nixos";
   };
 
-  outputs = {flake-parts, ...} @ inputs:
+  outputs = {
+    std,
+    flake-parts,
+    ...
+  } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [./nix];
       systems = ["x86_64-linux" "x86_64-darwin" "aarch64-darwin" "aarch64-linux"];
+      perSystem = {self', ...}: {_module.args = {inherit (self') cells;};};
+      std.grow.cellsFrom = ./nix;
+      std.grow.cellBlocks = [
+        (std.blockTypes.data "meta")
+        (std.blockTypes.devshells "devshells")
+        (std.blockTypes.functions "devshellProfiles")
+        (std.blockTypes.functions "lib")
+        (std.blockTypes.nixago "nixago")
+      ];
+      std.harvest = {
+        devShells = ["_automation" "devshells"];
+      };
+      imports = [inputs.std.flakeModule];
     };
 
   nixConfig = {
