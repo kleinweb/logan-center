@@ -11,12 +11,6 @@ icon-ok := '✔'
 msg-ok := icon-ok + " OK"
 msg-done := icon-ok + " Done"
 
-##: legal/reuse
-copyright := 'Temple University <kleinweb@temple.edu>'
-default-license := 'GPL-3.0-or-later'
-docs-license := 'CC-BY-SA-4.0'
-public-domain-license := 'CC0-1.0'
-
 ##: binary cache
 cachix-cache-name := env_var('CACHIX_CACHE_NAME')
 cachix-exec := "cachix watch-exec --jobs 2 " + cachix-cache-name
@@ -59,24 +53,32 @@ _deadnix action +FILES=prj-root:
 
 ###: LICENSING =================================================================
 
-# <- Add the project default license header to the specified files
+copyright := 'Temple University <kleinweb@temple.edu>'
+
+# Add the project default license header to the specified files
+[private]
 alias license := license-gpl
 
-# <- Validate the project's licensing and copyright info
+# [reuse]:		Validate the project's licensing and copyright metadata
 license-check:
   reuse lint
 
-# <- Add a GPL-3.0-or-later license header to the specified files
-license-gpl +FILES:
-  reuse addheader -l {{default-license}} -c '{{copyright}}' {{FILES}}
+# [reuse]:		Annotate all plaintext note files with the documentation license
+license-docs:
+  fd --glob '**/*.{md,mdx,markdown,org}' -X \
+    just license-cc {}
 
-# <- Add a CC-BY-SA-4.0 license header to the specified files
-license-cc +FILES:
-  reuse addheader -l {{docs-license}} -c '{{copyright}}' {{FILES}}
+_annotate license +FILES:
+  reuse annotate -l {{license}} -c '{{copyright}}' --template=compact {{FILES}}
 
-# <- Add a public domain CC0-1.0 license header to the specified files
-license-public-domain +FILES:
-  reuse addheader -l {{public-domain-license}} -c '{{copyright}}' {{FILES}}
+# [reuse]:		Annotate the specified files with a GPL-3.0-or-later license header
+license-gpl +FILES: (_annotate 'GPL-3.0-or-later' FILES)
+
+# [reuse]:		Annotate the specified files with the standard documentation license header
+license-cc +FILES: (_annotate  'CC-BY-NC-SA-4.0' FILES)
+
+# [reuse]:		Annotate the specified files with a public domain license header
+license-public-domain +FILES: (_annotate  'CC0-1.0' FILES)
 
 
 ###: MISC ======================================================================

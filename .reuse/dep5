@@ -15,8 +15,7 @@ Files: apps/*
 Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: GPL-3.0-or-later
 
-Files: */*.md
-       */.gitignore
+Files: */.gitignore
        */.prettierignore
        .gitattributes
        .gitignore
@@ -24,10 +23,14 @@ Files: */*.md
        .vscode/*
        .yarn/*
        *.json
-       *.md
        *.lock
+       *.toml
 Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: CC0-1.0
+
+Files: *.md
+Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
+License: CC-BY-NC-SA-4.0
 
 Files: apps/nextjs-app/*
 Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
@@ -39,5 +42,15 @@ Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: CC-BY-NC-ND-4.0
 
 Files: packages/tu-assets/*
+       apps/nextjs-minimal/public/android-chrome-192x192.png
+       apps/nextjs-minimal/public/android-chrome-384x384.png
+       apps/nextjs-minimal/public/apple-touch-icon.png
+       apps/nextjs-minimal/public/browserconfig.xml
+       apps/nextjs-minimal/public/favicon-16x16.png
+       apps/nextjs-minimal/public/favicon-32x32.png
+       apps/nextjs-minimal/public/favicon.ico
+       apps/nextjs-minimal/public/mstile-150x150.png
+       apps/nextjs-minimal/public/safari-pinned-tab.svg
+       apps/nextjs-minimal/public/site.webmanifest
 Copyright: 2022-2023 Temple University <brand@temple.edu>
 License: LicenseRef-TU-Trademark-Policy
