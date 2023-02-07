@@ -46,7 +46,6 @@ _statix action +FILES=prj-root:
 _deadnix action +FILES=prj-root:
   @deadnix \
     {{ if action == "fix" { "--edit" } else { "--fail" } }} \
-    --no-underscore \
     --no-lambda-pattern-names \
     {{FILES}}
 
