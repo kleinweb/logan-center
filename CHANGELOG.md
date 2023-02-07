@@ -1,9 +1,13 @@
 # Changelog
+
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
-- - -
+---
+
 ## v0.3.0 - 2023-01-18
+
 #### Bug Fixes
+
 - **(assets)** hard-code cherry fill color in tu logo icon svg - (40275d0) - Chris Montgomery
 - **(assets:logo)** remove fixed w/h on logo icon - (0c99ef0) - Chris Montgomery
 - **(banner|logo)** use full logo on all screen sizes - (d7bdffb) - Chris Montgomery
@@ -27,14 +31,22 @@ All notable changes to this project will be documented in this file. See [conven
 - no rewrap markdown - (09b5d2a) - Chris Montgomery
 - pass inputs instead of `self` to `mkFlake` - (b569b5d) - Chris Montgomery
 - specify workspaces explicitly to avoid `nextjs-app` for now - (af39584) - Chris Montgomery
+
 #### Build system
+
 - handle misbehaving peer dependency specifications - (e63d2cc) - Chris Montgomery
+
 #### Continuous Integration
+
 - remove usages of `private` attribute from `just` tasks - (c4d4fbe) - Chris Montgomery
 - add vercel configuration file for yarn support - (c464e0a) - Chris Montgomery
+
 #### Documentation
+
 - update build commands - (f53c978) - Chris Montgomery
+
 #### Features
+
 - **(builds)** add cocogitto for semantic versioning/changelogs - (b60c8ef) - Chris Montgomery
 - **(deps|assets)** add `react-player` library - (b129714) - Chris Montgomery
 - **(devshells)** replace flyctl with copilot-cli - (4764f75) - Chris Montgomery
@@ -52,7 +64,9 @@ All notable changes to this project will be documented in this file. See [conven
 - **(ui:color)** extend neutral color palette to include full range - (d5b1656) - Chris Montgomery
 - add `just` tasks - (c418eeb) - Chris Montgomery
 - add klein recirc banner above site header - (b40be16) - Chris Montgomery
+
 #### Miscellaneous Chores
+
 - **(builds)** update turbo config in line with v1.7.0 example - (819a0af) - Chris Montgomery
 - **(deps)** updates (#112) - (e2d358b) - chris montgomery
 - **(deps)** updates - (223517a) - Chris Montgomery
@@ -80,15 +94,19 @@ All notable changes to this project will be documented in this file. See [conven
 - align version numbers across workspaces - (9fe87de) - Chris Montgomery
 - yarn eslint sdk update - (99f07ed) - Chris Montgomery
 - sync main (#72) - (9ac05b9) - chris montgomery
+
 #### Refactoring
+
 - **(assets)** rename `{shared,temple}-assets`->`{site,tu}-assets` - (6683669) - Chris Montgomery
 - **(siteFooter)** rename `Colophon` to `FinePrint` - (751c42c) - Chris Montgomery
 - use npm scoped names + various fixes for yarn - (36df4be) - Chris Montgomery
 
-- - -
+---
 
 ## v0.2.1 - 2022-12-21
+
 #### Bug Fixes
+
 - **(assets)** hard-code cherry fill color in tu logo icon svg - (46328a9) - Chris Montgomery
 - **(assets:logo)** remove fixed w/h on logo icon - (56b412d) - Chris Montgomery
 - **(ci)** `clean` before `build` - (9ea6d7c) - Chris Montgomery
@@ -100,12 +118,18 @@ All notable changes to this project will be documented in this file. See [conven
 - **(ui)** set ts `include` to existing `src` dir instead of root - (89d522e) - Chris Montgomery
 - **(ui|builds)** mark all deps as `external` for `tsup` - (4f860aa) - Chris Montgomery
 - specify workspaces explicitly to avoid `nextjs-app` for now - (b70f414) - Chris Montgomery
+
 #### Build system
+
 - handle misbehaving peer dependency specifications - (5456fcb) - Chris Montgomery
+
 #### Continuous Integration
+
 - remove usages of `private` attribute from `just` tasks - (730b402) - Chris Montgomery
 - add vercel configuration file for yarn support - (84c4301) - Chris Montgomery
+
 #### Features
+
 - **(builds)** add cocogitto for semantic versioning/changelogs - (fc7592a) - Chris Montgomery
 - **(devshells)** replace flyctl with copilot-cli - (70d6f61) - Chris Montgomery
 - **(icons)** replace `ExternalLink` icon with `↗` as external link indicator - (4b3a732) - Chris Montgomery
@@ -117,7 +141,9 @@ All notable changes to this project will be documented in this file. See [conven
 - **(ui:color)** extend neutral color palette to include full range - (85b754e) - Chris Montgomery
 - add `just` tasks - (4f5b28f) - Chris Montgomery
 - add klein recirc banner above site header - (5484fc2) - Chris Montgomery
+
 #### Miscellaneous Chores
+
 - **(deps)** yarn upgrade - (6f2f5a4) - Chris Montgomery
 - **(deps)** yarn@3.3.0 - (e8a2f73) - Chris Montgomery
 - **(deps)** update dependency @graphql-codegen/client-preset to v1.2.1 - (ba3ff57) - renovate[bot]
@@ -131,15 +157,19 @@ All notable changes to this project will be documented in this file. See [conven
 - align version numbers across workspaces - (5614d05) - Chris Montgomery
 - yarn eslint sdk update - (37aba67) - Chris Montgomery
 - revert "fix(home|content): reverting rogue cta language changes"This reverts commit b30bff1d39eb3b35be41cfa503209e3b0ee05afc. - (402c03c) - Chris Montgomery
+
 #### Refactoring
+
 - **(assets)** rename `{shared,temple}-assets`->`{site,tu}-assets` - (d383917) - Chris Montgomery
 - **(siteFooter)** rename `Colophon` to `FinePrint` - (64cacaa) - Chris Montgomery
 - use npm scoped names + various fixes for yarn - (2730f9a) - Chris Montgomery
 
-- - -
+---
 
 ## v0.2.0 - 2022-12-21
+
 #### Bug Fixes
+
 - **(assets)** hard-code cherry fill color in tu logo icon svg (#84) - (27d3195) - chris montgomery
 - **(assets)** hard-code cherry fill color in tu logo icon svg - (a7a124d) - Chris Montgomery
 - **(assets:logo)** remove fixed w/h on logo icon - (9e58f98) - Chris Montgomery
@@ -158,12 +188,18 @@ All notable changes to this project will be documented in this file. See [conven
 - **(ui)** set ts `include` to existing `src` dir instead of root - (8916163) - Chris Montgomery
 - **(ui|builds)** mark all deps as `external` for `tsup` - (efb8e21) - Chris Montgomery
 - specify workspaces explicitly to avoid `nextjs-app` for now - (5e38ab6) - Chris Montgomery
+
 #### Build system
+
 - handle misbehaving peer dependency specifications - (2520cb8) - Chris Montgomery
+
 #### Continuous Integration
+
 - remove usages of `private` attribute from `just` tasks - (3e55f66) - Chris Montgomery
 - add vercel configuration file for yarn support - (6dcf456) - Chris Montgomery
+
 #### Features
+
 - **(builds)** add cocogitto for semantic versioning/changelogs - (28660ae) - Chris Montgomery
 - **(devshells)** replace flyctl with copilot-cli - (e457180) - Chris Montgomery
 - **(icons)** replace `ExternalLink` icon with `↗` as external link indicator (#76) - (7ef3e93) - chris montgomery
@@ -177,7 +213,9 @@ All notable changes to this project will be documented in this file. See [conven
 - add cocogitto for version/changelog management (#94) - (e51965d) - chris montgomery
 - add `just` tasks - (95cdf5f) - Chris Montgomery
 - add klein recirc banner above site header - (50e02d4) - Chris Montgomery
+
 #### Miscellaneous Chores
+
 - **(deps)** yarn upgrade - (c80304a) - Chris Montgomery
 - **(deps)** yarn@3.3.0 - (610c091) - Chris Montgomery
 - **(deps)** update dependency @graphql-codegen/client-preset to v1.2.1 (#82) - (ea33996) - chris montgomery
@@ -196,11 +234,13 @@ All notable changes to this project will be documented in this file. See [conven
 - yarn eslint sdk update (#91) - (0c05d2e) - chris montgomery
 - yarn eslint sdk update - (d13320a) - Chris Montgomery
 - sync main (#72) - (9ac05b9) - chris montgomery
+
 #### Refactoring
+
 - **(assets)** rename `{shared,temple}-assets`->`{site,tu}-assets` - (d6eb464) - Chris Montgomery
 - **(siteFooter)** rename `Colophon` to `FinePrint` - (751c42c) - Chris Montgomery
 - use npm scoped names + various fixes for yarn - (d02c3c8) - Chris Montgomery
 
-- - -
+---
 
 Changelog generated by [cocogitto](https://github.com/cocogitto/cocogitto).
