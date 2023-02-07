@@ -2785,6 +2785,7 @@ __metadata:
     eslint-plugin-tailwindcss: "npm:^3.8.3"
   peerDependencies:
     eslint: "*"
+    tailwindcss: "*"
   languageName: unknown
   linkType: soft
 
