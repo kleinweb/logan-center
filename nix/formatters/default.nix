@@ -6,9 +6,6 @@
   getSystem,
   ...
 }: {
-  imports = [
-    ./nixagoFiles/prettierrc.json.nix
-  ];
   perSystem = {pkgs, ...}: {
     treefmt.formatters = {
       inherit (pkgs) alejandra shellcheck shfmt;
@@ -28,8 +25,6 @@
     ];
     packages =
       (getSystem pkgs.system).treefmt.buildInputs
-      ++ (with pkgs; [
-        editorconfig-checker
-      ]);
+      ++ [pkgs.editorconfig-checker];
   };
 }
