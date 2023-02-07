@@ -1,22 +1,18 @@
 # SPDX-FileCopyrightText: 2022-2023 Temple University
 # SPDX-License-Identifier: GPL-3.0-or-later
 {
-  self,
-  lib,
-  ...
+  inputs,
+  cell,
 }: let
-  l = lib // builtins;
+  inherit (inputs) nixpkgs;
+  l = inputs.nixpkgs.lib // builtins;
 in {
-  flake.devshellProfiles.image-optimisation = {pkgs, ...}: let
-    ##: packages
-    inherit (pkgs) fd jpegoptim oxipng;
-    inherit (pkgs.nodePackages) svgo;
-
+  image-optimisation = _: let
     ##: helpers
-    export = name: eval: {inherit name eval;};
+    # export = name: eval: {inherit name eval;};
     category = "image processing";
     withCategory = attrs: attrs // {inherit category;};
-    cmd = package: {inherit package category;};
+    # cmd = package: {inherit package category;};
     cmd' = type: command: (withCategory {
       inherit command;
       name = "kweb-optimise-${type}s";
@@ -32,17 +28,17 @@ in {
     });
 
     ##: executors
-    findAll = ext: "${l.getExe fd} --type f --extension ${ext} .";
+    findAll = ext: "${l.getExe nixpkgs.fd} --type f --extension ${ext} .";
     execBatch = ext: cmd: "${findAll ext} --exec-batch ${cmd} {}";
     execEach = ext: cmd: "${findAll ext} --exec ${cmd} {}";
 
     ##: wrappers
-    jpegoptim' = pkgWithDefaults jpegoptim {"strip-all" = true;};
-    oxipng' = pkgWithDefaults oxipng {
+    jpegoptim' = pkgWithDefaults nixpkgs.jpegoptim {"strip-all" = true;};
+    oxipng' = pkgWithDefaults nixpkgs.oxipng {
       "opt" = 3;
       "strip" = "safe";
     };
-    svgo' = pkgWithDefaults svgo {}; # sane defaults, but maybe not
+    svgo' = pkgWithDefaults nixpkgs.nodePackages.svgo {}; # sane defaults, but maybe not
   in {
     commands = [
       jpegoptim'
@@ -57,9 +53,9 @@ in {
       (cmd' "svg" (execEach "svg" svgo'.command))
     ];
     packages = [
-      svgo
-      jpegoptim
-      oxipng
+      nixpkgs.jpegoptim
+      nixpkgs.nodePackages.svgo
+      nixpkgs.oxipng
     ];
   };
 }

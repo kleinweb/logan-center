@@ -59,5 +59,4 @@ tmp/
 .terraform/
 
 # nixago: ignore-linked-files
-apps/wp-env/.wp-env.json
-kleinweb.config.json
+.wp-env.json

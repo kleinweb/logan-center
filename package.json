@@ -55,6 +55,7 @@
     "@types/node": "^18.11.18",
     "@types/prettier": "^2.7.2",
     "@types/rimraf": "^3.0.2",
+    "@wordpress/env": "^5.7.0",
     "commitlint": "^17.4.2",
     "eslint": "^8.33.0",
     "husky": "^8.0.3",
