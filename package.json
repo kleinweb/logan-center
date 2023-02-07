@@ -42,7 +42,7 @@
     "apps/nextjs-minimal"
   ],
   "dependencies": {
-    "dotenv-cli": "^6.0.0",
+    "dotenv-cli": "^7.0.0",
     "graphql": "^16.6.0",
     "graphql-config": "^4.4.0",
     "next": "^13.1.2",
