@@ -24,17 +24,17 @@ export PATH := "./node_modules/.bin:" + env_var('PATH')
 
 ###: LINTING/FORMATTING ========================================================
 
-# <- Lint and format files
+# [fmt]:		Format files with treefmt
 fmt *FILES=prj-root:
   treefmt --no-cache {{FILES}}
 
-# <- Check Nix files for issues
+# [lint]:		Check Nix files for issues
 check *FILES=prj-root: (_deadnix "check" FILES) (_statix "check" FILES)
 
-# <- Write automatic linter fixes to files
-fix *FILES=prj-root: (_deadnix "fix" FILES) (_statix "fix" FILES)
+# [lint]:		Write automatic linter fixes to files
+lint-fix *FILES=prj-root: (_deadnix "fix" FILES) (_statix "fix" FILES)
 
-# <- Run `statix`
+# [nix]:		Run `statix` for static analysis
 _statix action +FILES=prj-root:
   @ # Note that stderr is silenced due to an upstream bug
   @ # https://github.com/nerdypepper/statix/issues/59
@@ -81,18 +81,17 @@ license-cc +FILES: (_annotate  'CC-BY-NC-SA-4.0' FILES)
 license-public-domain +FILES: (_annotate  'CC0-1.0' FILES)
 
 
-###: MISC ======================================================================
+###: MEDIA ======================================================================
 
 ##: References:
 # - <https://ffmpeg.org/ffmpeg-utils.html#Time-duration>
 
-# <- Capture a frame from a video file at the given `mm:ss` timestamp
+# [media]:	Capture a frame from a video file at the given `mm:ss` timestamp
 vcap-thumb input time='00:00' ext='jpeg':
   ffmpeg -ss '{{time}}' -i {{ absolute_path(input) }} -frames 1 -f image2 \
     '{{ without_extension(input) }}-thumb.{{ext}}'
 
-# Source: <https://superuser.com/a/1448673>
-# <- Capture the last frame from a video file
+# [media]:		Capture the last frame from a video file
 vcap-thumb-last input ext='jpeg':
   ffmpeg -sseof -1 -i {{ absolute_path(input) }} -update 1 -q:v 1 -f image2 \
     '{{ without_extension(input) }}-last-thumb.{{ext}}'
