@@ -13,7 +13,11 @@ GitHub Pages from this repo.
 
 In the near future, the Next.js fronted will ingest content from WordPress.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/d85e3d5a-7bc5-4b50-a66c-5a2ce249d665/deploy-status)](https://app.netlify.com/sites/templelogancenter/deploys)
+![Netlify Deploy Status](https://img.shields.io/netlify/d85e3d5a-7bc5-4b50-a66c-5a2ce249d665)
+
+![REUSE Compliance](https://img.shields.io/reuse/compliance/github.com/kleinweb/logan-center?style=flat-square)
+
+[![DivNix Standard](https://img.shields.io/badge/DivNix-Standard-green?style=flat&logo=NixOS)](https://github.com/divnix/std)
 
 ## Getting Started
 
@@ -21,9 +25,9 @@ Work in progress.
 
 ### Prerequisites
 
-- Nix
+- Nix Package Manager [https://nixos.org]
 - Docker Desktop
-- Direnv (recommended)
+- Direnv (strongly recommended) [<https://direnv.org>]
 
 ### Initial Setup
 
@@ -49,16 +53,6 @@ yarn upgrade-interactive
 yarn install && yarn build
 ```
 
-The codebase is structured following the monorepo pattern,
-specifically following the [`kitchen-sink`][turbo-kitchen-sink-example]
-and [`with-tailwind`][turbo-with-tailwind-example]
-examples laid out in Turbo's own monorepo.
-
-Turbo's earlier examples (from which this project grew) left much to the imagination.
-Consider referring to any updated examples when a Turbo release adds new features
-and if the changes seem to offer a significant improvement,
-update the project accordingly.
-
 [turbo-kitchen-sink-example]: https://github.com/vercel/turbo/tree/main/examples/kitchen-sink
 [turbo-with-tailwind-example]: https://github.com/vercel/turbo/tree/main/examples/with-tailwind
 
@@ -83,6 +77,12 @@ nixago: '.prettierrc.json' link updated
 [file-prettierrc-nix]: ./nix/formatters/nixagoFiles/prettierrc.json.nix
 
 ## Learning
+
+### Nix
+
+This project uses Standard, an organizational framework for Nix-powered DevOps.
+Check out [The Standard Documentation](https://std.divnix.com/)
+for more info about Standard.
 
 To learn more about Next.js, take a look at the following resources:
 
