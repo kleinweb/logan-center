@@ -13,7 +13,7 @@ const BackgroundVideoPlayer = dynamic(() => import('react-player/lazy'), {
 function Hero() {
   return (
     <div
-      className="relative aspect-cinematic overflow-hidden brightness-75"
+      className="aspect-cinematic relative overflow-hidden brightness-75"
       tabIndex={-1}
       aria-hidden
     >
