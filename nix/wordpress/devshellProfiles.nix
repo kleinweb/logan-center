@@ -5,26 +5,27 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
+  l = inputs.nixpkgs.lib // builtins;
+  inCategory = category: l.map (x: (x // {inherit category;}));
+  package = package: {inherit package;};
+  package' = name: package: {inherit name package;};
 in {
   default = _: {
     nixago = [
       cell.nixago.wp-env-config
     ];
-    commands = [
-      {
-        category = "wordpress";
-        name = "composer";
-        package = nixpkgs.php81Packages.composer;
-      }
-      {
-        category = "wordpress";
-        package = nixpkgs.wp-cli;
-      }
-    ];
+    commands = (
+      (inCategory "wordpress" [
+        (package' "composer" nixpkgs.php81Packages.composer)
+        (package' "wp" nixpkgs.wp-cli)
+      ])
+      ++ (inCategory "containers + vms" [
+        # (package nixpkgs.colima)
+        (package nixpkgs.docker)
+        (package nixpkgs.docker-compose)
+      ])
+    );
     env = [];
-    packages = [
-      # nixpkgs.docker
-      # nixpkgs.docker-compose
-    ];
+    packages = [];
   };
 }
