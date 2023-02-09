@@ -19,6 +19,50 @@ In the near future, the Next.js fronted will ingest content from WordPress.
 
 [![DivNix Standard](https://img.shields.io/badge/DivNix-Standard-green?style=flat&logo=NixOS)](https://github.com/divnix/std)
 
+## Monorepo Structure
+
+This project is a monorepo managed by [Turborepo](https://turborepo.org/) and [Standard](https://std.divnix.com/).
+
+Here's a map of some important locations:
+
+```text
+//logan-center
+├── apps
+│  ├── nextjs-app
+│  └── nextjs-minimal
+├── flake.nix
+├── Justfile
+├── nix
+│  ├── _automation
+│  ├── logan-center
+│  ├── media
+│  └── wordpress
+├── packages
+│  ├── eslint-config-custom
+│  ├── site-assets
+│  ├── tailwind-config
+│  ├── tsconfig
+│  ├── tu-assets
+│  └── ui
+└── turbo.json
+```
+
+### `apps/`
+
+The applications directory. This includes the documentation, Next.js (frontend), and WordPress (backend).
+
+### `packages/`
+
+Shared packages used by the apps. This includes ESLint, Prettier, and TypeScript configs. As well as the WordPress plugin and theme.
+
+### `turbo.json`
+
+The repo config file. Learn more about configuring [Turborepo](https://turborepo.org/docs/configuration).
+
+### `nix/`
+
+Files configurating the development environment and tool integrations.
+
 ## Getting Started
 
 Work in progress.
@@ -102,3 +146,10 @@ licenses.
 
 See [`./.reuse/dep5`](./.reuse/dep5) and [`./LICENSES`](./LICENSES/) for
 detailed information.
+
+## Credits
+
+Many thanks to the following projects for passive guidance:
+
+- <https://github.com/gregrickaby/nextjs-wordpress>
+- <https://github.com/Automattic/vip-go-nextjs-skeleton>

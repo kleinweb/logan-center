@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2021 Automattic
+# SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later OR MIT
+
+#import "../fragments/ContentType.graphql"
+
+query AllContentTypes(
+  $after: String
+  $before: String
+  $first: Int = 1
+  $last: Int
+) {
+  contentTypes(first: 50) {
+    nodes {
+      ...ContentTypeFields
+    }
+  }
+}

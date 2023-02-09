@@ -5,9 +5,9 @@ import { ReactNode } from 'react'
 
 import { KleinBanner } from '@kleinweb/logan-center__ui'
 
-import SiteHeader from '../SiteHeader'
-import SiteFooter from '../SiteFooter'
 import Meta from '../Meta'
+import SiteFooter from '../SiteFooter'
+import SiteHeader from '../SiteHeader'
 
 type LayoutProps = {
   children: ReactNode

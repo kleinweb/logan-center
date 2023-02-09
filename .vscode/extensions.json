@@ -13,6 +13,7 @@
     "mikestead.dotenv",
     "mkhl.direnv",
     "stylelint.vscode-stylelint",
-    "unifiedjs.vscode-mdx"
+    "unifiedjs.vscode-mdx",
+    "ms-azuretools.vscode-docker"
   ]
 }

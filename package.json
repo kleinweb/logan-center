@@ -39,7 +39,7 @@
     "packages/tsconfig",
     "packages/tu-assets",
     "packages/ui",
-    "apps/nextjs-minimal"
+    "apps/nextjs"
   ],
   "dependencies": {
     "dotenv-cli": "^7.0.0",
@@ -50,8 +50,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "3.0.0",
-    "@graphql-codegen/client-preset": "2.0.0",
+    "@graphql-codegen/cli": "^3.0.0",
+    "@graphql-codegen/client-preset": "^2.0.0",
     "@types/node": "^18.11.18",
     "@types/prettier": "^2.7.2",
     "@types/rimraf": "^3.0.2",

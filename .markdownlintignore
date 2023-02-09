@@ -1,0 +1,11 @@
+!/.*.js
+*.min.js
+.*cache/
+.github/
+.next/
+backend/mysql/
+backend/wordpress/
+build/
+dist/
+node_modules/
+public/

@@ -1,7 +1,15 @@
-**/.next/**
-**/dist/**
-**/build/**
-**/out/**
-**/tmp/**
+!/.*.js
+*.min.js
+.*cache/
+.next/
+.turbo/
+.vercel/
+build/
+dist/
+node_modules/
+out/
+public/
+tmp/
+vendor/
 
 index.d.ts

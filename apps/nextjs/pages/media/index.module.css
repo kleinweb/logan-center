@@ -1,0 +1,21 @@
+/*
+ * SPDX-FileCopyrightText: 2021 Automattic
+ * SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later OR MIT
+ */
+
+.container {
+  column-gap: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 1em;
+}
+
+.image {
+  background-color: #ccc;
+  border: solid 1px #000;
+  display: block;
+  height: 100px;
+  position: relative;
+}

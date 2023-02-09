@@ -1,5 +1,5 @@
 {
-  "name": "@kleinweb/logan-center--nextjs-minimal",
+  "name": "@kleinweb/logan-center--nextjs",
   "version": "0.3.0",
   "private": true,
   "license": "GPL-3.0-or-later",
@@ -13,11 +13,15 @@
     "copy:tu-assets": "rimraf public/assets/shared && cp -R ../../packages/tu-assets ./public/assets/shared"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.7",
     "@kleinweb/logan-center__site-assets": "workspace:*",
     "@kleinweb/logan-center__ui": "workspace:*",
     "@kleinweb/tu-assets": "workspace:*",
     "@wordpress/i18n": "4.26.0",
     "clsx": "^1.2.1",
+    "graphql": "^16.6.0",
+    "html-react-parser": "^3.0.8",
+    "isomorphic-dompurify": "^0.26.0",
     "lucide-react": "^0.112.0",
     "next": "^13.1.6",
     "react": "^18.2.0",
