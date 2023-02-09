@@ -1,0 +1,24 @@
+fragment MenuItems on Menu {
+  count
+  menuItems {
+    nodes {
+      id
+      path
+      label
+      linkRelationship
+      target
+      parentId
+      childItems {
+        nodes {
+          id
+          path
+          cssClasses
+          label
+          linkRelationship
+          target
+          parentId
+        }
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
 import { FetchPolicy } from '@apollo/client'
-import getApolloClient from '@/graphql/apollo'
+import client from '@/graphql/apollo'
 import {
   ContentNodePreviewByIdDocument,
   ContentNodePreviewByIdQuery,
@@ -41,7 +41,7 @@ export const getServerSideProps: GetServerSideProps<PreviewProps> = async (
     },
   }
 
-  const { data, loading } = await getApolloClient(
+  const { data, loading } = await client(
     context,
   ).query<ContentNodePreviewByIdQuery>(queryOptions)
 

@@ -1,0 +1,12 @@
+query AllPagesQuery {
+  pages {
+    nodes {
+      slug
+    }
+  }
+  books {
+    nodes {
+      slug
+    }
+  }
+}

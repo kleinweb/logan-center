@@ -1,48 +1,36 @@
-// SPDX-FileCopyrightText: 2021 Automattic
-// SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
-//
-// SPDX-License-Identifier: GPL-3.0-or-later OR MIT
-
-import { GetStaticProps } from 'next'
-import Link from 'next/link'
-import Card from '@/components/Card/Card'
-import Page from '@/components/Page/Page'
-import getApolloClient from '@/graphql/apollo'
-import {
-  AllContentTypesDocument,
-  AllContentTypesQuery,
-  ContentTypeFieldsFragment,
-} from '@/graphql/generated'
+import Article from '@/components/Article'
 import Layout from '@/components/Layout'
+import { CONTENT_TTL } from '@/lib/constants'
+import { client } from '@/graphql/apollo'
+import { SINGLE_PAGE_QUERY } from '@/lib/queries'
+import { PageProps } from '@/lib/types'
+import { GetStaticProps } from 'next'
 
-type Props = {
-  contentTypes: ContentTypeFieldsFragment[]
+/**
+ * Homepage component.
+ *
+ * FIXME: show error/404 page if {data.page} is undefined?
+ */
+export default function HomePage({ data }: PageProps) {
+  const content = data?.page
+  return <Layout>{content ? <Article content={content} /> : undefined}</Layout>
 }
 
-export default function Home(props: Props) {
-  return (
-    <Layout>
-      <Page title="Welcome 👋"></Page>
-    </Layout>
-  )
-}
-
-export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const queryOptions = {
-    query: AllContentTypesDocument,
-  }
-
-  const { data } = await getApolloClient(context).query<AllContentTypesQuery>(
-    queryOptions,
-  )
-
-  const contentTypes = data.contentTypes.nodes || []
+/**
+ * Query data and pass it to the page component.
+ *
+ * @see https://nextjs.org/docs/api-reference/data-fetching/get-static-props
+ */
+export const getStaticProps: GetStaticProps = async () => {
+  // Query the homepage data.
+  const { data } = await client.query({
+    query: SINGLE_PAGE_QUERY,
+    // FIXME: assuming that the slug matches! is there a more reliable way?
+    variables: { slug: 'homepage' },
+  })
 
   return {
-    props: {
-      contentTypes: contentTypes.filter(
-        (contentType) => contentType.contentNodes.nodes.length,
-      ),
-    },
+    props: { data },
+    revalidate: CONTENT_TTL,
   }
 }

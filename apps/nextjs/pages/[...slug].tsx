@@ -6,7 +6,7 @@
 import { GetServerSideProps } from 'next'
 import Page from '@/components/Page/Page'
 import PostContent from '@/components/PostContent/PostContent'
-import getApolloClient from '@/graphql/apollo'
+import client from '@/graphql/apollo'
 import {
   ContentNodeBySlugDocument,
   ContentNodeBySlugQuery,
@@ -41,9 +41,9 @@ export const getServerSideProps: GetServerSideProps<PostProps> = async (
     },
   }
 
-  const { data, loading } = await getApolloClient(
-    context,
-  ).query<ContentNodeBySlugQuery>(queryOptions)
+  const { data, loading } = await client(context).query<ContentNodeBySlugQuery>(
+    queryOptions,
+  )
 
   // @TODO Disambiguate multiple slug matches.
   const post = data.contentNodes?.nodes?.[0]

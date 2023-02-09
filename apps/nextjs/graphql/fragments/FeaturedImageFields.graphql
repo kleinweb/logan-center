@@ -1,0 +1,10 @@
+fragment FeaturedImageFields on NodeWithFeaturedImageToMediaItemConnectionEdge {
+  node {
+    altText
+    sourceUrl(size: LARGE)
+    mediaDetails {
+      height
+      width
+    }
+  }
+}

@@ -5,7 +5,7 @@
 
 import { ReactNode } from 'react'
 import { ApolloProvider } from '@apollo/client'
-import getApolloClient from './apollo'
+import client from './apollo'
 
 type Props = {
   children: ReactNode
@@ -26,7 +26,5 @@ type Props = {
  * retain a smaller bundle size.
  */
 export default function ClientSideApolloProvider(props: Props) {
-  return (
-    <ApolloProvider client={getApolloClient()}>{props.children}</ApolloProvider>
-  )
+  return <ApolloProvider client={client()}>{props.children}</ApolloProvider>
 }

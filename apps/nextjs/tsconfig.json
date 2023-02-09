@@ -5,6 +5,8 @@
   "exclude": ["node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
+    "strict": true,
+    "noImplicitAny": false,
     "paths": {
       "@/*": ["./*"]
     }

@@ -7,7 +7,7 @@ import { GetServerSideProps } from 'next'
 import Page from '@/components/Page/Page'
 import PostList from '@/components/PostList/PostList'
 import SearchForm from '@/components/SearchForm/SearchForm'
-import getApolloClient from '@/graphql/apollo'
+import client from '@/graphql/apollo'
 import {
   ContentNodeFieldsFragment,
   ContentNodesBySearchTermDocument,
@@ -74,7 +74,7 @@ export const getServerSideProps: GetServerSideProps<
     variables,
   }
 
-  const { data, error, loading } = await getApolloClient(
+  const { data, error, loading } = await client(
     context,
   ).query<ContentNodesBySearchTermQuery>(queryOptions)
 

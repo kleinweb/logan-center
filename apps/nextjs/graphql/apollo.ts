@@ -30,7 +30,7 @@ const { possibleTypes } = fragmentMatcher
  * context as the first parameter for additional detail in your logging. (Since
  * `getStaticProps` is run at build time, its context is not useful.)
  */
-export default function getApolloClient(
+export function client(
   serverSideContext?: GetServerSidePropsContext | GetStaticPropsContext,
 ) {
   // Server-side / static: Return a new instance every time.

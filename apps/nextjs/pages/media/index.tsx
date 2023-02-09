@@ -6,7 +6,7 @@
 import { GetServerSideProps } from 'next'
 import Image from 'next/image'
 import Page from '@/components/Page/Page'
-import getApolloClient from '@/graphql/apollo'
+import client from '@/graphql/apollo'
 import {
   AllMediaItemsDocument,
   AllMediaItemsQuery,
@@ -74,9 +74,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
     query: AllMediaItemsDocument,
   }
 
-  const { data, loading } = await getApolloClient(
-    context,
-  ).query<AllMediaItemsQuery>(queryOptions)
+  const { data, loading } = await client(context).query<AllMediaItemsQuery>(
+    queryOptions,
+  )
 
   const mediaItems = data.mediaItems?.nodes
 

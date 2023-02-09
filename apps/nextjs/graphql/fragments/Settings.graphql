@@ -1,0 +1,7 @@
+fragment Settings on GeneralSettings {
+  dateFormat
+  description
+  language
+  timeFormat
+  title
+}
