@@ -31,15 +31,17 @@ node_modules/
 ##: next.js
 .next/
 
-##: environment-specific
+##: local data
 .data/
 .direnv/
-.env
-.env*.local
-*.local
 
 ##: secrets
 *.pem
+.env
+.env*.local
+*.local
+# <https://dotenv.org/env-me>
+.env.me
 
 ##: testing
 coverage
