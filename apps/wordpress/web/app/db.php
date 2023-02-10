@@ -1,0 +1,1 @@
+/Users/cdom/Developer/scratch/nixwp-local/web/app/plugins/query-monitor/wp-content/db.php

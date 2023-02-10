@@ -1,0 +1,23 @@
+# Load environment variables from the local `.env`
+set dotenv-load
+
+site-title := 'Logan Center for Urban Investigative Reporting'
+admin-user := 'kleinweb'
+admin-email := 'kleinweb+logancenter@temple.edu'
+
+# NOTE: This should probably not be persisted to a dotenv file.
+# Instead, check the shared password vault.
+admin-password := get_env('WP_ADMIN_PASSWORD')
+
+provision-env: wp-install
+  wp post create --post_type="page" --post_title="Homepage" \
+    --post_content="<!-- wp:paragraph --><p>Welcome to the homepage. Feel free to edit this page.</p><!-- /wp:paragraph -->" \
+    --post_status="publish"
+
+wp-install:
+  wp core install --url="https://${WP_HOME}" \
+    --title='{{ site-title }}' \
+    --admin_user='{{ admin-user }}' \
+    --admin_password='{{ admin-password }}' \
+    --admin_email='{{ admin-email }}' \
+    --skip-email

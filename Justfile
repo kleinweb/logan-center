@@ -62,11 +62,15 @@ _deadnix action +FILES=prj-root:
 
 ###: LICENSING =====================================================================================
 
-copyright := 'Temple University <kleinweb@temple.edu>'
+org-tu-kleinweb := 'Temple University <kleinweb@temple.edu>'
+org-roots := 'Roots Software Foundation LLC'
 
 # Add the project default license header to the specified files
 [private]
 alias license := license-gpl
+
+[private]
+license-with-roots +FILES: (license-gpl-or-mit org-roots FILES)
 
 # [reuse]:		Validate the project's licensing and copyright metadata
 license-check:
@@ -78,15 +82,18 @@ license-docs:
     just license-cc {}
 
 _annotate license +FILES:
-  reuse annotate -l {{license}} -c '{{copyright}}' --template=compact {{FILES}}
+  reuse annotate -l '{{license}}' -c '{{org-tu-kleinweb}}' --template=compact {{FILES}}
 
-# [reuse]:		Annotate the specified files with a GPL-3.0-or-later license header
+# [reuse]:		License the specified files as GPL
 license-gpl +FILES: (_annotate 'GPL-3.0-or-later' FILES)
 
-# [reuse]:		Annotate the specified files with the standard documentation license header
+# [reuse]:		License the specified files as GPL/MIT
+license-gpl-or-mit colicensor +FILES: (_annotate 'GPL-3.0-or-later OR MIT' ('-c ' + quote(colicensor) + ' ' + FILES))
+
+# [reuse]:		License the specified files as non-commercial docs
 license-cc +FILES: (_annotate  'CC-BY-NC-SA-4.0' FILES)
 
-# [reuse]:		Annotate the specified files with a public domain license header
+# [reuse]:		Release the specified files to public domain
 license-public-domain +FILES: (_annotate  'CC0-1.0' FILES)
 
 
