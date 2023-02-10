@@ -10,9 +10,9 @@
     "graphql.vscode-graphql",
     "jnoortheen.nix-ide",
     "kamadorueda.alejandra",
-    "mikestead.dotenv",
     "mkhl.direnv",
     "stylelint.vscode-stylelint",
-    "unifiedjs.vscode-mdx"
+    "unifiedjs.vscode-mdx",
+    "dotenv.dotenv-vscode"
   ]
 }
