@@ -58,6 +58,8 @@ define('WP_ENV', env('WP_ENV') ?: 'production');
  */
 Config::define('WP_HOME', env('WP_HOME'));
 Config::define('WP_SITEURL', env('WP_SITEURL'));
+// Location of the Next.js client application.
+Config::define('WP_CLIENT_URL', env('WP_CLIENT_URL'));
 
 /**
  * Custom Content Directory
@@ -97,6 +99,9 @@ Config::define('AUTH_SALT', env('AUTH_SALT'));
 Config::define('SECURE_AUTH_SALT', env('SECURE_AUTH_SALT'));
 Config::define('LOGGED_IN_SALT', env('LOGGED_IN_SALT'));
 Config::define('NONCE_SALT', env('NONCE_SALT'));
+
+// Token for post previews in the headless client.
+Config::define('WP_CLIENT_PREVIEW_TOKEN', env('WP_CLIENT_PREVIEW_TOKEN'));
 
 /**
  * Custom Settings
