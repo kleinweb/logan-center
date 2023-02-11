@@ -1,8 +1,17 @@
 # SPDX-FileCopyrightText: 2022-2023 Temple University
-#
 # SPDX-License-Identifier: CC0-1.0
 
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+### <https://help.github.com/articles/ignoring-files/>
+
+
+###: === //.gitignore ==========================================================
+#
+#    Copy the following section from the repo-root `.gitignore`
+#    to all `.gitignore` files stored in descendent directories:
+#
+#       $ fd --hidden --no-ignore --exclude vendor --exclude node_modules '.gitignore'
+#
+#    This duplication ensures that each package/project/app follows the same rules.
 
 ##: build artifacts
 build/
@@ -31,17 +40,27 @@ node_modules/
 ##: next.js
 .next/
 
+##: php: composer
+**/vendor
+
+# wp-cli
+wp-cli.local.yml
+
 ##: local data
 .data/
 .direnv/
+*.local
 
 ##: secrets
 *.pem
-.env
-.env*.local
-*.local
-# <https://dotenv.org/env-me>
-.env.me
+# <https://dotenv.org/env-me> {{{
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
+!.env.example
+!.env.sample
+# }}}
 
 ##: testing
 coverage
@@ -62,3 +81,4 @@ tmp/
 
 # nixago: ignore-linked-files
 .wp-env.json
+

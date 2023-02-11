@@ -1,5 +1,12 @@
-.direnv
-.devenv
+# SPDX-FileCopyrightText: 2022-2023 Temple University
+# SPDX-License-Identifier: CC0-1.0
+
+###: <https://help.github.com/articles/ignoring-files/>
+
+
+###: === //apps/wordpress/.gitignore ===========================================
+#  
+#    These rules apply ONLY to this directory and its descendents.
 
 # Application
 
@@ -14,19 +21,84 @@ web/app/cache/*
 
 # WordPress
 web/wp
-web/.htaccess
 
-# Logs
-*.log
 
-# Dotenv
-.env
-.env.*
-!.env.example
+###: === //.gitignore ==========================================================
+#
+#    Copy the following section from the repo-root `.gitignore`
+#    to all `.gitignore` files stored in descendent directories:
+#
+#       $ fd --hidden --no-ignore --exclude vendor --exclude node_modules '.gitignore'
+#
+#    This duplication ensures that each package/project/app follows the same rules.
 
-# Composer
-/vendor
+##: build artifacts
+build/
+dist/
 
-# WP-CLI
+##: nix
+.std
+result
+
+##: javascript/nodejs/typescript
+.eslintcache/
+.turbo
+*.tsbuildinfo
+*.map
+
+##: npm/yarn
+node_modules/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+##: next.js
+.next/
+
+##: php: composer
+**/vendor
+
+# wp-cli
 wp-cli.local.yml
+
+##: local data
+.data/
+.direnv/
+*.local
+
+##: secrets
 *.pem
+# <https://dotenv.org/env-me> {{{
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
+!.env.example
+!.env.sample
+# }}}
+
+##: testing
+coverage
+
+##: vm
+*.qcow2
+*.img
+
+##: misc. clutter
+.DS_Store
+tmp/
+*.log
+*.tmp
+
+##: devops
+*.tfstate*
+.terraform/
+
+# nixago: ignore-linked-files
+.wp-env.json
+
+
