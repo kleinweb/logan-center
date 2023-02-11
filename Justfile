@@ -18,6 +18,8 @@ cachix-exec := "cachix watch-exec --jobs 2 " + cachix-cache-name
 ##: directories/paths
 prj-root := env_var('PRJ_ROOT')
 node-modules := join(prj-root, "node_modules/.bin")
+nextjs-dir := prj-root / "apps/nextjs"
+wp-dir := prj-root / "apps/wordpress"
 
 # make node/yarn `package.json` runnables available to tasks
 export PATH := join(node-modules, '.bin') + ":" + env_var('PATH')
@@ -27,7 +29,7 @@ export PATH := join(node-modules, '.bin') + ":" + env_var('PATH')
 # [dev]: 		Install the project dependencies
 install:
   yarn install
-  cd apps/wordpress && composer install
+  cd {{ wp-dir }} && composer install
 
 # [dev]: 		Run the development watch processes
 dev: start-wp && stop-wp
@@ -40,6 +42,21 @@ start-wp:
 # [dev]: 		Stop WordPress
 stop-wp:
   ddev stop logancenter-wp
+
+# [dev]: 		Run command in app scope
+focus app +ARGS:
+  cd {{ join( "apps", app ) }} && {{ ARGS }}
+
+# [wp]: 		Install WordPress plugin with Composer and commit lock
+add-plugin name owner='wpackagist-plugin':
+  cd {{ wp-dir }} && \
+    composer require {{ owner }}/{{ name }} && \
+    git add composer.{json,lock} && \
+    git commit --message 'feat(wp:plugins|deps): add `{{ name }}`'
+
+# [wp]: 		Activate WordPress plugin
+activate-plugin name:
+  cd {{ wp-dir }} && ddev wp plugin activate {{ name }}
 
 
 ###: LINTING/FORMATTING ============================================================================
