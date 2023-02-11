@@ -17,9 +17,10 @@ cachix-exec := "cachix watch-exec --jobs 2 " + cachix-cache-name
 
 ##: directories/paths
 prj-root := env_var('PRJ_ROOT')
+node-modules := join(prj-root, "node_modules/.bin")
 
 # make node/yarn `package.json` runnables available to tasks
-export PATH := "./node_modules/.bin:" + env_var('PATH')
+export PATH := join(node-modules, '.bin') + ":" + env_var('PATH')
 
 ###: DEVELOPMENT ===================================================================================
 
@@ -73,6 +74,17 @@ _deadnix action +FILES=prj-root:
     --no-lambda-pattern-names \
     {{FILES}}
 
+
+###: SECRETS =======================================================================================
+
+vault-cmd := join( node-modules, "dotenv-vault" )
+
+# [secrets]: 		Run `dotenv-vault` in the specified app scope
+vault app-name *ARGS:
+  cd {{ join( 'apps', app-name ) }} && {{ vault-cmd }} {{ ARGS }}
+
+# [secrets]: 		Push all dotenv vault secrets to remote store
+vault-push-all: (vault "wordpress" "push") (vault "nextjs" "push")
 
 ###: LICENSING =====================================================================================
 
