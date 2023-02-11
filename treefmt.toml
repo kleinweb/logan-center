@@ -24,7 +24,7 @@ includes = [
   "*.tsx",
 ]
 # TODO: auto-exclude generated files (via nixago?)
-excludes = [".wp-env.json"]
+excludes = []
 
 [formatter.shell]
 command = "sh"
