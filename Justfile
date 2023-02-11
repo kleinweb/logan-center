@@ -108,9 +108,8 @@ vault-push-all: (vault "wordpress" "push") (vault "nextjs" "push")
 org-tu-kleinweb := 'Temple University <kleinweb@temple.edu>'
 org-roots := 'Roots Software Foundation LLC'
 
-# Add the project default license header to the specified files
-[private]
-alias license := reuse-gpl
+# [reuse]:		Apply the default license to files
+alias reuse := reuse-gpl
 
 [private]
 reuse-with-roots +FILES: (reuse-dual org-roots FILES)
