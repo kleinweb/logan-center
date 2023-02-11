@@ -67,34 +67,30 @@ org-roots := 'Roots Software Foundation LLC'
 
 # Add the project default license header to the specified files
 [private]
-alias license := license-gpl
+alias license := reuse-gpl
 
 [private]
-license-with-roots +FILES: (license-gpl-or-mit org-roots FILES)
-
-# [reuse]:		Validate the project's licensing and copyright metadata
-license-check:
-  reuse lint
+reuse-with-roots +FILES: (reuse-dual org-roots FILES)
 
 # [reuse]:		Annotate all plaintext note files with the documentation license
 license-docs:
   fd --glob '**/*.{md,mdx,markdown,org}' -X \
-    just license-cc {}
+    just reuse-cc {}
 
 _annotate license +FILES:
   reuse annotate -l '{{license}}' -c '{{org-tu-kleinweb}}' --template=compact {{FILES}}
 
 # [reuse]:		License the specified files as GPL
-license-gpl +FILES: (_annotate 'GPL-3.0-or-later' FILES)
+reuse-gpl +FILES: (_annotate 'GPL-3.0-or-later' FILES)
 
 # [reuse]:		License the specified files as GPL/MIT
-license-gpl-or-mit colicensor +FILES: (_annotate 'GPL-3.0-or-later OR MIT' ('-c ' + quote(colicensor) + ' ' + FILES))
+reuse-dual colicensor +FILES: (_annotate 'GPL-3.0-or-later OR MIT' ('-c ' + quote(colicensor) + ' ' + FILES))
 
 # [reuse]:		License the specified files as non-commercial docs
-license-cc +FILES: (_annotate  'CC-BY-NC-SA-4.0' FILES)
+reuse-cc +FILES: (_annotate  'CC-BY-NC-SA-4.0' FILES)
 
 # [reuse]:		Release the specified files to public domain
-license-public-domain +FILES: (_annotate  'CC0-1.0' FILES)
+reuse-public-domain +FILES: (_annotate  'CC0-1.0' FILES)
 
 
 ###: MEDIA =========================================================================================
@@ -102,7 +98,7 @@ license-public-domain +FILES: (_annotate  'CC0-1.0' FILES)
 ##: References:
 # - <https://ffmpeg.org/ffmpeg-utils.html#Time-duration>
 
-# [media]:	Capture a frame from a video file at the given `mm:ss` timestamp
+# [media]: Capture a frame from a video file at the given `mm:ss` timestamp
 vcap-thumb input time='00:00' ext='jpeg':
   ffmpeg -ss '{{time}}' -i {{ absolute_path(input) }} -frames 1 -f image2 \
     '{{ without_extension(input) }}-thumb.{{ext}}'
