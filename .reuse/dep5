@@ -35,6 +35,11 @@ Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
            2021 Automattic
 License: GPL-3.0-or-later OR MIT
 
+Files: packages/nextjs-wordpress-theme/*
+       packages/nextjs-wordpress-plugin/*
+Copyright: 2022-2023 Greg Rickaby
+License: MIT
+
 Files: packages/site-assets/*
 Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: CC-BY-NC-ND-4.0
