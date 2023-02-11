@@ -52,7 +52,8 @@
     "wpackagist-plugin/query-monitor": "^3.11",
     "wpackagist-plugin/debug-bar": "^1.1",
     "wpackagist-plugin/wp-graphql": "^1.13",
-    "wpackagist-plugin/faustwp": "^0.8.1"
+    "wpackagist-plugin/faustwp": "^0.8.1",
+    "soberwp/intervention": "dev-main"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",
