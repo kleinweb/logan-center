@@ -23,8 +23,22 @@ export PATH := "./node_modules/.bin:" + env_var('PATH')
 
 ###: DEVELOPMENT ===================================================================================
 
-wp-env *ARGS:
-  wp-env ARGS
+# [dev]: 		Install the project dependencies
+install:
+  yarn install
+  cd apps/wordpress && composer install
+
+# [dev]: 		Run the development watch processes
+dev: start-wp && stop-wp
+  -yarn run dev
+
+# [dev]: 		Start WordPress
+start-wp:
+  ddev start logancenter-wp
+
+# [dev]: 		Stop WordPress
+stop-wp:
+  ddev stop logancenter-wp
 
 
 ###: LINTING/FORMATTING ============================================================================
