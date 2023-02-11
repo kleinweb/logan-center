@@ -5,7 +5,7 @@
 
 
 ###: === //apps/wordpress/.gitignore ===========================================
-#  
+#
 #    These rules apply ONLY to this directory and its descendents.
 
 # Application
@@ -97,8 +97,5 @@ tmp/
 ##: devops
 *.tfstate*
 .terraform/
-
-# nixago: ignore-linked-files
-.wp-env.json
 
 

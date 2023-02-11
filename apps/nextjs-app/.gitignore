@@ -76,7 +76,4 @@ tmp/
 *.tfstate*
 .terraform/
 
-# nixago: ignore-linked-files
-.wp-env.json
-
 

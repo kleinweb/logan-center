@@ -11,9 +11,6 @@
   package' = name: package: {inherit name package;};
 in {
   default = _: {
-    nixago = [
-      cell.nixago.wp-env-config
-    ];
     commands = (
       (inCategory "wordpress" [
         (package' "composer" nixpkgs.php81Packages.composer)
