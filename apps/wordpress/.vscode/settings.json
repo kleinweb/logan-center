@@ -1,0 +1,4 @@
+{
+  "intelephense.environment.documentRoot": "web",
+  "intelephense.environment.includePaths": ["config/**"]
+}
