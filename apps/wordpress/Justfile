@@ -9,15 +9,43 @@ site-title := 'Logan Center for Urban Investigative Reporting'
 admin-user := 'kleinweb'
 admin-email := 'kleinweb+logancenter@temple.edu'
 
-provision-env:
-  wp post create --post_type="page" --post_title="Homepage" \
-    --post_content="<!-- wp:paragraph --><p>Welcome to the homepage. Feel free to edit this page.</p><!-- /wp:paragraph -->" \
-    --post_status="publish"
+wp := if env_var('WP_ENV') == 'development' { 'ddev wp' } else { 'wp' }
 
-wp-install admin-password:
-  wp core install --url="https://${WP_HOME}" \
-    --title='{{ site-title }}' \
-    --admin_user='{{ admin-user }}' \
-    --admin_password='{{ admin-password }}' \
-    --admin_email='{{ admin-email }}' \
-    --skip-email
+default:
+  @just --list --unsorted --color=always | rg -v "    default"
+
+wp *ARGS:
+  {{ wp }} {{ ARGS }}
+
+query-by-slug slug *ARGS:
+  {{ wp }} post list --post_name={{ slug }} {{ ARGS }}
+
+install admin-password: && provision
+  {{ wp }} core install --url="https://${WP_HOME}" \
+      --title={{ quote( site-title ) }} \
+      --admin_user='{{ admin-user }}' \
+      --admin_password='{{ admin-password }}' \
+      --admin_email='{{ admin-email }}' \
+      --skip-email
+
+provision: _init-posts _init-menus
+  {{ wp }} plugin activate --all
+  {{ wp }} rewrite structure "/%year%/%monthnum%/%day%/%postname%/"
+  {{ wp }} option update show_on_front page
+  {{ wp }} option update page_on_front $({{ wp }} post list --post_name=homepage --format=ids)
+  wp option update page_for_posts $({{ wp }} post list --post_name=reports --format=ids)
+
+# _init-users:
+
+_init-posts:
+  {{ wp }} post create --post_type="page" --post_title="Homepage" --post_name='homepage' \
+    --post_content={{ homepage-post-content }} \
+    --post_status='publish'
+  {{ wp }} post create --post_type="page" --post_title="Press" --post_status="publish" --post_name=press
+  {{ wp }} post create --post_type="page" --post_title="Reports" --post_status="publish" --post_name=reports
+
+_init-menus:
+  {{ wp }} menu create "Header"
+  {{ wp }} menu create "Footer"
+
+homepage-post-content := quote('<!-- wp:paragraph --><p>Welcome to the homepage. Feel free to edit this page.</p><!-- /wp:paragraph -->')
