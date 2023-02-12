@@ -4,6 +4,9 @@
       "path": ".."
     },
     {
+      "path": "../apps/nextjs"
+    },
+    {
       "path": "../apps/wordpress"
     }
   ],
