@@ -35,10 +35,6 @@
     {
       "type": "path",
       "url": "../../packages/nextjs-wordpress-plugin"
-    },
-    {
-      "type": "path",
-      "url": "../../packages/nextjs-wordpress-theme"
     }
   ],
   "require": {
@@ -46,7 +42,6 @@
     "composer/installers": "^2.2",
     "vlucas/phpdotenv": "^5.5",
     "nextjswp/nextjs-wordpress-plugin": "*",
-    "nextjswp/nextjs-wordpress-theme": "*",
     "oscarotero/env": "^2.1",
     "roots/bedrock-autoloader": "^1.0",
     "roots/bedrock-disallow-indexing": "^2.0",
