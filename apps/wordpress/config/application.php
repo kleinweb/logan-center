@@ -41,7 +41,7 @@ $env_files = file_exists($root_dir . '/.env.local')
 $dotenv = Dotenv\Dotenv::createUnsafeImmutable($root_dir, $env_files, false);
 if (file_exists($root_dir . '/.env')) {
     $dotenv->load();
-    $dotenv->required(['WP_HOME', 'WP_SITEURL']);
+    $dotenv->required(['WP_HOME', 'WP_SITEURL', 'WP_CLIENT_URL']);
     if (!env('DATABASE_URL')) {
         $dotenv->required(['DB_NAME', 'DB_USER', 'DB_PASSWORD']);
     }
