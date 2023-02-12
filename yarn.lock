@@ -3242,26 +3242,25 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@kleinweb/logan-center@workspace:."
   dependencies:
-    "@types/node": "npm:^18.11.18"
+    "@types/node": "npm:^18.13.0"
     "@types/prettier": "npm:^2.7.2"
-    "@types/rimraf": "npm:^3.0.2"
     commitlint: "npm:^17.4.2"
     dotenv-cli: "npm:^7.0.0"
     dotenv-vault: "npm:^1.18.0"
-    eslint: "npm:^8.33.0"
+    eslint: "npm:^8.34.0"
     graphql: "npm:^16.6.0"
     graphql-config: "npm:^4.4.1"
     husky: "npm:^8.0.3"
     just-install: "npm:^1.0.11"
     lint-staged: "npm:^13.1.1"
     next: "npm:^13.1.6"
-    prettier: "npm:^2.8.3"
+    prettier: "npm:^2.8.4"
     prettier-plugin-tailwindcss: "npm:^0.2.2"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     rimraf: "npm:^4.1.2"
     ts-node: "npm:^10.9.1"
-    turbo: "npm:^1.7.3"
+    turbo: "npm:^1.7.4"
     typescript: "npm:^4.9.5"
   languageName: unknown
   linkType: soft
@@ -3276,7 +3275,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@kleinweb/logan-center__tailwind-config@workspace:packages/tailwind-config"
   dependencies:
-    tailwindcss: "npm:^3.2.4"
+    tailwindcss: "npm:^3.2.6"
   languageName: unknown
   linkType: soft
 
@@ -3289,20 +3288,20 @@ __metadata:
     "@kleinweb/logan-center__tailwind-config": "workspace:*"
     "@kleinweb/tsconfig": "workspace:*"
     "@kleinweb/tu-assets": "workspace:*"
-    "@types/react": "npm:^18.0.27"
+    "@types/react": "npm:^18.0.28"
     "@types/react-dom": "npm:^18.0.10"
-    "@wordpress/i18n": "npm:4.26.0"
+    "@wordpress/i18n": "npm:4.26.1"
     clsx: "npm:^1.2.1"
     concurrently: "npm:^7.6.0"
     esbuild-plugin-svgr: "npm:^1.0.1"
-    eslint: "npm:^8.33.0"
+    eslint: "npm:^8.34.0"
     eslint-plugin-tailwindcss: "npm:^3.8.3"
     lucide-react: "npm:^0.112.0"
     next: "npm:^13.1.6"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     rimraf: "npm:^4.1.2"
-    tailwindcss: "npm:^3.2.4"
+    tailwindcss: "npm:^3.2.6"
     tsup: "npm:^6.6.0"
     typescript: "npm:^4.9.5"
   languageName: unknown
@@ -3321,12 +3320,12 @@ __metadata:
     "@kleinweb/tsconfig": "workspace:*"
     "@rollup/plugin-typescript": "npm:^11.0.0"
     "@svgr/rollup": "npm:^6.5.1"
-    "@types/react": "npm:^18.0.27"
+    "@types/react": "npm:^18.0.28"
     "@types/react-dom": "npm:^18.0.10"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     rimraf: "npm:^4.1.2"
-    rollup: "npm:^3.14.0"
+    rollup: "npm:^3.15.0"
     tslib: "npm:^2.5.0"
     typescript: "npm:^4.9.5"
   languageName: unknown
@@ -4140,16 +4139,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/glob@npm:*":
-  version: 8.0.0
-  resolution: "@types/glob@npm:8.0.0"
-  dependencies:
-    "@types/minimatch": "npm:*"
-    "@types/node": "npm:*"
-  checksum: 545d231c07e174f3d37d9133f666e6e8695bb4d4f215cd09975e5fd9eb993356cb34f3669b4cda666cd6ba1e13452aa783e95c62cdcc0e30d628428b0eb94fc4
-  languageName: node
-  linkType: hard
-
 "@types/graceful-fs@npm:^4.1.3":
   version: 4.1.6
   resolution: "@types/graceful-fs@npm:4.1.6"
@@ -4242,13 +4231,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/minimatch@npm:*":
-  version: 5.1.2
-  resolution: "@types/minimatch@npm:5.1.2"
-  checksum: 698855336a92f768d02526d019efcf80e32d65ea5d044a5a0a909a923a9cfccc55e61284fd2c5dc71a51e9b5f0b4dc651cb187683f811582815a5206f534d04b
-  languageName: node
-  linkType: hard
-
 "@types/minimist@npm:^1.2.0":
   version: 1.2.2
   resolution: "@types/minimist@npm:1.2.2"
@@ -4260,13 +4242,6 @@ __metadata:
   version: 18.11.11
   resolution: "@types/node@npm:18.11.11"
   checksum: 7ff6dfb616544cf046b95a988435b2eddf31ea839864454fedb9b0512bbe0b9abbf7f61c3e9d3c6160b626ec8d15cf6b2255a242827ba8e599c5525952b696a5
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.11.18":
-  version: 18.11.18
-  resolution: "@types/node@npm:18.11.18"
-  checksum: bd39552701928d4a1613bc46adf8b65f8212064c2b5475a67161b6c4cef21ddb0a5c2ba062673213f8f5301ef6e171241a9e274a9b59c9fc1f5e2b69764740eb
   languageName: node
   linkType: hard
 
@@ -4325,17 +4300,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.0.27":
-  version: 18.0.27
-  resolution: "@types/react@npm:18.0.27"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    "@types/scheduler": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 75c0b64773dc36bd094b3cc7fff5fb4cc385f60d7696bec2e0243806de69f2a2e35bec25d31f51bbbd6681639d8682a2d6eb94379759c70afc2f3ef5f87927b5
-  languageName: node
-  linkType: hard
-
 "@types/react@npm:^18.0.28":
   version: 18.0.28
   resolution: "@types/react@npm:18.0.28"
@@ -4344,16 +4308,6 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: 5a43d1f81da064da91d0be3a676fbd2380d3bdff7491e0dae49e9ccdecf8fdf07e1bf7054d5fdd79266bf90a813384bd6898c678aca44e041a9e19df5fa690b3
-  languageName: node
-  linkType: hard
-
-"@types/rimraf@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "@types/rimraf@npm:3.0.2"
-  dependencies:
-    "@types/glob": "npm:*"
-    "@types/node": "npm:*"
-  checksum: 2c9fdc69d30a25921a390a0e0cc9f1d576158ec5cced569e580ee48c1bdd099f8c067dacd649534a8f7daa5fb772efaa7fd9299799cd5891c01ecc31441e332d
   languageName: node
   linkType: hard
 
@@ -4669,28 +4623,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wordpress/hooks@npm:^3.26.0, @wordpress/hooks@npm:^3.26.1":
+"@wordpress/hooks@npm:^3.26.1":
   version: 3.26.1
   resolution: "@wordpress/hooks@npm:3.26.1"
   dependencies:
     "@babel/runtime": "npm:^7.16.0"
   checksum: f1553102002850c8a81174123afaaa9ca6aa9e63f834c90f81b7f964eecd33c660054f4eea49f864b706755c3faedbada284a05e407105e37fbf39534e564a22
-  languageName: node
-  linkType: hard
-
-"@wordpress/i18n@npm:4.26.0":
-  version: 4.26.0
-  resolution: "@wordpress/i18n@npm:4.26.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.16.0"
-    "@wordpress/hooks": "npm:^3.26.0"
-    gettext-parser: "npm:^1.3.1"
-    memize: "npm:^1.1.0"
-    sprintf-js: "npm:^1.1.1"
-    tannin: "npm:^1.2.0"
-  bin:
-    pot-to-php: tools/pot-to-php.js
-  checksum: f46203d641d49b2b632326581abc9bfc18db0c2c4e29acd57a4145b11b09afa5efb017c10d13bcefc566f243055e054eb2dacd93f40c5c1102c5b792dc8ebc36
   languageName: node
   linkType: hard
 
@@ -7411,55 +7349,6 @@ __metadata:
   version: 3.3.0
   resolution: "eslint-visitor-keys@npm:3.3.0"
   checksum: 37b1372b3481e978856692724f065da7e3ded80c1a57fd347ad9c63692b6310756d0eb432badb5afaa125f0d4fcbc7692ba93ae85b17bd8e628bd8c8bcd03c1d
-  languageName: node
-  linkType: hard
-
-"eslint@npm:^8.33.0":
-  version: 8.33.0
-  resolution: "eslint@npm:8.33.0"
-  dependencies:
-    "@eslint/eslintrc": "npm:^1.4.1"
-    "@humanwhocodes/config-array": "npm:^0.11.8"
-    "@humanwhocodes/module-importer": "npm:^1.0.1"
-    "@nodelib/fs.walk": "npm:^1.2.8"
-    ajv: "npm:^6.10.0"
-    chalk: "npm:^4.0.0"
-    cross-spawn: "npm:^7.0.2"
-    debug: "npm:^4.3.2"
-    doctrine: "npm:^3.0.0"
-    escape-string-regexp: "npm:^4.0.0"
-    eslint-scope: "npm:^7.1.1"
-    eslint-utils: "npm:^3.0.0"
-    eslint-visitor-keys: "npm:^3.3.0"
-    espree: "npm:^9.4.0"
-    esquery: "npm:^1.4.0"
-    esutils: "npm:^2.0.2"
-    fast-deep-equal: "npm:^3.1.3"
-    file-entry-cache: "npm:^6.0.1"
-    find-up: "npm:^5.0.0"
-    glob-parent: "npm:^6.0.2"
-    globals: "npm:^13.19.0"
-    grapheme-splitter: "npm:^1.0.4"
-    ignore: "npm:^5.2.0"
-    import-fresh: "npm:^3.0.0"
-    imurmurhash: "npm:^0.1.4"
-    is-glob: "npm:^4.0.0"
-    is-path-inside: "npm:^3.0.3"
-    js-sdsl: "npm:^4.1.4"
-    js-yaml: "npm:^4.1.0"
-    json-stable-stringify-without-jsonify: "npm:^1.0.1"
-    levn: "npm:^0.4.1"
-    lodash.merge: "npm:^4.6.2"
-    minimatch: "npm:^3.1.2"
-    natural-compare: "npm:^1.4.0"
-    optionator: "npm:^0.9.1"
-    regexpp: "npm:^3.2.0"
-    strip-ansi: "npm:^6.0.1"
-    strip-json-comments: "npm:^3.1.0"
-    text-table: "npm:^0.2.0"
-  bin:
-    eslint: bin/eslint.js
-  checksum: 616877cf98325f619070e6c85b1bb4734fe99202871f5f43cbb9c56b13d7cacf8caa499c61c0a112541067be3b6143cd0497d1319950a4a1d355adeff8504596
   languageName: node
   linkType: hard
 
@@ -11607,7 +11496,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.18, postcss@npm:^8.4.4":
+"postcss@npm:^8.4.4":
   version: 8.4.19
   resolution: "postcss@npm:8.4.19"
   dependencies:
@@ -11706,12 +11595,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.8.3":
-  version: 2.8.3
-  resolution: "prettier@npm:2.8.3"
+"prettier@npm:^2.8.4":
+  version: 2.8.4
+  resolution: "prettier@npm:2.8.4"
   bin:
     prettier: bin-prettier.js
-  checksum: 9daf1c05e07337a96fec26b5518ce787e4f98bfd1a5eb72af988cf123ea7ed56584f10c0cc4fc3073bf9504d157a8604d93a8e17752c483ae114614a0c557b36
+  checksum: e8a99b3a385d8d09881a64b759b9cd88e44ab7ba09832d55608fd7203efdc78f0d94773532f3bb3bbb3f579096f7011883df06a26eb61792e786ea4f5fc984f0
   languageName: node
   linkType: hard
 
@@ -12322,9 +12211,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.14.0":
-  version: 3.14.0
-  resolution: "rollup@npm:3.14.0"
+"rollup@npm:^3.15.0":
+  version: 3.15.0
+  resolution: "rollup@npm:3.15.0"
   dependencies:
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
@@ -12332,7 +12221,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 9fa7c283f048e6709d6b452cb7d66b8186e6859cdb0fe2d3268ff36fc9e85aeaaf4ffdb710ab03b01e1016262e7614f63e83aba9c7c2732dbdb9ea390b637d2b
+  checksum: 52a395d98cecc9971dc3c2322aa037dffbb1c7f548023f08bb2011ad9aceca5e302ccd0e00260621debc95363b99c6804f679d49b1cdb164c97ce9b3574f5dc6
   languageName: node
   linkType: hard
 
@@ -13128,42 +13017,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.2.4":
-  version: 3.2.4
-  resolution: "tailwindcss@npm:3.2.4"
-  dependencies:
-    arg: "npm:^5.0.2"
-    chokidar: "npm:^3.5.3"
-    color-name: "npm:^1.1.4"
-    detective: "npm:^5.2.1"
-    didyoumean: "npm:^1.2.2"
-    dlv: "npm:^1.1.3"
-    fast-glob: "npm:^3.2.12"
-    glob-parent: "npm:^6.0.2"
-    is-glob: "npm:^4.0.3"
-    lilconfig: "npm:^2.0.6"
-    micromatch: "npm:^4.0.5"
-    normalize-path: "npm:^3.0.0"
-    object-hash: "npm:^3.0.0"
-    picocolors: "npm:^1.0.0"
-    postcss: "npm:^8.4.18"
-    postcss-import: "npm:^14.1.0"
-    postcss-js: "npm:^4.0.0"
-    postcss-load-config: "npm:^3.1.4"
-    postcss-nested: "npm:6.0.0"
-    postcss-selector-parser: "npm:^6.0.10"
-    postcss-value-parser: "npm:^4.2.0"
-    quick-lru: "npm:^5.1.1"
-    resolve: "npm:^1.22.1"
-  peerDependencies:
-    postcss: ^8.0.9
-  bin:
-    tailwind: lib/cli.js
-    tailwindcss: lib/cli.js
-  checksum: 8d162a31947deb0972e4a70e04f4169c75251d7573da6df750c263d96a3d0924f955dc8dfb85f25d368dbe57612ddcff2af4af3ba88535bae41c55a5c6aa999f
-  languageName: node
-  linkType: hard
-
 "tailwindcss@npm:^3.2.6":
   version: 3.2.6
   resolution: "tailwindcss@npm:3.2.6"
@@ -13601,58 +13454,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.7.3":
-  version: 1.7.3
-  resolution: "turbo-darwin-64@npm:1.7.3"
+"turbo-darwin-64@npm:1.7.4":
+  version: 1.7.4
+  resolution: "turbo-darwin-64@npm:1.7.4"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.7.3":
-  version: 1.7.3
-  resolution: "turbo-darwin-arm64@npm:1.7.3"
+"turbo-darwin-arm64@npm:1.7.4":
+  version: 1.7.4
+  resolution: "turbo-darwin-arm64@npm:1.7.4"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.7.3":
-  version: 1.7.3
-  resolution: "turbo-linux-64@npm:1.7.3"
+"turbo-linux-64@npm:1.7.4":
+  version: 1.7.4
+  resolution: "turbo-linux-64@npm:1.7.4"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.7.3":
-  version: 1.7.3
-  resolution: "turbo-linux-arm64@npm:1.7.3"
+"turbo-linux-arm64@npm:1.7.4":
+  version: 1.7.4
+  resolution: "turbo-linux-arm64@npm:1.7.4"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.7.3":
-  version: 1.7.3
-  resolution: "turbo-windows-64@npm:1.7.3"
+"turbo-windows-64@npm:1.7.4":
+  version: 1.7.4
+  resolution: "turbo-windows-64@npm:1.7.4"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.7.3":
-  version: 1.7.3
-  resolution: "turbo-windows-arm64@npm:1.7.3"
+"turbo-windows-arm64@npm:1.7.4":
+  version: 1.7.4
+  resolution: "turbo-windows-arm64@npm:1.7.4"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:^1.7.3":
-  version: 1.7.3
-  resolution: "turbo@npm:1.7.3"
+"turbo@npm:^1.7.4":
+  version: 1.7.4
+  resolution: "turbo@npm:1.7.4"
   dependencies:
-    turbo-darwin-64: "npm:1.7.3"
-    turbo-darwin-arm64: "npm:1.7.3"
-    turbo-linux-64: "npm:1.7.3"
-    turbo-linux-arm64: "npm:1.7.3"
-    turbo-windows-64: "npm:1.7.3"
-    turbo-windows-arm64: "npm:1.7.3"
+    turbo-darwin-64: "npm:1.7.4"
+    turbo-darwin-arm64: "npm:1.7.4"
+    turbo-linux-64: "npm:1.7.4"
+    turbo-linux-arm64: "npm:1.7.4"
+    turbo-windows-64: "npm:1.7.4"
+    turbo-windows-arm64: "npm:1.7.4"
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -13668,7 +13521,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 193f86513b65bb6ac14d913b9e4a668e4ccf7e915248b8002fc3e75ed7da4a9e6c1d437551bda44505349ec8a146a889b19f127593df3acb7584932c6527298b
+  checksum: 5e4ac8ebcd450485164eaff88b1e2c1db462298500d14d3b3e5d6f4b56e5e3553831fc1a536a117009b6cd89365d379c8eb038cae6d3d45e2d1eca5586be61d3
   languageName: node
   linkType: hard
 
