@@ -7,4 +7,4 @@
  * @since 1.0.0
  */
 
-header( 'Location:' . HEADLESS_FRONTEND_URL, true, 303 );
+header( 'Location:' . WP_CLIENT_URL, true, 303 );
