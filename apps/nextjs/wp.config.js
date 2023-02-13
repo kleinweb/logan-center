@@ -45,6 +45,11 @@ module.exports = {
     },
   },
 
+  // Name of the WordPress content directory.
+  // In vanilla WordPress, this would be `wp-content`.
+  // In Roots Bedrock, by default, this would be `app`.
+  wordPressContentDirname: process.env.NEXT_PUBLIC_WORDPRESS_CONTENT_DIRNAME,
+
   // The WordPress endpoint used for previewing, sitemaps, and other
   // functionality that we don't want to replicate in Next.js. By default,
   // assume WPGraphQL is using its default endpoint and just peel off /graphql.
