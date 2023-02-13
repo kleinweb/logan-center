@@ -17,7 +17,6 @@
     },
     "typescript.tsdk": "node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
-    "intelephense.environment.includePaths": ["**/web/app/plugins/**"],
     "intelephense.stubs": [
       "apache",
       "bcmath",
@@ -93,6 +92,25 @@
       "zlib",
       "wordpress"
     ],
-    "intelephense.references.exclude": ["**/vendor/**", "**/web/app/plugins/**"]
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#db3d59",
+      "activityBar.background": "#db3d59",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#1b510f",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "commandCenter.border": "#e7e7e799",
+      "sash.hoverBorder": "#db3d59",
+      "statusBar.background": "#c12440",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#db3d59",
+      "statusBarItem.remoteBackground": "#c12440",
+      "statusBarItem.remoteForeground": "#e7e7e7",
+      "titleBar.activeBackground": "#c12440",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#c1244099",
+      "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#c12440"
   }
 }
