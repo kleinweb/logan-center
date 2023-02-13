@@ -53,6 +53,7 @@ wp-cli.local.yml
 .data/
 .direnv/
 *.local
+.netlify
 
 ##: secrets
 *.pem
@@ -81,5 +82,3 @@ tmp/
 ##: devops
 *.tfstate*
 .terraform/
-
-

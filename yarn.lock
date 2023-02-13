@@ -3522,6 +3522,7 @@ __metadata:
     concurrently: "npm:^7.6.0"
     dotenv: "npm:16.0.3"
     dotenv-cli: "npm:^7.0.0"
+    dotenv-vault-core: "npm:^0.7.0"
     eslint: "npm:^8.34.0"
     eslint-plugin-jest: "npm:^27.2.1"
     eslint-plugin-tailwindcss: "npm:^3.8.3"
@@ -7038,7 +7039,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv-vault-core@npm:0.7.0":
+"dotenv-vault-core@npm:0.7.0, dotenv-vault-core@npm:^0.7.0":
   version: 0.7.0
   resolution: "dotenv-vault-core@npm:0.7.0"
   dependencies:
