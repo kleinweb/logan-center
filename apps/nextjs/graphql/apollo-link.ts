@@ -7,7 +7,7 @@ import { ApolloLink, HttpLink, from } from '@apollo/client'
 import { onError } from '@apollo/client/link/error'
 import { log, logError, LogContext } from '@/lib/log'
 
-const uri = process.env.NEXT_GRAPHQL_ENDPOINT
+const uri = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT
 
 export default function getApolloLink(requestContext: LogContext = {}) {
   // If endpoint is undefined, throw for visibility.

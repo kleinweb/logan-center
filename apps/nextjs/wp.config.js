@@ -10,8 +10,8 @@
 // Avoid language features that are not available in your target Node.js version.
 // Do not change the file extenstion to .ts.
 
-// Extract the hostname from NEXT_SERVER_URL for use in `isInternalLink`.
-const { hostname: serverHostname } = new URL(process.env.NEXT_SERVER_URL)
+// Extract the hostname from NEXT_PUBLIC_SERVER_URL for use in `isInternalLink`.
+const { hostname: prodHostname } = new URL(process.env.NEXT_PUBLIC_SERVER_URL)
 
 module.exports = {
   links: {
@@ -25,8 +25,7 @@ module.exports = {
     // Add additional hostnames to the `internalLinkHosts` array as needed.
     // Extend or rewrite this function if you have more custom needs.
     isInternalLink: (hostname, _pathname) => {
-      const internalLinkHosts = [serverHostname, 'localhost', '127.0.0.1']
-
+      const internalLinkHosts = [prodHostname, 'localhost', '127.0.0.1']
       return internalLinkHosts.includes(hostname)
     },
   },
@@ -36,7 +35,7 @@ module.exports = {
   // assume WPGraphQL is using its default endpoint and just peel off /graphql.
   // Override this value if WordPress is this assumption is incorrect. Omit
   // trailing slash.
-  wordPressEndpoint: process.env.NEXT_GRAPHQL_ENDPOINT.replace(
+  wordPressEndpoint: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT.replace(
     /\/graphql(\?.*)?$/,
     '',
   ),
