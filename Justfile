@@ -67,8 +67,8 @@ activate-plugin name:
 # thread 'main' panicked at 'assertion failed: command.is_absolute()', src/formatter.rs:165:9
 
 # [fmt]:		Format files with treefmt
-# fmt *FILES=prj-root:
-#   treefmt --no-cache {{FILES}}
+fmt *FILES=prj-root:
+  treefmt --no-cache {{FILES}}
 
 # [lint]:		Check Nix files for issues
 check *FILES=prj-root: (_deadnix "check" FILES) (_statix "check" FILES)

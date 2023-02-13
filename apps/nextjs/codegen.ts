@@ -6,7 +6,6 @@ import type { CodegenConfig } from '@graphql-codegen/cli'
 const config: CodegenConfig = {
   overwrite: true,
   schema: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT,
-  // schema: 'https://logancenter-wp.klein.local/wp/graphql',
   documents: ['./graphql/**/*.graphql'],
   require: ['ts-node/register'],
   ignoreNoDocuments: true, // for better experience with the watcher
