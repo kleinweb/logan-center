@@ -18,9 +18,7 @@ export interface BlockProps {
 }
 
 export type PostContentBlockMap = {
-  // FIXME: `ImageBlock` props are incompatible with the usual `BlockProps`
-  // [key: string]: ComponentType<BlockProps>
-  [key: string]: ComponentType<BlockProps | any>
+  [key: string]: ComponentType<BlockProps>
 }
 
 const defaultBlockMap: PostContentBlockMap = {
