@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import { GetServerSideProps } from 'next'
-import Image from 'next/image'
+import Image from '@/components/Image/Image'
 import Page from '@/components/Page/Page'
 import getApolloClient from '@/graphql/apollo'
 import {
@@ -24,41 +24,24 @@ export default function Media(props: Props) {
     <Page loading={props.loading} title="Media Gallery">
       <div className={styles.container}>
         {props.mediaItems.map((mediaItem) => {
-          const {
-            altText = '',
-            id,
-            mediaDetails: { height, width },
-            sourceUrl,
-          } = mediaItem
+          const { altText = '', id, sourceUrl } = mediaItem
 
           // Each image is displayed in a fixed-height box of 100px. If the
           // actual height of the image is less than 100px, then use
-          // layout=fill and objectFit to fill the box.
           return (
             <a
-              className={styles.image}
+              className={styles['image-link']}
               href={sourceUrl}
               key={id}
               rel="noreferrer"
               target="_blank"
             >
-              {height < 100 ? (
-                <Image
-                  src={sourceUrl}
-                  alt={altText}
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition="0"
-                />
-              ) : (
-                <Image
-                  src={sourceUrl}
-                  alt={altText}
-                  layout="intrinsic"
-                  height={100}
-                  width={(width / height) * 100}
-                />
-              )}
+              <Image
+                alt={altText}
+                className={styles.image}
+                fill={true}
+                src={sourceUrl}
+              />
             </a>
           )
         })}

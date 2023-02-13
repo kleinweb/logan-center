@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "GPL-3.0-or-later",
   "dependencies": {
+    "@graphql-eslint/eslint-plugin": "^3.15.0",
     "eslint-config-next": "^13.1.6",
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-turbo": "^0.0.7",
@@ -16,6 +17,7 @@
   },
   "peerDependencies": {
     "eslint": "*",
+    "graphql": "*",
     "tailwindcss": "*"
   }
 }

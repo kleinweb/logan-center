@@ -109,6 +109,8 @@ export type Category = DatabaseIdentifier &
     parentId?: Maybe<Scalars['ID']>
     /** Connection between the category type and the post type */
     posts?: Maybe<CategoryToPostConnection>
+    /** The Yoast SEO data of the Categories taxonomy. */
+    seo?: Maybe<TaxonomySeo>
     /** An alphanumeric identifier for the object unique to its type. */
     slug?: Maybe<Scalars['String']>
     /** Connection between the category type and the Taxonomy type */
@@ -824,6 +826,8 @@ export type ContentNode = {
   previewRevisionDatabaseId?: Maybe<Scalars['Int']>
   /** Whether the object is a node in the preview state */
   previewRevisionId?: Maybe<Scalars['ID']>
+  /** The Yoast SEO data of the ContentNode */
+  seo?: Maybe<PostTypeSeo>
   /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
   slug?: Maybe<Scalars['String']>
   /** The current status of the object */
@@ -2004,6 +2008,8 @@ export type MediaItem = ContentNode &
     previewRevisionDatabaseId?: Maybe<Scalars['Int']>
     /** Whether the object is a node in the preview state */
     previewRevisionId?: Maybe<Scalars['ID']>
+    /** The Yoast SEO data of the ContentNode */
+    seo?: Maybe<PostTypeSeo>
     /** The sizes attribute value for an image. */
     sizes?: Maybe<Scalars['String']>
     /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
@@ -2773,6 +2779,8 @@ export type NodeWithFeaturedImage = {
   previewRevisionDatabaseId?: Maybe<Scalars['Int']>
   /** Whether the object is a node in the preview state */
   previewRevisionId?: Maybe<Scalars['ID']>
+  /** The Yoast SEO data of the ContentNode */
+  seo?: Maybe<PostTypeSeo>
   /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
   slug?: Maybe<Scalars['String']>
   /** The current status of the object */
@@ -2835,6 +2843,8 @@ export type NodeWithTemplate = {
 
 /** A node that NodeWith a title */
 export type NodeWithTitle = {
+  /** The Yoast SEO data of the ContentNode */
+  seo?: Maybe<PostTypeSeo>
   /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
   title?: Maybe<Scalars['String']>
 }
@@ -2975,6 +2985,8 @@ export type Page = ContentNode &
     revisionOf?: Maybe<NodeWithRevisionsToContentNodeConnectionEdge>
     /** Connection between the page type and the page type */
     revisions?: Maybe<PageToRevisionConnection>
+    /** The Yoast SEO data of the ContentNode */
+    seo?: Maybe<PostTypeSeo>
     /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
     slug?: Maybe<Scalars['String']>
     /** The current status of the object */
@@ -3344,6 +3356,8 @@ export type Post = ContentNode &
     revisionOf?: Maybe<NodeWithRevisionsToContentNodeConnectionEdge>
     /** Connection between the post type and the post type */
     revisions?: Maybe<PostToRevisionConnection>
+    /** The Yoast SEO data of the ContentNode */
+    seo?: Maybe<PostTypeSeo>
     /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
     slug?: Maybe<Scalars['String']>
     /** The current status of the object */
@@ -3504,6 +3518,8 @@ export type PostFormat = DatabaseIdentifier &
     postFormatId?: Maybe<Scalars['Int']>
     /** Connection between the postFormat type and the post type */
     posts?: Maybe<PostFormatToPostConnection>
+    /** The Yoast SEO data of the Formats taxonomy. */
+    seo?: Maybe<TaxonomySeo>
     /** An alphanumeric identifier for the object unique to its type. */
     slug?: Maybe<Scalars['String']>
     /** Connection between the postFormat type and the Taxonomy type */
@@ -3801,6 +3817,8 @@ export type PostPostFormatsNodeInput = {
 
 /** The status of the object. */
 export enum PostStatusEnum {
+  /** Objects with the acf-disabled status */
+  AcfDisabled = 'ACF_DISABLED',
   /** Objects with the auto-draft status */
   AutoDraft = 'AUTO_DRAFT',
   /** Objects with the draft status */
@@ -3863,6 +3881,8 @@ export type PostToCategoryConnectionEdge = {
   __typename?: 'PostToCategoryConnectionEdge'
   /** A cursor for use in pagination */
   cursor?: Maybe<Scalars['String']>
+  /** The Yoast SEO Primary category */
+  isPrimary?: Maybe<Scalars['Boolean']>
   /** The item at the end of the edge */
   node?: Maybe<Category>
 }
@@ -4009,6 +4029,8 @@ export type PostToPostFormatConnectionEdge = {
   __typename?: 'PostToPostFormatConnectionEdge'
   /** A cursor for use in pagination */
   cursor?: Maybe<Scalars['String']>
+  /** The Yoast SEO Primary post_format */
+  isPrimary?: Maybe<Scalars['Boolean']>
   /** The item at the end of the edge */
   node?: Maybe<PostFormat>
 }
@@ -4166,6 +4188,8 @@ export type PostToTagConnectionEdge = {
   __typename?: 'PostToTagConnectionEdge'
   /** A cursor for use in pagination */
   cursor?: Maybe<Scalars['String']>
+  /** The Yoast SEO Primary post_tag */
+  isPrimary?: Maybe<Scalars['Boolean']>
   /** The item at the end of the edge */
   node?: Maybe<Tag>
 }
@@ -4333,6 +4357,35 @@ export type PostTypeLabelDetails = {
   viewItem?: Maybe<Scalars['String']>
   /** Label for viewing post type archives. */
   viewItems?: Maybe<Scalars['String']>
+}
+
+export type PostTypeSeo = {
+  __typename?: 'PostTypeSEO'
+  breadcrumbs?: Maybe<Array<Maybe<SeoPostTypeBreadcrumbs>>>
+  canonical?: Maybe<Scalars['String']>
+  cornerstone?: Maybe<Scalars['Boolean']>
+  focuskw?: Maybe<Scalars['String']>
+  fullHead?: Maybe<Scalars['String']>
+  metaDesc?: Maybe<Scalars['String']>
+  metaKeywords?: Maybe<Scalars['String']>
+  metaRobotsNofollow?: Maybe<Scalars['String']>
+  metaRobotsNoindex?: Maybe<Scalars['String']>
+  opengraphAuthor?: Maybe<Scalars['String']>
+  opengraphDescription?: Maybe<Scalars['String']>
+  opengraphImage?: Maybe<MediaItem>
+  opengraphModifiedTime?: Maybe<Scalars['String']>
+  opengraphPublishedTime?: Maybe<Scalars['String']>
+  opengraphPublisher?: Maybe<Scalars['String']>
+  opengraphSiteName?: Maybe<Scalars['String']>
+  opengraphTitle?: Maybe<Scalars['String']>
+  opengraphType?: Maybe<Scalars['String']>
+  opengraphUrl?: Maybe<Scalars['String']>
+  readingTime?: Maybe<Scalars['Float']>
+  schema?: Maybe<SeoPostTypeSchema>
+  title?: Maybe<Scalars['String']>
+  twitterDescription?: Maybe<Scalars['String']>
+  twitterImage?: Maybe<MediaItem>
+  twitterTitle?: Maybe<Scalars['String']>
 }
 
 /** The reading setting type */
@@ -4738,6 +4791,8 @@ export type RootQuery = {
   registeredStylesheets?: Maybe<RootQueryToEnqueuedStylesheetConnection>
   /** Connection between the RootQuery type and the ContentRevisionUnion type */
   revisions?: Maybe<RootQueryToContentRevisionUnionConnection>
+  /** Returns seo site data */
+  seo?: Maybe<SeoConfig>
   /** A 0bject */
   tag?: Maybe<Tag>
   /** Connection between the RootQuery type and the tag type */
@@ -6012,6 +6067,297 @@ export type RootQueryToUserRoleConnectionEdge = {
   node?: Maybe<UserRole>
 }
 
+/** The Yoast SEO breadcrumb config */
+export type SeoBreadcrumbs = {
+  __typename?: 'SEOBreadcrumbs'
+  archivePrefix?: Maybe<Scalars['String']>
+  boldLast?: Maybe<Scalars['Boolean']>
+  enabled?: Maybe<Scalars['Boolean']>
+  homeText?: Maybe<Scalars['String']>
+  notFoundText?: Maybe<Scalars['String']>
+  prefix?: Maybe<Scalars['String']>
+  searchPrefix?: Maybe<Scalars['String']>
+  separator?: Maybe<Scalars['String']>
+  showBlogPage?: Maybe<Scalars['Boolean']>
+}
+
+/** Types of cards */
+export enum SeoCardType {
+  Summary = 'summary',
+  SummaryLargeImage = 'summary_large_image',
+}
+
+/** The Yoast SEO site level configuration data */
+export type SeoConfig = {
+  __typename?: 'SEOConfig'
+  breadcrumbs?: Maybe<SeoBreadcrumbs>
+  contentTypes?: Maybe<SeoContentTypes>
+  meta?: Maybe<SeoGlobalMeta>
+  openGraph?: Maybe<SeoOpenGraph>
+  redirects?: Maybe<Array<Maybe<SeoRedirect>>>
+  schema?: Maybe<SeoSchema>
+  social?: Maybe<SeoSocial>
+  webmaster?: Maybe<SeoWebmaster>
+}
+
+/** The Yoast SEO search appearance content types fields */
+export type SeoContentType = {
+  __typename?: 'SEOContentType'
+  archive?: Maybe<SeoContentTypeArchive>
+  metaDesc?: Maybe<Scalars['String']>
+  metaRobotsNoindex?: Maybe<Scalars['Boolean']>
+  schema?: Maybe<SeoPageInfoSchema>
+  schemaType?: Maybe<Scalars['String']>
+  title?: Maybe<Scalars['String']>
+}
+
+/** The Yoast SEO search appearance content types fields */
+export type SeoContentTypeArchive = {
+  __typename?: 'SEOContentTypeArchive'
+  archiveLink?: Maybe<Scalars['String']>
+  breadcrumbTitle?: Maybe<Scalars['String']>
+  fullHead?: Maybe<Scalars['String']>
+  hasArchive?: Maybe<Scalars['Boolean']>
+  metaDesc?: Maybe<Scalars['String']>
+  metaRobotsFollow?: Maybe<Scalars['String']>
+  metaRobotsIndex?: Maybe<Scalars['String']>
+  metaRobotsNofollow?: Maybe<Scalars['Boolean']>
+  metaRobotsNoindex?: Maybe<Scalars['Boolean']>
+  title?: Maybe<Scalars['String']>
+}
+
+/** The Yoast SEO search appearance content types */
+export type SeoContentTypes = {
+  __typename?: 'SEOContentTypes'
+  mediaItem?: Maybe<SeoContentType>
+  page?: Maybe<SeoContentType>
+  post?: Maybe<SeoContentType>
+}
+
+/** The Yoast SEO meta data */
+export type SeoGlobalMeta = {
+  __typename?: 'SEOGlobalMeta'
+  author?: Maybe<SeoGlobalMetaAuthor>
+  config?: Maybe<SeoGlobalMetaConfig>
+  date?: Maybe<SeoGlobalMetaDate>
+  homepage?: Maybe<SeoGlobalMetaHome>
+  notFound?: Maybe<SeoGlobalMeta404>
+}
+
+/** The Yoast SEO meta 404 data */
+export type SeoGlobalMeta404 = {
+  __typename?: 'SEOGlobalMeta404'
+  breadcrumb?: Maybe<Scalars['String']>
+  title?: Maybe<Scalars['String']>
+}
+
+/** The Yoast SEO Author data */
+export type SeoGlobalMetaAuthor = {
+  __typename?: 'SEOGlobalMetaAuthor'
+  description?: Maybe<Scalars['String']>
+  title?: Maybe<Scalars['String']>
+}
+
+/** The Yoast SEO meta config data */
+export type SeoGlobalMetaConfig = {
+  __typename?: 'SEOGlobalMetaConfig'
+  separator?: Maybe<Scalars['String']>
+}
+
+/** The Yoast SEO Date data */
+export type SeoGlobalMetaDate = {
+  __typename?: 'SEOGlobalMetaDate'
+  description?: Maybe<Scalars['String']>
+  title?: Maybe<Scalars['String']>
+}
+
+/** The Yoast SEO homepage data */
+export type SeoGlobalMetaHome = {
+  __typename?: 'SEOGlobalMetaHome'
+  description?: Maybe<Scalars['String']>
+  title?: Maybe<Scalars['String']>
+}
+
+/** The Open Graph data */
+export type SeoOpenGraph = {
+  __typename?: 'SEOOpenGraph'
+  defaultImage?: Maybe<MediaItem>
+  frontPage?: Maybe<SeoOpenGraphFrontPage>
+}
+
+/** The Open Graph Front page data */
+export type SeoOpenGraphFrontPage = {
+  __typename?: 'SEOOpenGraphFrontPage'
+  description?: Maybe<Scalars['String']>
+  image?: Maybe<MediaItem>
+  title?: Maybe<Scalars['String']>
+}
+
+/** The Schema for post type */
+export type SeoPageInfoSchema = {
+  __typename?: 'SEOPageInfoSchema'
+  raw?: Maybe<Scalars['String']>
+}
+
+export type SeoPostTypeBreadcrumbs = {
+  __typename?: 'SEOPostTypeBreadcrumbs'
+  text?: Maybe<Scalars['String']>
+  url?: Maybe<Scalars['String']>
+}
+
+/** The page info SEO details */
+export type SeoPostTypePageInfo = {
+  __typename?: 'SEOPostTypePageInfo'
+  schema?: Maybe<SeoPageInfoSchema>
+}
+
+/** The Schema types */
+export type SeoPostTypeSchema = {
+  __typename?: 'SEOPostTypeSchema'
+  articleType?: Maybe<Array<Maybe<Scalars['String']>>>
+  pageType?: Maybe<Array<Maybe<Scalars['String']>>>
+  raw?: Maybe<Scalars['String']>
+}
+
+/** The Yoast redirect data  (Yoast Premium only) */
+export type SeoRedirect = {
+  __typename?: 'SEORedirect'
+  format?: Maybe<Scalars['String']>
+  origin?: Maybe<Scalars['String']>
+  target?: Maybe<Scalars['String']>
+  type?: Maybe<Scalars['Int']>
+}
+
+/** The Yoast SEO schema data */
+export type SeoSchema = {
+  __typename?: 'SEOSchema'
+  companyLogo?: Maybe<MediaItem>
+  companyName?: Maybe<Scalars['String']>
+  companyOrPerson?: Maybe<Scalars['String']>
+  homeUrl?: Maybe<Scalars['String']>
+  inLanguage?: Maybe<Scalars['String']>
+  logo?: Maybe<MediaItem>
+  personLogo?: Maybe<MediaItem>
+  personName?: Maybe<Scalars['String']>
+  siteName?: Maybe<Scalars['String']>
+  siteUrl?: Maybe<Scalars['String']>
+  wordpressSiteName?: Maybe<Scalars['String']>
+}
+
+/** The Yoast SEO Social media links */
+export type SeoSocial = {
+  __typename?: 'SEOSocial'
+  facebook?: Maybe<SeoSocialFacebook>
+  instagram?: Maybe<SeoSocialInstagram>
+  linkedIn?: Maybe<SeoSocialLinkedIn>
+  mySpace?: Maybe<SeoSocialMySpace>
+  otherSocials?: Maybe<Array<Maybe<Scalars['String']>>>
+  pinterest?: Maybe<SeoSocialPinterest>
+  twitter?: Maybe<SeoSocialTwitter>
+  wikipedia?: Maybe<SeoSocialWikipedia>
+  youTube?: Maybe<SeoSocialYoutube>
+}
+
+export type SeoSocialFacebook = {
+  __typename?: 'SEOSocialFacebook'
+  defaultImage?: Maybe<MediaItem>
+  url?: Maybe<Scalars['String']>
+}
+
+export type SeoSocialInstagram = {
+  __typename?: 'SEOSocialInstagram'
+  url?: Maybe<Scalars['String']>
+}
+
+export type SeoSocialLinkedIn = {
+  __typename?: 'SEOSocialLinkedIn'
+  url?: Maybe<Scalars['String']>
+}
+
+export type SeoSocialMySpace = {
+  __typename?: 'SEOSocialMySpace'
+  url?: Maybe<Scalars['String']>
+}
+
+export type SeoSocialPinterest = {
+  __typename?: 'SEOSocialPinterest'
+  metaTag?: Maybe<Scalars['String']>
+  url?: Maybe<Scalars['String']>
+}
+
+export type SeoSocialTwitter = {
+  __typename?: 'SEOSocialTwitter'
+  cardType?: Maybe<SeoCardType>
+  username?: Maybe<Scalars['String']>
+}
+
+export type SeoSocialWikipedia = {
+  __typename?: 'SEOSocialWikipedia'
+  url?: Maybe<Scalars['String']>
+}
+
+export type SeoSocialYoutube = {
+  __typename?: 'SEOSocialYoutube'
+  url?: Maybe<Scalars['String']>
+}
+
+/** The Schema types for Taxonomy */
+export type SeoTaxonomySchema = {
+  __typename?: 'SEOTaxonomySchema'
+  raw?: Maybe<Scalars['String']>
+}
+
+export type SeoUser = {
+  __typename?: 'SEOUser'
+  breadcrumbTitle?: Maybe<Scalars['String']>
+  canonical?: Maybe<Scalars['String']>
+  fullHead?: Maybe<Scalars['String']>
+  language?: Maybe<Scalars['String']>
+  metaDesc?: Maybe<Scalars['String']>
+  metaRobotsNofollow?: Maybe<Scalars['String']>
+  metaRobotsNoindex?: Maybe<Scalars['String']>
+  opengraphDescription?: Maybe<Scalars['String']>
+  opengraphImage?: Maybe<MediaItem>
+  opengraphTitle?: Maybe<Scalars['String']>
+  region?: Maybe<Scalars['String']>
+  schema?: Maybe<SeoUserSchema>
+  social?: Maybe<SeoUserSocial>
+  title?: Maybe<Scalars['String']>
+  twitterDescription?: Maybe<Scalars['String']>
+  twitterImage?: Maybe<MediaItem>
+  twitterTitle?: Maybe<Scalars['String']>
+}
+
+/** The Schema types for User */
+export type SeoUserSchema = {
+  __typename?: 'SEOUserSchema'
+  articleType?: Maybe<Array<Maybe<Scalars['String']>>>
+  pageType?: Maybe<Array<Maybe<Scalars['String']>>>
+  raw?: Maybe<Scalars['String']>
+}
+
+export type SeoUserSocial = {
+  __typename?: 'SEOUserSocial'
+  facebook?: Maybe<Scalars['String']>
+  instagram?: Maybe<Scalars['String']>
+  linkedIn?: Maybe<Scalars['String']>
+  mySpace?: Maybe<Scalars['String']>
+  pinterest?: Maybe<Scalars['String']>
+  soundCloud?: Maybe<Scalars['String']>
+  twitter?: Maybe<Scalars['String']>
+  wikipedia?: Maybe<Scalars['String']>
+  youTube?: Maybe<Scalars['String']>
+}
+
+/** The Yoast SEO  webmaster fields */
+export type SeoWebmaster = {
+  __typename?: 'SEOWebmaster'
+  baiduVerify?: Maybe<Scalars['String']>
+  googleVerify?: Maybe<Scalars['String']>
+  msVerify?: Maybe<Scalars['String']>
+  yandexVerify?: Maybe<Scalars['String']>
+}
+
 /** Input for the sendPasswordResetEmail mutation */
 export type SendPasswordResetEmailInput = {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -6103,6 +6449,8 @@ export type Tag = DatabaseIdentifier &
     name?: Maybe<Scalars['String']>
     /** Connection between the tag type and the post type */
     posts?: Maybe<TagToPostConnection>
+    /** The Yoast SEO data of the Tags taxonomy. */
+    seo?: Maybe<TaxonomySeo>
     /** An alphanumeric identifier for the object unique to its type. */
     slug?: Maybe<Scalars['String']>
     /**
@@ -6394,6 +6742,34 @@ export enum TaxonomyIdTypeEnum {
   Name = 'NAME',
 }
 
+export type TaxonomySeo = {
+  __typename?: 'TaxonomySEO'
+  breadcrumbs?: Maybe<Array<Maybe<SeoPostTypeBreadcrumbs>>>
+  canonical?: Maybe<Scalars['String']>
+  cornerstone?: Maybe<Scalars['Boolean']>
+  focuskw?: Maybe<Scalars['String']>
+  fullHead?: Maybe<Scalars['String']>
+  metaDesc?: Maybe<Scalars['String']>
+  metaKeywords?: Maybe<Scalars['String']>
+  metaRobotsNofollow?: Maybe<Scalars['String']>
+  metaRobotsNoindex?: Maybe<Scalars['String']>
+  opengraphAuthor?: Maybe<Scalars['String']>
+  opengraphDescription?: Maybe<Scalars['String']>
+  opengraphImage?: Maybe<MediaItem>
+  opengraphModifiedTime?: Maybe<Scalars['String']>
+  opengraphPublishedTime?: Maybe<Scalars['String']>
+  opengraphPublisher?: Maybe<Scalars['String']>
+  opengraphSiteName?: Maybe<Scalars['String']>
+  opengraphTitle?: Maybe<Scalars['String']>
+  opengraphType?: Maybe<Scalars['String']>
+  opengraphUrl?: Maybe<Scalars['String']>
+  schema?: Maybe<SeoTaxonomySchema>
+  title?: Maybe<Scalars['String']>
+  twitterDescription?: Maybe<Scalars['String']>
+  twitterImage?: Maybe<MediaItem>
+  twitterTitle?: Maybe<Scalars['String']>
+}
+
 /** Connection between the Taxonomy type and the ContentType type */
 export type TaxonomyToContentTypeConnection = {
   __typename?: 'TaxonomyToContentTypeConnection'
@@ -6422,22 +6798,8 @@ export type Template_Blank = ContentTemplate & {
 }
 
 /** The template assigned to the node */
-export type Template_PageLargeHeader = ContentTemplate & {
-  __typename?: 'Template_PageLargeHeader'
-  /** The name of the template */
-  templateName?: Maybe<Scalars['String']>
-}
-
-/** The template assigned to the node */
-export type Template_PageNoSeparators = ContentTemplate & {
-  __typename?: 'Template_PageNoSeparators'
-  /** The name of the template */
-  templateName?: Maybe<Scalars['String']>
-}
-
-/** The template assigned to the node */
-export type Template_SinglePostNoSeparators = ContentTemplate & {
-  __typename?: 'Template_SinglePostNoSeparators'
+export type Template_BlogAlternative = ContentTemplate & {
+  __typename?: 'Template_BlogAlternative'
   /** The name of the template */
   templateName?: Maybe<Scalars['String']>
 }
@@ -7016,6 +7378,8 @@ export type User = Commenter &
     revisions?: Maybe<UserToContentRevisionUnionConnection>
     /** Connection between the User type and the UserRole type */
     roles?: Maybe<UserToUserRoleConnection>
+    /** The Yoast SEO data of a user */
+    seo?: Maybe<SeoUser>
     /** The slug for the user. This field is equivalent to WP_User-&gt;user_nicename */
     slug?: Maybe<Scalars['String']>
     /** The unique resource identifier path */
@@ -7148,6 +7512,10 @@ export enum UserRoleEnum {
   Contributor = 'CONTRIBUTOR',
   /** User role with specific capabilities */
   Editor = 'EDITOR',
+  /** User role with specific capabilities */
+  SeoEditor = 'SEO_EDITOR',
+  /** User role with specific capabilities */
+  SeoManager = 'SEO_MANAGER',
   /** User role with specific capabilities */
   Subscriber = 'SUBSCRIBER',
 }
@@ -7623,6 +7991,8 @@ export type WpPageInfo = {
   hasNextPage: Scalars['Boolean']
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean']
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>
 }

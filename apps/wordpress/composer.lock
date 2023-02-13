@@ -4,8 +4,41 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "374ade425e8abcac65e5de98120e446d",
+  "content-hash": "fdfd0c4b77a1373357df50781c0ac1d8",
   "packages": [
+    {
+      "name": "automattic/vip-bundle-decoupled",
+      "version": "dev-trunk",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/Automattic/vip-decoupled-bundle.git",
+        "reference": "2ddf6b27ca08cae88c743aea068c35cefaafc507"
+      },
+      "require-dev": {
+        "automattic/vipwpcs": "^2.3",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "php": ">=7.0",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "phpunit/phpunit": "^8",
+        "wp-coding-standards/wpcs": "^2.3",
+        "yoast/phpunit-polyfills": "^1.0"
+      },
+      "default-branch": true,
+      "type": "wordpress-plugin",
+      "scripts": {
+        "phpcs": ["phpcs"],
+        "phpcs-fix": ["phpcbf"],
+        "test": [
+          "wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/vip-decoupled-bundle/phpunit.xml.dist'"
+        ],
+        "test-multisite": [
+          "wp-env run phpunit 'WP_MULTISITE=1 phpunit -c /var/www/html/wp-content/plugins/vip-decoupled-bundle/phpunit.xml.dist'"
+        ]
+      },
+      "license": ["GPL-2.0-or-later"],
+      "description": "A WordPress plugin bundle to support decoupled WordPress",
+      "time": "2022-10-19T04:42:20+00:00"
+    },
     {
       "name": "brick/varexporter",
       "version": "0.3.8",
@@ -393,48 +426,6 @@
         "source": "https://github.com/laravel/framework"
       },
       "time": "2021-11-16T13:57:03+00:00"
-    },
-    {
-      "name": "nextjswp/nextjs-wordpress-plugin",
-      "version": "dev-feat/wordpress-local",
-      "dist": {
-        "type": "path",
-        "url": "../../packages/nextjs-wordpress-plugin",
-        "reference": "2490a7e76e7909c6e12d61633d06028f3c2ae1ab"
-      },
-      "type": "wordpress-plugin",
-      "license": ["MIT"],
-      "authors": [
-        {
-          "name": "Greg Rickaby",
-          "email": "greg@gregrickaby.com"
-        }
-      ],
-      "description": "A plugin to power Next.js WordPress",
-      "transport-options": {
-        "relative": true
-      }
-    },
-    {
-      "name": "nextjswp/nextjs-wordpress-theme",
-      "version": "dev-feat/wordpress-local",
-      "dist": {
-        "type": "path",
-        "url": "../../packages/nextjs-wordpress-theme",
-        "reference": "14b9c6ea98fa912165e21292eadb58efeb438959"
-      },
-      "type": "wordpress-theme",
-      "license": ["MIT"],
-      "authors": [
-        {
-          "name": "Greg Rickaby",
-          "email": "greg@gregrickaby.com"
-        }
-      ],
-      "description": "A theme to power Next.js WordPress",
-      "transport-options": {
-        "relative": true
-      }
     },
     {
       "name": "nikic/php-parser",
@@ -1534,24 +1525,6 @@
       "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
     },
     {
-      "name": "wpackagist-plugin/debug-bar",
-      "version": "1.1.4",
-      "source": {
-        "type": "svn",
-        "url": "https://plugins.svn.wordpress.org/debug-bar/",
-        "reference": "tags/1.1.4"
-      },
-      "dist": {
-        "type": "zip",
-        "url": "https://downloads.wordpress.org/plugin/debug-bar.1.1.4.zip"
-      },
-      "require": {
-        "composer/installers": "^1.0 || ^2.0"
-      },
-      "type": "wordpress-plugin",
-      "homepage": "https://wordpress.org/plugins/debug-bar/"
-    },
-    {
       "name": "wpackagist-plugin/query-monitor",
       "version": "3.11.1",
       "source": {
@@ -1588,22 +1561,22 @@
       "homepage": "https://wordpress.org/plugins/wordpress-seo/"
     },
     {
-      "name": "wpackagist-plugin/wp-graphql",
-      "version": "1.13.8",
+      "name": "wpackagist-theme/twentytwentythree",
+      "version": "1.0",
       "source": {
         "type": "svn",
-        "url": "https://plugins.svn.wordpress.org/wp-graphql/",
-        "reference": "tags/1.13.8"
+        "url": "https://themes.svn.wordpress.org/twentytwentythree/",
+        "reference": "1.0"
       },
       "dist": {
         "type": "zip",
-        "url": "https://downloads.wordpress.org/plugin/wp-graphql.1.13.8.zip"
+        "url": "https://downloads.wordpress.org/theme/twentytwentythree.1.0.zip"
       },
       "require": {
         "composer/installers": "^1.0 || ^2.0"
       },
-      "type": "wordpress-plugin",
-      "homepage": "https://wordpress.org/plugins/wp-graphql/"
+      "type": "wordpress-theme",
+      "homepage": "https://wordpress.org/themes/twentytwentythree/"
     }
   ],
   "packages-dev": [
@@ -2234,6 +2207,7 @@
   "aliases": [],
   "minimum-stability": "dev",
   "stability-flags": {
+    "automattic/vip-bundle-decoupled": 20,
     "soberwp/intervention": 20,
     "roave/security-advisories": 20
   },
