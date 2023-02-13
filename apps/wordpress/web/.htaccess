@@ -1,4 +1,10 @@
-# Allow rewrites for GraphQL endpoint
+###: Allow rewrites for GraphQL endpoint
+
+## NOTE: Think twice before removing or altering this file!
+# While normally we'd like to avoid scattering `.htaccess` about everywhere (it
+# makes for harder debugging server issues when something goes wrong), it seems
+# this may be a necessary component of the <https://github.com/Automattic/vip-go-nextjs-skeleton>
+# approach to post previews.
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
