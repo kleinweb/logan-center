@@ -5,7 +5,7 @@
 set dotenv-load
 
 site-title := 'Logan Center for Urban Investigative Reporting'
-wp-siteurl := getenv('WP_SITEURL')
+wp-siteurl := env_var('WP_SITEURL')
 
 admin-user := 'kleinweb'
 admin-email := 'kleinweb+logancenter@temple.edu'
@@ -21,17 +21,18 @@ wp *ARGS:
 query-by-slug slug *ARGS:
   {{ wp }} post list --post_name={{ slug }} {{ ARGS }}
 
-install admin-password: && provision
-  {{ wp }} core install --url="https://${WP_HOME}" \
-      --title={{ quote( site-title ) }} \
-      --admin_user='{{ admin-user }}' \
-      --admin_password='{{ admin-password }}' \
-      --admin_email='{{ admin-email }}' \
-      --skip-email
-
-provision: _init-posts _init-menus
-  {{ wp }} plugin activate --all
+install admin-password:
+  {{ wp }} core install \
+    --url={{ quote( wp-siteurl ) }} \
+    --title={{ quote( site-title ) }} \
+    --admin_user='{{ admin-user }}' \
+    --admin_password='{{ admin-password }}' \
+    --admin_email='{{ admin-email }}' \
+    --skip-email
   {{ wp }} rewrite structure "/%year%/%monthnum%/%day%/%postname%/"
+  {{ wp }} plugin activate --all
+
+provision: _init-posts
   {{ wp }} option update show_on_front page
   {{ wp }} option update page_on_front $({{ wp }} post list --post_name=homepage --format=ids)
   wp option update page_for_posts $({{ wp }} post list --post_name=reports --format=ids)
@@ -45,8 +46,8 @@ _init-posts:
   {{ wp }} post create --post_type="page" --post_title="Press" --post_status="publish" --post_name=press
   {{ wp }} post create --post_type="page" --post_title="Reports" --post_status="publish" --post_name=reports
 
-_init-menus:
-  {{ wp }} menu create "Header"
-  {{ wp }} menu create "Footer"
+# _init-menus:
+#   {{ wp }} menu create "Header"
+#   {{ wp }} menu create "Footer"
 
 homepage-post-content := quote('<!-- wp:paragraph --><p>Welcome to the homepage. Feel free to edit this page.</p><!-- /wp:paragraph -->')
