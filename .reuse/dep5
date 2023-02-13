@@ -8,13 +8,17 @@ Source: https://github.com/kleinweb/logan-center
 Files: *.yaml
        *.yml
        */*.d.ts
+       apps/nextjs/graphql/generated/*
 Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: GPL-3.0-or-later
 
 Files: */.env*
+       */.eslintignore
        */.gitignore
+       */.htaccess
        */.prettierignore
        .env*
+       .eslintignore
        .gitattributes
        .gitignore
        .prettierignore
@@ -27,33 +31,29 @@ Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: CC0-1.0
 
 Files: *.md
+       *.txt
 Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: CC-BY-NC-SA-4.0
 
-Files: apps/nextjs-app/*
-Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
-           2021 Automattic
+Files: apps/wordpress/web/app/themes/logan-center/*
+Copyright: 2023 Temple University <kleinweb@temple.edu>
+           2022-2023 Greg Rickaby
 License: GPL-3.0-or-later OR MIT
-
-Files: packages/nextjs-wordpress-theme/*
-       packages/nextjs-wordpress-plugin/*
-Copyright: 2022-2023 Greg Rickaby
-License: MIT
 
 Files: packages/site-assets/*
 Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: CC-BY-NC-ND-4.0
 
 Files: packages/tu-assets/*
-       apps/nextjs-minimal/public/android-chrome-192x192.png
-       apps/nextjs-minimal/public/android-chrome-384x384.png
-       apps/nextjs-minimal/public/apple-touch-icon.png
-       apps/nextjs-minimal/public/browserconfig.xml
-       apps/nextjs-minimal/public/favicon-16x16.png
-       apps/nextjs-minimal/public/favicon-32x32.png
-       apps/nextjs-minimal/public/favicon.ico
-       apps/nextjs-minimal/public/mstile-150x150.png
-       apps/nextjs-minimal/public/safari-pinned-tab.svg
-       apps/nextjs-minimal/public/site.webmanifest
+       apps/nextjs/public/android-chrome-192x192.png
+       apps/nextjs/public/android-chrome-384x384.png
+       apps/nextjs/public/apple-touch-icon.png
+       apps/nextjs/public/browserconfig.xml
+       apps/nextjs/public/favicon-16x16.png
+       apps/nextjs/public/favicon-32x32.png
+       apps/nextjs/public/favicon.ico
+       apps/nextjs/public/mstile-150x150.png
+       apps/nextjs/public/safari-pinned-tab.svg
+       apps/nextjs/public/site.webmanifest
 Copyright: 2022-2023 Temple University <brand@temple.edu>
 License: LicenseRef-TU-Trademark-Policy
