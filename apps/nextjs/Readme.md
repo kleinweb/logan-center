@@ -28,9 +28,12 @@ Copy `.env.example` to `.env` and edit its values to point to
 the destinations appropriate for your development environment.
 For local development, the default values should already be correct.
 
-- `NEXT_GRAPHQL_ENDPOINT`: The full URL, including protocol, of your WPGraphQL endpoint.
+- `NEXT_PUBLIC_WORDPRESS_ENDPOINT`: The full URL to the WordPress server installation,
+  including protocol (and subdirectory, if applicable).
+- `NEXT_PUBLIC_GRAPHQL_ENDPOINT`: The full URL, including protocol, of your WPGraphQL endpoint.
   You can find it in the WordPress Admin Dashboard > Settings > VIP Decoupled.
-- `NEXT_SERVER_URL`: The full URL, including protocol, of this Next.js site.
+  By default in `.env.example`, this value will based on the value of `NEXT_PUBLIC_WORDPRESS_ENDPOINT`.
+- `NEXT_PUBLIC_SERVER_URL`: The full URL, including protocol, of this Next.js site.
   This allows things like sitemaps and link routing to be configured correctly.
 
 Note that plain permalinks are not supported.
