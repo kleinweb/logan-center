@@ -1,63 +1,67 @@
-// SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
-//
-// SPDX-License-Identifier: GPL-3.0-or-later OR MIT
+// SPDX-License-Identifier: GPL-3.0-or-later
 
-import { ReactNode } from 'react'
-import Link from 'next/link'
-import clsx from 'clsx'
+import cn from 'clsx'
+import Link, { LinkProps } from 'next/link'
+import { __ } from '@wordpress/i18n'
+
+import { ActiveLink as ActiveLinkComponent } from '@kleinweb/logan-center__ui'
+import { ActiveLinkProps as ActiveLinkComponentProps } from '@kleinweb/logan-center__ui'
+
+import Container from '../Container'
 
 import LogoFull from '@kleinweb/logan-center__site-assets/logos/logo--full--duo.svg'
-import LogoMinimal from '@kleinweb/logan-center__site-assets/logos/logo--gfx--duo.svg'
 
-type Props = {
-  headerLink?: ReactNode
+type ActiveLinkProps = {
+  href: LinkProps['href']
+  children: ActiveLinkComponentProps['children']
 }
 
-const navItems = [
-  ['/', 'Home'],
-  ['/about', 'About'],
-  ['/podcast', 'Podcast'],
-]
+const NavItem = (props: ActiveLinkProps) => (
+  <li
+    className={cn(
+      'text-xs font-semibold',
+      'first:ml-1 last:-mr-1',
+      'sm:first:ml-2 sm:last:-mr-2',
+      'md:text-sm',
+    )}
+  >
+    <ActiveLinkComponent href={props.href} activeClassName="text-teal-500">
+      {props.children}
+    </ActiveLinkComponent>
+  </li>
+)
 
-/**
- * Server-side data loading must take place in pages. If you need to load data
- * to render this component, you must pass it down as props (or load it client-
- * side.)
- */
-export default function SiteHeader(props: Props) {
+export default function SiteHeader() {
   return (
-    <div className="flex align-middle">
-      <Link href="/" className="block grow">
-        <LogoMinimal className="block min-[468px]:hidden" />
-        <LogoFull className="hidden max-h-16 min-[468px]:block" />
-        <div>
-          <h1 className="sr-only">
-            Logan Center For Urban Investigative Reporting
-          </h1>
-        </div>
-      </Link>
-      <nav className="flex items-center">
-        {navItems.map(([path, label]) => (
-          <Link
-            key={label}
-            href={path}
-            className={clsx(
-              'px-2 uppercase first:ml-2 last:-mr-2',
-              // FIXME: this is a stand-in for the currently-active page -- disabled as a visual reminder
-              // 'Home' === label && 'font-bold text-teal-500',
-            )}
-          >
-            {label}
-          </Link>
-        ))}
-        {props.headerLink && (
-          <>
-            {` > `}
-            {props.headerLink}
-          </>
-        )}
-      </nav>
-    </div>
+    <Container>
+      <div className="flex items-center justify-between">
+        <Link href="/">
+          <LogoFull className="h-18 md:h-20 xl:h-24" />
+        </Link>
+        <nav className="grow">
+          <ul className="flex items-center justify-end">
+            {/*
+            FIXME: disabled until podcast page is ready
+            <NavItem href="/podcast">
+              <a className={navLinkStyles}>{__('Podcast')}</a>
+            </NavItem>
+            */}
+            <NavItem href="https://klein.temple.edu/news/2021/07/klein-college-establishes-logan-center-urban-investigative-reporting">
+              <a
+                rel="noreferrer external"
+                target="_blank"
+                className={cn(
+                  "after:content-['_↗']",
+                  'whitespace-nowrap px-1 py-2 uppercase sm:px-2',
+                )}
+              >
+                {__('About', 'logan-center')}
+              </a>
+            </NavItem>
+          </ul>
+        </nav>
+      </div>
+    </Container>
   )
 }
