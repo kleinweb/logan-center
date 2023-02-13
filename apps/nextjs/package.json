@@ -12,7 +12,6 @@
     "start": "next start",
     "lint": "tsc --noEmit && next lint",
     "copy": "concurrently 'yarn:copy:*'",
-    "copy:site-assets": "rimraf public/assets/site && cp -R ../../packages/site-assets ./public/assets/site",
     "copy:tu-assets": "rimraf public/assets/shared && cp -R ../../packages/tu-assets ./public/assets/shared",
     "test": "jest",
     "test:watch": "jest --watch"
@@ -24,7 +23,6 @@
     "@graphql-codegen/typescript": "2.8.6",
     "@graphql-codegen/typescript-operations": "2.5.11",
     "@graphql-codegen/typescript-react-apollo": "3.3.7",
-    "@kleinweb/logan-center__site-assets": "workspace:*",
     "@kleinweb/logan-center__ui": "workspace:*",
     "@kleinweb/tu-assets": "workspace:*",
     "@wordpress/i18n": "4.26.1",

@@ -4,7 +4,7 @@
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 
-import thumbImage from '@kleinweb/logan-center__site-assets/images/home--hero_video--start.thumb.jpeg'
+import thumbImage from '@/public/assets/images/home--hero_video--start.thumb.jpeg'
 
 const BackgroundVideoPlayer = dynamic(() => import('react-player/lazy'), {
   ssr: false,

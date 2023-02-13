@@ -16,9 +16,9 @@ import {
 } from '@/graphql/generated'
 
 import { Button, ButtonWithIcon } from '@kleinweb/logan-center__ui'
-import BarsMotif from '@kleinweb/logan-center__site-assets/decorations/motif--island.svg'
-import podcastImage from '@kleinweb/logan-center__site-assets/images/podcast--poster--art_only.jpg'
-import youGotThisImage from '@kleinweb/logan-center__site-assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'
+import BarsMotif from '@/public/assets/decorations/motif--island.svg'
+import podcastImage from '@/public/assets/images/podcast--poster--art_only.jpg'
+import youGotThisImage from '@/public/assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'
 
 import Layout from '@/components/Layout'
 import Container from '@/components/Container'

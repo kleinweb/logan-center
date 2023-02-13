@@ -19,7 +19,6 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@kleinweb/logan-center__site-assets": "workspace:*",
     "@kleinweb/tu-assets": "workspace:*",
     "@wordpress/i18n": "4.26.1",
     "clsx": "^1.2.1",

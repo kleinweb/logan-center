@@ -7,10 +7,9 @@ import { __ } from '@wordpress/i18n'
 
 import { ActiveLink as ActiveLinkComponent } from '@kleinweb/logan-center__ui'
 import { ActiveLinkProps as ActiveLinkComponentProps } from '@kleinweb/logan-center__ui'
+import LogoFull from '@/public/assets/logos/logo--full--duo.svg'
 
 import Container from '../Container'
-
-import LogoFull from '@kleinweb/logan-center__site-assets/logos/logo--full--duo.svg'
 
 type ActiveLinkProps = {
   href: LinkProps['href']
