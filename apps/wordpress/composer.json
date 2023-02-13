@@ -11,14 +11,6 @@
       "homepage": "https://github.com/kleinweb"
     }
   ],
-  "keywords": [
-    "bedrock",
-    "composer",
-    "roots",
-    "wordpress",
-    "wp",
-    "wp-config"
-  ],
   "support": {
     "issues": "https://github.com/roots/bedrock/issues",
     "forum": "https://discourse.roots.io/category/bedrock"
@@ -53,7 +45,6 @@
     "wpackagist-plugin/wordpress-seo": "^19.0",
     "wp-graphql/wp-graphql-acf": "^0.3",
     "automattic/vip-bundle-decoupled": "dev-trunk",
-    "wpackagist-theme/twentytwentythree": "^1.0",
     "soberwp/intervention": "dev-main"
   },
   "require-dev": {

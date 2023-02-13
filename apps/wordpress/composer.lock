@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "fdfd0c4b77a1373357df50781c0ac1d8",
+  "content-hash": "d963f2a5bdc15e458f46ce3f61c4faf6",
   "packages": [
     {
       "name": "automattic/vip-bundle-decoupled",
@@ -1559,24 +1559,6 @@
       },
       "type": "wordpress-plugin",
       "homepage": "https://wordpress.org/plugins/wordpress-seo/"
-    },
-    {
-      "name": "wpackagist-theme/twentytwentythree",
-      "version": "1.0",
-      "source": {
-        "type": "svn",
-        "url": "https://themes.svn.wordpress.org/twentytwentythree/",
-        "reference": "1.0"
-      },
-      "dist": {
-        "type": "zip",
-        "url": "https://downloads.wordpress.org/theme/twentytwentythree.1.0.zip"
-      },
-      "require": {
-        "composer/installers": "^1.0 || ^2.0"
-      },
-      "type": "wordpress-theme",
-      "homepage": "https://wordpress.org/themes/twentytwentythree/"
     }
   ],
   "packages-dev": [

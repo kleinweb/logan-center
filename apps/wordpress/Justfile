@@ -31,6 +31,7 @@ install admin-password:
     --skip-email
   {{ wp }} rewrite structure "/%year%/%monthnum%/%day%/%postname%/"
   {{ wp }} plugin activate --all
+  {{ wp }} theme activate logan-center
 
 provision: _init-posts
   {{ wp }} option update show_on_front page
