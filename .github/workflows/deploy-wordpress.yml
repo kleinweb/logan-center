@@ -1,9 +1,11 @@
-name: Deploy Backend
+name: Deploy WordPress Backend
 
 on:
   push:
     branches:
-      - main
+      # FIXME: per-branch secrets
+      # - main
+      - develop
 
   workflow_dispatch:
 
@@ -13,6 +15,7 @@ jobs:
 
     strategy:
       matrix:
+        # TODO: ensure this matches production
         php-versions: ['8.1']
 
     steps:
@@ -38,17 +41,21 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd apps/wordpress/wp-content
+          cd apps/wordpress
           composer install --prefer-dist --no-dev
 
       - name: SSH Deploy
         uses: easingthemes/ssh-deploy@v2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.REMOTE_PRIVATE_KEY }}
+          # TODO: expand to longform args
           ARGS: '-v -a -z -k'
-          SOURCE: 'apps/wordpress/wp-content'
+          SOURCE: 'apps/wordpress'
+          # FIXME: secret from dotenv-vault
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          # FIXME: secret from dotenv-vault
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          # FIXME: secret from dotenv-vault
           TARGET: ${{ secrets.REMOTE_PATH }}
-          # FIXME: wut
+          # FIXME: wut... use an ignorefile
           EXCLUDE: '.phpcs.xml,.env,.env.sample,acf-export-cpt-fields.json,acf-export-post-fields.json,docker-compose.yml,install.sh,setup.sh,README.md,.git*,.gitattributes,.github/,.gitignore,advanced-cache.php,auth.json,cache/,composer.json,composer.lock,db.php,debug.log,mu-plugins/mu-plugin.php,mysql.sql,node_modules/,object-cache.php,package-lock.json,package.json,themes/twenty*,upgrade/,uploads/,wp-cache-config.php'
