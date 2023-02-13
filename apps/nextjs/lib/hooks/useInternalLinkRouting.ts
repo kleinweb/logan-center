@@ -5,7 +5,7 @@
 
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { getInternalLinkPathname } from '../links'
+import { getInternalLinkPathname } from '@/lib/links'
 
 /**
  * Using the Link component (next/link) for internal links instead of vanilla

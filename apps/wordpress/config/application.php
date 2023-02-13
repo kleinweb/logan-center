@@ -41,7 +41,7 @@ $env_files = file_exists($root_dir . '/.env.local')
 $dotenv = Dotenv\Dotenv::createUnsafeImmutable($root_dir, $env_files, false);
 if (file_exists($root_dir . '/.env')) {
     $dotenv->load();
-    $dotenv->required(['WP_HOME', 'WP_SITEURL', 'WP_CLIENT_URL']);
+    $dotenv->required(['WP_HOME', 'WP_SITEURL', 'KLEIN_SERVER_URL']);
     if (!env('DATABASE_URL')) {
         $dotenv->required(['DB_NAME', 'DB_USER', 'DB_PASSWORD']);
     }
@@ -58,15 +58,31 @@ define('WP_ENV', env('WP_ENV') ?: 'production');
  */
 Config::define('WP_HOME', env('WP_HOME'));
 Config::define('WP_SITEURL', env('WP_SITEURL'));
-// Location of the Next.js client application.
-Config::define('WP_CLIENT_URL', env('WP_CLIENT_URL'));
+
+// Base URL for the WordPress server.
+//
+// In a non-headless configuration, `WP_CONTENT_URL` would be defined according
+// to the value of `WP_HOME` (URL corresponding to the WordPress web server
+// root). In our headless configuration, however, we point `WP_HOME` to the
+// Next.js frontend, so its value no longer corresponds to the WordPress server.
+// While `WP_SITEURL` points to a location on the server, in our configuration
+// WordPress lives in a subdirectory `/wp`. To keep things simpler, we use an
+// additional environment variable to provide the base for `WP_SITEURL` and
+// `WP_CONTENT_URL`.
+Config::define('KLEIN_SERVER_URL', env('KLEIN_SERVER_URL'));
 
 /**
  * Custom Content Directory
  */
 Config::define('CONTENT_DIR', '/app');
 Config::define('WP_CONTENT_DIR', $webroot_dir . Config::get('CONTENT_DIR'));
-Config::define('WP_CONTENT_URL', Config::get('WP_HOME') . Config::get('CONTENT_DIR'));
+// See above notes on `KLEIN_SERVER_URL`, a non-standard constant to help with
+// configuration for the decoupled frontend.
+//
+// Without this change, in a local development environment for example, plugin
+// static assets will be loaded from within <http://localhost:3000/app/plugins/>,
+// which does not exist.
+Config::define('WP_CONTENT_URL', Config::get('KLEIN_SERVER_URL') . Config::get('CONTENT_DIR'));
 
 /**
  * DB settings

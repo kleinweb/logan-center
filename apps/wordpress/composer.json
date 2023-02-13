@@ -33,15 +33,14 @@
       ]
     },
     {
-      "type": "path",
-      "url": "../../packages/nextjs-wordpress-plugin"
+      "type": "git",
+      "url": "https://github.com/Automattic/vip-decoupled-bundle.git"
     }
   ],
   "require": {
     "php": ">=7.4",
     "composer/installers": "^2.2",
     "vlucas/phpdotenv": "^5.5",
-    "nextjswp/nextjs-wordpress-plugin": "*",
     "oscarotero/env": "^2.1",
     "roots/bedrock-autoloader": "^1.0",
     "roots/bedrock-disallow-indexing": "^2.0",
@@ -50,12 +49,12 @@
     "roots/wp-password-bcrypt": "1.1.0",
     "wpackagist-plugin/add-wpgraphql-seo": "^4.0",
     "wpackagist-plugin/advanced-custom-fields": "^6.0",
-    "wpackagist-plugin/debug-bar": "^1.1",
     "wpackagist-plugin/query-monitor": "^3.11",
     "wpackagist-plugin/wordpress-seo": "^19.0",
-    "wpackagist-plugin/wp-graphql": "^1.0",
-    "soberwp/intervention": "dev-main",
-    "wp-graphql/wp-graphql-acf": "^0.3"
+    "wp-graphql/wp-graphql-acf": "^0.3",
+    "automattic/vip-bundle-decoupled": "dev-trunk",
+    "wpackagist-theme/twentytwentythree": "^1.0",
+    "soberwp/intervention": "dev-main"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.7.1",

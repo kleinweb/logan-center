@@ -1,8 +1,9 @@
 name: logancenter-wp
 type: wordpress
 docroot: web
-php_version: '8.0'
-webserver_type: nginx-fpm
+php_version: '8.1'
+# webserver_type: nginx-fpm
+webserver_type: apache-fpm
 router_http_port: '80'
 router_https_port: '443'
 xdebug_enabled: false

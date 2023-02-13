@@ -5,6 +5,7 @@
 set dotenv-load
 
 site-title := 'Logan Center for Urban Investigative Reporting'
+wp-siteurl := getenv('WP_SITEURL')
 
 admin-user := 'kleinweb'
 admin-email := 'kleinweb+logancenter@temple.edu'

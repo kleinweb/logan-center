@@ -11,9 +11,7 @@ const result: PossibleTypesResultData = {
     ContentTemplate: [
       'DefaultTemplate',
       'Template_Blank',
-      'Template_PageLargeHeader',
-      'Template_PageNoSeparators',
-      'Template_SinglePostNoSeparators',
+      'Template_BlogAlternative',
     ],
     DatabaseIdentifier: [
       'Category',
