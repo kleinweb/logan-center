@@ -1,10 +1,9 @@
-// SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
-//
+// SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import { GetServerSideProps } from 'next'
-import Page from '@/components/Page/Page'
+import Layout from '@/components/Layout'
 import PostList from '@/components/PostList/PostList'
 import getApolloClient from '@/graphql/apollo'
 import {
@@ -24,13 +23,13 @@ type Props = {
 
 export default function ContentNodes(props: Props) {
   return (
-    <Page loading={props.loading} title={props.title}>
+    <Layout loading={props.loading} title={props.title}>
       <PostList
         nextPageLink={props.nextPageLink}
         posts={props.posts}
         previousPageLink={props.previousPageLink}
       />
-    </Page>
+    </Layout>
   )
 }
 

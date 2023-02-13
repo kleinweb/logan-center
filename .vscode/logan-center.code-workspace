@@ -1,13 +1,16 @@
 {
   "folders": [
     {
-      "path": ".."
-    },
-    {
+      "name": "nextjs",
       "path": "../apps/nextjs"
     },
     {
+      "name": "wordpress",
       "path": "../apps/wordpress"
+    },
+    {
+      "name": "logan-center",
+      "path": ".."
     }
   ],
   "settings": {

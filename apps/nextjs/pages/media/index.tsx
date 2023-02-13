@@ -4,7 +4,7 @@
 
 import { GetServerSideProps } from 'next'
 import Image from '@/components/Image/Image'
-import Page from '@/components/Page/Page'
+import Layout from '@/components/Layout'
 import getApolloClient from '@/graphql/apollo'
 import {
   AllMediaItemsDocument,
@@ -13,14 +13,14 @@ import {
 } from '@/graphql/generated'
 import styles from './index.module.css'
 
-type Props = {
+type MediaPageProps = {
   loading: boolean
   mediaItems: MediaItemFieldsFragment[]
 }
 
-export default function Media(props: Props) {
+export default function Media(props: MediaPageProps) {
   return (
-    <Page loading={props.loading} title="Media Gallery">
+    <Layout loading={props.loading} title="Media Gallery">
       <div className={styles.container}>
         {props.mediaItems.map((mediaItem) => {
           const { altText = '', id, sourceUrl } = mediaItem
@@ -45,11 +45,11 @@ export default function Media(props: Props) {
           )
         })}
       </div>
-    </Page>
+    </Layout>
   )
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async (
+export const getServerSideProps: GetServerSideProps<MediaPageProps> = async (
   context,
 ) => {
   const queryOptions = {

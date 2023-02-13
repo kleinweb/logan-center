@@ -1,10 +1,9 @@
-// SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
-//
+// SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import { GetServerSideProps } from 'next'
-import Page from '@/components/Page/Page'
+import Layout from '@/components/Layout'
 import PostContent from '@/components/PostContent/PostContent'
 import getApolloClient from '@/graphql/apollo'
 import {
@@ -25,9 +24,9 @@ export default function Post(props: PostProps) {
   }
 
   return (
-    <Page loading={props.loading} title={props.post.title}>
+    <Layout loading={props.loading} title={props.post.title}>
       <PostContent blocks={props.post.contentBlocks.blocks} />
-    </Page>
+    </Layout>
   )
 }
 
@@ -45,7 +44,7 @@ export const getServerSideProps: GetServerSideProps<PostProps> = async (
     context,
   ).query<ContentNodeBySlugQuery>(queryOptions)
 
-  // @TODO Disambiguate multiple slug matches.
+  // TODO: Disambiguate multiple slug matches.
   const post = data.contentNodes?.nodes?.[0]
 
   // SEO: Resource not found pages must send a 404 response code.
