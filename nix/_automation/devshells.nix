@@ -64,6 +64,10 @@ in
           category = "tools";
           package = nixpkgs.cocogitto;
         }
+        {
+          category = "ci";
+          package = nixpkgs.netlify-cli;
+        }
       ];
     };
   }
