@@ -1,14 +1,16 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import Container from '../Container'
-import SocialIcons from './SocialIcons'
+import Link from 'next/link'
 
 import { TempleLogo } from '@kleinweb/tu-assets'
-import LogoFull from '@kleinweb/logan-center__site-assets/logos/logo--full--duo.svg'
 import { Icon } from '@kleinweb/logan-center__ui'
-import Link from 'next/link'
+
+import LogoFull from '@/public/assets/logos/logo--full--duo.svg'
+
+import Container from '../Container'
 import FinePrint from './FinePrint'
+import SocialIcons from './SocialIcons'
 
 export default function SiteFooter() {
   return (

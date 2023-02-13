@@ -40,7 +40,7 @@ Copyright: 2023 Temple University <kleinweb@temple.edu>
            2022-2023 Greg Rickaby
 License: GPL-3.0-or-later OR MIT
 
-Files: packages/site-assets/*
+Files: apps/nextjs/public/assets/*
 Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: CC-BY-NC-ND-4.0
 

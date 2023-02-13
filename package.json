@@ -35,7 +35,6 @@
   "workspaces": [
     "apps/nextjs",
     "packages/eslint-config-custom",
-    "packages/site-assets",
     "packages/tailwind-config",
     "packages/tsconfig",
     "packages/tu-assets",
