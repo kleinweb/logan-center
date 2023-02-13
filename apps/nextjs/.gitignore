@@ -1,5 +1,8 @@
 ###: === //apps/nextjs-app/.gitignore ==========================================
 
+# `codegen`
+/graphql/generated
+
 # TODO: still an issue on netlify?
 # vercel cannot handle symlinked files, so assets that must be served publicly
 # need to be copied into place during deployments. since we already have the
