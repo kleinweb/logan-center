@@ -219,12 +219,6 @@ As `POST` requests, GraphQL queries are not cached.
 However, when using static or server-side data loading — which is strongly
 recommended — these queries are effectively cached by the page cache.
 
-### Redis
-
-If you have Redis deployed alongside your application,
-you can cache API responses and other data there.
-An example preconfigured to work on WordPress VIP is provided at `./pages/api/books.ts`.
-
 ## Next.js middleware and edge runtime
 
 **WARNING: This section only applies to WordPress VIP hosting.**
