@@ -28,12 +28,4 @@ module.exports = {
     // this rule seems to contradict the official classnames order.
     'tailwindcss/classnames-order': 'off',
   },
-  overrides: [
-    {
-      files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
-      rules: {
-        'import/no-anonymous-default-export': 'off',
-      },
-    },
-  ],
 }
