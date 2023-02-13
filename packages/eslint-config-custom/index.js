@@ -17,6 +17,13 @@ module.exports = {
     // catch undefined variables instead.
     // https://github.com/typescript-eslint/typescript-eslint/issues/131
     'no-undef': 0,
+    'no-unused-vars': [
+      'error',
+      {
+        // Allow unused vars with underscore prefix.
+        argsIgnorePattern: '^_',
+      },
+    ],
     // Defer to the official TailwindCSS Prettier plugin --
     // this rule seems to contradict the official classnames order.
     'tailwindcss/classnames-order': 'off',
