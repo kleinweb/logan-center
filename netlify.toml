@@ -1,0 +1,12 @@
+[build]
+command = "yarn build --filter=@kleinweb/logan-center-nextjs"
+publish = "apps/nextjs/.next"
+
+[context.production]
+command = "yarn build --filter=@kleinweb/logan-center--nextjs-minimal"
+# publish = "apps/nextjs-minimal/.next"
+
+[dev]
+command = "yarn dev"
+port = 3000
+publish = "apps/nextjs/.next"
