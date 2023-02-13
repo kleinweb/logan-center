@@ -1,10 +1,9 @@
-// SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
-//
+// SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import { GetServerSideProps } from 'next'
-import Page from '@/components/Page/Page'
+import Layout from '@/components/Layout'
 import PostList from '@/components/PostList/PostList'
 import SearchForm from '@/components/SearchForm/SearchForm'
 import getApolloClient from '@/graphql/apollo'
@@ -15,7 +14,7 @@ import {
   ContentNodesBySearchTermQueryVariables,
 } from '@/graphql/generated'
 
-type Props = {
+type SearchPageProps = {
   loading: boolean
   nextPageLink?: string
   posts: ContentNodeFieldsFragment[]
@@ -23,24 +22,27 @@ type Props = {
   search: string
 }
 
-export default function Search(props: Props) {
+type SearchPageContextParams = Record<never, string>
+
+export default function Search(props: SearchPageProps) {
   return (
-    <Page loading={props.loading} title={`Search results for ${props.search}`}>
+    <Layout
+      loading={props.loading}
+      title={`Search results for ${props.search}`}
+    >
       <SearchForm path="/search" search={props.search} />
       <PostList
         nextPageLink={props.nextPageLink}
         posts={props.posts}
         previousPageLink={props.previousPageLink}
       />
-    </Page>
+    </Layout>
   )
 }
 
-type ContextParams = Record<never, string>
-
 export const getServerSideProps: GetServerSideProps<
-  Props,
-  ContextParams
+  SearchPageProps,
+  SearchPageContextParams
 > = async (context) => {
   const queryParams = { ...context.query }
 

@@ -1,6 +1,5 @@
-// SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
-//
+// SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import { ContentBlock } from '@/graphql/generated'
@@ -8,17 +7,20 @@ import { mapAttributesToProps } from '@/lib/blocks'
 import defaultBlockMap, { PostContentBlockMap } from '@/components/Blocks'
 import UnsupportedBlock from '@/components/Blocks/UnsupportedBlock/UnsupportedBlock'
 
-type Props = {
+type PostContentProps = {
+  /** Content blocks parsed from post content. */
   blocks: ContentBlock[]
+  /** Overrides for {@link defaultBlockMap}. */
   blockMapOverrides?: PostContentBlockMap
 }
 
-export default function PostContent({ blocks, blockMapOverrides = {} }: Props) {
-  // This is a functional component used to render the related component for each block on PostContent
-  //
-  // If you want to customize some component or create new ones, you can provide the blockMapOverrides prop to this component
-  // with a mapping when you're rendering some page on next.js structure.
-  //
+/**
+ * Higher-order component rendering a Block component for each of {@link blocks}.
+ */
+export default function PostContent({
+  blocks,
+  blockMapOverrides = {},
+}: PostContentProps) {
   const blockMap: PostContentBlockMap = {
     ...defaultBlockMap,
     ...blockMapOverrides,
