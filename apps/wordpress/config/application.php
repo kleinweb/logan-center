@@ -13,8 +13,9 @@
  * can.
  */
 
-use Roots\WPConfig\Config;
 use function Env\env;
+
+use Roots\WPConfig\Config;
 
 /**
  * Directory containing all of the site's files
@@ -42,7 +43,7 @@ $dotenv = Dotenv\Dotenv::createUnsafeImmutable($root_dir, $env_files, false);
 if (file_exists($root_dir . '/.env')) {
     $dotenv->load();
     $dotenv->required(['WP_HOME', 'WP_SITEURL', 'KLEIN_SERVER_URL']);
-    if (!env('DATABASE_URL')) {
+    if (! env('DATABASE_URL')) {
         $dotenv->required(['DB_NAME', 'DB_USER', 'DB_PASSWORD']);
     }
 }
@@ -155,6 +156,6 @@ Config::apply();
 /**
  * Bootstrap WordPress
  */
-if (!defined('ABSPATH')) {
+if (! defined('ABSPATH')) {
     define('ABSPATH', $webroot_dir . '/wp/');
 }
