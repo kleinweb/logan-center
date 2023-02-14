@@ -4,8 +4,8 @@
 
 import { ChevronRight } from 'lucide-react'
 
-import Button, { VARIANTS } from '@/components/Buttons/Button'
-import { Icon } from '@/components/Icons'
+import Button, { VARIANTS } from '../components/Buttons/Button'
+import { Icon } from '../components/Icons'
 
 export default {
   title: 'Atoms/Buttons',

@@ -15,7 +15,7 @@ import {
   ContentTypeFieldsFragment,
 } from '@/graphql/generated'
 
-import { Button, ButtonWithIcon } from '@kleinweb/logan-center__ui'
+import { Button, ButtonWithIcon } from '@/components/Buttons'
 import BarsMotif from '@/public/assets/decorations/motif--island.svg'
 import podcastImage from '@/public/assets/images/podcast--poster--art_only.jpg'
 import youGotThisImage from '@/public/assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'

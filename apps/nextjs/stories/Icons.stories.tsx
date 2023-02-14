@@ -13,8 +13,8 @@ import {
   Mail,
 } from 'lucide-react'
 
-import { HeadingOne } from '@/components/Headings'
-import { Icon } from '@/components/Icons'
+import { HeadingOne } from '../components/Headings'
+import { Icon } from '../components/Icons'
 import { ReactNode } from 'react'
 
 export default {

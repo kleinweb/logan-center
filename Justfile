@@ -33,7 +33,7 @@ install:
 
 # [dev]: 		Run the development watch processes
 dev: start-wp && stop-wp
-  -yarn run dev
+  -yarn dev
 
 # [dev]: 		Start WordPress
 start-wp:

@@ -4,9 +4,8 @@
 import { ReactNode } from 'react'
 import Head from 'next/head'
 
-import { KleinBanner } from '@kleinweb/logan-center__ui'
-
 import { SITE_NAME } from '@/lib/constants'
+import { KleinBanner } from '@/components/KleinBanner'
 
 import Loading from '../Loading/Loading'
 import Meta from '../Meta'
