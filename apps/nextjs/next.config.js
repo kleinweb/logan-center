@@ -25,27 +25,6 @@ const nextConfig = {
   // files at the root, such as 'robots.txt'.
   basePath: '',
 
-  // ESLint
-  // ======
-  // https://nextjs.org/docs/basic-features/eslint
-  eslint: {
-    dirs: ['components', 'graphql', 'lib', 'pages', 'server'],
-    // FIXME: Dangerously allow production builds to successfully complete even
-    // if your project has ESLint errors. This allows us to keep ESLint as a
-    // dev dependency.
-    ignoreDuringBuilds: true,
-  },
-
-  // Experimental options
-  // ====================
-  // https://github.com/vercel/next.js/blob/canary/packages/next/server/config-shared.ts
-  experimental: {
-    // Disable writing to disk in ISR mode. VIP file system is read only, so this
-    // avoids generating lots of noisy errors in the logs. ISR artifacts are
-    // still cached in-memory.
-    isrFlushToDisk: false,
-  },
-
   // React strict mode
   // =================
   // https://nextjs.org/docs/api-reference/next.config.js/react-strict-mode
