@@ -1,0 +1,11 @@
+query Sitewide {
+  generalSettings {
+    ...Settings
+  }
+  headerMenu: menu(id: "Header", idType: NAME) {
+    ...MenuItems
+  }
+  footerMenu: menu(id: "Footer", idType: NAME) {
+    ...MenuItems
+  }
+}

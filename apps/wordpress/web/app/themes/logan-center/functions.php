@@ -8,14 +8,7 @@
  * @since 1.0.0
  */
 
- // Register theme defaults.
-add_action('after_setup_theme', function () {
-    add_theme_support('post-thumbnails');
-
-    register_nav_menus([
-        'navigation' => __('Navigation'),
-    ]);
-});
+namespace Klein\LoganCenterTheme;
 
 // Remove admin menu items.
 add_action('admin_init', function () {
@@ -27,7 +20,7 @@ add_action('admin_init', function () {
 });
 
 // Remove admin toolbar menu items.
-add_action('admin_bar_menu', function (WP_Admin_Bar $menu) {
+add_action('admin_bar_menu', function (\WP_Admin_Bar $menu) {
     $menu->remove_node('comments'); // Comments
     $menu->remove_node('customize'); // Customize
     $menu->remove_node('dashboard'); // Dashboard
@@ -54,3 +47,9 @@ add_action('wp_dashboard_setup', function () {
     unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']); // WordPress Events and News
     unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']); // Quick Draft
 });
+
+/** === THEME SUPPORT =========================================================================== */
+
+add_theme_support('post-thumbnails');
+
+add_post_type_support('page', 'excerpt');
