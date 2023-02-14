@@ -1,5 +1,0 @@
-query SiteHeaderMenu {
-  menu(id: "Header", idType: NAME) {
-    ...MenuItems
-  }
-}

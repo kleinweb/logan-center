@@ -10,9 +10,9 @@ import { __ } from '@wordpress/i18n'
 
 import getApolloClient from '@/graphql/apollo'
 import {
-  AllContentTypesDocument,
-  AllContentTypesQuery,
-  ContentTypeFieldsFragment,
+  SinglePageDocument,
+  SinglePageQuery,
+  SinglePageQueryResult,
 } from '@/graphql/generated'
 
 import { Button, ButtonWithIcon } from '@/components/Buttons'
@@ -28,14 +28,15 @@ const podcastInfoUrl =
 
 const aboutLoganDoc = `Klein College of Media and Communication launched the Jonathan Logan Family Foundation Center for Urban Investigative Reporting in the summer of 2021 thanks to a $1.2 million founding grant from the Jonathan Logan Family Foundation of Berkeley, California. The Center focuses exclusively on the issues facing Philadelphia and other large American cities such as gun violence, economic inequality, education and health disparities, crumbling infrastructure and eroding trust in institutions. Through the Logan Center, Klein students and faculty report not only on these problems, but on potential solutions, closely examining what has worked well in other cities across the nation and the globe.`
 
-import Hero from './Home/Hero'
+import Hero from './home/Hero'
 
 type HomeProps = {
-  contentTypes: ContentTypeFieldsFragment[]
+  data: SinglePageQuery
 }
 
 // props: HomeProps
 export default function Home() {
+  // const {}
   return (
     <Layout title="Home">
       <div className="relative mb-6 md:mb-24">
@@ -193,21 +194,14 @@ export default function Home() {
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async (context) => {
-  const queryOptions = {
-    query: AllContentTypesDocument,
-  }
-
-  const { data } = await getApolloClient(context).query<AllContentTypesQuery>(
-    queryOptions,
-  )
-
-  const contentTypes = data.contentTypes.nodes || []
+  const { data } = await getApolloClient(context).query<SinglePageQueryResult>({
+    query: SinglePageDocument,
+    variables: { slug: 'homepage' },
+  })
 
   return {
     props: {
-      contentTypes: contentTypes.filter(
-        (contentType) => contentType.contentNodes.nodes.length,
-      ),
+      ...data,
     },
   }
 }
