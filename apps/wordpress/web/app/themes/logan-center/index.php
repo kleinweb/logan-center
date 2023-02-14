@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Redirect theme requests to frontend.
  *

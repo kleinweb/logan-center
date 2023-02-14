@@ -8,8 +8,9 @@
  * Configuration overrides for WP_ENV === 'development'
  */
 
-use Roots\WPConfig\Config;
 use function Env\env;
+
+use Roots\WPConfig\Config;
 
 Config::define('SAVEQUERIES', true);
 Config::define('WP_DEBUG', true);
