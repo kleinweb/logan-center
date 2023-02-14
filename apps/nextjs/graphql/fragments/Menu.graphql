@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2022-2023 Greg Rickaby
+# SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
+# SPDX-License-Identifier: GPL-3.0-or-later OR MIT
+
+fragment MenuItems on Menu {
+  count
+  menuItems {
+    nodes {
+      id
+      path
+      label
+      linkRelationship
+      target
+      parentId
+      childItems {
+        nodes {
+          id
+          path
+          cssClasses
+          label
+          linkRelationship
+          target
+          parentId
+        }
+      }
+    }
+  }
+}
