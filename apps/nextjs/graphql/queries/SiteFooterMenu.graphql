@@ -1,0 +1,5 @@
+query SiteFooterMenu {
+  menu(id: "Footer", idType: NAME) {
+    ...MenuItems
+  }
+}
