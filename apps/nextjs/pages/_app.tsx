@@ -8,7 +8,7 @@ import useInternalLinkRouting from '@/lib/hooks/useInternalLinkRouting'
 
 import Telemetry from '@/components/Telemetry'
 
-import '@/styles/index.css'
+import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }: AppProps) {
   useInternalLinkRouting()
