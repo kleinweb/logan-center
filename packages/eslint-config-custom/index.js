@@ -2,13 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 module.exports = {
-  extends: [
-    'eslint:recommended',
-    'plugin:tailwindcss/recommended',
-    'next',
-    'turbo',
-    'prettier',
-  ],
+  extends: ['eslint:recommended', 'next', 'turbo', 'prettier'],
   plugins: ['tailwindcss'],
   rules: {
     'no-console': ['error', { allow: ['warn', 'error'] }],

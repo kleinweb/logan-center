@@ -8,7 +8,7 @@ import {
   HeadingThree,
   HeadingFour,
   HeadingFive,
-} from '@/components/Headings'
+} from '../components/Headings'
 
 export const Text = () => (
   <>

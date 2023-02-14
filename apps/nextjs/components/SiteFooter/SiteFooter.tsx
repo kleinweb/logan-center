@@ -4,7 +4,7 @@
 import Link from 'next/link'
 
 import { TempleLogo } from '@kleinweb/tu-assets'
-import { Icon } from '@kleinweb/logan-center__ui'
+import { Icon } from '@/components/Icons'
 
 import LogoFull from '@/public/assets/logos/logo--full--duo.svg'
 

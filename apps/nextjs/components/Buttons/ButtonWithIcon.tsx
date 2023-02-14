@@ -4,8 +4,8 @@
 import { ReactNode } from 'react'
 import { ChevronRight } from 'lucide-react'
 
-import { LucideIconComponent } from '@/types'
 import Button, { ButtonProps } from './Button'
+import type { LucideIconComponent } from '../Icons'
 
 export type ButtonWithIconProps = ButtonProps & {
   children: ReactNode

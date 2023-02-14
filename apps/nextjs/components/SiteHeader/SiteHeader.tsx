@@ -5,8 +5,9 @@ import cn from 'clsx'
 import Link, { LinkProps } from 'next/link'
 import { __ } from '@wordpress/i18n'
 
-import { ActiveLink as ActiveLinkComponent } from '@kleinweb/logan-center__ui'
-import { ActiveLinkProps as ActiveLinkComponentProps } from '@kleinweb/logan-center__ui'
+import { ActiveLink as ActiveLinkComponent } from '@/components/ActiveLink'
+import type { ActiveLinkProps as ActiveLinkComponentProps } from '@/components/ActiveLink'
+
 import LogoFull from '@/public/assets/logos/logo--full--duo.svg'
 
 import Container from '../Container'
