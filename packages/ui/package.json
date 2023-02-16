@@ -21,7 +21,7 @@
   "dependencies": {
     "@kleinweb/logan-center__site-assets": "workspace:*",
     "@kleinweb/tu-assets": "workspace:*",
-    "@wordpress/i18n": "4.26.0",
+    "@wordpress/i18n": "4.27.0",
     "clsx": "^1.2.1",
     "lucide-react": "^0.112.0",
     "next": "^13.1.6",

@@ -2806,7 +2806,7 @@ __metadata:
     "@types/react-dom": "npm:^18.0.10"
     "@typescript-eslint/eslint-plugin": "npm:^5.51.0"
     "@typescript-eslint/parser": "npm:^5.51.0"
-    "@wordpress/i18n": "npm:4.26.0"
+    "@wordpress/i18n": "npm:4.27.0"
     autoprefixer: "npm:^10.4.13"
     clsx: "npm:^1.2.1"
     concurrently: "npm:^7.6.0"
@@ -2881,7 +2881,7 @@ __metadata:
     "@kleinweb/tu-assets": "workspace:*"
     "@types/react": "npm:^18.0.27"
     "@types/react-dom": "npm:^18.0.10"
-    "@wordpress/i18n": "npm:4.26.0"
+    "@wordpress/i18n": "npm:4.27.0"
     clsx: "npm:^1.2.1"
     concurrently: "npm:^7.6.0"
     esbuild-plugin-svgr: "npm:^1.0.1"
@@ -4125,28 +4125,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wordpress/hooks@npm:^3.26.0":
-  version: 3.26.1
-  resolution: "@wordpress/hooks@npm:3.26.1"
+"@wordpress/hooks@npm:^3.27.0":
+  version: 3.27.0
+  resolution: "@wordpress/hooks@npm:3.27.0"
   dependencies:
     "@babel/runtime": "npm:^7.16.0"
-  checksum: f1553102002850c8a81174123afaaa9ca6aa9e63f834c90f81b7f964eecd33c660054f4eea49f864b706755c3faedbada284a05e407105e37fbf39534e564a22
+  checksum: 7e20739fe5d2a138187d433d320c146d68242f84730de2ae59021c0bd70960e5ccc6977521fe57df14d873c488d0caa6272f7d9ae6e606b24e32c62eee287ce8
   languageName: node
   linkType: hard
 
-"@wordpress/i18n@npm:4.26.0":
-  version: 4.26.0
-  resolution: "@wordpress/i18n@npm:4.26.0"
+"@wordpress/i18n@npm:4.27.0":
+  version: 4.27.0
+  resolution: "@wordpress/i18n@npm:4.27.0"
   dependencies:
     "@babel/runtime": "npm:^7.16.0"
-    "@wordpress/hooks": "npm:^3.26.0"
+    "@wordpress/hooks": "npm:^3.27.0"
     gettext-parser: "npm:^1.3.1"
     memize: "npm:^1.1.0"
     sprintf-js: "npm:^1.1.1"
     tannin: "npm:^1.2.0"
   bin:
     pot-to-php: tools/pot-to-php.js
-  checksum: f46203d641d49b2b632326581abc9bfc18db0c2c4e29acd57a4145b11b09afa5efb017c10d13bcefc566f243055e054eb2dacd93f40c5c1102c5b792dc8ebc36
+  checksum: 74b145282afa6d5b2fd8959b2212f0a41499c06c3a77c174e99fa2520e49dea5423c3c0e4c7298a358ee456e6b8a391090c008ccaacce4e99bf26356f5d75941
   languageName: node
   linkType: hard
 
