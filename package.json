@@ -34,6 +34,7 @@
   },
   "workspaces": [
     "apps/nextjs",
+    "apps/wordpress/web/app/themes/logan-center-wp-next-theme",
     "packages/eslint-config-custom",
     "packages/tailwind-config",
     "packages/tsconfig",

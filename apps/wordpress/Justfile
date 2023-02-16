@@ -18,10 +18,11 @@ default:
 wp *ARGS:
   {{ wp }} {{ ARGS }}
 
-query-by-slug slug *ARGS:
+wp-query-by-slug slug *ARGS:
   {{ wp }} post list --post_name={{ slug }} {{ ARGS }}
 
-install admin-password:
+wp-install admin-password theme='logan-center-wp-next-theme':
+  composer install
   {{ wp }} core install \
     --url={{ quote( wp-siteurl ) }} \
     --title={{ quote( site-title ) }} \
@@ -29,9 +30,9 @@ install admin-password:
     --admin_password='{{ admin-password }}' \
     --admin_email='{{ admin-email }}' \
     --skip-email
-  {{ wp }} rewrite structure "/%year%/%monthnum%/%day%/%postname%/"
-  {{ wp }} plugin activate --all
-  {{ wp }} theme activate logan-center
+  {{ wp }} rewrite structure "/%year%/%monthnum%/%day%/%postname%/" && \
+  {{ wp }} plugin activate --all && \
+  {{ wp }} theme activate {{ theme }}
 
 provision: _init-posts
   {{ wp }} option update show_on_front page
