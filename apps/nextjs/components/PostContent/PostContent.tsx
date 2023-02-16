@@ -6,6 +6,7 @@ import { ContentBlock } from '@/graphql/generated'
 import { mapAttributesToProps } from '@/lib/blocks'
 import defaultBlockMap, { PostContentBlockMap } from '@/components/Blocks'
 import UnsupportedBlock from '@/components/Blocks/UnsupportedBlock/UnsupportedBlock'
+import Container from '../Container'
 
 type PostContentProps = {
   /** Content blocks parsed from post content. */
@@ -27,7 +28,7 @@ export default function PostContent({
   }
 
   return (
-    <>
+    <Container>
       {blocks.map((block, i) => {
         const attributesProps = mapAttributesToProps(block.attributes || [])
         const key = `block-${i}`
@@ -46,6 +47,6 @@ export default function PostContent({
         // In production, ignore unsupported blocks.
         return null
       })}
-    </>
+    </Container>
   )
 }

@@ -12,11 +12,14 @@ import {
   ContentNodeFieldsFragment,
 } from '@/graphql/generated'
 import { extractLastTokenFromRoute, getInternalLinkPathname } from '@/lib/links'
+import Container from '@/components/Container'
 
 export type PostProps = {
   loading: boolean
   post: ContentNodeFieldsFragment
 }
+
+import BarsMotif from '@/public/assets/decorations/motif--island.svg'
 
 export default function Post(props: PostProps) {
   if ('MediaItem' === props.post.__typename) {
@@ -25,7 +28,17 @@ export default function Post(props: PostProps) {
 
   return (
     <Layout loading={props.loading} title={props.post.title}>
-      <PostContent blocks={props.post.contentBlocks.blocks} />
+      <section className="bg-primary-light mt-20 py-6 pb-20">
+        <Container>
+          <div className="text-primary-accent relative -mt-24 flex flex-row-reverse py-8">
+            <BarsMotif />
+          </div>
+
+          <div className="space-y-5">
+            <PostContent blocks={props.post.contentBlocks.blocks} />
+          </div>
+        </Container>
+      </section>
     </Layout>
   )
 }
