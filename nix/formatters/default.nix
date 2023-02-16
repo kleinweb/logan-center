@@ -9,16 +9,10 @@
   imports = [
     ./nixagoFiles/prettierrc.json.nix
   ];
-  perSystem = {pkgs, ...}: {
-    treefmt.formatters = {
-      inherit (pkgs) alejandra shellcheck shfmt;
-      inherit (pkgs.nodePackages) prettier;
-    };
-  };
   flake.devshellProfiles.formatters = {pkgs, ...}: {
     commands = [
       {
-        name = "format";
+        name = "fmt";
         help = "format files with treefmt";
         category = "formatters";
         command = ''
@@ -26,10 +20,13 @@
         '';
       }
     ];
-    packages =
-      (getSystem pkgs.system).treefmt.buildInputs
-      ++ (with pkgs; [
-        editorconfig-checker
-      ]);
+    packages = [
+      pkgs.editorconfig-checker
+      pkgs.treefmt
+      pkgs.alejandra
+      pkgs.shellcheck
+      pkgs.shfmt
+      pkgs.nodePackages.prettier
+    ];
   };
 }
