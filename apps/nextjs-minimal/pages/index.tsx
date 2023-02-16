@@ -42,7 +42,7 @@ export default function Home() {
             <div className="col-span-full bg-slate-100 py-6 md:py-12 md:pb-16 lg:col-span-8 xl:col-span-6">
               <div className="container relative mx-auto px-5 md:px-10">
                 <div className="space-y-5">
-                  <h2 className="text-xl font-bold leading-tight text-primary-dark md:text-2xl">
+                  <h2 className="text-primary-dark text-xl font-bold leading-tight md:text-2xl">
                     {__(
                       'Investigating the issues affecting urban communities',
                       'logan-center',
@@ -65,7 +65,7 @@ export default function Home() {
         <Container>
           <div className="flex flex-col">
             <div className="order-2 mb-3 flex flex-col">
-              <h2 className="order-2 mb-2 text-right text-xl font-bold uppercase leading-tight tracking-wider text-primary-dark">
+              <h2 className="text-primary-dark order-2 mb-2 text-right text-xl font-bold uppercase leading-tight tracking-wider">
                 {__('Stop and Frisk: Revisit or Resist', 'logan-center')}
               </h2>
               <h3 className="order-1 mb-1 text-right text-base font-bold uppercase tracking-wider text-red-600">
@@ -116,9 +116,9 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="mt-20 bg-primary-light py-6 pb-20">
+      <section className="bg-primary-light mt-20 py-6 pb-20">
         <Container>
-          <div className="relative -mt-24 flex flex-row-reverse py-8 text-primary-accent">
+          <div className="text-primary-accent relative -mt-24 flex flex-row-reverse py-8">
             <BarsMotif />
           </div>
 
@@ -140,12 +140,12 @@ export default function Home() {
 
       <section className="pt-6 pb-16">
         <Container>
-          <div className="relative -mt-24 flex py-8 text-primary-accent">
+          <div className="text-primary-accent relative -mt-24 flex py-8">
             <BarsMotif />
           </div>
           <div className="flex flex-col">
             <div className="order-2 mb-3 flex flex-col">
-              <h2 className="order-2 mb-2 text-right text-xl font-bold uppercase leading-tight tracking-wider text-primary-dark">
+              <h2 className="text-primary-dark order-2 mb-2 text-right text-xl font-bold uppercase leading-tight tracking-wider">
                 {__('Education Disparities Project', 'logan-center')}
               </h2>
               <h3 className="order-1 mb-1 text-right text-base font-bold uppercase tracking-wider text-red-600">
@@ -165,7 +165,7 @@ export default function Home() {
 
               <div className="text-right">
                 <Link
-                  href="https://billypenn.com/stories/education-disparities-in-philadelphia/"
+                  href="https://billypenn.com/category/education-disparities-in-philadelphia/"
                   rel="noreferrer external"
                   target="_blank"
                 >
