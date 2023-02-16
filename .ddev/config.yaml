@@ -1,8 +1,8 @@
-name: logancenter-wp
+name: logancenter-wp-next
 type: wordpress
-docroot: web
-php_version: '8.1'
-# webserver_type: nginx-fpm
+docroot: apps/wordpress/web
+composer_root: apps/wordpress
+php_version: '8.0'
 webserver_type: apache-fpm
 router_http_port: '80'
 router_https_port: '443'
@@ -11,7 +11,7 @@ additional_hostnames: []
 additional_fqdns: []
 database:
   type: mariadb
-  version: '10.4'
+  version: '10.6'
 nfs_mount_enabled: false
 mutagen_enabled: false
 use_dns_when_possible: true

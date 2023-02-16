@@ -1,0 +1,3 @@
+path: apps/wordpress/web/wp
+server:
+  docroot: web

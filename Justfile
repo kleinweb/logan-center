@@ -3,6 +3,12 @@
 
 ###: https://just.systems/man/en/
 
+site-title := 'Logan Center for Urban Investigative Reporting'
+wp-siteurl := env_var('WP_SITEURL')
+
+wp-admin-user := 'kleinweb'
+wp-admin-email := 'kleinweb+logancenter@temple.edu'
+
 default:
   @just --list --unsorted --color=always | rg -v "    default"
 
@@ -20,6 +26,8 @@ prj-root := env_var('PRJ_ROOT')
 node-modules := join(prj-root, "node_modules/.bin")
 nextjs-dir := prj-root / "apps/nextjs"
 wp-dir := prj-root / "apps/wordpress"
+
+wp := if env_var('WP_ENV') == 'development' { 'ddev wp' } else { 'wp' }
 
 # make node/yarn `package.json` runnables available to tasks
 export PATH := join(node-modules, '.bin') + ":" + env_var('PATH')
@@ -50,21 +58,44 @@ focus app +ARGS:
 # [wp]: 		Install WordPress plugin with Composer and commit lock
 add-plugin name owner='wpackagist-plugin':
   cd {{ wp-dir }} && \
-    composer require {{ owner }}/{{ name }} && \
-    git add composer.{json,lock} && \
-    git commit --message 'feat(wp:plugins|deps): add `{{ name }}`'
+  composer require {{ owner }}/{{ name }} && \
+  git add composer.{json,lock} && \
+  git commit --message 'feat(deps:wp): add `{{ name }}`'
 
 # [wp]: 		Activate WordPress plugin
 activate-plugin name:
-  cd {{ wp-dir }} && ddev wp plugin activate {{ name }}
+  ddev wp plugin activate {{ name }}
+
+# [wp]: 		Remove a WordPress plugin
+rm-plugin name owner='wpackagist-plugin':
+  {{ wp }} plugin deactivate {{ name }} && \
+  cd {{ wp-dir }} && \
+  composer remove {{ owner }}/{{ name }} && \
+  git add composer.{json,lock} && \
+  git commit --message 'chore(deps:wp): remove plugin `{{ name }}`'
+
+wp *ARGS:
+  {{ wp }} {{ ARGS }}
+
+wp-query-by-slug slug *ARGS:
+  {{ wp }} post list --post_name={{ slug }} {{ ARGS }}
+
+wp-install admin-password theme='logan-center-wp-next-theme':
+  cd {{ wp-dir }} && \
+    composer install
+  {{ wp }} core install \
+    --url={{ quote( wp-siteurl ) }} \
+    --title={{ quote( site-title ) }} \
+    --admin_user='{{ wp-admin-user }}' \
+    --admin_password='{{ admin-password }}' \
+    --admin_email='{{ wp-admin-email }}' \
+    --skip-email
+  {{ wp }} rewrite structure "/%year%/%monthnum%/%day%/%postname%/" && \
+  {{ wp }} plugin activate --all && \
+  {{ wp }} theme activate {{ theme }}
 
 
 ###: LINTING/FORMATTING ============================================================================
-
-# FIXME:
-# ❯ just fmt
-# treefmt --no-cache /Users/cdom/Developer/work/projects/logan-center
-# thread 'main' panicked at 'assertion failed: command.is_absolute()', src/formatter.rs:165:9
 
 # [fmt]:		Format files with treefmt
 fmt *FILES=prj-root:

@@ -13,7 +13,7 @@ in {
   default = _: {
     commands = (
       (inCategory "wordpress" [
-        (package' "composer" nixpkgs.php81Packages.composer)
+        (package' "composer" nixpkgs.php80Packages.composer)
         (package' "wp" nixpkgs.wp-cli)
       ])
       ++ (inCategory "containers + vms" [
