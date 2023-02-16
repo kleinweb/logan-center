@@ -190,23 +190,7 @@
         "devshell": "devshell",
         "flake-parts": "flake-parts",
         "nixago": "nixago",
-        "nixpkgs": "nixpkgs",
-        "treefmt-flake": "treefmt-flake"
-      }
-    },
-    "treefmt-flake": {
-      "locked": {
-        "lastModified": 1669929251,
-        "narHash": "sha256-+qgCD89JyZhBNF4m/HuuVrpoRoXMTl5F60mJzr3QPNM=",
-        "owner": "srid",
-        "repo": "treefmt-flake",
-        "rev": "86341cd4a0ce21556a348fd27a4797997d27be00",
-        "type": "github"
-      },
-      "original": {
-        "owner": "srid",
-        "repo": "treefmt-flake",
-        "type": "github"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

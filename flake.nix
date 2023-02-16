@@ -9,7 +9,6 @@
 
     devshell.url = "github:numtide/devshell";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    treefmt-flake.url = "github:srid/treefmt-flake";
     nixago.url = "github:nix-community/nixago";
 
     devshell.inputs.nixpkgs.follows = "nixpkgs";
@@ -19,10 +18,7 @@
 
   outputs = {flake-parts, ...} @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [
-        inputs.treefmt-flake.flakeModule
-        ./nix
-      ];
+      imports = [./nix];
       systems = ["x86_64-linux" "x86_64-darwin" "aarch64-darwin" "aarch64-linux"];
     };
 
