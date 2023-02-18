@@ -2779,7 +2779,7 @@ __metadata:
   dependencies:
     eslint-config-next: "npm:^13.1.6"
     eslint-config-prettier: "npm:^8.6.0"
-    eslint-config-turbo: "npm:^0.0.7"
+    eslint-config-turbo: "npm:^0.0.8"
     eslint-plugin-jest: "npm:^27.2.1"
     eslint-plugin-react: "npm:7.32.2"
     eslint-plugin-tailwindcss: "npm:^3.8.3"
@@ -6298,14 +6298,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-turbo@npm:^0.0.7":
-  version: 0.0.7
-  resolution: "eslint-config-turbo@npm:0.0.7"
+"eslint-config-turbo@npm:^0.0.8":
+  version: 0.0.8
+  resolution: "eslint-config-turbo@npm:0.0.8"
   dependencies:
-    eslint-plugin-turbo: "npm:0.0.7"
+    eslint-plugin-turbo: "npm:0.0.8"
   peerDependencies:
     eslint: ">6.6.0"
-  checksum: 4e9a7e9f61121bd5cf6ea9c8a6067249ffb1fb9cd257403ea59cac459229ea6f76cc9bbc866317eb86a52115c6ed63aa1864d62d2915eb9ced397aa3bb30cdb9
+  checksum: f0f608bda9189106688d38572da1a470dba5ee9fa2d63efa23fc6c058f615345a982bbd86cf0022b9c50c72322ff9277254a76f65baab5ceb7c3fd5411762053
   languageName: node
   linkType: hard
 
@@ -6483,12 +6483,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-turbo@npm:0.0.7":
-  version: 0.0.7
-  resolution: "eslint-plugin-turbo@npm:0.0.7"
+"eslint-plugin-turbo@npm:0.0.8":
+  version: 0.0.8
+  resolution: "eslint-plugin-turbo@npm:0.0.8"
   peerDependencies:
     eslint: ">6.6.0"
-  checksum: ae1e91959b139e8473e531d1f4821beed3d2545f055eae7815c8ac82df222e76ee5ea8f21774e28fda621e54aef2a6e084bf9a84b54af1d3d3feda159d24f40b
+  checksum: 3dbd389bd18b4ddcfe32e8488dd83ef4155a1dc515d45d57bc599f69242a990e5c445b322b9859040effc99eeb8a596419cecc1b9c7d88512c5d08e4177fd61d
   languageName: node
   linkType: hard
 
