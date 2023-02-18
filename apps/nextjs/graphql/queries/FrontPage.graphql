@@ -1,0 +1,8 @@
+query FrontPage {
+  post(id: "/", idType: URI) {
+    id
+    databaseId
+    title
+    uri
+  }
+}

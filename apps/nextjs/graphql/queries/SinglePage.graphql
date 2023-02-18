@@ -1,13 +1,4 @@
 query SinglePage($slug: ID!) {
-  generalSettings {
-    ...Settings
-  }
-  headerMenu: menu(id: "Header", idType: NAME) {
-    ...MenuItems
-  }
-  footerMenu: menu(id: "Footer", idType: NAME) {
-    ...MenuItems
-  }
   page(id: $slug, idType: URI) {
     title(format: RENDERED)
     content(format: RENDERED)
