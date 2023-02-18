@@ -1,0 +1,15 @@
+---
+schema: ${GRAPHQL_SCHEMA:./graphql.schema.json}
+documents: 'apps/nextjs/**/*.{graphql,ts,tsx}'
+extensions:
+  codegen:
+    overwrite: true
+    ignoreNoDocuments: true # <- for better experience with the watcher
+    generates:
+      'apps/nextjs/gql/':
+        preset: 'client'
+        plugins: []
+      './graphql.schema.json':
+        plugins: ['introspection']
+    hooks:
+      afterAllFileWrite: ['prettier --write']
