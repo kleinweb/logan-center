@@ -12,25 +12,22 @@ import SiteSettingsProvider from '@/contexts/SiteSettings'
 import { PageProps } from '@/lib/types'
 // import { useState } from 'react'
 import SiteMenusProvider from '@/contexts/SiteMenus'
+import { useSiteMenusQuery } from '@/graphql/generated'
 
 export default function App({ Component, pageProps }: AppProps) {
   const { data } = pageProps as PageProps
-  // FIXME: is this necessary?
-  // const [headerMenu] = useState(data?.headerMenu)
-  // const [footerMenu] = useState(data?.footerMenu)
-  // const [generalSettings] = useState(data?.generalSettings)
   useInternalLinkRouting()
   return (
     <>
-      <SiteSettingsProvider generalSettings={data.generalSettings}>
-        <SiteMenusProvider
-          headerMenu={data.headerMenu}
-          footerMenu={data?.footerMenu}
-        >
-          <Telemetry />
-          <Component {...pageProps} />
-        </SiteMenusProvider>
-      </SiteSettingsProvider>
+      {/* <SiteSettingsProvider generalSettings={data.generalSettings}> */}
+      <SiteMenusProvider
+        headerMenu={data?.headerMenu}
+        // footerMenu={data?.footerMenu}
+      >
+        <Telemetry />
+        <Component {...pageProps} />
+      </SiteMenusProvider>
+      {/* </SiteSettingsProvider> */}
     </>
   )
 }

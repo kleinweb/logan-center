@@ -40,11 +40,7 @@ const NavItem = (props: ActiveLinkProps) => (
 export default function SiteHeader() {
   const { headerMenu } = useSiteMenusContext()
 
-  // const menuItems = growMenuTree(headerMenu?.menuItems?.nodes ?? []).map(
-  //   (parent) => parent.childItems.nodes.map((child) => <NavItem></NavItem>),
-  // )
-
-  const menuData = flatListToHierarchical(headerMenu?.menuItems?.nodes ?? [])
+  // const menuData = flatListToHierarchical(headerMenu.menuItems?.nodes ?? [])
 
   // Loop over all menu items.
   const menuItems = menuData.map((parent) => {

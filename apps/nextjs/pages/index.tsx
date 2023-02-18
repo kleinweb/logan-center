@@ -10,6 +10,7 @@ import { __ } from '@wordpress/i18n'
 
 import getApolloClient from '@/graphql/apollo'
 import {
+  AllContentTypesDocument,
   SinglePageDocument,
   SinglePageQuery,
   SinglePageQueryResult,
@@ -22,25 +23,26 @@ import youGotThisImage from '@/public/assets/images/photos/mastermanschool-first
 
 import Layout from '@/components/Layout'
 import Container from '@/components/Container'
+import { log } from '@/lib/log'
 
 const podcastInfoUrl =
   'https://whyy.org/programs/stop-and-frisk-revisit-or-resist/'
 
 const aboutLoganDoc = `Klein College of Media and Communication launched the Jonathan Logan Family Foundation Center for Urban Investigative Reporting in the summer of 2021 thanks to a $1.2 million founding grant from the Jonathan Logan Family Foundation of Berkeley, California. The Center focuses exclusively on the issues facing Philadelphia and other large American cities such as gun violence, economic inequality, education and health disparities, crumbling infrastructure and eroding trust in institutions. Through the Logan Center, Klein students and faculty report not only on these problems, but on potential solutions, closely examining what has worked well in other cities across the nation and the globe.`
 
-import Hero from './home/Hero'
+// import Hero from './home/Hero'
 
 type HomeProps = {
-  data: SinglePageQuery
+  data: any
 }
 
 // props: HomeProps
-export default function Home() {
-  // const {}
+export default function Home({ data }: HomeProps) {
+  console.log('[home]', data)
   return (
     <Layout title="Home">
       <div className="relative mb-6 md:mb-24">
-        <Hero />
+        {/* <Hero /> */}
 
         <div className="relative mx-auto md:container">
           <div className="grid grid-cols-12 grid-rows-1 gap-2 md:absolute md:-bottom-16 md:px-5">
@@ -193,10 +195,9 @@ export default function Home() {
   )
 }
 
-export const getStaticProps: GetStaticProps<HomeProps> = async (context) => {
-  const { data } = await getApolloClient(context).query<SinglePageQueryResult>({
-    query: SinglePageDocument,
-    variables: { slug: 'homepage' },
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const { data } = await getApolloClient().query({
+    query: AllContentTypesDocument,
   })
 
   return {
