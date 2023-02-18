@@ -2,7 +2,7 @@ import { MenuItemsFragment } from '@/graphql/generated'
 import { createContext, useContext } from 'react'
 
 export interface SiteMenusContextProps {
-  footerMenu: MenuItemsFragment
+  // footerMenu: MenuItemsFragment
   headerMenu: MenuItemsFragment
 }
 
@@ -18,14 +18,14 @@ export function useSiteMenusContext() {
  */
 export default function SiteMenusProvider({
   children,
-  footerMenu,
+  // footerMenu,
   headerMenu,
 }) {
   return (
     <SiteMenusContext.Provider
       value={{
         headerMenu,
-        footerMenu,
+        // footerMenu,
       }}
     >
       {children}
