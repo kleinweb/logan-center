@@ -91,8 +91,9 @@ wp-install admin-password theme='logan-center-wp-next-theme':
     --admin_email='{{ wp-admin-email }}' \
     --skip-email
   {{ wp }} rewrite structure "/%year%/%monthnum%/%day%/%postname%/" && \
-  {{ wp }} plugin activate --all && \
-  {{ wp }} theme activate {{ theme }}
+    {{ wp }} plugin activate --all && \
+    {{ wp }} theme activate {{ theme }}
+  {{ wp }} user create somecontributor somecontributor@example.edu --role=contributor --user_pass=password
 
 
 ###: LINTING/FORMATTING ============================================================================
