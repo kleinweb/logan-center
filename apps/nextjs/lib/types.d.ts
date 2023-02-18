@@ -11,7 +11,7 @@ export interface ChildrenProps {
 
 export interface PageProps {
   data: {
-    generalSettings: GeneralSettings
+    // generalSettings: GeneralSettings
     headerMenu: Menu
     footerMenu?: Menu
     page?: ContentNode
