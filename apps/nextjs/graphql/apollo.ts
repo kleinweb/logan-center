@@ -7,7 +7,6 @@ import { ApolloClient, InMemoryCache } from '@apollo/client'
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next'
 import fragmentMatcher from '@/graphql/generated/fragmentMatcher'
 import getApolloLink from './apollo-link'
-import { generateRequestContext } from '@/lib/log'
 
 let clientSideApolloClient: ApolloClient<unknown>
 
@@ -30,17 +29,13 @@ const { possibleTypes } = fragmentMatcher
  * context as the first parameter for additional detail in your logging. (Since
  * `getStaticProps` is run at build time, its context is not useful.)
  */
-export default function getApolloClient(
-  serverSideContext?: GetServerSidePropsContext | GetStaticPropsContext,
-) {
+export default function getApolloClient() {
   // Server-side / static: Return a new instance every time.
   if (isServerSide) {
-    const requestContext = generateRequestContext(serverSideContext)
-
     return new ApolloClient({
       cache: new InMemoryCache({ possibleTypes }),
-      link: getApolloLink(requestContext),
       ssrMode: true,
+      link: getApolloLink(),
     })
   }
 
