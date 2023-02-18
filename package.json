@@ -24,7 +24,8 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "codegen": "turbo run codegen",
+    "codegen": "graphql-codegen --config .graphqlrc.yml --require dotenv/config",
+    "codegen:watch": "yarn run codegen -- --watch",
     "dev": "concurrently 'yarn run codegen:watch' 'turbo run dev --no-cache --continue'",
     "lint": "turbo run lint",
     "test": "turbo run test",
@@ -41,12 +42,7 @@
     "packages/ui"
   ],
   "dependencies": {
-    "@apollo/client": "^3.7.7",
-    "@graphql-codegen/cli": "2.16.2",
-    "@graphql-codegen/fragment-matcher": "3.3.3",
-    "@graphql-codegen/typescript": "2.8.6",
-    "@graphql-codegen/typescript-operations": "2.5.11",
-    "@graphql-codegen/typescript-react-apollo": "3.3.7",
+    "@graphql-codegen/cli": "^2.16.5",
     "cross-fetch": "^3.1.5",
     "dotenv": "16.0.3",
     "dotenv-cli": "^7.0.0",
@@ -58,7 +54,11 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/node": "^18.13.0",
+    "@graphql-codegen/cli": "^3.0.0",
+    "@graphql-codegen/client-preset": "2.0.0",
+    "@graphql-codegen/introspection": "3.0.0",
+    "@graphql-codegen/schema-ast": "2.6.1",
+    "@types/node": "^18.14.0",
     "@types/prettier": "^2.7.2",
     "commitlint": "^17.4.3",
     "concurrently": "^7.6.0",

@@ -30,28 +30,6 @@
     },
     "clean": {
       "cache": false
-    },
-    "codegen": {
-      "cache": false,
-      "inputs": ["**/*.graphql", "**/*.tsx", "**/*.ts", "test/**/*.ts"],
-      "outputs": ["graphql/generated/**", "gql/generated/**"],
-      "dependsOn": [],
-      "env": [
-        "NEXT_PUBLIC_SERVER_URL",
-        "NEXT_PUBLIC_GRAPHQL_ENDPOINT",
-        "NEXT_PUBLIC_WORDPRESS_ENDPOINT"
-      ]
-    },
-    "codegen:watch": {
-      "cache": false,
-      "inputs": ["**/*.graphql", "**/*.tsx", "**/*.ts", "test/**/*.ts"],
-      "outputs": ["graphql/generated/**", "gql/generated/**"],
-      "dependsOn": [],
-      "env": [
-        "NEXT_PUBLIC_SERVER_URL",
-        "NEXT_PUBLIC_GRAPHQL_ENDPOINT",
-        "NEXT_PUBLIC_WORDPRESS_ENDPOINT"
-      ]
     }
   }
 }
