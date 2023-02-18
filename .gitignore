@@ -59,8 +59,8 @@ wp-cli.local.yml
 .flaskenv*
 !.env.project
 !.env.vault
-!.env.example
-!.env.sample
+!.env*.example
+!.env*.sample
 # }}}
 
 ##: testing
