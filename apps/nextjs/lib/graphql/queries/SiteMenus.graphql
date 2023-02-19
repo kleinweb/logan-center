@@ -1,5 +1,13 @@
 query SiteMenus {
-  headerMenu: menu(id: "Header", idType: NAME) {
-    ...MenuItems
+  # headerMenu: menu(id: "PRIMARY", idType: LOCATION) {
+  #   ...MenuItems
+  # }
+  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {
+    nodes {
+      key: id
+      parentId
+      title: label
+      url
+    }
   }
 }

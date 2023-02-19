@@ -5,11 +5,11 @@
   "exclude": ["node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
-    "strict": false,
+    "strict": true,
     "noImplicitAny": false,
     "paths": {
       "@/*": ["./*"]
     },
-    "strictNullChecks": true
+    "strictNullChecks": false
   }
 }
