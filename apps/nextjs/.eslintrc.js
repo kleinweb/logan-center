@@ -3,7 +3,7 @@
 
 module.exports = {
   root: true,
-  extends: ['@kleinweb/eslint-config-custom'],
+  extends: ['@kleinweb/eslint-config-custom', 'plugin:storybook/recommended'],
   overrides: [
     {
       files: ['*.graphql'],
