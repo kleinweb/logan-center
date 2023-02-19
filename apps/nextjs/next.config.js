@@ -9,7 +9,7 @@
 // Avoid language features that are not available in your target Node.js version.
 // Do not change the file extenstion to .ts.
 
-const { wordPressEndpoint } = require('./wp.config')
+const {wordPressEndpoint} = require('./wp.config')
 
 // Next.js currently doesn't have a good way to match all paths including the
 // root, so we need to use a special regex path.
@@ -17,6 +17,9 @@ const allPathsIncludingRoot = '/:path*{/}?'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // TODO: use this
+  // analyticsId: '',
+
   // Base path
   // =========
   // https://nextjs.org/docs/api-reference/next.config.js/basepath
@@ -35,6 +38,7 @@ const nextConfig = {
   // Redirects
   // =========
   // https://nextjs.org/docs/api-reference/next.config.js/redirects
+  // FIXME: this probably needs adjustment or, more likely, removal
   async redirects() {
     return [
       {
