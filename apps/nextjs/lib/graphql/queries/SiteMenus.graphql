@@ -1,17 +1,5 @@
 query SiteMenus {
-  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {
-    edges {
-      node {
-        ...MenuItem
-      }
-    }
+  headerMenu: menu(id: "Header", idType: NAME) {
+    ...MenuItems
   }
-  # TODO: doesn't exist (maybe it doesn't need to)
-  # footerMenu: menuItems(where: { location: FOOTER }) {
-  #   edges {
-  #     node {
-  #       ...MenuItem
-  #     }
-  #   }
-  # }
 }

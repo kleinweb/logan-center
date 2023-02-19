@@ -35,6 +35,8 @@ export default function Post(props: PostProps) {
           </div>
 
           <div className="space-y-5">
+            {/* FIXME: bad */}
+            {/* @ts-ignore */}
             <PostContent blocks={props.post.contentBlocks.blocks} />
           </div>
         </Container>
@@ -49,6 +51,7 @@ export const getServerSideProps: GetServerSideProps<
   const queryOptions = {
     query: ContentNodeBySlugDocument,
     variables: {
+      // @ts-ignore
       slug: extractLastTokenFromRoute(context.query.slug),
     },
   }

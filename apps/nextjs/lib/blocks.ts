@@ -1,7 +1,8 @@
 // SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
-//
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
+
+// FIXME: type errors
 
 import {ContentBlockAttribute} from '@/gql/graphql'
 
@@ -15,6 +16,7 @@ export type PostContentBlockAttributes = {
 export function mapAttributesToProps(
   attributes: ContentBlockAttribute[],
 ): PostContentBlockAttributes {
+  // @ts-ignore
   return attributes.reduce((acc, {name, value}) => {
     // Drop attributes without a name or value.
     if (!name || !value) {

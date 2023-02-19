@@ -17,11 +17,16 @@ export default function PostList(props: Props) {
   return (
     <>
       <ul>
-        {props.posts.map(post => (
-          <li key={post.databaseId}>
-            <Link href={getInternalLinkPathname(post.link)}>{post.title}</Link>
-          </li>
-        ))}
+        {props.posts.map(
+          post =>
+            post.link && (
+              <li key={post.databaseId}>
+                <Link href={getInternalLinkPathname(post.link)}>
+                  {post.title}
+                </Link>
+              </li>
+            ),
+        )}
       </ul>
       <p>
         {props.previousPageLink && (

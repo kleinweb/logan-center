@@ -2,8 +2,8 @@
 // SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { ComponentProps } from 'react'
-import NextImage, { ImageLoader, ImageLoaderProps } from 'next/image'
+import {ComponentProps} from 'react'
+import NextImage, {ImageLoader, ImageLoaderProps} from 'next/image'
 import wpConfig from '../../wp.config'
 
 /**
@@ -14,7 +14,7 @@ import wpConfig from '../../wp.config'
  * https://docs.wpvip.com/technical-references/vip-go-files-system/image-transformation/
  */
 
-const { wordPressContentDirname: contentDirname } = wpConfig
+const {wordPressContentDirname: contentDirname} = wpConfig
 
 export type ImageProps = {
   src: string
@@ -23,24 +23,19 @@ export type ImageProps = {
   originalHeight?: number
 } & ComponentProps<typeof NextImage>
 
-function wpImageLoader({ quality, src, width }: ImageLoaderProps): string {
+function wpImageLoader({quality, src, width}: ImageLoaderProps): string {
   return `${src}?w=${width}&q=${quality || 75}`
 }
 
 export default function Image(props: ImageProps) {
-  const { originalHeight, originalWidth, ...imageProps } = props
+  const {originalHeight, originalWidth, ...imageProps} = props
   const height = props.height || originalHeight
   const width = props.width || originalWidth
 
-  if (wpConfig.images.useHtmlTag && props.srcset) {
-    return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img {...imageProps} alt={props.alt} srcSet={props.srcset} />
-    )
-  }
-
   // Only set a loader if it is actually needed. This avoids a Next.js warning:
   // https://nextjs.org/docs/messages/next-image-missing-loader-width
+  // FIXME: not sure what the error is about but i didn't write this...
+  // @ts-expect-error
   const loader: ImageLoader = props.src.includes(`/${contentDirname}/uploads/`)
     ? wpImageLoader
     : undefined

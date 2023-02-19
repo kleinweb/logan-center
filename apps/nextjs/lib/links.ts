@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import config from '../next.config'
-import { links } from '../wp.config'
+import {links} from '../wp.config'
 
 const basePathRemover = new RegExp(`^${config.basePath}/*`)
 
@@ -30,6 +30,8 @@ export function extractLastTokenFromRoute(
     return routeQuery
   }
 
+  // FIXME: bad type handling
+  // @ts-ignore
   return routeQuery.slice().pop()
 }
 
@@ -52,7 +54,7 @@ function getCorrectPathname(pathname: string): string {
  */
 export function getHostname(url: string): string {
   try {
-    const { hostname } = new URL(url)
+    const {hostname} = new URL(url)
 
     return hostname
   } catch (err) {
@@ -64,7 +66,7 @@ export function getHostname(url: string): string {
 
 export function getInternalLinkPathname(url: string): string {
   try {
-    const { hostname, pathname, protocol, search } = new URL(url)
+    const {hostname, pathname, protocol, search} = new URL(url)
 
     // Determine if the link destination should be considered internal. If so,
     // return the relative path to this Next.js site.

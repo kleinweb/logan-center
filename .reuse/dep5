@@ -8,7 +8,7 @@ Source: https://github.com/kleinweb/logan-center
 Files: *.yaml
        *.yml
        */*.d.ts
-       apps/nextjs/graphql/generated/*
+       apps/nextjs/gql/*
 Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: GPL-3.0-or-later
 

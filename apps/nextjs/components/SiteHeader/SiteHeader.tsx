@@ -11,7 +11,6 @@ import type {ActiveLinkProps as ActiveLinkComponentProps} from '@/components/Act
 import LogoFull from '@/public/assets/logos/logo--full--duo.svg'
 
 import Container from '../Container'
-import {useSiteMenusContext} from '@/contexts/SiteMenus'
 import NavigationMenu from './NavigationMenu'
 
 type ActiveLinkProps = {
@@ -35,17 +34,16 @@ const NavItem = (props: ActiveLinkProps) => (
 )
 
 export default function SiteHeader() {
-  const {headerMenu} = useSiteMenusContext()
   return (
     <Container>
       <div className="flex items-center justify-between">
         <Link href="/">
           <LogoFull className="h-18 md:h-20 xl:h-24" />
         </Link>
-        <NavigationMenu menuItems={headerMenu.menuItems} />
+        {/* <NavigationMenu /> */}
         <nav className="grow">
           <ul className="flex items-center justify-end">
-            {headerMenu.menuItems.nodes}
+            {/* {headerMenu.menuItems.nodes} */}
             {/*
             FIXME: disabled until podcast page is ready
             <NavItem href="/podcast">
