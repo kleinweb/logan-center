@@ -3,27 +3,21 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { GetStaticProps } from 'next'
+import {GetStaticProps} from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { __ } from '@wordpress/i18n'
+import {__} from '@wordpress/i18n'
 
-import getApolloClient from '@/graphql/apollo'
-import {
-  AllContentTypesDocument,
-  SinglePageDocument,
-  SinglePageQuery,
-  SinglePageQueryResult,
-} from '@/graphql/generated'
-
-import { Button, ButtonWithIcon } from '@/components/Buttons'
+import {Button, ButtonWithIcon} from '@/components/Buttons'
 import BarsMotif from '@/public/assets/decorations/motif--island.svg'
 import podcastImage from '@/public/assets/images/podcast--poster--art_only.jpg'
 import youGotThisImage from '@/public/assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'
 
 import Layout from '@/components/Layout'
 import Container from '@/components/Container'
-import { log } from '@/lib/log'
+import {addApolloState, initializeApollo} from '@/lib/graphql'
+import {HomepageDocument, HomepageQuery} from '@/gql/graphql'
+// import {log} from '@/lib/log'
 
 const podcastInfoUrl =
   'https://whyy.org/programs/stop-and-frisk-revisit-or-resist/'
@@ -33,11 +27,11 @@ const aboutLoganDoc = `Klein College of Media and Communication launched the Jon
 // import Hero from './home/Hero'
 
 type HomeProps = {
-  data: any
+  data: HomepageQuery
 }
 
-// props: HomeProps
-export default function Home({ data }: HomeProps) {
+export default function Home({data}: HomeProps) {
+  // eslint-disable-next-line no-console
   console.log('[home]', data)
   return (
     <Layout title="Home">
@@ -196,13 +190,13 @@ export default function Home({ data }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const { data } = await getApolloClient().query({
-    query: AllContentTypesDocument,
+  const apolloClient = initializeApollo()
+
+  const {data} = await apolloClient.query({
+    query: HomepageDocument,
   })
 
-  return {
-    props: {
-      ...data,
-    },
-  }
+  return addApolloState(apolloClient, {
+    props: {...data},
+  })
 }

@@ -25,8 +25,8 @@ const documents = {
     types.SettingsFragmentDoc,
   'fragment MediaItemFields on MediaItem {\n  id\n  altText\n  caption\n  databaseId\n  date\n  mediaDetails {\n    height\n    width\n  }\n  sourceUrl\n  title\n  uri\n}':
     types.MediaItemFieldsFragmentDoc,
-  'fragment MenuItem on MenuItem {\n  id\n  path\n  label\n  url\n  linkRelationship\n  target\n  parentId\n}\n\nfragment MenuItems on Menu {\n  count\n  menuItems {\n    nodes {\n      ...MenuItem\n      childItems {\n        nodes {\n          ...MenuItem\n        }\n      }\n    }\n  }\n}':
-    types.MenuItemFragmentDoc,
+  'fragment MenuItems on Menu {\n  count\n  menuItems {\n    nodes {\n      id\n      path\n      label\n      linkRelationship\n      target\n      parentId\n      childItems {\n        nodes {\n          id\n          path\n          cssClasses\n          label\n          linkRelationship\n          target\n          parentId\n        }\n      }\n    }\n  }\n}':
+    types.MenuItemsFragmentDoc,
   'fragment PageInfo on WPPageInfo {\n  endCursor\n  hasNextPage\n  hasPreviousPage\n  startCursor\n}':
     types.PageInfoFragmentDoc,
   'query AllContentTypes($after: String, $before: String, $first: Int = 1, $last: Int) {\n  contentTypes(first: 50) {\n    nodes {\n      ...ContentTypeFields\n    }\n  }\n}':
@@ -47,9 +47,9 @@ const documents = {
     types.AllMediaItemsDocument,
   'query SinglePage($slug: ID!) {\n  page(id: $slug, idType: URI) {\n    title(format: RENDERED)\n    content(format: RENDERED)\n    databaseId\n    uri\n    featuredImage {\n      ...FeaturedImageFields\n    }\n    seo {\n      fullHead\n      title\n      metaDesc\n    }\n  }\n}':
     types.SinglePageDocument,
-  'query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {\n    edges {\n      node {\n        ...MenuItem\n      }\n    }\n  }\n}':
+  'query SiteMenus {\n  headerMenu: menu(id: "Header", idType: NAME) {\n    ...MenuItems\n  }\n}':
     types.SiteMenusDocument,
-  'query Sitewide {\n  generalSettings {\n    ...Settings\n  }\n  headerMenu: menu(id: "Header", idType: NAME) {\n    ...MenuItems\n  }\n  footerMenu: menu(id: "Footer", idType: NAME) {\n    ...MenuItems\n  }\n}':
+  'query Sitewide {\n  generalSettings {\n    ...Settings\n  }\n  headerMenu: menu(id: "PRIMARY_MENU", idType: LOCATION) {\n    ...MenuItems\n  }\n}':
     types.SitewideDocument,
   'query TaxonomyArchive($category: String!) {\n  posts(where: {categoryName: $category}) {\n    nodes {\n      title(format: RENDERED)\n      excerpt(format: RENDERED)\n      uri\n      featuredImage {\n        ...FeaturedImageFields\n      }\n      categories {\n        edges {\n          node {\n            name\n            uri\n          }\n        }\n      }\n      seo {\n        fullHead\n        title\n        metaDesc\n      }\n    }\n  }\n}':
     types.TaxonomyArchiveDocument,
@@ -109,8 +109,8 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment MenuItem on MenuItem {\n  id\n  path\n  label\n  url\n  linkRelationship\n  target\n  parentId\n}\n\nfragment MenuItems on Menu {\n  count\n  menuItems {\n    nodes {\n      ...MenuItem\n      childItems {\n        nodes {\n          ...MenuItem\n        }\n      }\n    }\n  }\n}',
-): (typeof documents)['fragment MenuItem on MenuItem {\n  id\n  path\n  label\n  url\n  linkRelationship\n  target\n  parentId\n}\n\nfragment MenuItems on Menu {\n  count\n  menuItems {\n    nodes {\n      ...MenuItem\n      childItems {\n        nodes {\n          ...MenuItem\n        }\n      }\n    }\n  }\n}']
+  source: 'fragment MenuItems on Menu {\n  count\n  menuItems {\n    nodes {\n      id\n      path\n      label\n      linkRelationship\n      target\n      parentId\n      childItems {\n        nodes {\n          id\n          path\n          cssClasses\n          label\n          linkRelationship\n          target\n          parentId\n        }\n      }\n    }\n  }\n}',
+): (typeof documents)['fragment MenuItems on Menu {\n  count\n  menuItems {\n    nodes {\n      id\n      path\n      label\n      linkRelationship\n      target\n      parentId\n      childItems {\n        nodes {\n          id\n          path\n          cssClasses\n          label\n          linkRelationship\n          target\n          parentId\n        }\n      }\n    }\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -175,14 +175,14 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {\n    edges {\n      node {\n        ...MenuItem\n      }\n    }\n  }\n}',
-): (typeof documents)['query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {\n    edges {\n      node {\n        ...MenuItem\n      }\n    }\n  }\n}']
+  source: 'query SiteMenus {\n  headerMenu: menu(id: "Header", idType: NAME) {\n    ...MenuItems\n  }\n}',
+): (typeof documents)['query SiteMenus {\n  headerMenu: menu(id: "Header", idType: NAME) {\n    ...MenuItems\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query Sitewide {\n  generalSettings {\n    ...Settings\n  }\n  headerMenu: menu(id: "Header", idType: NAME) {\n    ...MenuItems\n  }\n  footerMenu: menu(id: "Footer", idType: NAME) {\n    ...MenuItems\n  }\n}',
-): (typeof documents)['query Sitewide {\n  generalSettings {\n    ...Settings\n  }\n  headerMenu: menu(id: "Header", idType: NAME) {\n    ...MenuItems\n  }\n  footerMenu: menu(id: "Footer", idType: NAME) {\n    ...MenuItems\n  }\n}']
+  source: 'query Sitewide {\n  generalSettings {\n    ...Settings\n  }\n  headerMenu: menu(id: "PRIMARY_MENU", idType: LOCATION) {\n    ...MenuItems\n  }\n}',
+): (typeof documents)['query Sitewide {\n  generalSettings {\n    ...Settings\n  }\n  headerMenu: menu(id: "PRIMARY_MENU", idType: LOCATION) {\n    ...MenuItems\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

@@ -8912,35 +8912,33 @@ export type MediaItemFieldsFragment = {
   } | null
 } & {' $fragmentName'?: 'MediaItemFieldsFragment'}
 
-export type MenuItemFragment = {
-  __typename?: 'MenuItem'
-  id: string
-  path?: string | null
-  label?: string | null
-  url?: string | null
-  linkRelationship?: string | null
-  target?: string | null
-  parentId?: string | null
-} & {' $fragmentName'?: 'MenuItemFragment'}
-
 export type MenuItemsFragment = {
   __typename?: 'Menu'
   count?: number | null
   menuItems?: {
     __typename?: 'MenuToMenuItemConnection'
-    nodes: Array<
-      {
-        __typename?: 'MenuItem'
-        childItems?: {
-          __typename?: 'MenuItemToMenuItemConnection'
-          nodes: Array<
-            {__typename?: 'MenuItem'} & {
-              ' $fragmentRefs'?: {MenuItemFragment: MenuItemFragment}
-            }
-          >
-        } | null
-      } & {' $fragmentRefs'?: {MenuItemFragment: MenuItemFragment}}
-    >
+    nodes: Array<{
+      __typename?: 'MenuItem'
+      id: string
+      path?: string | null
+      label?: string | null
+      linkRelationship?: string | null
+      target?: string | null
+      parentId?: string | null
+      childItems?: {
+        __typename?: 'MenuItemToMenuItemConnection'
+        nodes: Array<{
+          __typename?: 'MenuItem'
+          id: string
+          path?: string | null
+          cssClasses?: Array<string | null> | null
+          label?: string | null
+          linkRelationship?: string | null
+          target?: string | null
+          parentId?: string | null
+        }>
+      } | null
+    }>
   } | null
 } & {' $fragmentName'?: 'MenuItemsFragment'}
 
@@ -9162,15 +9160,11 @@ export type SiteMenusQueryVariables = Exact<{[key: string]: never}>
 
 export type SiteMenusQuery = {
   __typename?: 'RootQuery'
-  headerMenu?: {
-    __typename?: 'RootQueryToMenuItemConnection'
-    edges: Array<{
-      __typename?: 'RootQueryToMenuItemConnectionEdge'
-      node: {__typename?: 'MenuItem'} & {
-        ' $fragmentRefs'?: {MenuItemFragment: MenuItemFragment}
-      }
-    }>
-  } | null
+  headerMenu?:
+    | ({__typename?: 'Menu'} & {
+        ' $fragmentRefs'?: {MenuItemsFragment: MenuItemsFragment}
+      })
+    | null
 }
 
 export type SitewideQueryVariables = Exact<{[key: string]: never}>
@@ -9183,11 +9177,6 @@ export type SitewideQuery = {
       })
     | null
   headerMenu?:
-    | ({__typename?: 'Menu'} & {
-        ' $fragmentRefs'?: {MenuItemsFragment: MenuItemsFragment}
-      })
-    | null
-  footerMenu?:
     | ({__typename?: 'Menu'} & {
         ' $fragmentRefs'?: {MenuItemsFragment: MenuItemsFragment}
       })
@@ -9607,31 +9596,6 @@ export const MediaItemFieldsFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<MediaItemFieldsFragment, unknown>
-export const MenuItemFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'MenuItem'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'MenuItem'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'path'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'label'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'url'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'linkRelationship'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'target'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'parentId'}},
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<MenuItemFragment, unknown>
 export const MenuItemsFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -9655,10 +9619,15 @@ export const MenuItemsFragmentDoc = {
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'path'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'label'}},
                       {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'MenuItem'},
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'linkRelationship'},
                       },
+                      {kind: 'Field', name: {kind: 'Name', value: 'target'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'parentId'}},
                       {
                         kind: 'Field',
                         name: {kind: 'Name', value: 'childItems'},
@@ -9672,8 +9641,35 @@ export const MenuItemsFragmentDoc = {
                                 kind: 'SelectionSet',
                                 selections: [
                                   {
-                                    kind: 'FragmentSpread',
-                                    name: {kind: 'Name', value: 'MenuItem'},
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'id'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'path'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'cssClasses'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'label'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {
+                                      kind: 'Name',
+                                      value: 'linkRelationship',
+                                    },
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'target'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'parentId'},
                                   },
                                 ],
                               },
@@ -9690,7 +9686,6 @@ export const MenuItemsFragmentDoc = {
         ],
       },
     },
-    ...MenuItemFragmentDoc.definitions,
   ],
 } as unknown as DocumentNode<MenuItemsFragment, unknown>
 export const AllContentTypesDocument = {
@@ -10374,47 +10369,25 @@ export const SiteMenusDocument = {
           {
             kind: 'Field',
             alias: {kind: 'Name', value: 'headerMenu'},
-            name: {kind: 'Name', value: 'menuItems'},
+            name: {kind: 'Name', value: 'menu'},
             arguments: [
               {
                 kind: 'Argument',
-                name: {kind: 'Name', value: 'where'},
-                value: {
-                  kind: 'ObjectValue',
-                  fields: [
-                    {
-                      kind: 'ObjectField',
-                      name: {kind: 'Name', value: 'location'},
-                      value: {kind: 'EnumValue', value: 'PRIMARY_MENU'},
-                    },
-                  ],
-                },
+                name: {kind: 'Name', value: 'id'},
+                value: {kind: 'StringValue', value: 'Header', block: false},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'idType'},
+                value: {kind: 'EnumValue', value: 'NAME'},
               },
             ],
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'edges'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'node'},
-                        selectionSet: {
-                          kind: 'SelectionSet',
-                          selections: [
-                            {
-                              kind: 'FragmentSpread',
-                              name: {kind: 'Name', value: 'MenuItem'},
-                            },
-                          ],
-                        },
-                      },
-                    ],
-                  },
+                  kind: 'FragmentSpread',
+                  name: {kind: 'Name', value: 'MenuItems'},
                 },
               ],
             },
@@ -10422,7 +10395,7 @@ export const SiteMenusDocument = {
         ],
       },
     },
-    ...MenuItemFragmentDoc.definitions,
+    ...MenuItemsFragmentDoc.definitions,
   ],
 } as unknown as DocumentNode<SiteMenusQuery, SiteMenusQueryVariables>
 export const SitewideDocument = {
@@ -10456,38 +10429,16 @@ export const SitewideDocument = {
               {
                 kind: 'Argument',
                 name: {kind: 'Name', value: 'id'},
-                value: {kind: 'StringValue', value: 'Header', block: false},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'idType'},
-                value: {kind: 'EnumValue', value: 'NAME'},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: {kind: 'Name', value: 'MenuItems'},
+                value: {
+                  kind: 'StringValue',
+                  value: 'PRIMARY_MENU',
+                  block: false,
                 },
-              ],
-            },
-          },
-          {
-            kind: 'Field',
-            alias: {kind: 'Name', value: 'footerMenu'},
-            name: {kind: 'Name', value: 'menu'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'id'},
-                value: {kind: 'StringValue', value: 'Footer', block: false},
               },
               {
                 kind: 'Argument',
                 name: {kind: 'Name', value: 'idType'},
-                value: {kind: 'EnumValue', value: 'NAME'},
+                value: {kind: 'EnumValue', value: 'LOCATION'},
               },
             ],
             selectionSet: {

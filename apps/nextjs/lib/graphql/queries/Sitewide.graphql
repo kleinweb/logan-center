@@ -2,10 +2,21 @@ query Sitewide {
   generalSettings {
     ...Settings
   }
-  headerMenu: menu(id: "Header", idType: NAME) {
+  # NOTE: copied from `SiteMenus`
+  headerMenu: menu(id: "PRIMARY_MENU", idType: LOCATION) {
     ...MenuItems
   }
-  footerMenu: menu(id: "Footer", idType: NAME) {
-    ...MenuItems
-  }
+  # headerMenu: menuItems(where: {location: PRIMARY_MENU}) {
+  #   edges {
+  #     node {
+  #       ...MenuItem
+  #     }
+  #   }
+  # }
+  # headerMenu: menu(id: "Header", idType: NAME) {
+  #   ...MenuItems
+  # }
+  # footerMenu: menu(id: "Footer", idType: NAME) {
+  #   ...MenuItems
+  # }
 }

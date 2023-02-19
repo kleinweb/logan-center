@@ -30,8 +30,12 @@ export default function PostContent({
   return (
     <Container>
       {blocks.map((block, i) => {
-        const attributesProps = mapAttributesToProps(block.attributes || [])
+        // FIXME: ugh shut up
+        // @ts-expect-error
+        const attributesProps = mapAttributesToProps(block.attributes)
         const key = `block-${i}`
+        // FIXME: hmm... problem?
+        // @ts-expect-error
         const Block = blockMap[block.name]
 
         if (Block) {

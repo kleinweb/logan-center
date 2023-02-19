@@ -1,16 +1,17 @@
 // SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
-//
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 /* eslint-disable no-console */
 
+/* eslint-disable no-unused-vars */
 enum LogLevel {
   DEBUG = 'DEBUG',
   INFO = 'INFO',
   WARN = 'WARN',
   ERROR = 'ERROR',
 }
+/* eslint-enable no-unused-vars */
 
 export type LogContext = {
   [key: string]: string | number

@@ -1,16 +1,17 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import { ReactNode } from 'react'
+import {ReactNode} from 'react'
 import Head from 'next/head'
 
-import { SITE_NAME } from '@/lib/constants'
-import { KleinBanner } from '@/components/KleinBanner'
+import {SITE_NAME} from '@/lib/constants'
+import {KleinBanner} from '@/components/KleinBanner'
 
 import Loading from '../Loading/Loading'
 import Meta from '../Meta'
 import SiteFooter from '../SiteFooter'
 import SiteHeader from '../SiteHeader'
+import clsx from 'clsx'
 
 /**
  * A page component helps us to enforce consistent UI and SEO best practices
@@ -31,7 +32,7 @@ type LayoutProps = {
 }
 
 export default function Layout(props: LayoutProps) {
-  const { loading = false } = props
+  const {loading = false} = props
 
   if (loading) {
     return <Loading />
@@ -68,7 +69,9 @@ export default function Layout(props: LayoutProps) {
       </header>
       <div className="min-h-screen">
         <main className="block">
-          <h1 className={props.title == 'Home' && 'sr-only'}>{props.title}</h1>
+          <h1 className={clsx(props.title == 'Home' && 'sr-only')}>
+            {props.title}
+          </h1>
           {props.children}
         </main>
       </div>

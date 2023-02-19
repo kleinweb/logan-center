@@ -7,17 +7,21 @@ export type FlattenedTreeNode = HierarchicalNode & {
   children?: FlattenedTreeNode[]
 }
 
+/* eslint-disable no-unused-vars */
 export enum FlattenedTreeNodeKeysEnum {
   idKey = 'idKey',
   parentKey = 'parentKey',
   childrenKey = 'childrenKey',
 }
+/* eslint-enable no-unused-vars */
 
+/* eslint-disable no-unused-vars */
 export enum FlattenedTreeNodeKeysDefaultsEnum {
   key = 'key',
   parentId = 'parentId',
   children = 'children',
 }
+/* eslint-enable no-unused-vars */
 
 /**
  * Unsafely convert a flat list to a hierarchical list.
