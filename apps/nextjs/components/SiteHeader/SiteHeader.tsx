@@ -2,20 +2,17 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import cn from 'clsx'
-import Link, { LinkProps } from 'next/link'
-import { __ } from '@wordpress/i18n'
+import Link, {LinkProps} from 'next/link'
+import {__} from '@wordpress/i18n'
 
-import { ActiveLink as ActiveLinkComponent } from '@/components/ActiveLink'
-import type { ActiveLinkProps as ActiveLinkComponentProps } from '@/components/ActiveLink'
+import {ActiveLink as ActiveLinkComponent} from '@/components/ActiveLink'
+import type {ActiveLinkProps as ActiveLinkComponentProps} from '@/components/ActiveLink'
 
 import LogoFull from '@/public/assets/logos/logo--full--duo.svg'
 
 import Container from '../Container'
-import { GetStaticProps } from 'next'
-import getApolloClient from '@/graphql/apollo'
-import { useSiteMenusContext } from '@/contexts/SiteMenus'
-import { flatListToHierarchical, growMenuTree } from '@/lib/menus'
-import { MenuItem } from '@/graphql/generated'
+import {useSiteMenusContext} from '@/contexts/SiteMenus'
+import NavigationMenu from './NavigationMenu'
 
 type ActiveLinkProps = {
   href: LinkProps['href']
@@ -38,57 +35,14 @@ const NavItem = (props: ActiveLinkProps) => (
 )
 
 export default function SiteHeader() {
-  const { headerMenu } = useSiteMenusContext()
-
-  // const menuData = flatListToHierarchical(headerMenu.menuItems?.nodes ?? [])
-
-  // Loop over all menu items.
-  const menuItems = menuData.map((parent) => {
-    // If there is a child item...
-    if (parent?.childItems?.nodes?.length > 0) {
-      // Loop over all child items.
-      const dropdownItems = parent.childItems.nodes.map((child: MenuItem) => {
-        return (
-          <li key={child.id}>
-            <a href={child.path}>{child.label}</a>
-          </li>
-          // <Menu.Item key={child.id} component="a">
-          //   <a href={child.path} className={classes.link}>
-          //     {child.label}
-          //   </a>
-          // </Menu.Item>
-        )
-      })
-
-      // Build the parent item and its dropdown.
-      return undefined
-      // FIXME
-      // <Menu key={parent.id} exitTransitionDuration={0} position="bottom-end">
-      //   <Menu.Target>
-      //     <span className={classes.link}>
-      //       <span className={classes.linkLabel}>{parent.label}</span>
-      //       <IconChevronDown size={12} stroke="1.5" />
-      //     </span>
-      //   </Menu.Target>
-      //   <Menu.Dropdown className={classes.dropdown}>
-      //     {dropdownItems}
-      //   </Menu.Dropdown>
-      // </Menu>
-    }
-
-    // Return a parent/single menu item.
-    return (
-      <a key={parent.id} href={parent.path} className={classes.link}>
-        {parent.label}
-      </a>
-    )
-  })
+  const {headerMenu} = useSiteMenusContext()
   return (
     <Container>
       <div className="flex items-center justify-between">
         <Link href="/">
           <LogoFull className="h-18 md:h-20 xl:h-24" />
         </Link>
+        <NavigationMenu menuItems={headerMenu.menuItems} />
         <nav className="grow">
           <ul className="flex items-center justify-end">
             {headerMenu.menuItems.nodes}

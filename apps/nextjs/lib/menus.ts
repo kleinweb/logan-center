@@ -1,46 +1,85 @@
-import { MenuItem } from '@/graphql/generated'
+// <https://en.wikipedia.org/wiki/Tree_%28data_structure%29#Terminology>
+
+import {HierarchicalNode} from '@/gql/graphql'
+
+export type FlattenedTreeNode = HierarchicalNode & {
+  key?: string
+  children?: FlattenedTreeNode[]
+}
+
+export enum FlattenedTreeNodeKeysEnum {
+  idKey = 'idKey',
+  parentKey = 'parentKey',
+  childrenKey = 'childrenKey',
+}
+
+export enum FlattenedTreeNodeKeysDefaultsEnum {
+  key = 'key',
+  parentId = 'parentId',
+  children = 'children',
+}
 
 /**
- * Convert a flat list to a tree.
+ * Unsafely convert a flat list to a hierarchical list.
  *
- * Alternatively, try {@link growMenuTree}
+ * Most commonly used for hierarchical data types like menu items and
+ * hierarchical post types e.g. Pages.
  *
- * @see https://www.wpgraphql.com/docs/menus/#hierarchical-data
+ * Copy-pasted from JavaScript.
+ *
+ * FIXME: Untyped internals and unsafe defaults
+ * TODO: Refactor to use a reducer / pure functions.
+ *
+ * @see {@link <https://www.wpgraphql.com/docs/menus>}
  */
-export function flatListToHierarchical(
+export const unsafeFlatListToHierarchical = (
   data = [],
-  { idKey = 'key', parentKey = 'parentId', childrenKey = 'children' } = {},
-) {
+  {idKey = 'key', parentKey = 'parentId', childrenKey = 'children'} = {},
+) => {
   const tree = []
   const childrenOf = {}
-
-  // Loop through each item in the list.
-  data.forEach((item) => {
-    const newItem = { ...item }
-    const { [idKey]: id, [parentKey]: parentId = 0 } = newItem
+  data.forEach(item => {
+    // @ts-expect-error
+    const newItem = {...item}
+    const {[idKey]: id, [parentKey]: parentId = 0} = newItem
     childrenOf[id] = childrenOf[id] || []
     newItem[childrenKey] = childrenOf[id]
     parentId
       ? (childrenOf[parentId] = childrenOf[parentId] || []).push(newItem)
-      : tree.push(newItem)
+      : // @ts-expect-error
+        tree.push(newItem)
   })
-
   return tree
 }
 
 /**
- * Feeling adventures? Try this one instead of {@link flatListToHierarchical}
+ * Experimentally convert a flat list to a hierarchical list.
  *
- * TODO: write tests
- * @see {@link <https://github.com/chapter-three/next-drupal/blob/511a94dea1f8bb7bfa78f4595130a31ab9938739/packages/next-drupal/src/get-menu.ts>}
+ * Most commonly used for hierarchical data types like menu items and
+ * hierarchical post types e.g. Pages.
+ *
+ * FIXME: Unsafe + experimental
+ * TODO: Refactor to use a reducer / pure functions.
+ *
+ * @see {@link <https://www.wpgraphql.com/docs/menus>}
  */
-export const growMenuTree = (
-  menuItems: MenuItem[],
-  parent: MenuItem['id'] = '',
-): MenuItem[] =>
-  menuItems
-    .filter((link) => link.parentId === parent)
-    .map((link) => ({
-      ...link,
-      ...growMenuTree(menuItems, link.id),
-    }))
+export const experimentalFlatListToHierarchical = (
+  data: FlattenedTreeNode[] = [],
+  keys = {idKey: 'key', parentKey: 'parentId', childrenKey: 'children'},
+) => {
+  const {idKey, parentKey, childrenKey} = keys
+  const tree = []
+  const childrenOf = {}
+  data.forEach(item => {
+    const newItem = {...item}
+    const id = newItem[idKey]
+    const parentId = newItem[parentKey] ?? 0
+    childrenOf[id] = childrenOf[id] ?? []
+    newItem[childrenKey] = childrenOf[id]
+    parentId
+      ? (childrenOf[parentId] = childrenOf[parentId] || []).push(newItem)
+      : // @ts-expect-error
+        tree.push(newItem)
+  })
+  return tree
+}
