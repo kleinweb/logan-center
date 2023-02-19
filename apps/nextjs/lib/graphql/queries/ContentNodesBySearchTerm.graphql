@@ -17,7 +17,7 @@ query ContentNodesBySearchTerm(
     before: $before
     first: $first
     last: $last
-    where: { search: $search }
+    where: {search: $search}
   ) {
     nodes {
       ...ContentNodeFields

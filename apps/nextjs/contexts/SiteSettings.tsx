@@ -1,5 +1,5 @@
-import { GeneralSettings } from '@/graphql/generated'
-import { createContext, useContext } from 'react'
+import {GeneralSettings} from '@/gql/graphql'
+import {createContext, useContext} from 'react'
 
 export interface SiteSettingsContextProps {
   generalSettings: GeneralSettings
@@ -14,7 +14,7 @@ export function useSiteSettings() {
 /**
  * Context provider for the sitewide settings.
  */
-export default function SiteSettingsProvider({ children, generalSettings }) {
+export default function SiteSettingsProvider({children, generalSettings}) {
   return (
     <SiteSettingsContext.Provider
       value={{

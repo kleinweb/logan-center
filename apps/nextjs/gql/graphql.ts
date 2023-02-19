@@ -1,10 +1,8 @@
 /* eslint-disable */
-import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core'
+import {TypedDocumentNode as DocumentNode} from '@graphql-typed-document-node/core'
 export type Maybe<T> = T | null
 export type InputMaybe<T> = Maybe<T>
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K]
-}
+export type Exact<T extends {[key: string]: unknown}> = {[K in keyof T]: T[K]}
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
   [SubKey in K]?: Maybe<T[SubKey]>
 }
@@ -8746,7 +8744,7 @@ export type ContentBlockFieldsFragment = {
     name?: string | null
     value?: string | null
   } | null> | null
-} & { ' $fragmentName'?: 'ContentBlockFieldsFragment' }
+} & {' $fragmentName'?: 'ContentBlockFieldsFragment'}
 
 type ContentNodeFields_MediaItem_Fragment = {
   __typename?: 'MediaItem'
@@ -8759,9 +8757,9 @@ type ContentNodeFields_MediaItem_Fragment = {
   modifiedGmt?: string | null
   contentType?: {
     __typename?: 'ContentNodeToContentTypeConnectionEdge'
-    node: { __typename?: 'ContentType'; id: string; name?: string | null }
+    node: {__typename?: 'ContentType'; id: string; name?: string | null}
   } | null
-} & { ' $fragmentName'?: 'ContentNodeFields_MediaItem_Fragment' }
+} & {' $fragmentName'?: 'ContentNodeFields_MediaItem_Fragment'}
 
 type ContentNodeFields_Page_Fragment = {
   __typename?: 'Page'
@@ -8779,7 +8777,7 @@ type ContentNodeFields_Page_Fragment = {
       | ({
           __typename?: 'ContentBlock'
           innerBlocks?: Array<
-            | ({ __typename?: 'ContentBlock' } & {
+            | ({__typename?: 'ContentBlock'} & {
                 ' $fragmentRefs'?: {
                   ContentBlockFieldsFragment: ContentBlockFieldsFragment
                 }
@@ -8796,9 +8794,9 @@ type ContentNodeFields_Page_Fragment = {
   } | null
   contentType?: {
     __typename?: 'ContentNodeToContentTypeConnectionEdge'
-    node: { __typename?: 'ContentType'; id: string; name?: string | null }
+    node: {__typename?: 'ContentType'; id: string; name?: string | null}
   } | null
-} & { ' $fragmentName'?: 'ContentNodeFields_Page_Fragment' }
+} & {' $fragmentName'?: 'ContentNodeFields_Page_Fragment'}
 
 type ContentNodeFields_Post_Fragment = {
   __typename?: 'Post'
@@ -8816,7 +8814,7 @@ type ContentNodeFields_Post_Fragment = {
       | ({
           __typename?: 'ContentBlock'
           innerBlocks?: Array<
-            | ({ __typename?: 'ContentBlock' } & {
+            | ({__typename?: 'ContentBlock'} & {
                 ' $fragmentRefs'?: {
                   ContentBlockFieldsFragment: ContentBlockFieldsFragment
                 }
@@ -8833,9 +8831,9 @@ type ContentNodeFields_Post_Fragment = {
   } | null
   contentType?: {
     __typename?: 'ContentNodeToContentTypeConnectionEdge'
-    node: { __typename?: 'ContentType'; id: string; name?: string | null }
+    node: {__typename?: 'ContentType'; id: string; name?: string | null}
   } | null
-} & { ' $fragmentName'?: 'ContentNodeFields_Post_Fragment' }
+} & {' $fragmentName'?: 'ContentNodeFields_Post_Fragment'}
 
 export type ContentNodeFieldsFragment =
   | ContentNodeFields_MediaItem_Fragment
@@ -8850,29 +8848,29 @@ export type ContentTypeFieldsFragment = {
   contentNodes?: {
     __typename?: 'ContentTypeToContentNodeConnection'
     nodes: Array<
-      | ({ __typename?: 'MediaItem' } & {
+      | ({__typename?: 'MediaItem'} & {
           ' $fragmentRefs'?: {
             ContentNodeFields_MediaItem_Fragment: ContentNodeFields_MediaItem_Fragment
           }
         })
-      | ({ __typename?: 'Page' } & {
+      | ({__typename?: 'Page'} & {
           ' $fragmentRefs'?: {
             ContentNodeFields_Page_Fragment: ContentNodeFields_Page_Fragment
           }
         })
-      | ({ __typename?: 'Post' } & {
+      | ({__typename?: 'Post'} & {
           ' $fragmentRefs'?: {
             ContentNodeFields_Post_Fragment: ContentNodeFields_Post_Fragment
           }
         })
     >
     pageInfo?:
-      | ({ __typename?: 'WPPageInfo' } & {
-          ' $fragmentRefs'?: { PageInfoFragment: PageInfoFragment }
+      | ({__typename?: 'WPPageInfo'} & {
+          ' $fragmentRefs'?: {PageInfoFragment: PageInfoFragment}
         })
       | null
   } | null
-} & { ' $fragmentName'?: 'ContentTypeFieldsFragment' }
+} & {' $fragmentName'?: 'ContentTypeFieldsFragment'}
 
 export type FeaturedImageFieldsFragment = {
   __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'
@@ -8886,7 +8884,7 @@ export type FeaturedImageFieldsFragment = {
       width?: number | null
     } | null
   }
-} & { ' $fragmentName'?: 'FeaturedImageFieldsFragment' }
+} & {' $fragmentName'?: 'FeaturedImageFieldsFragment'}
 
 export type SettingsFragment = {
   __typename?: 'GeneralSettings'
@@ -8895,7 +8893,7 @@ export type SettingsFragment = {
   language?: string | null
   timeFormat?: string | null
   title?: string | null
-} & { ' $fragmentName'?: 'SettingsFragment' }
+} & {' $fragmentName'?: 'SettingsFragment'}
 
 export type MediaItemFieldsFragment = {
   __typename?: 'MediaItem'
@@ -8912,7 +8910,7 @@ export type MediaItemFieldsFragment = {
     height?: number | null
     width?: number | null
   } | null
-} & { ' $fragmentName'?: 'MediaItemFieldsFragment' }
+} & {' $fragmentName'?: 'MediaItemFieldsFragment'}
 
 export type MenuItemFragment = {
   __typename?: 'MenuItem'
@@ -8923,7 +8921,7 @@ export type MenuItemFragment = {
   linkRelationship?: string | null
   target?: string | null
   parentId?: string | null
-} & { ' $fragmentName'?: 'MenuItemFragment' }
+} & {' $fragmentName'?: 'MenuItemFragment'}
 
 export type MenuItemsFragment = {
   __typename?: 'Menu'
@@ -8936,15 +8934,15 @@ export type MenuItemsFragment = {
         childItems?: {
           __typename?: 'MenuItemToMenuItemConnection'
           nodes: Array<
-            { __typename?: 'MenuItem' } & {
-              ' $fragmentRefs'?: { MenuItemFragment: MenuItemFragment }
+            {__typename?: 'MenuItem'} & {
+              ' $fragmentRefs'?: {MenuItemFragment: MenuItemFragment}
             }
           >
         } | null
-      } & { ' $fragmentRefs'?: { MenuItemFragment: MenuItemFragment } }
+      } & {' $fragmentRefs'?: {MenuItemFragment: MenuItemFragment}}
     >
   } | null
-} & { ' $fragmentName'?: 'MenuItemsFragment' }
+} & {' $fragmentName'?: 'MenuItemsFragment'}
 
 export type PageInfoFragment = {
   __typename?: 'WPPageInfo'
@@ -8952,7 +8950,7 @@ export type PageInfoFragment = {
   hasNextPage: boolean
   hasPreviousPage: boolean
   startCursor?: string | null
-} & { ' $fragmentName'?: 'PageInfoFragment' }
+} & {' $fragmentName'?: 'PageInfoFragment'}
 
 export type AllContentTypesQueryVariables = Exact<{
   after?: InputMaybe<Scalars['String']>
@@ -8966,7 +8964,7 @@ export type AllContentTypesQuery = {
   contentTypes?: {
     __typename?: 'RootQueryToContentTypeConnection'
     nodes: Array<
-      { __typename?: 'ContentType' } & {
+      {__typename?: 'ContentType'} & {
         ' $fragmentRefs'?: {
           ContentTypeFieldsFragment: ContentTypeFieldsFragment
         }
@@ -8975,13 +8973,13 @@ export type AllContentTypesQuery = {
   } | null
 }
 
-export type AllPagesQueryVariables = Exact<{ [key: string]: never }>
+export type AllPagesQueryVariables = Exact<{[key: string]: never}>
 
 export type AllPagesQuery = {
   __typename?: 'RootQuery'
   pages?: {
     __typename?: 'RootQueryToPageConnection'
-    nodes: Array<{ __typename?: 'Page'; slug?: string | null }>
+    nodes: Array<{__typename?: 'Page'; slug?: string | null}>
   } | null
 }
 
@@ -8994,17 +8992,17 @@ export type ContentNodeBySlugQuery = {
   contentNodes?: {
     __typename?: 'RootQueryToContentNodeConnection'
     nodes: Array<
-      | ({ __typename?: 'MediaItem' } & {
+      | ({__typename?: 'MediaItem'} & {
           ' $fragmentRefs'?: {
             ContentNodeFields_MediaItem_Fragment: ContentNodeFields_MediaItem_Fragment
           }
         })
-      | ({ __typename?: 'Page' } & {
+      | ({__typename?: 'Page'} & {
           ' $fragmentRefs'?: {
             ContentNodeFields_Page_Fragment: ContentNodeFields_Page_Fragment
           }
         })
-      | ({ __typename?: 'Post' } & {
+      | ({__typename?: 'Post'} & {
           ' $fragmentRefs'?: {
             ContentNodeFields_Post_Fragment: ContentNodeFields_Post_Fragment
           }
@@ -9020,17 +9018,17 @@ export type ContentNodePreviewByIdQueryVariables = Exact<{
 export type ContentNodePreviewByIdQuery = {
   __typename?: 'RootQuery'
   contentNode?:
-    | ({ __typename?: 'MediaItem' } & {
+    | ({__typename?: 'MediaItem'} & {
         ' $fragmentRefs'?: {
           ContentNodeFields_MediaItem_Fragment: ContentNodeFields_MediaItem_Fragment
         }
       })
-    | ({ __typename?: 'Page' } & {
+    | ({__typename?: 'Page'} & {
         ' $fragmentRefs'?: {
           ContentNodeFields_Page_Fragment: ContentNodeFields_Page_Fragment
         }
       })
-    | ({ __typename?: 'Post' } & {
+    | ({__typename?: 'Post'} & {
         ' $fragmentRefs'?: {
           ContentNodeFields_Post_Fragment: ContentNodeFields_Post_Fragment
         }
@@ -9051,25 +9049,25 @@ export type ContentNodesBySearchTermQuery = {
   contentNodes?: {
     __typename?: 'RootQueryToContentNodeConnection'
     nodes: Array<
-      | ({ __typename?: 'MediaItem' } & {
+      | ({__typename?: 'MediaItem'} & {
           ' $fragmentRefs'?: {
             ContentNodeFields_MediaItem_Fragment: ContentNodeFields_MediaItem_Fragment
           }
         })
-      | ({ __typename?: 'Page' } & {
+      | ({__typename?: 'Page'} & {
           ' $fragmentRefs'?: {
             ContentNodeFields_Page_Fragment: ContentNodeFields_Page_Fragment
           }
         })
-      | ({ __typename?: 'Post' } & {
+      | ({__typename?: 'Post'} & {
           ' $fragmentRefs'?: {
             ContentNodeFields_Post_Fragment: ContentNodeFields_Post_Fragment
           }
         })
     >
     pageInfo?:
-      | ({ __typename?: 'WPPageInfo' } & {
-          ' $fragmentRefs'?: { PageInfoFragment: PageInfoFragment }
+      | ({__typename?: 'WPPageInfo'} & {
+          ' $fragmentRefs'?: {PageInfoFragment: PageInfoFragment}
         })
       | null
   } | null
@@ -9086,7 +9084,7 @@ export type ContentTypeByNameQueryVariables = Exact<{
 export type ContentTypeByNameQuery = {
   __typename?: 'RootQuery'
   contentType?:
-    | ({ __typename?: 'ContentType' } & {
+    | ({__typename?: 'ContentType'} & {
         ' $fragmentRefs'?: {
           ContentTypeFieldsFragment: ContentTypeFieldsFragment
         }
@@ -9094,17 +9092,20 @@ export type ContentTypeByNameQuery = {
     | null
 }
 
-export type FrontPageQueryVariables = Exact<{ [key: string]: never }>
+export type HomepageQueryVariables = Exact<{[key: string]: never}>
 
-export type FrontPageQuery = {
+export type HomepageQuery = {
   __typename?: 'RootQuery'
-  post?: {
-    __typename?: 'Post'
-    id: string
-    databaseId: number
-    title?: string | null
-    uri?: string | null
-  } | null
+  nodeByUri?:
+    | {__typename: 'Category'}
+    | {__typename: 'ContentType'; id: string; name?: string | null}
+    | {__typename: 'MediaItem'}
+    | {__typename: 'Page'; id: string; title?: string | null}
+    | {__typename: 'Post'}
+    | {__typename: 'PostFormat'}
+    | {__typename: 'Tag'}
+    | {__typename: 'User'}
+    | null
 }
 
 export type AllMediaItemsQueryVariables = Exact<{
@@ -9117,13 +9118,13 @@ export type AllMediaItemsQuery = {
   mediaItems?: {
     __typename?: 'RootQueryToMediaItemConnection'
     nodes: Array<
-      { __typename?: 'MediaItem' } & {
-        ' $fragmentRefs'?: { MediaItemFieldsFragment: MediaItemFieldsFragment }
+      {__typename?: 'MediaItem'} & {
+        ' $fragmentRefs'?: {MediaItemFieldsFragment: MediaItemFieldsFragment}
       }
     >
     pageInfo?:
-      | ({ __typename?: 'WPPageInfo' } & {
-          ' $fragmentRefs'?: { PageInfoFragment: PageInfoFragment }
+      | ({__typename?: 'WPPageInfo'} & {
+          ' $fragmentRefs'?: {PageInfoFragment: PageInfoFragment}
         })
       | null
   } | null
@@ -9142,7 +9143,7 @@ export type SinglePageQuery = {
     databaseId: number
     uri?: string | null
     featuredImage?:
-      | ({ __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge' } & {
+      | ({__typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'} & {
           ' $fragmentRefs'?: {
             FeaturedImageFieldsFragment: FeaturedImageFieldsFragment
           }
@@ -9157,7 +9158,7 @@ export type SinglePageQuery = {
   } | null
 }
 
-export type SiteMenusQueryVariables = Exact<{ [key: string]: never }>
+export type SiteMenusQueryVariables = Exact<{[key: string]: never}>
 
 export type SiteMenusQuery = {
   __typename?: 'RootQuery'
@@ -9165,30 +9166,30 @@ export type SiteMenusQuery = {
     __typename?: 'RootQueryToMenuItemConnection'
     edges: Array<{
       __typename?: 'RootQueryToMenuItemConnectionEdge'
-      node: { __typename?: 'MenuItem' } & {
-        ' $fragmentRefs'?: { MenuItemFragment: MenuItemFragment }
+      node: {__typename?: 'MenuItem'} & {
+        ' $fragmentRefs'?: {MenuItemFragment: MenuItemFragment}
       }
     }>
   } | null
 }
 
-export type SitewideQueryVariables = Exact<{ [key: string]: never }>
+export type SitewideQueryVariables = Exact<{[key: string]: never}>
 
 export type SitewideQuery = {
   __typename?: 'RootQuery'
   generalSettings?:
-    | ({ __typename?: 'GeneralSettings' } & {
-        ' $fragmentRefs'?: { SettingsFragment: SettingsFragment }
+    | ({__typename?: 'GeneralSettings'} & {
+        ' $fragmentRefs'?: {SettingsFragment: SettingsFragment}
       })
     | null
   headerMenu?:
-    | ({ __typename?: 'Menu' } & {
-        ' $fragmentRefs'?: { MenuItemsFragment: MenuItemsFragment }
+    | ({__typename?: 'Menu'} & {
+        ' $fragmentRefs'?: {MenuItemsFragment: MenuItemsFragment}
       })
     | null
   footerMenu?:
-    | ({ __typename?: 'Menu' } & {
-        ' $fragmentRefs'?: { MenuItemsFragment: MenuItemsFragment }
+    | ({__typename?: 'Menu'} & {
+        ' $fragmentRefs'?: {MenuItemsFragment: MenuItemsFragment}
       })
     | null
 }
@@ -9207,7 +9208,7 @@ export type TaxonomyArchiveQuery = {
       excerpt?: string | null
       uri?: string | null
       featuredImage?:
-        | ({ __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge' } & {
+        | ({__typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'} & {
             ' $fragmentRefs'?: {
               FeaturedImageFieldsFragment: FeaturedImageFieldsFragment
             }
@@ -9239,38 +9240,38 @@ export const ContentBlockFieldsFragmentDoc = {
   definitions: [
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'ContentBlockFields' },
+      name: {kind: 'Name', value: 'ContentBlockFields'},
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'ContentBlock' },
+        name: {kind: 'Name', value: 'ContentBlock'},
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'attributes' },
+            name: {kind: 'Name', value: 'attributes'},
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
-                { kind: 'Field', name: { kind: 'Name', value: 'name' } },
-                { kind: 'Field', name: { kind: 'Name', value: 'value' } },
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'value'}},
               ],
             },
           },
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'innerHTML' },
+            name: {kind: 'Name', value: 'innerHTML'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'removeWrappingTag' },
-                value: { kind: 'BooleanValue', value: true },
+                name: {kind: 'Name', value: 'removeWrappingTag'},
+                value: {kind: 'BooleanValue', value: true},
               },
             ],
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'name' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'tagName' } },
+          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'tagName'}},
         ],
       },
     },
@@ -9281,50 +9282,47 @@ export const ContentNodeFieldsFragmentDoc = {
   definitions: [
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'ContentNodeFields' },
+      name: {kind: 'Name', value: 'ContentNodeFields'},
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'ContentNode' },
+        name: {kind: 'Name', value: 'ContentNode'},
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
           {
             kind: 'InlineFragment',
             typeCondition: {
               kind: 'NamedType',
-              name: { kind: 'Name', value: 'NodeWithContentEditor' },
+              name: {kind: 'Name', value: 'NodeWithContentEditor'},
             },
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'contentBlocks' },
+                  name: {kind: 'Name', value: 'contentBlocks'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'Field',
-                        name: { kind: 'Name', value: 'isGutenberg' },
+                        name: {kind: 'Name', value: 'isGutenberg'},
                       },
                       {
                         kind: 'Field',
-                        name: { kind: 'Name', value: 'blocks' },
+                        name: {kind: 'Name', value: 'blocks'},
                         selectionSet: {
                           kind: 'SelectionSet',
                           selections: [
                             {
                               kind: 'FragmentSpread',
-                              name: {
-                                kind: 'Name',
-                                value: 'ContentBlockFields',
-                              },
+                              name: {kind: 'Name', value: 'ContentBlockFields'},
                             },
                             {
                               kind: 'Field',
-                              name: { kind: 'Name', value: 'innerBlocks' },
+                              name: {kind: 'Name', value: 'innerBlocks'},
                               selectionSet: {
                                 kind: 'SelectionSet',
                                 selections: [
@@ -9349,39 +9347,39 @@ export const ContentNodeFieldsFragmentDoc = {
           },
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'contentType' },
+            name: {kind: 'Name', value: 'contentType'},
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'node' },
+                  name: {kind: 'Name', value: 'node'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
-                      { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-                      { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
                     ],
                   },
                 },
               ],
             },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'databaseId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'dateGmt' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'isPreview' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'link' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'modifiedGmt' } },
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
           {
             kind: 'InlineFragment',
             typeCondition: {
               kind: 'NamedType',
-              name: { kind: 'Name', value: 'NodeWithTitle' },
+              name: {kind: 'Name', value: 'NodeWithTitle'},
             },
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
-                { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
               ],
             },
           },
@@ -9396,18 +9394,18 @@ export const PageInfoFragmentDoc = {
   definitions: [
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'PageInfo' },
+      name: {kind: 'Name', value: 'PageInfo'},
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'WPPageInfo' },
+        name: {kind: 'Name', value: 'WPPageInfo'},
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'endCursor' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'hasNextPage' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'hasPreviousPage' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'startCursor' } },
+          {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'hasNextPage'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'hasPreviousPage'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'startCursor'}},
         ],
       },
     },
@@ -9418,50 +9416,41 @@ export const ContentTypeFieldsFragmentDoc = {
   definitions: [
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'ContentTypeFields' },
+      name: {kind: 'Name', value: 'ContentTypeFields'},
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'ContentType' },
+        name: {kind: 'Name', value: 'ContentType'},
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'contentNodes' },
+            name: {kind: 'Name', value: 'contentNodes'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'after' },
+                name: {kind: 'Name', value: 'after'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'before'},
                 value: {
                   kind: 'Variable',
-                  name: { kind: 'Name', value: 'after' },
+                  name: {kind: 'Name', value: 'before'},
                 },
               },
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'before' },
-                value: {
-                  kind: 'Variable',
-                  name: { kind: 'Name', value: 'before' },
-                },
+                name: {kind: 'Name', value: 'first'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
               },
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'first' },
-                value: {
-                  kind: 'Variable',
-                  name: { kind: 'Name', value: 'first' },
-                },
-              },
-              {
-                kind: 'Argument',
-                name: { kind: 'Name', value: 'last' },
-                value: {
-                  kind: 'Variable',
-                  name: { kind: 'Name', value: 'last' },
-                },
+                name: {kind: 'Name', value: 'last'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
               },
             ],
             selectionSet: {
@@ -9469,26 +9458,26 @@ export const ContentTypeFieldsFragmentDoc = {
               selections: [
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'nodes' },
+                  name: {kind: 'Name', value: 'nodes'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'FragmentSpread',
-                        name: { kind: 'Name', value: 'ContentNodeFields' },
+                        name: {kind: 'Name', value: 'ContentNodeFields'},
                       },
                     ],
                   },
                 },
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'pageInfo' },
+                  name: {kind: 'Name', value: 'pageInfo'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'FragmentSpread',
-                        name: { kind: 'Name', value: 'PageInfo' },
+                        name: {kind: 'Name', value: 'PageInfo'},
                       },
                     ],
                   },
@@ -9496,8 +9485,8 @@ export const ContentTypeFieldsFragmentDoc = {
               ],
             },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'description' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'name' } },
+          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
         ],
       },
     },
@@ -9510,7 +9499,7 @@ export const FeaturedImageFieldsFragmentDoc = {
   definitions: [
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'FeaturedImageFields' },
+      name: {kind: 'Name', value: 'FeaturedImageFields'},
       typeCondition: {
         kind: 'NamedType',
         name: {
@@ -9523,33 +9512,30 @@ export const FeaturedImageFieldsFragmentDoc = {
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'node' },
+            name: {kind: 'Name', value: 'node'},
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
-                { kind: 'Field', name: { kind: 'Name', value: 'altText' } },
+                {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'sourceUrl' },
+                  name: {kind: 'Name', value: 'sourceUrl'},
                   arguments: [
                     {
                       kind: 'Argument',
-                      name: { kind: 'Name', value: 'size' },
-                      value: { kind: 'EnumValue', value: 'LARGE' },
+                      name: {kind: 'Name', value: 'size'},
+                      value: {kind: 'EnumValue', value: 'LARGE'},
                     },
                   ],
                 },
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'mediaDetails' },
+                  name: {kind: 'Name', value: 'mediaDetails'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
-                      {
-                        kind: 'Field',
-                        name: { kind: 'Name', value: 'height' },
-                      },
-                      { kind: 'Field', name: { kind: 'Name', value: 'width' } },
+                      {kind: 'Field', name: {kind: 'Name', value: 'height'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'width'}},
                     ],
                   },
                 },
@@ -9566,19 +9552,19 @@ export const SettingsFragmentDoc = {
   definitions: [
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'Settings' },
+      name: {kind: 'Name', value: 'Settings'},
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'GeneralSettings' },
+        name: {kind: 'Name', value: 'GeneralSettings'},
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'dateFormat' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'description' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'language' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'timeFormat' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+          {kind: 'Field', name: {kind: 'Name', value: 'dateFormat'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'language'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'timeFormat'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'title'}},
         ],
       },
     },
@@ -9589,33 +9575,33 @@ export const MediaItemFieldsFragmentDoc = {
   definitions: [
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'MediaItemFields' },
+      name: {kind: 'Name', value: 'MediaItemFields'},
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'MediaItem' },
+        name: {kind: 'Name', value: 'MediaItem'},
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'altText' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'caption' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'databaseId' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'date' } },
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'caption'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'date'}},
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'mediaDetails' },
+            name: {kind: 'Name', value: 'mediaDetails'},
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
-                { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-                { kind: 'Field', name: { kind: 'Name', value: 'width' } },
+                {kind: 'Field', name: {kind: 'Name', value: 'height'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'width'}},
               ],
             },
           },
-          { kind: 'Field', name: { kind: 'Name', value: 'sourceUrl' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'uri' } },
+          {kind: 'Field', name: {kind: 'Name', value: 'sourceUrl'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
         ],
       },
     },
@@ -9626,21 +9612,21 @@ export const MenuItemFragmentDoc = {
   definitions: [
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'MenuItem' },
+      name: {kind: 'Name', value: 'MenuItem'},
       typeCondition: {
         kind: 'NamedType',
-        name: { kind: 'Name', value: 'MenuItem' },
+        name: {kind: 'Name', value: 'MenuItem'},
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'path' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'label' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'linkRelationship' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'target' } },
-          { kind: 'Field', name: { kind: 'Name', value: 'parentId' } },
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'path'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'label'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'url'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'linkRelationship'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'target'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'parentId'}},
         ],
       },
     },
@@ -9651,46 +9637,43 @@ export const MenuItemsFragmentDoc = {
   definitions: [
     {
       kind: 'FragmentDefinition',
-      name: { kind: 'Name', value: 'MenuItems' },
-      typeCondition: {
-        kind: 'NamedType',
-        name: { kind: 'Name', value: 'Menu' },
-      },
+      name: {kind: 'Name', value: 'MenuItems'},
+      typeCondition: {kind: 'NamedType', name: {kind: 'Name', value: 'Menu'}},
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          { kind: 'Field', name: { kind: 'Name', value: 'count' } },
+          {kind: 'Field', name: {kind: 'Name', value: 'count'}},
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'menuItems' },
+            name: {kind: 'Name', value: 'menuItems'},
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'nodes' },
+                  name: {kind: 'Name', value: 'nodes'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'FragmentSpread',
-                        name: { kind: 'Name', value: 'MenuItem' },
+                        name: {kind: 'Name', value: 'MenuItem'},
                       },
                       {
                         kind: 'Field',
-                        name: { kind: 'Name', value: 'childItems' },
+                        name: {kind: 'Name', value: 'childItems'},
                         selectionSet: {
                           kind: 'SelectionSet',
                           selections: [
                             {
                               kind: 'Field',
-                              name: { kind: 'Name', value: 'nodes' },
+                              name: {kind: 'Name', value: 'nodes'},
                               selectionSet: {
                                 kind: 'SelectionSet',
                                 selections: [
                                   {
                                     kind: 'FragmentSpread',
-                                    name: { kind: 'Name', value: 'MenuItem' },
+                                    name: {kind: 'Name', value: 'MenuItem'},
                                   },
                                 ],
                               },
@@ -9716,37 +9699,28 @@ export const AllContentTypesDocument = {
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: { kind: 'Name', value: 'AllContentTypes' },
+      name: {kind: 'Name', value: 'AllContentTypes'},
       variableDefinitions: [
         {
           kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: { kind: 'Name', value: 'after' },
-          },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
         },
         {
           kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: { kind: 'Name', value: 'before' },
-          },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'before'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
         },
         {
           kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: { kind: 'Name', value: 'first' },
-          },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'Int' } },
-          defaultValue: { kind: 'IntValue', value: '1' },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
+          defaultValue: {kind: 'IntValue', value: '1'},
         },
         {
           kind: 'VariableDefinition',
-          variable: { kind: 'Variable', name: { kind: 'Name', value: 'last' } },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'Int' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
         },
       ],
       selectionSet: {
@@ -9754,12 +9728,12 @@ export const AllContentTypesDocument = {
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'contentTypes' },
+            name: {kind: 'Name', value: 'contentTypes'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'first' },
-                value: { kind: 'IntValue', value: '50' },
+                name: {kind: 'Name', value: 'first'},
+                value: {kind: 'IntValue', value: '50'},
               },
             ],
             selectionSet: {
@@ -9767,13 +9741,13 @@ export const AllContentTypesDocument = {
               selections: [
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'nodes' },
+                  name: {kind: 'Name', value: 'nodes'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'FragmentSpread',
-                        name: { kind: 'Name', value: 'ContentTypeFields' },
+                        name: {kind: 'Name', value: 'ContentTypeFields'},
                       },
                     ],
                   },
@@ -9796,23 +9770,23 @@ export const AllPagesDocument = {
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: { kind: 'Name', value: 'AllPages' },
+      name: {kind: 'Name', value: 'AllPages'},
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'pages' },
+            name: {kind: 'Name', value: 'pages'},
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'nodes' },
+                  name: {kind: 'Name', value: 'nodes'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
-                      { kind: 'Field', name: { kind: 'Name', value: 'slug' } },
+                      {kind: 'Field', name: {kind: 'Name', value: 'slug'}},
                     ],
                   },
                 },
@@ -9830,17 +9804,14 @@ export const ContentNodeBySlugDocument = {
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: { kind: 'Name', value: 'ContentNodeBySlug' },
+      name: {kind: 'Name', value: 'ContentNodeBySlug'},
       variableDefinitions: [
         {
           kind: 'VariableDefinition',
-          variable: { kind: 'Variable', name: { kind: 'Name', value: 'slug' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'slug'}},
           type: {
             kind: 'NonNullType',
-            type: {
-              kind: 'NamedType',
-              name: { kind: 'Name', value: 'String' },
-            },
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
           },
         },
       ],
@@ -9849,20 +9820,20 @@ export const ContentNodeBySlugDocument = {
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'contentNodes' },
+            name: {kind: 'Name', value: 'contentNodes'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'where' },
+                name: {kind: 'Name', value: 'where'},
                 value: {
                   kind: 'ObjectValue',
                   fields: [
                     {
                       kind: 'ObjectField',
-                      name: { kind: 'Name', value: 'name' },
+                      name: {kind: 'Name', value: 'name'},
                       value: {
                         kind: 'Variable',
-                        name: { kind: 'Name', value: 'slug' },
+                        name: {kind: 'Name', value: 'slug'},
                       },
                     },
                   ],
@@ -9874,13 +9845,13 @@ export const ContentNodeBySlugDocument = {
               selections: [
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'nodes' },
+                  name: {kind: 'Name', value: 'nodes'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'FragmentSpread',
-                        name: { kind: 'Name', value: 'ContentNodeFields' },
+                        name: {kind: 'Name', value: 'ContentNodeFields'},
                       },
                     ],
                   },
@@ -9903,14 +9874,14 @@ export const ContentNodePreviewByIdDocument = {
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: { kind: 'Name', value: 'ContentNodePreviewById' },
+      name: {kind: 'Name', value: 'ContentNodePreviewById'},
       variableDefinitions: [
         {
           kind: 'VariableDefinition',
-          variable: { kind: 'Variable', name: { kind: 'Name', value: 'id' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'id'}},
           type: {
             kind: 'NonNullType',
-            type: { kind: 'NamedType', name: { kind: 'Name', value: 'ID' } },
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
           },
         },
       ],
@@ -9919,25 +9890,22 @@ export const ContentNodePreviewByIdDocument = {
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'contentNode' },
+            name: {kind: 'Name', value: 'contentNode'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'asPreview' },
-                value: { kind: 'BooleanValue', value: true },
+                name: {kind: 'Name', value: 'asPreview'},
+                value: {kind: 'BooleanValue', value: true},
               },
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'id' },
-                value: {
-                  kind: 'Variable',
-                  name: { kind: 'Name', value: 'id' },
-                },
+                name: {kind: 'Name', value: 'id'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'id'}},
               },
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'idType' },
-                value: { kind: 'EnumValue', value: 'DATABASE_ID' },
+                name: {kind: 'Name', value: 'idType'},
+                value: {kind: 'EnumValue', value: 'DATABASE_ID'},
               },
             ],
             selectionSet: {
@@ -9945,7 +9913,7 @@ export const ContentNodePreviewByIdDocument = {
               selections: [
                 {
                   kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'ContentNodeFields' },
+                  name: {kind: 'Name', value: 'ContentNodeFields'},
                 },
               ],
             },
@@ -9965,49 +9933,34 @@ export const ContentNodesBySearchTermDocument = {
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: { kind: 'Name', value: 'ContentNodesBySearchTerm' },
+      name: {kind: 'Name', value: 'ContentNodesBySearchTerm'},
       variableDefinitions: [
         {
           kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: { kind: 'Name', value: 'after' },
-          },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
         },
         {
           kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: { kind: 'Name', value: 'before' },
-          },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'before'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
         },
         {
           kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: { kind: 'Name', value: 'first' },
-          },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'Int' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
         },
         {
           kind: 'VariableDefinition',
-          variable: { kind: 'Variable', name: { kind: 'Name', value: 'last' } },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'Int' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
         },
         {
           kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: { kind: 'Name', value: 'search' },
-          },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'search'}},
           type: {
             kind: 'NonNullType',
-            type: {
-              kind: 'NamedType',
-              name: { kind: 'Name', value: 'String' },
-            },
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
           },
         },
       ],
@@ -10016,52 +9969,43 @@ export const ContentNodesBySearchTermDocument = {
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'contentNodes' },
+            name: {kind: 'Name', value: 'contentNodes'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'after' },
+                name: {kind: 'Name', value: 'after'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'before'},
                 value: {
                   kind: 'Variable',
-                  name: { kind: 'Name', value: 'after' },
+                  name: {kind: 'Name', value: 'before'},
                 },
               },
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'before' },
-                value: {
-                  kind: 'Variable',
-                  name: { kind: 'Name', value: 'before' },
-                },
+                name: {kind: 'Name', value: 'first'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
               },
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'first' },
-                value: {
-                  kind: 'Variable',
-                  name: { kind: 'Name', value: 'first' },
-                },
+                name: {kind: 'Name', value: 'last'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
               },
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'last' },
-                value: {
-                  kind: 'Variable',
-                  name: { kind: 'Name', value: 'last' },
-                },
-              },
-              {
-                kind: 'Argument',
-                name: { kind: 'Name', value: 'where' },
+                name: {kind: 'Name', value: 'where'},
                 value: {
                   kind: 'ObjectValue',
                   fields: [
                     {
                       kind: 'ObjectField',
-                      name: { kind: 'Name', value: 'search' },
+                      name: {kind: 'Name', value: 'search'},
                       value: {
                         kind: 'Variable',
-                        name: { kind: 'Name', value: 'search' },
+                        name: {kind: 'Name', value: 'search'},
                       },
                     },
                   ],
@@ -10073,26 +10017,26 @@ export const ContentNodesBySearchTermDocument = {
               selections: [
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'nodes' },
+                  name: {kind: 'Name', value: 'nodes'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'FragmentSpread',
-                        name: { kind: 'Name', value: 'ContentNodeFields' },
+                        name: {kind: 'Name', value: 'ContentNodeFields'},
                       },
                     ],
                   },
                 },
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'pageInfo' },
+                  name: {kind: 'Name', value: 'pageInfo'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'FragmentSpread',
-                        name: { kind: 'Name', value: 'PageInfo' },
+                        name: {kind: 'Name', value: 'PageInfo'},
                       },
                     ],
                   },
@@ -10116,43 +10060,34 @@ export const ContentTypeByNameDocument = {
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: { kind: 'Name', value: 'ContentTypeByName' },
+      name: {kind: 'Name', value: 'ContentTypeByName'},
       variableDefinitions: [
         {
           kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: { kind: 'Name', value: 'after' },
-          },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
         },
         {
           kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: { kind: 'Name', value: 'before' },
-          },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'before'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
         },
         {
           kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: { kind: 'Name', value: 'first' },
-          },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'Int' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
         },
         {
           kind: 'VariableDefinition',
-          variable: { kind: 'Variable', name: { kind: 'Name', value: 'last' } },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'Int' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
         },
         {
           kind: 'VariableDefinition',
-          variable: { kind: 'Variable', name: { kind: 'Name', value: 'name' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'name'}},
           type: {
             kind: 'NonNullType',
-            type: { kind: 'NamedType', name: { kind: 'Name', value: 'ID' } },
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
           },
         },
       ],
@@ -10161,20 +10096,17 @@ export const ContentTypeByNameDocument = {
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'contentType' },
+            name: {kind: 'Name', value: 'contentType'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'id' },
-                value: {
-                  kind: 'Variable',
-                  name: { kind: 'Name', value: 'name' },
-                },
+                name: {kind: 'Name', value: 'id'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'name'}},
               },
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'idType' },
-                value: { kind: 'EnumValue', value: 'NAME' },
+                name: {kind: 'Name', value: 'idType'},
+                value: {kind: 'EnumValue', value: 'NAME'},
               },
             ],
             selectionSet: {
@@ -10182,7 +10114,7 @@ export const ContentTypeByNameDocument = {
               selections: [
                 {
                   kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'ContentTypeFields' },
+                  name: {kind: 'Name', value: 'ContentTypeFields'},
                 },
               ],
             },
@@ -10196,38 +10128,58 @@ export const ContentTypeByNameDocument = {
   ContentTypeByNameQuery,
   ContentTypeByNameQueryVariables
 >
-export const FrontPageDocument = {
+export const HomepageDocument = {
   kind: 'Document',
   definitions: [
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: { kind: 'Name', value: 'FrontPage' },
+      name: {kind: 'Name', value: 'Homepage'},
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'post' },
+            name: {kind: 'Name', value: 'nodeByUri'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'id' },
-                value: { kind: 'StringValue', value: '/', block: false },
-              },
-              {
-                kind: 'Argument',
-                name: { kind: 'Name', value: 'idType' },
-                value: { kind: 'EnumValue', value: 'URI' },
+                name: {kind: 'Name', value: 'uri'},
+                value: {kind: 'StringValue', value: '/', block: false},
               },
             ],
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
-                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
-                { kind: 'Field', name: { kind: 'Name', value: 'databaseId' } },
-                { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-                { kind: 'Field', name: { kind: 'Name', value: 'uri' } },
+                {kind: 'Field', name: {kind: 'Name', value: '__typename'}},
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: {kind: 'Name', value: 'ContentType'},
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: {kind: 'Name', value: 'Page'},
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -10235,31 +10187,25 @@ export const FrontPageDocument = {
       },
     },
   ],
-} as unknown as DocumentNode<FrontPageQuery, FrontPageQueryVariables>
+} as unknown as DocumentNode<HomepageQuery, HomepageQueryVariables>
 export const AllMediaItemsDocument = {
   kind: 'Document',
   definitions: [
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: { kind: 'Name', value: 'AllMediaItems' },
+      name: {kind: 'Name', value: 'AllMediaItems'},
       variableDefinitions: [
         {
           kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: { kind: 'Name', value: 'after' },
-          },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'String' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
         },
         {
           kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: { kind: 'Name', value: 'first' },
-          },
-          type: { kind: 'NamedType', name: { kind: 'Name', value: 'Int' } },
-          defaultValue: { kind: 'IntValue', value: '10' },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
+          defaultValue: {kind: 'IntValue', value: '10'},
         },
       ],
       selectionSet: {
@@ -10267,23 +10213,17 @@ export const AllMediaItemsDocument = {
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'mediaItems' },
+            name: {kind: 'Name', value: 'mediaItems'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'after' },
-                value: {
-                  kind: 'Variable',
-                  name: { kind: 'Name', value: 'after' },
-                },
+                name: {kind: 'Name', value: 'after'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
               },
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'first' },
-                value: {
-                  kind: 'Variable',
-                  name: { kind: 'Name', value: 'first' },
-                },
+                name: {kind: 'Name', value: 'first'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
               },
             ],
             selectionSet: {
@@ -10291,26 +10231,26 @@ export const AllMediaItemsDocument = {
               selections: [
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'nodes' },
+                  name: {kind: 'Name', value: 'nodes'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'FragmentSpread',
-                        name: { kind: 'Name', value: 'MediaItemFields' },
+                        name: {kind: 'Name', value: 'MediaItemFields'},
                       },
                     ],
                   },
                 },
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'pageInfo' },
+                  name: {kind: 'Name', value: 'pageInfo'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'FragmentSpread',
-                        name: { kind: 'Name', value: 'PageInfo' },
+                        name: {kind: 'Name', value: 'PageInfo'},
                       },
                     ],
                   },
@@ -10331,14 +10271,14 @@ export const SinglePageDocument = {
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: { kind: 'Name', value: 'SinglePage' },
+      name: {kind: 'Name', value: 'SinglePage'},
       variableDefinitions: [
         {
           kind: 'VariableDefinition',
-          variable: { kind: 'Variable', name: { kind: 'Name', value: 'slug' } },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'slug'}},
           type: {
             kind: 'NonNullType',
-            type: { kind: 'NamedType', name: { kind: 'Name', value: 'ID' } },
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
           },
         },
       ],
@@ -10347,20 +10287,17 @@ export const SinglePageDocument = {
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'page' },
+            name: {kind: 'Name', value: 'page'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'id' },
-                value: {
-                  kind: 'Variable',
-                  name: { kind: 'Name', value: 'slug' },
-                },
+                name: {kind: 'Name', value: 'id'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'slug'}},
               },
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'idType' },
-                value: { kind: 'EnumValue', value: 'URI' },
+                name: {kind: 'Name', value: 'idType'},
+                value: {kind: 'EnumValue', value: 'URI'},
               },
             ],
             selectionSet: {
@@ -10368,56 +10305,50 @@ export const SinglePageDocument = {
               selections: [
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'title' },
+                  name: {kind: 'Name', value: 'title'},
                   arguments: [
                     {
                       kind: 'Argument',
-                      name: { kind: 'Name', value: 'format' },
-                      value: { kind: 'EnumValue', value: 'RENDERED' },
+                      name: {kind: 'Name', value: 'format'},
+                      value: {kind: 'EnumValue', value: 'RENDERED'},
                     },
                   ],
                 },
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'content' },
+                  name: {kind: 'Name', value: 'content'},
                   arguments: [
                     {
                       kind: 'Argument',
-                      name: { kind: 'Name', value: 'format' },
-                      value: { kind: 'EnumValue', value: 'RENDERED' },
+                      name: {kind: 'Name', value: 'format'},
+                      value: {kind: 'EnumValue', value: 'RENDERED'},
                     },
                   ],
                 },
-                { kind: 'Field', name: { kind: 'Name', value: 'databaseId' } },
-                { kind: 'Field', name: { kind: 'Name', value: 'uri' } },
+                {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'featuredImage' },
+                  name: {kind: 'Name', value: 'featuredImage'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'FragmentSpread',
-                        name: { kind: 'Name', value: 'FeaturedImageFields' },
+                        name: {kind: 'Name', value: 'FeaturedImageFields'},
                       },
                     ],
                   },
                 },
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'seo' },
+                  name: {kind: 'Name', value: 'seo'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
-                      {
-                        kind: 'Field',
-                        name: { kind: 'Name', value: 'fullHead' },
-                      },
-                      { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-                      {
-                        kind: 'Field',
-                        name: { kind: 'Name', value: 'metaDesc' },
-                      },
+                      {kind: 'Field', name: {kind: 'Name', value: 'fullHead'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'metaDesc'}},
                     ],
                   },
                 },
@@ -10436,25 +10367,25 @@ export const SiteMenusDocument = {
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: { kind: 'Name', value: 'SiteMenus' },
+      name: {kind: 'Name', value: 'SiteMenus'},
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
           {
             kind: 'Field',
-            alias: { kind: 'Name', value: 'headerMenu' },
-            name: { kind: 'Name', value: 'menuItems' },
+            alias: {kind: 'Name', value: 'headerMenu'},
+            name: {kind: 'Name', value: 'menuItems'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'where' },
+                name: {kind: 'Name', value: 'where'},
                 value: {
                   kind: 'ObjectValue',
                   fields: [
                     {
                       kind: 'ObjectField',
-                      name: { kind: 'Name', value: 'location' },
-                      value: { kind: 'EnumValue', value: 'PRIMARY_MENU' },
+                      name: {kind: 'Name', value: 'location'},
+                      value: {kind: 'EnumValue', value: 'PRIMARY_MENU'},
                     },
                   ],
                 },
@@ -10465,19 +10396,19 @@ export const SiteMenusDocument = {
               selections: [
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'edges' },
+                  name: {kind: 'Name', value: 'edges'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'Field',
-                        name: { kind: 'Name', value: 'node' },
+                        name: {kind: 'Name', value: 'node'},
                         selectionSet: {
                           kind: 'SelectionSet',
                           selections: [
                             {
                               kind: 'FragmentSpread',
-                              name: { kind: 'Name', value: 'MenuItem' },
+                              name: {kind: 'Name', value: 'MenuItem'},
                             },
                           ],
                         },
@@ -10500,37 +10431,37 @@ export const SitewideDocument = {
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: { kind: 'Name', value: 'Sitewide' },
+      name: {kind: 'Name', value: 'Sitewide'},
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'generalSettings' },
+            name: {kind: 'Name', value: 'generalSettings'},
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
                 {
                   kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'Settings' },
+                  name: {kind: 'Name', value: 'Settings'},
                 },
               ],
             },
           },
           {
             kind: 'Field',
-            alias: { kind: 'Name', value: 'headerMenu' },
-            name: { kind: 'Name', value: 'menu' },
+            alias: {kind: 'Name', value: 'headerMenu'},
+            name: {kind: 'Name', value: 'menu'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'id' },
-                value: { kind: 'StringValue', value: 'Header', block: false },
+                name: {kind: 'Name', value: 'id'},
+                value: {kind: 'StringValue', value: 'Header', block: false},
               },
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'idType' },
-                value: { kind: 'EnumValue', value: 'NAME' },
+                name: {kind: 'Name', value: 'idType'},
+                value: {kind: 'EnumValue', value: 'NAME'},
               },
             ],
             selectionSet: {
@@ -10538,25 +10469,25 @@ export const SitewideDocument = {
               selections: [
                 {
                   kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'MenuItems' },
+                  name: {kind: 'Name', value: 'MenuItems'},
                 },
               ],
             },
           },
           {
             kind: 'Field',
-            alias: { kind: 'Name', value: 'footerMenu' },
-            name: { kind: 'Name', value: 'menu' },
+            alias: {kind: 'Name', value: 'footerMenu'},
+            name: {kind: 'Name', value: 'menu'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'id' },
-                value: { kind: 'StringValue', value: 'Footer', block: false },
+                name: {kind: 'Name', value: 'id'},
+                value: {kind: 'StringValue', value: 'Footer', block: false},
               },
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'idType' },
-                value: { kind: 'EnumValue', value: 'NAME' },
+                name: {kind: 'Name', value: 'idType'},
+                value: {kind: 'EnumValue', value: 'NAME'},
               },
             ],
             selectionSet: {
@@ -10564,7 +10495,7 @@ export const SitewideDocument = {
               selections: [
                 {
                   kind: 'FragmentSpread',
-                  name: { kind: 'Name', value: 'MenuItems' },
+                  name: {kind: 'Name', value: 'MenuItems'},
                 },
               ],
             },
@@ -10582,20 +10513,14 @@ export const TaxonomyArchiveDocument = {
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: { kind: 'Name', value: 'TaxonomyArchive' },
+      name: {kind: 'Name', value: 'TaxonomyArchive'},
       variableDefinitions: [
         {
           kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: { kind: 'Name', value: 'category' },
-          },
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'category'}},
           type: {
             kind: 'NonNullType',
-            type: {
-              kind: 'NamedType',
-              name: { kind: 'Name', value: 'String' },
-            },
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
           },
         },
       ],
@@ -10604,20 +10529,20 @@ export const TaxonomyArchiveDocument = {
         selections: [
           {
             kind: 'Field',
-            name: { kind: 'Name', value: 'posts' },
+            name: {kind: 'Name', value: 'posts'},
             arguments: [
               {
                 kind: 'Argument',
-                name: { kind: 'Name', value: 'where' },
+                name: {kind: 'Name', value: 'where'},
                 value: {
                   kind: 'ObjectValue',
                   fields: [
                     {
                       kind: 'ObjectField',
-                      name: { kind: 'Name', value: 'categoryName' },
+                      name: {kind: 'Name', value: 'categoryName'},
                       value: {
                         kind: 'Variable',
-                        name: { kind: 'Name', value: 'category' },
+                        name: {kind: 'Name', value: 'category'},
                       },
                     },
                   ],
@@ -10629,36 +10554,36 @@ export const TaxonomyArchiveDocument = {
               selections: [
                 {
                   kind: 'Field',
-                  name: { kind: 'Name', value: 'nodes' },
+                  name: {kind: 'Name', value: 'nodes'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'Field',
-                        name: { kind: 'Name', value: 'title' },
+                        name: {kind: 'Name', value: 'title'},
                         arguments: [
                           {
                             kind: 'Argument',
-                            name: { kind: 'Name', value: 'format' },
-                            value: { kind: 'EnumValue', value: 'RENDERED' },
+                            name: {kind: 'Name', value: 'format'},
+                            value: {kind: 'EnumValue', value: 'RENDERED'},
                           },
                         ],
                       },
                       {
                         kind: 'Field',
-                        name: { kind: 'Name', value: 'excerpt' },
+                        name: {kind: 'Name', value: 'excerpt'},
                         arguments: [
                           {
                             kind: 'Argument',
-                            name: { kind: 'Name', value: 'format' },
-                            value: { kind: 'EnumValue', value: 'RENDERED' },
+                            name: {kind: 'Name', value: 'format'},
+                            value: {kind: 'EnumValue', value: 'RENDERED'},
                           },
                         ],
                       },
-                      { kind: 'Field', name: { kind: 'Name', value: 'uri' } },
+                      {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
                       {
                         kind: 'Field',
-                        name: { kind: 'Name', value: 'featuredImage' },
+                        name: {kind: 'Name', value: 'featuredImage'},
                         selectionSet: {
                           kind: 'SelectionSet',
                           selections: [
@@ -10674,29 +10599,29 @@ export const TaxonomyArchiveDocument = {
                       },
                       {
                         kind: 'Field',
-                        name: { kind: 'Name', value: 'categories' },
+                        name: {kind: 'Name', value: 'categories'},
                         selectionSet: {
                           kind: 'SelectionSet',
                           selections: [
                             {
                               kind: 'Field',
-                              name: { kind: 'Name', value: 'edges' },
+                              name: {kind: 'Name', value: 'edges'},
                               selectionSet: {
                                 kind: 'SelectionSet',
                                 selections: [
                                   {
                                     kind: 'Field',
-                                    name: { kind: 'Name', value: 'node' },
+                                    name: {kind: 'Name', value: 'node'},
                                     selectionSet: {
                                       kind: 'SelectionSet',
                                       selections: [
                                         {
                                           kind: 'Field',
-                                          name: { kind: 'Name', value: 'name' },
+                                          name: {kind: 'Name', value: 'name'},
                                         },
                                         {
                                           kind: 'Field',
-                                          name: { kind: 'Name', value: 'uri' },
+                                          name: {kind: 'Name', value: 'uri'},
                                         },
                                       ],
                                     },
@@ -10709,21 +10634,21 @@ export const TaxonomyArchiveDocument = {
                       },
                       {
                         kind: 'Field',
-                        name: { kind: 'Name', value: 'seo' },
+                        name: {kind: 'Name', value: 'seo'},
                         selectionSet: {
                           kind: 'SelectionSet',
                           selections: [
                             {
                               kind: 'Field',
-                              name: { kind: 'Name', value: 'fullHead' },
+                              name: {kind: 'Name', value: 'fullHead'},
                             },
                             {
                               kind: 'Field',
-                              name: { kind: 'Name', value: 'title' },
+                              name: {kind: 'Name', value: 'title'},
                             },
                             {
                               kind: 'Field',
-                              name: { kind: 'Name', value: 'metaDesc' },
+                              name: {kind: 'Name', value: 'metaDesc'},
                             },
                           ],
                         },

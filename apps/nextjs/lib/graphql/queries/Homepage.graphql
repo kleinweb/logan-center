@@ -1,0 +1,24 @@
+###: <https://www.wpgraphql.com/recipes/query-the-homepage>
+
+# query FrontPage {
+#   post(id: "/", idType: URI) {
+#     id
+#     databaseId
+#     title
+#     uri
+#   }
+# }
+
+query Homepage {
+  nodeByUri(uri: "/") {
+    __typename
+    ... on ContentType {
+      id
+      name
+    }
+    ... on Page {
+      id
+      title
+    }
+  }
+}

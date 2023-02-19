@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { ContentBlockAttribute } from '@/graphql/generated'
+import {ContentBlockAttribute} from '@/gql/graphql'
 
 export type PostContentBlockAttributes = {
   [key: string]: string
@@ -15,7 +15,7 @@ export type PostContentBlockAttributes = {
 export function mapAttributesToProps(
   attributes: ContentBlockAttribute[],
 ): PostContentBlockAttributes {
-  return attributes.reduce((acc, { name, value }) => {
+  return attributes.reduce((acc, {name, value}) => {
     // Drop attributes without a name or value.
     if (!name || !value) {
       return acc
@@ -28,6 +28,6 @@ export function mapAttributesToProps(
     // This could cause unexpected issues, so we will leave that exercise for
     // those that find a need for it.
 
-    return Object.assign(acc, { [name]: value })
+    return Object.assign(acc, {[name]: value})
   }, {})
 }

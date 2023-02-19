@@ -1,5 +1,5 @@
 query TaxonomyArchive($category: String!) {
-  posts(where: { categoryName: $category }) {
+  posts(where: {categoryName: $category}) {
     nodes {
       title(format: RENDERED)
       excerpt(format: RENDERED)

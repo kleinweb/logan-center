@@ -3,9 +3,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { ContentNodeFieldsFragment } from '@/graphql/generated'
+import {ContentNodeFieldsFragment} from '@/gql/graphql'
 import Link from 'next/link'
-import { getInternalLinkPathname } from '@/lib/links'
+import {getInternalLinkPathname} from '@/lib/links'
 
 type Props = {
   nextPageLink?: string
@@ -17,7 +17,7 @@ export default function PostList(props: Props) {
   return (
     <>
       <ul>
-        {props.posts.map((post) => (
+        {props.posts.map(post => (
           <li key={post.databaseId}>
             <Link href={getInternalLinkPathname(post.link)}>{post.title}</Link>
           </li>

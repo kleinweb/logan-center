@@ -2,9 +2,9 @@
 // SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { ContentBlock } from '@/graphql/generated'
-import { mapAttributesToProps } from '@/lib/blocks'
-import defaultBlockMap, { PostContentBlockMap } from '@/components/Blocks'
+import {ContentBlock} from '@/gql/graphql'
+import {mapAttributesToProps} from '@/lib/blocks'
+import defaultBlockMap, {PostContentBlockMap} from '@/components/Blocks'
 import UnsupportedBlock from '@/components/Blocks/UnsupportedBlock/UnsupportedBlock'
 import Container from '../Container'
 

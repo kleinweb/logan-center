@@ -1,9 +1,9 @@
 import {
   ContentNode,
-  GeneralSettings,
+  // GeneralSettings,
   Menu,
-  Settings,
-} from '@/graphql/generated'
+  // Settings,
+} from '@/gql/graphql'
 
 export interface ChildrenProps {
   children: React.ReactNode
