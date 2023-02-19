@@ -3,7 +3,7 @@
 
 module.exports = {
   root: true,
-  extends: ['@kleinweb/eslint-config-custom', 'plugin:tailwindcss/recommended'],
+  extends: ['@kleinweb/eslint-config-custom'],
   overrides: [
     {
       files: ['*.graphql'],

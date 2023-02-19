@@ -3367,7 +3367,6 @@ __metadata:
     dotenv-vault-core: "npm:^0.7.0"
     eslint: "npm:^8.34.0"
     eslint-plugin-jest: "npm:^27.2.1"
-    eslint-plugin-tailwindcss: "npm:^3.8.3"
     graphql: "npm:^16.6.0"
     graphql-tag: "npm:^2.12.6"
     jest: "npm:^29.4.2"
@@ -7333,18 +7332,6 @@ __metadata:
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
   checksum: 99d223b6f074f92aa2c73c6ca23c11a85cc9fe183c555ab9f0b947b66dc9d904c995c03a55e345f59956e943d4926a667767c4fb4184e0bccf6b89b2beef3cf5
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-tailwindcss@npm:^3.8.3":
-  version: 3.8.3
-  resolution: "eslint-plugin-tailwindcss@npm:3.8.3"
-  dependencies:
-    fast-glob: "npm:^3.2.5"
-    postcss: "npm:^8.4.4"
-  peerDependencies:
-    tailwindcss: ^3.2.2
-  checksum: 11ab6428f6dc350c15874c0eaeac4806b90968392a01ccc66d889bdad9a397e5be9a7fcf0caf20ba733cd8baa6749abcdc6727d7e9f57be207c65f70856b03a1
   languageName: node
   linkType: hard
 
@@ -11507,17 +11494,6 @@ __metadata:
     picocolors: "npm:^1.0.0"
     source-map-js: "npm:^1.0.2"
   checksum: 4fb944abed714e5aa88c76b6eae19b293e84ced7ea4162fe0da6ab5215ded572330df93ce3bb5073ee18a9ad0122a6a65e3000897dc3a828e96281d8b3e1f91e
-  languageName: node
-  linkType: hard
-
-"postcss@npm:^8.4.4":
-  version: 8.4.19
-  resolution: "postcss@npm:8.4.19"
-  dependencies:
-    nanoid: "npm:^3.3.4"
-    picocolors: "npm:^1.0.0"
-    source-map-js: "npm:^1.0.2"
-  checksum: 583897de1f1b39bed59fecfd2697e34195d6f2f85710572a8f060a14898102e13b0a74a96fd5490b2f8bdc6ed51ae43169a5a24f37684606f7c8272221b5d111
   languageName: node
   linkType: hard
 

@@ -3,9 +3,8 @@
 
 module.exports = {
   extends: ['eslint:recommended', 'next', 'turbo', 'prettier'],
-  plugins: ['tailwindcss'],
   rules: {
-    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'no-console': ['error', {allow: ['warn', 'error']}],
     // TODO(2022-01-30): reconsider -- the issue is closed, and the one error i ran into seems legit
     // Disabled due to false positives with TypeScript interfaces. `tsc` will
     // catch undefined variables instead.
@@ -18,8 +17,5 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
-    // Defer to the official TailwindCSS Prettier plugin --
-    // this rule seems to contradict the official classnames order.
-    'tailwindcss/classnames-order': 'off',
   },
 }
