@@ -2,17 +2,17 @@
 // SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { GetServerSideProps } from 'next'
+import {GetServerSideProps} from 'next'
 import Layout from '@/components/Layout'
 import PostList from '@/components/PostList/PostList'
 import SearchForm from '@/components/SearchForm/SearchForm'
-import getApolloClient from '@/graphql/apollo'
+import getApolloClient from '@/lib/graphql/apollo'
 import {
   ContentNodeFieldsFragment,
   ContentNodesBySearchTermDocument,
   ContentNodesBySearchTermQuery,
   ContentNodesBySearchTermQueryVariables,
-} from '@/graphql/generated'
+} from '@/gql/graphql'
 
 type SearchPageProps = {
   loading: boolean
@@ -43,8 +43,8 @@ export default function Search(props: SearchPageProps) {
 export const getServerSideProps: GetServerSideProps<
   SearchPageProps,
   SearchPageContextParams
-> = async (context) => {
-  const queryParams = { ...context.query }
+> = async context => {
+  const queryParams = {...context.query}
 
   if (!queryParams.s) {
     // The user has not searched yet.
@@ -76,7 +76,7 @@ export const getServerSideProps: GetServerSideProps<
     variables,
   }
 
-  const { data, error, loading } = await getApolloClient(
+  const {data, error, loading} = await getApolloClient(
     context,
   ).query<ContentNodesBySearchTermQuery>(queryOptions)
 
@@ -87,7 +87,7 @@ export const getServerSideProps: GetServerSideProps<
   const posts = data.contentNodes?.nodes || []
 
   // Extract pagination information and build pagination links.
-  const { endCursor, hasNextPage, hasPreviousPage, startCursor } =
+  const {endCursor, hasNextPage, hasPreviousPage, startCursor} =
     data.contentNodes?.pageInfo || {}
 
   let nextPageLink = null

@@ -2,16 +2,16 @@
 // SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { GetServerSideProps } from 'next'
+import {GetServerSideProps} from 'next'
 import Layout from '@/components/Layout'
 import PostContent from '@/components/PostContent/PostContent'
-import getApolloClient from '@/graphql/apollo'
+import getApolloClient from '@/lib/graphql/apollo'
 import {
   ContentNodeBySlugDocument,
   ContentNodeBySlugQuery,
   ContentNodeFieldsFragment,
-} from '@/graphql/generated'
-import { extractLastTokenFromRoute, getInternalLinkPathname } from '@/lib/links'
+} from '@/gql/graphql'
+import {extractLastTokenFromRoute, getInternalLinkPathname} from '@/lib/links'
 import Container from '@/components/Container'
 
 export type PostProps = {
@@ -43,9 +43,9 @@ export default function Post(props: PostProps) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps<PostProps> = async (
-  context,
-) => {
+export const getServerSideProps: GetServerSideProps<
+  PostProps
+> = async context => {
   const queryOptions = {
     query: ContentNodeBySlugDocument,
     variables: {
@@ -53,7 +53,7 @@ export const getServerSideProps: GetServerSideProps<PostProps> = async (
     },
   }
 
-  const { data, loading } = await getApolloClient(
+  const {data, loading} = await getApolloClient(
     context,
   ).query<ContentNodeBySlugQuery>(queryOptions)
 

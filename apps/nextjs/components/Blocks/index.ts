@@ -3,8 +3,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { ComponentType } from 'react'
-import { ContentBlock } from '@/graphql/generated'
+import {ComponentType} from 'react'
+import {ContentBlock} from '@/gql/graphql'
 import ClassicEditorBlock from './ClassicEditorBlock/ClassicEditorBlock'
 import Heading from './Heading/Heading'
 import ImageBlock from './ImageBlock/ImageBlock'

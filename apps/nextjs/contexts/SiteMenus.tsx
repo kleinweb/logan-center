@@ -1,5 +1,5 @@
-import { MenuItemsFragment } from '@/graphql/generated'
-import { createContext, useContext } from 'react'
+import {MenuItemsFragment} from '@/gql/graphql'
+import {createContext, useContext} from 'react'
 
 export interface SiteMenusContextProps {
   // footerMenu: MenuItemsFragment

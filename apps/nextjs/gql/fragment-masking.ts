@@ -5,9 +5,9 @@ import {
 
 export type FragmentType<TDocumentType extends DocumentNode<any, any>> =
   TDocumentType extends DocumentNode<infer TType, any>
-    ? TType extends { ' $fragmentName'?: infer TKey }
+    ? TType extends {' $fragmentName'?: infer TKey}
       ? TKey extends string
-        ? { ' $fragmentRefs'?: { [key in TKey]: TType } }
+        ? {' $fragmentRefs'?: {[key in TKey]: TType}}
         : never
       : never
     : never

@@ -2,16 +2,16 @@
 // SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { GetServerSideProps } from 'next'
+import {GetServerSideProps} from 'next'
 import Layout from '@/components/Layout'
 import PostList from '@/components/PostList/PostList'
-import getApolloClient from '@/graphql/apollo'
+import getApolloClient from '@/lib/graphql/apollo'
 import {
   ContentNodeFieldsFragment,
   ContentTypeByNameDocument,
   ContentTypeByNameQuery,
   ContentTypeByNameQueryVariables,
-} from '@/graphql/generated'
+} from '@/gql/graphql'
 
 type Props = {
   loading: boolean
@@ -40,8 +40,8 @@ type ContextParams = {
 export const getServerSideProps: GetServerSideProps<
   Props,
   ContextParams
-> = async (context) => {
-  const queryParams = { ...context.query }
+> = async context => {
+  const queryParams = {...context.query}
   const variables: ContentTypeByNameQueryVariables = {
     name: context.params.content_type,
   }
@@ -60,7 +60,7 @@ export const getServerSideProps: GetServerSideProps<
     variables,
   }
 
-  const { data, error, loading } = await getApolloClient(
+  const {data, error, loading} = await getApolloClient(
     context,
   ).query<ContentTypeByNameQuery>(queryOptions)
 
@@ -68,7 +68,7 @@ export const getServerSideProps: GetServerSideProps<
   const title = data.contentType?.description
 
   // Extract pagination information and build pagination links.
-  const { endCursor, hasNextPage, hasPreviousPage, startCursor } =
+  const {endCursor, hasNextPage, hasPreviousPage, startCursor} =
     data.contentType?.contentNodes?.pageInfo || {}
 
   let nextPageLink = null

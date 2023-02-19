@@ -1,5 +1,5 @@
 query SiteMenus {
-  headerMenu: menuItems(where: { location: PRIMARY_MENU }) {
+  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {
     edges {
       node {
         ...MenuItem

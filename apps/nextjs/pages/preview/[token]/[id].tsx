@@ -4,13 +4,13 @@
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 import React from 'react'
-import { GetServerSideProps } from 'next'
-import { FetchPolicy } from '@apollo/client'
-import getApolloClient from '@/graphql/apollo'
+import {GetServerSideProps} from 'next'
+import {FetchPolicy} from '@apollo/client'
+import getApolloClient from '@/lib/graphql/apollo'
 import {
   ContentNodePreviewByIdDocument,
   ContentNodePreviewByIdQuery,
-} from '@/graphql/generated'
+} from '@/gql/graphql'
 import Post from '@/pages/[...slug]'
 
 // Mirror Post props.
@@ -22,9 +22,9 @@ export default function PostPreview(props: PreviewProps) {
   return <Post {...props} />
 }
 
-export const getServerSideProps: GetServerSideProps<PreviewProps> = async (
-  context,
-) => {
+export const getServerSideProps: GetServerSideProps<
+  PreviewProps
+> = async context => {
   const queryOptions = {
     context: {
       headers: {
@@ -41,7 +41,7 @@ export const getServerSideProps: GetServerSideProps<PreviewProps> = async (
     },
   }
 
-  const { data, loading } = await getApolloClient(
+  const {data, loading} = await getApolloClient(
     context,
   ).query<ContentNodePreviewByIdQuery>(queryOptions)
 
