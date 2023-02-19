@@ -35,7 +35,7 @@ const errorLink = onError(({graphQLErrors, networkError}) => {
 const httpLink = new HttpLink({
   uri: GRAPHQL_ENDPOINT,
   // FIXME: somethings?
-  credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
+  credentials: 'omit', // Additional fetch() options like `credentials` or `headers`
 })
 
 function createApolloClient() {

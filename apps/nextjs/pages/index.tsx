@@ -17,6 +17,7 @@ import Layout from '@/components/Layout'
 import Container from '@/components/Container'
 import {addApolloState, initializeApollo} from '@/lib/graphql'
 import {HomepageDocument, HomepageQuery} from '@/gql/graphql'
+import Hero from './Home/Hero'
 // import {log} from '@/lib/log'
 
 const podcastInfoUrl =
@@ -36,7 +37,7 @@ export default function Home({data}: HomeProps) {
   return (
     <Layout title="Home">
       <div className="relative mb-6 md:mb-24">
-        {/* <Hero /> */}
+        <Hero />
 
         <div className="relative mx-auto md:container">
           <div className="grid grid-cols-12 grid-rows-1 gap-2 md:absolute md:-bottom-16 md:px-5">
@@ -197,6 +198,8 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   })
 
   return addApolloState(apolloClient, {
-    props: {...data},
+    props: {
+      data,
+    },
   })
 }

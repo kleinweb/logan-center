@@ -47,7 +47,7 @@ const documents = {
     types.AllMediaItemsDocument,
   'query SinglePage($slug: ID!) {\n  page(id: $slug, idType: URI) {\n    title(format: RENDERED)\n    content(format: RENDERED)\n    databaseId\n    uri\n    featuredImage {\n      ...FeaturedImageFields\n    }\n    seo {\n      fullHead\n      title\n      metaDesc\n    }\n  }\n}':
     types.SinglePageDocument,
-  'query SiteMenus {\n  headerMenu: menu(id: "Header", idType: NAME) {\n    ...MenuItems\n  }\n}':
+  'query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}':
     types.SiteMenusDocument,
   'query Sitewide {\n  generalSettings {\n    ...Settings\n  }\n  headerMenu: menu(id: "PRIMARY_MENU", idType: LOCATION) {\n    ...MenuItems\n  }\n}':
     types.SitewideDocument,
@@ -175,8 +175,8 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query SiteMenus {\n  headerMenu: menu(id: "Header", idType: NAME) {\n    ...MenuItems\n  }\n}',
-): (typeof documents)['query SiteMenus {\n  headerMenu: menu(id: "Header", idType: NAME) {\n    ...MenuItems\n  }\n}']
+  source: 'query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}',
+): (typeof documents)['query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
