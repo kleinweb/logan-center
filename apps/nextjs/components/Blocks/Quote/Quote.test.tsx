@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { render, screen } from '@testing-library/react'
+import {render, screen} from '@testing-library/react'
 import Quote from './Quote'
 
 describe('Quote', () => {
@@ -32,7 +32,6 @@ describe('Quote', () => {
 
   it('renders a "large" quote via a className prop provided by Gutenberg', () => {
     // See notes in component file for full explanation.
-    // eslint-disable-next-line tailwindcss/no-custom-classname
     render(<Quote block={block} className="is-style-large" />)
 
     const quote = screen.getByText(text)
