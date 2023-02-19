@@ -12,7 +12,9 @@
     "copy": "concurrently 'yarn:copy:*'",
     "copy:tu-assets": "rimraf public/assets/shared && cp -R ../../packages/tu-assets ./public/assets/shared",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@apollo/client": "^3.7.7",
@@ -33,6 +35,13 @@
     "@kleinweb/eslint-config-custom": "workspace:*",
     "@kleinweb/logan-center__tailwind-config": "workspace:*",
     "@kleinweb/tsconfig": "workspace:*",
+    "@storybook/addon-essentials": "^7.0.0-beta.50",
+    "@storybook/addon-interactions": "^7.0.0-beta.50",
+    "@storybook/addon-links": "^7.0.0-beta.50",
+    "@storybook/blocks": "^7.0.0-beta.50",
+    "@storybook/nextjs": "^7.0.0-beta.50",
+    "@storybook/react": "^7.0.0-beta.50",
+    "@storybook/testing-library": "^0.0.14-next.1",
     "@svgr/webpack": "^6.5.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -50,11 +59,13 @@
     "dotenv-cli": "^7.0.0",
     "eslint": "^8.34.0",
     "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-storybook": "^0.6.10",
     "graphql-tag": "^2.12.6",
     "jest": "^29.4.2",
     "jest-environment-jsdom": "^29.4.2",
     "postcss": "^8.4.21",
     "rimraf": "^4.1.2",
+    "storybook": "^7.0.0-beta.50",
     "tailwindcss": "^3.2.6",
     "ts-jest": "^29.0.5",
     "typescript": "^4.9.5"
