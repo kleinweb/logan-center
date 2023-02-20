@@ -3515,14 +3515,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roots/blade-loader@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/blade-loader@npm:6.8.0"
+"@roots/blade-loader@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/blade-loader@npm:6.9.1"
   dependencies:
     helpful-decorators: "npm:2.1.0"
     lodash: "npm:4.17.21"
     webpack: "npm:5.75.0"
-  checksum: 162f95d4af3e7a6fa233eb83f6513d50d9615143820623e4dd63eb69af65345c78dbc7330f3bec7419d8aa50914dc3558915d5a3259e0ed41056affabf22220b
+  checksum: 7e536d265a5f8f38f36d8747a7f7caaa4ed463519910c4c1a4c13ed3437b3077c47735484420b18b5c78d5db46eefd062b2e526821bd966ef286e3fbdbb57504
   languageName: node
   linkType: hard
 
@@ -3546,16 +3546,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roots/bud-babel@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-babel@npm:6.8.0"
+"@roots/bud-babel@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-babel@npm:6.9.1"
   dependencies:
     "@babel/core": "npm:7.20.7"
     "@babel/plugin-transform-runtime": "npm:7.19.6"
     "@babel/preset-env": "npm:7.20.2"
     "@babel/runtime": "npm:7.20.13"
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
     babel-loader: "npm:9.1.2"
   peerDependencies:
     "@babel/core": "*"
@@ -3589,7 +3589,7 @@ __metadata:
       optional: true
     webpack:
       optional: true
-  checksum: 0ed59e33fa162e0f7231815e04fc6846f94f9ab350d114ccb93d8e61cbef7001e670fc3c8d87418b65a75fe80273b2507fd469b9ff90c423a84c7188854065c1
+  checksum: 36c266e618ac306b44596903d369a31e4071d0d044aa084d917f7c11582463e900b0b37c5b644d8929cc57afdedd5e3fabb92075282246867da642ca2ad0be52
   languageName: node
   linkType: hard
 
@@ -3600,6 +3600,16 @@ __metadata:
     "@roots/bud-framework": "npm:6.8.0"
     "@roots/bud-support": "npm:6.8.0"
   checksum: 0fb48734cbab6b1593c10d38ea5417357ceaf7296e414a3423c024b3900d9e0e2fd60cf2791eb50ab66d4f221117c71edf31dbd47afe731c446a0472c73ca237
+  languageName: node
+  linkType: hard
+
+"@roots/bud-build@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-build@npm:6.9.1"
+  dependencies:
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
+  checksum: 64fd8df2b1c7215244e30f0027448f860eaf87d71f82dffc05e96c04d634c7cd003aa65c0297fd99719907a088f6c91cc19ac4b9f43e8b2b08d0e18243cc3618
   languageName: node
   linkType: hard
 
@@ -3689,6 +3699,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@roots/bud-framework@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-framework@npm:6.9.1"
+  dependencies:
+    "@roots/bud-support": "npm:6.9.1"
+    "@roots/container": "npm:6.9.1"
+    "@roots/filesystem": "npm:6.9.1"
+    tslib: "npm:2.4.1"
+  checksum: 363c2c6ed17c3780049ba0ad8da190c5645a85df0f32825d7ff63e0a232e4b17e503ea7f5c3943d57f05ae7609e572dd751635e1f2b89d1f3b4abcb27cb3e220
+  languageName: node
+  linkType: hard
+
 "@roots/bud-hooks@npm:6.8.0":
   version: 6.8.0
   resolution: "@roots/bud-hooks@npm:6.8.0"
@@ -3735,13 +3757,49 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roots/bud-preset-recommend@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-preset-recommend@npm:6.8.0"
+"@roots/bud-postcss@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-postcss@npm:6.9.1"
   dependencies:
-    "@roots/bud-babel": "npm:6.8.0"
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-postcss": "npm:6.8.0"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
+    postcss: "npm:8.4.21"
+    postcss-import: "npm:15.1.0"
+    postcss-loader: "npm:7.0.2"
+    postcss-nested: "npm:6.0.0"
+    postcss-preset-env: "npm:8.0.0"
+  peerDependencies:
+    "@roots/bud": "*"
+    postcss: "*"
+    postcss-import: "*"
+    postcss-loader: "*"
+    postcss-nested: "*"
+    postcss-preset-env: "*"
+    webpack: 5.75.0
+  peerDependenciesMeta:
+    postcss:
+      optional: true
+    postcss-import:
+      optional: true
+    postcss-loader:
+      optional: true
+    postcss-nested:
+      optional: true
+    postcss-preset-env:
+      optional: true
+    webpack:
+      optional: true
+  checksum: 0365603229fbe925e83ff150d1bfac0780cf1118ef0b5bcb64dd5b592a5e4628c346993c10d0e34e9f1af03fc3a6bf0dc12ef4900f8e26dc6d4a34a81b94f652
+  languageName: node
+  linkType: hard
+
+"@roots/bud-preset-recommend@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-preset-recommend@npm:6.9.1"
+  dependencies:
+    "@roots/bud-babel": "npm:6.9.1"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-postcss": "npm:6.9.1"
   peerDependencies:
     "@roots/bud": "*"
     "@roots/bud-babel": "*"
@@ -3759,21 +3817,21 @@ __metadata:
       optional: true
     "@roots/bud-swc":
       optional: true
-  checksum: 44b575a0ea31e66b6f8a20ea2e0aeb33a6bfa8a85e9723f60282a06df72fa281bdc5c4e5e5ed245cb966d8649e5d98c23490f05c32c86184f006d218ec828b69
+  checksum: 81226dbea624d10fe22c479c8db33f491ce1cfebe83b724ac7fca6763e7248ddcddd29f8261f3b32e65c82eb278dc43eaaa4f58ef03d36d0c248c1e6d71bf33d
   languageName: node
   linkType: hard
 
-"@roots/bud-preset-wordpress@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-preset-wordpress@npm:6.8.0"
+"@roots/bud-preset-wordpress@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-preset-wordpress@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-preset-recommend": "npm:6.8.0"
-    "@roots/bud-react": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
-    "@roots/bud-tailwindcss-theme-json": "npm:6.8.0"
-    "@roots/bud-wordpress-manifests": "npm:6.8.0"
-    "@roots/bud-wordpress-theme-json": "npm:6.8.0"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-preset-recommend": "npm:6.9.1"
+    "@roots/bud-react": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
+    "@roots/bud-tailwindcss-theme-json": "npm:6.9.1"
+    "@roots/bud-wordpress-manifests": "npm:6.9.1"
+    "@roots/bud-wordpress-theme-json": "npm:6.9.1"
   peerDependencies:
     "@roots/bud": "*"
     "@roots/bud-preset-recommend": "*"
@@ -3791,19 +3849,19 @@ __metadata:
       optional: true
     "@roots/bud-wordpress-manifests":
       optional: true
-  checksum: 4c1f7e63170910ab9bde0630a0d60342642cf2063606d468a95bcb863eaa1746d08188f1e41e3ec0b70339cd7cd2ba50ab1e5d1728b6659c8cc39ef159736ba6
+  checksum: 47727195a7ec750bec90eeffa128511f74f2f4606e7e18d4137635b9f24002f7e4b47545925255ff3de3af41f822844daa957bc5e64db504bbb46f037c6ccc51
   languageName: node
   linkType: hard
 
-"@roots/bud-react@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-react@npm:6.8.0"
+"@roots/bud-react@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-react@npm:6.9.1"
   dependencies:
     "@babel/preset-react": "npm:^7.18.6"
     "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.5.10"
-    "@roots/bud-babel": "npm:6.8.0"
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
+    "@roots/bud-babel": "npm:6.9.1"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     react-refresh: "npm:^0.14.0"
@@ -3849,7 +3907,7 @@ __metadata:
       optional: true
     webpack:
       optional: true
-  checksum: f1309215c1df739e558a3a97d080e401210c37d80def0268d9da43d1ca61ad3dfb0597a47980868881b23989633342c5a5086f8c1d644fe83d1d076e0d350481
+  checksum: 68a6e6ea9e0e8b79b936e39ae9a84b3079eb96554cf786a6ef5745ad36fc564a8da614204982b6da86e8226485cf530e7f20268bd8ce75cf96b3caffe5c971fb
   languageName: node
   linkType: hard
 
@@ -4078,19 +4136,228 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roots/bud-tailwindcss-theme-json@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-tailwindcss-theme-json@npm:6.8.0"
+"@roots/bud-support@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-support@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
-    "@roots/bud-wordpress-theme-json": "npm:6.8.0"
+    "@roots/filesystem": "npm:6.9.1"
+    axios: "npm:1.2.4"
+    chalk: "npm:5.2.0"
+    chokidar: "npm:3.5.3"
+    clean-stack: "npm:5.1.0"
+    clean-webpack-plugin: "npm:4.0.0"
+    clipanion: "npm:3.2.0-rc.14"
+    common-path: "npm:1.0.1"
+    connect: "npm:3.7.0"
+    cookie-parser: "npm:1.4.6"
+    copy-webpack-plugin: "npm:11.0.0"
+    css-loader: "npm:^6.7.3"
+    css-minimizer-webpack-plugin: "npm:4.2.2"
+    csv-loader: "npm:^3.0.5"
+    dotenv: "npm:16.0.3"
+    dotenv-expand: "npm:10.0.0"
+    execa: "npm:6.1.0"
+    express: "npm:4.18.2"
+    figures: "npm:5.0.0"
+    file-loader: "npm:^6.2.0"
+    fs-extra: "npm:11.1.0"
+    fs-jetpack: "npm:5.1.0"
+    get-port: "npm:6.1.2"
+    globby: "npm:13.1.3"
+    helpful-decorators: "npm:2.1.0"
+    highlight.js: "npm:11.7.0"
+    html-loader: "npm:^4.2.0"
+    html-webpack-plugin: "npm:5.5.0"
+    http-proxy-middleware: "npm:3.0.0-beta.0"
+    import-meta-resolve: "npm:2.2.1"
+    ink: "npm:3.2.0"
+    ink-link: "npm:2.0.1"
+    ink-text-input: "npm:4.0.3"
+    json5: "npm:2.2.3"
+    lodash: "npm:4.17.21"
+    mini-css-extract-plugin: "npm:2.7.2"
+    mini-svg-data-uri: "npm:1.4.4"
+    node-notifier: "npm:10.0.1"
+    open: "npm:8.4.0"
+    open-editor: "npm:4.0.0"
+    parse-semver: "npm:1.1.1"
+    parse5: "npm:7.1.2"
+    parse5-htmlparser2-tree-adapter: "npm:7.0.0"
+    patch-console: "npm:2.0.0"
+    pretty-format: "npm:29.4.1"
+    react: "npm:17.0.2"
+    remark: "npm:14.0.2"
+    remark-html: "npm:15.0.1"
+    remark-loader: "npm:5.0.0"
+    signale: "npm:1.4.0"
+    style-loader: "npm:3.3.1"
+    terser-webpack-plugin: "npm:5.3.6"
+    toml: "npm:3.0.0"
+    typanion: "npm:3.12.1"
+    type-fest: "npm:3.5.0"
+    webpack: "npm:5.75.0"
+    webpack-dev-middleware: "npm:6.0.1"
+    webpack-manifest-plugin: "npm:5.0.0"
+    xml-loader: "npm:1.2.1"
+    yml-loader: "npm:2.1.0"
+    zod: "npm:3.20.2"
+  peerDependencies:
+    axios: "*"
+    chalk: ">=5"
+    chokidar: "*"
+    clean-stack: "*"
+    clean-webpack-plugin: "*"
+    clipanion: "*"
+    common-path: "*"
+    connect: "*"
+    cookie-parser: "*"
+    copy-webpack-plugin: "*"
+    css-minimizer-webpack-plugin: "*"
+    dotenv: "*"
+    dotenv-expand: "*"
+    execa: "*"
+    express: "*"
+    figures: "*"
+    fs-extra: "*"
+    fs-jetpack: "*"
+    get-port: "*"
+    globby: "*"
+    helpful-decorators: "*"
+    highlight.js: "*"
+    html-webpack-plugin: "*"
+    http-proxy-middleware: "*"
+    import-meta-resolve: "*"
+    ink-link: "*"
+    ink-text-input: "*"
+    json5: "*"
+    lodash: ">=4"
+    mini-css-extract-plugin: ">=2"
+    node-notifier: ">=10"
+    open: ">=8"
+    open-editor: ">=4"
+    parse5: ">=7"
+    parse5-htmlparser2-tree-adapter: ">=7"
+    patch-console: ">=2"
+    pretty-format: ">=29"
+    signale: ">=1"
+    terser-webpack-plugin: "*"
+    toml: "*"
+    typanion: "*"
+    type-fest: "*"
+    webpack: "*"
+    webpack-dev-middleware: "*"
+    webpack-manifest-plugin: "*"
+    zod: "*"
+  peerDependenciesMeta:
+    axios:
+      optional: true
+    chalk:
+      optional: true
+    chokidar:
+      optional: true
+    clean-stack:
+      optional: true
+    clean-webpack-plugin:
+      optional: true
+    clipanion:
+      optional: true
+    common-path:
+      optional: true
+    connect:
+      optional: true
+    cookie-parser:
+      optional: true
+    copy-webpack-plugin:
+      optional: true
+    css-minimizer-webpack-plugin:
+      optional: true
+    dotenv:
+      optional: true
+    dotenv-expand:
+      optional: true
+    execa:
+      optional: true
+    express:
+      optional: true
+    figures:
+      optional: true
+    fs-extra:
+      optional: true
+    fs-jetpack:
+      optional: true
+    get-port:
+      optional: true
+    globby:
+      optional: true
+    helpful-decorators:
+      optional: true
+    highlight.js:
+      optional: true
+    html-webpack-plugin:
+      optional: true
+    http-proxy-middleware:
+      optional: true
+    import-meta-resolve:
+      optional: true
+    ink-link:
+      optional: true
+    ink-text-input:
+      optional: true
+    json5:
+      optional: true
+    lodash:
+      optional: true
+    mini-css-extract-plugin:
+      optional: true
+    node-notifier:
+      optional: true
+    open:
+      optional: true
+    open-editor:
+      optional: true
+    parse5:
+      optional: true
+    parse5-htmlparser2-tree-adapter:
+      optional: true
+    patch-console:
+      optional: true
+    pretty-format:
+      optional: true
+    signale:
+      optional: true
+    terser-webpack-plugin:
+      optional: true
+    toml:
+      optional: true
+    typanion:
+      optional: true
+    type-fest:
+      optional: true
+    webpack:
+      optional: true
+    webpack-dev-middleware:
+      optional: true
+    webpack-manifest-plugin:
+      optional: true
+    zod:
+      optional: true
+  checksum: d1c94199b0412ceafd525a128fd9e6046b160ad53bf6e27020d5e39fb1595c3e0e31a4b03000bb074cde3ff73cd863ac6eadd3cf4d609265ba55c8bc655084d5
+  languageName: node
+  linkType: hard
+
+"@roots/bud-tailwindcss-theme-json@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-tailwindcss-theme-json@npm:6.9.1"
+  dependencies:
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
+    "@roots/bud-wordpress-theme-json": "npm:6.9.1"
   peerDependencies:
     "@roots/bud": "*"
   peerDependenciesMeta:
     "@roots/bud":
       optional: true
-  checksum: 7f5bb851a97dd3050051254a6f761f745247f5d4a05f58b8c3dc81d3be32141f7154cfca874941baa02147a5451075460fb110bc6d716fd266b4ea5dd8f523ec
+  checksum: 9bc20481a06a53a2b2ca89356041a7f790d0ce13f5f83df57122955614a8340389af3214acd0d88a26153252ed4a0f3e379bc194b7e4bd68116494366200293d
   languageName: node
   linkType: hard
 
@@ -4130,12 +4397,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roots/bud-wordpress-dependencies@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-wordpress-dependencies@npm:6.8.0"
+"@roots/bud-wordpress-dependencies@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-wordpress-dependencies@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/wordpress-dependencies-webpack-plugin": "npm:6.8.0"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/wordpress-dependencies-webpack-plugin": "npm:6.9.1"
   peerDependencies:
     "@roots/bud": "*"
     "@roots/wordpress-dependencies-webpack-plugin": "*"
@@ -4144,16 +4411,16 @@ __metadata:
       optional: true
     "@roots/wordpress-dependencies-webpack-plugin":
       optional: true
-  checksum: 4aae86fe3b47c611e81b6157cd8b64b62ee4b03be99de26a2c519b8a27774aae061f9e4e670161cc5e265a83b8c769eba8ecd9c3a2021bb77cfefd693a88eb96
+  checksum: a460558ced537d77d789516b9bb1d175f44c371760f74ad25b03bc0dfb37769ecebe8670c5257b02dd0aa80ece63159dd8626c8fb3fcb2c1a5f40961e8946f3c
   languageName: node
   linkType: hard
 
-"@roots/bud-wordpress-externals@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-wordpress-externals@npm:6.8.0"
+"@roots/bud-wordpress-externals@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-wordpress-externals@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/wordpress-externals-webpack-plugin": "npm:6.8.0"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/wordpress-externals-webpack-plugin": "npm:6.9.1"
   peerDependencies:
     "@roots/bud": "*"
     "@roots/wordpress-externals-webpack-plugin": "*"
@@ -4162,18 +4429,18 @@ __metadata:
       optional: true
     "@roots/wordpress-externals-webpack-plugin":
       optional: true
-  checksum: cc26bf3f944d42f970d27ce48eb840f79361f1ef4e0c8cd9307ae27dff9525ff2b819d86213575b07846bb9ea50c06423945632076277043d7432069d407eaef
+  checksum: fd1b33ee3ab2030e68438fda5bf4fa9a6704ddd4d7693502e2ded1d38c491ff7d8ea93b2990fdce8e7426cf299ba05a4cd3a83677dd8941698ea9daaba2ce695
   languageName: node
   linkType: hard
 
-"@roots/bud-wordpress-manifests@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-wordpress-manifests@npm:6.8.0"
+"@roots/bud-wordpress-manifests@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-wordpress-manifests@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-wordpress-dependencies": "npm:6.8.0"
-    "@roots/bud-wordpress-externals": "npm:6.8.0"
-    "@roots/merged-manifest-webpack-plugin": "npm:6.8.0"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-wordpress-dependencies": "npm:6.9.1"
+    "@roots/bud-wordpress-externals": "npm:6.9.1"
+    "@roots/merged-manifest-webpack-plugin": "npm:6.9.1"
   peerDependencies:
     "@roots/bud": "*"
     "@roots/bud-wordpress-dependencies": "*"
@@ -4188,24 +4455,24 @@ __metadata:
       optional: true
     "@roots/merged-manifest-webpack-plugin":
       optional: true
-  checksum: 863237fcca10223ad167d527443c7eaab9622e42b551b80d4aa8c3e1cc654d62a6543967babdd8056b94f527197f7adc7bd761ece3fb52e2ff7334a068270f84
+  checksum: b4269ac436206164855019630f39684d96417445018540832b1ffb17d829343db1e17fc2e13499896b0dd2066da0aff716b3d6bf321ade189a44871ad6d05d0e
   languageName: node
   linkType: hard
 
-"@roots/bud-wordpress-theme-json@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-wordpress-theme-json@npm:6.8.0"
+"@roots/bud-wordpress-theme-json@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-wordpress-theme-json@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
-    "@roots/container": "npm:6.8.0"
-    "@roots/wordpress-theme-json-webpack-plugin": "npm:6.8.0"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
+    "@roots/container": "npm:6.9.1"
+    "@roots/wordpress-theme-json-webpack-plugin": "npm:6.9.1"
   peerDependencies:
     "@roots/bud": "*"
   peerDependenciesMeta:
     "@roots/bud":
       optional: true
-  checksum: 7c751d87893e99edc06c6c2719abc4cafb5ca205459a3bbc6c8e40fb5c5a6362a51d9a257a047fb27f0eaf1884e13b542d23e590321c3fa7851ec41197eb0a52
+  checksum: 9b1cf3845c0b0f70d7e54069115ee144ee36e7703567e444c660e65623e3863e7fb3cebb51fa45df4769ee35cd42dd53ab647a74049a25b92ee866f4fc139e28
   languageName: node
   linkType: hard
 
@@ -4305,6 +4572,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@roots/container@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/container@npm:6.9.1"
+  dependencies:
+    helpful-decorators: "npm:2.1.0"
+    lodash: "npm:4.17.21"
+  checksum: ba75f6f20a04ac871e357f52164bb3f88e299857c632debf07e0ad6495b0c6473dedf5844ff2b1d3e3fea8b5f83104c6097afddde7b1eb7d1d7ba1c24e967747
+  languageName: node
+  linkType: hard
+
 "@roots/entrypoints-webpack-plugin@npm:6.8.0":
   version: 6.8.0
   resolution: "@roots/entrypoints-webpack-plugin@npm:6.8.0"
@@ -4338,27 +4615,47 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roots/merged-manifest-webpack-plugin@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/merged-manifest-webpack-plugin@npm:6.8.0"
+"@roots/filesystem@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/filesystem@npm:6.9.1"
+  dependencies:
+    "@aws-sdk/abort-controller": "npm:3.226.0"
+    "@aws-sdk/client-s3": "npm:3.241.0"
+    "@aws-sdk/lib-storage": "npm:3.252.0"
+    "@types/lodash-es": "npm:4.17.6"
+    fs-jetpack: "npm:5.1.0"
+    globby: "npm:13.1.3"
+    helpful-decorators: "npm:2.1.0"
+    js-yaml: "npm:4.1.0"
+    json5: "npm:2.2.3"
+    lodash: "npm:4.17.21"
+    mime-types: "npm:2.1.35"
+    safe-json-stringify: "npm:1.2.0"
+  checksum: 96d3c3381ab8dd1193abcda09d3a4f2413c35e429547899e51c01c3442e71d8634fb882aea61a8e30939e633af849f78044c5c9fe02836642b987c23656c3d32
+  languageName: node
+  linkType: hard
+
+"@roots/merged-manifest-webpack-plugin@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/merged-manifest-webpack-plugin@npm:6.9.1"
   dependencies:
     fs-extra: "npm:11.1.0"
     helpful-decorators: "npm:2.1.0"
     webpack: "npm:5.75.0"
-  checksum: 6cdea79e4b0c33667e1980c6bf4854834a8143fc4f9520009840295b0f4b972bc90528e9099822e2b1fac0eea4fe2cca7841450ff209ef01d5331213cca356c5
+  checksum: e8da16ba858067228332e447d62486663178db8d49295815c532e498c3e85db6a6365bfd037cbe2fdb2f82519776407bff02072025ac57b68327375994848c1e
   languageName: node
   linkType: hard
 
-"@roots/sage@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/sage@npm:6.8.0"
+"@roots/sage@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/sage@npm:6.9.1"
   dependencies:
-    "@roots/blade-loader": "npm:6.8.0"
-    "@roots/bud-build": "npm:6.8.0"
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-preset-wordpress": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
-    "@roots/container": "npm:6.8.0"
+    "@roots/blade-loader": "npm:6.9.1"
+    "@roots/bud-build": "npm:6.9.1"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-preset-wordpress": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
+    "@roots/container": "npm:6.9.1"
   peerDependencies:
     "@roots/bud": "*"
     "@roots/bud-preset-wordpress": "*"
@@ -4367,40 +4664,40 @@ __metadata:
       optional: true
     "@roots/bud-preset-wordpress":
       optional: true
-  checksum: b412a9b9ccc5ca2b4e2e86af68897435f0238584efa704ff04fa9268debdcf7b67f7634e1b1b75db8224190372a6a9640c7de2eedd6679c2c3c0e422cd8f0c02
+  checksum: 2ca4dbd14572bd182ae9c73e46887196697f2c1814ac7ddac2692026406335f82ef504671603f86b543cc9612b6d4f288ae18d48510c0ca946334062b7d207fd
   languageName: node
   linkType: hard
 
-"@roots/wordpress-dependencies-webpack-plugin@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/wordpress-dependencies-webpack-plugin@npm:6.8.0"
+"@roots/wordpress-dependencies-webpack-plugin@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/wordpress-dependencies-webpack-plugin@npm:6.9.1"
   dependencies:
     helpful-decorators: "npm:2.1.0"
     lodash: "npm:4.17.21"
     webpack: "npm:5.75.0"
-  checksum: 30eeefbe22130f0a10ea9b3dfb4304daf4aa3c12756e91dfa8d4a8e3abd31b8e917cafae15ea9ed07a79abe9cc9973c351246f694631f1e2dc7959de15e04632
+  checksum: 59d811e82a4b435d06e510effe3f71d2b4ba2f268f9b8040e622fb663f30ffb913d882dadd6ed964d183871064f81981c5fb4dc02deba1cffda25d17ee66fb72
   languageName: node
   linkType: hard
 
-"@roots/wordpress-externals-webpack-plugin@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/wordpress-externals-webpack-plugin@npm:6.8.0"
+"@roots/wordpress-externals-webpack-plugin@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/wordpress-externals-webpack-plugin@npm:6.9.1"
   dependencies:
     lodash: "npm:4.17.21"
     webpack: "npm:5.75.0"
-  checksum: 691d02ba5b141d0f1148e81f1753d036562d89bbabb91d9d2436f2f2efdd1fc3e2930f7ca64f2eaf6bb11c15ff0380872b7e3e4a4c200349b990578b9174fe00
+  checksum: 655264bb0e88bd25d4c54dc949fde16f0b82f2a757c751fb8e35030f3d0a5dbf440dbc495ffa167a8729a365e5cfdae9e2369f8d81ad65e689bffe93e1187c4f
   languageName: node
   linkType: hard
 
-"@roots/wordpress-theme-json-webpack-plugin@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/wordpress-theme-json-webpack-plugin@npm:6.8.0"
+"@roots/wordpress-theme-json-webpack-plugin@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/wordpress-theme-json-webpack-plugin@npm:6.9.1"
   dependencies:
     fs-extra: "npm:11.1.0"
     helpful-decorators: "npm:2.1.0"
     lodash: "npm:4.17.21"
     webpack: "npm:5.75.0"
-  checksum: 9158b9685f56f171d14d8f7704b45f44ca74e099ad1ebaa32ae0278923edddfcf401db4cc7c422777ad0a228da1ca4f7f7fbd23691d703e49e14a3c699a76438
+  checksum: c988b974cb7ffefabf12005d6a566877b6aa8c9bf75dbabc306235ed0a81df0a4313c26cd316d79e80ea2200c4904842f07388811c2901db29127cfd493a0a9a
   languageName: node
   linkType: hard
 
@@ -10959,7 +11256,7 @@ __metadata:
   dependencies:
     "@roots/bud": "npm:6.8.0"
     "@roots/bud-tailwindcss": "npm:6.8.0"
-    "@roots/sage": "npm:6.8.0"
+    "@roots/sage": "npm:6.9.1"
   languageName: unknown
   linkType: soft
 
