@@ -3526,23 +3526,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roots/browserslist-config@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/browserslist-config@npm:6.8.0"
+"@roots/browserslist-config@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/browserslist-config@npm:6.9.1"
   dependencies:
     browserslist: "npm:4.21.4"
-  checksum: b76df9bdfa038eb7070f5d063ded61590f09b41a11c357c547cfaea899b38fdaa3718335a7b06dce47d232ceed6cb4c6bcea69fca72188384cde169a7beb8550
+  checksum: 6717fb6ce30613b17245170ca9e173a68fc06c10c0de70b25a9d26ba8643613c1ef6bc82f91fb163e99120e6bfded66d7d07bb9b09f7be1580d178e4fd873450
   languageName: node
   linkType: hard
 
-"@roots/bud-api@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-api@npm:6.8.0"
+"@roots/bud-api@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-api@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
-    "@roots/container": "npm:6.8.0"
-  checksum: cb7510397ac0f149ae518ce7b72a8520ad36d4614558b75510a6556620f6f393bee9de40e5bd90cb0c37626778e6d9cabbd129bcf67f00d603cff74e66e2f290
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
+    "@roots/container": "npm:6.9.1"
+  checksum: 1a21d33e05a3f08def8523e6f767bdc6fe4163e526f55fc3ecae926bdbdce78ff72fa91e1651492fd59a2bcf7d68a6f5c59119cc400f618d877492a5efc9e87b
   languageName: node
   linkType: hard
 
@@ -3603,20 +3603,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roots/bud-cache@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-cache@npm:6.8.0"
+"@roots/bud-build@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-build@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
-    strip-ansi: "npm:7.0.1"
-  checksum: f6a75ade888d131dae675806c62e07a2db52b4df49939edbabec405e069d80ffb97138cebb6651ff9dc4ac22a3ac9604389307f39b621c4b816b0fdc7d2512e8
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
+  checksum: 64fd8df2b1c7215244e30f0027448f860eaf87d71f82dffc05e96c04d634c7cd003aa65c0297fd99719907a088f6c91cc19ac4b9f43e8b2b08d0e18243cc3618
   languageName: node
   linkType: hard
 
-"@roots/bud-client@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-client@npm:6.8.0"
+"@roots/bud-cache@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-cache@npm:6.9.1"
+  dependencies:
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
+    strip-ansi: "npm:7.0.1"
+  checksum: c06ae3622c9a9ca04428f8c761971e6b8a69a8d1ac4753b72fcf9faadd05905b904bf4d79ce8cf376e50d762d45bbc62f1c6e85195413d6c2d81aaac8f45d122
+  languageName: node
+  linkType: hard
+
+"@roots/bud-client@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-client@npm:6.9.1"
   peerDependencies:
     "@roots/bud": "*"
     "@types/webpack-env": "*"
@@ -3625,55 +3635,55 @@ __metadata:
       optional: true
     "@types/webpack-env":
       optional: true
-  checksum: 6de7b864ba3d827c10a121cd648e3c891610ef6336778b52e1e1e2b00011479e337678d309e25bca569af45125b7c817e67624dac5a97d5070c0ab053cfd34c3
+  checksum: 040c3548b5609d137c14aa1ee3d61ae928559141bf861e55b19635f194ca1e9b83b9ec432578d3372da88d8ab40a57c7f48f4f3c576b5a747790d8ee176ef457
   languageName: node
   linkType: hard
 
-"@roots/bud-compiler@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-compiler@npm:6.8.0"
+"@roots/bud-compiler@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-compiler@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
-  checksum: 7eeb349923d75324b7db35cce736b65f29b8545866fdc6d5a7537e5c4fd4ebcb6021a3aab52021f20bacb4ba6303f518c4437f020b81f67ca0a77366c0aa6c61
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
+  checksum: e4946c0b456f8654d73e05b665a6595df333a74aacb33bff00dc9eaaf695e6c61a06c1b55b2372e53bcb876060c2915e10018700591ce517f5c14a35fec45c62
   languageName: node
   linkType: hard
 
-"@roots/bud-dashboard@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-dashboard@npm:6.8.0"
+"@roots/bud-dashboard@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-dashboard@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
     human-readable: "npm:0.2.1"
-  checksum: 63368bb02db1f0dbd5212ce9afd30ea75747b2bca07220d17672cefd5fa98db4fffacfdbd780842075dad6baff5b5820394b95ff9a8171eef8e25de9aa2639a0
+  checksum: e2b8b537a75d75c866699875ba377b12e7e044d5e6d80f2b7a919907e3e50037ceb6b39d5793a5adef59f5da0dba52453f42bed460909cb874e13ef1011d755b
   languageName: node
   linkType: hard
 
-"@roots/bud-entrypoints@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-entrypoints@npm:6.8.0"
+"@roots/bud-entrypoints@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-entrypoints@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/entrypoints-webpack-plugin": "npm:6.8.0"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/entrypoints-webpack-plugin": "npm:6.9.1"
   peerDependencies:
     "@roots/bud": "*"
   peerDependenciesMeta:
     "@roots/bud":
       optional: true
-  checksum: 3fe1a60808611544c086a0820b8f7fdb48181b393371caae3d3468b63d488c20d41aec0fe52d3e60f201ac4b0faf7d7bc42916072ca250f1443718d600827f35
+  checksum: 228775a391b590e504e40ed3413ba1ca9128d94f921f6f91e2e23ec07ef3f69330259b30071c0bfeead4d36b94d4a0c6388c61c7058d40268a86a82ef8cf8e07
   languageName: node
   linkType: hard
 
-"@roots/bud-extensions@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-extensions@npm:6.8.0"
+"@roots/bud-extensions@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-extensions@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
-    "@roots/bud-terser": "npm:6.8.0"
-    "@roots/container": "npm:6.8.0"
-  checksum: b8fa7a9f370a7bfcfe13ba7ace5d3f51e15a000bc431f6097f505cb62e66c90c1eeaf77189668675ac08bd49001e88e93b91bafc068ee07d91d7714f28602f4b
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
+    "@roots/bud-terser": "npm:6.9.1"
+    "@roots/container": "npm:6.9.1"
+  checksum: a7c5685b529755371b16b6ce94a99dc95f0da98318bb31f2d81bc0c9c6dbd097cc2a5b78f71137f6cb16e355bbd5798cbb0273736ea15943d40fae2e70fc5a8c
   languageName: node
   linkType: hard
 
@@ -3689,13 +3699,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roots/bud-hooks@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-hooks@npm:6.8.0"
+"@roots/bud-framework@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-framework@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
-  checksum: 3a8b52580a58c15021903e4c0556352abae11d696a1d0535a6230abe081aa42dc1914d6c668602216c72b72ee21440b1b4e7f7f9481c8365176ce761e709ecec
+    "@roots/bud-support": "npm:6.9.1"
+    "@roots/container": "npm:6.9.1"
+    "@roots/filesystem": "npm:6.9.1"
+    tslib: "npm:2.4.1"
+  checksum: 363c2c6ed17c3780049ba0ad8da190c5645a85df0f32825d7ff63e0a232e4b17e503ea7f5c3943d57f05ae7609e572dd751635e1f2b89d1f3b4abcb27cb3e220
+  languageName: node
+  linkType: hard
+
+"@roots/bud-hooks@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-hooks@npm:6.9.1"
+  dependencies:
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
+  checksum: bab6c1af3840e2b0b0d2feff4a881d6ca5a754dcc822e531f0975200ffcb08da3938a901e4875622af50bc800002cce582b34cb968b2e12a620dac282cb76e89
   languageName: node
   linkType: hard
 
@@ -3853,19 +3875,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roots/bud-server@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-server@npm:6.8.0"
+"@roots/bud-server@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-server@npm:6.9.1"
   dependencies:
-    "@roots/bud-client": "npm:6.8.0"
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
+    "@roots/bud-client": "npm:6.9.1"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
   peerDependencies:
     "@roots/bud-client": "*"
   peerDependenciesMeta:
     "@roots/bud-client":
       optional: true
-  checksum: f0ab943c12bb4f0c69c14c0540a712882645f9d36d9d27c79c0d2239166f71af5191fcc8876ef3018d8db7a6ab83edab485c2dd5485612af05652e6b7f37a34d
+  checksum: c36519c3061d814c1abdcf975dc5083429eb9de961cb5e012e371beb02ee2dd1fe4724ba27ee129de58e541325da244b87528e55940346507cb900adffa90be9
   languageName: node
   linkType: hard
 
@@ -4078,6 +4100,215 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@roots/bud-support@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-support@npm:6.9.1"
+  dependencies:
+    "@roots/filesystem": "npm:6.9.1"
+    axios: "npm:1.2.4"
+    chalk: "npm:5.2.0"
+    chokidar: "npm:3.5.3"
+    clean-stack: "npm:5.1.0"
+    clean-webpack-plugin: "npm:4.0.0"
+    clipanion: "npm:3.2.0-rc.14"
+    common-path: "npm:1.0.1"
+    connect: "npm:3.7.0"
+    cookie-parser: "npm:1.4.6"
+    copy-webpack-plugin: "npm:11.0.0"
+    css-loader: "npm:^6.7.3"
+    css-minimizer-webpack-plugin: "npm:4.2.2"
+    csv-loader: "npm:^3.0.5"
+    dotenv: "npm:16.0.3"
+    dotenv-expand: "npm:10.0.0"
+    execa: "npm:6.1.0"
+    express: "npm:4.18.2"
+    figures: "npm:5.0.0"
+    file-loader: "npm:^6.2.0"
+    fs-extra: "npm:11.1.0"
+    fs-jetpack: "npm:5.1.0"
+    get-port: "npm:6.1.2"
+    globby: "npm:13.1.3"
+    helpful-decorators: "npm:2.1.0"
+    highlight.js: "npm:11.7.0"
+    html-loader: "npm:^4.2.0"
+    html-webpack-plugin: "npm:5.5.0"
+    http-proxy-middleware: "npm:3.0.0-beta.0"
+    import-meta-resolve: "npm:2.2.1"
+    ink: "npm:3.2.0"
+    ink-link: "npm:2.0.1"
+    ink-text-input: "npm:4.0.3"
+    json5: "npm:2.2.3"
+    lodash: "npm:4.17.21"
+    mini-css-extract-plugin: "npm:2.7.2"
+    mini-svg-data-uri: "npm:1.4.4"
+    node-notifier: "npm:10.0.1"
+    open: "npm:8.4.0"
+    open-editor: "npm:4.0.0"
+    parse-semver: "npm:1.1.1"
+    parse5: "npm:7.1.2"
+    parse5-htmlparser2-tree-adapter: "npm:7.0.0"
+    patch-console: "npm:2.0.0"
+    pretty-format: "npm:29.4.1"
+    react: "npm:17.0.2"
+    remark: "npm:14.0.2"
+    remark-html: "npm:15.0.1"
+    remark-loader: "npm:5.0.0"
+    signale: "npm:1.4.0"
+    style-loader: "npm:3.3.1"
+    terser-webpack-plugin: "npm:5.3.6"
+    toml: "npm:3.0.0"
+    typanion: "npm:3.12.1"
+    type-fest: "npm:3.5.0"
+    webpack: "npm:5.75.0"
+    webpack-dev-middleware: "npm:6.0.1"
+    webpack-manifest-plugin: "npm:5.0.0"
+    xml-loader: "npm:1.2.1"
+    yml-loader: "npm:2.1.0"
+    zod: "npm:3.20.2"
+  peerDependencies:
+    axios: "*"
+    chalk: ">=5"
+    chokidar: "*"
+    clean-stack: "*"
+    clean-webpack-plugin: "*"
+    clipanion: "*"
+    common-path: "*"
+    connect: "*"
+    cookie-parser: "*"
+    copy-webpack-plugin: "*"
+    css-minimizer-webpack-plugin: "*"
+    dotenv: "*"
+    dotenv-expand: "*"
+    execa: "*"
+    express: "*"
+    figures: "*"
+    fs-extra: "*"
+    fs-jetpack: "*"
+    get-port: "*"
+    globby: "*"
+    helpful-decorators: "*"
+    highlight.js: "*"
+    html-webpack-plugin: "*"
+    http-proxy-middleware: "*"
+    import-meta-resolve: "*"
+    ink-link: "*"
+    ink-text-input: "*"
+    json5: "*"
+    lodash: ">=4"
+    mini-css-extract-plugin: ">=2"
+    node-notifier: ">=10"
+    open: ">=8"
+    open-editor: ">=4"
+    parse5: ">=7"
+    parse5-htmlparser2-tree-adapter: ">=7"
+    patch-console: ">=2"
+    pretty-format: ">=29"
+    signale: ">=1"
+    terser-webpack-plugin: "*"
+    toml: "*"
+    typanion: "*"
+    type-fest: "*"
+    webpack: "*"
+    webpack-dev-middleware: "*"
+    webpack-manifest-plugin: "*"
+    zod: "*"
+  peerDependenciesMeta:
+    axios:
+      optional: true
+    chalk:
+      optional: true
+    chokidar:
+      optional: true
+    clean-stack:
+      optional: true
+    clean-webpack-plugin:
+      optional: true
+    clipanion:
+      optional: true
+    common-path:
+      optional: true
+    connect:
+      optional: true
+    cookie-parser:
+      optional: true
+    copy-webpack-plugin:
+      optional: true
+    css-minimizer-webpack-plugin:
+      optional: true
+    dotenv:
+      optional: true
+    dotenv-expand:
+      optional: true
+    execa:
+      optional: true
+    express:
+      optional: true
+    figures:
+      optional: true
+    fs-extra:
+      optional: true
+    fs-jetpack:
+      optional: true
+    get-port:
+      optional: true
+    globby:
+      optional: true
+    helpful-decorators:
+      optional: true
+    highlight.js:
+      optional: true
+    html-webpack-plugin:
+      optional: true
+    http-proxy-middleware:
+      optional: true
+    import-meta-resolve:
+      optional: true
+    ink-link:
+      optional: true
+    ink-text-input:
+      optional: true
+    json5:
+      optional: true
+    lodash:
+      optional: true
+    mini-css-extract-plugin:
+      optional: true
+    node-notifier:
+      optional: true
+    open:
+      optional: true
+    open-editor:
+      optional: true
+    parse5:
+      optional: true
+    parse5-htmlparser2-tree-adapter:
+      optional: true
+    patch-console:
+      optional: true
+    pretty-format:
+      optional: true
+    signale:
+      optional: true
+    terser-webpack-plugin:
+      optional: true
+    toml:
+      optional: true
+    typanion:
+      optional: true
+    type-fest:
+      optional: true
+    webpack:
+      optional: true
+    webpack-dev-middleware:
+      optional: true
+    webpack-manifest-plugin:
+      optional: true
+    zod:
+      optional: true
+  checksum: d1c94199b0412ceafd525a128fd9e6046b160ad53bf6e27020d5e39fb1595c3e0e31a4b03000bb074cde3ff73cd863ac6eadd3cf4d609265ba55c8bc655084d5
+  languageName: node
+  linkType: hard
+
 "@roots/bud-tailwindcss-theme-json@npm:6.8.0":
   version: 6.8.0
   resolution: "@roots/bud-tailwindcss-theme-json@npm:6.8.0"
@@ -4115,18 +4346,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roots/bud-terser@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud-terser@npm:6.8.0"
+"@roots/bud-terser@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud-terser@npm:6.9.1"
   dependencies:
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
   peerDependencies:
     "@roots/bud": "*"
   peerDependenciesMeta:
     "@roots/bud":
       optional: true
-  checksum: 0ad44ad637826e69444b03269c6fb42041572e44966f476b02512a550a119a8bd28c541f5bdfedf8e0a5d1439f8122739a35891b1dfae656c17ebaa469b6f71a
+  checksum: 789d4b13d20994c4cde4ddf78335f6da1f1db4a54dd1486cdd43aa63cb7e552869cb9c8f67c72f56239df91866946d3271b85e3bc6d136c2a673df03581fcf89
   languageName: node
   linkType: hard
 
@@ -4209,24 +4440,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roots/bud@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/bud@npm:6.8.0"
+"@roots/bud@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/bud@npm:6.9.1"
   dependencies:
-    "@roots/browserslist-config": "npm:6.8.0"
-    "@roots/bud-api": "npm:6.8.0"
-    "@roots/bud-build": "npm:6.8.0"
-    "@roots/bud-cache": "npm:6.8.0"
-    "@roots/bud-client": "npm:6.8.0"
-    "@roots/bud-compiler": "npm:6.8.0"
-    "@roots/bud-dashboard": "npm:6.8.0"
-    "@roots/bud-entrypoints": "npm:6.8.0"
-    "@roots/bud-extensions": "npm:6.8.0"
-    "@roots/bud-framework": "npm:6.8.0"
-    "@roots/bud-hooks": "npm:6.8.0"
-    "@roots/bud-server": "npm:6.8.0"
-    "@roots/bud-support": "npm:6.8.0"
-    "@roots/bud-terser": "npm:6.8.0"
+    "@roots/browserslist-config": "npm:6.9.1"
+    "@roots/bud-api": "npm:6.9.1"
+    "@roots/bud-build": "npm:6.9.1"
+    "@roots/bud-cache": "npm:6.9.1"
+    "@roots/bud-client": "npm:6.9.1"
+    "@roots/bud-compiler": "npm:6.9.1"
+    "@roots/bud-dashboard": "npm:6.9.1"
+    "@roots/bud-entrypoints": "npm:6.9.1"
+    "@roots/bud-extensions": "npm:6.9.1"
+    "@roots/bud-framework": "npm:6.9.1"
+    "@roots/bud-hooks": "npm:6.9.1"
+    "@roots/bud-server": "npm:6.9.1"
+    "@roots/bud-support": "npm:6.9.1"
+    "@roots/bud-terser": "npm:6.9.1"
     browserslist: "npm:4.21.4"
     execa: "npm:6.1.0"
     tslib: "npm:2.4.1"
@@ -4291,7 +4522,7 @@ __metadata:
     bud: ./bin/bud.mjs
     bund: ./bin/bund.mjs
     ts-bud: ./bin/ts-bud.mjs
-  checksum: 7c8f1b033dcaa99dd6f9a5cc6eca58a1ea672192ccbff4e432b2d936401fbef4f9c0d26f030f9e45f8dfe582c9c161c1e33c7be6900cb876d650e89ff1cbfe5a
+  checksum: 0b998d986c8bcb2564c39af0090c171098599996bef666aa859f125c4b52750ee513ad3da1a628d0a98e155ff52f2e2bc649e2d1a93735990fc2acfa4fec9480
   languageName: node
   linkType: hard
 
@@ -4305,16 +4536,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@roots/entrypoints-webpack-plugin@npm:6.8.0":
-  version: 6.8.0
-  resolution: "@roots/entrypoints-webpack-plugin@npm:6.8.0"
+"@roots/container@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/container@npm:6.9.1"
+  dependencies:
+    helpful-decorators: "npm:2.1.0"
+    lodash: "npm:4.17.21"
+  checksum: ba75f6f20a04ac871e357f52164bb3f88e299857c632debf07e0ad6495b0c6473dedf5844ff2b1d3e3fea8b5f83104c6097afddde7b1eb7d1d7ba1c24e967747
+  languageName: node
+  linkType: hard
+
+"@roots/entrypoints-webpack-plugin@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/entrypoints-webpack-plugin@npm:6.9.1"
   dependencies:
     helpful-decorators: "npm:2.1.0"
     lodash: "npm:4.17.21"
     tslib: "npm:2.4.1"
   peerDependencies:
     webpack: ">=5"
-  checksum: ef197c513749c0580d978665c6e0050efa2011c3d873b9de7c23c7e3d029c4f60bce0d075828cb6baeeb88668cdf3282bf64f61d2d37893a09d1e46f59387727
+  checksum: 9267e67a951abbf436b5591e31b201a9c66157d76411817f19bc5e07d49cfe8e48a5f726f8f6a51551a16d3fe4ab610d6fe74a723f68d6152dc458fed79165e0
   languageName: node
   linkType: hard
 
@@ -4335,6 +4576,26 @@ __metadata:
     mime-types: "npm:2.1.35"
     safe-json-stringify: "npm:1.2.0"
   checksum: 62591735b2ed4de9572e2918e11c315cafa093cc98d54f7012ceae81de08c97d2b4fe06aa4cdfff3ec32f148581f87b3ccf38864edd7c46189e351f2d66ca743
+  languageName: node
+  linkType: hard
+
+"@roots/filesystem@npm:6.9.1":
+  version: 6.9.1
+  resolution: "@roots/filesystem@npm:6.9.1"
+  dependencies:
+    "@aws-sdk/abort-controller": "npm:3.226.0"
+    "@aws-sdk/client-s3": "npm:3.241.0"
+    "@aws-sdk/lib-storage": "npm:3.252.0"
+    "@types/lodash-es": "npm:4.17.6"
+    fs-jetpack: "npm:5.1.0"
+    globby: "npm:13.1.3"
+    helpful-decorators: "npm:2.1.0"
+    js-yaml: "npm:4.1.0"
+    json5: "npm:2.2.3"
+    lodash: "npm:4.17.21"
+    mime-types: "npm:2.1.35"
+    safe-json-stringify: "npm:1.2.0"
+  checksum: 96d3c3381ab8dd1193abcda09d3a4f2413c35e429547899e51c01c3442e71d8634fb882aea61a8e30939e633af849f78044c5c9fe02836642b987c23656c3d32
   languageName: node
   linkType: hard
 
@@ -10957,7 +11218,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "sage@workspace:."
   dependencies:
-    "@roots/bud": "npm:6.8.0"
+    "@roots/bud": "npm:6.9.1"
     "@roots/bud-tailwindcss": "npm:6.8.0"
     "@roots/sage": "npm:6.8.0"
   languageName: unknown
