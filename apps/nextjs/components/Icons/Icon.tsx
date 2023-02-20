@@ -9,7 +9,7 @@ type Props = {
   label: string
 }
 
-export default function Icon({ children, label }: Props) {
+export default function Icon({children, label}: Props) {
   const child = React.Children.only(children)
   return (
     <>

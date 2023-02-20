@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import { ReactNode } from 'react'
+import {ReactNode} from 'react'
 
 export const HEADING_CLASSES = {
   h1: 'text-4xl font-bold',
@@ -16,22 +16,22 @@ type HeadingProps = {
   children: ReactNode
 }
 
-export const HeadingOne = ({ children }: HeadingProps) => (
+export const HeadingOne = ({children}: HeadingProps) => (
   <h1 className={HEADING_CLASSES.h1}>{children}</h1>
 )
 
-export const HeadingTwo = ({ children }: HeadingProps) => (
+export const HeadingTwo = ({children}: HeadingProps) => (
   <h2 className={HEADING_CLASSES.h2}>{children}</h2>
 )
 
-export const HeadingThree = ({ children }: HeadingProps) => (
+export const HeadingThree = ({children}: HeadingProps) => (
   <h3 className={HEADING_CLASSES.h3}>{children}</h3>
 )
 
-export const HeadingFour = ({ children }: HeadingProps) => (
+export const HeadingFour = ({children}: HeadingProps) => (
   <h4 className={HEADING_CLASSES.h4}>{children}</h4>
 )
 
-export const HeadingFive = ({ children }: HeadingProps) => (
+export const HeadingFive = ({children}: HeadingProps) => (
   <h5 className={HEADING_CLASSES.h5}>{children}</h5>
 )

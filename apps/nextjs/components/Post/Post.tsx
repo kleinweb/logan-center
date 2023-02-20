@@ -1,11 +1,11 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import { ReactNode } from 'react'
+import {ReactNode} from 'react'
 import Head from 'next/head'
 
-import { SITE_NAME } from '@/lib/constants'
-import { PageSchema } from '@/lib/interfaces/post'
+import {SITE_NAME} from '@/lib/constants'
+import {PageSchema} from '@/lib/interfaces/post'
 
 import PostHeader from './PostHeader'
 import PostBody from './PostBody'
@@ -15,7 +15,7 @@ type Props = {
   children?: ReactNode
 }
 
-export default function Post({ post, children }: Props) {
+export default function Post({post, children}: Props) {
   return (
     <article className="mb-32">
       <Head>

@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { BlockProps } from '../index'
+import {BlockProps} from '../index'
 import styles from './Quote.module.css'
 
 /**
@@ -47,7 +47,7 @@ type Props = BlockProps & {
   className?: string
 }
 
-export default function Quote({ block: { innerHTML }, ...props }: Props) {
+export default function Quote({block: {innerHTML}, ...props}: Props) {
   let style = styles.container
 
   switch (props.className) {
@@ -62,7 +62,7 @@ export default function Quote({ block: { innerHTML }, ...props }: Props) {
   return (
     <blockquote
       className={style}
-      dangerouslySetInnerHTML={{ __html: innerHTML ?? '' }}
+      dangerouslySetInnerHTML={{__html: innerHTML ?? ''}}
     />
   )
 }

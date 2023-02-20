@@ -1,13 +1,13 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import { ReactNode } from 'react'
+import {ReactNode} from 'react'
 
 type Props = {
   children?: ReactNode
 }
 
-const PostTitle = ({ children }: Props) => {
+const PostTitle = ({children}: Props) => {
   return (
     <h1
       className={`

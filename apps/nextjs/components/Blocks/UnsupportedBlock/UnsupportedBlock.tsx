@@ -3,11 +3,11 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { BlockProps } from '../index'
+import {BlockProps} from '../index'
 import styles from './UnsupportedBlock.module.css'
 
 export default function UnsupportedBlock({
-  block: { name, tagName, attributes = [], innerBlocks = [], outerHTML },
+  block: {name, tagName, attributes = [], innerBlocks = [], outerHTML},
 }: BlockProps) {
   const html = outerHTML
 

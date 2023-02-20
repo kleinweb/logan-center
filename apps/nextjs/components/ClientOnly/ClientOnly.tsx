@@ -3,9 +3,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { ReactNode, useEffect, useState } from 'react'
+import {ReactNode, useEffect, useState} from 'react'
 
-export default function ClientOnly(props: { children: ReactNode }) {
+export default function ClientOnly(props: {children: ReactNode}) {
   const [hasMounted, setHasMounted] = useState<boolean>(false)
 
   useEffect(() => {

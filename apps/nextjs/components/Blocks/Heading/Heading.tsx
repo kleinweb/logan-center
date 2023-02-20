@@ -3,8 +3,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { BlockProps } from '../index'
+import {BlockProps} from '../index'
 
-export default function Heading({ block: { innerHTML } }: BlockProps) {
-  return <h3 dangerouslySetInnerHTML={{ __html: innerHTML ?? '' }} />
+export default function Heading({block: {innerHTML}}: BlockProps) {
+  return <h3 dangerouslySetInnerHTML={{__html: innerHTML ?? ''}} />
 }

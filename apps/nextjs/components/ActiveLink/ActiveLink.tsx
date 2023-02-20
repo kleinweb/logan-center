@@ -4,9 +4,9 @@
 
 // Source: <https://github.com/vercel/next.js/blob/29f20d30fd098d30cbd73352aec995191b88fa74/examples/active-class-name/components/ActiveLink.tsx>
 
-import { useRouter } from 'next/router'
-import Link, { LinkProps } from 'next/link'
-import React, { useState, useEffect, ReactElement, Children } from 'react'
+import {useRouter} from 'next/router'
+import Link, {LinkProps} from 'next/link'
+import React, {useState, useEffect, ReactElement, Children} from 'react'
 
 export type ActiveLinkProps = LinkProps & {
   children: ReactElement
@@ -18,7 +18,7 @@ export default function ActiveLink({
   activeClassName,
   ...props
 }: ActiveLinkProps) {
-  const { asPath, isReady } = useRouter()
+  const {asPath, isReady} = useRouter()
 
   const child = Children.only(children)
   const childClassName = child.props.className || ''

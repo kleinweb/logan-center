@@ -1,9 +1,9 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import { __ } from '@wordpress/i18n'
+import {__} from '@wordpress/i18n'
 
-import { TempleLogoIcon } from '@kleinweb/tu-assets'
+import {TempleLogoIcon} from '@kleinweb/tu-assets'
 
 export default function KleinBanner() {
   return (

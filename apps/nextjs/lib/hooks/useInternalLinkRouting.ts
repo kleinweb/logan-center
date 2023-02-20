@@ -3,9 +3,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
-import { getInternalLinkPathname } from '@/lib/links'
+import {useEffect} from 'react'
+import {useRouter} from 'next/router'
+import {getInternalLinkPathname} from '@/lib/links'
 
 /**
  * Using the Link component (next/link) for internal links instead of vanilla

@@ -2,12 +2,12 @@
 // SPDX-FileCopyrightText: 2021 Automattic
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { render, screen } from '@testing-library/react'
+import {render, screen} from '@testing-library/react'
 import Image from './Image'
 import wpConfig from '../../wp.config'
 import nextConfig from '../../next.config'
 
-const { wordPressContentDirname } = wpConfig
+const {wordPressContentDirname} = wpConfig
 
 describe('Image', () => {
   const altText =

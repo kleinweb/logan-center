@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { mapAttributesToProps } from './blocks'
+import {mapAttributesToProps} from './blocks'
 
 test('mapAttributesToProps: returns a props-like object', function () {
   const attributes = [

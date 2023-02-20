@@ -2,8 +2,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import { HeadingTwo } from '../components/Headings'
-import { Button } from '../components/Buttons'
+import {HeadingTwo} from '../components/Headings'
+import {Button} from '../components/Buttons'
 
 export default {
   title: 'Components/Panels',

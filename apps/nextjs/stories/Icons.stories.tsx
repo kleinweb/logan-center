@@ -13,9 +13,9 @@ import {
   Mail,
 } from 'lucide-react'
 
-import { HeadingOne } from '../components/Headings'
-import { Icon } from '../components/Icons'
-import { ReactNode } from 'react'
+import {HeadingOne} from '../components/Headings'
+import {Icon} from '../components/Icons'
+import {ReactNode} from 'react'
 
 export default {
   title: 'Atoms/Icons',
@@ -43,7 +43,7 @@ type WrapperProps = {
   children: ReactNode
 }
 
-const IconWrapper = ({ label, children }: WrapperProps & { label: string }) => (
+const IconWrapper = ({label, children}: WrapperProps & {label: string}) => (
   <div className="mr-2 text-white">
     <Icon label={label}>{children}</Icon>
   </div>

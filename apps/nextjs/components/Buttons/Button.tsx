@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import clsx from 'clsx'
-import type { ClassValue } from 'clsx'
+import type {ClassValue} from 'clsx'
 import * as React from 'react'
 
 export const COLORS = {
