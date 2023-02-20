@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 ###: <https://github.com/funkhaus/fuxt/blob/6108153e9c23b0a6f0f770c9fc7ab40a41f53aad/gql/fragments/GutenbergBlocks.gql>
 
 #import "~/gql/fragments/MediaImage.gql"
