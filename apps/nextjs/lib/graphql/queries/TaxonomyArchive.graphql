@@ -18,11 +18,12 @@ query TaxonomyArchive($category: String!) {
           }
         }
       }
-      seo {
-        fullHead
-        title
-        metaDesc
-      }
+      # NOTE: specific to yoast seo
+      # seo {
+      #   fullHead
+      #   title
+      #   metaDesc
+      # }
     }
   }
 }

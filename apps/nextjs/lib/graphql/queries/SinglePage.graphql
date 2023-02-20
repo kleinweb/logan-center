@@ -10,10 +10,10 @@ query SinglePage($slug: ID!) {
     featuredImage {
       ...FeaturedImageFields
     }
-    seo {
-      fullHead
-      title
-      metaDesc
-    }
+    # seo {
+    #   fullHead
+    #   title
+    #   metaDesc
+    # }
   }
 }

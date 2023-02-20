@@ -8,8 +8,10 @@
 #
 #    These rules apply ONLY to this directory and its descendents.
 
-# Application
+# Composer authentication credentials
+auth.json
 
+# Application
 web/app/plugins/*
 !web/app/plugins/.gitkeep
 web/app/mu-plugins/*/
@@ -74,15 +76,14 @@ wp-cli.local.yml
 .netlify
 
 ##: secrets
+auth.json
 *.pem
-# <https://dotenv.org/env-me> {{{
 .env*
 .flaskenv*
 !.env.project
 !.env.vault
 !.env*.example
 !.env*.sample
-# }}}
 
 ##: testing
 coverage

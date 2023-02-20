@@ -12,7 +12,11 @@ fragment MediaItemFields on MediaItem {
     height
     width
   }
-  sourceUrl
+  # sourceUrl
   title
   uri
+  sourceUrl(size: FULLSCREEN_XLARGE)
+  sizes(size: FULLSCREEN_XLARGE)
+  srcSet(size: FULLSCREEN_XLARGE)
+  src: sourceUrl(size: FULLSCREEN_SMALL)
 }

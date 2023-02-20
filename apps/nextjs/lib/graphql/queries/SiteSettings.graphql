@@ -1,0 +1,21 @@
+query SiteSettings {
+  wpSettings: generalSettings {
+    title
+    description
+  }
+  # NOTE: You need ACF Pro installed to use Site Options
+  # acfSettings: siteOptions {
+  #   siteOptions {
+  #     socialMedia {
+  #       platform
+  #       url
+  #     }
+  #     googleAnalytics {
+  #       code
+  #     }
+  #     socialSharedImage {
+  #       sourceUrl(size: SOCIAL_PREVIEW)
+  #     }
+  #   }
+  # }
+}

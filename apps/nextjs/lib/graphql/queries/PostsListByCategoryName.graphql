@@ -1,0 +1,29 @@
+#import "../fragments/MediaImage.gql"
+
+query PostsListByCategoryName(
+  $categoryName: String!
+  $first: Int = 10
+  $after: String
+) {
+  posts(
+    first: $first
+    after: $after
+    where: {categoryName: $categoryName, orderby: {field: DATE, order: DESC}}
+  ) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    nodes {
+      id
+      uri
+      title
+      date
+      featuredImage {
+        node {
+          ...MediaItemFields
+        }
+      }
+    }
+  }
+}
