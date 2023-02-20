@@ -3,7 +3,6 @@
 
 import cn from 'clsx'
 import Link from 'next/link'
-import {__} from '@wordpress/i18n'
 
 import {ActiveLink as ActiveLinkComponent} from '@/components/ActiveLink'
 // import type {ActiveLinkProps as ActiveLinkComponentProps} from '@/components/ActiveLink'
@@ -27,7 +26,7 @@ export default function SiteHeader() {
   const {data} = useQuery(SiteMenusDocument)
   // Convert flat list to hierarchical list.
   const menuData = flatListToHierarchical(data?.headerMenu?.nodes)
-  console.log(data, menuData)
+  // console.log(data, menuData)
 
   return (
     <Container>

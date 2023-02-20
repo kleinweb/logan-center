@@ -2,8 +2,6 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-// FIXME: a few errors here thanx to loose typechecking in dev...
-
 import {FormEvent, useRef} from 'react'
 import {useRouter} from 'next/router'
 import styles from './SearchForm.module.css'
@@ -19,7 +17,6 @@ export default function SearchForm(props: Props) {
 
   function onSubmit(evt: FormEvent<HTMLFormElement>) {
     evt.preventDefault()
-    // @ts-expect-error
     router.push(`${props.path}?s=${encodeURIComponent(ref.current.value)}`)
   }
 
@@ -30,7 +27,6 @@ export default function SearchForm(props: Props) {
         defaultValue={props.search}
         id="search"
         placeholder="Search..."
-        // @ts-expect-error
         ref={ref}
         type="search"
       />

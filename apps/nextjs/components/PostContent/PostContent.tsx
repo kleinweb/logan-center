@@ -30,15 +30,14 @@ export default function PostContent({
   return (
     <Container>
       {blocks.map((block, i) => {
-        // FIXME: ugh shut up
-        // @ts-expect-error
         const attributesProps = mapAttributesToProps(block.attributes)
         const key = `block-${i}`
-        // FIXME: hmm... problem?
-        // @ts-expect-error
         const Block = blockMap[block.name]
 
         if (Block) {
+          // Type error due to slightly different props for image blocks, which
+          // should be fine since it would be included in the props spread.
+          // @ts-ignore
           return <Block block={block} key={key} {...attributesProps} />
         }
 

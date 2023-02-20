@@ -2,8 +2,6 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-// FIXME: type errors
-
 import {ContentBlockAttribute} from '@/gql/graphql'
 
 export type PostContentBlockAttributes = {
@@ -16,7 +14,6 @@ export type PostContentBlockAttributes = {
 export function mapAttributesToProps(
   attributes: ContentBlockAttribute[],
 ): PostContentBlockAttributes {
-  // @ts-ignore
   return attributes.reduce((acc, {name, value}) => {
     // Drop attributes without a name or value.
     if (!name || !value) {
@@ -29,7 +26,6 @@ export function mapAttributesToProps(
     //
     // This could cause unexpected issues, so we will leave that exercise for
     // those that find a need for it.
-
     return Object.assign(acc, {[name]: value})
   }, {})
 }

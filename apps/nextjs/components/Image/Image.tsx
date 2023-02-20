@@ -34,8 +34,6 @@ export default function Image(props: ImageProps) {
 
   // Only set a loader if it is actually needed. This avoids a Next.js warning:
   // https://nextjs.org/docs/messages/next-image-missing-loader-width
-  // FIXME: not sure what the error is about but i didn't write this...
-  // @ts-expect-error
   const loader: ImageLoader = props.src.includes(`/${contentDirname}/uploads/`)
     ? wpImageLoader
     : undefined
