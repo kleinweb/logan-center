@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 // <https://en.wikipedia.org/wiki/Tree_%28data_structure%29#Terminology>
 
 import {HierarchicalNode} from '@/gql/graphql'

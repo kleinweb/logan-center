@@ -31,13 +31,21 @@ Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: CC0-1.0
 
 Files: *.md
+       *.mdx
        *.txt
+       **/stories/*
+       **/*.stories.*
 Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: CC-BY-NC-SA-4.0
 
 Files: apps/wordpress/web/app/themes/logan-center/*
 Copyright: 2023 Temple University <kleinweb@temple.edu>
            2022-2023 Greg Rickaby
+License: GPL-3.0-or-later OR MIT
+
+Files: apps/wordpress/web/app/themes/logan-center-wp-next-theme/*
+Copyright: 2023 Temple University <kleinweb@temple.edu>
+           Roots Software Foundation LLC
 License: GPL-3.0-or-later OR MIT
 
 Files: apps/nextjs/public/assets/*
