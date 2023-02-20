@@ -7,7 +7,7 @@ import {ComponentType} from 'react'
 import {ContentBlock} from '@/gql/graphql'
 import ClassicEditorBlock from './ClassicEditorBlock/ClassicEditorBlock'
 import Heading from './Heading/Heading'
-import ImageBlock from './ImageBlock/ImageBlock'
+import ImageBlock, {IImageBlockProps} from './ImageBlock/ImageBlock'
 import List from './List/List'
 import Paragraph from './Paragraph/Paragraph'
 import Quote from './Quote/Quote'
@@ -18,7 +18,7 @@ export interface BlockProps {
 }
 
 export type PostContentBlockMap = {
-  [key: string]: ComponentType<BlockProps>
+  [key: string]: ComponentType<BlockProps> | ComponentType<IImageBlockProps>
 }
 
 const defaultBlockMap: PostContentBlockMap = {
