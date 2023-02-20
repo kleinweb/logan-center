@@ -172,6 +172,15 @@ reuse-public-domain +FILES: (_annotate  'CC0-1.0' FILES)
 ##: References:
 # - <https://ffmpeg.org/ffmpeg-utils.html#Time-duration>
 
+optim-jpeg +FILES:
+  jpegoptim --strip-all {{ FILES }}
+
+optim-png +FILES:
+  oxipng --opt=3 --strip=safe {{ FILES }}
+
+optim-svg +FILES:
+  svgo {{ FILES }}
+
 # [media]: Capture a frame from a video file at the given `mm:ss` timestamp
 vcap-thumb input time='00:00' ext='jpeg':
   ffmpeg -ss '{{time}}' -i {{ absolute_path(input) }} -frames 1 -f image2 \
