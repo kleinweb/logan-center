@@ -43,11 +43,11 @@ import styles from './Quote.module.css'
  * style.
  */
 
-type Props = BlockProps & {
+export interface QuoteProps extends BlockProps {
   className?: string
 }
 
-export default function Quote({block: {innerHTML}, ...props}: Props) {
+export default function Quote({block: {innerHTML}, ...props}: QuoteProps) {
   let style = styles.container
 
   switch (props.className) {
