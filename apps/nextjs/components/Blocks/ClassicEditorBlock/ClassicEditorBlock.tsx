@@ -3,10 +3,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
-import { BlockProps } from '../index'
+import {BlockProps} from '../index'
 
-export default function ClassicEditorBlock({
-  block: { innerHTML },
-}: BlockProps) {
-  return <div dangerouslySetInnerHTML={{ __html: innerHTML ?? '' }} />
+export default function ClassicEditorBlock({block: {innerHTML}}: BlockProps) {
+  return <div dangerouslySetInnerHTML={{__html: innerHTML ?? ''}} />
 }

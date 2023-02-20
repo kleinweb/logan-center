@@ -9,7 +9,7 @@
 // Do not change the file extenstion to .ts.
 
 // Extract the hostname from NEXT_PUBLIC_SERVER_URL for use in `isInternalLink`.
-const { hostname: prodHostname } = new URL(process.env.NEXT_PUBLIC_SERVER_URL)
+const {hostname: prodHostname} = new URL(process.env.NEXT_PUBLIC_SERVER_URL)
 
 module.exports = {
   // Images

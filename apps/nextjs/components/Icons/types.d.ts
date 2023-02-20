@@ -1,4 +1,4 @@
-import { ChevronRight } from 'lucide-react'
+import {ChevronRight} from 'lucide-react'
 
 /**
  * Icon component of the type exported by the `lucide-react` library.

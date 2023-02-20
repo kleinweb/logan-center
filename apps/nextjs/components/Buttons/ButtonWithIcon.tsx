@@ -1,11 +1,11 @@
 // SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import { ReactNode } from 'react'
-import { ChevronRight } from 'lucide-react'
+import {ReactNode} from 'react'
+import {ChevronRight} from 'lucide-react'
 
-import Button, { ButtonProps } from './Button'
-import type { LucideIconComponent } from '../Icons'
+import Button, {ButtonProps} from './Button'
+import type {LucideIconComponent} from '../Icons'
 
 export type ButtonWithIconProps = ButtonProps & {
   children: ReactNode

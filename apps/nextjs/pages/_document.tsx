@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import { Html, Head, Main, NextScript } from 'next/document'
+import {Html, Head, Main, NextScript} from 'next/document'
 
 export default function Document() {
   return (

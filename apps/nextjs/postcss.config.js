@@ -8,7 +8,7 @@ const config = require('@kleinweb/logan-center__tailwind-config/tailwind.config.
 
 module.exports = {
   plugins: {
-    tailwindcss: { config },
+    tailwindcss: {config},
     autoprefixer: {},
   },
 }

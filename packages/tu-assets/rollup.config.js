@@ -1,4 +1,4 @@
-import pkg from './package.json' assert { type: 'json' }
+import pkg from './package.json' assert {type: 'json'}
 import svgr from '@svgr/rollup'
 import typescript from '@rollup/plugin-typescript'
 
@@ -8,8 +8,8 @@ const rollupConfig = {
   external: ['react'],
   plugins: [typescript(), svgr()],
   output: [
-    { file: pkg.main, format: 'cjs' },
-    { file: pkg.module, format: 'es' },
+    {file: pkg.main, format: 'cjs'},
+    {file: pkg.module, format: 'es'},
   ],
 }
 

@@ -9,7 +9,7 @@ type Props = {
   coverImage?: string
 }
 
-const PostHeader = ({ title, coverImage }: Props) => {
+const PostHeader = ({title, coverImage}: Props) => {
   return (
     <>
       <PostTitle>{title}</PostTitle>

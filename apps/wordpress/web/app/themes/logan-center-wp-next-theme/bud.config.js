@@ -7,7 +7,7 @@
  * @typedef {import('@roots/bud').Bud} Bud
  * @param {Bud} app
  */
-export default async (app) => {
+export default async app => {
   /**
    * Application entrypoints
    * @see {@link https://bud.js.org/docs/bud.entry/}
