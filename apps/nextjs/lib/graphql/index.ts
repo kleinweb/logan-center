@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 ///: <https://github.com/vercel/next.js/blob/cb03a79968c3703e65fecc015443999dc0146f1c/examples/with-apollo/lib/apolloClient.js>
 
 // FIXME: log properly
