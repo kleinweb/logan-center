@@ -4,8 +4,8 @@
   "private": true,
   "license": "GPL-3.0-or-later",
   "scripts": {
-    "dev": "NODE_OPTIONS='-r dotenv-vault-core/config' next dev",
-    "dev:debug": "NODE_OPTIONS='--inspect -r dotenv-vault-core/config' next dev",
+    "dev": "NODE_OPTIONS='-r dotenv/config' next dev",
+    "dev:debug": "NODE_OPTIONS='--inspect -r dotenv/config' next dev",
     "build": "NODE_OPTIONS='-r dotenv-vault-core/config' next build",
     "start": "NODE_OPTIONS='-r dotenv-vault-core/config' next start",
     "lint": "tsc --noEmit && next lint",
