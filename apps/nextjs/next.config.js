@@ -17,6 +17,12 @@ const allPathsIncludingRoot = '/:path*{/}?'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    appDir: true,
+    // <https://beta.nextjs.org/docs/api-reference/next.config.js#typedroutes>
+    // typedRoutes: true,
+  },
+
   // TODO: use this
   // analyticsId: '',
 

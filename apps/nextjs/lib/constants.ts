@@ -3,6 +3,7 @@
 
 /* eslint-disable turbo/no-undeclared-env-vars */
 
+export const ORG_NAME = 'Klein College of Media and Communication'
 export const SITE_NAME = 'Logan Center for Urban Investigative Reporting'
 
 /**
