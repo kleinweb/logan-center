@@ -1,20 +1,19 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University
-//
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 const nextJest = require('next/jest')
+const {pathsToModuleNameMapper} = require('ts-jest')
+const {compilerOptions} = require('./tsconfig')
 
-const createJestConfig = nextJest({
-  dir: './',
-})
+const createJestConfig = nextJest({dir: './'})
 
-// Add any custom config to be passed to Jest
 /** @type {import('jest').Config} */
 const customJestConfig = {
-  moduleDirectories: ['node_modules', '<rootDir>/'],
-  moduleNameMapper: {
-    '^@/(components|graphql|lib|pages|styles)/(.*)$': '<rootDir>/$1/$2',
-  },
+  preset: 'ts-jest/presets/js-with-ts',
+  // Make tsconfig.json aliases available.
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: '<rootDir>/',
+  }),
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testEnvironment: 'jest-environment-jsdom',
   testMatch: [
