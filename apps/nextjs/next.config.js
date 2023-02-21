@@ -39,50 +39,33 @@ const nextConfig = {
   // =========
   // https://nextjs.org/docs/api-reference/next.config.js/redirects
   // FIXME: this probably needs adjustment or, more likely, removal
-  async redirects() {
-    return [
-      {
-        source: allPathsIncludingRoot,
-        destination: `${wordPressEndpoint}/:path*`,
-        has: [
-          {
-            type: 'query',
-            key: 'preview',
-            value: 'true',
-          },
-        ],
-        permanent: false,
-      },
-      {
-        source: allPathsIncludingRoot,
-        destination: `${wordPressEndpoint}/:path*`,
-        has: [
-          {
-            type: 'query',
-            key: 'p',
-          },
-        ],
-        permanent: false,
-      },
-    ]
-  },
-
-  // Rewrites
-  // ========
-  // https://nextjs.org/docs/api-reference/next.config.js/rewrites
-  async rewrites() {
-    return {
-      // Since we have a fallback route defined at the root (`[[...slug]].tsx`),
-      // we must apply rewrites before any Next.js routing.
-      beforeFiles: [
-        // Dynamically serve robots.txt.
-        {
-          source: '/robots.txt',
-          destination: '/api/robots',
-        },
-      ],
-    }
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: allPathsIncludingRoot,
+  //       destination: `${wordPressEndpoint}/:path*`,
+  //       has: [
+  //         {
+  //           type: 'query',
+  //           key: 'preview',
+  //           value: 'true',
+  //         },
+  //       ],
+  //       permanent: false,
+  //     },
+  //     {
+  //       source: allPathsIncludingRoot,
+  //       destination: `${wordPressEndpoint}/:path*`,
+  //       has: [
+  //         {
+  //           type: 'query',
+  //           key: 'p',
+  //         },
+  //       ],
+  //       permanent: false,
+  //     },
+  //   ]
+  // },
 
   // Image Optimization
   // ==================
@@ -95,7 +78,7 @@ const nextConfig = {
     // If you know the expected device widths of your users, you can specify a
     // list of device width breakpoints using the deviceSizes property here.
     // These widths are used to help the next/image component generate srcsets.
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    deviceSizes: [375, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     // The reason there are two separate lists is that imageSizes is only used
     // for images which provide a sizes prop, which indicates that the image
     // is less than the full width of the screen. Therefore, the sizes in

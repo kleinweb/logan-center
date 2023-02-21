@@ -15,7 +15,7 @@ import youGotThisImage from '@/public/assets/images/photos/mastermanschool-first
 
 import Layout from '@/components/Layout'
 import Container from '@/components/Container'
-import {addApolloState, initializeApollo} from '@/lib/graphql'
+// import {addApolloState, initializeApollo} from '@/lib/graphql'
 import {HomepageDocument, HomepageQuery} from '@/gql/graphql'
 import Hero from './Home/Hero'
 // import {log} from '@/lib/log'

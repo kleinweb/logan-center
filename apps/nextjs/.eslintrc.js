@@ -3,7 +3,12 @@
 
 module.exports = {
   root: true,
-  extends: ['@kleinweb/eslint-config-custom', 'plugin:storybook/recommended'],
+  extends: [
+    '@kleinweb/eslint-config-custom',
+    'plugin:storybook/recommended',
+    'plugin:@tanstack/eslint-plugin-query/recommended',
+  ],
+  plugins: ['@tanstack/query'],
   overrides: [
     {
       files: ['*.graphql'],

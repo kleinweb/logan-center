@@ -1,49 +1,35 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+import React from 'react'
 import type {AppProps} from 'next/app'
+import {Hydrate, QueryClient, QueryClientProvider} from '@tanstack/react-query'
+import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 
+// helpers
 import useInternalLinkRouting from '@/lib/hooks/useInternalLinkRouting'
+import {SiteProps} from '@/lib/types'
 
+// components
 import Telemetry from '@/components/Telemetry'
 
+// global styles (tailwindcss)
 import '@/styles/globals.css'
-// import SiteSettingsProvider from '@/contexts/SiteSettings'
-// import {PageProps} from '@/lib/types'
-// import SiteMenusProvider from '@/contexts/SiteMenus'
-// import {useSiteMenusQuery} from '@/graphql/generated'
-import {ApolloProvider} from '@apollo/client'
-import {addApolloState, initializeApollo, useApollo} from '@/lib/graphql'
-import {SitewideDocument} from '@/gql/graphql'
 
-export default function App({Component, pageProps}: AppProps) {
-  const apolloClient = useApollo(pageProps)
-  // const {data} = pageProps as PageProps
-  useInternalLinkRouting()
-  return (
-    <ApolloProvider client={apolloClient}>
-      {/* <SiteSettingsProvider generalSettings={data.generalSettings}> */}
-      {/* <SiteMenusProvider
-        headerMenu={data?.headerMenu}
-        // footerMenu={data?.footerMenu}
-      > */}
-      <Telemetry />
-      <Component {...pageProps} />
-      {/* </SiteMenusProvider> */}
-      {/* </SiteSettingsProvider> */}
-    </ApolloProvider>
-  )
+export interface KleinAppProps extends AppProps {
+  pageProps: SiteProps
 }
 
-export async function getStaticProps() {
-  const apolloClient = initializeApollo()
-  await apolloClient.query({
-    query: SitewideDocument,
-  })
-
-  return addApolloState(apolloClient, {
-    props: {},
-    // FIXME: this is probably a bad idea value
-    // revalidate: 1,
-  })
+export default function App({Component, pageProps}) {
+  const [queryClient] = React.useState(() => new QueryClient())
+  useInternalLinkRouting()
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <Telemetry />
+        <Component {...pageProps} />
+      </Hydrate>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  )
 }
