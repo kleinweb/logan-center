@@ -10,18 +10,19 @@ type Props = {
 const PostTitle = ({children}: Props) => {
   return (
     <h1
+      // FIXME: needs updating?
       className={`
-        mb-12
-        text-center
-        text-2xl
-        font-bold
-        leading-tight
-        tracking-tighter
-        md:text-left
-        md:text-3xl
-        md:leading-none
-        lg:text-4xl
-      `}
+      mb-12
+      text-center
+      text-2xl
+      font-bold
+      leading-tight
+      tracking-tighter
+      md:text-left
+      md:text-3xl
+      md:leading-none
+      lg:text-4xl
+    `}
     >
       {children}
     </h1>
