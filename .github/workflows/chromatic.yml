@@ -1,0 +1,19 @@
+# Workflow name
+name: 'Chromatic'
+
+on: push
+
+jobs:
+  chromatic-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: yarn
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        env:
+          DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
+        with:
+          workingDir: apps/nextjs
+          projectToken: ${{ env.CHROMATIC_PROJECT_TOKEN }}
