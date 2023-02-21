@@ -12,8 +12,6 @@ jobs:
         run: yarn
       - name: Publish to Chromatic
         uses: chromaui/action@v1
-        env:
-          DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
         with:
           workingDir: apps/nextjs
-          projectToken: ${{ env.CHROMATIC_PROJECT_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
