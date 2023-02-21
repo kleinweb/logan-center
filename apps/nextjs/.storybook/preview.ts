@@ -5,8 +5,13 @@ import '../styles/globals.css'
 
 export const parameters = {
   backgrounds: {
-    default: 'light',
+    // We need a white background for some stories (e.g. `PageTitle`) but it'd
+    // be more straightforward to make it default to avoid confusion / invisible
+    // regressions otherwise.
+    default: 'white',
+    values: [{name: 'white', value: '#ffffff'}],
   },
+  layout: 'centered',
   actions: {argTypesRegex: '^on[A-Z].*'},
   controls: {
     matchers: {
