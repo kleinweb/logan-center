@@ -32,7 +32,7 @@ export default function SiteFooter() {
           </a>
         </address>
         <Link href="/" className="block max-w-[300px]">
-          {/* <LogoFull className="block w-full" /> */}
+          <LogoFull className="block w-full" />
         </Link>
       </div>
       <hr className="my-5 border-white/10" />
