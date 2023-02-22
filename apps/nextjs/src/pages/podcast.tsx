@@ -16,7 +16,7 @@ export default function Podcast() {
     <>
       <div className="relative aspect-video overflow-hidden">
         <Image
-          src="../public/assets/images/photos/podcast--stop_killing_us--01-IMG_4699.jpeg"
+          src="/assets/images/photos/podcast--stop_killing_us--01-IMG_4699.jpeg"
           alt=""
           aria-hidden
           fill

@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import CoverImage from './PageCover/CoverImage'
+import CoverImage from './CoverImage/CoverImage'
 import PostTitle from '@molecules/PageTitle'
 
 type Props = {

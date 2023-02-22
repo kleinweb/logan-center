@@ -3,44 +3,52 @@
 
 import Head from 'next/head'
 
-const Meta = () => {
+import {SITE_NAME} from '@/lib/constants'
+
+import Favicons from './Favicons'
+
+export type OpenGraphMeta = {
+  title?: string
+  imageUrl?: string
+}
+
+export type HeadMetaProps = {
+  title: string
+  description?: string
+  canonicalUrl?: string
+  // TODO: probably needs to be mergeable
+  openGraph?: OpenGraphMeta
+  feedUrl?: string
+}
+
+// FIXME: determine programmatic fallback values
+const Meta = ({
+  title,
+  description,
+  canonicalUrl,
+  feedUrl,
+  openGraph: og,
+}: HeadMetaProps) => {
   return (
     <Head>
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/favicon/apple-touch-icon.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon/favicon-32x32.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon/favicon-16x16.png"
-      />
-      <link rel="manifest" href="/favicon/site.webmanifest" />
-      <link
-        rel="mask-icon"
-        href="/favicon/safari-pinned-tab.svg"
-        color="#000000"
-      />
-      <link rel="shortcut icon" href="/favicon/favicon.ico" />
-      <meta name="msapplication-TileColor" content="#000000" />
-      <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-      <meta name="theme-color" content="#000" />
-      {/* FIXME: favicon (tu logo?) */}
-      {/* <link rel="icon" href="/favicon.ico" /> */}
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      {/* <meta
-        name="description"
-        content={`A statically generated blog example using Next.js and ${CMS_NAME}.`}
-      /> */}
-      {/* <meta property="og:image" content={HOME_OG_IMAGE_URL} /> */}
+      <Favicons />
+
+      <title>{`${title ? `${title} |` : ''} ${SITE_NAME}`}</title>
+
+      {description ? (
+        <meta name="description" content={description} />
+      ) : undefined}
+
+      {og?.title ? <meta content={og.title} property="og:title" /> : undefined}
+      {og?.imageUrl ? (
+        <meta content={og.imageUrl} property="og:image" />
+      ) : undefined}
+
+      {canonicalUrl ? <link href={canonicalUrl} rel="canonical" /> : undefined}
+
+      {feedUrl ? (
+        <link rel="alternate" type="application/rss+xml" href={feedUrl} />
+      ) : undefined}
     </Head>
   )
 }

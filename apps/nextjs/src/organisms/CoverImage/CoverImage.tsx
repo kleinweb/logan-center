@@ -3,12 +3,12 @@
 
 import cn from 'clsx'
 import Image from 'next/image'
-import motifBackground from '@/public/assets/decorations/motif--bg.svg'
+
+import CoverImageFallback from './CoverImageFallback'
 
 export interface ICoverImageProps {
   alt?: string
   src?: string
-  // fallback?: boolean
 }
 
 const CoverImage = ({alt = '', src = undefined}: ICoverImageProps) => {
@@ -27,9 +27,7 @@ const CoverImage = ({alt = '', src = undefined}: ICoverImageProps) => {
       />
     </div>
   ) : (
-    <div className="h-28">
-      <Image src={motifBackground} alt="" fill />
-    </div>
+    <CoverImageFallback />
   )
 }
 

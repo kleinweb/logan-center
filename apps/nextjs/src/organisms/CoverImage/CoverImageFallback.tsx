@@ -4,7 +4,7 @@
 import Image from 'next/image'
 import motifBackground from '@/public/assets/decorations/motif--bg.svg'
 
-export function CoverImageFallback() {
+export default function CoverImageFallback() {
   return (
     <div className="h-28">
       <Image src={motifBackground} alt="" fill />

@@ -3131,6 +3131,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.13.10":
+  version: 7.21.0
+  resolution: "@babel/runtime@npm:7.21.0"
+  dependencies:
+    regenerator-runtime: "npm:^0.13.11"
+  checksum: adff473f615f797cffbd64d6839a5e3816e6e7942a6c9bfc23369e6d89a18c92eda974e2f538540a0ce543c28e3d637c59a0a8c391cee978e0b7dc31b606ef08
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.18.10":
   version: 7.18.10
   resolution: "@babel/template@npm:7.18.10"
@@ -5267,6 +5276,7 @@ __metadata:
     "@kleinweb/logan-center__tailwind-config": "workspace:*"
     "@kleinweb/tsconfig": "workspace:*"
     "@kleinweb/tu-assets": "workspace:*"
+    "@radix-ui/react-separator": "npm:^1.0.1"
     "@storybook/addon-essentials": "npm:^7.0.0-beta.53"
     "@storybook/addon-interactions": "npm:^7.0.0-beta.53"
     "@storybook/addon-links": "npm:^7.0.0-beta.53"
@@ -5290,6 +5300,7 @@ __metadata:
     "@wordpress/i18n": "npm:4.27.0"
     autoprefixer: "npm:^10.4.13"
     chromatic: "npm:^6.17.0"
+    class-variance-authority: "npm:^0.4.0"
     clsx: "npm:^1.2.1"
     concurrently: "npm:^7.6.0"
     dotenv: "npm:16.0.3"
@@ -5375,6 +5386,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@kleinweb/logan-center__tailwind-config@workspace:packages/tailwind-config"
   dependencies:
+    "@tailwindcss/typography": "npm:^0.5.9"
     tailwindcss: "npm:^3.2.7"
   languageName: unknown
   linkType: soft
@@ -5814,6 +5826,55 @@ __metadata:
     webpack-plugin-serve:
       optional: true
   checksum: 6e3c033a12969cbe2c4a2dafd327b1660c052c285f21d515107124970ea864c1a6b15ac6495ee5d0fe6dc7aacaeffbc6a9ecf768333dc1c315b6afe480347ffd
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-compose-refs@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@radix-ui/react-compose-refs@npm:1.0.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.13.10"
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+  checksum: a94b99f31f21fca1598a2a0c1360df65014d2d551ce4a64f4cb202387a106223fb9921e2d343a9b12b9c28d8da490ad4b7cf071f60341f4da1593fa1cb62a3d5
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-primitive@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@radix-ui/react-primitive@npm:1.0.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.13.10"
+    "@radix-ui/react-slot": "npm:1.0.1"
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: b793110b4e8af4c9ebde9d7345ad6504d716bc420eedaa662261587f7cd54732e4424370af13a2f0ae588043d862af20a27e78b27aeaf246a5fd6b184fd400f1
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-separator@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@radix-ui/react-separator@npm:1.0.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.13.10"
+    "@radix-ui/react-primitive": "npm:1.0.1"
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+    react-dom: ^16.8 || ^17.0 || ^18.0
+  checksum: 3783348517aa078a762a155eaa6418149d221488cca19258fb8097adddde577b1e3472a526c380283c5c04dd76774a8cd8a10faf678e9f7445c91472afda4262
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-slot@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@radix-ui/react-slot@npm:1.0.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.13.10"
+    "@radix-ui/react-compose-refs": "npm:1.0.0"
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+  checksum: bde66535f0ff4798690416be025621b161b19b97d804161ef90609b9f7950c5ce496c3e9eece675712abf7c70721e8451dc1476eb5b8fca29420cefae4079ade
   languageName: node
   linkType: hard
 
@@ -8349,6 +8410,20 @@ __metadata:
   dependencies:
     defer-to-connect: "npm:^2.0.0"
   checksum: d927951bccbbad4cb713af7378ad4d17b34e48725ea4641ad01f79b310564e3db2b173c4f81cb3b945dbf8b3dbcb4da7b8d0f2e754e79dc1b92c69a18ba0ac41
+  languageName: node
+  linkType: hard
+
+"@tailwindcss/typography@npm:^0.5.9":
+  version: 0.5.9
+  resolution: "@tailwindcss/typography@npm:0.5.9"
+  dependencies:
+    lodash.castarray: "npm:^4.4.0"
+    lodash.isplainobject: "npm:^4.0.6"
+    lodash.merge: "npm:^4.6.2"
+    postcss-selector-parser: "npm:6.0.10"
+  peerDependencies:
+    tailwindcss: "*"
+  checksum: b08049f36100bf15367fb41d75c957936d00dc26307f4fe8ccf1ab761b3d6ecd0e76ee7e08ed543344fae3596e57ea7af742f1b5025a9395ae87316f0e7b4cc8
   languageName: node
   linkType: hard
 
@@ -11452,6 +11527,18 @@ __metadata:
   version: 1.2.2
   resolution: "cjs-module-lexer@npm:1.2.2"
   checksum: a16484407ca1ed082b84f9581c757a17a9329a4f3096876a7eb6a434d3405f9774dcf1cc37779e0fa0024ef9bff4ebc2bae6549c84b3f6500b28797a5c5e5982
+  languageName: node
+  linkType: hard
+
+"class-variance-authority@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "class-variance-authority@npm:0.4.0"
+  peerDependencies:
+    typescript: ">= 4.5.5 < 5"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: eb3355d70646d57efa1da0d0ed4d03bf3800ab67a80ed09bb84fc274aa2e6ac34a627c1de63fc7063f97dbc226c20835b07ac036b1df396a8765656bc3877c57
   languageName: node
   linkType: hard
 
@@ -18033,6 +18120,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.castarray@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "lodash.castarray@npm:4.4.0"
+  checksum: 795ba1604c0910b232092b9308fd25aac7d6751640fe32343135bcae52689664a6b60f56192b26517320f5c35f8f135a7714ae57a9868c7b642a37803ca8839d
+  languageName: node
+  linkType: hard
+
 "lodash.clone@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.clone@npm:4.5.0"
@@ -21227,6 +21321,16 @@ __metadata:
   peerDependencies:
     postcss: ^8.4
   checksum: b7823d372f08eb7809b0220797dca59b2611103b1d1fdb6671eb9cc0b678f15a89a14fce684aedb611ed31390f9635fb2c3a0a3f15d09581475169aca7cbc82e
+  languageName: node
+  linkType: hard
+
+"postcss-selector-parser@npm:6.0.10":
+  version: 6.0.10
+  resolution: "postcss-selector-parser@npm:6.0.10"
+  dependencies:
+    cssesc: "npm:^3.0.0"
+    util-deprecate: "npm:^1.0.2"
+  checksum: 7ab7cbeba12343c9b8034c556a8e463ec13adbcc891eb8c51bb8f97d65b6bcb5dcd641df7b30014241e3f2435e3f6fbdf3229a8bdd25c14d88df24cb19e8e864
   languageName: node
   linkType: hard
 

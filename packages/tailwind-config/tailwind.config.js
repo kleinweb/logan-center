@@ -14,6 +14,10 @@ const secondaryPalette = {
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [`./**/*.{js,ts,jsx,tsx,mdx}`],
+  plugins: [
+    // <https://tailwindcss.com/docs/typography-plugin>
+    require('@tailwindcss/typography'),
+  ],
   theme: {
     screens: {
       xs: '568px',

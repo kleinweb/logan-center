@@ -2,16 +2,13 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import {ReactNode} from 'react'
-import Head from 'next/head'
 
-import {SITE_NAME} from '@/lib/constants'
 import {KleinBanner} from '@organisms/KleinBanner'
 
-import Loading from '@molecules/Loading/Loading'
 import Meta from '@components/Meta'
 import SiteFooter from '@organisms/SiteFooter'
 import SiteHeader from '@organisms/SiteHeader'
-import clsx from 'clsx'
+import {PreviewAlert} from '@organisms/Alert'
 
 /**
  * A page component helps us to enforce consistent UI and SEO best practices
@@ -22,59 +19,42 @@ import clsx from 'clsx'
  */
 
 type LayoutProps = {
+  title: string
   children: ReactNode
-  canonicalLink?: string
-  feedLink?: string
-  headerLink?: ReactNode
   loading?: boolean
   ogTitle?: string
-  title: string
+  preview?: boolean
+  // canonicalLink?: string
+  // feedLink?: string
+  // headerLink?: ReactNode
 }
 
 export default function Layout(props: LayoutProps) {
-  const {loading = false} = props
-
-  if (loading) {
-    return <Loading />
-  }
-
   return (
     <>
-      <Head>
-        {/* FIXME: should this title format be handled by the seo plugin instead? */}
-        <title>{`${props.title} | ${SITE_NAME}`}</title>
-        {props.ogTitle && <meta content={props.ogTitle} property="og:title" />}
-        {props.canonicalLink && (
-          <link href={props.canonicalLink} rel="canonical" />
-        )}
-        {props.feedLink && (
-          <link
-            href={props.feedLink}
-            rel="alternate"
-            title={props.title}
-            type="application/rss+xml"
-          />
-        )}
-      </Head>
-      <Meta />
+      {/* // FIXME: determine programmatic fallback values */}
+      {/* <Meta title={props.title} feedUrl="/feed.xml" /> */}
+
       <header className="flex flex-col">
         <div className="order-2 bg-slate-700 py-1 text-white lg:py-2">
           <SiteHeader />
-          {/* TODO */}
-          {/* <SiteHeader headerLink={props.headerLink} /> */}
         </div>
         <div className="order-1">
           <KleinBanner />
         </div>
       </header>
+
       <div className="min-h-screen">
+        <PreviewAlert preview={props.preview} />
         <main className="block">
-          <h1 className={clsx(props.title == 'Home' && 'sr-only')}>
+          {/* FIXME */}
+          {/* <h1 className={clsx(props.title == 'Home' && 'sr-only')}>
             {props.title}
-          </h1>
+          </h1> */}
           {props.children}
         </main>
       </div>
+
       <footer className="bg-slate-700 py-10 px-5 text-white md:pt-5">
         <SiteFooter />
       </footer>

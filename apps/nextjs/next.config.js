@@ -15,9 +15,6 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // TODO: use this?
-  // analyticsId: '',
-
   // React strict mode
   // =================
   // https://nextjs.org/docs/api-reference/next.config.js/react-strict-mode
@@ -79,17 +76,17 @@ const nextConfig = {
     // imageSizes should all be smaller than the smallest size in deviceSizes.
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
 
-    remotePatterns: [
-      {protocol: 'https', hostname: '**.templelogancenter.org'},
-      {
-        protocol: 'https',
-        hostname: new URL(process.env.NEXT_PUBLIC_SERVER_URL).hostname,
-      },
-      {
-        protocol: 'https',
-        hostname: '*.gravatar.com',
-      },
-    ],
+    // remotePatterns: [
+    //   {protocol: 'https', hostname: '**.templelogancenter.org'},
+    //   {
+    //     protocol: 'https',
+    //     hostname: new URL(process.env.NEXT_PUBLIC_SERVER_URL).hostname,
+    //   },
+    //   {
+    //     protocol: 'https',
+    //     hostname: '*.gravatar.com',
+    //   },
+    // ],
   },
 
   // Trailing slash
@@ -102,7 +99,7 @@ const nextConfig = {
   // > buggy.
   //
   // <https://github.com/Automattic/vip-go-nextjs-skeleton/tree/example/custom-server-trailing-slash>
-  trailingSlash: false,
+  // trailingSlash: false,
 
   webpack(config) {
     config.module.rules.push({

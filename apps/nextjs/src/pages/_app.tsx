@@ -4,10 +4,6 @@
 import type {AppProps} from 'next/app'
 import {ApolloProvider} from '@apollo/client'
 
-///: queries
-// import {SitewideDocument} from '@/gql/graphql'
-
-///: helpers
 import useInternalLinkRouting from '@/lib/hooks/useInternalLinkRouting'
 import {
   // addApolloState,
@@ -15,10 +11,8 @@ import {
   useApollo,
 } from '@/lib/graphql'
 
-///: global components
 import Telemetry from '@components/Telemetry'
 
-///: global styles
 import '@/src/styles/globals.css'
 
 export default function App({Component, pageProps}: AppProps) {
