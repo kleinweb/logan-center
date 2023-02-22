@@ -38,7 +38,8 @@ const errorLink = onError(({graphQLErrors, networkError}) => {
 const httpLink = new HttpLink({
   uri: wpConfig.endpoints.graphql,
   // FIXME: somethings?
-  credentials: 'omit', // Additional fetch() options like `credentials` or `headers`
+  credentials: 'include', // Additional fetch() options like `credentials` or `headers`
+  // credentials: 'omit', // Additional fetch() options like `credentials` or `headers`
 })
 
 function createApolloClient() {
