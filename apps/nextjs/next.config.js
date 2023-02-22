@@ -9,9 +9,6 @@
 // Avoid language features that are not available in your target Node.js version.
 // Do not change the file extenstion to .ts.
 
-const wpConfig = require('./wp.config')
-const {endpoints} = require('./wp.config')
-
 // Next.js currently doesn't have a good way to match all paths including the
 // root, so we need to use a special regex path.
 // const allPathsIncludingRoot = '/:path*{/}?'
@@ -84,7 +81,10 @@ const nextConfig = {
 
     remotePatterns: [
       {protocol: 'https', hostname: '**.templelogancenter.org'},
-      {protocol: 'https', hostname: wpConfig.endpoints.serverDomain},
+      {
+        protocol: 'https',
+        hostname: new URL(process.env.NEXT_PUBLIC_SERVER_URL).hostname,
+      },
       {
         protocol: 'https',
         hostname: '*.gravatar.com',

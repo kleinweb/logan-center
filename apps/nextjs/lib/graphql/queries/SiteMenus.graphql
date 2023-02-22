@@ -2,10 +2,10 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 query SiteMenus {
-  # headerMenu: menu(id: "PRIMARY_NAVIGATION", idType: LOCATION) {
+  # headerMenu: menu(id: "PRIMARY", idType: LOCATION) {
   #   ...MenuItems
   # }
-  headerMenu: menuItems(where: {location: PRIMARY_NAVIGATION}) {
+  headerMenu: menuItems(where: {location: PRIMARY}) {
     nodes {
       key: id
       parentId
