@@ -10,12 +10,12 @@ import {TypedDocumentNode as DocumentNode} from '@graphql-typed-document-node/co
  * 2. It is not minifiable, so the string of a GraphQL query will be multiple times inside the bundle.
  * 3. It does not support dead code elimination, so it will add unused operations.
  *
- * Therefore it is highly recommended to use the babel-plugin for production.
+ * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-  'fragment ContentBlockFields on ContentBlock {\n  attributes {\n    name\n    value\n  }\n  innerHTML(removeWrappingTag: true)\n  name\n  tagName\n}':
+  'fragment ContentBlockFields on ContentBlock {\n  __typename\n  name\n  renderedHtml\n  blockEditorCategoryName\n}':
     types.ContentBlockFieldsFragmentDoc,
-  'fragment ContentNodeFields on ContentNode {\n  id\n  ... on NodeWithContentEditor {\n    contentBlocks {\n      isGutenberg\n      blocks {\n        ...ContentBlockFields\n        innerBlocks {\n          ...ContentBlockFields\n        }\n      }\n    }\n  }\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}':
+  'fragment ContentNodeFields on ContentNode {\n  id\n  uri\n  desiredSlug\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}':
     types.ContentNodeFieldsFragmentDoc,
   'fragment ContentTypeFields on ContentType {\n  id\n  contentNodes(after: $after, before: $before, first: $first, last: $last) {\n    nodes {\n      ...ContentNodeFields\n    }\n    pageInfo {\n      ...PageInfo\n    }\n  }\n  description\n  name\n}':
     types.ContentTypeFieldsFragmentDoc,
@@ -23,7 +23,7 @@ const documents = {
     types.FeaturedImageFieldsFragmentDoc,
   'fragment Settings on GeneralSettings {\n  dateFormat\n  description\n  language\n  timeFormat\n  title\n}':
     types.SettingsFragmentDoc,
-  'fragment MediaItemFields on MediaItem {\n  id\n  altText\n  caption\n  databaseId\n  date\n  mediaDetails {\n    height\n    width\n  }\n  sourceUrl\n  title\n  uri\n}':
+  'fragment MediaItemFields on MediaItem {\n  id\n  altText\n  caption\n  databaseId\n  date\n  mediaDetails {\n    height\n    width\n  }\n  title\n  uri\n  sourceUrl(size: FULLSCREEN_XLARGE)\n  sizes(size: FULLSCREEN_XLARGE)\n  srcSet(size: FULLSCREEN_XLARGE)\n  src: sourceUrl(size: FULLSCREEN_SMALL)\n}':
     types.MediaItemFieldsFragmentDoc,
   'fragment MenuItems on Menu {\n  count\n  menuItems {\n    nodes {\n      id\n      path\n      label\n      linkRelationship\n      target\n      parentId\n      childItems {\n        nodes {\n          id\n          path\n          cssClasses\n          label\n          linkRelationship\n          target\n          parentId\n        }\n      }\n    }\n  }\n}':
     types.MenuItemsFragmentDoc,
@@ -31,6 +31,8 @@ const documents = {
     types.PageInfoFragmentDoc,
   'query AllContentTypes($after: String, $before: String, $first: Int = 1, $last: Int) {\n  contentTypes(first: 50) {\n    nodes {\n      ...ContentTypeFields\n    }\n  }\n}':
     types.AllContentTypesDocument,
+  'query AllMediaItems($after: String, $first: Int = 10) {\n  mediaItems(after: $after, first: $first) {\n    nodes {\n      ...MediaItemFields\n    }\n    pageInfo {\n      ...PageInfo\n    }\n  }\n}':
+    types.AllMediaItemsDocument,
   'query AllPages {\n  pages {\n    nodes {\n      slug\n    }\n  }\n}':
     types.AllPagesDocument,
   'query ContentNodeBySlug($slug: String!) {\n  contentNodes(where: {name: $slug}) {\n    nodes {\n      ...ContentNodeFields\n    }\n  }\n}':
@@ -43,16 +45,22 @@ const documents = {
     types.ContentTypeByNameDocument,
   'query Homepage {\n  nodeByUri(uri: "/") {\n    __typename\n    ... on ContentType {\n      id\n      name\n    }\n    ... on Page {\n      id\n      title\n    }\n  }\n}':
     types.HomepageDocument,
-  'query AllMediaItems($after: String, $first: Int = 10) {\n  mediaItems(after: $after, first: $first) {\n    nodes {\n      ...MediaItemFields\n    }\n    pageInfo {\n      ...PageInfo\n    }\n  }\n}':
-    types.AllMediaItemsDocument,
-  'query SinglePage($slug: ID!) {\n  page(id: $slug, idType: URI) {\n    title(format: RENDERED)\n    content(format: RENDERED)\n    databaseId\n    uri\n    featuredImage {\n      ...FeaturedImageFields\n    }\n    seo {\n      fullHead\n      title\n      metaDesc\n    }\n  }\n}':
+  'query MenuByName($name: ID!) {\n  menu(id: $name, idType: NAME) {\n    id\n    name\n    menuItems(first: 30, where: {parentDatabaseId: 0}) {\n      nodes {\n        ...MenuItem\n        childItems {\n          nodes {\n            ...MenuItem\n          }\n        }\n      }\n    }\n  }\n}\n\nfragment MenuItem on MenuItem {\n  label\n  cssClasses\n  target\n  url\n  id\n}':
+    types.MenuByNameDocument,
+  'query PostsListByCategoryName($categoryName: String!, $first: Int = 10, $after: String) {\n  posts(\n    first: $first\n    after: $after\n    where: {categoryName: $categoryName, orderby: {field: DATE, order: DESC}}\n  ) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    nodes {\n      id\n      uri\n      title\n      date\n      featuredImage {\n        node {\n          ...MediaItemFields\n        }\n      }\n    }\n  }\n}':
+    types.PostsListByCategoryNameDocument,
+  'query SinglePage($slug: ID!) {\n  page(id: $slug, idType: URI) {\n    title(format: RENDERED)\n    content(format: RENDERED)\n    databaseId\n    uri\n    featuredImage {\n      ...FeaturedImageFields\n    }\n  }\n}':
     types.SinglePageDocument,
-  'query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}':
+  'query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_NAVIGATION}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}':
     types.SiteMenusDocument,
-  'query Sitewide {\n  generalSettings {\n    ...Settings\n  }\n  headerMenu: menu(id: "PRIMARY_MENU", idType: LOCATION) {\n    ...MenuItems\n  }\n}':
-    types.SitewideDocument,
-  'query TaxonomyArchive($category: String!) {\n  posts(where: {categoryName: $category}) {\n    nodes {\n      title(format: RENDERED)\n      excerpt(format: RENDERED)\n      uri\n      featuredImage {\n        ...FeaturedImageFields\n      }\n      categories {\n        edges {\n          node {\n            name\n            uri\n          }\n        }\n      }\n      seo {\n        fullHead\n        title\n        metaDesc\n      }\n    }\n  }\n}':
+  'query SiteSettings {\n  wpSettings: generalSettings {\n    title\n    description\n  }\n}':
+    types.SiteSettingsDocument,
+  'query TaxonomyArchive($category: String!) {\n  posts(where: {categoryName: $category}) {\n    nodes {\n      title(format: RENDERED)\n      excerpt(format: RENDERED)\n      uri\n      featuredImage {\n        ...FeaturedImageFields\n      }\n      categories {\n        edges {\n          node {\n            name\n            uri\n          }\n        }\n      }\n    }\n  }\n}':
     types.TaxonomyArchiveDocument,
+  'query WpControls($uri: String!) {\n  nodeByUri(uri: $uri) {\n    id\n    __typename\n    ... on ContentNode {\n      databaseId\n    }\n  }\n  viewer {\n    id\n    nicename\n    avatar(size: 20) {\n      url\n      width\n      height\n    }\n  }\n}':
+    types.WpControlsDocument,
+  'query WPSeo($uri: String!) {\n  nodeByUri(uri: $uri) {\n    id\n    ... on NodeWithTitle {\n      title\n    }\n    ... on Category {\n      name\n      description\n    }\n    ... on NodeWithContentEditor {\n      content\n    }\n    ... on NodeWithExcerpt {\n      excerpt\n    }\n    ... on NodeWithFeaturedImage {\n      featuredImage {\n        node {\n          id\n          sourceUrl(size: FULLSCREEN_XLARGE)\n        }\n      }\n    }\n  }\n}':
+    types.WpSeoDocument,
 }
 
 /**
@@ -61,7 +69,7 @@ const documents = {
  *
  * @example
  * ```ts
- * const query = gql(`query GetUser($id: ID!) { user(id: $id) { name } }`);
+ * const query = graphql(`query GetUser($id: ID!) { user(id: $id) { name } }`);
  * ```
  *
  * The query argument is unknown!
@@ -73,14 +81,14 @@ export function graphql(source: string): unknown
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment ContentBlockFields on ContentBlock {\n  attributes {\n    name\n    value\n  }\n  innerHTML(removeWrappingTag: true)\n  name\n  tagName\n}',
-): (typeof documents)['fragment ContentBlockFields on ContentBlock {\n  attributes {\n    name\n    value\n  }\n  innerHTML(removeWrappingTag: true)\n  name\n  tagName\n}']
+  source: 'fragment ContentBlockFields on ContentBlock {\n  __typename\n  name\n  renderedHtml\n  blockEditorCategoryName\n}',
+): (typeof documents)['fragment ContentBlockFields on ContentBlock {\n  __typename\n  name\n  renderedHtml\n  blockEditorCategoryName\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment ContentNodeFields on ContentNode {\n  id\n  ... on NodeWithContentEditor {\n    contentBlocks {\n      isGutenberg\n      blocks {\n        ...ContentBlockFields\n        innerBlocks {\n          ...ContentBlockFields\n        }\n      }\n    }\n  }\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}',
-): (typeof documents)['fragment ContentNodeFields on ContentNode {\n  id\n  ... on NodeWithContentEditor {\n    contentBlocks {\n      isGutenberg\n      blocks {\n        ...ContentBlockFields\n        innerBlocks {\n          ...ContentBlockFields\n        }\n      }\n    }\n  }\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}']
+  source: 'fragment ContentNodeFields on ContentNode {\n  id\n  uri\n  desiredSlug\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}',
+): (typeof documents)['fragment ContentNodeFields on ContentNode {\n  id\n  uri\n  desiredSlug\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -103,8 +111,8 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment MediaItemFields on MediaItem {\n  id\n  altText\n  caption\n  databaseId\n  date\n  mediaDetails {\n    height\n    width\n  }\n  sourceUrl\n  title\n  uri\n}',
-): (typeof documents)['fragment MediaItemFields on MediaItem {\n  id\n  altText\n  caption\n  databaseId\n  date\n  mediaDetails {\n    height\n    width\n  }\n  sourceUrl\n  title\n  uri\n}']
+  source: 'fragment MediaItemFields on MediaItem {\n  id\n  altText\n  caption\n  databaseId\n  date\n  mediaDetails {\n    height\n    width\n  }\n  title\n  uri\n  sourceUrl(size: FULLSCREEN_XLARGE)\n  sizes(size: FULLSCREEN_XLARGE)\n  srcSet(size: FULLSCREEN_XLARGE)\n  src: sourceUrl(size: FULLSCREEN_SMALL)\n}',
+): (typeof documents)['fragment MediaItemFields on MediaItem {\n  id\n  altText\n  caption\n  databaseId\n  date\n  mediaDetails {\n    height\n    width\n  }\n  title\n  uri\n  sourceUrl(size: FULLSCREEN_XLARGE)\n  sizes(size: FULLSCREEN_XLARGE)\n  srcSet(size: FULLSCREEN_XLARGE)\n  src: sourceUrl(size: FULLSCREEN_SMALL)\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -123,6 +131,12 @@ export function graphql(
 export function graphql(
   source: 'query AllContentTypes($after: String, $before: String, $first: Int = 1, $last: Int) {\n  contentTypes(first: 50) {\n    nodes {\n      ...ContentTypeFields\n    }\n  }\n}',
 ): (typeof documents)['query AllContentTypes($after: String, $before: String, $first: Int = 1, $last: Int) {\n  contentTypes(first: 50) {\n    nodes {\n      ...ContentTypeFields\n    }\n  }\n}']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: 'query AllMediaItems($after: String, $first: Int = 10) {\n  mediaItems(after: $after, first: $first) {\n    nodes {\n      ...MediaItemFields\n    }\n    pageInfo {\n      ...PageInfo\n    }\n  }\n}',
+): (typeof documents)['query AllMediaItems($after: String, $first: Int = 10) {\n  mediaItems(after: $after, first: $first) {\n    nodes {\n      ...MediaItemFields\n    }\n    pageInfo {\n      ...PageInfo\n    }\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -163,32 +177,50 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query AllMediaItems($after: String, $first: Int = 10) {\n  mediaItems(after: $after, first: $first) {\n    nodes {\n      ...MediaItemFields\n    }\n    pageInfo {\n      ...PageInfo\n    }\n  }\n}',
-): (typeof documents)['query AllMediaItems($after: String, $first: Int = 10) {\n  mediaItems(after: $after, first: $first) {\n    nodes {\n      ...MediaItemFields\n    }\n    pageInfo {\n      ...PageInfo\n    }\n  }\n}']
+  source: 'query MenuByName($name: ID!) {\n  menu(id: $name, idType: NAME) {\n    id\n    name\n    menuItems(first: 30, where: {parentDatabaseId: 0}) {\n      nodes {\n        ...MenuItem\n        childItems {\n          nodes {\n            ...MenuItem\n          }\n        }\n      }\n    }\n  }\n}\n\nfragment MenuItem on MenuItem {\n  label\n  cssClasses\n  target\n  url\n  id\n}',
+): (typeof documents)['query MenuByName($name: ID!) {\n  menu(id: $name, idType: NAME) {\n    id\n    name\n    menuItems(first: 30, where: {parentDatabaseId: 0}) {\n      nodes {\n        ...MenuItem\n        childItems {\n          nodes {\n            ...MenuItem\n          }\n        }\n      }\n    }\n  }\n}\n\nfragment MenuItem on MenuItem {\n  label\n  cssClasses\n  target\n  url\n  id\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query SinglePage($slug: ID!) {\n  page(id: $slug, idType: URI) {\n    title(format: RENDERED)\n    content(format: RENDERED)\n    databaseId\n    uri\n    featuredImage {\n      ...FeaturedImageFields\n    }\n    seo {\n      fullHead\n      title\n      metaDesc\n    }\n  }\n}',
-): (typeof documents)['query SinglePage($slug: ID!) {\n  page(id: $slug, idType: URI) {\n    title(format: RENDERED)\n    content(format: RENDERED)\n    databaseId\n    uri\n    featuredImage {\n      ...FeaturedImageFields\n    }\n    seo {\n      fullHead\n      title\n      metaDesc\n    }\n  }\n}']
+  source: 'query PostsListByCategoryName($categoryName: String!, $first: Int = 10, $after: String) {\n  posts(\n    first: $first\n    after: $after\n    where: {categoryName: $categoryName, orderby: {field: DATE, order: DESC}}\n  ) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    nodes {\n      id\n      uri\n      title\n      date\n      featuredImage {\n        node {\n          ...MediaItemFields\n        }\n      }\n    }\n  }\n}',
+): (typeof documents)['query PostsListByCategoryName($categoryName: String!, $first: Int = 10, $after: String) {\n  posts(\n    first: $first\n    after: $after\n    where: {categoryName: $categoryName, orderby: {field: DATE, order: DESC}}\n  ) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    nodes {\n      id\n      uri\n      title\n      date\n      featuredImage {\n        node {\n          ...MediaItemFields\n        }\n      }\n    }\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}',
-): (typeof documents)['query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}']
+  source: 'query SinglePage($slug: ID!) {\n  page(id: $slug, idType: URI) {\n    title(format: RENDERED)\n    content(format: RENDERED)\n    databaseId\n    uri\n    featuredImage {\n      ...FeaturedImageFields\n    }\n  }\n}',
+): (typeof documents)['query SinglePage($slug: ID!) {\n  page(id: $slug, idType: URI) {\n    title(format: RENDERED)\n    content(format: RENDERED)\n    databaseId\n    uri\n    featuredImage {\n      ...FeaturedImageFields\n    }\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query Sitewide {\n  generalSettings {\n    ...Settings\n  }\n  headerMenu: menu(id: "PRIMARY_MENU", idType: LOCATION) {\n    ...MenuItems\n  }\n}',
-): (typeof documents)['query Sitewide {\n  generalSettings {\n    ...Settings\n  }\n  headerMenu: menu(id: "PRIMARY_MENU", idType: LOCATION) {\n    ...MenuItems\n  }\n}']
+  source: 'query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_NAVIGATION}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}',
+): (typeof documents)['query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_NAVIGATION}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query TaxonomyArchive($category: String!) {\n  posts(where: {categoryName: $category}) {\n    nodes {\n      title(format: RENDERED)\n      excerpt(format: RENDERED)\n      uri\n      featuredImage {\n        ...FeaturedImageFields\n      }\n      categories {\n        edges {\n          node {\n            name\n            uri\n          }\n        }\n      }\n      seo {\n        fullHead\n        title\n        metaDesc\n      }\n    }\n  }\n}',
-): (typeof documents)['query TaxonomyArchive($category: String!) {\n  posts(where: {categoryName: $category}) {\n    nodes {\n      title(format: RENDERED)\n      excerpt(format: RENDERED)\n      uri\n      featuredImage {\n        ...FeaturedImageFields\n      }\n      categories {\n        edges {\n          node {\n            name\n            uri\n          }\n        }\n      }\n      seo {\n        fullHead\n        title\n        metaDesc\n      }\n    }\n  }\n}']
+  source: 'query SiteSettings {\n  wpSettings: generalSettings {\n    title\n    description\n  }\n}',
+): (typeof documents)['query SiteSettings {\n  wpSettings: generalSettings {\n    title\n    description\n  }\n}']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: 'query TaxonomyArchive($category: String!) {\n  posts(where: {categoryName: $category}) {\n    nodes {\n      title(format: RENDERED)\n      excerpt(format: RENDERED)\n      uri\n      featuredImage {\n        ...FeaturedImageFields\n      }\n      categories {\n        edges {\n          node {\n            name\n            uri\n          }\n        }\n      }\n    }\n  }\n}',
+): (typeof documents)['query TaxonomyArchive($category: String!) {\n  posts(where: {categoryName: $category}) {\n    nodes {\n      title(format: RENDERED)\n      excerpt(format: RENDERED)\n      uri\n      featuredImage {\n        ...FeaturedImageFields\n      }\n      categories {\n        edges {\n          node {\n            name\n            uri\n          }\n        }\n      }\n    }\n  }\n}']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: 'query WpControls($uri: String!) {\n  nodeByUri(uri: $uri) {\n    id\n    __typename\n    ... on ContentNode {\n      databaseId\n    }\n  }\n  viewer {\n    id\n    nicename\n    avatar(size: 20) {\n      url\n      width\n      height\n    }\n  }\n}',
+): (typeof documents)['query WpControls($uri: String!) {\n  nodeByUri(uri: $uri) {\n    id\n    __typename\n    ... on ContentNode {\n      databaseId\n    }\n  }\n  viewer {\n    id\n    nicename\n    avatar(size: 20) {\n      url\n      width\n      height\n    }\n  }\n}']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: 'query WPSeo($uri: String!) {\n  nodeByUri(uri: $uri) {\n    id\n    ... on NodeWithTitle {\n      title\n    }\n    ... on Category {\n      name\n      description\n    }\n    ... on NodeWithContentEditor {\n      content\n    }\n    ... on NodeWithExcerpt {\n      excerpt\n    }\n    ... on NodeWithFeaturedImage {\n      featuredImage {\n        node {\n          id\n          sourceUrl(size: FULLSCREEN_XLARGE)\n        }\n      }\n    }\n  }\n}',
+): (typeof documents)['query WPSeo($uri: String!) {\n  nodeByUri(uri: $uri) {\n    id\n    ... on NodeWithTitle {\n      title\n    }\n    ... on Category {\n      name\n      description\n    }\n    ... on NodeWithContentEditor {\n      content\n    }\n    ... on NodeWithExcerpt {\n      excerpt\n    }\n    ... on NodeWithFeaturedImage {\n      featuredImage {\n        node {\n          id\n          sourceUrl(size: FULLSCREEN_XLARGE)\n        }\n      }\n    }\n  }\n}']
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {}

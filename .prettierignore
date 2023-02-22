@@ -6,3 +6,5 @@
 **/tmp/**
 
 index.d.ts
+
+apps/wordpress/web/app/plugins/wp-graphql-content-blocks/**

@@ -4,8 +4,150 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "856755a136bced6a4aa7497188f7c2d2",
+  "content-hash": "5a2bb3db1e6e3592418f8c8e756945da",
   "packages": [
+    {
+      "name": "alleyinteractive/composer-wordpress-autoloader",
+      "version": "v1.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/alleyinteractive/composer-wordpress-autoloader.git",
+        "reference": "5f72de0cc7060c2475117c3231335b0899200230"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/alleyinteractive/composer-wordpress-autoloader/zipball/5f72de0cc7060c2475117c3231335b0899200230",
+        "reference": "5f72de0cc7060c2475117c3231335b0899200230",
+        "shasum": ""
+      },
+      "require": {
+        "alleyinteractive/wordpress-autoloader": "^1.1.1",
+        "composer-plugin-api": "^2.0",
+        "php": "^7.4.0|^8.0|^8.1"
+      },
+      "require-dev": {
+        "composer/composer": "*",
+        "phpunit/phpunit": "^9.5.8",
+        "squizlabs/php_codesniffer": "^4.0"
+      },
+      "type": "composer-plugin",
+      "extra": {
+        "class": "ComposerWordPressAutoloader\\Plugin"
+      },
+      "autoload": {
+        "files": ["src/autoload.php"],
+        "psr-4": {
+          "ComposerWordPressAutoloader\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": ["GPL-2.0-or-later"],
+      "authors": [
+        {
+          "name": "Alley Interactive",
+          "email": "info@alley.co"
+        },
+        {
+          "name": "Sean Fisher",
+          "email": "sean@alley.co"
+        }
+      ],
+      "description": "Autoload files using WordPress File Conventions using Composer",
+      "support": {
+        "issues": "https://github.com/alleyinteractive/composer-wordpress-autoloader/issues",
+        "source": "https://github.com/alleyinteractive/composer-wordpress-autoloader/tree/v1.0.0"
+      },
+      "time": "2022-09-01T03:42:52+00:00"
+    },
+    {
+      "name": "alleyinteractive/wordpress-autoloader",
+      "version": "v1.1.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/alleyinteractive/wordpress-autoloader.git",
+        "reference": "c7599d95f49f1cdc38fad19944a50b19ec0dd6ca"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/alleyinteractive/wordpress-autoloader/zipball/c7599d95f49f1cdc38fad19944a50b19ec0dd6ca",
+        "reference": "c7599d95f49f1cdc38fad19944a50b19ec0dd6ca",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^7.4.0|^8.0|^8.1"
+      },
+      "require-dev": {
+        "alleyinteractive/alley-coding-standards": "^0.3",
+        "phpunit/phpunit": "^9.5.8"
+      },
+      "type": "library",
+      "autoload": {
+        "files": ["src/class-autoloader.php"]
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": ["GPL-2.0-or-later"],
+      "authors": [
+        {
+          "name": "Alley Interactive",
+          "email": "info@alley.co"
+        }
+      ],
+      "description": "Autoload files using WordPress File Conventions",
+      "support": {
+        "issues": "https://github.com/alleyinteractive/wordpress-autoloader/issues",
+        "source": "https://github.com/alleyinteractive/wordpress-autoloader/tree/v1.1.1"
+      },
+      "time": "2022-08-31T20:51:21+00:00"
+    },
+    {
+      "name": "alleyinteractive/wp-caper",
+      "version": "v2.0.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/alleyinteractive/wp-caper.git",
+        "reference": "6d796d2cf3881022e63b649d4f27b18c97576489"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/alleyinteractive/wp-caper/zipball/6d796d2cf3881022e63b649d4f27b18c97576489",
+        "reference": "6d796d2cf3881022e63b649d4f27b18c97576489",
+        "shasum": ""
+      },
+      "require": {
+        "alleyinteractive/composer-wordpress-autoloader": "^1.0.0",
+        "php": "^8.0"
+      },
+      "require-dev": {
+        "alleyinteractive/alley-coding-standards": "^1.0.0",
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "mantle-framework/testkit": "^0.9"
+      },
+      "type": "library",
+      "extra": {
+        "wordpress-autoloader": {
+          "autoload": {
+            "Alley\\": "src/alley/"
+          },
+          "autoload-dev": {
+            "Alley\\": "tests/alley/"
+          }
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": ["GPL-2.0-or-later"],
+      "authors": [
+        {
+          "name": "Alley",
+          "email": "info@alley.com"
+        }
+      ],
+      "description": "Fluently distribute capabilities to roles in WordPress.",
+      "support": {
+        "issues": "https://github.com/alleyinteractive/wp-caper/issues",
+        "source": "https://github.com/alleyinteractive/wp-caper/tree/v2.0.1"
+      },
+      "time": "2023-02-06T22:16:25+00:00"
+    },
     {
       "name": "brick/math",
       "version": "0.10.2",
@@ -498,7 +640,7 @@
     },
     {
       "name": "illuminate/bus",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/bus.git",
@@ -549,7 +691,7 @@
     },
     {
       "name": "illuminate/cache",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/cache.git",
@@ -609,16 +751,16 @@
     },
     {
       "name": "illuminate/collections",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/collections.git",
-        "reference": "f3ac81877e98c0c096ef403ab4f0c7ed96623c18"
+        "reference": "6607201ee327ab8f04034a2ceb8125d70c05860e"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/illuminate/collections/zipball/f3ac81877e98c0c096ef403ab4f0c7ed96623c18",
-        "reference": "f3ac81877e98c0c096ef403ab4f0c7ed96623c18",
+        "url": "https://api.github.com/repos/illuminate/collections/zipball/6607201ee327ab8f04034a2ceb8125d70c05860e",
+        "reference": "6607201ee327ab8f04034a2ceb8125d70c05860e",
         "shasum": ""
       },
       "require": {
@@ -656,11 +798,11 @@
         "issues": "https://github.com/laravel/framework/issues",
         "source": "https://github.com/laravel/framework"
       },
-      "time": "2023-02-10T19:46:01+00:00"
+      "time": "2023-02-21T18:19:28+00:00"
     },
     {
       "name": "illuminate/conditionable",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/conditionable.git",
@@ -704,7 +846,7 @@
     },
     {
       "name": "illuminate/config",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/config.git",
@@ -750,7 +892,7 @@
     },
     {
       "name": "illuminate/console",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/console.git",
@@ -812,7 +954,7 @@
     },
     {
       "name": "illuminate/container",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/container.git",
@@ -861,7 +1003,7 @@
     },
     {
       "name": "illuminate/contracts",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/contracts.git",
@@ -907,7 +1049,7 @@
     },
     {
       "name": "illuminate/events",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/events.git",
@@ -958,7 +1100,7 @@
     },
     {
       "name": "illuminate/filesystem",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/filesystem.git",
@@ -1020,7 +1162,7 @@
     },
     {
       "name": "illuminate/http",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/http.git",
@@ -1078,7 +1220,7 @@
     },
     {
       "name": "illuminate/log",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/log.git",
@@ -1125,7 +1267,7 @@
     },
     {
       "name": "illuminate/macroable",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/macroable.git",
@@ -1169,7 +1311,7 @@
     },
     {
       "name": "illuminate/pipeline",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/pipeline.git",
@@ -1215,7 +1357,7 @@
     },
     {
       "name": "illuminate/routing",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/routing.git",
@@ -1277,7 +1419,7 @@
     },
     {
       "name": "illuminate/session",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/session.git",
@@ -1332,7 +1474,7 @@
     },
     {
       "name": "illuminate/support",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/support.git",
@@ -1399,7 +1541,7 @@
     },
     {
       "name": "illuminate/view",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/view.git",
@@ -4924,40 +5066,22 @@
       "time": "2020-07-27T13:32:21+00:00"
     },
     {
-      "name": "wpackagist-plugin/add-wpgraphql-seo",
-      "version": "4.22.0",
+      "name": "wpackagist-plugin/autodescription",
+      "version": "4.2.7.1",
       "source": {
         "type": "svn",
-        "url": "https://plugins.svn.wordpress.org/add-wpgraphql-seo/",
-        "reference": "tags/4.22.0"
+        "url": "https://plugins.svn.wordpress.org/autodescription/",
+        "reference": "tags/4.2.7.1"
       },
       "dist": {
         "type": "zip",
-        "url": "https://downloads.wordpress.org/plugin/add-wpgraphql-seo.4.22.0.zip"
+        "url": "https://downloads.wordpress.org/plugin/autodescription.4.2.7.1.zip"
       },
       "require": {
         "composer/installers": "^1.0 || ^2.0"
       },
       "type": "wordpress-plugin",
-      "homepage": "https://wordpress.org/plugins/add-wpgraphql-seo/"
-    },
-    {
-      "name": "wpackagist-plugin/advanced-custom-fields",
-      "version": "6.0.7",
-      "source": {
-        "type": "svn",
-        "url": "https://plugins.svn.wordpress.org/advanced-custom-fields/",
-        "reference": "tags/6.0.7"
-      },
-      "dist": {
-        "type": "zip",
-        "url": "https://downloads.wordpress.org/plugin/advanced-custom-fields.6.0.7.zip"
-      },
-      "require": {
-        "composer/installers": "^1.0 || ^2.0"
-      },
-      "type": "wordpress-plugin",
-      "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
+      "homepage": "https://wordpress.org/plugins/autodescription/"
     },
     {
       "name": "wpackagist-plugin/email-log",
@@ -4976,6 +5100,24 @@
       },
       "type": "wordpress-plugin",
       "homepage": "https://wordpress.org/plugins/email-log/"
+    },
+    {
+      "name": "wpackagist-plugin/faustwp",
+      "version": "0.8.1",
+      "source": {
+        "type": "svn",
+        "url": "https://plugins.svn.wordpress.org/faustwp/",
+        "reference": "tags/0.8.1"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://downloads.wordpress.org/plugin/faustwp.0.8.1.zip"
+      },
+      "require": {
+        "composer/installers": "^1.0 || ^2.0"
+      },
+      "type": "wordpress-plugin",
+      "homepage": "https://wordpress.org/plugins/faustwp/"
     },
     {
       "name": "wpackagist-plugin/log-deprecated-notices",
@@ -5068,24 +5210,6 @@
       "homepage": "https://wordpress.org/plugins/user-switching/"
     },
     {
-      "name": "wpackagist-plugin/wordpress-seo",
-      "version": "19.14",
-      "source": {
-        "type": "svn",
-        "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-        "reference": "tags/19.14"
-      },
-      "dist": {
-        "type": "zip",
-        "url": "https://downloads.wordpress.org/plugin/wordpress-seo.19.14.zip"
-      },
-      "require": {
-        "composer/installers": "^1.0 || ^2.0"
-      },
-      "type": "wordpress-plugin",
-      "homepage": "https://wordpress.org/plugins/wordpress-seo/"
-    },
-    {
       "name": "wpackagist-plugin/wp-crontrol",
       "version": "1.15.1",
       "source": {
@@ -5120,21 +5244,65 @@
       },
       "type": "wordpress-plugin",
       "homepage": "https://wordpress.org/plugins/wp-graphql/"
+    },
+    {
+      "name": "wpengine/advanced-custom-fields-pro",
+      "version": "6.0.7",
+      "dist": {
+        "type": "zip",
+        "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?p=pro&t=6.0.7"
+      },
+      "require": {
+        "composer/installers": "~1.0 || ~2.0"
+      },
+      "type": "wordpress-plugin"
     }
   ],
   "packages-dev": [
+    {
+      "name": "alleyinteractive/meta-inspector",
+      "version": "v1.1.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/alleyinteractive/meta-inspector.git",
+        "reference": "fd682e6a3b39402ba82504840266885fc156ce13"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/alleyinteractive/meta-inspector/zipball/fd682e6a3b39402ba82504840266885fc156ce13",
+        "reference": "fd682e6a3b39402ba82504840266885fc156ce13",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.0"
+      },
+      "require-dev": {
+        "alleyinteractive/alley-coding-standards": "^1.0"
+      },
+      "type": "wordpress-plugin",
+      "notification-url": "https://packagist.org/downloads/",
+      "license": ["GPL-2.0-or-later"],
+      "description": "View various types of meta data about WordPress objects to assist debugging.",
+      "homepage": "https://github.com/alleyinteractive/meta-inspector/",
+      "keywords": ["developer", "wordpress", "wordpress-plugin"],
+      "support": {
+        "issues": "https://github.com/alleyinteractive/meta-inspector/issues",
+        "source": "https://github.com/alleyinteractive/meta-inspector/tree/v1.1.0"
+      },
+      "time": "2023-02-16T00:17:54+00:00"
+    },
     {
       "name": "roave/security-advisories",
       "version": "dev-latest",
       "source": {
         "type": "git",
         "url": "https://github.com/Roave/SecurityAdvisories.git",
-        "reference": "9206ad5e9490993f471ef1503f630afd7a849170"
+        "reference": "778a428cd06a290d890e6bc1111b4e651b8a9da8"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/9206ad5e9490993f471ef1503f630afd7a849170",
-        "reference": "9206ad5e9490993f471ef1503f630afd7a849170",
+        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/778a428cd06a290d890e6bc1111b4e651b8a9da8",
+        "reference": "778a428cd06a290d890e6bc1111b4e651b8a9da8",
         "shasum": ""
       },
       "conflict": {
@@ -5449,6 +5617,7 @@
         "phpxmlrpc/phpxmlrpc": "<4.9.2",
         "pimcore/data-hub": "<1.2.4",
         "pimcore/pimcore": "<10.5.17",
+        "pixelfed/pixelfed": "<=0.11.4",
         "pocketmine/bedrock-protocol": "<8.0.2",
         "pocketmine/pocketmine-mp": "<4.12.5|>= 4.0.0-BETA5, < 4.4.2",
         "pressbooks/pressbooks": "<5.18",
@@ -5702,7 +5871,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2023-02-17T21:04:14+00:00"
+      "time": "2023-02-22T00:14:39+00:00"
     },
     {
       "name": "squizlabs/php_codesniffer",

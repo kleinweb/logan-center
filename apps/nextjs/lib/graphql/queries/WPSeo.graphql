@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+query WPSeo($uri: String!) {
+  nodeByUri(uri: $uri) {
+    id
+    ... on NodeWithTitle {
+      title
+    }
+    ... on Category {
+      name
+      description
+    }
+    ... on NodeWithContentEditor {
+      content
+    }
+    ... on NodeWithExcerpt {
+      excerpt
+    }
+    ... on NodeWithFeaturedImage {
+      featuredImage {
+        node {
+          id
+          sourceUrl(size: FULLSCREEN_XLARGE)
+        }
+      }
+    }
+  }
+}
