@@ -92,6 +92,18 @@ const nextConfig = {
     ],
   },
 
+  // Trailing slash
+  // ==============
+  // https://nextjs.org/docs/api-reference/next.config.js/trailing-slash
+  //
+  // WPVIP: Setting this value to `true` is not recommended at this time.
+  //
+  // > Next.js has support for trailing slashes, but its implementation is
+  // > buggy.
+  //
+  // <https://github.com/Automattic/vip-go-nextjs-skeleton/tree/example/custom-server-trailing-slash>
+  trailingSlash: false,
+
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
