@@ -1587,6 +1587,13 @@ export type CreateUserPayload = {
   user?: Maybe<User>
 }
 
+/** The template assigned to the node */
+export type CustomTemplate = ContentTemplate & {
+  __typename?: 'CustomTemplate'
+  /** The name of the template */
+  templateName?: Maybe<Scalars['String']>
+}
+
 /** Object that can be identified with a Database ID */
 export type DatabaseIdentifier = {
   /** The unique identifier stored in the database */
@@ -2886,10 +2893,8 @@ export type MenuItemToMenuItemLinkableConnectionEdge = Edge &
 
 /** Registered menu locations */
 export enum MenuLocationEnum {
-  /** Put the menu in the footer-menu location */
-  FooterMenu = 'FOOTER_MENU',
-  /** Put the menu in the primary-menu location */
-  PrimaryMenu = 'PRIMARY_MENU',
+  /** Put the menu in the primary_navigation location */
+  PrimaryNavigation = 'PRIMARY_NAVIGATION',
 }
 
 /** The Type of Identifier used to fetch a single node. Default is "ID". To be used along with the "id" field. */
@@ -9469,7 +9474,43 @@ export const ContentNodeFieldsFragmentDoc = {
         ],
       },
     },
-    ...ContentBlockFieldsFragmentDoc.definitions,
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentBlockFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentBlock'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'attributes'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'value'}},
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'innerHTML'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'removeWrappingTag'},
+                value: {kind: 'BooleanValue', value: true},
+              },
+            ],
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'tagName'}},
+        ],
+      },
+    },
   ],
 } as unknown as DocumentNode<ContentNodeFieldsFragment, unknown>
 export const PageInfoFragmentDoc = {
@@ -9573,8 +9614,166 @@ export const ContentTypeFieldsFragmentDoc = {
         ],
       },
     },
-    ...ContentNodeFieldsFragmentDoc.definitions,
-    ...PageInfoFragmentDoc.definitions,
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentBlockFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentBlock'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'attributes'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'value'}},
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'innerHTML'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'removeWrappingTag'},
+                value: {kind: 'BooleanValue', value: true},
+              },
+            ],
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'tagName'}},
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentNodeFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentNode'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {
+            kind: 'InlineFragment',
+            typeCondition: {
+              kind: 'NamedType',
+              name: {kind: 'Name', value: 'NodeWithContentEditor'},
+            },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'contentBlocks'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'isGutenberg'},
+                      },
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'blocks'},
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'FragmentSpread',
+                              name: {kind: 'Name', value: 'ContentBlockFields'},
+                            },
+                            {
+                              kind: 'Field',
+                              name: {kind: 'Name', value: 'innerBlocks'},
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'FragmentSpread',
+                                    name: {
+                                      kind: 'Name',
+                                      value: 'ContentBlockFields',
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'contentType'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'node'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
+          {
+            kind: 'InlineFragment',
+            typeCondition: {
+              kind: 'NamedType',
+              name: {kind: 'Name', value: 'NodeWithTitle'},
+            },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'PageInfo'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'WPPageInfo'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'hasNextPage'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'hasPreviousPage'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'startCursor'}},
+        ],
+      },
+    },
   ],
 } as unknown as DocumentNode<ContentTypeFieldsFragment, unknown>
 export const FeaturedImageFieldsFragmentDoc = {
@@ -9914,7 +10113,242 @@ export const AllContentTypesDocument = {
         ],
       },
     },
-    ...ContentTypeFieldsFragmentDoc.definitions,
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentBlockFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentBlock'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'attributes'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'value'}},
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'innerHTML'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'removeWrappingTag'},
+                value: {kind: 'BooleanValue', value: true},
+              },
+            ],
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'tagName'}},
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentNodeFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentNode'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {
+            kind: 'InlineFragment',
+            typeCondition: {
+              kind: 'NamedType',
+              name: {kind: 'Name', value: 'NodeWithContentEditor'},
+            },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'contentBlocks'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'isGutenberg'},
+                      },
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'blocks'},
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'FragmentSpread',
+                              name: {kind: 'Name', value: 'ContentBlockFields'},
+                            },
+                            {
+                              kind: 'Field',
+                              name: {kind: 'Name', value: 'innerBlocks'},
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'FragmentSpread',
+                                    name: {
+                                      kind: 'Name',
+                                      value: 'ContentBlockFields',
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'contentType'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'node'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
+          {
+            kind: 'InlineFragment',
+            typeCondition: {
+              kind: 'NamedType',
+              name: {kind: 'Name', value: 'NodeWithTitle'},
+            },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'PageInfo'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'WPPageInfo'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'hasNextPage'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'hasPreviousPage'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'startCursor'}},
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentTypeFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentType'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'contentNodes'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'after'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'before'},
+                value: {
+                  kind: 'Variable',
+                  name: {kind: 'Name', value: 'before'},
+                },
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'first'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'last'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'nodes'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: {kind: 'Name', value: 'ContentNodeFields'},
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'pageInfo'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: {kind: 'Name', value: 'PageInfo'},
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+        ],
+      },
+    },
   ],
 } as unknown as DocumentNode<
   AllContentTypesQuery,
@@ -9993,8 +10427,99 @@ export const AllMediaItemsDocument = {
         ],
       },
     },
-    ...MediaItemFieldsFragmentDoc.definitions,
-    ...PageInfoFragmentDoc.definitions,
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'MediaItemFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'MediaItem'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'caption'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'date'}},
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'mediaDetails'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'height'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'width'}},
+              ],
+            },
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'sourceUrl'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'size'},
+                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
+              },
+            ],
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'sizes'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'size'},
+                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
+              },
+            ],
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'srcSet'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'size'},
+                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
+              },
+            ],
+          },
+          {
+            kind: 'Field',
+            alias: {kind: 'Name', value: 'src'},
+            name: {kind: 'Name', value: 'sourceUrl'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'size'},
+                value: {kind: 'EnumValue', value: 'FULLSCREEN_SMALL'},
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'PageInfo'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'WPPageInfo'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'hasNextPage'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'hasPreviousPage'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'startCursor'}},
+        ],
+      },
+    },
   ],
 } as unknown as DocumentNode<AllMediaItemsQuery, AllMediaItemsQueryVariables>
 export const AllPagesDocument = {
@@ -10095,7 +10620,149 @@ export const ContentNodeBySlugDocument = {
         ],
       },
     },
-    ...ContentNodeFieldsFragmentDoc.definitions,
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentBlockFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentBlock'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'attributes'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'value'}},
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'innerHTML'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'removeWrappingTag'},
+                value: {kind: 'BooleanValue', value: true},
+              },
+            ],
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'tagName'}},
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentNodeFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentNode'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {
+            kind: 'InlineFragment',
+            typeCondition: {
+              kind: 'NamedType',
+              name: {kind: 'Name', value: 'NodeWithContentEditor'},
+            },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'contentBlocks'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'isGutenberg'},
+                      },
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'blocks'},
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'FragmentSpread',
+                              name: {kind: 'Name', value: 'ContentBlockFields'},
+                            },
+                            {
+                              kind: 'Field',
+                              name: {kind: 'Name', value: 'innerBlocks'},
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'FragmentSpread',
+                                    name: {
+                                      kind: 'Name',
+                                      value: 'ContentBlockFields',
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'contentType'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'node'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
+          {
+            kind: 'InlineFragment',
+            typeCondition: {
+              kind: 'NamedType',
+              name: {kind: 'Name', value: 'NodeWithTitle'},
+            },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
   ],
 } as unknown as DocumentNode<
   ContentNodeBySlugQuery,
@@ -10154,7 +10821,149 @@ export const ContentNodePreviewByIdDocument = {
         ],
       },
     },
-    ...ContentNodeFieldsFragmentDoc.definitions,
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentBlockFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentBlock'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'attributes'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'value'}},
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'innerHTML'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'removeWrappingTag'},
+                value: {kind: 'BooleanValue', value: true},
+              },
+            ],
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'tagName'}},
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentNodeFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentNode'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {
+            kind: 'InlineFragment',
+            typeCondition: {
+              kind: 'NamedType',
+              name: {kind: 'Name', value: 'NodeWithContentEditor'},
+            },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'contentBlocks'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'isGutenberg'},
+                      },
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'blocks'},
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'FragmentSpread',
+                              name: {kind: 'Name', value: 'ContentBlockFields'},
+                            },
+                            {
+                              kind: 'Field',
+                              name: {kind: 'Name', value: 'innerBlocks'},
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'FragmentSpread',
+                                    name: {
+                                      kind: 'Name',
+                                      value: 'ContentBlockFields',
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'contentType'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'node'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
+          {
+            kind: 'InlineFragment',
+            typeCondition: {
+              kind: 'NamedType',
+              name: {kind: 'Name', value: 'NodeWithTitle'},
+            },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
   ],
 } as unknown as DocumentNode<
   ContentNodePreviewByIdQuery,
@@ -10280,8 +11089,166 @@ export const ContentNodesBySearchTermDocument = {
         ],
       },
     },
-    ...ContentNodeFieldsFragmentDoc.definitions,
-    ...PageInfoFragmentDoc.definitions,
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentBlockFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentBlock'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'attributes'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'value'}},
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'innerHTML'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'removeWrappingTag'},
+                value: {kind: 'BooleanValue', value: true},
+              },
+            ],
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'tagName'}},
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentNodeFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentNode'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {
+            kind: 'InlineFragment',
+            typeCondition: {
+              kind: 'NamedType',
+              name: {kind: 'Name', value: 'NodeWithContentEditor'},
+            },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'contentBlocks'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'isGutenberg'},
+                      },
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'blocks'},
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'FragmentSpread',
+                              name: {kind: 'Name', value: 'ContentBlockFields'},
+                            },
+                            {
+                              kind: 'Field',
+                              name: {kind: 'Name', value: 'innerBlocks'},
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'FragmentSpread',
+                                    name: {
+                                      kind: 'Name',
+                                      value: 'ContentBlockFields',
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'contentType'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'node'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
+          {
+            kind: 'InlineFragment',
+            typeCondition: {
+              kind: 'NamedType',
+              name: {kind: 'Name', value: 'NodeWithTitle'},
+            },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'PageInfo'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'WPPageInfo'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'hasNextPage'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'hasPreviousPage'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'startCursor'}},
+        ],
+      },
+    },
   ],
 } as unknown as DocumentNode<
   ContentNodesBySearchTermQuery,
@@ -10355,7 +11322,242 @@ export const ContentTypeByNameDocument = {
         ],
       },
     },
-    ...ContentTypeFieldsFragmentDoc.definitions,
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentBlockFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentBlock'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'attributes'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'value'}},
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'innerHTML'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'removeWrappingTag'},
+                value: {kind: 'BooleanValue', value: true},
+              },
+            ],
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'tagName'}},
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentNodeFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentNode'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {
+            kind: 'InlineFragment',
+            typeCondition: {
+              kind: 'NamedType',
+              name: {kind: 'Name', value: 'NodeWithContentEditor'},
+            },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'contentBlocks'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'isGutenberg'},
+                      },
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'blocks'},
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'FragmentSpread',
+                              name: {kind: 'Name', value: 'ContentBlockFields'},
+                            },
+                            {
+                              kind: 'Field',
+                              name: {kind: 'Name', value: 'innerBlocks'},
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'FragmentSpread',
+                                    name: {
+                                      kind: 'Name',
+                                      value: 'ContentBlockFields',
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'contentType'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'node'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
+          {
+            kind: 'InlineFragment',
+            typeCondition: {
+              kind: 'NamedType',
+              name: {kind: 'Name', value: 'NodeWithTitle'},
+            },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'PageInfo'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'WPPageInfo'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'hasNextPage'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'hasPreviousPage'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'startCursor'}},
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ContentTypeFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'ContentType'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'contentNodes'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'after'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'before'},
+                value: {
+                  kind: 'Variable',
+                  name: {kind: 'Name', value: 'before'},
+                },
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'first'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'last'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'nodes'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: {kind: 'Name', value: 'ContentNodeFields'},
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'pageInfo'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: {kind: 'Name', value: 'PageInfo'},
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+        ],
+      },
+    },
   ],
 } as unknown as DocumentNode<
   ContentTypeByNameQuery,
@@ -10535,7 +11737,24 @@ export const MenuByNameDocument = {
         ],
       },
     },
-    ...MenuItemFragmentDoc.definitions,
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'MenuItem'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'MenuItem'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'label'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'cssClasses'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'target'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'url'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+        ],
+      },
+    },
   ],
 } as unknown as DocumentNode<MenuByNameQuery, MenuByNameQueryVariables>
 export const PostsListByCategoryNameDocument = {
@@ -10684,7 +11903,82 @@ export const PostsListByCategoryNameDocument = {
         ],
       },
     },
-    ...MediaItemFieldsFragmentDoc.definitions,
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'MediaItemFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'MediaItem'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'caption'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'date'}},
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'mediaDetails'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'height'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'width'}},
+              ],
+            },
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'sourceUrl'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'size'},
+                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
+              },
+            ],
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'sizes'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'size'},
+                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
+              },
+            ],
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'srcSet'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'size'},
+                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
+              },
+            ],
+          },
+          {
+            kind: 'Field',
+            alias: {kind: 'Name', value: 'src'},
+            name: {kind: 'Name', value: 'sourceUrl'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'size'},
+                value: {kind: 'EnumValue', value: 'FULLSCREEN_SMALL'},
+              },
+            ],
+          },
+        ],
+      },
+    },
   ],
 } as unknown as DocumentNode<
   PostsListByCategoryNameQuery,
@@ -10771,7 +12065,54 @@ export const SinglePageDocument = {
         ],
       },
     },
-    ...FeaturedImageFieldsFragmentDoc.definitions,
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'FeaturedImageFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {
+          kind: 'Name',
+          value: 'NodeWithFeaturedImageToMediaItemConnectionEdge',
+        },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'node'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'sourceUrl'},
+                  arguments: [
+                    {
+                      kind: 'Argument',
+                      name: {kind: 'Name', value: 'size'},
+                      value: {kind: 'EnumValue', value: 'LARGE'},
+                    },
+                  ],
+                },
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'mediaDetails'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'height'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'width'}},
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
   ],
 } as unknown as DocumentNode<SinglePageQuery, SinglePageQueryVariables>
 export const SiteMenusDocument = {
@@ -10798,7 +12139,7 @@ export const SiteMenusDocument = {
                     {
                       kind: 'ObjectField',
                       name: {kind: 'Name', value: 'location'},
-                      value: {kind: 'EnumValue', value: 'PRIMARY_MENU'},
+                      value: {kind: 'EnumValue', value: 'PRIMARY_NAVIGATION'},
                     },
                   ],
                 },
@@ -10997,7 +12338,54 @@ export const TaxonomyArchiveDocument = {
         ],
       },
     },
-    ...FeaturedImageFieldsFragmentDoc.definitions,
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'FeaturedImageFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {
+          kind: 'Name',
+          value: 'NodeWithFeaturedImageToMediaItemConnectionEdge',
+        },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'node'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'sourceUrl'},
+                  arguments: [
+                    {
+                      kind: 'Argument',
+                      name: {kind: 'Name', value: 'size'},
+                      value: {kind: 'EnumValue', value: 'LARGE'},
+                    },
+                  ],
+                },
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'mediaDetails'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'height'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'width'}},
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
   ],
 } as unknown as DocumentNode<
   TaxonomyArchiveQuery,

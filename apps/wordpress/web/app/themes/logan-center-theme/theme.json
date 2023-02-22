@@ -1,0 +1,221 @@
+{
+  "__generated__": "⚠️ This file is generated. Do not edit.",
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "color": {
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "defaultDuotone": false,
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "duotone": [],
+      "palette": [
+        {
+          "name": "Primary Light",
+          "slug": "primary-light",
+          "color": "hsl(38, 35%, 94%)"
+        },
+        {
+          "name": "Primary Accent",
+          "slug": "primary-accent",
+          "color": "hsl(178, 38%, 43%)"
+        },
+        {
+          "name": "Primary Dark",
+          "slug": "primary-dark",
+          "color": "hsl(208, 27%, 20%)"
+        },
+        {
+          "name": "Secondary Light",
+          "slug": "secondary-light",
+          "color": "hsla(180, 33%, 92%, 1)"
+        },
+        {
+          "name": "Slate 100",
+          "slug": "slate-100",
+          "color": "hsla(180, 33%, 92%, 1)"
+        },
+        {
+          "name": "Slate 300",
+          "slug": "slate-300",
+          "color": "#d1d4db"
+        },
+        {
+          "name": "Slate 700",
+          "slug": "slate-700",
+          "color": "hsl(208, 27%, 20%)"
+        },
+        {
+          "name": "Slate 900",
+          "slug": "slate-900",
+          "color": "hsl(208, 27%, 15%)"
+        },
+        {
+          "name": "Teal 500",
+          "slug": "teal-500",
+          "color": "hsl(178, 38%, 43%)"
+        },
+        {
+          "name": "Neutral 100",
+          "slug": "neutral-100",
+          "color": "hsl(0, 0%, 90%)"
+        },
+        {
+          "name": "Neutral 200",
+          "slug": "neutral-200",
+          "color": "hsl(0, 0%, 80%)"
+        },
+        {
+          "name": "Neutral 300",
+          "slug": "neutral-300",
+          "color": "hsl(0, 0%, 70%)"
+        },
+        {
+          "name": "Neutral 400",
+          "slug": "neutral-400",
+          "color": "hsl(0, 0%, 60%)"
+        },
+        {
+          "name": "Neutral 500",
+          "slug": "neutral-500",
+          "color": "hsl(0, 0%, 50%)"
+        },
+        {
+          "name": "Neutral 600",
+          "slug": "neutral-600",
+          "color": "hsl(0, 0%, 40%)"
+        },
+        {
+          "name": "Neutral 700",
+          "slug": "neutral-700",
+          "color": "hsl(0, 0%, 30%)"
+        },
+        {
+          "name": "Neutral 800",
+          "slug": "neutral-800",
+          "color": "hsl(0, 0%, 20%)"
+        },
+        {
+          "name": "Neutral 900",
+          "slug": "neutral-900",
+          "color": "hsl(0, 0%, 10%)"
+        },
+        {
+          "name": "Red 300",
+          "slug": "red-300",
+          "color": "#e2b28e"
+        },
+        {
+          "name": "Red 600",
+          "slug": "red-600",
+          "color": "#e92c2b"
+        },
+        {
+          "name": "Stone 100",
+          "slug": "stone-100",
+          "color": "hsl(38, 35%, 94%)"
+        },
+        {
+          "name": "Amber 600",
+          "slug": "amber-600",
+          "color": "#c48f57"
+        },
+        {
+          "name": "Temple Cherry",
+          "slug": "temple-cherry",
+          "color": "var(--tu--color--cherry)"
+        },
+        {
+          "name": "Klein Eggshell",
+          "slug": "klein-eggshell",
+          "color": "#f3f2ea"
+        },
+        {
+          "name": "Klein Taupe",
+          "slug": "klein-taupe",
+          "color": "#b9a681"
+        },
+        {
+          "name": "White",
+          "slug": "white",
+          "color": "#ffffff"
+        },
+        {
+          "name": "Black",
+          "slug": "black",
+          "color": "#000000"
+        }
+      ]
+    },
+    "custom": {
+      "spacing": {},
+      "typography": {
+        "font-size": {},
+        "line-height": {}
+      }
+    },
+    "spacing": {
+      "padding": true,
+      "units": ["px", "%", "em", "rem", "vw", "vh"]
+    },
+    "typography": {
+      "customFontSize": false,
+      "fontFamilies": [
+        {
+          "name": "Urw-din",
+          "slug": "sans",
+          "fontFamily": "urw-din, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", Helvetica, Arial, sans-serif"
+        }
+      ],
+      "fontSizes": [
+        {
+          "name": "2xs",
+          "slug": "2xs",
+          "size": "0.75rem"
+        },
+        {
+          "name": "xs",
+          "slug": "xs",
+          "size": "0.875rem"
+        },
+        {
+          "name": "sm",
+          "slug": "sm",
+          "size": "1rem"
+        },
+        {
+          "name": "base",
+          "slug": "base",
+          "size": "1.125rem"
+        },
+        {
+          "name": "lg",
+          "slug": "lg",
+          "size": "1.25rem"
+        },
+        {
+          "name": "xl",
+          "slug": "xl",
+          "size": "1.5rem"
+        },
+        {
+          "name": "2xl",
+          "slug": "2xl",
+          "size": "2.0625rem"
+        },
+        {
+          "name": "3xl",
+          "slug": "3xl",
+          "size": "2.875rem"
+        },
+        {
+          "name": "4xl",
+          "slug": "4xl",
+          "size": "3.25rem"
+        }
+      ]
+    }
+  }
+}

@@ -16,8 +16,7 @@ web/app/plugins/*
 !web/app/plugins/.gitkeep
 web/app/mu-plugins/*/
 web/app/themes/*
-!web/app/themes/logan-center
-!web/app/themes/logan-center-wp-next-theme
+!web/app/themes/logan-center-theme
 web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep

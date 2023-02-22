@@ -1,7 +1,8 @@
 <?php
 
 // SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
-// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: 2021-2022 Automattic
+// SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 /**
  * Plugin Name:  Klein Headless Library
@@ -10,33 +11,16 @@
  * Version:      0.1.0
  * Author:       Klein Digital Initiatives
  * Author URI:   https://klein.temple.edu
- * License:      GPL-3.0-or-later
+ * License:      GPL-3.0-or-later OR MIT
  */
 
 namespace Klein\Headless;
-
-
-/**
- * Custom WP setup.
- */
-function action_init_setup_wordpress()
-{
-    // Enable tags for Pages
-    register_taxonomy_for_object_type('post_tag', 'page');
-
-    // Enable excerpts for pages
-    add_post_type_support('page', 'excerpt');
-
-    // Disable the hiding of big images
-    add_filter('big_image_size_threshold', '__return_false');
-    add_filter('max_srcset_image_width', '__return_false');
-}
-add_action('init', __NAMESPACE__ . '\\action_init_setup_wordpress');
 
 /**
  * Set permlinks on theme activate
  * @see <https://github.com/wp-graphql/wp-graphql/issues/1612>
  */
+add_action('after_switch_theme', __NAMESPACE__ . '\\action_after_switch_theme_set_custom_permalinks');
 function action_after_switch_theme_set_custom_permalinks()
 {
     $current_setting = get_option('permalink_structure');
@@ -53,7 +37,6 @@ function action_after_switch_theme_set_custom_permalinks()
     $wp_rewrite->set_category_base('/topics/');
     $wp_rewrite->flush_rules(true);
 }
-add_action('after_switch_theme', __NAMESPACE__ . '\\action_after_switch_theme_set_custom_permalinks');
 
 /**
  * Add useful args to post/page preview URLs
@@ -62,6 +45,7 @@ add_action('after_switch_theme', __NAMESPACE__ . '\\action_after_switch_theme_se
  * @param \WP_Post $post Post object.
  * @return string
  */
+add_filter('preview_post_link', __NAMESPACE__ . '\\filter_preview_post_link', 10, 2);
 function filter_preview_post_link($link, $post)
 {
     $args = array(
@@ -91,7 +75,6 @@ function filter_preview_post_link($link, $post)
 
     return add_query_arg($args, $link);
 }
-add_filter('preview_post_link', __NAMESPACE__ . '\\filter_preview_post_link', 10, 2);
 
 /**
  * Includes preview link in post data for a response for Gutenberg preview link to work.
@@ -100,6 +83,8 @@ add_filter('preview_post_link', __NAMESPACE__ . '\\filter_preview_post_link', 10
  * @param \WP_Post          $post     Post object.
  * @return \WP_REST_Response
  */
+add_filter('rest_prepare_post', __NAMESPACE__ . '\\filter_rest_prepare_preview_link', 10, 2);
+add_filter('rest_prepare_page', __NAMESPACE__ . '\\filter_rest_prepare_preview_link', 10, 2);
 function filter_rest_prepare_preview_link($response, $post)
 {
     if ('draft' === $post->post_status) {
@@ -108,8 +93,6 @@ function filter_rest_prepare_preview_link($response, $post)
 
     return $response;
 }
-add_filter('rest_prepare_post', __NAMESPACE__ . '\\filter_rest_prepare_preview_link', 10, 2);
-add_filter('rest_prepare_page', __NAMESPACE__ . '\\filter_rest_prepare_preview_link', 10, 2);
 
 /*
 |--------------------------------------------------------------------------

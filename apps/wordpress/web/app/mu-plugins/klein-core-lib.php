@@ -13,22 +13,31 @@
  * License:      GPL-3.0-or-later
  */
 
- namespace Klein\CoreLibrary;
+namespace Klein\CoreLibrary;
 
 /**
- * Register nav menu defaults.
- *
- * @author Kleinweb
- * @since 0.1.0
+ * Configure baseline feature support.
  */
-function register_menus()
+add_action('after_setup_theme', __NAMESPACE__ . '\\after_setup_theme_add_baseline_feature_support');
+function after_setup_theme_add_baseline_feature_support()
 {
+    add_theme_support('menus');
     add_theme_support('post-thumbnails');
-    register_nav_menus(
-        [
-            'primary-menu' => esc_html__('Primary Menu'),
-            'footer-menu'  => esc_html__('Footer Menu'),
-        ]
-    );
 }
-add_action('after_setup_theme', __NAMESPACE__ . '\register_menus');
+
+/**
+ * Early-loading custom defaults.
+ */
+add_action('init', __NAMESPACE__ . '\\action_init');
+function action_init()
+{
+    // Enable tags for Pages
+    register_taxonomy_for_object_type('post_tag', 'page');
+
+    // Enable excerpts for pages
+    add_post_type_support('page', 'excerpt');
+
+    // Disable the hiding of big images
+    add_filter('big_image_size_threshold', '__return_false');
+    add_filter('max_srcset_image_width', '__return_false');
+}

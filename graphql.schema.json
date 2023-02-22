@@ -6621,6 +6621,11 @@
         "possibleTypes": [
           {
             "kind": "OBJECT",
+            "name": "CustomTemplate",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "DefaultTemplate",
             "ofType": null
           }
@@ -9416,6 +9421,35 @@
         ],
         "inputFields": null,
         "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "CustomTemplate",
+        "description": "The template assigned to the node",
+        "fields": [
+          {
+            "name": "templateName",
+            "description": "The name of the template",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "ContentTemplate",
+            "ofType": null
+          }
+        ],
         "enumValues": null,
         "possibleTypes": null
       },
@@ -17364,14 +17398,8 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "FOOTER_MENU",
-            "description": "Put the menu in the footer-menu location",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "PRIMARY_MENU",
-            "description": "Put the menu in the primary-menu location",
+            "name": "PRIMARY_NAVIGATION",
+            "description": "Put the menu in the primary_navigation location",
             "isDeprecated": false,
             "deprecationReason": null
           }
