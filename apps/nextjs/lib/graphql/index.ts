@@ -18,8 +18,8 @@ import {onError} from '@apollo/client/link/error'
 import {concatPagination} from '@apollo/client/utilities'
 import merge from 'deepmerge'
 import isEqual from 'lodash/isEqual'
-import {GRAPHQL_ENDPOINT} from '../constants'
 import {TypedQueryDocumentNode} from 'graphql'
+import wpConfig from '@/wp.config'
 
 export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__'
 
@@ -36,7 +36,7 @@ const errorLink = onError(({graphQLErrors, networkError}) => {
 })
 
 const httpLink = new HttpLink({
-  uri: GRAPHQL_ENDPOINT,
+  uri: wpConfig.endpoints.graphql,
   // FIXME: somethings?
   credentials: 'omit', // Additional fetch() options like `credentials` or `headers`
 })

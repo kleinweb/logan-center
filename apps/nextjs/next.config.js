@@ -9,7 +9,8 @@
 // Avoid language features that are not available in your target Node.js version.
 // Do not change the file extenstion to .ts.
 
-// const {wordPressEndpoint} = require('./wp.config')
+const wpConfig = require('./wp.config')
+const {endpoints} = require('./wp.config')
 
 // Next.js currently doesn't have a good way to match all paths including the
 // root, so we need to use a special regex path.
@@ -31,6 +32,7 @@ const nextConfig = {
   // =========
   // https://nextjs.org/docs/api-reference/next.config.js/redirects
   // FIXME: this probably needs adjustment
+  // FIXME: at the very lest, `wordPressEndpoint` is not correct given the core-in-subdir setup
   // async redirects() {
   //   return [
   //     {
@@ -79,6 +81,15 @@ const nextConfig = {
     // is less than the full width of the screen. Therefore, the sizes in
     // imageSizes should all be smaller than the smallest size in deviceSizes.
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+
+    remotePatterns: [
+      {protocol: 'https', hostname: '**.templelogancenter.org'},
+      {protocol: 'https', hostname: wpConfig.endpoints.serverDomain},
+      {
+        protocol: 'https',
+        hostname: '*.gravatar.com',
+      },
+    ],
   },
 
   webpack(config) {
