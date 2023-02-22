@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "ea9e6459c64b323609e417f7293390b9",
+  "content-hash": "5a2bb3db1e6e3592418f8c8e756945da",
   "packages": [
     {
       "name": "alleyinteractive/composer-wordpress-autoloader",
@@ -5100,6 +5100,24 @@
       },
       "type": "wordpress-plugin",
       "homepage": "https://wordpress.org/plugins/email-log/"
+    },
+    {
+      "name": "wpackagist-plugin/faustwp",
+      "version": "0.8.1",
+      "source": {
+        "type": "svn",
+        "url": "https://plugins.svn.wordpress.org/faustwp/",
+        "reference": "tags/0.8.1"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://downloads.wordpress.org/plugin/faustwp.0.8.1.zip"
+      },
+      "require": {
+        "composer/installers": "^1.0 || ^2.0"
+      },
+      "type": "wordpress-plugin",
+      "homepage": "https://wordpress.org/plugins/faustwp/"
     },
     {
       "name": "wpackagist-plugin/log-deprecated-notices",
