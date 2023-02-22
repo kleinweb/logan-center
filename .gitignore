@@ -53,15 +53,14 @@ wp-cli.local.yml
 .netlify
 
 ##: secrets
+auth.json
 *.pem
-# <https://dotenv.org/env-me> {{{
 .env*
 .flaskenv*
 !.env.project
 !.env.vault
 !.env*.example
 !.env*.sample
-# }}}
 
 ##: testing
 coverage

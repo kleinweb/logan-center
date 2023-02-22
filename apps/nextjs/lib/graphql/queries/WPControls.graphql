@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+query WpControls($uri: String!) {
+  nodeByUri(uri: $uri) {
+    id
+    __typename
+    ... on ContentNode {
+      databaseId
+    }
+  }
+  viewer {
+    id
+    nicename
+    avatar(size: 20) {
+      url
+      width
+      height
+    }
+  }
+}

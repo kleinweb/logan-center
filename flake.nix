@@ -61,7 +61,7 @@
     #  - but can use anything that produces flake outputs (e.g. flake-parts or flake-utils)
     # 5. Run: nix run .
     {
-      devShells = ["_automation" "devshells"];
+      devShells = std.harvest self ["_automation" "devshells"];
     };
 
   nixConfig = {

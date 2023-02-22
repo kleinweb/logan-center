@@ -107,8 +107,6 @@ export type Category = DatabaseIdentifier &
     parentId?: Maybe<Scalars['ID']>
     /** Connection between the Category type and the post type */
     posts?: Maybe<CategoryToPostConnection>
-    /** The Yoast SEO data of the Categories taxonomy. */
-    seo?: Maybe<TaxonomySeo>
     /** An alphanumeric identifier for the object unique to its type. */
     slug?: Maybe<Scalars['String']>
     /** Connection between the Category type and the Taxonomy type */
@@ -941,8 +939,6 @@ export type ContentNode = {
   previewRevisionDatabaseId?: Maybe<Scalars['Int']>
   /** Whether the object is a node in the preview state */
   previewRevisionId?: Maybe<Scalars['ID']>
-  /** The Yoast SEO data of the ContentNode */
-  seo?: Maybe<PostTypeSeo>
   /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
   slug?: Maybe<Scalars['String']>
   /** The current status of the object */
@@ -1300,6 +1296,8 @@ export enum ContentTypesOfPostFormatEnum {
 /** Allowed Content Types of the Tag taxonomy. */
 export enum ContentTypesOfTagEnum {
   /** The Type of Content object */
+  Page = 'PAGE',
+  /** The Type of Content object */
   Post = 'POST',
 }
 
@@ -1420,6 +1418,8 @@ export type CreatePageInput = {
   content?: InputMaybe<Scalars['String']>
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
   date?: InputMaybe<Scalars['String']>
+  /** The excerpt of the object */
+  excerpt?: InputMaybe<Scalars['String']>
   /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
   menuOrder?: InputMaybe<Scalars['Int']>
   /** The ID of the parent object */
@@ -1430,6 +1430,8 @@ export type CreatePageInput = {
   slug?: InputMaybe<Scalars['String']>
   /** The status of the object */
   status?: InputMaybe<PostStatusEnum>
+  /** Set connections between the page and tags */
+  tags?: InputMaybe<PageTagsInput>
   /** The title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -1583,13 +1585,6 @@ export type CreateUserPayload = {
   clientMutationId?: Maybe<Scalars['String']>
   /** The User object mutation type. */
   user?: Maybe<User>
-}
-
-/** The template assigned to the node */
-export type CustomTemplate = ContentTemplate & {
-  __typename?: 'CustomTemplate'
-  /** The name of the template */
-  templateName?: Maybe<Scalars['String']>
 }
 
 /** Object that can be identified with a Database ID */
@@ -1993,8 +1988,6 @@ export type HierarchicalContentNode = {
   previewRevisionDatabaseId?: Maybe<Scalars['Int']>
   /** Whether the object is a node in the preview state */
   previewRevisionId?: Maybe<Scalars['ID']>
-  /** The Yoast SEO data of the ContentNode */
-  seo?: Maybe<PostTypeSeo>
   /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
   slug?: Maybe<Scalars['String']>
   /** The current status of the object */
@@ -2367,8 +2360,6 @@ export type MediaItem = ContentNode &
     previewRevisionDatabaseId?: Maybe<Scalars['Int']>
     /** Whether the object is a node in the preview state */
     previewRevisionId?: Maybe<Scalars['ID']>
-    /** The Yoast SEO data of the ContentNode */
-    seo?: Maybe<PostTypeSeo>
     /** The sizes attribute value for an image. */
     sizes?: Maybe<Scalars['String']>
     /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
@@ -2526,12 +2517,30 @@ export type MediaItemMeta = {
 
 /** The size of the media item object. */
 export enum MediaItemSizeEnum {
+  /** MediaItem with the fullscreen size */
+  Fullscreen = 'FULLSCREEN',
+  /** MediaItem with the fullscreen-large size */
+  FullscreenLarge = 'FULLSCREEN_LARGE',
+  /** MediaItem with the fullscreen-small size */
+  FullscreenSmall = 'FULLSCREEN_SMALL',
+  /** MediaItem with the fullscreen-xlarge size */
+  FullscreenXlarge = 'FULLSCREEN_XLARGE',
   /** MediaItem with the large size */
   Large = 'LARGE',
+  /** MediaItem with the large-preview size */
+  LargePreview = 'LARGE_PREVIEW',
   /** MediaItem with the medium size */
   Medium = 'MEDIUM',
   /** MediaItem with the medium_large size */
   MediumLarge = 'MEDIUM_LARGE',
+  /** MediaItem with the medium-preview size */
+  MediumPreview = 'MEDIUM_PREVIEW',
+  /** MediaItem with the post-thumbnail size */
+  PostThumbnail = 'POST_THUMBNAIL',
+  /** MediaItem with the small-preview size */
+  SmallPreview = 'SMALL_PREVIEW',
+  /** MediaItem with the social-preview size */
+  SocialPreview = 'SOCIAL_PREVIEW',
   /** MediaItem with the thumbnail size */
   Thumbnail = 'THUMBNAIL',
   /** MediaItem with the 1536x1536 size */
@@ -3245,8 +3254,6 @@ export type NodeWithTemplate = {
 export type NodeWithTitle = {
   /** The globally unique ID for the object */
   id: Scalars['ID']
-  /** The Yoast SEO data of the ContentNode */
-  seo?: Maybe<PostTypeSeo>
   /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
   title?: Maybe<Scalars['String']>
 }
@@ -3294,6 +3301,7 @@ export type Page = ContentNode &
   NodeWithAuthor &
   NodeWithComments &
   NodeWithContentEditor &
+  NodeWithExcerpt &
   NodeWithFeaturedImage &
   NodeWithPageAttributes &
   NodeWithRevisions &
@@ -3342,6 +3350,8 @@ export type Page = ContentNode &
     enqueuedScripts?: Maybe<ContentNodeToEnqueuedScriptConnection>
     /** Connection between the ContentNode type and the EnqueuedStylesheet type */
     enqueuedStylesheets?: Maybe<ContentNodeToEnqueuedStylesheetConnection>
+    /** The excerpt of the post. */
+    excerpt?: Maybe<Scalars['String']>
     /** Connection between the NodeWithFeaturedImage type and the MediaItem type */
     featuredImage?: Maybe<NodeWithFeaturedImageToMediaItemConnectionEdge>
     /** The database identifier for the featured image node assigned to the content node */
@@ -3399,14 +3409,16 @@ export type Page = ContentNode &
     revisionOf?: Maybe<NodeWithRevisionsToContentNodeConnectionEdge>
     /** Connection between the Page type and the page type */
     revisions?: Maybe<PageToRevisionConnection>
-    /** The Yoast SEO data of the ContentNode */
-    seo?: Maybe<PostTypeSeo>
     /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
     slug?: Maybe<Scalars['String']>
     /** The current status of the object */
     status?: Maybe<Scalars['String']>
+    /** Connection between the Page type and the tag type */
+    tags?: Maybe<PageToTagConnection>
     /** The template assigned to a node of content */
     template?: Maybe<ContentTemplate>
+    /** Connection between the Page type and the TermNode type */
+    terms?: Maybe<PageToTermNodeConnection>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
     title?: Maybe<Scalars['String']>
     /** The unique resource identifier path */
@@ -3462,12 +3474,35 @@ export type PageEnqueuedStylesheetsArgs = {
 }
 
 /** The page type */
+export type PageExcerptArgs = {
+  format?: InputMaybe<PostObjectFieldFormatEnum>
+}
+
+/** The page type */
 export type PageRevisionsArgs = {
   after?: InputMaybe<Scalars['String']>
   before?: InputMaybe<Scalars['String']>
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
   where?: InputMaybe<PageToRevisionConnectionWhereArgs>
+}
+
+/** The page type */
+export type PageTagsArgs = {
+  after?: InputMaybe<Scalars['String']>
+  before?: InputMaybe<Scalars['String']>
+  first?: InputMaybe<Scalars['Int']>
+  last?: InputMaybe<Scalars['Int']>
+  where?: InputMaybe<PageToTagConnectionWhereArgs>
+}
+
+/** The page type */
+export type PageTermsArgs = {
+  after?: InputMaybe<Scalars['String']>
+  before?: InputMaybe<Scalars['String']>
+  first?: InputMaybe<Scalars['Int']>
+  last?: InputMaybe<Scalars['Int']>
+  where?: InputMaybe<PageToTermNodeConnectionWhereArgs>
 }
 
 /** The page type */
@@ -3499,6 +3534,26 @@ export enum PageIdType {
   Id = 'ID',
   /** Identify a resource by the URI. */
   Uri = 'URI',
+}
+
+/** Set relationships between the page to tags */
+export type PageTagsInput = {
+  /** If true, this will append the tag to existing related tags. If false, this will replace existing relationships. Default true. */
+  append?: InputMaybe<Scalars['Boolean']>
+  /** The input list of items to set. */
+  nodes?: InputMaybe<Array<InputMaybe<PageTagsNodeInput>>>
+}
+
+/** List of tags to connect the page to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
+export type PageTagsNodeInput = {
+  /** The description of the tag. This field is used to set a description of the tag if a new one is created during the mutation. */
+  description?: InputMaybe<Scalars['String']>
+  /** The ID of the tag. If present, this will be used to connect to the page. If no existing tag exists with this ID, no connection will be made. */
+  id?: InputMaybe<Scalars['ID']>
+  /** The name of the tag. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field. */
+  name?: InputMaybe<Scalars['String']>
+  /** The slug of the tag. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation. */
+  slug?: InputMaybe<Scalars['String']>
 }
 
 /** Connection between the Page type and the Comment type */
@@ -3660,8 +3715,158 @@ export type PageToRevisionConnectionWhereArgs = {
   stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
   /** Show posts with a specific status. */
   status?: InputMaybe<PostStatusEnum>
+  /** Tag Slug */
+  tag?: InputMaybe<Scalars['String']>
+  /** Use Tag ID */
+  tagId?: InputMaybe<Scalars['String']>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag slugs, used to display objects from one tag AND another */
+  tagSlugAnd?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Array of tag slugs, used to include objects in ANY specified tags */
+  tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>
+}
+
+/** Connection between the Page type and the tag type */
+export type PageToTagConnection = Connection &
+  TagConnection & {
+    __typename?: 'PageToTagConnection'
+    /** Edges for the PageToTagConnection connection */
+    edges: Array<PageToTagConnectionEdge>
+    /** The nodes of the connection, without the edges */
+    nodes: Array<Tag>
+    /** Information about pagination in a connection. */
+    pageInfo?: Maybe<WpPageInfo>
+  }
+
+/** An edge in a connection */
+export type PageToTagConnectionEdge = Edge &
+  TagConnectionEdge & {
+    __typename?: 'PageToTagConnectionEdge'
+    /** A cursor for use in pagination */
+    cursor?: Maybe<Scalars['String']>
+    /** The item at the end of the edge */
+    node: Tag
+  }
+
+/** Arguments for filtering the PageToTagConnection connection */
+export type PageToTagConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars['String']>
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars['Int']>
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars['Boolean']>
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars['String']>
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars['Boolean']>
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars['Boolean']>
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars['String']>
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars['Boolean']>
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars['Int']>
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars['String']>
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomyId?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars['Boolean']>
+}
+
+/** Connection between the Page type and the TermNode type */
+export type PageToTermNodeConnection = Connection &
+  TermNodeConnection & {
+    __typename?: 'PageToTermNodeConnection'
+    /** Edges for the PageToTermNodeConnection connection */
+    edges: Array<PageToTermNodeConnectionEdge>
+    /** The nodes of the connection, without the edges */
+    nodes: Array<TermNode>
+    /** Information about pagination in a connection. */
+    pageInfo?: Maybe<WpPageInfo>
+  }
+
+/** An edge in a connection */
+export type PageToTermNodeConnectionEdge = Edge &
+  TermNodeConnectionEdge & {
+    __typename?: 'PageToTermNodeConnectionEdge'
+    /** A cursor for use in pagination */
+    cursor?: Maybe<Scalars['String']>
+    /** The item at the end of the edge */
+    node: TermNode
+  }
+
+/** Arguments for filtering the PageToTermNodeConnection connection */
+export type PageToTermNodeConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars['String']>
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars['Int']>
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars['Boolean']>
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars['String']>
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars['Boolean']>
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars['Boolean']>
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars['String']>
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars['Boolean']>
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars['Int']>
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars['String']>
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** The Taxonomy to filter terms by */
+  taxonomies?: InputMaybe<Array<InputMaybe<TaxonomyEnum>>>
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomyId?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars['Boolean']>
 }
 
 /** An plugin object */
@@ -3829,8 +4034,6 @@ export type Post = ContentNode &
     revisionOf?: Maybe<NodeWithRevisionsToContentNodeConnectionEdge>
     /** Connection between the Post type and the post type */
     revisions?: Maybe<PostToRevisionConnection>
-    /** The Yoast SEO data of the ContentNode */
-    seo?: Maybe<PostTypeSeo>
     /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
     slug?: Maybe<Scalars['String']>
     /** The current status of the object */
@@ -4007,8 +4210,6 @@ export type PostFormat = DatabaseIdentifier &
     postFormatId?: Maybe<Scalars['Int']>
     /** Connection between the PostFormat type and the post type */
     posts?: Maybe<PostFormatToPostConnection>
-    /** The Yoast SEO data of the Formats taxonomy. */
-    seo?: Maybe<TaxonomySeo>
     /** An alphanumeric identifier for the object unique to its type. */
     slug?: Maybe<Scalars['String']>
     /** Connection between the PostFormat type and the Taxonomy type */
@@ -4396,8 +4597,6 @@ export type PostToCategoryConnectionEdge = CategoryConnectionEdge &
     __typename?: 'PostToCategoryConnectionEdge'
     /** A cursor for use in pagination */
     cursor?: Maybe<Scalars['String']>
-    /** The Yoast SEO Primary category */
-    isPrimary?: Maybe<Scalars['Boolean']>
     /** The item at the end of the edge */
     node: Category
   }
@@ -4550,8 +4749,6 @@ export type PostToPostFormatConnectionEdge = Edge &
     __typename?: 'PostToPostFormatConnectionEdge'
     /** A cursor for use in pagination */
     cursor?: Maybe<Scalars['String']>
-    /** The Yoast SEO Primary post_format */
-    isPrimary?: Maybe<Scalars['Boolean']>
     /** The item at the end of the edge */
     node: PostFormat
   }
@@ -4719,8 +4916,6 @@ export type PostToTagConnectionEdge = Edge &
     __typename?: 'PostToTagConnectionEdge'
     /** A cursor for use in pagination */
     cursor?: Maybe<Scalars['String']>
-    /** The Yoast SEO Primary post_tag */
-    isPrimary?: Maybe<Scalars['Boolean']>
     /** The item at the end of the edge */
     node: Tag
   }
@@ -4894,35 +5089,6 @@ export type PostTypeLabelDetails = {
   viewItem?: Maybe<Scalars['String']>
   /** Label for viewing post type archives. */
   viewItems?: Maybe<Scalars['String']>
-}
-
-export type PostTypeSeo = {
-  __typename?: 'PostTypeSEO'
-  breadcrumbs?: Maybe<Array<Maybe<SeoPostTypeBreadcrumbs>>>
-  canonical?: Maybe<Scalars['String']>
-  cornerstone?: Maybe<Scalars['Boolean']>
-  focuskw?: Maybe<Scalars['String']>
-  fullHead?: Maybe<Scalars['String']>
-  metaDesc?: Maybe<Scalars['String']>
-  metaKeywords?: Maybe<Scalars['String']>
-  metaRobotsNofollow?: Maybe<Scalars['String']>
-  metaRobotsNoindex?: Maybe<Scalars['String']>
-  opengraphAuthor?: Maybe<Scalars['String']>
-  opengraphDescription?: Maybe<Scalars['String']>
-  opengraphImage?: Maybe<MediaItem>
-  opengraphModifiedTime?: Maybe<Scalars['String']>
-  opengraphPublishedTime?: Maybe<Scalars['String']>
-  opengraphPublisher?: Maybe<Scalars['String']>
-  opengraphSiteName?: Maybe<Scalars['String']>
-  opengraphTitle?: Maybe<Scalars['String']>
-  opengraphType?: Maybe<Scalars['String']>
-  opengraphUrl?: Maybe<Scalars['String']>
-  readingTime?: Maybe<Scalars['Float']>
-  schema?: Maybe<SeoPostTypeSchema>
-  title?: Maybe<Scalars['String']>
-  twitterDescription?: Maybe<Scalars['String']>
-  twitterImage?: Maybe<MediaItem>
-  twitterTitle?: Maybe<Scalars['String']>
 }
 
 /** Nodes that can be seen in a preview (unpublished) state. */
@@ -5338,8 +5504,6 @@ export type RootQuery = {
   registeredStylesheets?: Maybe<RootQueryToEnqueuedStylesheetConnection>
   /** Connection between the RootQuery type and the ContentNode type */
   revisions?: Maybe<RootQueryToRevisionsConnection>
-  /** Returns seo site data */
-  seo?: Maybe<SeoConfig>
   /** A 0bject */
   tag?: Maybe<Tag>
   /** Connection between the RootQuery type and the tag type */
@@ -6160,6 +6324,18 @@ export type RootQueryToPageConnectionWhereArgs = {
   stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
   /** Show posts with a specific status. */
   status?: InputMaybe<PostStatusEnum>
+  /** Tag Slug */
+  tag?: InputMaybe<Scalars['String']>
+  /** Use Tag ID */
+  tagId?: InputMaybe<Scalars['String']>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag slugs, used to display objects from one tag AND another */
+  tagSlugAnd?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Array of tag slugs, used to include objects in ANY specified tags */
+  tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -6674,297 +6850,6 @@ export type RootQueryToUserRoleConnectionEdge = Edge &
     node: UserRole
   }
 
-/** The Yoast SEO breadcrumb config */
-export type SeoBreadcrumbs = {
-  __typename?: 'SEOBreadcrumbs'
-  archivePrefix?: Maybe<Scalars['String']>
-  boldLast?: Maybe<Scalars['Boolean']>
-  enabled?: Maybe<Scalars['Boolean']>
-  homeText?: Maybe<Scalars['String']>
-  notFoundText?: Maybe<Scalars['String']>
-  prefix?: Maybe<Scalars['String']>
-  searchPrefix?: Maybe<Scalars['String']>
-  separator?: Maybe<Scalars['String']>
-  showBlogPage?: Maybe<Scalars['Boolean']>
-}
-
-/** Types of cards */
-export enum SeoCardType {
-  Summary = 'summary',
-  SummaryLargeImage = 'summary_large_image',
-}
-
-/** The Yoast SEO site level configuration data */
-export type SeoConfig = {
-  __typename?: 'SEOConfig'
-  breadcrumbs?: Maybe<SeoBreadcrumbs>
-  contentTypes?: Maybe<SeoContentTypes>
-  meta?: Maybe<SeoGlobalMeta>
-  openGraph?: Maybe<SeoOpenGraph>
-  redirects?: Maybe<Array<Maybe<SeoRedirect>>>
-  schema?: Maybe<SeoSchema>
-  social?: Maybe<SeoSocial>
-  webmaster?: Maybe<SeoWebmaster>
-}
-
-/** The Yoast SEO search appearance content types fields */
-export type SeoContentType = {
-  __typename?: 'SEOContentType'
-  archive?: Maybe<SeoContentTypeArchive>
-  metaDesc?: Maybe<Scalars['String']>
-  metaRobotsNoindex?: Maybe<Scalars['Boolean']>
-  schema?: Maybe<SeoPageInfoSchema>
-  schemaType?: Maybe<Scalars['String']>
-  title?: Maybe<Scalars['String']>
-}
-
-/** The Yoast SEO search appearance content types fields */
-export type SeoContentTypeArchive = {
-  __typename?: 'SEOContentTypeArchive'
-  archiveLink?: Maybe<Scalars['String']>
-  breadcrumbTitle?: Maybe<Scalars['String']>
-  fullHead?: Maybe<Scalars['String']>
-  hasArchive?: Maybe<Scalars['Boolean']>
-  metaDesc?: Maybe<Scalars['String']>
-  metaRobotsFollow?: Maybe<Scalars['String']>
-  metaRobotsIndex?: Maybe<Scalars['String']>
-  metaRobotsNofollow?: Maybe<Scalars['Boolean']>
-  metaRobotsNoindex?: Maybe<Scalars['Boolean']>
-  title?: Maybe<Scalars['String']>
-}
-
-/** The Yoast SEO search appearance content types */
-export type SeoContentTypes = {
-  __typename?: 'SEOContentTypes'
-  mediaItem?: Maybe<SeoContentType>
-  page?: Maybe<SeoContentType>
-  post?: Maybe<SeoContentType>
-}
-
-/** The Yoast SEO meta data */
-export type SeoGlobalMeta = {
-  __typename?: 'SEOGlobalMeta'
-  author?: Maybe<SeoGlobalMetaAuthor>
-  config?: Maybe<SeoGlobalMetaConfig>
-  date?: Maybe<SeoGlobalMetaDate>
-  homepage?: Maybe<SeoGlobalMetaHome>
-  notFound?: Maybe<SeoGlobalMeta404>
-}
-
-/** The Yoast SEO meta 404 data */
-export type SeoGlobalMeta404 = {
-  __typename?: 'SEOGlobalMeta404'
-  breadcrumb?: Maybe<Scalars['String']>
-  title?: Maybe<Scalars['String']>
-}
-
-/** The Yoast SEO Author data */
-export type SeoGlobalMetaAuthor = {
-  __typename?: 'SEOGlobalMetaAuthor'
-  description?: Maybe<Scalars['String']>
-  title?: Maybe<Scalars['String']>
-}
-
-/** The Yoast SEO meta config data */
-export type SeoGlobalMetaConfig = {
-  __typename?: 'SEOGlobalMetaConfig'
-  separator?: Maybe<Scalars['String']>
-}
-
-/** The Yoast SEO Date data */
-export type SeoGlobalMetaDate = {
-  __typename?: 'SEOGlobalMetaDate'
-  description?: Maybe<Scalars['String']>
-  title?: Maybe<Scalars['String']>
-}
-
-/** The Yoast SEO homepage data */
-export type SeoGlobalMetaHome = {
-  __typename?: 'SEOGlobalMetaHome'
-  description?: Maybe<Scalars['String']>
-  title?: Maybe<Scalars['String']>
-}
-
-/** The Open Graph data */
-export type SeoOpenGraph = {
-  __typename?: 'SEOOpenGraph'
-  defaultImage?: Maybe<MediaItem>
-  frontPage?: Maybe<SeoOpenGraphFrontPage>
-}
-
-/** The Open Graph Front page data */
-export type SeoOpenGraphFrontPage = {
-  __typename?: 'SEOOpenGraphFrontPage'
-  description?: Maybe<Scalars['String']>
-  image?: Maybe<MediaItem>
-  title?: Maybe<Scalars['String']>
-}
-
-/** The Schema for post type */
-export type SeoPageInfoSchema = {
-  __typename?: 'SEOPageInfoSchema'
-  raw?: Maybe<Scalars['String']>
-}
-
-export type SeoPostTypeBreadcrumbs = {
-  __typename?: 'SEOPostTypeBreadcrumbs'
-  text?: Maybe<Scalars['String']>
-  url?: Maybe<Scalars['String']>
-}
-
-/** The page info SEO details */
-export type SeoPostTypePageInfo = {
-  __typename?: 'SEOPostTypePageInfo'
-  schema?: Maybe<SeoPageInfoSchema>
-}
-
-/** The Schema types */
-export type SeoPostTypeSchema = {
-  __typename?: 'SEOPostTypeSchema'
-  articleType?: Maybe<Array<Maybe<Scalars['String']>>>
-  pageType?: Maybe<Array<Maybe<Scalars['String']>>>
-  raw?: Maybe<Scalars['String']>
-}
-
-/** The Yoast redirect data  (Yoast Premium only) */
-export type SeoRedirect = {
-  __typename?: 'SEORedirect'
-  format?: Maybe<Scalars['String']>
-  origin?: Maybe<Scalars['String']>
-  target?: Maybe<Scalars['String']>
-  type?: Maybe<Scalars['Int']>
-}
-
-/** The Yoast SEO schema data */
-export type SeoSchema = {
-  __typename?: 'SEOSchema'
-  companyLogo?: Maybe<MediaItem>
-  companyName?: Maybe<Scalars['String']>
-  companyOrPerson?: Maybe<Scalars['String']>
-  homeUrl?: Maybe<Scalars['String']>
-  inLanguage?: Maybe<Scalars['String']>
-  logo?: Maybe<MediaItem>
-  personLogo?: Maybe<MediaItem>
-  personName?: Maybe<Scalars['String']>
-  siteName?: Maybe<Scalars['String']>
-  siteUrl?: Maybe<Scalars['String']>
-  wordpressSiteName?: Maybe<Scalars['String']>
-}
-
-/** The Yoast SEO Social media links */
-export type SeoSocial = {
-  __typename?: 'SEOSocial'
-  facebook?: Maybe<SeoSocialFacebook>
-  instagram?: Maybe<SeoSocialInstagram>
-  linkedIn?: Maybe<SeoSocialLinkedIn>
-  mySpace?: Maybe<SeoSocialMySpace>
-  otherSocials?: Maybe<Array<Maybe<Scalars['String']>>>
-  pinterest?: Maybe<SeoSocialPinterest>
-  twitter?: Maybe<SeoSocialTwitter>
-  wikipedia?: Maybe<SeoSocialWikipedia>
-  youTube?: Maybe<SeoSocialYoutube>
-}
-
-export type SeoSocialFacebook = {
-  __typename?: 'SEOSocialFacebook'
-  defaultImage?: Maybe<MediaItem>
-  url?: Maybe<Scalars['String']>
-}
-
-export type SeoSocialInstagram = {
-  __typename?: 'SEOSocialInstagram'
-  url?: Maybe<Scalars['String']>
-}
-
-export type SeoSocialLinkedIn = {
-  __typename?: 'SEOSocialLinkedIn'
-  url?: Maybe<Scalars['String']>
-}
-
-export type SeoSocialMySpace = {
-  __typename?: 'SEOSocialMySpace'
-  url?: Maybe<Scalars['String']>
-}
-
-export type SeoSocialPinterest = {
-  __typename?: 'SEOSocialPinterest'
-  metaTag?: Maybe<Scalars['String']>
-  url?: Maybe<Scalars['String']>
-}
-
-export type SeoSocialTwitter = {
-  __typename?: 'SEOSocialTwitter'
-  cardType?: Maybe<SeoCardType>
-  username?: Maybe<Scalars['String']>
-}
-
-export type SeoSocialWikipedia = {
-  __typename?: 'SEOSocialWikipedia'
-  url?: Maybe<Scalars['String']>
-}
-
-export type SeoSocialYoutube = {
-  __typename?: 'SEOSocialYoutube'
-  url?: Maybe<Scalars['String']>
-}
-
-/** The Schema types for Taxonomy */
-export type SeoTaxonomySchema = {
-  __typename?: 'SEOTaxonomySchema'
-  raw?: Maybe<Scalars['String']>
-}
-
-export type SeoUser = {
-  __typename?: 'SEOUser'
-  breadcrumbTitle?: Maybe<Scalars['String']>
-  canonical?: Maybe<Scalars['String']>
-  fullHead?: Maybe<Scalars['String']>
-  language?: Maybe<Scalars['String']>
-  metaDesc?: Maybe<Scalars['String']>
-  metaRobotsNofollow?: Maybe<Scalars['String']>
-  metaRobotsNoindex?: Maybe<Scalars['String']>
-  opengraphDescription?: Maybe<Scalars['String']>
-  opengraphImage?: Maybe<MediaItem>
-  opengraphTitle?: Maybe<Scalars['String']>
-  region?: Maybe<Scalars['String']>
-  schema?: Maybe<SeoUserSchema>
-  social?: Maybe<SeoUserSocial>
-  title?: Maybe<Scalars['String']>
-  twitterDescription?: Maybe<Scalars['String']>
-  twitterImage?: Maybe<MediaItem>
-  twitterTitle?: Maybe<Scalars['String']>
-}
-
-/** The Schema types for User */
-export type SeoUserSchema = {
-  __typename?: 'SEOUserSchema'
-  articleType?: Maybe<Array<Maybe<Scalars['String']>>>
-  pageType?: Maybe<Array<Maybe<Scalars['String']>>>
-  raw?: Maybe<Scalars['String']>
-}
-
-export type SeoUserSocial = {
-  __typename?: 'SEOUserSocial'
-  facebook?: Maybe<Scalars['String']>
-  instagram?: Maybe<Scalars['String']>
-  linkedIn?: Maybe<Scalars['String']>
-  mySpace?: Maybe<Scalars['String']>
-  pinterest?: Maybe<Scalars['String']>
-  soundCloud?: Maybe<Scalars['String']>
-  twitter?: Maybe<Scalars['String']>
-  wikipedia?: Maybe<Scalars['String']>
-  youTube?: Maybe<Scalars['String']>
-}
-
-/** The Yoast SEO  webmaster fields */
-export type SeoWebmaster = {
-  __typename?: 'SEOWebmaster'
-  baiduVerify?: Maybe<Scalars['String']>
-  googleVerify?: Maybe<Scalars['String']>
-  msVerify?: Maybe<Scalars['String']>
-  yandexVerify?: Maybe<Scalars['String']>
-}
-
 /** Input for the sendPasswordResetEmail mutation. */
 export type SendPasswordResetEmailInput = {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -7059,10 +6944,10 @@ export type Tag = DatabaseIdentifier &
     link?: Maybe<Scalars['String']>
     /** The human friendly name of the object. */
     name?: Maybe<Scalars['String']>
+    /** Connection between the Tag type and the page type */
+    pages?: Maybe<TagToPageConnection>
     /** Connection between the Tag type and the post type */
     posts?: Maybe<TagToPostConnection>
-    /** The Yoast SEO data of the Tags taxonomy. */
-    seo?: Maybe<TaxonomySeo>
     /** An alphanumeric identifier for the object unique to its type. */
     slug?: Maybe<Scalars['String']>
     /**
@@ -7105,6 +6990,15 @@ export type TagEnqueuedStylesheetsArgs = {
   before?: InputMaybe<Scalars['String']>
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
+}
+
+/** The tag type */
+export type TagPagesArgs = {
+  after?: InputMaybe<Scalars['String']>
+  before?: InputMaybe<Scalars['String']>
+  first?: InputMaybe<Scalars['Int']>
+  last?: InputMaybe<Scalars['Int']>
+  where?: InputMaybe<TagToPageConnectionWhereArgs>
 }
 
 /** The tag type */
@@ -7204,6 +7098,86 @@ export type TagToContentNodeConnectionWhereArgs = {
   stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
   /** Show posts with a specific status. */
   status?: InputMaybe<PostStatusEnum>
+  /** Title of the object */
+  title?: InputMaybe<Scalars['String']>
+}
+
+/** Connection between the Tag type and the page type */
+export type TagToPageConnection = Connection &
+  PageConnection & {
+    __typename?: 'TagToPageConnection'
+    /** Edges for the TagToPageConnection connection */
+    edges: Array<TagToPageConnectionEdge>
+    /** The nodes of the connection, without the edges */
+    nodes: Array<Page>
+    /** Information about pagination in a connection. */
+    pageInfo?: Maybe<WpPageInfo>
+  }
+
+/** An edge in a connection */
+export type TagToPageConnectionEdge = Edge &
+  PageConnectionEdge & {
+    __typename?: 'TagToPageConnectionEdge'
+    /** A cursor for use in pagination */
+    cursor?: Maybe<Scalars['String']>
+    /** The item at the end of the edge */
+    node: Page
+  }
+
+/** Arguments for filtering the TagToPageConnection connection */
+export type TagToPageConnectionWhereArgs = {
+  /** The user that's connected as the author of the object. Use the userId for the author object. */
+  author?: InputMaybe<Scalars['Int']>
+  /** Find objects connected to author(s) in the array of author's userIds */
+  authorIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Find objects connected to the author by the author's nicename */
+  authorName?: InputMaybe<Scalars['String']>
+  /** Find objects NOT connected to author(s) in the array of author's userIds */
+  authorNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars['Boolean']>
+  /** Specific database ID of the object */
+  id?: InputMaybe<Scalars['Int']>
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars['String']>
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars['ID']>
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars['String']>
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars['String']>
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>
+  /** Tag Slug */
+  tag?: InputMaybe<Scalars['String']>
+  /** Use Tag ID */
+  tagId?: InputMaybe<Scalars['String']>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag slugs, used to display objects from one tag AND another */
+  tagSlugAnd?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Array of tag slugs, used to include objects in ANY specified tags */
+  tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -7392,34 +7366,6 @@ export enum TaxonomyIdTypeEnum {
   Id = 'ID',
   /** The name of the taxonomy */
   Name = 'NAME',
-}
-
-export type TaxonomySeo = {
-  __typename?: 'TaxonomySEO'
-  breadcrumbs?: Maybe<Array<Maybe<SeoPostTypeBreadcrumbs>>>
-  canonical?: Maybe<Scalars['String']>
-  cornerstone?: Maybe<Scalars['Boolean']>
-  focuskw?: Maybe<Scalars['String']>
-  fullHead?: Maybe<Scalars['String']>
-  metaDesc?: Maybe<Scalars['String']>
-  metaKeywords?: Maybe<Scalars['String']>
-  metaRobotsNofollow?: Maybe<Scalars['String']>
-  metaRobotsNoindex?: Maybe<Scalars['String']>
-  opengraphAuthor?: Maybe<Scalars['String']>
-  opengraphDescription?: Maybe<Scalars['String']>
-  opengraphImage?: Maybe<MediaItem>
-  opengraphModifiedTime?: Maybe<Scalars['String']>
-  opengraphPublishedTime?: Maybe<Scalars['String']>
-  opengraphPublisher?: Maybe<Scalars['String']>
-  opengraphSiteName?: Maybe<Scalars['String']>
-  opengraphTitle?: Maybe<Scalars['String']>
-  opengraphType?: Maybe<Scalars['String']>
-  opengraphUrl?: Maybe<Scalars['String']>
-  schema?: Maybe<SeoTaxonomySchema>
-  title?: Maybe<Scalars['String']>
-  twitterDescription?: Maybe<Scalars['String']>
-  twitterImage?: Maybe<MediaItem>
-  twitterTitle?: Maybe<Scalars['String']>
 }
 
 /** Connection between the Taxonomy type and the ContentType type */
@@ -7766,6 +7712,8 @@ export type UpdatePageInput = {
   content?: InputMaybe<Scalars['String']>
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
   date?: InputMaybe<Scalars['String']>
+  /** The excerpt of the object */
+  excerpt?: InputMaybe<Scalars['String']>
   /** The ID of the page object */
   id: Scalars['ID']
   /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
@@ -7778,6 +7726,8 @@ export type UpdatePageInput = {
   slug?: InputMaybe<Scalars['String']>
   /** The status of the object */
   status?: InputMaybe<PostStatusEnum>
+  /** Set connections between the page and tags */
+  tags?: InputMaybe<PageTagsInput>
   /** The title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -8056,8 +8006,6 @@ export type User = Commenter &
     revisions?: Maybe<UserToRevisionsConnection>
     /** Connection between the User type and the UserRole type */
     roles?: Maybe<UserToUserRoleConnection>
-    /** The Yoast SEO data of a user */
-    seo?: Maybe<SeoUser>
     /** The slug for the user. This field is equivalent to WP_User-&gt;user_nicename */
     slug?: Maybe<Scalars['String']>
     /** The unique resource identifier path */
@@ -8222,10 +8170,6 @@ export enum UserRoleEnum {
   Contributor = 'CONTRIBUTOR',
   /** User role with specific capabilities */
   Editor = 'EDITOR',
-  /** User role with specific capabilities */
-  SeoEditor = 'SEO_EDITOR',
-  /** User role with specific capabilities */
-  SeoManager = 'SEO_MANAGER',
   /** User role with specific capabilities */
   Subscriber = 'SUBSCRIBER',
 }
@@ -8490,6 +8434,18 @@ export type UserToPageConnectionWhereArgs = {
   stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
   /** Show posts with a specific status. */
   status?: InputMaybe<PostStatusEnum>
+  /** Tag Slug */
+  tag?: InputMaybe<Scalars['String']>
+  /** Use Tag ID */
+  tagId?: InputMaybe<Scalars['String']>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag slugs, used to display objects from one tag AND another */
+  tagSlugAnd?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Array of tag slugs, used to include objects in ANY specified tags */
+  tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -8717,8 +8673,6 @@ export type WpPageInfo = {
   hasNextPage: Scalars['Boolean']
   /** When paginating backwards, are there more items? */
   hasPreviousPage: Scalars['Boolean']
-  /** Raw schema for page */
-  seo?: Maybe<SeoPostTypePageInfo>
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']>
 }
@@ -8902,9 +8856,12 @@ export type MediaItemFieldsFragment = {
   caption?: string | null
   databaseId: number
   date?: string | null
-  sourceUrl?: string | null
   title?: string | null
   uri?: string | null
+  sourceUrl?: string | null
+  sizes?: string | null
+  srcSet?: string | null
+  src?: string | null
   mediaDetails?: {
     __typename?: 'MediaDetails'
     height?: number | null
@@ -8968,6 +8925,28 @@ export type AllContentTypesQuery = {
         }
       }
     >
+  } | null
+}
+
+export type AllMediaItemsQueryVariables = Exact<{
+  after?: InputMaybe<Scalars['String']>
+  first?: InputMaybe<Scalars['Int']>
+}>
+
+export type AllMediaItemsQuery = {
+  __typename?: 'RootQuery'
+  mediaItems?: {
+    __typename?: 'RootQueryToMediaItemConnection'
+    nodes: Array<
+      {__typename?: 'MediaItem'} & {
+        ' $fragmentRefs'?: {MediaItemFieldsFragment: MediaItemFieldsFragment}
+      }
+    >
+    pageInfo?:
+      | ({__typename?: 'WPPageInfo'} & {
+          ' $fragmentRefs'?: {PageInfoFragment: PageInfoFragment}
+        })
+      | null
   } | null
 }
 
@@ -9106,25 +9085,72 @@ export type HomepageQuery = {
     | null
 }
 
-export type AllMediaItemsQueryVariables = Exact<{
-  after?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
+export type MenuByNameQueryVariables = Exact<{
+  name: Scalars['ID']
 }>
 
-export type AllMediaItemsQuery = {
+export type MenuByNameQuery = {
   __typename?: 'RootQuery'
-  mediaItems?: {
-    __typename?: 'RootQueryToMediaItemConnection'
-    nodes: Array<
-      {__typename?: 'MediaItem'} & {
-        ' $fragmentRefs'?: {MediaItemFieldsFragment: MediaItemFieldsFragment}
-      }
-    >
-    pageInfo?:
-      | ({__typename?: 'WPPageInfo'} & {
-          ' $fragmentRefs'?: {PageInfoFragment: PageInfoFragment}
-        })
-      | null
+  menu?: {
+    __typename?: 'Menu'
+    id: string
+    name?: string | null
+    menuItems?: {
+      __typename?: 'MenuToMenuItemConnection'
+      nodes: Array<
+        {
+          __typename?: 'MenuItem'
+          childItems?: {
+            __typename?: 'MenuItemToMenuItemConnection'
+            nodes: Array<
+              {__typename?: 'MenuItem'} & {
+                ' $fragmentRefs'?: {MenuItemFragment: MenuItemFragment}
+              }
+            >
+          } | null
+        } & {' $fragmentRefs'?: {MenuItemFragment: MenuItemFragment}}
+      >
+    } | null
+  } | null
+}
+
+export type MenuItemFragment = {
+  __typename?: 'MenuItem'
+  label?: string | null
+  cssClasses?: Array<string | null> | null
+  target?: string | null
+  url?: string | null
+  id: string
+} & {' $fragmentName'?: 'MenuItemFragment'}
+
+export type PostsListByCategoryNameQueryVariables = Exact<{
+  categoryName: Scalars['String']
+  first?: InputMaybe<Scalars['Int']>
+  after?: InputMaybe<Scalars['String']>
+}>
+
+export type PostsListByCategoryNameQuery = {
+  __typename?: 'RootQuery'
+  posts?: {
+    __typename?: 'RootQueryToPostConnection'
+    pageInfo?: {
+      __typename?: 'WPPageInfo'
+      hasNextPage: boolean
+      endCursor?: string | null
+    } | null
+    nodes: Array<{
+      __typename?: 'Post'
+      id: string
+      uri?: string | null
+      title?: string | null
+      date?: string | null
+      featuredImage?: {
+        __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'
+        node: {__typename?: 'MediaItem'} & {
+          ' $fragmentRefs'?: {MediaItemFieldsFragment: MediaItemFieldsFragment}
+        }
+      } | null
+    }>
   } | null
 }
 
@@ -9147,12 +9173,6 @@ export type SinglePageQuery = {
           }
         })
       | null
-    seo?: {
-      __typename?: 'PostTypeSEO'
-      fullHead?: string | null
-      title?: string | null
-      metaDesc?: string | null
-    } | null
   } | null
 }
 
@@ -9172,20 +9192,15 @@ export type SiteMenusQuery = {
   } | null
 }
 
-export type SitewideQueryVariables = Exact<{[key: string]: never}>
+export type SiteSettingsQueryVariables = Exact<{[key: string]: never}>
 
-export type SitewideQuery = {
+export type SiteSettingsQuery = {
   __typename?: 'RootQuery'
-  generalSettings?:
-    | ({__typename?: 'GeneralSettings'} & {
-        ' $fragmentRefs'?: {SettingsFragment: SettingsFragment}
-      })
-    | null
-  headerMenu?:
-    | ({__typename?: 'Menu'} & {
-        ' $fragmentRefs'?: {MenuItemsFragment: MenuItemsFragment}
-      })
-    | null
+  wpSettings?: {
+    __typename?: 'GeneralSettings'
+    title?: string | null
+    description?: string | null
+  } | null
 }
 
 export type TaxonomyArchiveQueryVariables = Exact<{
@@ -9219,14 +9234,88 @@ export type TaxonomyArchiveQuery = {
           }
         }>
       } | null
-      seo?: {
-        __typename?: 'PostTypeSEO'
-        fullHead?: string | null
-        title?: string | null
-        metaDesc?: string | null
-      } | null
     }>
   } | null
+}
+
+export type WpControlsQueryVariables = Exact<{
+  uri: Scalars['String']
+}>
+
+export type WpControlsQuery = {
+  __typename?: 'RootQuery'
+  nodeByUri?:
+    | {__typename: 'Category'; id: string}
+    | {__typename: 'ContentType'; id: string}
+    | {__typename: 'MediaItem'; databaseId: number; id: string}
+    | {__typename: 'Page'; databaseId: number; id: string}
+    | {__typename: 'Post'; databaseId: number; id: string}
+    | {__typename: 'PostFormat'; id: string}
+    | {__typename: 'Tag'; id: string}
+    | {__typename: 'User'; id: string}
+    | null
+  viewer?: {
+    __typename?: 'User'
+    id: string
+    nicename?: string | null
+    avatar?: {
+      __typename?: 'Avatar'
+      url?: string | null
+      width?: number | null
+      height?: number | null
+    } | null
+  } | null
+}
+
+export type WpSeoQueryVariables = Exact<{
+  uri: Scalars['String']
+}>
+
+export type WpSeoQuery = {
+  __typename?: 'RootQuery'
+  nodeByUri?:
+    | {
+        __typename?: 'Category'
+        name?: string | null
+        description?: string | null
+        id: string
+      }
+    | {__typename?: 'ContentType'; id: string}
+    | {__typename?: 'MediaItem'; title?: string | null; id: string}
+    | {
+        __typename?: 'Page'
+        title?: string | null
+        content?: string | null
+        excerpt?: string | null
+        id: string
+        featuredImage?: {
+          __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'
+          node: {
+            __typename?: 'MediaItem'
+            id: string
+            sourceUrl?: string | null
+          }
+        } | null
+      }
+    | {
+        __typename?: 'Post'
+        title?: string | null
+        content?: string | null
+        excerpt?: string | null
+        id: string
+        featuredImage?: {
+          __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'
+          node: {
+            __typename?: 'MediaItem'
+            id: string
+            sourceUrl?: string | null
+          }
+        } | null
+      }
+    | {__typename?: 'PostFormat'; id: string}
+    | {__typename?: 'Tag'; id: string}
+    | {__typename?: 'User'; id: string}
+    | null
 }
 
 export const ContentBlockFieldsFragmentDoc = {
@@ -9593,9 +9682,53 @@ export const MediaItemFieldsFragmentDoc = {
               ],
             },
           },
-          {kind: 'Field', name: {kind: 'Name', value: 'sourceUrl'}},
           {kind: 'Field', name: {kind: 'Name', value: 'title'}},
           {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'sourceUrl'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'size'},
+                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
+              },
+            ],
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'sizes'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'size'},
+                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
+              },
+            ],
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'srcSet'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'size'},
+                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
+              },
+            ],
+          },
+          {
+            kind: 'Field',
+            alias: {kind: 'Name', value: 'src'},
+            name: {kind: 'Name', value: 'sourceUrl'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'size'},
+                value: {kind: 'EnumValue', value: 'FULLSCREEN_SMALL'},
+              },
+            ],
+          },
         ],
       },
     },
@@ -9693,6 +9826,29 @@ export const MenuItemsFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<MenuItemsFragment, unknown>
+export const MenuItemFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'MenuItem'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'MenuItem'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'label'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'cssClasses'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'target'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'url'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<MenuItemFragment, unknown>
 export const AllContentTypesDocument = {
   kind: 'Document',
   definitions: [
@@ -9764,6 +9920,83 @@ export const AllContentTypesDocument = {
   AllContentTypesQuery,
   AllContentTypesQueryVariables
 >
+export const AllMediaItemsDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: {kind: 'Name', value: 'AllMediaItems'},
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
+        },
+        {
+          kind: 'VariableDefinition',
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
+          defaultValue: {kind: 'IntValue', value: '10'},
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'mediaItems'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'after'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'first'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'nodes'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: {kind: 'Name', value: 'MediaItemFields'},
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'pageInfo'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'FragmentSpread',
+                        name: {kind: 'Name', value: 'PageInfo'},
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    ...MediaItemFieldsFragmentDoc.definitions,
+    ...PageInfoFragmentDoc.definitions,
+  ],
+} as unknown as DocumentNode<AllMediaItemsQuery, AllMediaItemsQueryVariables>
 export const AllPagesDocument = {
   kind: 'Document',
   definitions: [
@@ -10188,24 +10421,21 @@ export const HomepageDocument = {
     },
   ],
 } as unknown as DocumentNode<HomepageQuery, HomepageQueryVariables>
-export const AllMediaItemsDocument = {
+export const MenuByNameDocument = {
   kind: 'Document',
   definitions: [
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: {kind: 'Name', value: 'AllMediaItems'},
+      name: {kind: 'Name', value: 'MenuByName'},
       variableDefinitions: [
         {
           kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
-          defaultValue: {kind: 'IntValue', value: '10'},
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'name'}},
+          type: {
+            kind: 'NonNullType',
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
+          },
         },
       ],
       selectionSet: {
@@ -10213,8 +10443,144 @@ export const AllMediaItemsDocument = {
         selections: [
           {
             kind: 'Field',
-            name: {kind: 'Name', value: 'mediaItems'},
+            name: {kind: 'Name', value: 'menu'},
             arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'id'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'name'}},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'idType'},
+                value: {kind: 'EnumValue', value: 'NAME'},
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'menuItems'},
+                  arguments: [
+                    {
+                      kind: 'Argument',
+                      name: {kind: 'Name', value: 'first'},
+                      value: {kind: 'IntValue', value: '30'},
+                    },
+                    {
+                      kind: 'Argument',
+                      name: {kind: 'Name', value: 'where'},
+                      value: {
+                        kind: 'ObjectValue',
+                        fields: [
+                          {
+                            kind: 'ObjectField',
+                            name: {kind: 'Name', value: 'parentDatabaseId'},
+                            value: {kind: 'IntValue', value: '0'},
+                          },
+                        ],
+                      },
+                    },
+                  ],
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'nodes'},
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'FragmentSpread',
+                              name: {kind: 'Name', value: 'MenuItem'},
+                            },
+                            {
+                              kind: 'Field',
+                              name: {kind: 'Name', value: 'childItems'},
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'nodes'},
+                                    selectionSet: {
+                                      kind: 'SelectionSet',
+                                      selections: [
+                                        {
+                                          kind: 'FragmentSpread',
+                                          name: {
+                                            kind: 'Name',
+                                            value: 'MenuItem',
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    ...MenuItemFragmentDoc.definitions,
+  ],
+} as unknown as DocumentNode<MenuByNameQuery, MenuByNameQueryVariables>
+export const PostsListByCategoryNameDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: {kind: 'Name', value: 'PostsListByCategoryName'},
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: {
+            kind: 'Variable',
+            name: {kind: 'Name', value: 'categoryName'},
+          },
+          type: {
+            kind: 'NonNullType',
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
+          },
+        },
+        {
+          kind: 'VariableDefinition',
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
+          defaultValue: {kind: 'IntValue', value: '10'},
+        },
+        {
+          kind: 'VariableDefinition',
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'posts'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'first'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
+              },
               {
                 kind: 'Argument',
                 name: {kind: 'Name', value: 'after'},
@@ -10222,8 +10588,39 @@ export const AllMediaItemsDocument = {
               },
               {
                 kind: 'Argument',
-                name: {kind: 'Name', value: 'first'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
+                name: {kind: 'Name', value: 'where'},
+                value: {
+                  kind: 'ObjectValue',
+                  fields: [
+                    {
+                      kind: 'ObjectField',
+                      name: {kind: 'Name', value: 'categoryName'},
+                      value: {
+                        kind: 'Variable',
+                        name: {kind: 'Name', value: 'categoryName'},
+                      },
+                    },
+                    {
+                      kind: 'ObjectField',
+                      name: {kind: 'Name', value: 'orderby'},
+                      value: {
+                        kind: 'ObjectValue',
+                        fields: [
+                          {
+                            kind: 'ObjectField',
+                            name: {kind: 'Name', value: 'field'},
+                            value: {kind: 'EnumValue', value: 'DATE'},
+                          },
+                          {
+                            kind: 'ObjectField',
+                            name: {kind: 'Name', value: 'order'},
+                            value: {kind: 'EnumValue', value: 'DESC'},
+                          },
+                        ],
+                      },
+                    },
+                  ],
+                },
               },
             ],
             selectionSet: {
@@ -10231,26 +10628,52 @@ export const AllMediaItemsDocument = {
               selections: [
                 {
                   kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'MediaItemFields'},
-                      },
-                    ],
-                  },
-                },
-                {
-                  kind: 'Field',
                   name: {kind: 'Name', value: 'pageInfo'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'PageInfo'},
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'hasNextPage'},
+                      },
+                      {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
+                    ],
+                  },
+                },
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'nodes'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'date'}},
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'featuredImage'},
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'Field',
+                              name: {kind: 'Name', value: 'node'},
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'FragmentSpread',
+                                    name: {
+                                      kind: 'Name',
+                                      value: 'MediaItemFields',
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
                       },
                     ],
                   },
@@ -10262,9 +10685,11 @@ export const AllMediaItemsDocument = {
       },
     },
     ...MediaItemFieldsFragmentDoc.definitions,
-    ...PageInfoFragmentDoc.definitions,
   ],
-} as unknown as DocumentNode<AllMediaItemsQuery, AllMediaItemsQueryVariables>
+} as unknown as DocumentNode<
+  PostsListByCategoryNameQuery,
+  PostsListByCategoryNameQueryVariables
+>
 export const SinglePageDocument = {
   kind: 'Document',
   definitions: [
@@ -10340,18 +10765,6 @@ export const SinglePageDocument = {
                     ],
                   },
                 },
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'seo'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'fullHead'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'metaDesc'}},
-                    ],
-                  },
-                },
               ],
             },
           },
@@ -10423,66 +10836,33 @@ export const SiteMenusDocument = {
     },
   ],
 } as unknown as DocumentNode<SiteMenusQuery, SiteMenusQueryVariables>
-export const SitewideDocument = {
+export const SiteSettingsDocument = {
   kind: 'Document',
   definitions: [
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: {kind: 'Name', value: 'Sitewide'},
+      name: {kind: 'Name', value: 'SiteSettings'},
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
           {
             kind: 'Field',
+            alias: {kind: 'Name', value: 'wpSettings'},
             name: {kind: 'Name', value: 'generalSettings'},
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: {kind: 'Name', value: 'Settings'},
-                },
-              ],
-            },
-          },
-          {
-            kind: 'Field',
-            alias: {kind: 'Name', value: 'headerMenu'},
-            name: {kind: 'Name', value: 'menu'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'id'},
-                value: {
-                  kind: 'StringValue',
-                  value: 'PRIMARY_MENU',
-                  block: false,
-                },
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'idType'},
-                value: {kind: 'EnumValue', value: 'LOCATION'},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: {kind: 'Name', value: 'MenuItems'},
-                },
+                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'description'}},
               ],
             },
           },
         ],
       },
     },
-    ...SettingsFragmentDoc.definitions,
-    ...MenuItemsFragmentDoc.definitions,
   ],
-} as unknown as DocumentNode<SitewideQuery, SitewideQueryVariables>
+} as unknown as DocumentNode<SiteSettingsQuery, SiteSettingsQueryVariables>
 export const TaxonomyArchiveDocument = {
   kind: 'Document',
   definitions: [
@@ -10608,27 +10988,6 @@ export const TaxonomyArchiveDocument = {
                           ],
                         },
                       },
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'seo'},
-                        selectionSet: {
-                          kind: 'SelectionSet',
-                          selections: [
-                            {
-                              kind: 'Field',
-                              name: {kind: 'Name', value: 'fullHead'},
-                            },
-                            {
-                              kind: 'Field',
-                              name: {kind: 'Name', value: 'title'},
-                            },
-                            {
-                              kind: 'Field',
-                              name: {kind: 'Name', value: 'metaDesc'},
-                            },
-                          ],
-                        },
-                      },
                     ],
                   },
                 },
@@ -10644,3 +11003,238 @@ export const TaxonomyArchiveDocument = {
   TaxonomyArchiveQuery,
   TaxonomyArchiveQueryVariables
 >
+export const WpControlsDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: {kind: 'Name', value: 'WpControls'},
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'uri'}},
+          type: {
+            kind: 'NonNullType',
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'nodeByUri'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'uri'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'uri'}},
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                {kind: 'Field', name: {kind: 'Name', value: '__typename'}},
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: {kind: 'Name', value: 'ContentNode'},
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'databaseId'},
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'viewer'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'nicename'}},
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'avatar'},
+                  arguments: [
+                    {
+                      kind: 'Argument',
+                      name: {kind: 'Name', value: 'size'},
+                      value: {kind: 'IntValue', value: '20'},
+                    },
+                  ],
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'url'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'width'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'height'}},
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<WpControlsQuery, WpControlsQueryVariables>
+export const WpSeoDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: {kind: 'Name', value: 'WPSeo'},
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'uri'}},
+          type: {
+            kind: 'NonNullType',
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'nodeByUri'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'uri'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'uri'}},
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: {kind: 'Name', value: 'NodeWithTitle'},
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: {kind: 'Name', value: 'Category'},
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'description'},
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: {kind: 'Name', value: 'NodeWithContentEditor'},
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'content'}},
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: {kind: 'Name', value: 'NodeWithExcerpt'},
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'excerpt'}},
+                    ],
+                  },
+                },
+                {
+                  kind: 'InlineFragment',
+                  typeCondition: {
+                    kind: 'NamedType',
+                    name: {kind: 'Name', value: 'NodeWithFeaturedImage'},
+                  },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'featuredImage'},
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'Field',
+                              name: {kind: 'Name', value: 'node'},
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'id'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'sourceUrl'},
+                                    arguments: [
+                                      {
+                                        kind: 'Argument',
+                                        name: {kind: 'Name', value: 'size'},
+                                        value: {
+                                          kind: 'EnumValue',
+                                          value: 'FULLSCREEN_XLARGE',
+                                        },
+                                      },
+                                    ],
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<WpSeoQuery, WpSeoQueryVariables>

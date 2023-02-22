@@ -9,24 +9,16 @@
 // Avoid language features that are not available in your target Node.js version.
 // Do not change the file extenstion to .ts.
 
-const {wordPressEndpoint} = require('./wp.config')
+// const {wordPressEndpoint} = require('./wp.config')
 
 // Next.js currently doesn't have a good way to match all paths including the
 // root, so we need to use a special regex path.
-const allPathsIncludingRoot = '/:path*{/}?'
+// const allPathsIncludingRoot = '/:path*{/}?'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // TODO: use this
+  // TODO: use this?
   // analyticsId: '',
-
-  // Base path
-  // =========
-  // https://nextjs.org/docs/api-reference/next.config.js/basepath
-  //
-  // Setting a base path is not recommend because it prevents us from serving
-  // files at the root, such as 'robots.txt'.
-  basePath: '',
 
   // React strict mode
   // =================
@@ -38,51 +30,34 @@ const nextConfig = {
   // Redirects
   // =========
   // https://nextjs.org/docs/api-reference/next.config.js/redirects
-  // FIXME: this probably needs adjustment or, more likely, removal
-  async redirects() {
-    return [
-      {
-        source: allPathsIncludingRoot,
-        destination: `${wordPressEndpoint}/:path*`,
-        has: [
-          {
-            type: 'query',
-            key: 'preview',
-            value: 'true',
-          },
-        ],
-        permanent: false,
-      },
-      {
-        source: allPathsIncludingRoot,
-        destination: `${wordPressEndpoint}/:path*`,
-        has: [
-          {
-            type: 'query',
-            key: 'p',
-          },
-        ],
-        permanent: false,
-      },
-    ]
-  },
-
-  // Rewrites
-  // ========
-  // https://nextjs.org/docs/api-reference/next.config.js/rewrites
-  async rewrites() {
-    return {
-      // Since we have a fallback route defined at the root (`[[...slug]].tsx`),
-      // we must apply rewrites before any Next.js routing.
-      beforeFiles: [
-        // Dynamically serve robots.txt.
-        {
-          source: '/robots.txt',
-          destination: '/api/robots',
-        },
-      ],
-    }
-  },
+  // FIXME: this probably needs adjustment
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: allPathsIncludingRoot,
+  //       destination: `${wordPressEndpoint}/:path*`,
+  //       has: [
+  //         {
+  //           type: 'query',
+  //           key: 'preview',
+  //           value: 'true',
+  //         },
+  //       ],
+  //       permanent: false,
+  //     },
+  //     {
+  //       source: allPathsIncludingRoot,
+  //       destination: `${wordPressEndpoint}/:path*`,
+  //       has: [
+  //         {
+  //           type: 'query',
+  //           key: 'p',
+  //         },
+  //       ],
+  //       permanent: false,
+  //     },
+  //   ]
+  // },
 
   // Image Optimization
   // ==================
@@ -91,6 +66,9 @@ const nextConfig = {
   // The next/image, is an extension of the HTML <img> element, evolved for
   // the modern web. It includes a variety of built-in performance
   // optimizations to help you achieve good Core Web Vitals.
+  //
+  // NOTE: At the time of writing (2023-02-21), these are equivalent to the default values.
+  // They are re-defined here for the purpose of running tests in isolation.
   images: {
     // If you know the expected device widths of your users, you can specify a
     // list of device width breakpoints using the deviceSizes property here.

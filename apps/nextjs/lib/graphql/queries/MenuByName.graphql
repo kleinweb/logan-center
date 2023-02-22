@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+query MenuByName($name: ID!) {
+  menu(id: $name, idType: NAME) {
+    id
+    name
+    menuItems(first: 30, where: {parentDatabaseId: 0}) {
+      nodes {
+        ...MenuItem
+        childItems {
+          nodes {
+            ...MenuItem
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment MenuItem on MenuItem {
+  label
+  cssClasses
+  target
+  url
+  id
+}

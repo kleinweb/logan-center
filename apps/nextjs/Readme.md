@@ -105,7 +105,7 @@ resolved in [WordPress VIP's extension of WPGraphQL][content-blocks].
 Receiving the content as blocks allow you to easily create customizations
 defining the related component for each block type.
 This project provides a mapping for basic components like
-headings, paragraphs, lists, and tables (see [`'@/components/Blocks/index.tsx'`](https://github.com/Automattic/vip-go-nextjs-skeleton/blob/trunk/components/Blocks/index.tsx)).
+headings, paragraphs, lists, and tables (see [`'@components/Blocks/index.tsx'`](https://github.com/Automattic/vip-go-nextjs-skeleton/blob/trunk/components/Blocks/index.tsx)).
 
 Here is a simple example of how to override the default block mapping
 to support all of the default and custom blocks that you use in your WordPress instance:

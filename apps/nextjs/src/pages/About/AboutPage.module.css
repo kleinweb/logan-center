@@ -1,0 +1,271 @@
+/*
+ * SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+/* FIXME: This file was generated and will be removed soon. */
+/* stylelint-disable */
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.page-title {
+  height: 78px;
+  min-width: 840px;
+  position: relative;
+}
+
+.overlap-group {
+  height: 78px;
+  position: relative;
+  width: 833px;
+}
+
+.title {
+  height: 56px;
+  left: 17px;
+  letter-spacing: 0.7px;
+  line-height: 52px;
+  position: absolute;
+  top: 14px;
+  white-space: nowrap;
+  width: 816px;
+}
+
+.rectangle-154 {
+  background-color: var(--secondary-light);
+  height: 78px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 548px;
+}
+
+.button {
+  align-items: center;
+  background-color: var(--primary-dark);
+  display: flex;
+  gap: 5px;
+  justify-content: flex-end;
+  left: 0;
+  padding: 8px 12px 2px 20px;
+  position: absolute;
+  top: 458px;
+  width: fit-content;
+}
+
+.button-1 {
+  color: var(--primary-light);
+  font-family: var(--font-family-urw_din-bold);
+  font-size: var(--font-size-l);
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  width: fit-content;
+}
+
+.icon-lucide-icon {
+  height: 22px;
+  min-width: 14px;
+  position: relative;
+}
+
+.frame-1183 {
+  height: 324px;
+  margin-bottom: -1259px;
+  min-width: 840px;
+  position: relative;
+}
+
+.about-the-jonathan-l {
+  left: 0;
+  line-height: 33px;
+  position: absolute;
+  top: -1px;
+  width: 840px;
+}
+
+.span-1 {
+  letter-spacing: 2.2px;
+}
+
+.span {
+  letter-spacing: 0.2px;
+  line-height: 28px;
+}
+
+.button-2 {
+  align-items: center;
+  background-color: var(--primary-highlight);
+  display: flex;
+  gap: 5px;
+  justify-content: flex-end;
+  left: 0;
+  padding: 8px 12px 2px 20px;
+  position: absolute;
+  top: 290px;
+  width: fit-content;
+}
+
+.button-3 {
+  letter-spacing: 2.2px;
+  line-height: normal;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  width: fit-content;
+}
+
+.icon-lucide-icon-1 {
+  height: 22px;
+  min-width: 14px;
+  position: relative;
+}
+
+.meta-bottom {
+  height: 20px;
+  margin-bottom: -1339px;
+  min-width: 840px;
+  position: relative;
+}
+
+.divider {
+  background-color: var(--gray);
+  height: 1px;
+  opacity: 0.5;
+  width: 840px;
+}
+
+.page-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  height: 3329px;
+  padding: 0px 0px 118px;
+  position: relative;
+  width: fit-content;
+}
+
+.temple-universitys {
+  height: 282px;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  position: relative;
+  width: 840px;
+}
+
+.span-2 {
+  line-height: 34px;
+}
+
+.span-3 {
+  line-height: 28px;
+}
+
+.image {
+  background-image: url(https://anima-uploads.s3.amazonaws.com/projects/63f37784b6b4542802265a79/releases/63f39a4d980fbab4ccc00a36/img/image.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 868px;
+  min-width: 1200px;
+  position: relative;
+}
+
+.surname {
+  height: 247px;
+  letter-spacing: 0.2px;
+  line-height: 28px;
+  position: relative;
+  width: 840px;
+}
+
+.pullquote {
+  height: 541px;
+  min-width: 840px;
+  overflow: hidden;
+  position: relative;
+}
+
+.flex-col {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  left: 3px;
+  min-height: 523px;
+  position: relative;
+  width: 838px;
+}
+
+.lc-motif {
+  height: 53px;
+  margin-right: 3px;
+  width: 132px;
+}
+
+.pullquote-1 {
+  letter-spacing: 0.2px;
+  line-height: 38px;
+  margin-top: 15px;
+  min-height: 399px;
+  text-align: right;
+  width: 838px;
+}
+
+.citation {
+  letter-spacing: 0.2px;
+  line-height: 30px;
+  margin-right: 2px;
+  margin-top: 2px;
+  min-height: 54px;
+  text-align: right;
+  width: 420px;
+}
+
+.now-klein-students {
+  height: 290px;
+  letter-spacing: 0.2px;
+  line-height: 28px;
+  position: relative;
+  width: 840px;
+}
+
+.image-1 {
+  background-image: url(https://anima-uploads.s3.amazonaws.com/projects/63f37784b6b4542802265a79/releases/63f39a4d980fbab4ccc00a36/img/image-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 868px;
+  margin-bottom: -323px;
+  min-width: 1200px;
+  position: relative;
+}
+
+.frame-1182 {
+  height: 492px;
+  margin-bottom: -875px;
+  min-width: 840px;
+  position: relative;
+}
+
+.about-klein-college {
+  left: 0;
+  line-height: 33px;
+  position: absolute;
+  top: -1px;
+  width: 840px;
+}
+
+.span-4 {
+  letter-spacing: 2.2px;
+}
+
+.span-5 {
+  letter-spacing: 0.2px;
+  line-height: 28px;
+}

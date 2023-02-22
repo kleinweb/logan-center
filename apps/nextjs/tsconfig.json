@@ -8,6 +8,12 @@
     "strict": true,
     "noImplicitAny": false,
     "paths": {
+      "@atoms/*": ["./src/atoms/*"],
+      "@components/*": ["./src/components/*"],
+      "@molecules/*": ["./src/molecules/*"],
+      "@organisms/*": ["./src/organisms/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@templates/*": ["./src/templates/*"],
       "@/*": ["./*"]
     },
     "strictNullChecks": false
