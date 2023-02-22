@@ -10,12 +10,12 @@ import {TypedDocumentNode as DocumentNode} from '@graphql-typed-document-node/co
  * 2. It is not minifiable, so the string of a GraphQL query will be multiple times inside the bundle.
  * 3. It does not support dead code elimination, so it will add unused operations.
  *
- * Therefore it is highly recommended to use the babel-plugin for production.
+ * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-  'fragment ContentBlockFields on ContentBlock {\n  attributes {\n    name\n    value\n  }\n  innerHTML(removeWrappingTag: true)\n  name\n  tagName\n}':
+  'fragment ContentBlockFields on ContentBlock {\n  __typename\n  name\n  renderedHtml\n  blockEditorCategoryName\n}':
     types.ContentBlockFieldsFragmentDoc,
-  'fragment ContentNodeFields on ContentNode {\n  id\n  ... on NodeWithContentEditor {\n    contentBlocks {\n      isGutenberg\n      blocks {\n        ...ContentBlockFields\n        innerBlocks {\n          ...ContentBlockFields\n        }\n      }\n    }\n  }\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}':
+  'fragment ContentNodeFields on ContentNode {\n  id\n  uri\n  desiredSlug\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}':
     types.ContentNodeFieldsFragmentDoc,
   'fragment ContentTypeFields on ContentType {\n  id\n  contentNodes(after: $after, before: $before, first: $first, last: $last) {\n    nodes {\n      ...ContentNodeFields\n    }\n    pageInfo {\n      ...PageInfo\n    }\n  }\n  description\n  name\n}':
     types.ContentTypeFieldsFragmentDoc,
@@ -51,7 +51,7 @@ const documents = {
     types.PostsListByCategoryNameDocument,
   'query SinglePage($slug: ID!) {\n  page(id: $slug, idType: URI) {\n    title(format: RENDERED)\n    content(format: RENDERED)\n    databaseId\n    uri\n    featuredImage {\n      ...FeaturedImageFields\n    }\n  }\n}':
     types.SinglePageDocument,
-  'query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}':
+  'query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_NAVIGATION}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}':
     types.SiteMenusDocument,
   'query SiteSettings {\n  wpSettings: generalSettings {\n    title\n    description\n  }\n}':
     types.SiteSettingsDocument,
@@ -69,7 +69,7 @@ const documents = {
  *
  * @example
  * ```ts
- * const query = gql(`query GetUser($id: ID!) { user(id: $id) { name } }`);
+ * const query = graphql(`query GetUser($id: ID!) { user(id: $id) { name } }`);
  * ```
  *
  * The query argument is unknown!
@@ -81,14 +81,14 @@ export function graphql(source: string): unknown
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment ContentBlockFields on ContentBlock {\n  attributes {\n    name\n    value\n  }\n  innerHTML(removeWrappingTag: true)\n  name\n  tagName\n}',
-): (typeof documents)['fragment ContentBlockFields on ContentBlock {\n  attributes {\n    name\n    value\n  }\n  innerHTML(removeWrappingTag: true)\n  name\n  tagName\n}']
+  source: 'fragment ContentBlockFields on ContentBlock {\n  __typename\n  name\n  renderedHtml\n  blockEditorCategoryName\n}',
+): (typeof documents)['fragment ContentBlockFields on ContentBlock {\n  __typename\n  name\n  renderedHtml\n  blockEditorCategoryName\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment ContentNodeFields on ContentNode {\n  id\n  ... on NodeWithContentEditor {\n    contentBlocks {\n      isGutenberg\n      blocks {\n        ...ContentBlockFields\n        innerBlocks {\n          ...ContentBlockFields\n        }\n      }\n    }\n  }\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}',
-): (typeof documents)['fragment ContentNodeFields on ContentNode {\n  id\n  ... on NodeWithContentEditor {\n    contentBlocks {\n      isGutenberg\n      blocks {\n        ...ContentBlockFields\n        innerBlocks {\n          ...ContentBlockFields\n        }\n      }\n    }\n  }\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}']
+  source: 'fragment ContentNodeFields on ContentNode {\n  id\n  uri\n  desiredSlug\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}',
+): (typeof documents)['fragment ContentNodeFields on ContentNode {\n  id\n  uri\n  desiredSlug\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -195,8 +195,8 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}',
-): (typeof documents)['query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_MENU}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}']
+  source: 'query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_NAVIGATION}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}',
+): (typeof documents)['query SiteMenus {\n  headerMenu: menuItems(where: {location: PRIMARY_NAVIGATION}) {\n    nodes {\n      key: id\n      parentId\n      title: label\n      url\n    }\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

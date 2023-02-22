@@ -60,7 +60,8 @@
     "wpackagist-plugin/wp-crontrol": "^1.15",
     "wpackagist-plugin/wp-graphql": "^1.13",
     "wpengine/advanced-custom-fields-pro": "*",
-    "wpackagist-plugin/autodescription": "4.2.7.1"
+    "wpackagist-plugin/autodescription": "4.2.7.1",
+    "wpackagist-plugin/faustwp": "^0.8.1"
   },
   "require-dev": {
     "alleyinteractive/meta-inspector": "^1.1",

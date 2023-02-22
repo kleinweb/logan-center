@@ -3,11 +3,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
 fragment ContentBlockFields on ContentBlock {
-  attributes {
-    name
-    value
-  }
-  innerHTML(removeWrappingTag: true)
+  __typename
   name
-  tagName
+  renderedHtml
+  blockEditorCategoryName
 }

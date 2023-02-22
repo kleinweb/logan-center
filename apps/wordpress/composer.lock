@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "2e3e492836fc4cce78ce8d1b47af3636",
+  "content-hash": "5a2bb3db1e6e3592418f8c8e756945da",
   "packages": [
     {
       "name": "alleyinteractive/composer-wordpress-autoloader",
@@ -640,7 +640,7 @@
     },
     {
       "name": "illuminate/bus",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/bus.git",
@@ -691,7 +691,7 @@
     },
     {
       "name": "illuminate/cache",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/cache.git",
@@ -751,16 +751,16 @@
     },
     {
       "name": "illuminate/collections",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/collections.git",
-        "reference": "f3ac81877e98c0c096ef403ab4f0c7ed96623c18"
+        "reference": "6607201ee327ab8f04034a2ceb8125d70c05860e"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/illuminate/collections/zipball/f3ac81877e98c0c096ef403ab4f0c7ed96623c18",
-        "reference": "f3ac81877e98c0c096ef403ab4f0c7ed96623c18",
+        "url": "https://api.github.com/repos/illuminate/collections/zipball/6607201ee327ab8f04034a2ceb8125d70c05860e",
+        "reference": "6607201ee327ab8f04034a2ceb8125d70c05860e",
         "shasum": ""
       },
       "require": {
@@ -798,11 +798,11 @@
         "issues": "https://github.com/laravel/framework/issues",
         "source": "https://github.com/laravel/framework"
       },
-      "time": "2023-02-10T19:46:01+00:00"
+      "time": "2023-02-21T18:19:28+00:00"
     },
     {
       "name": "illuminate/conditionable",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/conditionable.git",
@@ -846,7 +846,7 @@
     },
     {
       "name": "illuminate/config",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/config.git",
@@ -892,7 +892,7 @@
     },
     {
       "name": "illuminate/console",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/console.git",
@@ -954,7 +954,7 @@
     },
     {
       "name": "illuminate/container",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/container.git",
@@ -1003,7 +1003,7 @@
     },
     {
       "name": "illuminate/contracts",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/contracts.git",
@@ -1049,7 +1049,7 @@
     },
     {
       "name": "illuminate/events",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/events.git",
@@ -1100,7 +1100,7 @@
     },
     {
       "name": "illuminate/filesystem",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/filesystem.git",
@@ -1162,7 +1162,7 @@
     },
     {
       "name": "illuminate/http",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/http.git",
@@ -1220,7 +1220,7 @@
     },
     {
       "name": "illuminate/log",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/log.git",
@@ -1267,7 +1267,7 @@
     },
     {
       "name": "illuminate/macroable",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/macroable.git",
@@ -1311,7 +1311,7 @@
     },
     {
       "name": "illuminate/pipeline",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/pipeline.git",
@@ -1357,7 +1357,7 @@
     },
     {
       "name": "illuminate/routing",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/routing.git",
@@ -1419,7 +1419,7 @@
     },
     {
       "name": "illuminate/session",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/session.git",
@@ -1474,7 +1474,7 @@
     },
     {
       "name": "illuminate/support",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/support.git",
@@ -1541,7 +1541,7 @@
     },
     {
       "name": "illuminate/view",
-      "version": "v9.52.0",
+      "version": "v9.52.2",
       "source": {
         "type": "git",
         "url": "https://github.com/illuminate/view.git",
@@ -5102,6 +5102,24 @@
       "homepage": "https://wordpress.org/plugins/email-log/"
     },
     {
+      "name": "wpackagist-plugin/faustwp",
+      "version": "0.8.1",
+      "source": {
+        "type": "svn",
+        "url": "https://plugins.svn.wordpress.org/faustwp/",
+        "reference": "tags/0.8.1"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://downloads.wordpress.org/plugin/faustwp.0.8.1.zip"
+      },
+      "require": {
+        "composer/installers": "^1.0 || ^2.0"
+      },
+      "type": "wordpress-plugin",
+      "homepage": "https://wordpress.org/plugins/faustwp/"
+    },
+    {
       "name": "wpackagist-plugin/log-deprecated-notices",
       "version": "0.4.1",
       "source": {
@@ -5279,12 +5297,12 @@
       "source": {
         "type": "git",
         "url": "https://github.com/Roave/SecurityAdvisories.git",
-        "reference": "9206ad5e9490993f471ef1503f630afd7a849170"
+        "reference": "778a428cd06a290d890e6bc1111b4e651b8a9da8"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/9206ad5e9490993f471ef1503f630afd7a849170",
-        "reference": "9206ad5e9490993f471ef1503f630afd7a849170",
+        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/778a428cd06a290d890e6bc1111b4e651b8a9da8",
+        "reference": "778a428cd06a290d890e6bc1111b4e651b8a9da8",
         "shasum": ""
       },
       "conflict": {
@@ -5599,6 +5617,7 @@
         "phpxmlrpc/phpxmlrpc": "<4.9.2",
         "pimcore/data-hub": "<1.2.4",
         "pimcore/pimcore": "<10.5.17",
+        "pixelfed/pixelfed": "<=0.11.4",
         "pocketmine/bedrock-protocol": "<8.0.2",
         "pocketmine/pocketmine-mp": "<4.12.5|>= 4.0.0-BETA5, < 4.4.2",
         "pressbooks/pressbooks": "<5.18",
@@ -5852,7 +5871,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2023-02-17T21:04:14+00:00"
+      "time": "2023-02-22T00:14:39+00:00"
     },
     {
       "name": "squizlabs/php_codesniffer",
