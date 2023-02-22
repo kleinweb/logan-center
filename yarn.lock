@@ -2450,23 +2450,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/plugin-helpers@npm:^3.1.2":
-  version: 3.1.2
-  resolution: "@graphql-codegen/plugin-helpers@npm:3.1.2"
-  dependencies:
-    "@graphql-tools/utils": "npm:^9.0.0"
-    change-case-all: "npm:1.0.15"
-    common-tags: "npm:1.8.2"
-    import-from: "npm:4.0.0"
-    lodash: "npm:~4.17.0"
-    tslib: "npm:~2.4.0"
-  peerDependencies:
-    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: d7cfa14b1a95a248ca4005ae15c13f7ce90202271f12bf169a94be9c1c474a9d97f6f82cf05ce084e4c637f933edb30f93bd34b51d6ca266f35ce8fa644a564c
-  languageName: node
-  linkType: hard
-
-"@graphql-codegen/plugin-helpers@npm:^4.0.0":
+"@graphql-codegen/plugin-helpers@npm:^4.0.0, @graphql-codegen/plugin-helpers@npm:^4.1.0":
   version: 4.1.0
   resolution: "@graphql-codegen/plugin-helpers@npm:4.1.0"
   dependencies:
@@ -2482,16 +2466,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/schema-ast@npm:2.6.1":
-  version: 2.6.1
-  resolution: "@graphql-codegen/schema-ast@npm:2.6.1"
+"@graphql-codegen/schema-ast@npm:3.0.1":
+  version: 3.0.1
+  resolution: "@graphql-codegen/schema-ast@npm:3.0.1"
   dependencies:
-    "@graphql-codegen/plugin-helpers": "npm:^3.1.2"
+    "@graphql-codegen/plugin-helpers": "npm:^4.1.0"
     "@graphql-tools/utils": "npm:^9.0.0"
-    tslib: "npm:~2.4.0"
+    tslib: "npm:~2.5.0"
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 940f6acc599cdfecab530e034af512f4836a981c3e6102f5d600b78b253ba83672f383bf201cb6a46ce4357c842dca977fcd0759bd66318a19c94b282b42d41e
+  checksum: ebdd8cb6b63c5c9bd155cf44a02262c78643a076ca5073ac64dd6065386d09c6e42b4400d1238395961187551e2b20fd97a3804f456621499da52c33d3bd89fa
   languageName: node
   linkType: hard
 
@@ -3718,7 +3702,7 @@ __metadata:
     "@graphql-codegen/cli": "npm:^3.0.0"
     "@graphql-codegen/client-preset": "npm:2.0.0"
     "@graphql-codegen/introspection": "npm:3.0.0"
-    "@graphql-codegen/schema-ast": "npm:2.6.1"
+    "@graphql-codegen/schema-ast": "npm:3.0.1"
     "@types/jest": "npm:^29.4.0"
     "@types/node": "npm:^18.14.0"
     "@types/prettier": "npm:^2.7.2"
