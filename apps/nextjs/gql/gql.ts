@@ -13,9 +13,9 @@ import {TypedDocumentNode as DocumentNode} from '@graphql-typed-document-node/co
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-  'fragment ContentBlockFields on ContentBlock {\n  attributes {\n    name\n    value\n  }\n  innerHTML(removeWrappingTag: true)\n  name\n  tagName\n}':
+  'fragment ContentBlockFields on ContentBlock {\n  __typename\n  name\n  renderedHtml\n  blockEditorCategoryName\n}':
     types.ContentBlockFieldsFragmentDoc,
-  'fragment ContentNodeFields on ContentNode {\n  id\n  ... on NodeWithContentEditor {\n    contentBlocks {\n      isGutenberg\n      blocks {\n        ...ContentBlockFields\n        innerBlocks {\n          ...ContentBlockFields\n        }\n      }\n    }\n  }\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}':
+  'fragment ContentNodeFields on ContentNode {\n  id\n  uri\n  desiredSlug\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}':
     types.ContentNodeFieldsFragmentDoc,
   'fragment ContentTypeFields on ContentType {\n  id\n  contentNodes(after: $after, before: $before, first: $first, last: $last) {\n    nodes {\n      ...ContentNodeFields\n    }\n    pageInfo {\n      ...PageInfo\n    }\n  }\n  description\n  name\n}':
     types.ContentTypeFieldsFragmentDoc,
@@ -81,14 +81,14 @@ export function graphql(source: string): unknown
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment ContentBlockFields on ContentBlock {\n  attributes {\n    name\n    value\n  }\n  innerHTML(removeWrappingTag: true)\n  name\n  tagName\n}',
-): (typeof documents)['fragment ContentBlockFields on ContentBlock {\n  attributes {\n    name\n    value\n  }\n  innerHTML(removeWrappingTag: true)\n  name\n  tagName\n}']
+  source: 'fragment ContentBlockFields on ContentBlock {\n  __typename\n  name\n  renderedHtml\n  blockEditorCategoryName\n}',
+): (typeof documents)['fragment ContentBlockFields on ContentBlock {\n  __typename\n  name\n  renderedHtml\n  blockEditorCategoryName\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment ContentNodeFields on ContentNode {\n  id\n  ... on NodeWithContentEditor {\n    contentBlocks {\n      isGutenberg\n      blocks {\n        ...ContentBlockFields\n        innerBlocks {\n          ...ContentBlockFields\n        }\n      }\n    }\n  }\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}',
-): (typeof documents)['fragment ContentNodeFields on ContentNode {\n  id\n  ... on NodeWithContentEditor {\n    contentBlocks {\n      isGutenberg\n      blocks {\n        ...ContentBlockFields\n        innerBlocks {\n          ...ContentBlockFields\n        }\n      }\n    }\n  }\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}']
+  source: 'fragment ContentNodeFields on ContentNode {\n  id\n  uri\n  desiredSlug\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}',
+): (typeof documents)['fragment ContentNodeFields on ContentNode {\n  id\n  uri\n  desiredSlug\n  contentType {\n    node {\n      id\n      name\n    }\n  }\n  databaseId\n  dateGmt\n  isPreview\n  link\n  modifiedGmt\n  ... on NodeWithTitle {\n    title\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

@@ -7,17 +7,8 @@
 
 fragment ContentNodeFields on ContentNode {
   id
-  ... on NodeWithContentEditor {
-    contentBlocks {
-      isGutenberg
-      blocks {
-        ...ContentBlockFields
-        innerBlocks {
-          ...ContentBlockFields
-        }
-      }
-    }
-  }
+  uri
+  desiredSlug
   contentType {
     node {
       id
