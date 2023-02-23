@@ -3979,9 +3979,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/cli@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "@graphql-codegen/cli@npm:3.1.0"
+"@graphql-codegen/cli@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "@graphql-codegen/cli@npm:3.2.0"
   dependencies:
     "@babel/generator": "npm:^7.18.13"
     "@babel/template": "npm:^7.18.10"
@@ -3998,9 +3998,9 @@ __metadata:
     "@graphql-tools/prisma-loader": "npm:^7.2.49"
     "@graphql-tools/url-loader": "npm:^7.13.2"
     "@graphql-tools/utils": "npm:^9.0.0"
+    "@parcel/watcher": "npm:^2.1.0"
     "@whatwg-node/fetch": "npm:^0.8.0"
     chalk: "npm:^4.1.0"
-    chokidar: "npm:^3.5.2"
     cosmiconfig: "npm:^7.0.0"
     cosmiconfig-typescript-loader: "npm:^4.3.0"
     debounce: "npm:^1.2.0"
@@ -4025,7 +4025,7 @@ __metadata:
     graphql-code-generator: cjs/bin.js
     graphql-codegen: cjs/bin.js
     graphql-codegen-esm: esm/bin.js
-  checksum: a42c9a1a2c8e0da0f5f94c53daab824a369f371449709f573afe974141a7cc1c91fe4698b7637dac56d6b537ac3eafb71e5d4c6f4b376adeb587fedf1fb65f01
+  checksum: d9ab684704d314b8778ab5f958a09a5555533773985a6161d65a6e1350cac29ff11d02b9381aecdee254e4444ee700eb0d0e21f66ae3ab3ac553911b905523f0
   languageName: node
   linkType: hard
 
@@ -5288,10 +5288,10 @@ __metadata:
     "@storybook/theming": "npm:^6.5.16"
     "@svgr/webpack": "npm:^6.5.1"
     "@testing-library/jest-dom": "npm:^5.16.5"
-    "@testing-library/react": "npm:^13.4.0"
+    "@testing-library/react": "npm:^14.0.0"
     "@types/gtag.js": "npm:^0.0.12"
     "@types/jest": "npm:^29.4.0"
-    "@types/node": "npm:^18.14.0"
+    "@types/node": "npm:^18.14.1"
     "@types/react": "npm:^18.0.28"
     "@types/react-dom": "npm:^18.0.11"
     "@types/testing-library__jest-dom": "npm:^5.14.5"
@@ -5349,12 +5349,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@kleinweb/logan-center@workspace:."
   dependencies:
-    "@graphql-codegen/cli": "npm:^3.1.0"
+    "@graphql-codegen/cli": "npm:^3.2.0"
     "@graphql-codegen/client-preset": "npm:2.1.0"
     "@graphql-codegen/introspection": "npm:3.0.1"
     "@graphql-codegen/schema-ast": "npm:3.0.1"
     "@types/jest": "npm:^29.4.0"
-    "@types/node": "npm:^18.14.0"
+    "@types/node": "npm:^18.14.1"
     "@types/prettier": "npm:^2.7.2"
     commitlint: "npm:^17.4.4"
     concurrently: "npm:^7.6.0"
@@ -5378,7 +5378,7 @@ __metadata:
     rimraf: "npm:^4.1.2"
     ts-jest: "npm:^29.0.5"
     ts-node: "npm:^10.9.1"
-    turbo: "npm:^1.8.1"
+    turbo: "npm:^1.8.2"
     typescript: "npm:^4.9.5"
   languageName: unknown
   linkType: soft
@@ -5742,6 +5742,19 @@ __metadata:
   version: 3.0.4
   resolution: "@oclif/screen@npm:3.0.4"
   checksum: be69a3f16d6a311005d01cafd72672da53d04fe8365d0d7776104fdf86e53fc604dd95d7de735e15dcc8677f4152b7b988f210dba7dbe7241ee79670aa6b5879
+  languageName: node
+  linkType: hard
+
+"@parcel/watcher@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@parcel/watcher@npm:2.1.0"
+  dependencies:
+    is-glob: "npm:^4.0.3"
+    micromatch: "npm:^4.0.5"
+    node-addon-api: "npm:^3.2.1"
+    node-gyp: "npm:latest"
+    node-gyp-build: "npm:^4.3.0"
+  checksum: 95008221bf0bae33d10009a2160e6b248f89b0dd5446ef072932b1ecc027c494696eb1361fa3aa01605c26ea6de767aafeb41328760196fe8d2d6ff262b6fac4
   languageName: node
   linkType: hard
 
@@ -8462,7 +8475,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/dom@npm:^8.3.0, @testing-library/dom@npm:^8.5.0":
+"@testing-library/dom@npm:^8.3.0":
   version: 8.20.0
   resolution: "@testing-library/dom@npm:8.20.0"
   dependencies:
@@ -8475,6 +8488,22 @@ __metadata:
     lz-string: "npm:^1.4.4"
     pretty-format: "npm:^27.0.2"
   checksum: 8202f86b2c47c02b9b9ff3a3d212b6c0d7ccad00820ee7cbc9620805ca4ff8529be12686d2390818c058c26ae10c03699d550dae61d05ebf89e456cb8c7f56eb
+  languageName: node
+  linkType: hard
+
+"@testing-library/dom@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "@testing-library/dom@npm:9.0.0"
+  dependencies:
+    "@babel/code-frame": "npm:^7.10.4"
+    "@babel/runtime": "npm:^7.12.5"
+    "@types/aria-query": "npm:^5.0.1"
+    aria-query: "npm:^5.0.0"
+    chalk: "npm:^4.1.0"
+    dom-accessibility-api: "npm:^0.5.9"
+    lz-string: "npm:^1.4.4"
+    pretty-format: "npm:^27.0.2"
+  checksum: 1ceba9524424bd84097b0c822f9ef29cf0c4a014ee652288d6ddde40e36e1272432eed52ecccc5238fefdc3abb329b2f5e7f7bf26ac3571238261660c5f31924
   languageName: node
   linkType: hard
 
@@ -8495,17 +8524,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react@npm:^13.4.0":
-  version: 13.4.0
-  resolution: "@testing-library/react@npm:13.4.0"
+"@testing-library/react@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "@testing-library/react@npm:14.0.0"
   dependencies:
     "@babel/runtime": "npm:^7.12.5"
-    "@testing-library/dom": "npm:^8.5.0"
+    "@testing-library/dom": "npm:^9.0.0"
     "@types/react-dom": "npm:^18.0.0"
   peerDependencies:
     react: ^18.0.0
     react-dom: ^18.0.0
-  checksum: 2030d32070b3d43bc374843e9989192be2bdc44d7280aebe17c9223637134b4f769c7077f704d5771cd29174b3f28b91dfae09a95a5d2b5d5db2a5ee689ef67f
+  checksum: c92555e348b8d6bd08ad5c036042ebe23a1767f7b6cf93f490a71e5d5e8635e30b53a3f07e179b8efbce3b872fa6b535de2467713680094f98d9d1307a884453
   languageName: node
   linkType: hard
 
@@ -9023,10 +9052,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.14.0":
-  version: 18.14.0
-  resolution: "@types/node@npm:18.14.0"
-  checksum: d17dff07c712379d67af7750f1586b4840ade31ab814d04987aa25850f1d4ef29b63b9ed03a7a9dccee8c86106ca75ae3b6f8cdd17be3ef3f693e700b1ea437b
+"@types/node@npm:^18.14.1":
+  version: 18.14.1
+  resolution: "@types/node@npm:18.14.1"
+  checksum: b91f3b982e51b2560373086d70b43b2938f28e8ec63ad3fb77f742050a54ac1205b92c16e5d96514445e74e3e190e495f61f0acbc90da96548b2ad4973e93a98
   languageName: node
   linkType: hard
 
@@ -11456,7 +11485,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:3.5.3, chokidar@npm:^3.5.2, chokidar@npm:^3.5.3":
+"chokidar@npm:3.5.3, chokidar@npm:^3.5.3":
   version: 3.5.3
   resolution: "chokidar@npm:3.5.3"
   dependencies:
@@ -19510,6 +19539,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-addon-api@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "node-addon-api@npm:3.2.1"
+  dependencies:
+    node-gyp: "npm:latest"
+  checksum: f34a7a3f6197a8e4db93f375a4275774c4a715bebe391ee58cdde3301e27f96818fb12e2211f3a80f3ec3c20976893d048266129316d07ac5dae936057a4bc98
+  languageName: node
+  linkType: hard
+
 "node-addon-api@npm:^5.0.0":
   version: 5.1.0
   resolution: "node-addon-api@npm:5.1.0"
@@ -19553,6 +19591,17 @@ __metadata:
     encoding:
       optional: true
   checksum: 05c03fe66f38b9e349e691caf121b693a91adb41ab59c3af17d2c5f9d2f8d927c30b428e7c8049b739c674db06171117ba9d10dc72d6a2cf35ba8901dfb4de83
+  languageName: node
+  linkType: hard
+
+"node-gyp-build@npm:^4.3.0":
+  version: 4.6.0
+  resolution: "node-gyp-build@npm:4.6.0"
+  bin:
+    node-gyp-build: bin.js
+    node-gyp-build-optional: optional.js
+    node-gyp-build-test: build-test.js
+  checksum: 59a4823fb894eda6adff30805cad6883530b4499381252882e5dfff1f6cd7cc835aa0db3ab8c281f3092d9cec0d056bce2b85ec875c274f8068f8ed97763231f
   languageName: node
   linkType: hard
 
@@ -24542,58 +24591,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.8.1":
-  version: 1.8.1
-  resolution: "turbo-darwin-64@npm:1.8.1"
+"turbo-darwin-64@npm:1.8.2":
+  version: 1.8.2
+  resolution: "turbo-darwin-64@npm:1.8.2"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.8.1":
-  version: 1.8.1
-  resolution: "turbo-darwin-arm64@npm:1.8.1"
+"turbo-darwin-arm64@npm:1.8.2":
+  version: 1.8.2
+  resolution: "turbo-darwin-arm64@npm:1.8.2"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.8.1":
-  version: 1.8.1
-  resolution: "turbo-linux-64@npm:1.8.1"
+"turbo-linux-64@npm:1.8.2":
+  version: 1.8.2
+  resolution: "turbo-linux-64@npm:1.8.2"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.8.1":
-  version: 1.8.1
-  resolution: "turbo-linux-arm64@npm:1.8.1"
+"turbo-linux-arm64@npm:1.8.2":
+  version: 1.8.2
+  resolution: "turbo-linux-arm64@npm:1.8.2"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.8.1":
-  version: 1.8.1
-  resolution: "turbo-windows-64@npm:1.8.1"
+"turbo-windows-64@npm:1.8.2":
+  version: 1.8.2
+  resolution: "turbo-windows-64@npm:1.8.2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.8.1":
-  version: 1.8.1
-  resolution: "turbo-windows-arm64@npm:1.8.1"
+"turbo-windows-arm64@npm:1.8.2":
+  version: 1.8.2
+  resolution: "turbo-windows-arm64@npm:1.8.2"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:^1.8.1":
-  version: 1.8.1
-  resolution: "turbo@npm:1.8.1"
+"turbo@npm:^1.8.2":
+  version: 1.8.2
+  resolution: "turbo@npm:1.8.2"
   dependencies:
-    turbo-darwin-64: "npm:1.8.1"
-    turbo-darwin-arm64: "npm:1.8.1"
-    turbo-linux-64: "npm:1.8.1"
-    turbo-linux-arm64: "npm:1.8.1"
-    turbo-windows-64: "npm:1.8.1"
-    turbo-windows-arm64: "npm:1.8.1"
+    turbo-darwin-64: "npm:1.8.2"
+    turbo-darwin-arm64: "npm:1.8.2"
+    turbo-linux-64: "npm:1.8.2"
+    turbo-linux-arm64: "npm:1.8.2"
+    turbo-windows-64: "npm:1.8.2"
+    turbo-windows-arm64: "npm:1.8.2"
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -24609,7 +24658,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 36c87fe1a69d826aa74918c080fd0156d03795c74234f612dc5e35a1f12ef77429f65001f87547341fb827ded3027c91e837f7144a8395f8d91354134e2f4e65
+  checksum: 897ca7b10608f0f3d5bc308e57efad914d18ae22bb88d4e389656425a85a1c899f6574bfabf8342424fea5626c82f49484e9f3edda6c99cd4a1c4c9f81620394
   languageName: node
   linkType: hard
 
