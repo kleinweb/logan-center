@@ -30,7 +30,7 @@
     },
     {
       "type": "vcs",
-      "url": "https://github.com/wpengine/wp-graphql-content-blocks.git"
+      "url": "https://github.com/kleinweb/wp-graphql-content-blocks"
     },
     {
       "type": "vcs",
@@ -60,6 +60,7 @@
     "wpackagist-plugin/wp-crontrol": "^1.15",
     "wpackagist-plugin/wp-graphql": "^1.13",
     "wpengine/advanced-custom-fields-pro": "*",
+    "wpengine/wp-graphql-content-blocks": "dev-upstream-pr-21-composer-package-type",
     "wpackagist-plugin/autodescription": "4.2.7.1",
     "wpackagist-plugin/faustwp": "^0.8.1"
   },
