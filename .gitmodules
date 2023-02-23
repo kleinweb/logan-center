@@ -1,3 +1,0 @@
-[submodule "apps/wordpress/web/app/plugins/wp-graphql-content-blocks"]
-	path = apps/wordpress/web/app/plugins/wp-graphql-content-blocks
-	url = https://github.com/wpengine/wp-graphql-content-blocks.git
