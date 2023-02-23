@@ -80,7 +80,7 @@ wp *ARGS:
 wp-query-by-slug slug *ARGS:
   {{ wp }} post list --post_name={{ slug }} {{ ARGS }}
 
-wp-install admin-password theme='logan-center-wp-next-theme':
+wp-install admin-password theme='logan-center-theme':
   cd {{ wp-dir }} && \
     composer install
   {{ wp }} core install \
