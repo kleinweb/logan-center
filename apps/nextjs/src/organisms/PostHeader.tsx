@@ -1,8 +1,9 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import CoverImage from './CoverImage/CoverImage'
-import PostTitle from '@molecules/PageTitle'
+import {PageTitle} from '@molecules/PageTitle'
+
+import {CoverImage} from './CoverImage'
 
 type Props = {
   title: string
@@ -12,14 +13,10 @@ type Props = {
 const PostHeader = ({title, coverImage}: Props) => {
   return (
     <>
-      <PostTitle>{title}</PostTitle>
+      <PageTitle>{title}</PageTitle>
       {coverImage ? (
         <div className="mb-8 sm:mx-0 md:mb-16">
-          <CoverImage
-            // FIXME: changed signature
-            // title={title}
-            src={coverImage}
-          />
+          <CoverImage contentTitle={title} src={coverImage} />
         </div>
       ) : undefined}
     </>

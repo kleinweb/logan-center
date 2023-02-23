@@ -5,3 +5,6 @@ export const SITE_NAME = 'Logan Center for Urban Investigative Reporting'
 
 /** TU Cherry color in unprefixed hexadecimal format. */
 export const TU_BRAND_COLOR = 'a41e35'
+
+/** Base URL route for author archives and profile pages. */
+export const AUTHOR_ROUTES_BASE = '/authors'
