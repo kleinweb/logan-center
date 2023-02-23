@@ -5323,6 +5323,7 @@ __metadata:
     sharp: "npm:^0.31.3"
     storybook: "npm:^7.0.0-beta.53"
     tailwindcss: "npm:^3.2.7"
+    tailwindcss-export-config: "npm:^4.1.0"
     ts-jest: "npm:^29.0.5"
     typescript: "npm:^4.9.5"
   languageName: unknown
@@ -5388,6 +5389,7 @@ __metadata:
   dependencies:
     "@tailwindcss/typography": "npm:^0.5.9"
     tailwindcss: "npm:^3.2.7"
+    tailwindcss-export-config: "npm:^4.1.0"
   languageName: unknown
   linkType: soft
 
@@ -23890,6 +23892,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tailwindcss-export-config@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "tailwindcss-export-config@npm:4.1.0"
+  dependencies:
+    chalk: "npm:^4.1.2"
+    fs-extra: "npm:^10.0.0"
+    lodash.reduce: "npm:^4.6.0"
+    tailwindcss: "npm:^3.0.6"
+    yargs: "npm:^17.2.1"
+  bin:
+    tailwindcss-export-config: cli.js
+  checksum: 0fc3ae868798643e4c56c8bd24203cd5d89281214556f9eb38d2e19b6b4813aac4a2078bc0211a7d4042413b123a74e6b22fb48c3bbaa93d94afa59692a2e7ca
+  languageName: node
+  linkType: hard
+
 "tailwindcss@npm:3.2.4":
   version: 3.2.4
   resolution: "tailwindcss@npm:3.2.4"
@@ -23926,7 +23943,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.2.7":
+"tailwindcss@npm:^3.0.6, tailwindcss@npm:^3.2.7":
   version: 3.2.7
   resolution: "tailwindcss@npm:3.2.7"
   dependencies:
@@ -25924,6 +25941,21 @@ __metadata:
     y18n: "npm:^5.0.5"
     yargs-parser: "npm:^21.1.1"
   checksum: 31c667c5c38d1738ac4ecb6f5228eb94f53d0555db4e4091bd55bc7864d96f3e58e1b8126e1b19bfa056f4f1aeb7643723c3a8309267df36e30afb91e796a3fc
+  languageName: node
+  linkType: hard
+
+"yargs@npm:^17.2.1":
+  version: 17.7.1
+  resolution: "yargs@npm:17.7.1"
+  dependencies:
+    cliui: "npm:^8.0.1"
+    escalade: "npm:^3.1.1"
+    get-caller-file: "npm:^2.0.5"
+    require-directory: "npm:^2.1.1"
+    string-width: "npm:^4.2.3"
+    y18n: "npm:^5.0.5"
+    yargs-parser: "npm:^21.1.1"
+  checksum: 03a4d8c1ad18a855f8ae5e91e3765316e01266394a939ec5e87ad4bcccf55f13c8317ae324801bd67bd45c455ad2cf71cc8733d42a5e74227f18801449c14d3b
   languageName: node
   linkType: hard
 
