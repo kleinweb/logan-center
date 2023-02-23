@@ -5,7 +5,6 @@ import {ReactNode} from 'react'
 
 import {KleinBanner} from '@organisms/KleinBanner'
 
-import Meta from '@components/Meta'
 import SiteFooter from '@organisms/SiteFooter'
 import SiteHeader from '@organisms/SiteHeader'
 import {PreviewAlert} from '@organisms/Alert'

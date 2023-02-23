@@ -16,17 +16,16 @@ import PostBody from '@organisms/PostBody'
 
 import Layout from '@templates/Layout'
 import Container from '@templates/Container'
-import {addApolloState, initializeApollo} from '@/lib/graphql'
-import {SinglePageDocument} from '@/gql/graphql'
+import {getAllPostsWithSlug, getPostAndMorePosts} from '@/lib/content'
+import MoreStories from '@organisms/MoreStories'
 
 export default function SinglePage({data}) {
-  // {post, preview}
   const router = useRouter()
-  // // const morePosts = posts?.edges
+  const {post, morePosts} = data
 
-  // if (!router.isFallback && !post?.slug) {
-  //   return <ErrorPage statusCode={404} />
-  // }
+  if (!router.isFallback && !post?.slug) {
+    return <ErrorPage statusCode={404} />
+  }
 
   return (
     <Layout
@@ -49,7 +48,7 @@ export default function SinglePage({data}) {
             </article>
 
             <Separator />
-            {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
+            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
           </>
         )}
       </Container>
@@ -57,49 +56,29 @@ export default function SinglePage({data}) {
   )
 }
 
-// export const getStaticProps: GetStaticProps = async ({
-//   params,
-//   preview = false,
-//   previewData,
-// }) => {
-//   const data = await getPostAndMorePosts(params?.slug, preview, previewData)
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  preview = false,
+  previewData,
+}) => {
+  const data = await getPostAndMorePosts(params?.slug, preview, previewData)
 
-//   return {
-//     props: {
-//       preview,
-//       post: data.post,
-//       posts: data.posts,
-//     },
-//     // TODO: set this to a global default
-//     revalidate: 60,
-//   }
-// }
-
-export async function getStaticProps() {
-  const apolloClient = initializeApollo()
-
-  const {data} = await apolloClient.query({
-    query: SinglePageDocument,
-    variables: {
-      slug: '/about',
-    },
-  })
-
-  return addApolloState(apolloClient, {
+  return {
     props: {
-      data: {
-        post: data.page,
-      },
+      preview,
+      post: data.post,
+      posts: data.posts,
     },
-    notFound: true,
-  })
+    // FIXME: set this to a global default -- netlify requires a minimum value of 60 (1 hour)
+    revalidate: 10,
+  }
 }
 
-// export const getStaticPaths: GetStaticPaths = async () => {
-//   const allPosts = await getAllPostsWithSlug()
+export const getStaticPaths: GetStaticPaths = async () => {
+  const allPosts = await getAllPostsWithSlug()
 
-//   return {
-//     paths: allPosts.edges.map(({node}) => `/${node.slug}`) || [],
-//     fallback: true,
-//   }
-// }
+  return {
+    paths: allPosts.edges.map(({node}) => `/posts/${node.slug}`) || [],
+    fallback: 'blocking',
+  }
+}

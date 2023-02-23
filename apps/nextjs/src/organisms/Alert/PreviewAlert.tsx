@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 
 import Container from '@templates/Container'
+import Link from 'next/link'
 
 export default function PreviewAlert({preview}) {
   return preview ? (
@@ -13,12 +14,12 @@ export default function PreviewAlert({preview}) {
       <Container>
         <div className="py-2 text-center text-sm">
           This is a page preview.{' '}
-          <a
+          <Link
             href="/api/exit-preview"
             className="hover:text-cyan underline transition-colors duration-200"
           >
             Click here
-          </a>{' '}
+          </Link>{' '}
           to exit preview mode.
         </div>
       </Container>

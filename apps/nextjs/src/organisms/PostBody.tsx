@@ -5,7 +5,7 @@ import {ReactNode} from 'react'
 
 export type PostBodyProps = {
   /** Raw post HTML from the CMS. */
-  content: string
+  content?: string
   /**
    * Optional additional content to display below the post body. Note that
    * TailwindCSS Typography plugin styles will not be applied.
@@ -17,7 +17,7 @@ export default function PostBody({children, content}: PostBodyProps) {
   return (
     <div className="mx-auto max-w-2xl">
       <div className="prose" dangerouslySetInnerHTML={{__html: content}} />
-      {children ? <div>children</div> : undefined}
+      {children ? <div>{children}</div> : undefined}
     </div>
   )
 }
