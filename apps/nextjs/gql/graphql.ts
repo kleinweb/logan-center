@@ -16,6 +16,7 @@ export type Scalars = {
   Boolean: boolean
   Int: number
   Float: number
+  BlockAttributesObject: any
 }
 
 /** Avatars are profile images for users. WordPress by default uses the Gravatar service to host and fetch avatars from. */
@@ -964,6 +965,28 @@ export type Connection = {
   nodes: Array<Node>
 }
 
+/** Blocks that can be edited to create content and layouts */
+export type ContentBlock = {
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the Block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
 /** Nodes used to manage content */
 export type ContentNode = {
   /** @deprecated Deprecated in favor of using Next.js pages */
@@ -1378,6 +1401,4520 @@ export enum ContentTypesOfTagEnum {
   Post = 'POST',
 }
 
+/** A block used for editing the site */
+export type CoreArchives = ContentBlock & {
+  __typename?: 'CoreArchives'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreArchivesAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreArchivesAttributes = {
+  __typename?: 'CoreArchivesAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreArchives&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreArchives&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;displayAsDropdown&quot; field on the &quot;CoreArchives&quot; block */
+  displayAsDropdown?: Maybe<Scalars['Boolean']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreArchives&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreArchives&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreArchives&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;showLabel&quot; field on the &quot;CoreArchives&quot; block */
+  showLabel?: Maybe<Scalars['Boolean']>
+  /** The &quot;showPostCounts&quot; field on the &quot;CoreArchives&quot; block */
+  showPostCounts?: Maybe<Scalars['Boolean']>
+  /** The &quot;style&quot; field on the &quot;CoreArchives&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;type&quot; field on the &quot;CoreArchives&quot; block */
+  type?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreAudio = ContentBlock & {
+  __typename?: 'CoreAudio'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreAudioAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreAudioAttributes = {
+  __typename?: 'CoreAudioAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreAudio&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;autoplay&quot; field on the &quot;CoreAudio&quot; block */
+  autoplay?: Maybe<Scalars['Boolean']>
+  /** The &quot;caption&quot; field on the &quot;CoreAudio&quot; block */
+  caption?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreAudio&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;id&quot; field on the &quot;CoreAudio&quot; block */
+  id?: Maybe<Scalars['Float']>
+  /** The &quot;lock&quot; field on the &quot;CoreAudio&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;loop&quot; field on the &quot;CoreAudio&quot; block */
+  loop?: Maybe<Scalars['Boolean']>
+  /** The &quot;preload&quot; field on the &quot;CoreAudio&quot; block */
+  preload?: Maybe<Scalars['String']>
+  /** The &quot;src&quot; field on the &quot;CoreAudio&quot; block */
+  src?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreAudio&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreAvatar = ContentBlock & {
+  __typename?: 'CoreAvatar'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreAvatarAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreAvatarAttributes = {
+  __typename?: 'CoreAvatarAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreAvatar&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;borderColor&quot; field on the &quot;CoreAvatar&quot; block */
+  borderColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreAvatar&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;isLink&quot; field on the &quot;CoreAvatar&quot; block */
+  isLink?: Maybe<Scalars['Boolean']>
+  /** The &quot;linkTarget&quot; field on the &quot;CoreAvatar&quot; block */
+  linkTarget?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreAvatar&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;size&quot; field on the &quot;CoreAvatar&quot; block */
+  size?: Maybe<Scalars['Float']>
+  /** The &quot;style&quot; field on the &quot;CoreAvatar&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;userId&quot; field on the &quot;CoreAvatar&quot; block */
+  userId?: Maybe<Scalars['Float']>
+}
+
+/** A block used for editing the site */
+export type CoreBlock = ContentBlock & {
+  __typename?: 'CoreBlock'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreBlockAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreBlockAttributes = {
+  __typename?: 'CoreBlockAttributes'
+  /** The &quot;lock&quot; field on the &quot;CoreBlock&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;ref&quot; field on the &quot;CoreBlock&quot; block */
+  ref?: Maybe<Scalars['Float']>
+}
+
+/** A block used for editing the site */
+export type CoreButton = ContentBlock & {
+  __typename?: 'CoreButton'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreButtonAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreButtonAttributes = {
+  __typename?: 'CoreButtonAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreButton&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreButton&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreButton&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreButton&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreButton&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreButton&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;linkTarget&quot; field on the &quot;CoreButton&quot; block */
+  linkTarget?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreButton&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;placeholder&quot; field on the &quot;CoreButton&quot; block */
+  placeholder?: Maybe<Scalars['String']>
+  /** The &quot;rel&quot; field on the &quot;CoreButton&quot; block */
+  rel?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreButton&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;text&quot; field on the &quot;CoreButton&quot; block */
+  text?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreButton&quot; block */
+  textColor?: Maybe<Scalars['String']>
+  /** The &quot;title&quot; field on the &quot;CoreButton&quot; block */
+  title?: Maybe<Scalars['String']>
+  /** The &quot;url&quot; field on the &quot;CoreButton&quot; block */
+  url?: Maybe<Scalars['String']>
+  /** The &quot;width&quot; field on the &quot;CoreButton&quot; block */
+  width?: Maybe<Scalars['Float']>
+}
+
+/** A block used for editing the site */
+export type CoreButtons = ContentBlock & {
+  __typename?: 'CoreButtons'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreButtonsAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreButtonsAttributes = {
+  __typename?: 'CoreButtonsAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreButtons&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreButtons&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreButtons&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreButtons&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;layout&quot; field on the &quot;CoreButtons&quot; block */
+  layout?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;lock&quot; field on the &quot;CoreButtons&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreButtons&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreCalendar = ContentBlock & {
+  __typename?: 'CoreCalendar'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCalendarAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCalendarAttributes = {
+  __typename?: 'CoreCalendarAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreCalendar&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCalendar&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCalendar&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCalendar&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreCalendar&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;month&quot; field on the &quot;CoreCalendar&quot; block */
+  month?: Maybe<Scalars['Int']>
+  /** The &quot;style&quot; field on the &quot;CoreCalendar&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;year&quot; field on the &quot;CoreCalendar&quot; block */
+  year?: Maybe<Scalars['Int']>
+}
+
+/** A block used for editing the site */
+export type CoreCategories = ContentBlock & {
+  __typename?: 'CoreCategories'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCategoriesAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCategoriesAttributes = {
+  __typename?: 'CoreCategoriesAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreCategories&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCategories&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;displayAsDropdown&quot; field on the &quot;CoreCategories&quot; block */
+  displayAsDropdown?: Maybe<Scalars['Boolean']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCategories&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCategories&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreCategories&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;showEmpty&quot; field on the &quot;CoreCategories&quot; block */
+  showEmpty?: Maybe<Scalars['Boolean']>
+  /** The &quot;showHierarchy&quot; field on the &quot;CoreCategories&quot; block */
+  showHierarchy?: Maybe<Scalars['Boolean']>
+  /** The &quot;showOnlyTopLevel&quot; field on the &quot;CoreCategories&quot; block */
+  showOnlyTopLevel?: Maybe<Scalars['Boolean']>
+  /** The &quot;showPostCounts&quot; field on the &quot;CoreCategories&quot; block */
+  showPostCounts?: Maybe<Scalars['Boolean']>
+  /** The &quot;style&quot; field on the &quot;CoreCategories&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreCode = ContentBlock & {
+  __typename?: 'CoreCode'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCodeAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCodeAttributes = {
+  __typename?: 'CoreCodeAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreCode&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;borderColor&quot; field on the &quot;CoreCode&quot; block */
+  borderColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCode&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;content&quot; field on the &quot;CoreCode&quot; block */
+  content?: Maybe<Scalars['String']>
+  /** The &quot;cssClassName&quot; field on the &quot;CoreCode&quot; block */
+  cssClassName?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCode&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCode&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreCode&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreCode&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreCode&quot; block */
+  style?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreCode&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreColumn = ContentBlock & {
+  __typename?: 'CoreColumn'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreColumnAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreColumnAttributes = {
+  __typename?: 'CoreColumnAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreColumn&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;borderColor&quot; field on the &quot;CoreColumn&quot; block */
+  borderColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreColumn&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;cssClassName&quot; field on the &quot;CoreColumn&quot; block */
+  cssClassName?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreColumn&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreColumn&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreColumn&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;layout&quot; field on the &quot;CoreColumn&quot; block */
+  layout?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;lock&quot; field on the &quot;CoreColumn&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreColumn&quot; block */
+  style?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreColumn&quot; block */
+  textColor?: Maybe<Scalars['String']>
+  /** The &quot;verticalAlignment&quot; field on the &quot;CoreColumn&quot; block */
+  verticalAlignment?: Maybe<Scalars['String']>
+  /** The &quot;width&quot; field on the &quot;CoreColumn&quot; block */
+  width?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreColumns = ContentBlock & {
+  __typename?: 'CoreColumns'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreColumnsAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreColumnsAttributes = {
+  __typename?: 'CoreColumnsAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreColumns&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreColumns&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;borderColor&quot; field on the &quot;CoreColumns&quot; block */
+  borderColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreColumns&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;cssClassName&quot; field on the &quot;CoreColumns&quot; block */
+  cssClassName?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreColumns&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreColumns&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreColumns&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;isStackedOnMobile&quot; field on the &quot;CoreColumns&quot; block */
+  isStackedOnMobile?: Maybe<Scalars['Boolean']>
+  /** The &quot;layout&quot; field on the &quot;CoreColumns&quot; block */
+  layout?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;lock&quot; field on the &quot;CoreColumns&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreColumns&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CoreColumns&quot; block */
+  textColor?: Maybe<Scalars['String']>
+  /** The &quot;verticalAlignment&quot; field on the &quot;CoreColumns&quot; block */
+  verticalAlignment?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreCommentAuthorName = ContentBlock & {
+  __typename?: 'CoreCommentAuthorName'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCommentAuthorNameAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCommentAuthorNameAttributes = {
+  __typename?: 'CoreCommentAuthorNameAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentAuthorName&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCommentAuthorName&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentAuthorName&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCommentAuthorName&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreCommentAuthorName&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;isLink&quot; field on the &quot;CoreCommentAuthorName&quot; block */
+  isLink?: Maybe<Scalars['Boolean']>
+  /** The &quot;linkTarget&quot; field on the &quot;CoreCommentAuthorName&quot; block */
+  linkTarget?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreCommentAuthorName&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreCommentAuthorName&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CoreCommentAuthorName&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreCommentAuthorName&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreCommentContent = ContentBlock & {
+  __typename?: 'CoreCommentContent'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCommentContentAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCommentContentAttributes = {
+  __typename?: 'CoreCommentContentAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentContent&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCommentContent&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentContent&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCommentContent&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreCommentContent&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreCommentContent&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreCommentContent&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CoreCommentContent&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreCommentContent&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreCommentDate = ContentBlock & {
+  __typename?: 'CoreCommentDate'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCommentDateAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCommentDateAttributes = {
+  __typename?: 'CoreCommentDateAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentDate&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCommentDate&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentDate&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCommentDate&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;format&quot; field on the &quot;CoreCommentDate&quot; block */
+  format?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreCommentDate&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;isLink&quot; field on the &quot;CoreCommentDate&quot; block */
+  isLink?: Maybe<Scalars['Boolean']>
+  /** The &quot;lock&quot; field on the &quot;CoreCommentDate&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreCommentDate&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CoreCommentDate&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreCommentEditLink = ContentBlock & {
+  __typename?: 'CoreCommentEditLink'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCommentEditLinkAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCommentEditLinkAttributes = {
+  __typename?: 'CoreCommentEditLinkAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentEditLink&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCommentEditLink&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentEditLink&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCommentEditLink&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreCommentEditLink&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;linkTarget&quot; field on the &quot;CoreCommentEditLink&quot; block */
+  linkTarget?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreCommentEditLink&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreCommentEditLink&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CoreCommentEditLink&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreCommentReplyLink = ContentBlock & {
+  __typename?: 'CoreCommentReplyLink'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCommentReplyLinkAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCommentReplyLinkAttributes = {
+  __typename?: 'CoreCommentReplyLinkAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentReplyLink&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCommentReplyLink&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentReplyLink&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCommentReplyLink&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreCommentReplyLink&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreCommentReplyLink&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreCommentReplyLink&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CoreCommentReplyLink&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreCommentTemplate = ContentBlock & {
+  __typename?: 'CoreCommentTemplate'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCommentTemplateAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCommentTemplateAttributes = {
+  __typename?: 'CoreCommentTemplateAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreCommentTemplate&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCommentTemplate&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentTemplate&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCommentTemplate&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreCommentTemplate&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreCommentTemplate&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreComments = ContentBlock & {
+  __typename?: 'CoreComments'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCommentsAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCommentsAttributes = {
+  __typename?: 'CoreCommentsAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreComments&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreComments&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreComments&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreComments&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreComments&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreComments&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;legacy&quot; field on the &quot;CoreComments&quot; block */
+  legacy?: Maybe<Scalars['Boolean']>
+  /** The &quot;lock&quot; field on the &quot;CoreComments&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreComments&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;tagName&quot; field on the &quot;CoreComments&quot; block */
+  tagName?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreComments&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreCommentsPagination = ContentBlock & {
+  __typename?: 'CoreCommentsPagination'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCommentsPaginationAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCommentsPaginationAttributes = {
+  __typename?: 'CoreCommentsPaginationAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreCommentsPagination&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentsPagination&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCommentsPagination&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentsPagination&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCommentsPagination&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreCommentsPagination&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;layout&quot; field on the &quot;CoreCommentsPagination&quot; block */
+  layout?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;lock&quot; field on the &quot;CoreCommentsPagination&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;paginationArrow&quot; field on the &quot;CoreCommentsPagination&quot; block */
+  paginationArrow?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreCommentsPagination&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CoreCommentsPagination&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreCommentsPaginationNext = ContentBlock & {
+  __typename?: 'CoreCommentsPaginationNext'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCommentsPaginationNextAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCommentsPaginationNextAttributes = {
+  __typename?: 'CoreCommentsPaginationNextAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;label&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
+  label?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreCommentsPaginationNumbers = ContentBlock & {
+  __typename?: 'CoreCommentsPaginationNumbers'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCommentsPaginationNumbersAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCommentsPaginationNumbersAttributes = {
+  __typename?: 'CoreCommentsPaginationNumbersAttributes'
+  /** The &quot;className&quot; field on the &quot;CoreCommentsPaginationNumbers&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentsPaginationNumbers&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCommentsPaginationNumbers&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreCommentsPaginationNumbers&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreCommentsPaginationNumbers&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreCommentsPaginationPrevious = ContentBlock & {
+  __typename?: 'CoreCommentsPaginationPrevious'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCommentsPaginationPreviousAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCommentsPaginationPreviousAttributes = {
+  __typename?: 'CoreCommentsPaginationPreviousAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;label&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
+  label?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreCommentsTitle = ContentBlock & {
+  __typename?: 'CoreCommentsTitle'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCommentsTitleAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCommentsTitleAttributes = {
+  __typename?: 'CoreCommentsTitleAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;borderColor&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  borderColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;level&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  level?: Maybe<Scalars['Float']>
+  /** The &quot;lock&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;showCommentsCount&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  showCommentsCount?: Maybe<Scalars['Boolean']>
+  /** The &quot;showPostTitle&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  showPostTitle?: Maybe<Scalars['Boolean']>
+  /** The &quot;style&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreCommentsTitle&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreCover = ContentBlock & {
+  __typename?: 'CoreCover'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreCoverAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreCoverAttributes = {
+  __typename?: 'CoreCoverAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreCover&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;alt&quot; field on the &quot;CoreCover&quot; block */
+  alt?: Maybe<Scalars['String']>
+  /** The &quot;backgroundType&quot; field on the &quot;CoreCover&quot; block */
+  backgroundType?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreCover&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;contentPosition&quot; field on the &quot;CoreCover&quot; block */
+  contentPosition?: Maybe<Scalars['String']>
+  /** The &quot;customGradient&quot; field on the &quot;CoreCover&quot; block */
+  customGradient?: Maybe<Scalars['String']>
+  /** The &quot;customOverlayColor&quot; field on the &quot;CoreCover&quot; block */
+  customOverlayColor?: Maybe<Scalars['String']>
+  /** The &quot;dimRatio&quot; field on the &quot;CoreCover&quot; block */
+  dimRatio?: Maybe<Scalars['Float']>
+  /** The &quot;focalPoint&quot; field on the &quot;CoreCover&quot; block */
+  focalPoint?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreCover&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreCover&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreCover&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;hasParallax&quot; field on the &quot;CoreCover&quot; block */
+  hasParallax?: Maybe<Scalars['Boolean']>
+  /** The &quot;id&quot; field on the &quot;CoreCover&quot; block */
+  id?: Maybe<Scalars['Float']>
+  /** The &quot;isDark&quot; field on the &quot;CoreCover&quot; block */
+  isDark?: Maybe<Scalars['Boolean']>
+  /** The &quot;isRepeated&quot; field on the &quot;CoreCover&quot; block */
+  isRepeated?: Maybe<Scalars['Boolean']>
+  /** The &quot;lock&quot; field on the &quot;CoreCover&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;minHeight&quot; field on the &quot;CoreCover&quot; block */
+  minHeight?: Maybe<Scalars['Float']>
+  /** The &quot;minHeightUnit&quot; field on the &quot;CoreCover&quot; block */
+  minHeightUnit?: Maybe<Scalars['String']>
+  /** The &quot;overlayColor&quot; field on the &quot;CoreCover&quot; block */
+  overlayColor?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreCover&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;url&quot; field on the &quot;CoreCover&quot; block */
+  url?: Maybe<Scalars['String']>
+  /** The &quot;useFeaturedImage&quot; field on the &quot;CoreCover&quot; block */
+  useFeaturedImage?: Maybe<Scalars['Boolean']>
+}
+
+/** A block used for editing the site */
+export type CoreEmbed = ContentBlock & {
+  __typename?: 'CoreEmbed'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreEmbedAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreEmbedAttributes = {
+  __typename?: 'CoreEmbedAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreEmbed&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;allowResponsive&quot; field on the &quot;CoreEmbed&quot; block */
+  allowResponsive?: Maybe<Scalars['Boolean']>
+  /** The &quot;caption&quot; field on the &quot;CoreEmbed&quot; block */
+  caption?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreEmbed&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreEmbed&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;previewable&quot; field on the &quot;CoreEmbed&quot; block */
+  previewable?: Maybe<Scalars['Boolean']>
+  /** The &quot;providerNameSlug&quot; field on the &quot;CoreEmbed&quot; block */
+  providerNameSlug?: Maybe<Scalars['String']>
+  /** The &quot;responsive&quot; field on the &quot;CoreEmbed&quot; block */
+  responsive?: Maybe<Scalars['Boolean']>
+  /** The &quot;type&quot; field on the &quot;CoreEmbed&quot; block */
+  type?: Maybe<Scalars['String']>
+  /** The &quot;url&quot; field on the &quot;CoreEmbed&quot; block */
+  url?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreFile = ContentBlock & {
+  __typename?: 'CoreFile'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreFileAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreFileAttributes = {
+  __typename?: 'CoreFileAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreFile&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreFile&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;displayPreview&quot; field on the &quot;CoreFile&quot; block */
+  displayPreview?: Maybe<Scalars['Boolean']>
+  /** The &quot;downloadButtonText&quot; field on the &quot;CoreFile&quot; block */
+  downloadButtonText?: Maybe<Scalars['String']>
+  /** The &quot;fileId&quot; field on the &quot;CoreFile&quot; block */
+  fileId?: Maybe<Scalars['String']>
+  /** The &quot;fileName&quot; field on the &quot;CoreFile&quot; block */
+  fileName?: Maybe<Scalars['String']>
+  /** The &quot;href&quot; field on the &quot;CoreFile&quot; block */
+  href?: Maybe<Scalars['String']>
+  /** The &quot;id&quot; field on the &quot;CoreFile&quot; block */
+  id?: Maybe<Scalars['Float']>
+  /** The &quot;lock&quot; field on the &quot;CoreFile&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;previewHeight&quot; field on the &quot;CoreFile&quot; block */
+  previewHeight?: Maybe<Scalars['Float']>
+  /** The &quot;showDownloadButton&quot; field on the &quot;CoreFile&quot; block */
+  showDownloadButton?: Maybe<Scalars['Boolean']>
+  /** The &quot;textLinkHref&quot; field on the &quot;CoreFile&quot; block */
+  textLinkHref?: Maybe<Scalars['String']>
+  /** The &quot;textLinkTarget&quot; field on the &quot;CoreFile&quot; block */
+  textLinkTarget?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreFreeform = ContentBlock & {
+  __typename?: 'CoreFreeform'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreFreeformAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreFreeformAttributes = {
+  __typename?: 'CoreFreeformAttributes'
+  /** The &quot;content&quot; field on the &quot;CoreFreeform&quot; block */
+  content?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreFreeform&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreGallery = ContentBlock & {
+  __typename?: 'CoreGallery'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreGalleryAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreGalleryAttributes = {
+  __typename?: 'CoreGalleryAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreGallery&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;allowResize&quot; field on the &quot;CoreGallery&quot; block */
+  allowResize?: Maybe<Scalars['Boolean']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreGallery&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;caption&quot; field on the &quot;CoreGallery&quot; block */
+  caption?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreGallery&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;columns&quot; field on the &quot;CoreGallery&quot; block */
+  columns?: Maybe<Scalars['Float']>
+  /** The &quot;fixedHeight&quot; field on the &quot;CoreGallery&quot; block */
+  fixedHeight?: Maybe<Scalars['Boolean']>
+  /** The &quot;gradient&quot; field on the &quot;CoreGallery&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;imageCrop&quot; field on the &quot;CoreGallery&quot; block */
+  imageCrop?: Maybe<Scalars['Boolean']>
+  /** The &quot;layout&quot; field on the &quot;CoreGallery&quot; block */
+  layout?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;linkTarget&quot; field on the &quot;CoreGallery&quot; block */
+  linkTarget?: Maybe<Scalars['String']>
+  /** The &quot;linkTo&quot; field on the &quot;CoreGallery&quot; block */
+  linkTo?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreGallery&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;sizeSlug&quot; field on the &quot;CoreGallery&quot; block */
+  sizeSlug?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreGallery&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreGroup = ContentBlock & {
+  __typename?: 'CoreGroup'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreGroupAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreGroupAttributes = {
+  __typename?: 'CoreGroupAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreGroup&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreGroup&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;borderColor&quot; field on the &quot;CoreGroup&quot; block */
+  borderColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreGroup&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreGroup&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreGroup&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreGroup&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;layout&quot; field on the &quot;CoreGroup&quot; block */
+  layout?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;lock&quot; field on the &quot;CoreGroup&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreGroup&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;tagName&quot; field on the &quot;CoreGroup&quot; block */
+  tagName?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreGroup&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreHeading = ContentBlock & {
+  __typename?: 'CoreHeading'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreHeadingAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreHeadingAttributes = {
+  __typename?: 'CoreHeadingAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreHeading&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreHeading&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreHeading&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;content&quot; field on the &quot;CoreHeading&quot; block */
+  content?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreHeading&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreHeading&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreHeading&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;level&quot; field on the &quot;CoreHeading&quot; block */
+  level?: Maybe<Scalars['Float']>
+  /** The &quot;lock&quot; field on the &quot;CoreHeading&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;placeholder&quot; field on the &quot;CoreHeading&quot; block */
+  placeholder?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreHeading&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CoreHeading&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreHeading&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreHomeLink = ContentBlock & {
+  __typename?: 'CoreHomeLink'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreHomeLinkAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreHomeLinkAttributes = {
+  __typename?: 'CoreHomeLinkAttributes'
+  /** The &quot;className&quot; field on the &quot;CoreHomeLink&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreHomeLink&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreHomeLink&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;label&quot; field on the &quot;CoreHomeLink&quot; block */
+  label?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreHomeLink&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreHomeLink&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreHtml = ContentBlock & {
+  __typename?: 'CoreHtml'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreHtmlAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreHtmlAttributes = {
+  __typename?: 'CoreHtmlAttributes'
+  /** The &quot;content&quot; field on the &quot;CoreHtml&quot; block */
+  content?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreHtml&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreImage = ContentBlock & {
+  __typename?: 'CoreImage'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreImageAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreImageAttributes = {
+  __typename?: 'CoreImageAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreImage&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;alt&quot; field on the &quot;CoreImage&quot; block */
+  alt?: Maybe<Scalars['String']>
+  /** The &quot;borderColor&quot; field on the &quot;CoreImage&quot; block */
+  borderColor?: Maybe<Scalars['String']>
+  /** The &quot;caption&quot; field on the &quot;CoreImage&quot; block */
+  caption?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreImage&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;height&quot; field on the &quot;CoreImage&quot; block */
+  height?: Maybe<Scalars['Float']>
+  /** The &quot;href&quot; field on the &quot;CoreImage&quot; block */
+  href?: Maybe<Scalars['String']>
+  /** The &quot;id&quot; field on the &quot;CoreImage&quot; block */
+  id?: Maybe<Scalars['Float']>
+  /** The &quot;linkClass&quot; field on the &quot;CoreImage&quot; block */
+  linkClass?: Maybe<Scalars['String']>
+  /** The &quot;linkDestination&quot; field on the &quot;CoreImage&quot; block */
+  linkDestination?: Maybe<Scalars['String']>
+  /** The &quot;linkTarget&quot; field on the &quot;CoreImage&quot; block */
+  linkTarget?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreImage&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;rel&quot; field on the &quot;CoreImage&quot; block */
+  rel?: Maybe<Scalars['String']>
+  /** The &quot;sizeSlug&quot; field on the &quot;CoreImage&quot; block */
+  sizeSlug?: Maybe<Scalars['String']>
+  /** The &quot;src&quot; field on the &quot;CoreImage&quot; block */
+  src?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreImage&quot; block */
+  style?: Maybe<Scalars['String']>
+  /** The &quot;title&quot; field on the &quot;CoreImage&quot; block */
+  title?: Maybe<Scalars['String']>
+  /** The &quot;url&quot; field on the &quot;CoreImage&quot; block */
+  url?: Maybe<Scalars['String']>
+  /** The &quot;width&quot; field on the &quot;CoreImage&quot; block */
+  width?: Maybe<Scalars['Float']>
+}
+
+/** A block used for editing the site */
+export type CoreLatestComments = ContentBlock & {
+  __typename?: 'CoreLatestComments'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreLatestCommentsAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreLatestCommentsAttributes = {
+  __typename?: 'CoreLatestCommentsAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreLatestComments&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreLatestComments&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;commentsToShow&quot; field on the &quot;CoreLatestComments&quot; block */
+  commentsToShow?: Maybe<Scalars['Float']>
+  /** The &quot;displayAvatar&quot; field on the &quot;CoreLatestComments&quot; block */
+  displayAvatar?: Maybe<Scalars['Boolean']>
+  /** The &quot;displayDate&quot; field on the &quot;CoreLatestComments&quot; block */
+  displayDate?: Maybe<Scalars['Boolean']>
+  /** The &quot;displayExcerpt&quot; field on the &quot;CoreLatestComments&quot; block */
+  displayExcerpt?: Maybe<Scalars['Boolean']>
+  /** The &quot;lock&quot; field on the &quot;CoreLatestComments&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreLatestPosts = ContentBlock & {
+  __typename?: 'CoreLatestPosts'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreLatestPostsAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreLatestPostsAttributes = {
+  __typename?: 'CoreLatestPostsAttributes'
+  /** The &quot;addLinkToFeaturedImage&quot; field on the &quot;CoreLatestPosts&quot; block */
+  addLinkToFeaturedImage?: Maybe<Scalars['Boolean']>
+  /** The &quot;align&quot; field on the &quot;CoreLatestPosts&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreLatestPosts&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;columns&quot; field on the &quot;CoreLatestPosts&quot; block */
+  columns?: Maybe<Scalars['Float']>
+  /** The &quot;displayAuthor&quot; field on the &quot;CoreLatestPosts&quot; block */
+  displayAuthor?: Maybe<Scalars['Boolean']>
+  /** The &quot;displayFeaturedImage&quot; field on the &quot;CoreLatestPosts&quot; block */
+  displayFeaturedImage?: Maybe<Scalars['Boolean']>
+  /** The &quot;displayPostContent&quot; field on the &quot;CoreLatestPosts&quot; block */
+  displayPostContent?: Maybe<Scalars['Boolean']>
+  /** The &quot;displayPostContentRadio&quot; field on the &quot;CoreLatestPosts&quot; block */
+  displayPostContentRadio?: Maybe<Scalars['String']>
+  /** The &quot;displayPostDate&quot; field on the &quot;CoreLatestPosts&quot; block */
+  displayPostDate?: Maybe<Scalars['Boolean']>
+  /** The &quot;excerptLength&quot; field on the &quot;CoreLatestPosts&quot; block */
+  excerptLength?: Maybe<Scalars['Float']>
+  /** The &quot;featuredImageAlign&quot; field on the &quot;CoreLatestPosts&quot; block */
+  featuredImageAlign?: Maybe<Scalars['String']>
+  /** The &quot;featuredImageSizeHeight&quot; field on the &quot;CoreLatestPosts&quot; block */
+  featuredImageSizeHeight?: Maybe<Scalars['Float']>
+  /** The &quot;featuredImageSizeSlug&quot; field on the &quot;CoreLatestPosts&quot; block */
+  featuredImageSizeSlug?: Maybe<Scalars['String']>
+  /** The &quot;featuredImageSizeWidth&quot; field on the &quot;CoreLatestPosts&quot; block */
+  featuredImageSizeWidth?: Maybe<Scalars['Float']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreLatestPosts&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreLatestPosts&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreLatestPosts&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;order&quot; field on the &quot;CoreLatestPosts&quot; block */
+  order?: Maybe<Scalars['String']>
+  /** The &quot;orderBy&quot; field on the &quot;CoreLatestPosts&quot; block */
+  orderBy?: Maybe<Scalars['String']>
+  /** The &quot;postLayout&quot; field on the &quot;CoreLatestPosts&quot; block */
+  postLayout?: Maybe<Scalars['String']>
+  /** The &quot;postsToShow&quot; field on the &quot;CoreLatestPosts&quot; block */
+  postsToShow?: Maybe<Scalars['Float']>
+  /** The &quot;selectedAuthor&quot; field on the &quot;CoreLatestPosts&quot; block */
+  selectedAuthor?: Maybe<Scalars['Float']>
+  /** The &quot;style&quot; field on the &quot;CoreLatestPosts&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreLegacyWidget = ContentBlock & {
+  __typename?: 'CoreLegacyWidget'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreLegacyWidgetAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreLegacyWidgetAttributes = {
+  __typename?: 'CoreLegacyWidgetAttributes'
+  /** The &quot;id&quot; field on the &quot;CoreLegacyWidget&quot; block */
+  id?: Maybe<Scalars['String']>
+  /** The &quot;idBase&quot; field on the &quot;CoreLegacyWidget&quot; block */
+  idBase?: Maybe<Scalars['String']>
+  /** The &quot;instance&quot; field on the &quot;CoreLegacyWidget&quot; block */
+  instance?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;lock&quot; field on the &quot;CoreLegacyWidget&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreList = ContentBlock & {
+  __typename?: 'CoreList'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreListAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreListAttributes = {
+  __typename?: 'CoreListAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreList&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreList&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreList&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreList&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreList&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreList&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;ordered&quot; field on the &quot;CoreList&quot; block */
+  ordered?: Maybe<Scalars['Boolean']>
+  /** The &quot;placeholder&quot; field on the &quot;CoreList&quot; block */
+  placeholder?: Maybe<Scalars['String']>
+  /** The &quot;reversed&quot; field on the &quot;CoreList&quot; block */
+  reversed?: Maybe<Scalars['Boolean']>
+  /** The &quot;start&quot; field on the &quot;CoreList&quot; block */
+  start?: Maybe<Scalars['Float']>
+  /** The &quot;style&quot; field on the &quot;CoreList&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CoreList&quot; block */
+  textColor?: Maybe<Scalars['String']>
+  /** The &quot;type&quot; field on the &quot;CoreList&quot; block */
+  type?: Maybe<Scalars['String']>
+  /** The &quot;values&quot; field on the &quot;CoreList&quot; block */
+  values?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreListItem = ContentBlock & {
+  __typename?: 'CoreListItem'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreListItemAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreListItemAttributes = {
+  __typename?: 'CoreListItemAttributes'
+  /** The &quot;className&quot; field on the &quot;CoreListItem&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;content&quot; field on the &quot;CoreListItem&quot; block */
+  content?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreListItem&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;placeholder&quot; field on the &quot;CoreListItem&quot; block */
+  placeholder?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreLoginout = ContentBlock & {
+  __typename?: 'CoreLoginout'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreLoginoutAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreLoginoutAttributes = {
+  __typename?: 'CoreLoginoutAttributes'
+  /** The &quot;className&quot; field on the &quot;CoreLoginout&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;displayLoginAsForm&quot; field on the &quot;CoreLoginout&quot; block */
+  displayLoginAsForm?: Maybe<Scalars['Boolean']>
+  /** The &quot;lock&quot; field on the &quot;CoreLoginout&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;redirectToCurrent&quot; field on the &quot;CoreLoginout&quot; block */
+  redirectToCurrent?: Maybe<Scalars['Boolean']>
+}
+
+/** A block used for editing the site */
+export type CoreMediaText = ContentBlock & {
+  __typename?: 'CoreMediaText'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreMediaTextAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreMediaTextAttributes = {
+  __typename?: 'CoreMediaTextAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreMediaText&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreMediaText&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreMediaText&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;focalPoint&quot; field on the &quot;CoreMediaText&quot; block */
+  focalPoint?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreMediaText&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreMediaText&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreMediaText&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;href&quot; field on the &quot;CoreMediaText&quot; block */
+  href?: Maybe<Scalars['String']>
+  /** The &quot;imageFill&quot; field on the &quot;CoreMediaText&quot; block */
+  imageFill?: Maybe<Scalars['Boolean']>
+  /** The &quot;isStackedOnMobile&quot; field on the &quot;CoreMediaText&quot; block */
+  isStackedOnMobile?: Maybe<Scalars['Boolean']>
+  /** The &quot;linkClass&quot; field on the &quot;CoreMediaText&quot; block */
+  linkClass?: Maybe<Scalars['String']>
+  /** The &quot;linkDestination&quot; field on the &quot;CoreMediaText&quot; block */
+  linkDestination?: Maybe<Scalars['String']>
+  /** The &quot;linkTarget&quot; field on the &quot;CoreMediaText&quot; block */
+  linkTarget?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreMediaText&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;mediaAlt&quot; field on the &quot;CoreMediaText&quot; block */
+  mediaAlt?: Maybe<Scalars['String']>
+  /** The &quot;mediaId&quot; field on the &quot;CoreMediaText&quot; block */
+  mediaId?: Maybe<Scalars['Float']>
+  /** The &quot;mediaLink&quot; field on the &quot;CoreMediaText&quot; block */
+  mediaLink?: Maybe<Scalars['String']>
+  /** The &quot;mediaPosition&quot; field on the &quot;CoreMediaText&quot; block */
+  mediaPosition?: Maybe<Scalars['String']>
+  /** The &quot;mediaSizeSlug&quot; field on the &quot;CoreMediaText&quot; block */
+  mediaSizeSlug?: Maybe<Scalars['String']>
+  /** The &quot;mediaType&quot; field on the &quot;CoreMediaText&quot; block */
+  mediaType?: Maybe<Scalars['String']>
+  /** The &quot;mediaUrl&quot; field on the &quot;CoreMediaText&quot; block */
+  mediaUrl?: Maybe<Scalars['String']>
+  /** The &quot;mediaWidth&quot; field on the &quot;CoreMediaText&quot; block */
+  mediaWidth?: Maybe<Scalars['Float']>
+  /** The &quot;rel&quot; field on the &quot;CoreMediaText&quot; block */
+  rel?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreMediaText&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CoreMediaText&quot; block */
+  textColor?: Maybe<Scalars['String']>
+  /** The &quot;verticalAlignment&quot; field on the &quot;CoreMediaText&quot; block */
+  verticalAlignment?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreMissing = ContentBlock & {
+  __typename?: 'CoreMissing'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreMissingAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreMissingAttributes = {
+  __typename?: 'CoreMissingAttributes'
+  /** The &quot;lock&quot; field on the &quot;CoreMissing&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;originalContent&quot; field on the &quot;CoreMissing&quot; block */
+  originalContent?: Maybe<Scalars['String']>
+  /** The &quot;originalName&quot; field on the &quot;CoreMissing&quot; block */
+  originalName?: Maybe<Scalars['String']>
+  /** The &quot;originalUndelimitedContent&quot; field on the &quot;CoreMissing&quot; block */
+  originalUndelimitedContent?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreMore = ContentBlock & {
+  __typename?: 'CoreMore'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreMoreAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreMoreAttributes = {
+  __typename?: 'CoreMoreAttributes'
+  /** The &quot;customText&quot; field on the &quot;CoreMore&quot; block */
+  customText?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreMore&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;noTeaser&quot; field on the &quot;CoreMore&quot; block */
+  noTeaser?: Maybe<Scalars['Boolean']>
+}
+
+/** A block used for editing the site */
+export type CoreNavigation = ContentBlock & {
+  __typename?: 'CoreNavigation'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreNavigationAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreNavigationAttributes = {
+  __typename?: 'CoreNavigationAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreNavigation&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreNavigation&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreNavigation&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;customBackgroundColor&quot; field on the &quot;CoreNavigation&quot; block */
+  customBackgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;customOverlayBackgroundColor&quot; field on the &quot;CoreNavigation&quot; block */
+  customOverlayBackgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;customOverlayTextColor&quot; field on the &quot;CoreNavigation&quot; block */
+  customOverlayTextColor?: Maybe<Scalars['String']>
+  /** The &quot;customTextColor&quot; field on the &quot;CoreNavigation&quot; block */
+  customTextColor?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreNavigation&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreNavigation&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;hasIcon&quot; field on the &quot;CoreNavigation&quot; block */
+  hasIcon?: Maybe<Scalars['Boolean']>
+  /** The &quot;icon&quot; field on the &quot;CoreNavigation&quot; block */
+  icon?: Maybe<Scalars['String']>
+  /** The &quot;layout&quot; field on the &quot;CoreNavigation&quot; block */
+  layout?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;lock&quot; field on the &quot;CoreNavigation&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;maxNestingLevel&quot; field on the &quot;CoreNavigation&quot; block */
+  maxNestingLevel?: Maybe<Scalars['Float']>
+  /** The &quot;openSubmenusOnClick&quot; field on the &quot;CoreNavigation&quot; block */
+  openSubmenusOnClick?: Maybe<Scalars['Boolean']>
+  /** The &quot;overlayBackgroundColor&quot; field on the &quot;CoreNavigation&quot; block */
+  overlayBackgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;overlayMenu&quot; field on the &quot;CoreNavigation&quot; block */
+  overlayMenu?: Maybe<Scalars['String']>
+  /** The &quot;overlayTextColor&quot; field on the &quot;CoreNavigation&quot; block */
+  overlayTextColor?: Maybe<Scalars['String']>
+  /** The &quot;ref&quot; field on the &quot;CoreNavigation&quot; block */
+  ref?: Maybe<Scalars['Float']>
+  /** The &quot;rgbBackgroundColor&quot; field on the &quot;CoreNavigation&quot; block */
+  rgbBackgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;rgbTextColor&quot; field on the &quot;CoreNavigation&quot; block */
+  rgbTextColor?: Maybe<Scalars['String']>
+  /** The &quot;showSubmenuIcon&quot; field on the &quot;CoreNavigation&quot; block */
+  showSubmenuIcon?: Maybe<Scalars['Boolean']>
+  /** The &quot;style&quot; field on the &quot;CoreNavigation&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CoreNavigation&quot; block */
+  textColor?: Maybe<Scalars['String']>
+  /** The &quot;__unstableLocation&quot; field on the &quot;CoreNavigation&quot; block */
+  unstableLocation?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreNavigationLink = ContentBlock & {
+  __typename?: 'CoreNavigationLink'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreNavigationLinkAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreNavigationLinkAttributes = {
+  __typename?: 'CoreNavigationLinkAttributes'
+  /** The &quot;className&quot; field on the &quot;CoreNavigationLink&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;description&quot; field on the &quot;CoreNavigationLink&quot; block */
+  description?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreNavigationLink&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreNavigationLink&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;id&quot; field on the &quot;CoreNavigationLink&quot; block */
+  id?: Maybe<Scalars['Float']>
+  /** The &quot;isTopLevelLink&quot; field on the &quot;CoreNavigationLink&quot; block */
+  isTopLevelLink?: Maybe<Scalars['Boolean']>
+  /** The &quot;kind&quot; field on the &quot;CoreNavigationLink&quot; block */
+  kind?: Maybe<Scalars['String']>
+  /** The &quot;label&quot; field on the &quot;CoreNavigationLink&quot; block */
+  label?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreNavigationLink&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;opensInNewTab&quot; field on the &quot;CoreNavigationLink&quot; block */
+  opensInNewTab?: Maybe<Scalars['Boolean']>
+  /** The &quot;rel&quot; field on the &quot;CoreNavigationLink&quot; block */
+  rel?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreNavigationLink&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;title&quot; field on the &quot;CoreNavigationLink&quot; block */
+  title?: Maybe<Scalars['String']>
+  /** The &quot;type&quot; field on the &quot;CoreNavigationLink&quot; block */
+  type?: Maybe<Scalars['String']>
+  /** The &quot;url&quot; field on the &quot;CoreNavigationLink&quot; block */
+  url?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreNavigationSubmenu = ContentBlock & {
+  __typename?: 'CoreNavigationSubmenu'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreNavigationSubmenuAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreNavigationSubmenuAttributes = {
+  __typename?: 'CoreNavigationSubmenuAttributes'
+  /** The &quot;className&quot; field on the &quot;CoreNavigationSubmenu&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;description&quot; field on the &quot;CoreNavigationSubmenu&quot; block */
+  description?: Maybe<Scalars['String']>
+  /** The &quot;id&quot; field on the &quot;CoreNavigationSubmenu&quot; block */
+  id?: Maybe<Scalars['Float']>
+  /** The &quot;isTopLevelItem&quot; field on the &quot;CoreNavigationSubmenu&quot; block */
+  isTopLevelItem?: Maybe<Scalars['Boolean']>
+  /** The &quot;kind&quot; field on the &quot;CoreNavigationSubmenu&quot; block */
+  kind?: Maybe<Scalars['String']>
+  /** The &quot;label&quot; field on the &quot;CoreNavigationSubmenu&quot; block */
+  label?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreNavigationSubmenu&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;opensInNewTab&quot; field on the &quot;CoreNavigationSubmenu&quot; block */
+  opensInNewTab?: Maybe<Scalars['Boolean']>
+  /** The &quot;rel&quot; field on the &quot;CoreNavigationSubmenu&quot; block */
+  rel?: Maybe<Scalars['String']>
+  /** The &quot;title&quot; field on the &quot;CoreNavigationSubmenu&quot; block */
+  title?: Maybe<Scalars['String']>
+  /** The &quot;type&quot; field on the &quot;CoreNavigationSubmenu&quot; block */
+  type?: Maybe<Scalars['String']>
+  /** The &quot;url&quot; field on the &quot;CoreNavigationSubmenu&quot; block */
+  url?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreNextpage = ContentBlock & {
+  __typename?: 'CoreNextpage'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreNextpageAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreNextpageAttributes = {
+  __typename?: 'CoreNextpageAttributes'
+  /** The &quot;lock&quot; field on the &quot;CoreNextpage&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CorePageList = ContentBlock & {
+  __typename?: 'CorePageList'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePageListAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePageListAttributes = {
+  __typename?: 'CorePageListAttributes'
+  /** The &quot;className&quot; field on the &quot;CorePageList&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CorePageList&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreParagraph = ContentBlock & {
+  __typename?: 'CoreParagraph'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreParagraphAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreParagraphAttributes = {
+  __typename?: 'CoreParagraphAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreParagraph&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreParagraph&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreParagraph&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;content&quot; field on the &quot;CoreParagraph&quot; block */
+  content?: Maybe<Scalars['String']>
+  /** The &quot;cssClassName&quot; field on the &quot;CoreParagraph&quot; block */
+  cssClassName?: Maybe<Scalars['String']>
+  /** The &quot;direction&quot; field on the &quot;CoreParagraph&quot; block */
+  direction?: Maybe<Scalars['String']>
+  /** The &quot;dropCap&quot; field on the &quot;CoreParagraph&quot; block */
+  dropCap?: Maybe<Scalars['Boolean']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreParagraph&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreParagraph&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreParagraph&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreParagraph&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;placeholder&quot; field on the &quot;CoreParagraph&quot; block */
+  placeholder?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreParagraph&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CoreParagraph&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CorePattern = ContentBlock & {
+  __typename?: 'CorePattern'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePatternAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePatternAttributes = {
+  __typename?: 'CorePatternAttributes'
+  /** The &quot;className&quot; field on the &quot;CorePattern&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CorePattern&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;slug&quot; field on the &quot;CorePattern&quot; block */
+  slug?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CorePostAuthor = ContentBlock & {
+  __typename?: 'CorePostAuthor'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePostAuthorAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePostAuthorAttributes = {
+  __typename?: 'CorePostAuthorAttributes'
+  /** The &quot;avatarSize&quot; field on the &quot;CorePostAuthor&quot; block */
+  avatarSize?: Maybe<Scalars['Float']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CorePostAuthor&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;byline&quot; field on the &quot;CorePostAuthor&quot; block */
+  byline?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePostAuthor&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CorePostAuthor&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CorePostAuthor&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CorePostAuthor&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CorePostAuthor&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;showAvatar&quot; field on the &quot;CorePostAuthor&quot; block */
+  showAvatar?: Maybe<Scalars['Boolean']>
+  /** The &quot;showBio&quot; field on the &quot;CorePostAuthor&quot; block */
+  showBio?: Maybe<Scalars['Boolean']>
+  /** The &quot;style&quot; field on the &quot;CorePostAuthor&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CorePostAuthor&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CorePostAuthor&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CorePostAuthorBiography = ContentBlock & {
+  __typename?: 'CorePostAuthorBiography'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePostAuthorBiographyAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePostAuthorBiographyAttributes = {
+  __typename?: 'CorePostAuthorBiographyAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CorePostAuthorBiography&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePostAuthorBiography&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CorePostAuthorBiography&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CorePostAuthorBiography&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CorePostAuthorBiography&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CorePostAuthorBiography&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CorePostAuthorBiography&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CorePostAuthorBiography&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CorePostAuthorBiography&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CorePostComments = ContentBlock & {
+  __typename?: 'CorePostComments'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePostCommentsAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePostCommentsAttributes = {
+  __typename?: 'CorePostCommentsAttributes'
+  /** The &quot;align&quot; field on the &quot;CorePostComments&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CorePostComments&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePostComments&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CorePostComments&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CorePostComments&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CorePostComments&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CorePostComments&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CorePostComments&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CorePostComments&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CorePostCommentsForm = ContentBlock & {
+  __typename?: 'CorePostCommentsForm'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePostCommentsFormAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePostCommentsFormAttributes = {
+  __typename?: 'CorePostCommentsFormAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CorePostCommentsForm&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePostCommentsForm&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CorePostCommentsForm&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CorePostCommentsForm&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CorePostCommentsForm&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CorePostCommentsForm&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CorePostCommentsForm&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CorePostCommentsForm&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CorePostContent = ContentBlock & {
+  __typename?: 'CorePostContent'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePostContentAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePostContentAttributes = {
+  __typename?: 'CorePostContentAttributes'
+  /** The &quot;align&quot; field on the &quot;CorePostContent&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePostContent&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CorePostContent&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CorePostContent&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;layout&quot; field on the &quot;CorePostContent&quot; block */
+  layout?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;lock&quot; field on the &quot;CorePostContent&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CorePostContent&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CorePostDate = ContentBlock & {
+  __typename?: 'CorePostDate'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePostDateAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePostDateAttributes = {
+  __typename?: 'CorePostDateAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CorePostDate&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePostDate&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;displayType&quot; field on the &quot;CorePostDate&quot; block */
+  displayType?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CorePostDate&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CorePostDate&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;format&quot; field on the &quot;CorePostDate&quot; block */
+  format?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CorePostDate&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;isLink&quot; field on the &quot;CorePostDate&quot; block */
+  isLink?: Maybe<Scalars['Boolean']>
+  /** The &quot;lock&quot; field on the &quot;CorePostDate&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CorePostDate&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CorePostDate&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CorePostDate&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CorePostExcerpt = ContentBlock & {
+  __typename?: 'CorePostExcerpt'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePostExcerptAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePostExcerptAttributes = {
+  __typename?: 'CorePostExcerptAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CorePostExcerpt&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePostExcerpt&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CorePostExcerpt&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CorePostExcerpt&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CorePostExcerpt&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CorePostExcerpt&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;moreText&quot; field on the &quot;CorePostExcerpt&quot; block */
+  moreText?: Maybe<Scalars['String']>
+  /** The &quot;showMoreOnNewLine&quot; field on the &quot;CorePostExcerpt&quot; block */
+  showMoreOnNewLine?: Maybe<Scalars['Boolean']>
+  /** The &quot;style&quot; field on the &quot;CorePostExcerpt&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CorePostExcerpt&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CorePostExcerpt&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CorePostFeaturedImage = ContentBlock & {
+  __typename?: 'CorePostFeaturedImage'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePostFeaturedImageAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePostFeaturedImageAttributes = {
+  __typename?: 'CorePostFeaturedImageAttributes'
+  /** The &quot;align&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;borderColor&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  borderColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;customGradient&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  customGradient?: Maybe<Scalars['String']>
+  /** The &quot;customOverlayColor&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  customOverlayColor?: Maybe<Scalars['String']>
+  /** The &quot;dimRatio&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  dimRatio?: Maybe<Scalars['Float']>
+  /** The &quot;gradient&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;height&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  height?: Maybe<Scalars['String']>
+  /** The &quot;isLink&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  isLink?: Maybe<Scalars['Boolean']>
+  /** The &quot;linkTarget&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  linkTarget?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;overlayColor&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  overlayColor?: Maybe<Scalars['String']>
+  /** The &quot;rel&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  rel?: Maybe<Scalars['String']>
+  /** The &quot;scale&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  scale?: Maybe<Scalars['String']>
+  /** The &quot;sizeSlug&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  sizeSlug?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;width&quot; field on the &quot;CorePostFeaturedImage&quot; block */
+  width?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CorePostNavigationLink = ContentBlock & {
+  __typename?: 'CorePostNavigationLink'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePostNavigationLinkAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePostNavigationLinkAttributes = {
+  __typename?: 'CorePostNavigationLinkAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CorePostNavigationLink&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePostNavigationLink&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CorePostNavigationLink&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CorePostNavigationLink&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;label&quot; field on the &quot;CorePostNavigationLink&quot; block */
+  label?: Maybe<Scalars['String']>
+  /** The &quot;linkLabel&quot; field on the &quot;CorePostNavigationLink&quot; block */
+  linkLabel?: Maybe<Scalars['Boolean']>
+  /** The &quot;lock&quot; field on the &quot;CorePostNavigationLink&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;showTitle&quot; field on the &quot;CorePostNavigationLink&quot; block */
+  showTitle?: Maybe<Scalars['Boolean']>
+  /** The &quot;style&quot; field on the &quot;CorePostNavigationLink&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CorePostNavigationLink&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CorePostNavigationLink&quot; block */
+  textColor?: Maybe<Scalars['String']>
+  /** The &quot;type&quot; field on the &quot;CorePostNavigationLink&quot; block */
+  type?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CorePostTemplate = ContentBlock & {
+  __typename?: 'CorePostTemplate'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePostTemplateAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePostTemplateAttributes = {
+  __typename?: 'CorePostTemplateAttributes'
+  /** The &quot;align&quot; field on the &quot;CorePostTemplate&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePostTemplate&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CorePostTemplate&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CorePostTemplate&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;layout&quot; field on the &quot;CorePostTemplate&quot; block */
+  layout?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;lock&quot; field on the &quot;CorePostTemplate&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CorePostTemplate&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CorePostTerms = ContentBlock & {
+  __typename?: 'CorePostTerms'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePostTermsAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePostTermsAttributes = {
+  __typename?: 'CorePostTermsAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CorePostTerms&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePostTerms&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CorePostTerms&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CorePostTerms&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CorePostTerms&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CorePostTerms&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;prefix&quot; field on the &quot;CorePostTerms&quot; block */
+  prefix?: Maybe<Scalars['String']>
+  /** The &quot;separator&quot; field on the &quot;CorePostTerms&quot; block */
+  separator?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CorePostTerms&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;suffix&quot; field on the &quot;CorePostTerms&quot; block */
+  suffix?: Maybe<Scalars['String']>
+  /** The &quot;term&quot; field on the &quot;CorePostTerms&quot; block */
+  term?: Maybe<Scalars['String']>
+  /** The &quot;textAlign&quot; field on the &quot;CorePostTerms&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CorePostTerms&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CorePostTitle = ContentBlock & {
+  __typename?: 'CorePostTitle'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePostTitleAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePostTitleAttributes = {
+  __typename?: 'CorePostTitleAttributes'
+  /** The &quot;align&quot; field on the &quot;CorePostTitle&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CorePostTitle&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePostTitle&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CorePostTitle&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CorePostTitle&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CorePostTitle&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;isLink&quot; field on the &quot;CorePostTitle&quot; block */
+  isLink?: Maybe<Scalars['Boolean']>
+  /** The &quot;level&quot; field on the &quot;CorePostTitle&quot; block */
+  level?: Maybe<Scalars['Float']>
+  /** The &quot;linkTarget&quot; field on the &quot;CorePostTitle&quot; block */
+  linkTarget?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CorePostTitle&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;rel&quot; field on the &quot;CorePostTitle&quot; block */
+  rel?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CorePostTitle&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CorePostTitle&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CorePostTitle&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CorePreformatted = ContentBlock & {
+  __typename?: 'CorePreformatted'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePreformattedAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePreformattedAttributes = {
+  __typename?: 'CorePreformattedAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CorePreformatted&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePreformatted&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;content&quot; field on the &quot;CorePreformatted&quot; block */
+  content?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CorePreformatted&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CorePreformatted&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CorePreformatted&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CorePreformatted&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CorePreformatted&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CorePreformatted&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CorePullquote = ContentBlock & {
+  __typename?: 'CorePullquote'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CorePullquoteAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CorePullquoteAttributes = {
+  __typename?: 'CorePullquoteAttributes'
+  /** The &quot;align&quot; field on the &quot;CorePullquote&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CorePullquote&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;borderColor&quot; field on the &quot;CorePullquote&quot; block */
+  borderColor?: Maybe<Scalars['String']>
+  /** The &quot;citation&quot; field on the &quot;CorePullquote&quot; block */
+  citation?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CorePullquote&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CorePullquote&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CorePullquote&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CorePullquote&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CorePullquote&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CorePullquote&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CorePullquote&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CorePullquote&quot; block */
+  textColor?: Maybe<Scalars['String']>
+  /** The &quot;value&quot; field on the &quot;CorePullquote&quot; block */
+  value?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreQuery = ContentBlock & {
+  __typename?: 'CoreQuery'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreQueryAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreQueryAttributes = {
+  __typename?: 'CoreQueryAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreQuery&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreQuery&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreQuery&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;displayLayout&quot; field on the &quot;CoreQuery&quot; block */
+  displayLayout?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;gradient&quot; field on the &quot;CoreQuery&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;layout&quot; field on the &quot;CoreQuery&quot; block */
+  layout?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;lock&quot; field on the &quot;CoreQuery&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;namespace&quot; field on the &quot;CoreQuery&quot; block */
+  namespace?: Maybe<Scalars['String']>
+  /** The &quot;query&quot; field on the &quot;CoreQuery&quot; block */
+  query?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;queryId&quot; field on the &quot;CoreQuery&quot; block */
+  queryId?: Maybe<Scalars['Float']>
+  /** The &quot;style&quot; field on the &quot;CoreQuery&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;tagName&quot; field on the &quot;CoreQuery&quot; block */
+  tagName?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreQuery&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreQueryNoResults = ContentBlock & {
+  __typename?: 'CoreQueryNoResults'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreQueryNoResultsAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreQueryNoResultsAttributes = {
+  __typename?: 'CoreQueryNoResultsAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreQueryNoResults&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreQueryNoResults&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreQueryNoResults&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreQueryNoResults&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreQueryNoResults&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreQueryNoResults&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreQueryNoResults&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreQueryNoResults&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CoreQueryNoResults&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreQueryPagination = ContentBlock & {
+  __typename?: 'CoreQueryPagination'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreQueryPaginationAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreQueryPaginationAttributes = {
+  __typename?: 'CoreQueryPaginationAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreQueryPagination&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreQueryPagination&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreQueryPagination&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreQueryPagination&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreQueryPagination&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreQueryPagination&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;layout&quot; field on the &quot;CoreQueryPagination&quot; block */
+  layout?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;lock&quot; field on the &quot;CoreQueryPagination&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;paginationArrow&quot; field on the &quot;CoreQueryPagination&quot; block */
+  paginationArrow?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreQueryPagination&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CoreQueryPagination&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreQueryPaginationNext = ContentBlock & {
+  __typename?: 'CoreQueryPaginationNext'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreQueryPaginationNextAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreQueryPaginationNextAttributes = {
+  __typename?: 'CoreQueryPaginationNextAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreQueryPaginationNext&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreQueryPaginationNext&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreQueryPaginationNext&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreQueryPaginationNext&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreQueryPaginationNext&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;label&quot; field on the &quot;CoreQueryPaginationNext&quot; block */
+  label?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreQueryPaginationNext&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreQueryPaginationNext&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreQueryPaginationNumbers = ContentBlock & {
+  __typename?: 'CoreQueryPaginationNumbers'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreQueryPaginationNumbersAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreQueryPaginationNumbersAttributes = {
+  __typename?: 'CoreQueryPaginationNumbersAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreQueryPaginationNumbers&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreQueryPaginationNumbers&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreQueryPaginationNumbers&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreQueryPaginationNumbers&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreQueryPaginationNumbers&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreQueryPaginationNumbers&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreQueryPaginationNumbers&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreQueryPaginationPrevious = ContentBlock & {
+  __typename?: 'CoreQueryPaginationPrevious'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreQueryPaginationPreviousAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreQueryPaginationPreviousAttributes = {
+  __typename?: 'CoreQueryPaginationPreviousAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreQueryPaginationPrevious&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreQueryPaginationPrevious&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreQueryPaginationPrevious&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreQueryPaginationPrevious&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreQueryPaginationPrevious&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;label&quot; field on the &quot;CoreQueryPaginationPrevious&quot; block */
+  label?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreQueryPaginationPrevious&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreQueryPaginationPrevious&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreQueryTitle = ContentBlock & {
+  __typename?: 'CoreQueryTitle'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreQueryTitleAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreQueryTitleAttributes = {
+  __typename?: 'CoreQueryTitleAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreQueryTitle&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreQueryTitle&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreQueryTitle&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreQueryTitle&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreQueryTitle&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreQueryTitle&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;level&quot; field on the &quot;CoreQueryTitle&quot; block */
+  level?: Maybe<Scalars['Float']>
+  /** The &quot;lock&quot; field on the &quot;CoreQueryTitle&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;showPrefix&quot; field on the &quot;CoreQueryTitle&quot; block */
+  showPrefix?: Maybe<Scalars['Boolean']>
+  /** The &quot;showSearchTerm&quot; field on the &quot;CoreQueryTitle&quot; block */
+  showSearchTerm?: Maybe<Scalars['Boolean']>
+  /** The &quot;style&quot; field on the &quot;CoreQueryTitle&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CoreQueryTitle&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreQueryTitle&quot; block */
+  textColor?: Maybe<Scalars['String']>
+  /** The &quot;type&quot; field on the &quot;CoreQueryTitle&quot; block */
+  type?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreQuote = ContentBlock & {
+  __typename?: 'CoreQuote'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreQuoteAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreQuoteAttributes = {
+  __typename?: 'CoreQuoteAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreQuote&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreQuote&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;citation&quot; field on the &quot;CoreQuote&quot; block */
+  citation?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreQuote&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreQuote&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreQuote&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreQuote&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreQuote&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreQuote&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CoreQuote&quot; block */
+  textColor?: Maybe<Scalars['String']>
+  /** The &quot;value&quot; field on the &quot;CoreQuote&quot; block */
+  value?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreReadMore = ContentBlock & {
+  __typename?: 'CoreReadMore'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreReadMoreAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreReadMoreAttributes = {
+  __typename?: 'CoreReadMoreAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreReadMore&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;borderColor&quot; field on the &quot;CoreReadMore&quot; block */
+  borderColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreReadMore&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;content&quot; field on the &quot;CoreReadMore&quot; block */
+  content?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreReadMore&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreReadMore&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreReadMore&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;linkTarget&quot; field on the &quot;CoreReadMore&quot; block */
+  linkTarget?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreReadMore&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreReadMore&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CoreReadMore&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreRss = ContentBlock & {
+  __typename?: 'CoreRss'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreRssAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreRssAttributes = {
+  __typename?: 'CoreRssAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreRss&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;blockLayout&quot; field on the &quot;CoreRss&quot; block */
+  blockLayout?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreRss&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;columns&quot; field on the &quot;CoreRss&quot; block */
+  columns?: Maybe<Scalars['Float']>
+  /** The &quot;displayAuthor&quot; field on the &quot;CoreRss&quot; block */
+  displayAuthor?: Maybe<Scalars['Boolean']>
+  /** The &quot;displayDate&quot; field on the &quot;CoreRss&quot; block */
+  displayDate?: Maybe<Scalars['Boolean']>
+  /** The &quot;displayExcerpt&quot; field on the &quot;CoreRss&quot; block */
+  displayExcerpt?: Maybe<Scalars['Boolean']>
+  /** The &quot;excerptLength&quot; field on the &quot;CoreRss&quot; block */
+  excerptLength?: Maybe<Scalars['Float']>
+  /** The &quot;feedURL&quot; field on the &quot;CoreRss&quot; block */
+  feedURL?: Maybe<Scalars['String']>
+  /** The &quot;itemsToShow&quot; field on the &quot;CoreRss&quot; block */
+  itemsToShow?: Maybe<Scalars['Float']>
+  /** The &quot;lock&quot; field on the &quot;CoreRss&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreSearch = ContentBlock & {
+  __typename?: 'CoreSearch'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreSearchAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreSearchAttributes = {
+  __typename?: 'CoreSearchAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreSearch&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreSearch&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;borderColor&quot; field on the &quot;CoreSearch&quot; block */
+  borderColor?: Maybe<Scalars['String']>
+  /** The &quot;buttonPosition&quot; field on the &quot;CoreSearch&quot; block */
+  buttonPosition?: Maybe<Scalars['String']>
+  /** The &quot;buttonText&quot; field on the &quot;CoreSearch&quot; block */
+  buttonText?: Maybe<Scalars['String']>
+  /** The &quot;buttonUseIcon&quot; field on the &quot;CoreSearch&quot; block */
+  buttonUseIcon?: Maybe<Scalars['Boolean']>
+  /** The &quot;className&quot; field on the &quot;CoreSearch&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreSearch&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreSearch&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreSearch&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;label&quot; field on the &quot;CoreSearch&quot; block */
+  label?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreSearch&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;placeholder&quot; field on the &quot;CoreSearch&quot; block */
+  placeholder?: Maybe<Scalars['String']>
+  /** The &quot;query&quot; field on the &quot;CoreSearch&quot; block */
+  query?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;showLabel&quot; field on the &quot;CoreSearch&quot; block */
+  showLabel?: Maybe<Scalars['Boolean']>
+  /** The &quot;style&quot; field on the &quot;CoreSearch&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CoreSearch&quot; block */
+  textColor?: Maybe<Scalars['String']>
+  /** The &quot;width&quot; field on the &quot;CoreSearch&quot; block */
+  width?: Maybe<Scalars['Float']>
+  /** The &quot;widthUnit&quot; field on the &quot;CoreSearch&quot; block */
+  widthUnit?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreSeparator = ContentBlock & {
+  __typename?: 'CoreSeparator'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreSeparatorAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreSeparatorAttributes = {
+  __typename?: 'CoreSeparatorAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreSeparator&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreSeparator&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreSeparator&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreSeparator&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreSeparator&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;opacity&quot; field on the &quot;CoreSeparator&quot; block */
+  opacity?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreSeparator&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreShortcode = ContentBlock & {
+  __typename?: 'CoreShortcode'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreShortcodeAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreShortcodeAttributes = {
+  __typename?: 'CoreShortcodeAttributes'
+  /** The &quot;lock&quot; field on the &quot;CoreShortcode&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;text&quot; field on the &quot;CoreShortcode&quot; block */
+  text?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreSiteLogo = ContentBlock & {
+  __typename?: 'CoreSiteLogo'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreSiteLogoAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreSiteLogoAttributes = {
+  __typename?: 'CoreSiteLogoAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreSiteLogo&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreSiteLogo&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;isLink&quot; field on the &quot;CoreSiteLogo&quot; block */
+  isLink?: Maybe<Scalars['Boolean']>
+  /** The &quot;linkTarget&quot; field on the &quot;CoreSiteLogo&quot; block */
+  linkTarget?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreSiteLogo&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;shouldSyncIcon&quot; field on the &quot;CoreSiteLogo&quot; block */
+  shouldSyncIcon?: Maybe<Scalars['Boolean']>
+  /** The &quot;style&quot; field on the &quot;CoreSiteLogo&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;width&quot; field on the &quot;CoreSiteLogo&quot; block */
+  width?: Maybe<Scalars['Float']>
+}
+
+/** A block used for editing the site */
+export type CoreSiteTagline = ContentBlock & {
+  __typename?: 'CoreSiteTagline'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreSiteTaglineAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreSiteTaglineAttributes = {
+  __typename?: 'CoreSiteTaglineAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreSiteTagline&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreSiteTagline&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreSiteTagline&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreSiteTagline&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreSiteTagline&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreSiteTagline&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreSiteTagline&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreSiteTagline&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CoreSiteTagline&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreSiteTagline&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreSiteTitle = ContentBlock & {
+  __typename?: 'CoreSiteTitle'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreSiteTitleAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreSiteTitleAttributes = {
+  __typename?: 'CoreSiteTitleAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreSiteTitle&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreSiteTitle&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreSiteTitle&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreSiteTitle&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreSiteTitle&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreSiteTitle&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;isLink&quot; field on the &quot;CoreSiteTitle&quot; block */
+  isLink?: Maybe<Scalars['Boolean']>
+  /** The &quot;level&quot; field on the &quot;CoreSiteTitle&quot; block */
+  level?: Maybe<Scalars['Float']>
+  /** The &quot;linkTarget&quot; field on the &quot;CoreSiteTitle&quot; block */
+  linkTarget?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreSiteTitle&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreSiteTitle&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CoreSiteTitle&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreSiteTitle&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreSocialLink = ContentBlock & {
+  __typename?: 'CoreSocialLink'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreSocialLinkAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreSocialLinkAttributes = {
+  __typename?: 'CoreSocialLinkAttributes'
+  /** The &quot;className&quot; field on the &quot;CoreSocialLink&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;label&quot; field on the &quot;CoreSocialLink&quot; block */
+  label?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreSocialLink&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;service&quot; field on the &quot;CoreSocialLink&quot; block */
+  service?: Maybe<Scalars['String']>
+  /** The &quot;url&quot; field on the &quot;CoreSocialLink&quot; block */
+  url?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreSocialLinks = ContentBlock & {
+  __typename?: 'CoreSocialLinks'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreSocialLinksAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreSocialLinksAttributes = {
+  __typename?: 'CoreSocialLinksAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreSocialLinks&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreSocialLinks&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreSocialLinks&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;customIconBackgroundColor&quot; field on the &quot;CoreSocialLinks&quot; block */
+  customIconBackgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;customIconColor&quot; field on the &quot;CoreSocialLinks&quot; block */
+  customIconColor?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreSocialLinks&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;iconBackgroundColor&quot; field on the &quot;CoreSocialLinks&quot; block */
+  iconBackgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;iconBackgroundColorValue&quot; field on the &quot;CoreSocialLinks&quot; block */
+  iconBackgroundColorValue?: Maybe<Scalars['String']>
+  /** The &quot;iconColor&quot; field on the &quot;CoreSocialLinks&quot; block */
+  iconColor?: Maybe<Scalars['String']>
+  /** The &quot;iconColorValue&quot; field on the &quot;CoreSocialLinks&quot; block */
+  iconColorValue?: Maybe<Scalars['String']>
+  /** The &quot;layout&quot; field on the &quot;CoreSocialLinks&quot; block */
+  layout?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;lock&quot; field on the &quot;CoreSocialLinks&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;openInNewTab&quot; field on the &quot;CoreSocialLinks&quot; block */
+  openInNewTab?: Maybe<Scalars['Boolean']>
+  /** The &quot;showLabels&quot; field on the &quot;CoreSocialLinks&quot; block */
+  showLabels?: Maybe<Scalars['Boolean']>
+  /** The &quot;size&quot; field on the &quot;CoreSocialLinks&quot; block */
+  size?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreSocialLinks&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreSpacer = ContentBlock & {
+  __typename?: 'CoreSpacer'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreSpacerAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreSpacerAttributes = {
+  __typename?: 'CoreSpacerAttributes'
+  /** The &quot;className&quot; field on the &quot;CoreSpacer&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;height&quot; field on the &quot;CoreSpacer&quot; block */
+  height?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreSpacer&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreSpacer&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;width&quot; field on the &quot;CoreSpacer&quot; block */
+  width?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreTable = ContentBlock & {
+  __typename?: 'CoreTable'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreTableAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreTableAttributes = {
+  __typename?: 'CoreTableAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreTable&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreTable&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;borderColor&quot; field on the &quot;CoreTable&quot; block */
+  borderColor?: Maybe<Scalars['String']>
+  /** The &quot;caption&quot; field on the &quot;CoreTable&quot; block */
+  caption?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreTable&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreTable&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreTable&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreTable&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;hasFixedLayout&quot; field on the &quot;CoreTable&quot; block */
+  hasFixedLayout?: Maybe<Scalars['Boolean']>
+  /** The &quot;lock&quot; field on the &quot;CoreTable&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreTable&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textColor&quot; field on the &quot;CoreTable&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreTagCloud = ContentBlock & {
+  __typename?: 'CoreTagCloud'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreTagCloudAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreTagCloudAttributes = {
+  __typename?: 'CoreTagCloudAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreTagCloud&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreTagCloud&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;largestFontSize&quot; field on the &quot;CoreTagCloud&quot; block */
+  largestFontSize?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreTagCloud&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;numberOfTags&quot; field on the &quot;CoreTagCloud&quot; block */
+  numberOfTags?: Maybe<Scalars['Float']>
+  /** The &quot;showTagCounts&quot; field on the &quot;CoreTagCloud&quot; block */
+  showTagCounts?: Maybe<Scalars['Boolean']>
+  /** The &quot;smallestFontSize&quot; field on the &quot;CoreTagCloud&quot; block */
+  smallestFontSize?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreTagCloud&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;taxonomy&quot; field on the &quot;CoreTagCloud&quot; block */
+  taxonomy?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreTemplatePart = ContentBlock & {
+  __typename?: 'CoreTemplatePart'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreTemplatePartAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreTemplatePartAttributes = {
+  __typename?: 'CoreTemplatePartAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreTemplatePart&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;area&quot; field on the &quot;CoreTemplatePart&quot; block */
+  area?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreTemplatePart&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreTemplatePart&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;slug&quot; field on the &quot;CoreTemplatePart&quot; block */
+  slug?: Maybe<Scalars['String']>
+  /** The &quot;tagName&quot; field on the &quot;CoreTemplatePart&quot; block */
+  tagName?: Maybe<Scalars['String']>
+  /** The &quot;theme&quot; field on the &quot;CoreTemplatePart&quot; block */
+  theme?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreTermDescription = ContentBlock & {
+  __typename?: 'CoreTermDescription'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreTermDescriptionAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreTermDescriptionAttributes = {
+  __typename?: 'CoreTermDescriptionAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreTermDescription&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreTermDescription&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreTermDescription&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreTermDescription&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreTermDescription&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreTermDescription&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreTermDescription&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CoreTermDescription&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreTermDescription&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreTextColumns = ContentBlock & {
+  __typename?: 'CoreTextColumns'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreTextColumnsAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreTextColumnsAttributes = {
+  __typename?: 'CoreTextColumnsAttributes'
+  /** The &quot;className&quot; field on the &quot;CoreTextColumns&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;columns&quot; field on the &quot;CoreTextColumns&quot; block */
+  columns?: Maybe<Scalars['Float']>
+  /** The &quot;lock&quot; field on the &quot;CoreTextColumns&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;width&quot; field on the &quot;CoreTextColumns&quot; block */
+  width?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreVerse = ContentBlock & {
+  __typename?: 'CoreVerse'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreVerseAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreVerseAttributes = {
+  __typename?: 'CoreVerseAttributes'
+  /** The &quot;backgroundColor&quot; field on the &quot;CoreVerse&quot; block */
+  backgroundColor?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreVerse&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;content&quot; field on the &quot;CoreVerse&quot; block */
+  content?: Maybe<Scalars['String']>
+  /** The &quot;fontFamily&quot; field on the &quot;CoreVerse&quot; block */
+  fontFamily?: Maybe<Scalars['String']>
+  /** The &quot;fontSize&quot; field on the &quot;CoreVerse&quot; block */
+  fontSize?: Maybe<Scalars['String']>
+  /** The &quot;gradient&quot; field on the &quot;CoreVerse&quot; block */
+  gradient?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreVerse&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;style&quot; field on the &quot;CoreVerse&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;textAlign&quot; field on the &quot;CoreVerse&quot; block */
+  textAlign?: Maybe<Scalars['String']>
+  /** The &quot;textColor&quot; field on the &quot;CoreVerse&quot; block */
+  textColor?: Maybe<Scalars['String']>
+}
+
+/** A block used for editing the site */
+export type CoreVideo = ContentBlock & {
+  __typename?: 'CoreVideo'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreVideoAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreVideoAttributes = {
+  __typename?: 'CoreVideoAttributes'
+  /** The &quot;align&quot; field on the &quot;CoreVideo&quot; block */
+  align?: Maybe<Scalars['String']>
+  /** The &quot;autoplay&quot; field on the &quot;CoreVideo&quot; block */
+  autoplay?: Maybe<Scalars['Boolean']>
+  /** The &quot;caption&quot; field on the &quot;CoreVideo&quot; block */
+  caption?: Maybe<Scalars['String']>
+  /** The &quot;className&quot; field on the &quot;CoreVideo&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;controls&quot; field on the &quot;CoreVideo&quot; block */
+  controls?: Maybe<Scalars['Boolean']>
+  /** The &quot;id&quot; field on the &quot;CoreVideo&quot; block */
+  id?: Maybe<Scalars['Float']>
+  /** The &quot;lock&quot; field on the &quot;CoreVideo&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;loop&quot; field on the &quot;CoreVideo&quot; block */
+  loop?: Maybe<Scalars['Boolean']>
+  /** The &quot;muted&quot; field on the &quot;CoreVideo&quot; block */
+  muted?: Maybe<Scalars['Boolean']>
+  /** The &quot;playsInline&quot; field on the &quot;CoreVideo&quot; block */
+  playsInline?: Maybe<Scalars['Boolean']>
+  /** The &quot;poster&quot; field on the &quot;CoreVideo&quot; block */
+  poster?: Maybe<Scalars['String']>
+  /** The &quot;preload&quot; field on the &quot;CoreVideo&quot; block */
+  preload?: Maybe<Scalars['String']>
+  /** The &quot;src&quot; field on the &quot;CoreVideo&quot; block */
+  src?: Maybe<Scalars['String']>
+  /** The &quot;style&quot; field on the &quot;CoreVideo&quot; block */
+  style?: Maybe<Scalars['BlockAttributesObject']>
+}
+
+/** A block used for editing the site */
+export type CoreWidgetGroup = ContentBlock & {
+  __typename?: 'CoreWidgetGroup'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** Attributes of the %s Block Type */
+  attributes?: Maybe<CoreWidgetGroupAttributes>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
+/** Attributes of the %s Block Type */
+export type CoreWidgetGroupAttributes = {
+  __typename?: 'CoreWidgetGroupAttributes'
+  /** The &quot;className&quot; field on the &quot;CoreWidgetGroup&quot; block */
+  className?: Maybe<Scalars['String']>
+  /** The &quot;lock&quot; field on the &quot;CoreWidgetGroup&quot; block */
+  lock?: Maybe<Scalars['BlockAttributesObject']>
+  /** The &quot;title&quot; field on the &quot;CoreWidgetGroup&quot; block */
+  title?: Maybe<Scalars['String']>
+}
+
 /** Input for the createCategory mutation. */
 export type CreateCategoryInput = {
   /** The slug that the category will be an alias of */
@@ -1662,13 +6199,6 @@ export type CreateUserPayload = {
   clientMutationId?: Maybe<Scalars['String']>
   /** The User object mutation type. */
   user?: Maybe<User>
-}
-
-/** The template assigned to the node */
-export type CustomTemplate = ContentTemplate & {
-  __typename?: 'CustomTemplate'
-  /** The name of the template */
-  templateName?: Maybe<Scalars['String']>
 }
 
 /** Object that can be identified with a Database ID */
@@ -2633,30 +7163,12 @@ export type MediaItemMeta = {
 
 /** The size of the media item object. */
 export enum MediaItemSizeEnum {
-  /** MediaItem with the fullscreen size */
-  Fullscreen = 'FULLSCREEN',
-  /** MediaItem with the fullscreen-large size */
-  FullscreenLarge = 'FULLSCREEN_LARGE',
-  /** MediaItem with the fullscreen-small size */
-  FullscreenSmall = 'FULLSCREEN_SMALL',
-  /** MediaItem with the fullscreen-xlarge size */
-  FullscreenXlarge = 'FULLSCREEN_XLARGE',
   /** MediaItem with the large size */
   Large = 'LARGE',
-  /** MediaItem with the large-preview size */
-  LargePreview = 'LARGE_PREVIEW',
   /** MediaItem with the medium size */
   Medium = 'MEDIUM',
   /** MediaItem with the medium_large size */
   MediumLarge = 'MEDIUM_LARGE',
-  /** MediaItem with the medium-preview size */
-  MediumPreview = 'MEDIUM_PREVIEW',
-  /** MediaItem with the post-thumbnail size */
-  PostThumbnail = 'POST_THUMBNAIL',
-  /** MediaItem with the small-preview size */
-  SmallPreview = 'SMALL_PREVIEW',
-  /** MediaItem with the social-preview size */
-  SocialPreview = 'SOCIAL_PREVIEW',
   /** MediaItem with the thumbnail size */
   Thumbnail = 'THUMBNAIL',
   /** MediaItem with the 1536x1536 size */
@@ -3280,6 +7792,17 @@ export type NodeWithComments = {
   id: Scalars['ID']
 }
 
+/** Node that has content blocks associated with it */
+export type NodeWithContentBlocks = {
+  /** List of content blocks */
+  contentBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+}
+
+/** Node that has content blocks associated with it */
+export type NodeWithContentBlocksContentBlocksArgs = {
+  flat?: InputMaybe<Scalars['Boolean']>
+}
+
 /** A node that supports the content editor */
 export type NodeWithContentEditor = {
   /** The content of the post. */
@@ -3417,6 +7940,7 @@ export type Page = ContentNode &
   Node &
   NodeWithAuthor &
   NodeWithComments &
+  NodeWithContentBlocks &
   NodeWithContentEditor &
   NodeWithExcerpt &
   NodeWithFeaturedImage &
@@ -3447,6 +7971,8 @@ export type Page = ContentNode &
     conditionalTags?: Maybe<ConditionalTags>
     /** The content of the post. */
     content?: Maybe<Scalars['String']>
+    /** List of content blocks */
+    contentBlocks?: Maybe<Array<Maybe<ContentBlock>>>
     /** Connection between the ContentNode type and the ContentType type */
     contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
     /** The name of the Content Type the node belongs to */
@@ -3573,6 +8099,11 @@ export type PageCommentsArgs = {
 /** The page type */
 export type PageContentArgs = {
   format?: InputMaybe<PostObjectFieldFormatEnum>
+}
+
+/** The page type */
+export type PageContentBlocksArgs = {
+  flat?: InputMaybe<Scalars['Boolean']>
 }
 
 /** The page type */
@@ -4051,6 +8582,7 @@ export type Post = ContentNode &
   Node &
   NodeWithAuthor &
   NodeWithComments &
+  NodeWithContentBlocks &
   NodeWithContentEditor &
   NodeWithExcerpt &
   NodeWithFeaturedImage &
@@ -4079,6 +8611,8 @@ export type Post = ContentNode &
     conditionalTags?: Maybe<ConditionalTags>
     /** The content of the post. */
     content?: Maybe<Scalars['String']>
+    /** List of content blocks */
+    contentBlocks?: Maybe<Array<Maybe<ContentBlock>>>
     /** Connection between the ContentNode type and the ContentType type */
     contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
     /** The name of the Content Type the node belongs to */
@@ -4192,6 +8726,11 @@ export type PostCommentsArgs = {
 /** The post type */
 export type PostContentArgs = {
   format?: InputMaybe<PostObjectFieldFormatEnum>
+}
+
+/** The post type */
+export type PostContentBlocksArgs = {
+  flat?: InputMaybe<Scalars['Boolean']>
 }
 
 /** The post type */
@@ -7522,6 +12061,20 @@ export type TaxonomyToContentTypeConnectionEdge = ContentTypeConnectionEdge &
     node: ContentType
   }
 
+/** The template assigned to the node */
+export type Template_Blank = ContentTemplate & {
+  __typename?: 'Template_Blank'
+  /** The name of the template */
+  templateName?: Maybe<Scalars['String']>
+}
+
+/** The template assigned to the node */
+export type Template_BlogAlternative = ContentTemplate & {
+  __typename?: 'Template_BlogAlternative'
+  /** The name of the template */
+  templateName?: Maybe<Scalars['String']>
+}
+
 /** Terms are nodes within a Taxonomy, used to group and relate other nodes. */
 export type TermNode = {
   /** @deprecated Deprecated in favor of using Next.js pages */
@@ -7725,6 +12278,29 @@ export type UniformResourceIdentifiable = {
   templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
+}
+
+/** A block used for resolving blocks not found in the WordPress registry */
+export type UnknownBlock = ContentBlock & {
+  __typename?: 'UnknownBlock'
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
 }
 
 /** Input for the updateCategory mutation. */
@@ -8312,6 +12888,8 @@ export enum UserRoleEnum {
   /** User role with specific capabilities */
   Editor = 'EDITOR',
   /** User role with specific capabilities */
+  SiteAdministrator = 'SITE_ADMINISTRATOR',
+  /** User role with specific capabilities */
   Subscriber = 'SUBSCRIBER',
 }
 
@@ -8829,6 +13407,20 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars['Boolean']>
 }
 
+export type FeaturedImageFieldsFragment = {
+  __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'
+  node: {
+    __typename?: 'MediaItem'
+    altText?: string | null
+    sourceUrl?: string | null
+    mediaDetails?: {
+      __typename?: 'MediaDetails'
+      height?: number | null
+      width?: number | null
+    } | null
+  }
+} & {' $fragmentName'?: 'FeaturedImageFieldsFragment'}
+
 export type SettingsFragment = {
   __typename?: 'GeneralSettings'
   dateFormat?: string | null
@@ -8838,6 +13430,119 @@ export type SettingsFragment = {
   title?: string | null
 } & {' $fragmentName'?: 'SettingsFragment'}
 
+export type AllPagesPathsQueryVariables = Exact<{[key: string]: never}>
+
+export type AllPagesPathsQuery = {
+  __typename?: 'RootQuery'
+  pages?: {
+    __typename?: 'RootQueryToPageConnection'
+    edges: Array<{
+      __typename?: 'RootQueryToPageConnectionEdge'
+      node: {__typename?: 'Page'; uri?: string | null}
+    }>
+  } | null
+}
+
+export type SinglePageQueryVariables = Exact<{
+  uri: Scalars['ID']
+}>
+
+export type SinglePageQuery = {
+  __typename?: 'RootQuery'
+  page?: {
+    __typename?: 'Page'
+    title?: string | null
+    content?: string | null
+    databaseId: number
+    uri?: string | null
+  } | null
+}
+
+export type AboutPageQueryVariables = Exact<{[key: string]: never}>
+
+export type AboutPageQuery = {
+  __typename?: 'RootQuery'
+  contentNode?:
+    | {
+        __typename: 'MediaItem'
+        id: string
+        uri?: string | null
+        dateGmt?: string | null
+        modifiedGmt?: string | null
+        slug?: string | null
+      }
+    | {
+        __typename: 'Page'
+        id: string
+        uri?: string | null
+        dateGmt?: string | null
+        modifiedGmt?: string | null
+        slug?: string | null
+      }
+    | {
+        __typename: 'Post'
+        id: string
+        uri?: string | null
+        dateGmt?: string | null
+        modifiedGmt?: string | null
+        slug?: string | null
+      }
+    | null
+}
+
+export const FeaturedImageFieldsFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'FeaturedImageFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {
+          kind: 'Name',
+          value: 'NodeWithFeaturedImageToMediaItemConnectionEdge',
+        },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'node'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'sourceUrl'},
+                  arguments: [
+                    {
+                      kind: 'Argument',
+                      name: {kind: 'Name', value: 'size'},
+                      value: {kind: 'EnumValue', value: 'LARGE'},
+                    },
+                  ],
+                },
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'mediaDetails'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {kind: 'Field', name: {kind: 'Name', value: 'height'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'width'}},
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<FeaturedImageFieldsFragment, unknown>
 export const SettingsFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -8861,3 +13566,138 @@ export const SettingsFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<SettingsFragment, unknown>
+export const AllPagesPathsDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: {kind: 'Name', value: 'AllPagesPaths'},
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'pages'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'edges'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'node'},
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<AllPagesPathsQuery, AllPagesPathsQueryVariables>
+export const SinglePageDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: {kind: 'Name', value: 'SinglePage'},
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'uri'}},
+          type: {
+            kind: 'NonNullType',
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'page'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'id'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'uri'}},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'idType'},
+                value: {kind: 'EnumValue', value: 'URI'},
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'content'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<SinglePageQuery, SinglePageQueryVariables>
+export const AboutPageDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: {kind: 'Name', value: 'AboutPage'},
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'contentNode'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'id'},
+                value: {kind: 'StringValue', value: '/about/', block: false},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'idType'},
+                value: {kind: 'EnumValue', value: 'URI'},
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+                {kind: 'Field', name: {kind: 'Name', value: '__typename'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'slug'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<AboutPageQuery, AboutPageQueryVariables>

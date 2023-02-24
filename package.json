@@ -43,19 +43,19 @@
     "packages/ui"
   ],
   "dependencies": {
-    "@graphql-codegen/cli": "^3.2.0",
+    "@graphql-codegen/cli": "^3.2.1",
     "cross-fetch": "^3.1.5",
     "dotenv": "16.0.3",
     "dotenv-cli": "^7.0.0",
     "graphql": "^16.6.0",
     "graphql-config": "^4.4.1",
     "graphql-tag": "^2.12.6",
-    "next": "^13.2.0",
+    "next": "^13.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^3.2.0",
+    "@graphql-codegen/cli": "^3.2.1",
     "@graphql-codegen/client-preset": "2.1.0",
     "@graphql-codegen/introspection": "3.0.1",
     "@graphql-codegen/schema-ast": "3.0.1",

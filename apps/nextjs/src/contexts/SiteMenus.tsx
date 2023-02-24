@@ -1,12 +1,12 @@
 // SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import {MenuItemsFragment} from '@/gql/graphql'
+// import {MenuItemsFragment} from '@/gql/graphql'
 import {createContext, useContext} from 'react'
 
 export interface SiteMenusContextProps {
   // footerMenu: MenuItemsFragment
-  headerMenu: MenuItemsFragment
+  // headerMenu: MenuItemsFragment
 }
 
 const SiteMenusContext = createContext({} as SiteMenusContextProps)

@@ -5,7 +5,7 @@ import {ReactNode} from 'react'
 import Head from 'next/head'
 
 import {SITE_NAME} from '@/lib/constants'
-import {PageSchema} from '@/lib/interfaces/post'
+import {PageSchema} from '@/lib/post'
 
 import PostHeader from '@organisms/PostHeader'
 import PostBody from '@organisms/PostBody'

@@ -20,19 +20,17 @@ function removeBasePath(pathname: string): string {
  * With dynamic routes, Next.js can pass a string or an array of strings. We
  * want either the singular string or the last item in the array of strings:
  *
- * [ '2021', '06', '10', 'my-chickens-let-me-show-you-them' ]
- *                        ^ we want this
+ * ['2021', '06', '10', 'my-chickens-let-me-show-you-them']
+ *                       ^ we want this
+ *
+ * ['about', 'contact']
+ *            ^ we want this
  */
-export function extractLastTokenFromRoute(
-  routeQuery: string | string[],
-): string {
-  if (!Array.isArray(routeQuery)) {
-    return routeQuery
+export function extractLastTokenFromRoute(route: string | string[]): string {
+  if (!Array.isArray(route)) {
+    return route
   }
-
-  // FIXME: bad type handling
-  // @ts-ignore
-  return routeQuery.slice().pop()
+  return route.slice().pop()
 }
 
 /**
@@ -55,12 +53,10 @@ function getCorrectPathname(pathname: string): string {
 export function getHostname(url: string): string {
   try {
     const {hostname} = new URL(url)
-
     return hostname
   } catch (err) {
     /* continue */
   }
-
   return url
 }
 

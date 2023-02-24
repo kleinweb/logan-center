@@ -11,9 +11,7 @@ import LogoFull from '@/public/assets/logos/logo--full--duo.svg'
 
 import Container from '@templates/Container'
 // import NavigationMenu from './NavigationMenu'
-import {SiteMenusDocument} from '@/gql/graphql'
-import {useQuery} from '@apollo/client'
-import {flatListToHierarchical} from '@/lib/menus'
+// import {flatListToHierarchical} from '@/lib/menus'
 
 // type ActiveLinkProps = {
 //   href: LinkProps['href']
@@ -23,9 +21,11 @@ import {flatListToHierarchical} from '@/lib/menus'
 // FIXME: errors prob cos client-side request and we aren't doing anything to
 // handle the async nature of this (though the apollo client can help)
 export default function SiteHeader() {
-  const {data} = useQuery(SiteMenusDocument)
+  // const {data} = useQuery(SiteMenusDocument)
   // Convert flat list to hierarchical list.
-  const menuData = flatListToHierarchical(data?.headerMenu?.nodes)
+  // const menuData = flatListToHierarchical(data?.headerMenu?.nodes)
+  // FIXME
+  const menuData = []
   // console.log(data, menuData)
 
   return (

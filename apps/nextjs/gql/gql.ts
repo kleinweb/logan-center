@@ -13,8 +13,16 @@ import {TypedDocumentNode as DocumentNode} from '@graphql-typed-document-node/co
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
+  'fragment FeaturedImageFields on NodeWithFeaturedImageToMediaItemConnectionEdge {\n  node {\n    altText\n    sourceUrl(size: LARGE)\n    mediaDetails {\n      height\n      width\n    }\n  }\n}':
+    types.FeaturedImageFieldsFragmentDoc,
   'fragment Settings on GeneralSettings {\n  dateFormat\n  description\n  language\n  timeFormat\n  title\n}':
     types.SettingsFragmentDoc,
+  'query AllPagesPaths {\n  pages {\n    edges {\n      node {\n        uri\n      }\n    }\n  }\n}':
+    types.AllPagesPathsDocument,
+  'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title\n    content\n    databaseId\n    uri\n  }\n}':
+    types.SinglePageDocument,
+  '\n      query AboutPage {\n        contentNode(id: "/about/", idType: URI) {\n          id\n          uri\n          __typename\n          dateGmt\n          modifiedGmt\n          slug\n        }\n      }\n    ':
+    types.AboutPageDocument,
 }
 
 /**
@@ -35,8 +43,32 @@ export function graphql(source: string): unknown
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
+  source: 'fragment FeaturedImageFields on NodeWithFeaturedImageToMediaItemConnectionEdge {\n  node {\n    altText\n    sourceUrl(size: LARGE)\n    mediaDetails {\n      height\n      width\n    }\n  }\n}',
+): (typeof documents)['fragment FeaturedImageFields on NodeWithFeaturedImageToMediaItemConnectionEdge {\n  node {\n    altText\n    sourceUrl(size: LARGE)\n    mediaDetails {\n      height\n      width\n    }\n  }\n}']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
   source: 'fragment Settings on GeneralSettings {\n  dateFormat\n  description\n  language\n  timeFormat\n  title\n}',
 ): (typeof documents)['fragment Settings on GeneralSettings {\n  dateFormat\n  description\n  language\n  timeFormat\n  title\n}']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: 'query AllPagesPaths {\n  pages {\n    edges {\n      node {\n        uri\n      }\n    }\n  }\n}',
+): (typeof documents)['query AllPagesPaths {\n  pages {\n    edges {\n      node {\n        uri\n      }\n    }\n  }\n}']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: 'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title\n    content\n    databaseId\n    uri\n  }\n}',
+): (typeof documents)['query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title\n    content\n    databaseId\n    uri\n  }\n}']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: '\n      query AboutPage {\n        contentNode(id: "/about/", idType: URI) {\n          id\n          uri\n          __typename\n          dateGmt\n          modifiedGmt\n          slug\n        }\n      }\n    ',
+): (typeof documents)['\n      query AboutPage {\n        contentNode(id: "/about/", idType: URI) {\n          id\n          uri\n          __typename\n          dateGmt\n          modifiedGmt\n          slug\n        }\n      }\n    ']
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {}

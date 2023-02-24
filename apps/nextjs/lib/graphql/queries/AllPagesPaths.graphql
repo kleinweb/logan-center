@@ -1,0 +1,9 @@
+query AllPagesPaths {
+  pages {
+    edges {
+      node {
+        uri
+      }
+    }
+  }
+}
