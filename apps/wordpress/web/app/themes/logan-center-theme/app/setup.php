@@ -13,41 +13,61 @@ use function Roots\bundle;
  *
  * @return void
  */
-add_action('wp_enqueue_scripts', function () {
+add_action(
+  'wp_enqueue_scripts',
+  function () {
+    wp_register_style(
+      'kleinweb-typekit-stack',
+      'https://use.typekit.net/cwz8dss.css'
+    );
+    if (!is_admin()) {
+      wp_enqueue_style('kleinweb-typekit-stack');
+    }
     bundle('app')->enqueue();
-}, 100);
+  },
+  100
+);
 
 /**
  * Register the theme assets with the block editor.
  *
  * @return void
  */
-add_action('enqueue_block_editor_assets', function () {
+add_action(
+  'enqueue_block_editor_assets',
+  function () {
+    // We don't need the custom fonts anywhere in wp-admin except the block editor.
+    wp_enqueue_style('kleinweb-typekit-stack');
     bundle('editor')->enqueue();
-}, 100);
+  },
+  100
+);
 
 /**
  * Register the initial theme setup.
  *
  * @return void
  */
-add_action('after_setup_theme', function () {
+add_action(
+  'after_setup_theme',
+  function () {
     /**
      * Enable features from the Soil plugin if activated.
      *
      * @link https://roots.io/plugins/soil/
      */
     add_theme_support('soil', [
-        // This one is quite helpful for a headless site.
-        // <https://web.archive.org/web/20180529232418/http://www.456bereastreet.com/archive/201010/how_to_make_wordpress_urls_root_relative/>
-        'relative-urls',
-        'clean-up' => [
-            'wp_obscurity',
-            'disable_extra_rss',
-            'disable_recent_comments_css',
-            'disable_gallery_css',
-            'clean_html5_markup',
-        ],
+      // This one is quite helpful for a headless site.
+      // <https://web.archive.org/web/20180529232418/http://www.456bereastreet.com/archive/201010/how_to_make_wordpress_urls_root_relative/>
+      // Includes workaround for <https://github.com/roots/acorn/issues/226#issuecomment-1270450510>
+      'relative-urls' => php_sapi_name() !== 'cli',
+      'clean-up' => [
+        'wp_obscurity',
+        'disable_extra_rss',
+        'disable_recent_comments_css',
+        'disable_gallery_css',
+        'clean_html5_markup',
+      ],
     ]);
 
     /**
@@ -66,9 +86,10 @@ add_action('after_setup_theme', function () {
      *
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
-    register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'logan-center'),
-    ]);
+    // register_nav_menus([
+    //     'primary' => __('Primary', 'logan-center'),
+    //     'footer' => __('Footer', 'logan-center'),
+    // ]);
 
     /**
      * Enable plugins to manage the document title.
@@ -110,13 +131,13 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#html5
      */
     add_theme_support('html5', [
-        'caption',
-        'comment-form',
-        'comment-list',
-        'gallery',
-        'search-form',
-        'script',
-        'style',
+      'caption',
+      'comment-form',
+      'comment-list',
+      'gallery',
+      'search-form',
+      'script',
+      'style',
     ]);
 
     /**
@@ -125,7 +146,9 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#customize-selective-refresh-widgets
      */
     add_theme_support('customize-selective-refresh-widgets');
-}, 20);
+  },
+  20
+);
 
 /**
  * Register the theme widget areas.
@@ -133,28 +156,34 @@ add_action('after_setup_theme', function () {
 add_action('widgets_init', __NAMESPACE__ . '\action_widgets_init');
 function action_widgets_init()
 {
-    $config = [
-        'before_widget' => '<section class="widget %1$s %2$s">',
-        'after_widget' => '</section>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>',
-    ];
+  $config = [
+    'before_widget' => '<section class="widget %1$s %2$s">',
+    'after_widget' => '</section>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>',
+  ];
 
-    register_sidebar([
-        'name' => __('Primary', 'logan-center'),
-        'id' => 'sidebar-primary',
-    ] + $config);
+  register_sidebar(
+    [
+      'name' => __('Primary', 'logan-center'),
+      'id' => 'sidebar-primary',
+    ] + $config
+  );
 
-    register_sidebar([
-        'name' => __('Footer', 'logan-center'),
-        'id' => 'sidebar-footer',
-    ] + $config);
-};
+  register_sidebar(
+    [
+      'name' => __('Footer', 'logan-center'),
+      'id' => 'sidebar-footer',
+    ] + $config
+  );
+}
 
 /**
  * Remove admin toolbar menu items.
  */
-add_action('admin_bar_menu', function (\WP_Admin_Bar $menu) {
+add_action(
+  'admin_bar_menu',
+  function (\WP_Admin_Bar $menu) {
     $menu->remove_node('comments'); // Comments
     $menu->remove_node('customize'); // Customize
     $menu->remove_node('dashboard'); // Dashboard
@@ -170,18 +199,20 @@ add_action('admin_bar_menu', function (\WP_Admin_Bar $menu) {
     // $menu->remove_node('view-site'); // Visit Site
     // $menu->remove_node('view'); // View
     // $menu->remove_node('wp-logo'); // WordPress Logo
-}, 999);
+  },
+  999
+);
 
 /**
  * Remove admin dashboard widgets.
  */
 add_action('wp_dashboard_setup', function () {
-    global $wp_meta_boxes;
+  global $wp_meta_boxes;
 
-    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity']); // Activity
-    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']); // WordPress Events and News
+  unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity']); // Activity
+  unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']); // WordPress Events and News
 
-    // unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']); // At a Glance
-    // unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_site_health']); // Site Health Status
-    // unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']); // Quick Draft
+  // unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']); // At a Glance
+  // unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_site_health']); // Site Health Status
+  // unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']); // Quick Draft
 });

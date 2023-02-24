@@ -1,0 +1,27 @@
+{
+  "extends": "@roots/bud/config/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "resources",
+    "paths": {
+      "@fonts/*": ["fonts/*"],
+      "@images/*": ["images/*"],
+      "@scripts/*": ["scripts/*"],
+      "@styles/*": ["styles/*"]
+    },
+    "types": [
+      "@roots/bud",
+      "@roots/bud-eslint",
+      "@roots/bud-imagemin",
+      "@roots/bud-postcss",
+      "@roots/bud-prettier",
+      "@roots/bud-react",
+      "@roots/bud-stylelint",
+      "@roots/bud-tailwindcss",
+      "@roots/sage",
+      // <https://stackoverflow.com/a/45733566/1801260>
+      "@types/webpack-env"
+    ]
+  },
+  "include": ["resources", "bud.config.js"],
+  "exclude": ["node_modules", "dist", "public"]
+}

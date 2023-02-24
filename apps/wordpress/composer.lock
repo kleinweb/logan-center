@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "3b2aa0b67bc6ab7ad086c58de1e512a6",
+  "content-hash": "ba7bcd8637f917b7b77a9f1eaa73f3f2",
   "packages": [
     {
       "name": "alleyinteractive/composer-wordpress-autoloader",
@@ -58,6 +58,41 @@
         "source": "https://github.com/alleyinteractive/composer-wordpress-autoloader/tree/v1.0.0"
       },
       "time": "2022-09-01T03:42:52+00:00"
+    },
+    {
+      "name": "alleyinteractive/internal-flags",
+      "version": "v0.2.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/alleyinteractive/internal-flags.git",
+        "reference": "5e6b549798a6debc0c2e62e2ef7047fceccbf2ce"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/alleyinteractive/internal-flags/zipball/5e6b549798a6debc0c2e62e2ef7047fceccbf2ce",
+        "reference": "5e6b549798a6debc0c2e62e2ef7047fceccbf2ce",
+        "shasum": ""
+      },
+      "require-dev": {
+        "alleyinteractive/alley-coding-standards": "^0.3",
+        "mantle-framework/testkit": "^0.4",
+        "phpunit/phpunit": "^9.3.3"
+      },
+      "type": "wordpress-plugin",
+      "notification-url": "https://packagist.org/downloads/",
+      "license": ["GPL-2.0-or-later"],
+      "authors": [
+        {
+          "name": "Alley Interactive",
+          "email": "info@alley.co"
+        }
+      ],
+      "description": "Use a hidden taxonomy to improve expensive queries.",
+      "support": {
+        "issues": "https://github.com/alleyinteractive/internal-flags/issues",
+        "source": "https://github.com/alleyinteractive/internal-flags/tree/v0.2.0"
+      },
+      "time": "2022-07-27T04:00:14+00:00"
     },
     {
       "name": "alleyinteractive/wordpress-autoloader",

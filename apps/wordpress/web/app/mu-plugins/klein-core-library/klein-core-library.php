@@ -13,12 +13,18 @@
  * License:      GPL-3.0-or-later
  */
 
-namespace Klein\CoreLibrary;
+namespace Klein\Core;
+
+// FIXME: disabled because bugs -- see notes in file
+// require dirname(__FILE__) . '/inc/user-roles.php';
 
 /**
  * Configure baseline feature support.
  */
-add_action('after_setup_theme', __NAMESPACE__ . '\\after_setup_theme_add_baseline_feature_support');
+add_action(
+    'after_setup_theme',
+    __NAMESPACE__ . '\\after_setup_theme_add_baseline_feature_support'
+);
 function after_setup_theme_add_baseline_feature_support()
 {
     add_theme_support('menus');

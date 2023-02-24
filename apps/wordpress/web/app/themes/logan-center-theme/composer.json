@@ -26,14 +26,19 @@
     }
   },
   "require": {
-    "php": "^8.0"
+    "php": "^8.0",
+    "blade-ui-kit/blade-icons": "^1.5",
+    "log1x/acf-composer": "^2.1",
+    "log1x/navi": "^2.0",
+    "log1x/pagi": "^1.0",
+    "log1x/poet": "^2.0",
+    "log1x/sage-directives": "^1.1",
+    "log1x/sage-svg": "^1.1",
+    "mallardduck/blade-lucide-icons": "^1.11",
+    "stoutlogic/acf-builder": "^1.12"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "3.7.1"
-  },
-  "suggest": {
-    "log1x/sage-directives": "A collection of useful Blade directives for WordPress and Sage (^1.0).",
-    "log1x/sage-svg": "A useful SVG directive for inlining SVG's within Blade views (^1.0)."
   },
   "config": {
     "optimize-autoloader": true,

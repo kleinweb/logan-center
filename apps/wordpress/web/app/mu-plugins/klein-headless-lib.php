@@ -16,13 +16,16 @@
 
 namespace Klein\Headless;
 
-use \WPGraphQL\Data\Connection\UserConnectionResolver;
+use WPGraphQL\Data\Connection\UserConnectionResolver;
 
 /**
  * Set permlinks on theme activate
  * @see <https://github.com/wp-graphql/wp-graphql/issues/1612>
  */
-add_action('after_switch_theme', __NAMESPACE__ . '\\action_after_switch_theme_set_custom_permalinks');
+add_action(
+    'after_switch_theme',
+    __NAMESPACE__ . '\\action_after_switch_theme_set_custom_permalinks'
+);
 function action_after_switch_theme_set_custom_permalinks()
 {
     $current_setting = get_option('permalink_structure');
@@ -47,15 +50,20 @@ function action_after_switch_theme_set_custom_permalinks()
  * @param \WP_Post $post Post object.
  * @return string
  */
-add_filter('preview_post_link', __NAMESPACE__ . '\\filter_preview_post_link', 10, 2);
+add_filter(
+    'preview_post_link',
+    __NAMESPACE__ . '\\filter_preview_post_link',
+    10,
+    2
+);
 function filter_preview_post_link($link, $post)
 {
-    $args = array(
-        'id'      => $post->ID,
-        'type'    => get_post_type($post),
-        'status'  => get_post_status($post),
+    $args = [
+        'id' => $post->ID,
+        'type' => get_post_type($post),
+        'status' => get_post_status($post),
         'preview' => 'true',
-    );
+    ];
 
     // Add slug and build path
     if ($post->post_name) {
@@ -66,13 +74,13 @@ function filter_preview_post_link($link, $post)
 
         $link = get_sample_permalink($post->ID)[0] ?? '';
         $link = str_replace(
-            array('%postname%', '%pagename%'),
+            ['%postname%', '%pagename%'],
             $post->post_name,
             $link
         );
 
         $args['slug'] = $post->post_name;
-        $args['uri']  = wp_make_link_relative($link);
+        $args['uri'] = wp_make_link_relative($link);
     }
 
     return add_query_arg($args, $link);
@@ -85,8 +93,18 @@ function filter_preview_post_link($link, $post)
  * @param \WP_Post          $post     Post object.
  * @return \WP_REST_Response
  */
-add_filter('rest_prepare_post', __NAMESPACE__ . '\\filter_rest_prepare_preview_link', 10, 2);
-add_filter('rest_prepare_page', __NAMESPACE__ . '\\filter_rest_prepare_preview_link', 10, 2);
+add_filter(
+    'rest_prepare_post',
+    __NAMESPACE__ . '\\filter_rest_prepare_preview_link',
+    10,
+    2
+);
+add_filter(
+    'rest_prepare_page',
+    __NAMESPACE__ . '\\filter_rest_prepare_preview_link',
+    10,
+    2
+);
 function filter_rest_prepare_preview_link($response, $post)
 {
     if ('draft' === $post->post_status) {
@@ -98,26 +116,43 @@ function filter_rest_prepare_preview_link($response, $post)
 
 /**
  * Registers a connection to Co Authors Plus in WPGraphQL
- * @throws \Exception
  */
-add_action('init', __NAMESPACE__ . '\action_init_register_coauthors_plus_wpgraphql_connection');
-function action_init_register_coauthors_plus_wpgraphql_connection()
+add_action(
+    'plugins_loaded',
+    __NAMESPACE__ .
+        '\action_plugins_loaded_register_coauthors_plus_wpgraphql_connection'
+);
+function action_plugins_loaded_register_coauthors_plus_wpgraphql_connection()
 {
-    if (!function_exists('register_graphql_connection') || !function_exists('get_coauthors')) {
+    if (
+        !function_exists('register_graphql_connection') ||
+        !function_exists('get_coauthors')
+    ) {
         return;
     }
-    register_graphql_connection(
-        [
-            'fromType'           => 'Post',
-            'toType'             => 'User',
-            'fromFieldName'      => 'authors',
-            'connectionTypeName' => 'PostToAuthorsConnection',
-            'resolve'            => function (\WPGraphQL\Model\Post $source, $args, $context, $info) {
-                $resolver = new UserConnectionResolver($source, $args, $context, $info);
-                $coauthor_ids = array_map(fn ($coauthor) => $coauthor->ID, get_coauthors($source->ID));
-                $resolver->set_query_arg('include', $coauthor_ids);
-                return $resolver->get_connection();
-            },
-        ]
-    );
+    register_graphql_connection([
+        'fromType' => 'Post',
+        'toType' => 'User',
+        'fromFieldName' => 'authors',
+        'connectionTypeName' => 'PostToAuthorsConnection',
+        'resolve' => function (
+            \WPGraphQL\Model\Post $source,
+            $args,
+            $context,
+            $info
+        ) {
+            $resolver = new UserConnectionResolver(
+                $source,
+                $args,
+                $context,
+                $info
+            );
+            $coauthor_ids = array_map(
+                fn($coauthor) => $coauthor->ID,
+                get_coauthors($source->ID)
+            );
+            $resolver->set_query_arg('include', $coauthor_ids);
+            return $resolver->get_connection();
+        },
+    ]);
 }
