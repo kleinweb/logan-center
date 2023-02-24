@@ -4,6 +4,8 @@
 
 // Source: <https://github.com/vercel/next.js/blob/29f20d30fd098d30cbd73352aec995191b88fa74/examples/active-class-name/components/ActiveLink.tsx>
 
+'use client'
+
 import {useRouter} from 'next/router'
 import Link, {LinkProps} from 'next/link'
 import React, {useState, useEffect, ReactElement, Children} from 'react'

@@ -1,43 +1,70 @@
-// SPDX-FileCopyrightText: 2021 Automattic
-// SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
-//
-// SPDX-License-Identifier: GPL-3.0-or-later OR MIT
+'use client'
 
-import {GetStaticProps} from 'next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
 import {__} from '@wordpress/i18n'
 
 import {Button, ButtonWithIcon} from '@atoms/Buttons'
+import Layout from '@templates/Layout'
+import Container from '@templates/Container'
+
 import BarsMotif from '@/public/assets/decorations/motif--island.svg'
 import podcastImage from '@/public/assets/images/podcast--poster--art_only.jpg'
 import youGotThisImage from '@/public/assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'
+import thumbImage from '@/public/assets/images/home--hero_video--start.thumb.jpeg'
 
-import Layout from '@templates/Layout'
-import Container from '@templates/Container'
-import {addApolloState, initializeApollo} from '@/lib/graphql'
-import {HomepageDocument, HomepageQuery} from '@/gql/graphql'
-import Hero from './Home/Hero'
-// import {log} from '@/lib/log'
+const BackgroundVideoPlayer = dynamic(() => import('react-player/lazy'), {
+  ssr: false,
+})
 
 const podcastInfoUrl =
   'https://whyy.org/programs/stop-and-frisk-revisit-or-resist/'
 
 const aboutLoganDoc = `Klein College of Media and Communication launched the Jonathan Logan Family Foundation Center for Urban Investigative Reporting in the summer of 2021 thanks to a $1.2 million founding grant from the Jonathan Logan Family Foundation of Berkeley, California. The Center focuses exclusively on the issues facing Philadelphia and other large American cities such as gun violence, economic inequality, education and health disparities, crumbling infrastructure and eroding trust in institutions. Through the Logan Center, Klein students and faculty report not only on these problems, but on potential solutions, closely examining what has worked well in other cities across the nation and the globe.`
 
-// import Hero from './home/Hero'
-
-type HomeProps = {
-  data: HomepageQuery
-}
-
-export default function Home({data}: HomeProps) {
-  // eslint-disable-next-line no-console
-  console.log('[home]', data)
+// This is a Client Component. It receives data as props and
+// has access to state and effects just like Page components
+// in the `pages` directory.
+export default function HomePage() {
   return (
     <Layout title="Home">
       <div className="relative mb-6 md:mb-24">
-        <Hero />
+        <div
+          className="aspect-cinematic relative overflow-hidden brightness-75"
+          tabIndex={-1}
+          aria-hidden
+        >
+          <div className="absolute z-0 aspect-video w-full">
+            <Image src={thumbImage} alt="" />
+          </div>
+          <div className="absolute z-10 aspect-video w-full">
+            <BackgroundVideoPlayer
+              url="https://vimeo.com/789051547"
+              playing
+              loop={false}
+              controls={false}
+              volume={0}
+              muted // requires `volume == 0`, despite implications
+              playsinline
+              pip={false}
+              width="100%"
+              height="100%"
+              title=""
+              config={{
+                vimeo: {
+                  // <https://developer.vimeo.com/player/sdk/embed>
+                  playerOptions: {
+                    byline: false,
+                    keyboard: false, // in tandem with tabindex
+                    portrait: false,
+                    controls: false,
+                  },
+                },
+              }}
+            />
+          </div>
+        </div>
 
         <div className="relative mx-auto md:container">
           <div className="grid grid-cols-12 grid-rows-1 gap-2 md:absolute md:-bottom-16 md:px-5">
@@ -188,18 +215,4 @@ export default function Home({data}: HomeProps) {
       </div>
     </Layout>
   )
-}
-
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const apolloClient = initializeApollo()
-
-  const {data} = await apolloClient.query({
-    query: HomepageDocument,
-  })
-
-  return addApolloState(apolloClient, {
-    props: {
-      data,
-    },
-  })
 }

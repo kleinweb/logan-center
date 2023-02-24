@@ -22,6 +22,11 @@ const nextConfig = {
   // Be prepared for future breaking changes in React.
   reactStrictMode: true,
 
+  experimental: {
+    appDir: true,
+    typedRoutes: true,
+  },
+
   // Redirects
   // =========
   // https://nextjs.org/docs/api-reference/next.config.js/redirects

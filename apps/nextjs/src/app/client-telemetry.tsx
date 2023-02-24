@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+'use client'
+
 import {useRouter} from 'next/router'
 import Script from 'next/script'
 import {useEffect} from 'react'
