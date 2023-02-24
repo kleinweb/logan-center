@@ -16,6 +16,8 @@
 
 namespace Klein\Headless;
 
+use \WPGraphQL\Data\Connection\UserConnectionResolver;
+
 /**
  * Set permlinks on theme activate
  * @see <https://github.com/wp-graphql/wp-graphql/issues/1612>
@@ -92,4 +94,30 @@ function filter_rest_prepare_preview_link($response, $post)
     }
 
     return $response;
+}
+
+/**
+ * Registers a connection to Co Authors Plus in WPGraphQL
+ * @throws \Exception
+ */
+add_action('init', __NAMESPACE__ . '\action_init_register_coauthors_plus_wpgraphql_connection');
+function action_init_register_coauthors_plus_wpgraphql_connection()
+{
+    if (!function_exists('register_graphql_connection') || !function_exists('get_coauthors')) {
+        return;
+    }
+    register_graphql_connection(
+        [
+            'fromType'           => 'Post',
+            'toType'             => 'User',
+            'fromFieldName'      => 'authors',
+            'connectionTypeName' => 'PostToAuthorsConnection',
+            'resolve'            => function (\WPGraphQL\Model\Post $source, $args, $context, $info) {
+                $resolver = new UserConnectionResolver($source, $args, $context, $info);
+                $coauthor_ids = array_map(fn ($coauthor) => $coauthor->ID, get_coauthors($source->ID));
+                $resolver->set_query_arg('include', $coauthor_ids);
+                return $resolver->get_connection();
+            },
+        ]
+    );
 }
