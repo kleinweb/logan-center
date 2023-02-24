@@ -1,33 +1,8 @@
 query SinglePage($uri: ID!) {
-  contentNode(idType: URI, asPreview: false, contentType: PAGE, id: $uri) {
-    id
+  page(id: $uri, idType: URI) {
+    title(format: RENDERED)
+    content(format: RENDERED)
+    databaseId
     uri
-    __typename
-    dateGmt
-    modifiedGmt
-    slug
-    ... on Page {
-      id
-      ancestors {
-        edges {
-          node {
-            uri
-            ... on Page {
-              id
-              title(format: RENDERED)
-              uri
-            }
-          }
-          cursor
-        }
-      }
-      content
-      databaseId
-      dateGmt
-      excerpt
-      modifiedGmt
-      title(format: RENDERED)
-      uri
-    }
   }
 }

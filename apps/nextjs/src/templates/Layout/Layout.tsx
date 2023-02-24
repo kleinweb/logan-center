@@ -1,6 +1,8 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+'use client'
+
 import {ReactNode} from 'react'
 
 import {KleinBanner} from '@organisms/KleinBanner'
@@ -18,10 +20,8 @@ import {PreviewAlert} from '@organisms/Alert'
  */
 
 type LayoutProps = {
-  title: string
   children: ReactNode
   loading?: boolean
-  ogTitle?: string
   preview?: boolean
   // canonicalLink?: string
   // feedLink?: string
@@ -31,9 +31,6 @@ type LayoutProps = {
 export default function Layout(props: LayoutProps) {
   return (
     <>
-      {/* // FIXME: determine programmatic fallback values */}
-      {/* <Meta title={props.title} feedUrl="/feed.xml" /> */}
-
       <header className="flex flex-col">
         <div className="order-2 bg-slate-700 py-1 text-white lg:py-2">
           <SiteHeader />
@@ -45,13 +42,7 @@ export default function Layout(props: LayoutProps) {
 
       <div className="min-h-screen">
         <PreviewAlert preview={props.preview} />
-        <main className="block">
-          {/* FIXME */}
-          {/* <h1 className={clsx(props.title == 'Home' && 'sr-only')}>
-            {props.title}
-          </h1> */}
-          {props.children}
-        </main>
+        <main className="block">{props.children}</main>
       </div>
 
       <footer className="bg-slate-700 py-10 px-5 text-white md:pt-5">

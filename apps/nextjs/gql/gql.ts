@@ -19,10 +19,8 @@ const documents = {
     types.SettingsFragmentDoc,
   'query AllPagesPaths {\n  pages {\n    edges {\n      node {\n        uri\n      }\n    }\n  }\n}':
     types.AllPagesPathsDocument,
-  'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title\n    content\n    databaseId\n    uri\n  }\n}':
+  'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title(format: RENDERED)\n    content(format: RENDERED)\n    databaseId\n    uri\n  }\n}':
     types.SinglePageDocument,
-  '\n      query AboutPage {\n        contentNode(id: "/about/", idType: URI) {\n          id\n          uri\n          __typename\n          dateGmt\n          modifiedGmt\n          slug\n        }\n      }\n    ':
-    types.AboutPageDocument,
 }
 
 /**
@@ -61,14 +59,8 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title\n    content\n    databaseId\n    uri\n  }\n}',
-): (typeof documents)['query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title\n    content\n    databaseId\n    uri\n  }\n}']
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(
-  source: '\n      query AboutPage {\n        contentNode(id: "/about/", idType: URI) {\n          id\n          uri\n          __typename\n          dateGmt\n          modifiedGmt\n          slug\n        }\n      }\n    ',
-): (typeof documents)['\n      query AboutPage {\n        contentNode(id: "/about/", idType: URI) {\n          id\n          uri\n          __typename\n          dateGmt\n          modifiedGmt\n          slug\n        }\n      }\n    ']
+  source: 'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title(format: RENDERED)\n    content(format: RENDERED)\n    databaseId\n    uri\n  }\n}',
+): (typeof documents)['query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title(format: RENDERED)\n    content(format: RENDERED)\n    databaseId\n    uri\n  }\n}']
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {}

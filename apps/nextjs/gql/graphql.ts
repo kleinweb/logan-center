@@ -13458,38 +13458,6 @@ export type SinglePageQuery = {
   } | null
 }
 
-export type AboutPageQueryVariables = Exact<{[key: string]: never}>
-
-export type AboutPageQuery = {
-  __typename?: 'RootQuery'
-  contentNode?:
-    | {
-        __typename: 'MediaItem'
-        id: string
-        uri?: string | null
-        dateGmt?: string | null
-        modifiedGmt?: string | null
-        slug?: string | null
-      }
-    | {
-        __typename: 'Page'
-        id: string
-        uri?: string | null
-        dateGmt?: string | null
-        modifiedGmt?: string | null
-        slug?: string | null
-      }
-    | {
-        __typename: 'Post'
-        id: string
-        uri?: string | null
-        dateGmt?: string | null
-        modifiedGmt?: string | null
-        slug?: string | null
-      }
-    | null
-}
-
 export const FeaturedImageFieldsFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -13647,8 +13615,28 @@ export const SinglePageDocument = {
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'content'}},
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'title'},
+                  arguments: [
+                    {
+                      kind: 'Argument',
+                      name: {kind: 'Name', value: 'format'},
+                      value: {kind: 'EnumValue', value: 'RENDERED'},
+                    },
+                  ],
+                },
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'content'},
+                  arguments: [
+                    {
+                      kind: 'Argument',
+                      name: {kind: 'Name', value: 'format'},
+                      value: {kind: 'EnumValue', value: 'RENDERED'},
+                    },
+                  ],
+                },
                 {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
                 {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
               ],
@@ -13659,45 +13647,3 @@ export const SinglePageDocument = {
     },
   ],
 } as unknown as DocumentNode<SinglePageQuery, SinglePageQueryVariables>
-export const AboutPageDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'AboutPage'},
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentNode'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'id'},
-                value: {kind: 'StringValue', value: '/about/', block: false},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'idType'},
-                value: {kind: 'EnumValue', value: 'URI'},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-                {kind: 'Field', name: {kind: 'Name', value: '__typename'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'slug'}},
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<AboutPageQuery, AboutPageQueryVariables>

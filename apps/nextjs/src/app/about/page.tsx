@@ -1,15 +1,10 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import Separator from '@atoms/Separator'
-// import {PageTitle} from '@molecules/PageTitle'
-import PageHeader from '@organisms/Page/Header'
-import PostBody from '@organisms/PostBody'
-
-import Layout from '@templates/Layout'
-import Container from '@templates/Container'
 import {client} from '@/lib/graphql/client'
 import {SinglePageDocument, SinglePageQuery} from '@/gql/graphql'
+
+import SinglePage from './SinglePage'
 
 export const metadata = {
   title: 'About',
@@ -30,21 +25,5 @@ export default async function Page() {
     // variables: {uri: params?.slug?.toString()},
     variables: {uri: '/about'},
   })
-  console.log(data)
-
-  const {title, content} = data.page
-  return (
-    <Layout
-      title={title}
-      // preview={preview}
-    >
-      <Container>
-        <article>
-          <PageHeader title={title} />
-          <PostBody content={content} />
-        </article>
-        <Separator />
-      </Container>
-    </Layout>
-  )
+  return <SinglePage title={data.page.title} content={data.page.content} />
 }
