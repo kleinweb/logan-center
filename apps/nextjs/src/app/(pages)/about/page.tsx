@@ -19,7 +19,7 @@ export const metadata = {
 //   }))
 // }
 
-export default async function Page() {
+export default async function AboutPage() {
   const {data} = await client.query<SinglePageQuery>({
     query: SinglePageDocument,
     // variables: {uri: params?.slug?.toString()},

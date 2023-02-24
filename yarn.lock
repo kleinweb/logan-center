@@ -5345,6 +5345,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-player: "npm:^2.11.2"
     rimraf: "npm:^4.1.2"
+    server-only: "npm:^0.0.1"
     sharp: "npm:^0.31.3"
     storybook: "npm:^7.0.0-beta.53"
     tailwindcss: "npm:^3.2.7"
@@ -24476,6 +24477,13 @@ __metadata:
     parseurl: "npm:~1.3.3"
     send: "npm:0.18.0"
   checksum: 38b4b126ef7497103b0466c1b876e2ad9732d3a32a905ef6b54681525802a2defba6e8e48c136f68c666e48f8c2dc869d24060b0a83f1dbdf724632cccf072fe
+  languageName: node
+  linkType: hard
+
+"server-only@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "server-only@npm:0.0.1"
+  checksum: 10a07609c4fb16ffb5a38996add6e0c8542ae6650be6b440a737c939df9c1a4ec318da0adb75b85bb6861ee65fb1f90653cacaa16774b1c52909fdcd46d5d01e
   languageName: node
   linkType: hard
 

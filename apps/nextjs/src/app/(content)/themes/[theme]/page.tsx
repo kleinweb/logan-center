@@ -1,7 +1,6 @@
-export interface IProjectLandingProps {
+export type ThemePageProps = {
   params: {
-    projectSlug: string
-    topicSlug: string
+    theme: string
   }
 }
 
@@ -13,11 +12,10 @@ export interface IProjectLandingProps {
 //   }))
 // }
 
-export default function ProjectLanding({params}: IProjectLandingProps) {
+export default function ThemePage({params}: ThemePageProps) {
   return (
     <h1>
-      This is a Project landing page with the <code>projectSlug</code>{' '}
-      <strong>“{params.projectSlug}”</strong>
+      This is a Theme with the slug: <code>{params.theme}</code>
     </h1>
   )
 }

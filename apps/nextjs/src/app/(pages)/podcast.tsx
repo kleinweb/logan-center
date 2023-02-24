@@ -6,7 +6,6 @@ import Image from 'next/image'
 import {__} from '@wordpress/i18n'
 
 // import {SITE_NAME} from '@/lib/constants'
-// import Layout from '@components/Layout'
 import Container from '@templates/Container'
 
 // const pageTitle = `Podcast | ${SITE_NAME}`

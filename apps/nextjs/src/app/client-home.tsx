@@ -6,7 +6,6 @@ import Image from 'next/image'
 import {__} from '@wordpress/i18n'
 
 import {Button, ButtonWithIcon} from '@atoms/Buttons'
-import Layout from '@templates/Layout'
 import Container from '@templates/Container'
 
 import BarsMotif from '@/public/assets/decorations/motif--island.svg'
@@ -28,7 +27,7 @@ const aboutLoganDoc = `Klein College of Media and Communication launched the Jon
 // in the `pages` directory.
 export default function HomePage() {
   return (
-    <Layout title="Home">
+    <>
       <div className="relative mb-6 md:mb-24">
         <div
           className="aspect-cinematic relative overflow-hidden brightness-75"
@@ -213,6 +212,6 @@ export default function HomePage() {
       <div className="relative aspect-video overflow-hidden">
         <Image src={youGotThisImage} alt="" aria-hidden fill />
       </div>
-    </Layout>
+    </>
   )
 }
