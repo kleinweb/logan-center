@@ -1,11 +1,10 @@
 name: Deploy WordPress Backend
 
 on:
-  push:
-    branches:
-      # FIXME: per-branch secrets
-      # - main
-      - develop
+  # push:
+  #   branches:
+  # - main
+  # - develop
 
   workflow_dispatch:
 
