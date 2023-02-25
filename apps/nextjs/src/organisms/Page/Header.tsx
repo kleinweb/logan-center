@@ -1,8 +1,11 @@
 // SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+'use client'
+
 import {PageTitle} from '@molecules/PageTitle'
-import CoverImageFallback from '@organisms/CoverImage/CoverImageFallback'
+import MotifBackground from '@/public/assets/decorations/motif--bg.svg'
+import Container from '@templates/Container'
 
 export type PageHeaderProps = {
   title: string
@@ -11,11 +14,13 @@ export type PageHeaderProps = {
 
 export default function PageHeader({title}) {
   return (
-    <>
-      <PageTitle>{title}</PageTitle>
+    <div className="flex flex-col">
+      <Container className="order-2">
+        <PageTitle>{title}</PageTitle>
+      </Container>
       <div className="mb-8 sm:mx-0 md:mb-16">
-        <CoverImageFallback />
+        <MotifBackground className="h-28" />
       </div>
-    </>
+    </div>
   )
 }
