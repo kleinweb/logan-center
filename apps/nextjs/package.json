@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "NODE_OPTIONS='-r dotenv/config' next dev",
     "dev:debug": "NODE_OPTIONS='--inspect -r dotenv/config' next dev",
-    "build": "NODE_OPTIONS='-r dotenv-vault-core/config' next build",
-    "start": "NODE_OPTIONS='-r dotenv-vault-core/config' next start",
+    "build": "NODE_OPTIONS='-r dotenv/config' next build",
+    "start": "NODE_OPTIONS='-r dotenv/config' next start",
     "lint": "tsc --noEmit && next lint",
     "copy": "concurrently 'pnpm:copy:*'",
     "copy:tu-assets": "rimraf public/assets/shared && cp -R ../../packages/tu-assets ./public/assets/shared",
@@ -27,7 +27,6 @@
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
     "date-fns": "2.29.3",
-    "dotenv-vault-core": "^0.7.0",
     "graphql": "^16.6.0",
     "lucide-react": "^0.115.0",
     "next": "13.2.2-canary.0",

@@ -124,17 +124,6 @@ _deadnix action +FILES=prj-root:
     {{FILES}}
 
 
-###: SECRETS =======================================================================================
-
-vault-cmd := join( node-modules, "dotenv-vault" )
-
-# [secrets]: 		Run `dotenv-vault` in the specified app scope
-vault app-name *ARGS:
-  cd {{ join( 'apps', app-name ) }} && {{ vault-cmd }} {{ ARGS }}
-
-# [secrets]: 		Push all dotenv vault secrets to remote store
-vault-push-all: (vault "wordpress" "push") (vault "nextjs" "push")
-
 ###: LICENSING =====================================================================================
 
 org-tu-kleinweb := 'Temple University <kleinweb@temple.edu>'
