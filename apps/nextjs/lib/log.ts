@@ -5,7 +5,7 @@
 /* eslint-disable no-console */
 
 /* eslint-disable no-unused-vars */
-enum LogLevel {
+export enum LogLevel {
   DEBUG = 'DEBUG',
   INFO = 'INFO',
   WARN = 'WARN',
@@ -21,6 +21,8 @@ export function log(
   message: string,
   context: LogContext,
   level: LogLevel = LogLevel.INFO,
+  /** Additional data to include. */
+  data: any[] = [],
 ) {
   console.log(
     JSON.stringify({
@@ -28,6 +30,7 @@ export function log(
       level,
       message,
       timestamp: Math.round(Date.now() / 1000),
+      data,
     }),
   )
 }
@@ -35,5 +38,5 @@ export function log(
 export function logError(err: Error, context: LogContext) {
   const message = err.message || 'An unknown error occurred'
 
-  log(message, context, LogLevel.ERROR)
+  log(message, context, LogLevel.ERROR, [{err}])
 }
