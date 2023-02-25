@@ -13,6 +13,13 @@ export {metadata} from './default-meta'
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
+      <link
+        key="typekit-css"
+        rel="stylesheet"
+        href="https://use.typekit.net/cwz8dss.css"
+        // @ts-expect-error Required React-specific tag: <https://beta.nextjs.org/docs/api-reference/file-conventions/head#supported-head-tags>
+        precedence="default"
+      />
       <Providers>
         <header className="flex flex-col">
           <div className="order-2 bg-slate-700 py-1 text-white lg:py-2">
