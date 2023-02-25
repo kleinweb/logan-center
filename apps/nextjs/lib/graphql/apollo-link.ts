@@ -1,10 +1,10 @@
 import {ApolloLink, HttpLink, from} from '@apollo/client'
 import {onError} from '@apollo/client/link/error'
-import {log, logError, LogContext} from '@/lib/log'
+import {log, logError} from '@/lib/log'
 
 const uri = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT
 
-export default function getApolloLink(requestContext: LogContext = {}) {
+export default function getApolloLink() {
   // If endpoint is undefined, throw for visibility.
   if ('undefined' === typeof uri) {
     throw new Error('GraphQL endpoint is undefined')
@@ -21,12 +21,12 @@ export default function getApolloLink(requestContext: LogContext = {}) {
             path: JSON.stringify(path),
           }
 
-          logError(err, context, requestContext)
+          logError(err, context)
         })
       }
 
       if (networkError) {
-        logError(networkError, {}, requestContext)
+        logError(networkError, {})
       }
     }),
 
@@ -60,7 +60,7 @@ export default function getApolloLink(requestContext: LogContext = {}) {
           requestDurationInMs: Date.now() - startTime,
         }
 
-        log('GraphQL request', context, requestContext)
+        log('GraphQL request', context)
 
         return data
       })
