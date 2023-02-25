@@ -5,11 +5,12 @@
 
 import React from 'react'
 import {ApolloProvider} from '@apollo/client'
-import {client} from '@/lib/graphql/client'
+import getApolloClient from '@/lib/graphql/client'
 
 // import Telemetry from './client-telemetry'
 
 export function Providers({children}) {
+  const client = getApolloClient()
   return (
     <ApolloProvider client={client}>
       {/* <Telemetry /> */}

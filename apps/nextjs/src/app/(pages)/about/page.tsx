@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import {client} from '@/lib/graphql/client'
+import getApolloClient from '@/lib/graphql/client'
 import {SinglePageDocument, SinglePageQuery} from '@/gql/graphql'
 
 import SinglePage from './SinglePage'
@@ -20,7 +20,7 @@ export const metadata = {
 // }
 
 export default async function AboutPage() {
-  const {data} = await client.query<SinglePageQuery>({
+  const {data} = await getApolloClient().query<SinglePageQuery>({
     query: SinglePageDocument,
     // variables: {uri: params?.slug?.toString()},
     variables: {uri: '/about'},
