@@ -76,8 +76,6 @@ export type Category = DatabaseIdentifier &
     categoryId?: Maybe<Scalars['Int']>
     /** Connection between the category type and its children categories. */
     children?: Maybe<CategoryToCategoryConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the Category type and the ContentNode type */
     contentNodes?: Maybe<CategoryToContentNodeConnection>
     /** The number of objects connected to the object */
@@ -116,7 +114,6 @@ export type Category = DatabaseIdentifier &
     taxonomy?: Maybe<CategoryToTaxonomyConnectionEdge>
     /** The name of the taxonomy that the object is associated with */
     taxonomyName?: Maybe<Scalars['String']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The ID of the term group that this term object belongs to */
     termGroupId?: Maybe<Scalars['Int']>
     /** The taxonomy ID that the object is associated with */
@@ -842,121 +839,6 @@ export enum CommentsConnectionOrderbyEnum {
   UserId = 'USER_ID',
 }
 
-/** GraphQL representation of WordPress Conditional Tags. */
-export type ConditionalTags = {
-  __typename?: 'ConditionalTags'
-  /**
-   * Determines whether the query is for an existing archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isArchive?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing attachment page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isAttachment?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing author archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isAuthor?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing category archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isCategory?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing date archive.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isDate?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing day archive.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isDay?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for the front page of the site.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isFrontPage?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for the blog homepage.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isHome?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing month archive.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isMonth?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether this site has more than one author.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isMultiAuthor?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing single page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPage?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether currently in a page template.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPageTemplate?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing post type archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPostTypeArchive?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for a post or page preview.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPreview?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for the Privacy Policy page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPrivacyPolicy?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for a search.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isSearch?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing single post.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isSingle?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing single post of any post type (post, attachment, page, custom post types).
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isSingular?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether a post is sticky.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isSticky?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing tag archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isTag?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing custom taxonomy archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isTax?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing year archive.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isYear?: Maybe<Scalars['Boolean']>
-}
-
 /** A plural connection from one Node Type in the Graph to another Node Type, with support for relational data via &quot;edges&quot;. */
 export type Connection = {
   /** A list of edges (relational context) between connected nodes */
@@ -989,8 +871,6 @@ export type ContentBlock = {
 
 /** Nodes used to manage content */
 export type ContentNode = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** Connection between the ContentNode type and the ContentType type */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
   /** The name of the Content Type the node belongs to */
@@ -1041,7 +921,6 @@ export type ContentNode = {
   status?: Maybe<Scalars['String']>
   /** The template assigned to a node of content */
   template?: Maybe<ContentTemplate>
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -1179,8 +1058,6 @@ export type ContentType = Node &
     __typename?: 'ContentType'
     /** Whether this content type should can be exported. */
     canExport?: Maybe<Scalars['Boolean']>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the ContentType type and the Taxonomy type */
     connectedTaxonomies?: Maybe<ContentTypeToTaxonomyConnection>
     /** Connection between the ContentType type and the ContentNode type */
@@ -1241,7 +1118,6 @@ export type ContentType = Node &
     showInRest?: Maybe<Scalars['Boolean']>
     /** Whether to generate and allow a UI for managing this content type in the admin. */
     showUi?: Maybe<Scalars['Boolean']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The unique resource identifier path */
     uri?: Maybe<Scalars['String']>
   }
@@ -6546,37 +6422,12 @@ export type GeneralSettings = {
   url?: Maybe<Scalars['String']>
 }
 
-/** Input for the generateAuthorizationCode mutation. */
-export type GenerateAuthorizationCodeInput = {
-  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: InputMaybe<Scalars['String']>
-  /** Email for WordPress user */
-  email?: InputMaybe<Scalars['String']>
-  /** Password for WordPress user */
-  password?: InputMaybe<Scalars['String']>
-  /** Username for WordPress user */
-  username?: InputMaybe<Scalars['String']>
-}
-
-/** The payload for the generateAuthorizationCode mutation. */
-export type GenerateAuthorizationCodePayload = {
-  __typename?: 'GenerateAuthorizationCodePayload'
-  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: Maybe<Scalars['String']>
-  /** Authorization code used for requesting refresh/access tokens */
-  code?: Maybe<Scalars['String']>
-  /** Error encountered during user authentication, if any */
-  error?: Maybe<Scalars['String']>
-}
-
 /** Content node with hierarchical (parent/child) relationships */
 export type HierarchicalContentNode = {
   /** Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root). */
   ancestors?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>
   /** Connection between the HierarchicalContentNode type and the ContentNode type */
   children?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** Connection between the ContentNode type and the ContentType type */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
   /** The name of the Content Type the node belongs to */
@@ -6633,7 +6484,6 @@ export type HierarchicalContentNode = {
   status?: Maybe<Scalars['String']>
   /** The template assigned to a node of content */
   template?: Maybe<ContentTemplate>
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -6826,8 +6676,6 @@ export type HierarchicalNode = {
 
 /** Term node with hierarchical (parent/child) relationships */
 export type HierarchicalTermNode = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** The number of objects connected to the object */
   count?: Maybe<Scalars['Int']>
   /** The unique identifier stored in the database */
@@ -6858,7 +6706,6 @@ export type HierarchicalTermNode = {
   slug?: Maybe<Scalars['String']>
   /** The name of the taxonomy that the object is associated with */
   taxonomyName?: Maybe<Scalars['String']>
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The ID of the term group that this term object belongs to */
   termGroupId?: Maybe<Scalars['Int']>
   /** The taxonomy ID that the object is associated with */
@@ -6936,8 +6783,6 @@ export type MediaItem = ContentNode &
     commentStatus?: Maybe<Scalars['String']>
     /** Connection between the MediaItem type and the Comment type */
     comments?: Maybe<MediaItemToCommentConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the ContentNode type and the ContentType type */
     contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
     /** The name of the Content Type the node belongs to */
@@ -7017,7 +6862,6 @@ export type MediaItem = ContentNode &
     status?: Maybe<Scalars['String']>
     /** The template assigned to a node of content */
     template?: Maybe<ContentTemplate>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
     title?: Maybe<Scalars['String']>
     /** The unique resource identifier path */
@@ -7425,8 +7269,6 @@ export type MenuItemConnectionEdge = {
 
 /** Nodes that can be linked to as Menu Items */
 export type MenuItemLinkable = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** The unique identifier stored in the database */
   databaseId: Scalars['Int']
   /** The unique resource identifier path */
@@ -7435,7 +7277,6 @@ export type MenuItemLinkable = {
   isContentNode: Scalars['Boolean']
   /** Whether the node is a Term */
   isTermNode: Scalars['Boolean']
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -7517,10 +7358,8 @@ export type MenuItemToMenuItemLinkableConnectionEdge = Edge &
 
 /** Registered menu locations */
 export enum MenuLocationEnum {
-  /** Put the menu in the footer location */
-  Footer = 'FOOTER',
-  /** Put the menu in the primary location */
-  Primary = 'PRIMARY',
+  /** Empty menu location */
+  Empty = 'EMPTY',
 }
 
 /** The Type of Identifier used to fetch a single node. Default is "ID". To be used along with the "id" field. */
@@ -7967,8 +7806,6 @@ export type Page = ContentNode &
     commentStatus?: Maybe<Scalars['String']>
     /** Connection between the Page type and the Comment type */
     comments?: Maybe<PageToCommentConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** The content of the post. */
     content?: Maybe<Scalars['String']>
     /** List of content blocks */
@@ -8060,7 +7897,6 @@ export type Page = ContentNode &
     tags?: Maybe<PageToTagConnection>
     /** The template assigned to a node of content */
     template?: Maybe<ContentTemplate>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** Connection between the Page type and the TermNode type */
     terms?: Maybe<PageToTermNodeConnection>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
@@ -8599,6 +8435,8 @@ export type Post = ContentNode &
     authorDatabaseId?: Maybe<Scalars['Int']>
     /** The globally unique identifier of the author of the node */
     authorId?: Maybe<Scalars['ID']>
+    /** Connection between the Post type and the User type */
+    authors?: Maybe<PostToAuthorsConnection>
     /** Connection between the Post type and the category type */
     categories?: Maybe<PostToCategoryConnection>
     /** The number of comments. Even though WPGraphQL denotes this field as an integer, in WordPress this field should be saved as a numeric string for compatibility. */
@@ -8607,8 +8445,6 @@ export type Post = ContentNode &
     commentStatus?: Maybe<Scalars['String']>
     /** Connection between the Post type and the Comment type */
     comments?: Maybe<PostToCommentConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** The content of the post. */
     content?: Maybe<Scalars['String']>
     /** List of content blocks */
@@ -8694,7 +8530,6 @@ export type Post = ContentNode &
     tags?: Maybe<PostToTagConnection>
     /** The template assigned to the node */
     template?: Maybe<ContentTemplate>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** Connection between the Post type and the TermNode type */
     terms?: Maybe<PostToTermNodeConnection>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
@@ -8704,6 +8539,14 @@ export type Post = ContentNode &
     /** The unique resource identifier path */
     uri?: Maybe<Scalars['String']>
   }
+
+/** The post type */
+export type PostAuthorsArgs = {
+  after?: InputMaybe<Scalars['String']>
+  before?: InputMaybe<Scalars['String']>
+  first?: InputMaybe<Scalars['Int']>
+  last?: InputMaybe<Scalars['Int']>
+}
 
 /** The post type */
 export type PostCategoriesArgs = {
@@ -8837,8 +8680,6 @@ export type PostFormat = DatabaseIdentifier &
   TermNode &
   UniformResourceIdentifiable & {
     __typename?: 'PostFormat'
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the PostFormat type and the ContentNode type */
     contentNodes?: Maybe<PostFormatToContentNodeConnection>
     /** The number of objects connected to the object */
@@ -8876,7 +8717,6 @@ export type PostFormat = DatabaseIdentifier &
     taxonomy?: Maybe<PostFormatToTaxonomyConnectionEdge>
     /** The name of the taxonomy that the object is associated with */
     taxonomyName?: Maybe<Scalars['String']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The ID of the term group that this term object belongs to */
     termGroupId?: Maybe<Scalars['Int']>
     /** The taxonomy ID that the object is associated with */
@@ -9239,6 +9079,28 @@ export type PostTagsNodeInput = {
   /** The slug of the tag. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation. */
   slug?: InputMaybe<Scalars['String']>
 }
+
+/** Connection between the Post type and the User type */
+export type PostToAuthorsConnection = Connection &
+  UserConnection & {
+    __typename?: 'PostToAuthorsConnection'
+    /** Edges for the PostToAuthorsConnection connection */
+    edges: Array<PostToAuthorsConnectionEdge>
+    /** The nodes of the connection, without the edges */
+    nodes: Array<User>
+    /** Information about pagination in a connection. */
+    pageInfo?: Maybe<WpPageInfo>
+  }
+
+/** An edge in a connection */
+export type PostToAuthorsConnectionEdge = Edge &
+  UserConnectionEdge & {
+    __typename?: 'PostToAuthorsConnectionEdge'
+    /** A cursor for use in pagination */
+    cursor?: Maybe<Scalars['String']>
+    /** The item at the end of the edge */
+    node: User
+  }
 
 /** Connection between the Post type and the category type */
 export type PostToCategoryConnection = CategoryConnection &
@@ -9905,8 +9767,6 @@ export type RootMutation = {
   deleteTag?: Maybe<DeleteTagPayload>
   /** The deleteUser mutation */
   deleteUser?: Maybe<DeleteUserPayload>
-  /** The generateAuthorizationCode mutation */
-  generateAuthorizationCode?: Maybe<GenerateAuthorizationCodePayload>
   /** Increase the count. */
   increaseCount?: Maybe<Scalars['Int']>
   /** The registerUser mutation */
@@ -10015,11 +9875,6 @@ export type RootMutationDeleteTagArgs = {
 /** The root mutation */
 export type RootMutationDeleteUserArgs = {
   input: DeleteUserInput
-}
-
-/** The root mutation */
-export type RootMutationGenerateAuthorizationCodeArgs = {
-  input: GenerateAuthorizationCodeInput
 }
 
 /** The root mutation */
@@ -11588,8 +11443,6 @@ export type Tag = DatabaseIdentifier &
   TermNode &
   UniformResourceIdentifiable & {
     __typename?: 'Tag'
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the Tag type and the ContentNode type */
     contentNodes?: Maybe<TagToContentNodeConnection>
     /** The number of objects connected to the object */
@@ -11629,7 +11482,6 @@ export type Tag = DatabaseIdentifier &
     taxonomy?: Maybe<TagToTaxonomyConnectionEdge>
     /** The name of the taxonomy that the object is associated with */
     taxonomyName?: Maybe<Scalars['String']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The ID of the term group that this term object belongs to */
     termGroupId?: Maybe<Scalars['Int']>
     /** The taxonomy ID that the object is associated with */
@@ -12077,8 +11929,6 @@ export type Template_BlogAlternative = ContentTemplate & {
 
 /** Terms are nodes within a Taxonomy, used to group and relate other nodes. */
 export type TermNode = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** The number of objects connected to the object */
   count?: Maybe<Scalars['Int']>
   /** Identifies the primary key from the database. */
@@ -12105,7 +11955,6 @@ export type TermNode = {
   slug?: Maybe<Scalars['String']>
   /** The name of the taxonomy that the object is associated with */
   taxonomyName?: Maybe<Scalars['String']>
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The ID of the term group that this term object belongs to */
   termGroupId?: Maybe<Scalars['Int']>
   /** The taxonomy ID that the object is associated with */
@@ -12267,15 +12116,12 @@ export type ThemeConnectionEdge = {
 
 /** Any node that has a URI */
 export type UniformResourceIdentifiable = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** The unique resource identifier path */
   id: Scalars['ID']
   /** Whether the node is a Content Node */
   isContentNode: Scalars['Boolean']
   /** Whether the node is a Term */
   isTermNode: Scalars['Boolean']
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -12676,8 +12522,6 @@ export type User = Commenter &
     capabilities?: Maybe<Array<Maybe<Scalars['String']>>>
     /** Connection between the User type and the Comment type */
     comments?: Maybe<UserToCommentConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Identifies the primary key from the database. */
     databaseId: Scalars['Int']
     /** Description of the user. */
@@ -12724,7 +12568,6 @@ export type User = Commenter &
     roles?: Maybe<UserToUserRoleConnection>
     /** The slug for the user. This field is equivalent to WP_User-&gt;user_nicename */
     slug?: Maybe<Scalars['String']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The unique resource identifier path */
     uri?: Maybe<Scalars['String']>
     /** A website url that is associated with the user. */
@@ -12816,7 +12659,7 @@ export type UserRolesArgs = {
 
 /** Connection to User Nodes */
 export type UserConnection = {
-  /** A list of edges (relational context) between RootQuery and connected User Nodes */
+  /** A list of edges (relational context) between Post and connected User Nodes */
   edges: Array<UserConnectionEdge>
   /** A list of connected User Nodes */
   nodes: Array<User>

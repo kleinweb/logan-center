@@ -358,18 +358,6 @@
             "deprecationReason": null
           },
           {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
             "name": "contentNodes",
             "description": "Connection between the Category type and the ContentNode type",
             "args": [
@@ -829,22 +817,6 @@
               "kind": "SCALAR",
               "name": "String",
               "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -4915,281 +4887,6 @@
         "possibleTypes": null
       },
       {
-        "kind": "OBJECT",
-        "name": "ConditionalTags",
-        "description": "GraphQL representation of WordPress Conditional Tags.",
-        "fields": [
-          {
-            "name": "isArchive",
-            "description": "Determines whether the query is for an existing archive page.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isAttachment",
-            "description": "Determines whether the query is for an existing attachment page.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isAuthor",
-            "description": "Determines whether the query is for an existing author archive page.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isCategory",
-            "description": "Determines whether the query is for an existing category archive page.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isDate",
-            "description": "Determines whether the query is for an existing date archive.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isDay",
-            "description": "Determines whether the query is for an existing day archive.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isFrontPage",
-            "description": "Determines whether the query is for the front page of the site.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isHome",
-            "description": "Determines whether the query is for the blog homepage.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isMonth",
-            "description": "Determines whether the query is for an existing month archive.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isMultiAuthor",
-            "description": "Determines whether this site has more than one author.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isPage",
-            "description": "Determines whether the query is for an existing single page.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isPageTemplate",
-            "description": "Determines whether currently in a page template.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isPostTypeArchive",
-            "description": "Determines whether the query is for an existing post type archive page.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isPreview",
-            "description": "Determines whether the query is for a post or page preview.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isPrivacyPolicy",
-            "description": "Determines whether the query is for the Privacy Policy page.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isSearch",
-            "description": "Determines whether the query is for a search.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isSingle",
-            "description": "Determines whether the query is for an existing single post.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isSingular",
-            "description": "Determines whether the query is for an existing single post of any post type (post, attachment, page, custom post types).",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isSticky",
-            "description": "Determines whether a post is sticky.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isTag",
-            "description": "Determines whether the query is for an existing tag archive page.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isTax",
-            "description": "Determines whether the query is for an existing custom taxonomy archive page.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
-            "name": "isYear",
-            "description": "Determines whether the query is for an existing year archive.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
         "kind": "INTERFACE",
         "name": "Connection",
         "description": "A plural connection from one Node Type in the Graph to another Node Type, with support for relational data via &quot;edges&quot;.",
@@ -5345,6 +5042,11 @@
           {
             "kind": "OBJECT",
             "name": "PostFormatToPostConnection",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PostToAuthorsConnection",
             "ofType": null
           },
           {
@@ -6142,18 +5844,6 @@
         "description": "Nodes used to manage content",
         "fields": [
           {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
             "name": "contentType",
             "description": "Connection between the ContentNode type and the ContentType type",
             "args": [],
@@ -6567,22 +6257,6 @@
               "kind": "INTERFACE",
               "name": "ContentTemplate",
               "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -7376,18 +7050,6 @@
             "deprecationReason": null
           },
           {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
             "name": "connectedTaxonomies",
             "description": "Connection between the ContentType type and the Taxonomy type",
             "args": [
@@ -7873,22 +7535,6 @@
               "kind": "SCALAR",
               "name": "Boolean",
               "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -36792,6 +36438,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "PostToAuthorsConnectionEdge",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "PostToCategoryConnectionEdge",
             "ofType": null
           },
@@ -37778,112 +37429,6 @@
         "possibleTypes": null
       },
       {
-        "kind": "INPUT_OBJECT",
-        "name": "GenerateAuthorizationCodeInput",
-        "description": "Input for the generateAuthorizationCode mutation.",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "clientMutationId",
-            "description": "This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "email",
-            "description": "Email for WordPress user",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "password",
-            "description": "Password for WordPress user",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "username",
-            "description": "Username for WordPress user",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "GenerateAuthorizationCodePayload",
-        "description": "The payload for the generateAuthorizationCode mutation.",
-        "fields": [
-          {
-            "name": "clientMutationId",
-            "description": "If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions.",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "code",
-            "description": "Authorization code used for requesting refresh/access tokens",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "error",
-            "description": "Error encountered during user authentication, if any",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
         "kind": "INTERFACE",
         "name": "HierarchicalContentNode",
         "description": "Content node with hierarchical (parent/child) relationships",
@@ -38033,18 +37578,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
           },
           {
             "name": "contentType",
@@ -38496,22 +38029,6 @@
               "kind": "INTERFACE",
               "name": "ContentTemplate",
               "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -39508,18 +39025,6 @@
         "description": "Term node with hierarchical (parent/child) relationships",
         "fields": [
           {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
             "name": "count",
             "description": "The number of objects connected to the object",
             "args": [],
@@ -39809,22 +39314,6 @@
               "kind": "SCALAR",
               "name": "String",
               "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -40351,18 +39840,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
           },
           {
             "name": "contentType",
@@ -41003,22 +40480,6 @@
               "kind": "INTERFACE",
               "name": "ContentTemplate",
               "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -43011,18 +42472,6 @@
         "description": "Nodes that can be linked to as Menu Items",
         "fields": [
           {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
             "name": "databaseId",
             "description": "The unique identifier stored in the database",
             "args": [],
@@ -43080,22 +42529,6 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
                 "ofType": null
               }
             },
@@ -43572,14 +43005,8 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "FOOTER",
-            "description": "Put the menu in the footer location",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "PRIMARY",
-            "description": "Put the menu in the primary location",
+            "name": "EMPTY",
+            "description": "Empty menu location",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -45854,18 +45281,6 @@
             "deprecationReason": null
           },
           {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
             "name": "content",
             "description": "The content of the post.",
             "args": [
@@ -46688,22 +46103,6 @@
               "kind": "INTERFACE",
               "name": "ContentTemplate",
               "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -49540,6 +48939,67 @@
             "deprecationReason": null
           },
           {
+            "name": "authors",
+            "description": "Connection between the Post type and the User type",
+            "args": [
+              {
+                "name": "after",
+                "description": "Cursor used along with the \"first\" argument to reference where in the dataset to get data",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "before",
+                "description": "Cursor used along with the \"last\" argument to reference where in the dataset to get data",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "first",
+                "description": "The number of items to return after the referenced \"after\" cursor",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
+                "name": "last",
+                "description": "The number of items to return before the referenced \"before\" cursor",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "PostToAuthorsConnection",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "categories",
             "description": "Connection between the Post type and the category type",
             "args": [
@@ -49708,18 +49168,6 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
-          },
-          {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
           },
           {
             "name": "content",
@@ -50570,22 +50018,6 @@
             "deprecationReason": null
           },
           {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "terms",
             "description": "Connection between the Post type and the TermNode type",
             "args": [
@@ -51079,18 +50511,6 @@
         "description": "The postFormat type",
         "fields": [
           {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
             "name": "contentNodes",
             "description": "Connection between the PostFormat type and the ContentNode type",
             "args": [
@@ -51526,22 +50946,6 @@
               "kind": "SCALAR",
               "name": "String",
               "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -53280,6 +52684,138 @@
           }
         ],
         "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PostToAuthorsConnection",
+        "description": "Connection between the Post type and the User type",
+        "fields": [
+          {
+            "name": "edges",
+            "description": "Edges for the PostToAuthorsConnection connection",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "PostToAuthorsConnectionEdge",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "nodes",
+            "description": "The nodes of the connection, without the edges",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "User",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageInfo",
+            "description": "Information about pagination in a connection.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "WPPageInfo",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Connection",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "UserConnection",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "PostToAuthorsConnectionEdge",
+        "description": "An edge in a connection",
+        "fields": [
+          {
+            "name": "cursor",
+            "description": "A cursor for use in pagination",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "node",
+            "description": "The item at the end of the edge",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "User",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Edge",
+            "ofType": null
+          },
+          {
+            "kind": "INTERFACE",
+            "name": "UserConnectionEdge",
+            "ofType": null
+          }
+        ],
         "enumValues": null,
         "possibleTypes": null
       },
@@ -57537,35 +57073,6 @@
             "type": {
               "kind": "OBJECT",
               "name": "DeleteUserPayload",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "generateAuthorizationCode",
-            "description": "The generateAuthorizationCode mutation",
-            "args": [
-              {
-                "name": "input",
-                "description": "Input for the generateAuthorizationCode mutation",
-                "type": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "GenerateAuthorizationCodeInput",
-                    "ofType": null
-                  }
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "GenerateAuthorizationCodePayload",
               "ofType": null
             },
             "isDeprecated": false,
@@ -67031,18 +66538,6 @@
         "description": "The tag type",
         "fields": [
           {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
             "name": "contentNodes",
             "description": "Connection between the Tag type and the ContentNode type",
             "args": [
@@ -67551,22 +67046,6 @@
               "kind": "SCALAR",
               "name": "String",
               "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -70067,18 +69546,6 @@
         "description": "Terms are nodes within a Taxonomy, used to group and relate other nodes.",
         "fields": [
           {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
             "name": "count",
             "description": "The number of objects connected to the object",
             "args": [],
@@ -70344,22 +69811,6 @@
               "kind": "SCALAR",
               "name": "String",
               "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -71218,18 +70669,6 @@
         "description": "Any node that has a URI",
         "fields": [
           {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
             "name": "id",
             "description": "The unique resource identifier path",
             "args": [],
@@ -71271,22 +70710,6 @@
               "ofType": {
                 "kind": "SCALAR",
                 "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
                 "ofType": null
               }
             },
@@ -73561,18 +72984,6 @@
             "deprecationReason": null
           },
           {
-            "name": "conditionalTags",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "ConditionalTags",
-              "ofType": null
-            },
-            "isDeprecated": true,
-            "deprecationReason": "Deprecated in favor of using Next.js pages"
-          },
-          {
             "name": "databaseId",
             "description": "Identifies the primary key from the database.",
             "args": [],
@@ -74260,22 +73671,6 @@
             "deprecationReason": null
           },
           {
-            "name": "templates",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "uri",
             "description": "The unique resource identifier path",
             "args": [],
@@ -74357,7 +73752,7 @@
         "fields": [
           {
             "name": "edges",
-            "description": "A list of edges (relational context) between RootQuery and connected User Nodes",
+            "description": "A list of edges (relational context) between Post and connected User Nodes",
             "args": [],
             "type": {
               "kind": "NON_NULL",
@@ -74414,6 +73809,11 @@
         ],
         "enumValues": null,
         "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "PostToAuthorsConnection",
+            "ofType": null
+          },
           {
             "kind": "OBJECT",
             "name": "RootQueryToUserConnection",
@@ -74478,6 +73878,11 @@
           {
             "kind": "OBJECT",
             "name": "NodeWithAuthorToUserConnectionEdge",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "PostToAuthorsConnectionEdge",
             "ofType": null
           },
           {
