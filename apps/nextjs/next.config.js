@@ -80,17 +80,19 @@ const nextConfig = {
     // imageSizes should all be smaller than the smallest size in deviceSizes.
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
 
-    // remotePatterns: [
-    //   {protocol: 'https', hostname: '**.templelogancenter.org'},
-    //   {
-    //     protocol: 'https',
-    //     hostname: new URL(process.env.NEXT_PUBLIC_SERVER_URL).hostname,
-    //   },
-    //   {
-    //     protocol: 'https',
-    //     hostname: '*.gravatar.com',
-    //   },
-    // ],
+    remotePatterns: [
+      {protocol: 'https', hostname: '**.templelogancenter.org'},
+      {
+        protocol: 'https',
+        hostname: process.env.NEXT_PUBLIC_SERVER_URL
+          ? new URL(process.env.NEXT_PUBLIC_SERVER_URL).hostname
+          : 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.gravatar.com',
+      },
+    ],
   },
 
   // Trailing slash
