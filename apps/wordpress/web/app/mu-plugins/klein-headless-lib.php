@@ -22,10 +22,10 @@ use WPGraphQL\Data\Connection\UserConnectionResolver;
  * Set permlinks on theme activate
  * @see <https://github.com/wp-graphql/wp-graphql/issues/1612>
  */
-add_action(
-    'after_switch_theme',
-    __NAMESPACE__ . '\\action_after_switch_theme_set_custom_permalinks'
-);
+// add_action(
+//     'after_switch_theme',
+//     __NAMESPACE__ . '\action_after_switch_theme_set_custom_permalinks'
+// );
 function action_after_switch_theme_set_custom_permalinks()
 {
     $current_setting = get_option('permalink_structure');
@@ -50,12 +50,12 @@ function action_after_switch_theme_set_custom_permalinks()
  * @param \WP_Post $post Post object.
  * @return string
  */
-add_filter(
-    'preview_post_link',
-    __NAMESPACE__ . '\\filter_preview_post_link',
-    10,
-    2
-);
+// add_filter(
+//     'preview_post_link',
+//     __NAMESPACE__ . '\filter_preview_post_link',
+//     10,
+//     2
+// );
 function filter_preview_post_link($link, $post)
 {
     $args = [
@@ -93,18 +93,18 @@ function filter_preview_post_link($link, $post)
  * @param \WP_Post          $post     Post object.
  * @return \WP_REST_Response
  */
-add_filter(
-    'rest_prepare_post',
-    __NAMESPACE__ . '\\filter_rest_prepare_preview_link',
-    10,
-    2
-);
-add_filter(
-    'rest_prepare_page',
-    __NAMESPACE__ . '\\filter_rest_prepare_preview_link',
-    10,
-    2
-);
+// add_filter(
+//     'rest_prepare_post',
+//     __NAMESPACE__ . '\filter_rest_prepare_preview_link',
+//     10,
+//     2
+// );
+// add_filter(
+//     'rest_prepare_page',
+//     __NAMESPACE__ . '\filter_rest_prepare_preview_link',
+//     10,
+//     2
+// );
 function filter_rest_prepare_preview_link($response, $post)
 {
     if ('draft' === $post->post_status) {
@@ -117,11 +117,7 @@ function filter_rest_prepare_preview_link($response, $post)
 /**
  * Registers a connection to Co Authors Plus in WPGraphQL
  */
-add_action(
-    'plugins_loaded',
-    __NAMESPACE__ .
-        '\action_plugins_loaded_register_coauthors_plus_wpgraphql_connection'
-);
+add_action('plugins_loaded', __NAMESPACE__ . '\action_plugins_loaded_register_coauthors_plus_wpgraphql_connection');
 function action_plugins_loaded_register_coauthors_plus_wpgraphql_connection()
 {
     if (
@@ -148,7 +144,7 @@ function action_plugins_loaded_register_coauthors_plus_wpgraphql_connection()
                 $info
             );
             $coauthor_ids = array_map(
-                fn($coauthor) => $coauthor->ID,
+                fn ($coauthor) => $coauthor->ID,
                 get_coauthors($source->ID)
             );
             $resolver->set_query_arg('include', $coauthor_ids);
