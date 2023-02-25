@@ -48,15 +48,6 @@ Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: CC-BY-NC-ND-4.0
 
 Files: packages/tu-assets/*
-       apps/nextjs/public/android-chrome-192x192.png
-       apps/nextjs/public/android-chrome-384x384.png
-       apps/nextjs/public/apple-touch-icon.png
-       apps/nextjs/public/browserconfig.xml
-       apps/nextjs/public/favicon-16x16.png
-       apps/nextjs/public/favicon-32x32.png
-       apps/nextjs/public/favicon.ico
-       apps/nextjs/public/mstile-150x150.png
-       apps/nextjs/public/safari-pinned-tab.svg
-       apps/nextjs/public/site.webmanifest
+       apps/nextjs/public/favicon/*
 Copyright: 2022-2023 Temple University <brand@temple.edu>
 License: LicenseRef-TU-Trademark-Policy

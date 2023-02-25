@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 import {ApolloClient, InMemoryCache} from '@apollo/client'
 import {GRAPHQL_ENDPOINT} from '../constants'
 

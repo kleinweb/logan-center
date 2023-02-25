@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 import {parseISO, format} from 'date-fns'
 
 // TODO: why? should use format from CMS
