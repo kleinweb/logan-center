@@ -4,7 +4,7 @@
 'use client'
 
 import Separator from '@atoms/Separator'
-import PageHeader from '@organisms/Page/Header'
+import PageHeader from '@organisms/Page/PageHeader'
 import PostBody from '@organisms/PostBody'
 
 export interface SinglePageProps {

@@ -10,6 +10,7 @@ import SiteFooter from '@organisms/SiteFooter'
 import {Providers} from './providers'
 
 import '@/src/styles/globals.css'
+import {styles} from '@molecules/utils'
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (

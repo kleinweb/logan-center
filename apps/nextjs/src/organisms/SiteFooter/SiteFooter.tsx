@@ -11,13 +11,13 @@ import {Icon} from '@atoms/Icons'
 
 import LogoFull from '@/public/assets/logos/logo--full--duo.svg'
 
-import Container from '../../templates/Container'
 import FinePrint from './FinePrint'
 import SocialIcons from './SocialIcons'
+import {styles} from '@molecules/utils'
 
 export default function SiteFooter() {
   return (
-    <Container>
+    <div className={styles.container}>
       <div className="mx-auto mb-10 flex flex-wrap items-start justify-center sm:flex-nowrap sm:justify-between sm:gap-8">
         <address className="mb-10 max-w-[300px] not-italic leading-snug ">
           <a
@@ -43,6 +43,6 @@ export default function SiteFooter() {
         <SocialIcons />
       </div>
       <FinePrint />
-    </Container>
+    </div>
   )
 }

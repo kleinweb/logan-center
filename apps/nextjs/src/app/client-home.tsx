@@ -9,12 +9,12 @@ import Image from 'next/image'
 import {__} from '@wordpress/i18n'
 
 import {Button, ButtonWithIcon} from '@atoms/Buttons'
-import Container from '@templates/Container'
 
 import BarsMotif from '@/public/assets/decorations/motif--island.svg'
 import podcastImage from '@/public/assets/images/podcast--poster--art_only.jpg'
 import youGotThisImage from '@/public/assets/images/photos/mastermanschool-firstday01-crop-1024x576.jpeg'
 import thumbImage from '@/public/assets/images/home--hero_video--start.thumb.jpeg'
+import {styles} from '@molecules/utils'
 
 const BackgroundVideoPlayer = dynamic(() => import('react-player/lazy'), {
   ssr: false,
@@ -93,7 +93,7 @@ export default function HomePage() {
       </div>
 
       <section className="mb-6 py-6">
-        <Container>
+        <div className={styles.container}>
           <div className="flex flex-col">
             <div className="order-2 mb-3 flex flex-col">
               <h2 className="text-primary-dark order-2 mb-2 text-right text-xl font-bold uppercase leading-tight tracking-wider">
@@ -144,11 +144,11 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </Container>
+        </div>
       </section>
 
       <section className="bg-primary-light mt-20 py-6 pb-20">
-        <Container>
+        <div className={styles.container}>
           <div className="text-primary-accent relative -mt-24 flex flex-row-reverse py-8">
             <BarsMotif />
           </div>
@@ -166,11 +166,11 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-        </Container>
+        </div>
       </section>
 
       <section className="pt-6 pb-16">
-        <Container>
+        <div className={styles.container}>
           <div className="text-primary-accent relative -mt-24 flex py-8">
             <BarsMotif />
           </div>
@@ -209,7 +209,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </Container>
+        </div>
       </section>
 
       <div className="relative aspect-video overflow-hidden">

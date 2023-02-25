@@ -5,8 +5,8 @@
 
 import clsx from 'clsx'
 
-import Container from '@templates/Container'
 import Link from 'next/link'
+import {styles} from '@molecules/utils'
 
 export default function PreviewAlert({preview}) {
   return preview ? (
@@ -16,7 +16,7 @@ export default function PreviewAlert({preview}) {
         // 'bg-accent-1 border-accent-2': !preview,
       })}
     >
-      <Container>
+      <div className={styles.container}>
         <div className="py-2 text-center text-sm">
           This is a page preview.{' '}
           <Link
@@ -27,7 +27,7 @@ export default function PreviewAlert({preview}) {
           </Link>{' '}
           to exit preview mode.
         </div>
-      </Container>
+      </div>
     </div>
   ) : undefined
 }

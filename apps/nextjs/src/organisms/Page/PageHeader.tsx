@@ -5,7 +5,8 @@
 
 import {PageTitle} from '@molecules/PageTitle'
 import MotifBackground from '@/public/assets/decorations/motif--bg.svg'
-import Container from '@templates/Container'
+import clsx from 'clsx'
+import {styles} from '@molecules/utils'
 
 export type PageHeaderProps = {
   title: string
@@ -15,9 +16,9 @@ export type PageHeaderProps = {
 export default function PageHeader({title}) {
   return (
     <div className="flex flex-col">
-      <Container className="order-2">
+      <div className={clsx(styles.container, 'order-2')}>
         <PageTitle>{title}</PageTitle>
-      </Container>
+      </div>
       <div className="mb-8 sm:mx-0 md:mb-16">
         <MotifBackground className="h-28" />
       </div>
