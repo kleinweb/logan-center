@@ -58,14 +58,14 @@
     "wpackagist-plugin/simple-history": "^3.4",
     "wpackagist-plugin/user-switching": "^1.7",
     "wpackagist-plugin/wp-crontrol": "^1.15",
-    "wpackagist-plugin/wp-graphql": "^1.13",
     "wpengine/advanced-custom-fields-pro": "*",
     "wpengine/wp-graphql-content-blocks": "dev-upstream-pr-21-composer-package-type",
     "wpackagist-plugin/autodescription": "4.2.7.1",
     "wpackagist-plugin/faustwp": "^0.8.1",
     "wpackagist-plugin/co-authors-plus": "^3.5",
     "alleyinteractive/internal-flags": "^0.2.0",
-    "wpackagist-theme/twentytwentythree": "^1.0"
+    "wpackagist-theme/twentytwentythree": "^1.0",
+    "wp-graphql/wp-graphql": "^1.13"
   },
   "require-dev": {
     "alleyinteractive/meta-inspector": "^1.1",
