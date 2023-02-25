@@ -1,6 +1,13 @@
+import {ClassValue} from 'clsx'
+
 export interface ChildrenProps {
   children: React.ReactNode
 }
+
+export interface ClassNameProps {
+  className?: ClassValue
+}
+
 /**
  * Named aspect ratios supported in our Tailwind theme.
  *
