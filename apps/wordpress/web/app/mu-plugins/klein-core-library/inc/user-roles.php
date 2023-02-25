@@ -17,8 +17,11 @@ use Alley\WP\Caper;
 
 $admin_caps = \wp_roles()->get_role('administrator')->capabilities;
 $admin_caps_names = array_filter(
+    // FIXME: fatal error: must be of type array, null given
+    // │[24-Feb-2023 03:55:30 UTC] PHP Warning:  Attempt to read property "capabilities" on null in /var/www/html/apps/wordpress/web/app/mu-plugins/klein-core-library/inc/user-roles.php on line 13        │
+    // │[24-Feb-2023 03:55:30 UTC] PHP Fatal error:  Uncaught TypeError: array_keys(): Argument #1 ($array) must be of type array, null given in /var/www/html/apps/wordpress/web/app/mu-plugins/klein-core-│
     array_keys($admin_caps),
-    fn($x) => !is_string($x)
+    fn ($x) => !is_string($x)
 );
 
 define('SITE_ADMIN_ROLE', 'site-admin');

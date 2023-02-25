@@ -46,7 +46,7 @@ export default async (app) => {
      * URI of the `public` directory
      * @see {@link https://bud.js.org/docs/bud.setPublicPath/}
      */
-    .setPublicPath('/app/themes/logancenter-wp-next-theme/public/')
+    .setPublicPath('/app/themes/logan-center-theme/public/')
 
     /**
      * Generate WordPress `theme.json`

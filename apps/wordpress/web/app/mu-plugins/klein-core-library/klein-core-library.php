@@ -23,7 +23,7 @@ namespace Klein\Core;
  */
 add_action(
     'after_setup_theme',
-    __NAMESPACE__ . '\\after_setup_theme_add_baseline_feature_support'
+    __NAMESPACE__ . '\after_setup_theme_add_baseline_feature_support'
 );
 function after_setup_theme_add_baseline_feature_support()
 {
@@ -34,7 +34,7 @@ function after_setup_theme_add_baseline_feature_support()
 /**
  * Early-loading custom defaults.
  */
-add_action('init', __NAMESPACE__ . '\\action_init');
+add_action('init', __NAMESPACE__ . '\action_init');
 function action_init()
 {
     // Enable tags for Pages
