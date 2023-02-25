@@ -48,7 +48,7 @@ Start a development server, with hot-reloading, at
 [http://localhost:3000][local-nextjs].
 
 ```sh
-yarn dev
+pnpm dev
 ```
 
 In some cases you find find that the port number might be `3001` --
@@ -58,8 +58,8 @@ The log output should point you to the correct location.
 ### Production build
 
 ```sh
-yarn build
-yarn start
+pnpm build
+pnpm start
 ```
 
 These are likely the exact same commands that will be executed when your
@@ -136,7 +136,7 @@ A `ClassicEditorBlock` component is provided to render these blocks.
 ### Unsupported Blocks
 
 In order to help you identify blocks that have not yet been mapped to a React component,
-you will see an "Unsupported block" notice when running the development server (`yarn dev`).
+you will see an "Unsupported block" notice when running the development server (`pnpm dev`).
 This notice is suppressed in production and the block is _ignored_.
 
 ## Internal Link Routing
@@ -201,7 +201,7 @@ whenever you start the development server or build the application.
 If you need to run the generation manually, you can use:
 
 ```sh
-yarn codegen
+pnpm codegen
 ```
 
 In development, if you make changes or additions to your queries,
@@ -266,7 +266,7 @@ in both development and production.
 There is support for tests using [Jest][jest]. Some basic unit tests are provided for project code and carry a `.test.ts` extension. Run tests using:
 
 ```sh
-yarn test
+pnpm test
 ```
 
 ## Image optimization

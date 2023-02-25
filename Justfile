@@ -29,19 +29,19 @@ wp-dir := prj-root / "apps/wordpress"
 
 wp := if env_var('WP_ENV') == 'development' { 'ddev wp' } else { 'wp' }
 
-# make node/yarn `package.json` runnables available to tasks
+# make nodejs `package.json` runnables available to tasks
 export PATH := join(node-modules, '.bin') + ":" + env_var('PATH')
 
 ###: DEVELOPMENT ===================================================================================
 
 # [dev]: 		Install the project dependencies
 install:
-  yarn install
+  pnpm install
   cd {{ wp-dir }} && composer install
 
 # [dev]: 		Run the development watch processes
 dev: start-wp && stop-wp
-  -yarn dev
+  -pnpm dev
 
 # [dev]: 		Start WordPress
 start-wp:

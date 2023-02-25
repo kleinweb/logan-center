@@ -120,8 +120,8 @@ Edit `app/setup.php` to enable or disable theme features, setup navigation menus
 
 ### Build commands
 
-- `yarn dev` — Compile assets when file changes are made, start Browsersync session
-- `yarn build` — Compile assets for production
+- `pnpm dev` — Compile assets when file changes are made, start Browsersync session
+- `pnpm build` — Compile assets for production
 
 ## Community
 

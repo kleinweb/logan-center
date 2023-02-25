@@ -6,5 +6,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 reuse lint
-yarn run turbo test
-yarn run turbo lint
+pnpm turbo test
+pnpm turbo lint

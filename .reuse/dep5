@@ -24,7 +24,6 @@ Files: */.env*
        .gitmodules
        .prettierignore
        .vscode/*
-       .yarn/*
        *.json
        *.lock
        *.toml

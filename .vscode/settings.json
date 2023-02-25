@@ -3,15 +3,11 @@
     "strings": true
   },
   "eslint.workingDirectories": ["./packages/*", "./apps/*"],
-  "search.exclude": {
-    "**/.yarn": true,
-    "**/.pnp.*": true
-  },
   "prettier.prettierPath": "node_modules/prettier/index.js",
   "editor.formatOnSave": true,
-  "npm.packageManager": "yarn",
-  "stylelint.packageManager": "yarn",
-  "eslint.packageManager": "yarn",
+  "npm.packageManager": "pnpm",
+  "stylelint.packageManager": "pnpm",
+  "eslint.packageManager": "pnpm",
   "prettier.configPath": ".prettierrc.json",
   "prettier.requireConfig": true,
   "intelephense.environment.includePaths": ["**/web/app/plugins/**"],

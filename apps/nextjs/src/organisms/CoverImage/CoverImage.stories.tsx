@@ -3,12 +3,14 @@ import {Meta, StoryObj} from '@storybook/react'
 import CoverImage from './CoverImage'
 // import Fallback from './CoverImageFallback'
 
-export default {
+const meta: Meta<typeof CoverImage> = {
   component: CoverImage,
   args: {
     src: 'https://via.placeholder.com/1920x1080',
   },
-} as Meta<typeof CoverImage>
+}
+
+export default meta
 
 export const DefaultCoverImage: StoryObj<typeof CoverImage> = {}
 // TODO: handle multiple stories / related components

@@ -29,14 +29,14 @@ Work in progress.
 
 ```bash
 direnv allow
-yarn install
-yarn build
+pnpm install
+pnpm build
 ```
 
 ### Development
 
 ```sh
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the
@@ -45,8 +45,8 @@ result.
 ## Updating
 
 ```sh
-yarn upgrade-interactive
-yarn install && yarn build
+pnpm upgrade-interactive
+pnpm install && pnpm build
 ```
 
 The codebase is structured following the monorepo pattern,

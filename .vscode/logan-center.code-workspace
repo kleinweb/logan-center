@@ -118,7 +118,9 @@
       "titleBar.inactiveBackground": "#c1244099",
       "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#c12440"
+    "peacock.color": "#c12440",
+    "eslint.packageManager": "pnpm",
+    "npm.packageManager": "pnpm"
   },
   "extensions": {
     "recommendations": [
