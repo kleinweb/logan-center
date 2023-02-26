@@ -99,28 +99,6 @@
       "zlib",
       "wordpress"
     ],
-    "workbench.colorCustomizations": {
-      "activityBar.activeBackground": "#055ed5",
-      "activityBar.background": "#055ed5",
-      "activityBar.foreground": "#e7e7e7",
-      "activityBar.inactiveForeground": "#e7e7e799",
-      "activityBarBadge.background": "#fb63a4",
-      "activityBarBadge.foreground": "#15202b",
-      "commandCenter.border": "#e7e7e799",
-      "sash.hoverBorder": "#055ed5",
-      "statusBar.background": "#0448a3",
-      "statusBar.foreground": "#e7e7e7",
-      "statusBarItem.hoverBackground": "#055ed5",
-      "statusBarItem.remoteBackground": "#0448a3",
-      "statusBarItem.remoteForeground": "#e7e7e7",
-      "titleBar.activeBackground": "#0448a3",
-      "titleBar.activeForeground": "#e7e7e7",
-      "titleBar.inactiveBackground": "#0448a399",
-      "titleBar.inactiveForeground": "#e7e7e799"
-    },
-    "peacock.color": "#0448a3",
-    "eslint.packageManager": "pnpm",
-    "npm.packageManager": "pnpm"
   },
   "extensions": {
     "recommendations": [

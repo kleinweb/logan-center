@@ -1,5 +1,0 @@
-packages:
-  - 'apps/nextjs'
-  # - "apps/wordpress/web/app/themes/logan-center-theme"
-  - 'packages/*'
-  - '!**/test/**'

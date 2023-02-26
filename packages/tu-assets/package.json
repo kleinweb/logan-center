@@ -16,7 +16,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm build:js",
+    "build": "yarn build:js",
     "build:js": "tsc && rollup -c",
     "dev": "rollup -c --watch",
     "clean": "rimraf ./dist"

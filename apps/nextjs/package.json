@@ -9,7 +9,7 @@
     "build": "NODE_OPTIONS='-r dotenv/config' next build",
     "start": "NODE_OPTIONS='-r dotenv/config' next start",
     "lint": "tsc --noEmit && next lint",
-    "copy": "concurrently 'pnpm:copy:*'",
+    "copy": "concurrently 'yarn:copy:*'",
     "copy:tu-assets": "rimraf public/assets/shared && cp -R ../../packages/tu-assets ./public/assets/shared",
     "export:tailwind": "tailwindcss-export-config --config=tailwind.config.js --destination=./ --format=json",
     "test": "jest",

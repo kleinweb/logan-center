@@ -51,9 +51,15 @@ result
 *.tsbuildinfo
 *.map
 
-##: npm/yarn/pnpm
+##: npm/yarn
 node_modules/
 .pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 ##: next.js
 .next/

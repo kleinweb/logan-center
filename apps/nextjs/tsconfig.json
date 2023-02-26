@@ -24,10 +24,6 @@
       "@/*": ["./*"]
     },
     "strictNullChecks": false,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "plugins": [{"name": "next"}]
   }
 }

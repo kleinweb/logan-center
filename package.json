@@ -1,5 +1,6 @@
 {
   "name": "@kleinweb/logan-center",
+  "packageManager": "yarn@4.0.0-rc.39",
   "version": "0.3.0",
   "license": "GPL-3.0-or-later",
   "private": true,
@@ -19,20 +20,28 @@
   "homepage": "https://templelogancenter.org",
   "engines": {
     "node": ">=16",
-    "npm": "use-pnpm-instead",
-    "pnpm": ">=3"
+    "npm": "use-yarn-instead"
   },
   "scripts": {
     "prepare": "husky install",
     "codegen": "graphql-codegen --config .graphqlrc.yml --require dotenv/config",
-    "codegen:watch": "pnpm codegen -- --watch",
-    "dev": "concurrently 'pnpm codegen:watch' 'turbo run dev --no-cache --continue'",
+    "codegen:watch": "yarn run codegen -- --watch",
+    "dev": "concurrently 'yarn run codegen:watch' 'turbo run dev --no-cache --continue'",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "turbo run clean",
-    "build": "pnpm codegen && turbo run build",
+    "build": "yarn run codegen && turbo run build",
     "copy": "turbo run copy"
   },
+  "workspaces": [
+    "apps/nextjs",
+    "apps/wordpress/web/app/themes/logan-center-theme",
+    "packages/eslint-config-custom",
+    "packages/tailwind-config",
+    "packages/tsconfig",
+    "packages/tu-assets",
+    "packages/ui"
+  ],
   "dependencies": {
     "@graphql-codegen/cli": "^3.2.1",
     "cross-fetch": "^3.1.5",
