@@ -27,14 +27,17 @@
     "@kleinweb/logan-center__tailwind-config": "workspace:*"
   },
   "devDependencies": {
-    "@roots/bud": "latest",
-    "@roots/bud-swc": "6.9.1"
-  },
-  "packageExtensions": {
-    "@roots/bud-support": {
-      "dependencies": {
-        "typanion": "*"
-      }
-    }
+    "@babel/core": "^7.21.0",
+    "@babel/plugin-transform-runtime": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@roots/bud": "6.9.1",
+    "@roots/bud-prettier": "6.9.1",
+    "@roots/bud-stylelint": "6.9.1",
+    "@roots/bud-support": "6.9.1",
+    "@roots/bud-tailwindcss": "6.9.1",
+    "@roots/eslint-config": "6.9.1",
+    "@roots/sage": "6.9.1",
+    "babel-loader": "^9.1.2",
+    "webpack": "^5.75.0"
   }
 }
