@@ -34,7 +34,11 @@
     },
     {
       "type": "vcs",
-      "url": "https://github.com/kleinweb/wp-gql-gutenberg.git"
+      "url": "https://github.com/kleinweb/wp-gql-gutenberg"
+    },
+    {
+      "type": "path",
+      "url": "../../packages/logan-center-plugin"
     }
   ],
   "require": {
@@ -65,7 +69,9 @@
     "wpackagist-plugin/co-authors-plus": "^3.5",
     "alleyinteractive/internal-flags": "^0.2.0",
     "wpackagist-theme/twentytwentythree": "^1.0",
-    "wp-graphql/wp-graphql": "^1.13"
+    "wp-graphql/wp-graphql": "^1.13",
+    "vinkla/headache": "^2.4",
+    "kleinweb/logan-center-plugin": "*"
   },
   "require-dev": {
     "alleyinteractive/meta-inspector": "^1.1",

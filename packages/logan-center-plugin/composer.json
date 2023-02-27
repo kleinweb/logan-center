@@ -1,0 +1,45 @@
+{
+  "name": "kleinweb/logan-center-plugin",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0-or-later",
+  "description": "Minimally-functional WordPress plugin for the Logan Center for Urban Investigative Reporting",
+  "homepage": "https://github.com/kleinweb/logan-center",
+  "authors": [
+    {
+      "name": "Klein College of Media and Communication",
+      "email": "kleinweb@temple.edu",
+      "homepage": "https://klein.temple.edu"
+    }
+  ],
+  "keywords": [
+    "wordpress",
+    "wordpress-plugin",
+    "headless-wordpress",
+    "temple-university"
+  ],
+  "support": {
+    "issues": "https://github.com/kleinweb/logan-center/issues"
+  },
+  "require": {
+    "php": "^8.0",
+    "stoutlogic/acf-builder": "^1.12"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.7.1"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "lint": [
+      "phpcs --extensions=php --standard=PSR12 app"
+    ],
+    "fix": [
+      "phpcbf --extensions=php --standard=PSR12 app"
+    ]
+  }
+}
