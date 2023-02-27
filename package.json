@@ -35,11 +35,7 @@
   },
   "workspaces": [
     "apps/nextjs",
-    "packages/eslint-config-custom",
-    "packages/tailwind-config",
-    "packages/tsconfig",
-    "packages/tu-assets",
-    "packages/ui"
+    "packages/*"
   ],
   "dependencies": {
     "@graphql-codegen/cli": "^3.2.1",
