@@ -41,21 +41,22 @@ function block_whitelist($allowed_block_types)
     );
 
     // Add specific core blocks to whitelist
-    // TODO: Media & Text ?
     $whitelist = [
-        'core/verse',
-        'core/pullquote',
-        'core/paragraph',
-        'core/table',
-        'core/image',
+        'core/embed',
         'core/heading',
-        'core/list',
-        // 'core/list-item', // TODO: is this an inner-block of `core/list`? do we need it?
+        'core/image',
+        'core/list-item', // NOTE: Requires `core/list` -- cannot be used directly
+        'core/list', // NOTE: Requires `core/list-item` -- without it, only one list item can be created
+        'core/media-text',
+        'core/paragraph',
+        'core/pullquote',
         'core/quote',
-        // 'core/embed', // TODO: do we need to support this specifically? any concerts?
-        'core/video',
+        'core/table',
+        'core/verse',
         // 'core/spacer',
-        // 'core/button',
+        // TODO: consider supporting since they come up frequently
+        // 'core/buttons', // NOTE: Requires `core/button`
+        // 'core/button', // Appears to be useless without `core/buttons`
     ];
 
     return array_merge($acf_blocks, $whitelist);
@@ -63,6 +64,8 @@ function block_whitelist($allowed_block_types)
 
 /**
  * Disable the fullscreen editor as user default.
+ *
+ * TODO: can this be added to `editor.js`?
  *
  * @see https://jeanbaptisteaudras.com/en/2020/03/disable-block-editor-default-fullscreen-mode-in-wordpress-5-4/
  */
