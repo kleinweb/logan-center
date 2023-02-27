@@ -1,0 +1,58 @@
+/* stylelint-disable import-notation */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* stylelint-enable import-notation */
+
+.editor-styles-wrapper {
+  @apply font-sans;
+  /* FIXME: should not be set at the top level
+            but for the time being, this makes things way more readable until we
+            apply better styles.  */
+  @apply max-w-prose self-center;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.editor-post-title__input {
+  @apply mx-auto mb-6 max-w-prose text-3xl font-bold text-neutral-900;
+
+  /* FIXME: should respect theme.json settings */
+  /* @apply max-w-content; */
+}
+
+/**
+  * Layout styles for centered content areas
+  *
+  * If you are controlling the width of your content area with styles applied
+  * to its container, you can delete the following styles whose selectors begin
+  * with `.page-content >` and `.entry-content >`. For more details, please see
+  * the following:
+  *
+  * https://make.wordpress.org/core/2021/06/29/on-layout-and-content-width-in-wordpress-5-8/
+  */
+.page-content > *,
+.entry-content > * {
+  /* FIXME: should respect theme.json settings */
+  /* Content width from the `theme.json` file */
+  /* @apply max-w-content; */
+  @apply mx-auto max-w-prose;
+}
+
+.entry-content > .alignwide {
+  /* FIXME: should respect theme.json settings */
+  /* Wide width from the `theme.json` file */
+  /* @apply max-w-wide; */
+  @apply max-w-prose;
+}
+
+.entry-content > .alignfull {
+  @apply max-w-none;
+}
+
+.entry-content > .alignleft {
+  @apply float-left mr-8;
+}
+
+.entry-content > .alignright {
+  @apply float-right ml-8;
+}

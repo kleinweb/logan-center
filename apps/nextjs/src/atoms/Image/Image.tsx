@@ -14,8 +14,6 @@ import wpConfig from '@/wp.config'
  * https://docs.wpvip.com/technical-references/vip-go-files-system/image-transformation/
  */
 
-const {wordPressContentDirname: contentDirname} = wpConfig
-
 export type ImageProps = {
   src: string
   srcset?: string
@@ -34,7 +32,9 @@ export default function Image(props: ImageProps) {
 
   // Only set a loader if it is actually needed. This avoids a Next.js warning:
   // https://nextjs.org/docs/messages/next-image-missing-loader-width
-  const loader: ImageLoader = props.src.includes(`/${contentDirname}/uploads/`)
+  const loader: ImageLoader = props.src.includes(
+    `/${wpConfig.endpoints.contentDir}/uploads/`,
+  )
     ? wpImageLoader
     : undefined
 

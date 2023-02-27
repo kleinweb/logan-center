@@ -1,7 +1,6 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University
+// SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
-
-import {__} from '@wordpress/i18n'
 
 import {TempleLogoIcon} from '@kleinweb/tu-assets'
 
@@ -16,7 +15,7 @@ export default function KleinBanner() {
           className="flex items-center gap-4 uppercase tracking-wide"
         >
           <p className="text-2xs grow font-semibold">
-            {__('Explore')} klein.temple.edu
+            Explore klein.temple.edu
           </p>
           {/* NOTE: `aspect-ratio` is an option here too, but considering that
           its browser support is not quite in the optimal range of ~95% as of 2023-01,

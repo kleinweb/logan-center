@@ -1,0 +1,5 @@
+/* stylelint-disable import-notation */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* stylelint-enable import-notation */

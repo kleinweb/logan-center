@@ -9,6 +9,7 @@
 
 @layer base {
   :root {
+    /* TODO: Use the value from constants in a JSX file */
     --tu--color--cherry: #a41e35;
   }
 }

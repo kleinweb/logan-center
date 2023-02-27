@@ -5,6 +5,14 @@
       "path": "../apps/nextjs"
     },
     {
+      "name": "wordpress-plugin",
+      "path": "../packages/logan-center-plugin"
+    },
+    {
+      "name": "wordpress-theme",
+      "path": "../packages/logan-center-theme"
+    },
+    {
       "name": "wordpress",
       "path": "../apps/wordpress"
     },
@@ -95,26 +103,12 @@
       "zlib",
       "wordpress"
     ],
-    "workbench.colorCustomizations": {
-      "activityBar.activeBackground": "#db3d59",
-      "activityBar.background": "#db3d59",
-      "activityBar.foreground": "#e7e7e7",
-      "activityBar.inactiveForeground": "#e7e7e799",
-      "activityBarBadge.background": "#1b510f",
-      "activityBarBadge.foreground": "#e7e7e7",
-      "commandCenter.border": "#e7e7e799",
-      "sash.hoverBorder": "#db3d59",
-      "statusBar.background": "#c12440",
-      "statusBar.foreground": "#e7e7e7",
-      "statusBarItem.hoverBackground": "#db3d59",
-      "statusBarItem.remoteBackground": "#c12440",
-      "statusBarItem.remoteForeground": "#e7e7e7",
-      "titleBar.activeBackground": "#c12440",
-      "titleBar.activeForeground": "#e7e7e7",
-      "titleBar.inactiveBackground": "#c1244099",
-      "titleBar.inactiveForeground": "#e7e7e799"
-    },
-    "peacock.color": "#c12440"
+    "stylelint.packageManager": "yarn",
+    "npm.packageManager": "yarn",
+    "eslint.packageManager": "yarn",
+    "stylelint.reportDescriptionlessDisables": true,
+    "stylelint.reportInvalidScopeDisables": true,
+    "stylelint.reportNeedlessDisables": true,
   },
   "extensions": {
     "recommendations": [

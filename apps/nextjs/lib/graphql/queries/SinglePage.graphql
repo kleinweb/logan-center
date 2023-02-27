@@ -1,19 +1,17 @@
 # SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-query SinglePage($slug: ID!) {
-  page(id: $slug, idType: URI) {
+query SinglePage($uri: ID!) {
+  page(id: $uri, idType: URI) {
     title(format: RENDERED)
-    content(format: RENDERED)
     databaseId
     uri
-    featuredImage {
-      ...FeaturedImageFields
+    content(format: RENDERED)
+    contentBlocks {
+      apiVersion
+      name
+      parentId
+      renderedHtml
     }
-    # seo {
-    #   fullHead
-    #   title
-    #   metaDesc
-    # }
   }
 }

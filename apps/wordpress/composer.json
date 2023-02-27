@@ -30,11 +30,23 @@
     },
     {
       "type": "vcs",
-      "url": "https://github.com/wpengine/wp-graphql-content-blocks.git"
+      "url": "https://github.com/kleinweb/wp-graphql-content-blocks"
     },
     {
       "type": "vcs",
-      "url": "https://github.com/kleinweb/wp-gql-gutenberg.git"
+      "url": "https://github.com/kleinweb/wp-gql-gutenberg"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/funkhaus/wp-graphql-cors"
+    },
+    {
+      "type": "path",
+      "url": "../../packages/logan-center-theme"
+    },
+    {
+      "type": "path",
+      "url": "../../packages/logan-center-plugin"
     }
   ],
   "require": {
@@ -49,8 +61,6 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
     "vlucas/phpdotenv": "^5.5",
-    "alleyinteractive/wp-caper": "^2.0",
-    "wp-graphql/wp-graphql-acf": "^0.3",
     "wpackagist-plugin/email-log": "^2.4",
     "wpackagist-plugin/log-deprecated-notices": "^0.4.1",
     "wpackagist-plugin/query-monitor": "^3.11",
@@ -58,10 +68,18 @@
     "wpackagist-plugin/simple-history": "^3.4",
     "wpackagist-plugin/user-switching": "^1.7",
     "wpackagist-plugin/wp-crontrol": "^1.15",
-    "wpackagist-plugin/wp-graphql": "^1.13",
     "wpengine/advanced-custom-fields-pro": "*",
+    "wpengine/wp-graphql-content-blocks": "dev-upstream-pr-21-composer-package-type",
     "wpackagist-plugin/autodescription": "4.2.7.1",
-    "wpackagist-plugin/faustwp": "^0.8.1"
+    "wpackagist-plugin/faustwp": "^0.8.1",
+    "wpackagist-plugin/co-authors-plus": "^3.5",
+    "alleyinteractive/internal-flags": "^0.2.0",
+    "wpackagist-theme/twentytwentythree": "^1.0",
+    "vinkla/headache": "^2.4",
+    "kleinweb/logan-center-plugin": "*",
+    "kleinweb/logan-center-theme": "*",
+    "wp-graphql/wp-graphql-acf": "^0.6.1",
+    "wp-graphql/wp-graphql": "^1.13"
   },
   "require-dev": {
     "alleyinteractive/meta-inspector": "^1.1",

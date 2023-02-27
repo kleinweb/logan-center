@@ -76,6 +76,8 @@ export type Category = DatabaseIdentifier &
     categoryId?: Maybe<Scalars['Int']>
     /** Connection between the category type and its children categories. */
     children?: Maybe<CategoryToCategoryConnection>
+    /** @deprecated Deprecated in favor of using Next.js pages */
+    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the Category type and the ContentNode type */
     contentNodes?: Maybe<CategoryToContentNodeConnection>
     /** The number of objects connected to the object */
@@ -114,6 +116,7 @@ export type Category = DatabaseIdentifier &
     taxonomy?: Maybe<CategoryToTaxonomyConnectionEdge>
     /** The name of the taxonomy that the object is associated with */
     taxonomyName?: Maybe<Scalars['String']>
+    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The ID of the term group that this term object belongs to */
     termGroupId?: Maybe<Scalars['Int']>
     /** The taxonomy ID that the object is associated with */
@@ -839,6 +842,121 @@ export enum CommentsConnectionOrderbyEnum {
   UserId = 'USER_ID',
 }
 
+/** GraphQL representation of WordPress Conditional Tags. */
+export type ConditionalTags = {
+  __typename?: 'ConditionalTags'
+  /**
+   * Determines whether the query is for an existing archive page.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isArchive?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for an existing attachment page.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isAttachment?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for an existing author archive page.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isAuthor?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for an existing category archive page.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isCategory?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for an existing date archive.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isDate?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for an existing day archive.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isDay?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for the front page of the site.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isFrontPage?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for the blog homepage.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isHome?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for an existing month archive.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isMonth?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether this site has more than one author.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isMultiAuthor?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for an existing single page.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isPage?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether currently in a page template.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isPageTemplate?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for an existing post type archive page.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isPostTypeArchive?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for a post or page preview.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isPreview?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for the Privacy Policy page.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isPrivacyPolicy?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for a search.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isSearch?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for an existing single post.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isSingle?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for an existing single post of any post type (post, attachment, page, custom post types).
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isSingular?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether a post is sticky.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isSticky?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for an existing tag archive page.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isTag?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for an existing custom taxonomy archive page.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isTax?: Maybe<Scalars['Boolean']>
+  /**
+   * Determines whether the query is for an existing year archive.
+   * @deprecated Deprecated in favor of using Next.js pages
+   */
+  isYear?: Maybe<Scalars['Boolean']>
+}
+
 /** A plural connection from one Node Type in the Graph to another Node Type, with support for relational data via &quot;edges&quot;. */
 export type Connection = {
   /** A list of edges (relational context) between connected nodes */
@@ -871,6 +989,8 @@ export type ContentBlock = {
 
 /** Nodes used to manage content */
 export type ContentNode = {
+  /** @deprecated Deprecated in favor of using Next.js pages */
+  conditionalTags?: Maybe<ConditionalTags>
   /** Connection between the ContentNode type and the ContentType type */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
   /** The name of the Content Type the node belongs to */
@@ -921,6 +1041,7 @@ export type ContentNode = {
   status?: Maybe<Scalars['String']>
   /** The template assigned to a node of content */
   template?: Maybe<ContentTemplate>
+  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -1058,6 +1179,8 @@ export type ContentType = Node &
     __typename?: 'ContentType'
     /** Whether this content type should can be exported. */
     canExport?: Maybe<Scalars['Boolean']>
+    /** @deprecated Deprecated in favor of using Next.js pages */
+    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the ContentType type and the Taxonomy type */
     connectedTaxonomies?: Maybe<ContentTypeToTaxonomyConnection>
     /** Connection between the ContentType type and the ContentNode type */
@@ -1118,6 +1241,7 @@ export type ContentType = Node &
     showInRest?: Maybe<Scalars['Boolean']>
     /** Whether to generate and allow a UI for managing this content type in the admin. */
     showUi?: Maybe<Scalars['Boolean']>
+    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The unique resource identifier path */
     uri?: Maybe<Scalars['String']>
   }
@@ -1710,7 +1834,7 @@ export type CoreCodeAttributes = {
   /** The &quot;lock&quot; field on the &quot;CoreCode&quot; block */
   lock?: Maybe<Scalars['BlockAttributesObject']>
   /** The &quot;style&quot; field on the &quot;CoreCode&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
+  style?: Maybe<Scalars['String']>
   /** The &quot;textColor&quot; field on the &quot;CoreCode&quot; block */
   textColor?: Maybe<Scalars['String']>
 }
@@ -1762,7 +1886,7 @@ export type CoreColumnAttributes = {
   /** The &quot;lock&quot; field on the &quot;CoreColumn&quot; block */
   lock?: Maybe<Scalars['BlockAttributesObject']>
   /** The &quot;style&quot; field on the &quot;CoreColumn&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
+  style?: Maybe<Scalars['String']>
   /** The &quot;textColor&quot; field on the &quot;CoreColumn&quot; block */
   textColor?: Maybe<Scalars['String']>
   /** The &quot;verticalAlignment&quot; field on the &quot;CoreColumn&quot; block */
@@ -2930,7 +3054,7 @@ export type CoreImageAttributes = {
   /** The &quot;src&quot; field on the &quot;CoreImage&quot; block */
   src?: Maybe<Scalars['String']>
   /** The &quot;style&quot; field on the &quot;CoreImage&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
+  style?: Maybe<Scalars['String']>
   /** The &quot;title&quot; field on the &quot;CoreImage&quot; block */
   title?: Maybe<Scalars['String']>
   /** The &quot;url&quot; field on the &quot;CoreImage&quot; block */
@@ -6429,12 +6553,37 @@ export type GeneralSettings = {
   url?: Maybe<Scalars['String']>
 }
 
+/** Input for the generateAuthorizationCode mutation. */
+export type GenerateAuthorizationCodeInput = {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars['String']>
+  /** Email for WordPress user */
+  email?: InputMaybe<Scalars['String']>
+  /** Password for WordPress user */
+  password?: InputMaybe<Scalars['String']>
+  /** Username for WordPress user */
+  username?: InputMaybe<Scalars['String']>
+}
+
+/** The payload for the generateAuthorizationCode mutation. */
+export type GenerateAuthorizationCodePayload = {
+  __typename?: 'GenerateAuthorizationCodePayload'
+  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']>
+  /** Authorization code used for requesting refresh/access tokens */
+  code?: Maybe<Scalars['String']>
+  /** Error encountered during user authentication, if any */
+  error?: Maybe<Scalars['String']>
+}
+
 /** Content node with hierarchical (parent/child) relationships */
 export type HierarchicalContentNode = {
   /** Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root). */
   ancestors?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>
   /** Connection between the HierarchicalContentNode type and the ContentNode type */
   children?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>
+  /** @deprecated Deprecated in favor of using Next.js pages */
+  conditionalTags?: Maybe<ConditionalTags>
   /** Connection between the ContentNode type and the ContentType type */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
   /** The name of the Content Type the node belongs to */
@@ -6491,6 +6640,7 @@ export type HierarchicalContentNode = {
   status?: Maybe<Scalars['String']>
   /** The template assigned to a node of content */
   template?: Maybe<ContentTemplate>
+  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -6683,6 +6833,8 @@ export type HierarchicalNode = {
 
 /** Term node with hierarchical (parent/child) relationships */
 export type HierarchicalTermNode = {
+  /** @deprecated Deprecated in favor of using Next.js pages */
+  conditionalTags?: Maybe<ConditionalTags>
   /** The number of objects connected to the object */
   count?: Maybe<Scalars['Int']>
   /** The unique identifier stored in the database */
@@ -6713,6 +6865,7 @@ export type HierarchicalTermNode = {
   slug?: Maybe<Scalars['String']>
   /** The name of the taxonomy that the object is associated with */
   taxonomyName?: Maybe<Scalars['String']>
+  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The ID of the term group that this term object belongs to */
   termGroupId?: Maybe<Scalars['Int']>
   /** The taxonomy ID that the object is associated with */
@@ -6790,6 +6943,8 @@ export type MediaItem = ContentNode &
     commentStatus?: Maybe<Scalars['String']>
     /** Connection between the MediaItem type and the Comment type */
     comments?: Maybe<MediaItemToCommentConnection>
+    /** @deprecated Deprecated in favor of using Next.js pages */
+    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the ContentNode type and the ContentType type */
     contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
     /** The name of the Content Type the node belongs to */
@@ -6869,6 +7024,7 @@ export type MediaItem = ContentNode &
     status?: Maybe<Scalars['String']>
     /** The template assigned to a node of content */
     template?: Maybe<ContentTemplate>
+    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
     title?: Maybe<Scalars['String']>
     /** The unique resource identifier path */
@@ -7294,6 +7450,8 @@ export type MenuItemConnectionEdge = {
 
 /** Nodes that can be linked to as Menu Items */
 export type MenuItemLinkable = {
+  /** @deprecated Deprecated in favor of using Next.js pages */
+  conditionalTags?: Maybe<ConditionalTags>
   /** The unique identifier stored in the database */
   databaseId: Scalars['Int']
   /** The unique resource identifier path */
@@ -7302,6 +7460,7 @@ export type MenuItemLinkable = {
   isContentNode: Scalars['Boolean']
   /** Whether the node is a Term */
   isTermNode: Scalars['Boolean']
+  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -7383,8 +7542,10 @@ export type MenuItemToMenuItemLinkableConnectionEdge = Edge &
 
 /** Registered menu locations */
 export enum MenuLocationEnum {
-  /** Put the menu in the primary_navigation location */
-  PrimaryNavigation = 'PRIMARY_NAVIGATION',
+  /** Put the menu in the footer location */
+  Footer = 'FOOTER',
+  /** Put the menu in the primary location */
+  Primary = 'PRIMARY',
 }
 
 /** The Type of Identifier used to fetch a single node. Default is "ID". To be used along with the "id" field. */
@@ -7831,6 +7992,8 @@ export type Page = ContentNode &
     commentStatus?: Maybe<Scalars['String']>
     /** Connection between the Page type and the Comment type */
     comments?: Maybe<PageToCommentConnection>
+    /** @deprecated Deprecated in favor of using Next.js pages */
+    conditionalTags?: Maybe<ConditionalTags>
     /** The content of the post. */
     content?: Maybe<Scalars['String']>
     /** List of content blocks */
@@ -7922,6 +8085,7 @@ export type Page = ContentNode &
     tags?: Maybe<PageToTagConnection>
     /** The template assigned to a node of content */
     template?: Maybe<ContentTemplate>
+    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** Connection between the Page type and the TermNode type */
     terms?: Maybe<PageToTermNodeConnection>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
@@ -8460,6 +8624,8 @@ export type Post = ContentNode &
     authorDatabaseId?: Maybe<Scalars['Int']>
     /** The globally unique identifier of the author of the node */
     authorId?: Maybe<Scalars['ID']>
+    /** Connection between the Post type and the User type */
+    authors?: Maybe<PostToAuthorsConnection>
     /** Connection between the Post type and the category type */
     categories?: Maybe<PostToCategoryConnection>
     /** The number of comments. Even though WPGraphQL denotes this field as an integer, in WordPress this field should be saved as a numeric string for compatibility. */
@@ -8468,6 +8634,8 @@ export type Post = ContentNode &
     commentStatus?: Maybe<Scalars['String']>
     /** Connection between the Post type and the Comment type */
     comments?: Maybe<PostToCommentConnection>
+    /** @deprecated Deprecated in favor of using Next.js pages */
+    conditionalTags?: Maybe<ConditionalTags>
     /** The content of the post. */
     content?: Maybe<Scalars['String']>
     /** List of content blocks */
@@ -8553,6 +8721,7 @@ export type Post = ContentNode &
     tags?: Maybe<PostToTagConnection>
     /** The template assigned to the node */
     template?: Maybe<ContentTemplate>
+    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** Connection between the Post type and the TermNode type */
     terms?: Maybe<PostToTermNodeConnection>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
@@ -8562,6 +8731,14 @@ export type Post = ContentNode &
     /** The unique resource identifier path */
     uri?: Maybe<Scalars['String']>
   }
+
+/** The post type */
+export type PostAuthorsArgs = {
+  after?: InputMaybe<Scalars['String']>
+  before?: InputMaybe<Scalars['String']>
+  first?: InputMaybe<Scalars['Int']>
+  last?: InputMaybe<Scalars['Int']>
+}
 
 /** The post type */
 export type PostCategoriesArgs = {
@@ -8695,6 +8872,8 @@ export type PostFormat = DatabaseIdentifier &
   TermNode &
   UniformResourceIdentifiable & {
     __typename?: 'PostFormat'
+    /** @deprecated Deprecated in favor of using Next.js pages */
+    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the PostFormat type and the ContentNode type */
     contentNodes?: Maybe<PostFormatToContentNodeConnection>
     /** The number of objects connected to the object */
@@ -8732,6 +8911,7 @@ export type PostFormat = DatabaseIdentifier &
     taxonomy?: Maybe<PostFormatToTaxonomyConnectionEdge>
     /** The name of the taxonomy that the object is associated with */
     taxonomyName?: Maybe<Scalars['String']>
+    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The ID of the term group that this term object belongs to */
     termGroupId?: Maybe<Scalars['Int']>
     /** The taxonomy ID that the object is associated with */
@@ -9094,6 +9274,28 @@ export type PostTagsNodeInput = {
   /** The slug of the tag. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation. */
   slug?: InputMaybe<Scalars['String']>
 }
+
+/** Connection between the Post type and the User type */
+export type PostToAuthorsConnection = Connection &
+  UserConnection & {
+    __typename?: 'PostToAuthorsConnection'
+    /** Edges for the PostToAuthorsConnection connection */
+    edges: Array<PostToAuthorsConnectionEdge>
+    /** The nodes of the connection, without the edges */
+    nodes: Array<User>
+    /** Information about pagination in a connection. */
+    pageInfo?: Maybe<WpPageInfo>
+  }
+
+/** An edge in a connection */
+export type PostToAuthorsConnectionEdge = Edge &
+  UserConnectionEdge & {
+    __typename?: 'PostToAuthorsConnectionEdge'
+    /** A cursor for use in pagination */
+    cursor?: Maybe<Scalars['String']>
+    /** The item at the end of the edge */
+    node: User
+  }
 
 /** Connection between the Post type and the category type */
 export type PostToCategoryConnection = CategoryConnection &
@@ -9760,6 +9962,8 @@ export type RootMutation = {
   deleteTag?: Maybe<DeleteTagPayload>
   /** The deleteUser mutation */
   deleteUser?: Maybe<DeleteUserPayload>
+  /** The generateAuthorizationCode mutation */
+  generateAuthorizationCode?: Maybe<GenerateAuthorizationCodePayload>
   /** Increase the count. */
   increaseCount?: Maybe<Scalars['Int']>
   /** The registerUser mutation */
@@ -9868,6 +10072,11 @@ export type RootMutationDeleteTagArgs = {
 /** The root mutation */
 export type RootMutationDeleteUserArgs = {
   input: DeleteUserInput
+}
+
+/** The root mutation */
+export type RootMutationGenerateAuthorizationCodeArgs = {
+  input: GenerateAuthorizationCodeInput
 }
 
 /** The root mutation */
@@ -11436,6 +11645,8 @@ export type Tag = DatabaseIdentifier &
   TermNode &
   UniformResourceIdentifiable & {
     __typename?: 'Tag'
+    /** @deprecated Deprecated in favor of using Next.js pages */
+    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the Tag type and the ContentNode type */
     contentNodes?: Maybe<TagToContentNodeConnection>
     /** The number of objects connected to the object */
@@ -11475,6 +11686,7 @@ export type Tag = DatabaseIdentifier &
     taxonomy?: Maybe<TagToTaxonomyConnectionEdge>
     /** The name of the taxonomy that the object is associated with */
     taxonomyName?: Maybe<Scalars['String']>
+    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The ID of the term group that this term object belongs to */
     termGroupId?: Maybe<Scalars['Int']>
     /** The taxonomy ID that the object is associated with */
@@ -11908,6 +12120,8 @@ export type TaxonomyToContentTypeConnectionEdge = ContentTypeConnectionEdge &
 
 /** Terms are nodes within a Taxonomy, used to group and relate other nodes. */
 export type TermNode = {
+  /** @deprecated Deprecated in favor of using Next.js pages */
+  conditionalTags?: Maybe<ConditionalTags>
   /** The number of objects connected to the object */
   count?: Maybe<Scalars['Int']>
   /** Identifies the primary key from the database. */
@@ -11934,6 +12148,7 @@ export type TermNode = {
   slug?: Maybe<Scalars['String']>
   /** The name of the taxonomy that the object is associated with */
   taxonomyName?: Maybe<Scalars['String']>
+  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The ID of the term group that this term object belongs to */
   termGroupId?: Maybe<Scalars['Int']>
   /** The taxonomy ID that the object is associated with */
@@ -12095,12 +12310,15 @@ export type ThemeConnectionEdge = {
 
 /** Any node that has a URI */
 export type UniformResourceIdentifiable = {
+  /** @deprecated Deprecated in favor of using Next.js pages */
+  conditionalTags?: Maybe<ConditionalTags>
   /** The unique resource identifier path */
   id: Scalars['ID']
   /** Whether the node is a Content Node */
   isContentNode: Scalars['Boolean']
   /** Whether the node is a Term */
   isTermNode: Scalars['Boolean']
+  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -12501,6 +12719,8 @@ export type User = Commenter &
     capabilities?: Maybe<Array<Maybe<Scalars['String']>>>
     /** Connection between the User type and the Comment type */
     comments?: Maybe<UserToCommentConnection>
+    /** @deprecated Deprecated in favor of using Next.js pages */
+    conditionalTags?: Maybe<ConditionalTags>
     /** Identifies the primary key from the database. */
     databaseId: Scalars['Int']
     /** Description of the user. */
@@ -12547,6 +12767,7 @@ export type User = Commenter &
     roles?: Maybe<UserToUserRoleConnection>
     /** The slug for the user. This field is equivalent to WP_User-&gt;user_nicename */
     slug?: Maybe<Scalars['String']>
+    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The unique resource identifier path */
     uri?: Maybe<Scalars['String']>
     /** A website url that is associated with the user. */
@@ -12638,7 +12859,7 @@ export type UserRolesArgs = {
 
 /** Connection to User Nodes */
 export type UserConnection = {
-  /** A list of edges (relational context) between RootQuery and connected User Nodes */
+  /** A list of edges (relational context) between Post and connected User Nodes */
   edges: Array<UserConnectionEdge>
   /** A list of connected User Nodes */
   nodes: Array<User>
@@ -12704,13 +12925,9 @@ export enum UserRoleEnum {
   /** User role with specific capabilities */
   Administrator = 'ADMINISTRATOR',
   /** User role with specific capabilities */
-  Author = 'AUTHOR',
-  /** User role with specific capabilities */
-  Contributor = 'CONTRIBUTOR',
-  /** User role with specific capabilities */
   Editor = 'EDITOR',
   /** User role with specific capabilities */
-  Subscriber = 'SUBSCRIBER',
+  SiteAdministrator = 'SITE_ADMINISTRATOR',
 }
 
 /** Connection between the User type and the Comment type */
@@ -13227,834 +13444,6 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars['Boolean']>
 }
 
-type ContentBlockFields_CoreArchives_Fragment = {
-  __typename: 'CoreArchives'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreArchives_Fragment'}
-
-type ContentBlockFields_CoreAudio_Fragment = {
-  __typename: 'CoreAudio'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreAudio_Fragment'}
-
-type ContentBlockFields_CoreAvatar_Fragment = {
-  __typename: 'CoreAvatar'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreAvatar_Fragment'}
-
-type ContentBlockFields_CoreBlock_Fragment = {
-  __typename: 'CoreBlock'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreBlock_Fragment'}
-
-type ContentBlockFields_CoreButton_Fragment = {
-  __typename: 'CoreButton'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreButton_Fragment'}
-
-type ContentBlockFields_CoreButtons_Fragment = {
-  __typename: 'CoreButtons'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreButtons_Fragment'}
-
-type ContentBlockFields_CoreCalendar_Fragment = {
-  __typename: 'CoreCalendar'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreCalendar_Fragment'}
-
-type ContentBlockFields_CoreCategories_Fragment = {
-  __typename: 'CoreCategories'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreCategories_Fragment'}
-
-type ContentBlockFields_CoreCode_Fragment = {
-  __typename: 'CoreCode'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreCode_Fragment'}
-
-type ContentBlockFields_CoreColumn_Fragment = {
-  __typename: 'CoreColumn'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreColumn_Fragment'}
-
-type ContentBlockFields_CoreColumns_Fragment = {
-  __typename: 'CoreColumns'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreColumns_Fragment'}
-
-type ContentBlockFields_CoreCommentAuthorName_Fragment = {
-  __typename: 'CoreCommentAuthorName'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreCommentAuthorName_Fragment'}
-
-type ContentBlockFields_CoreCommentContent_Fragment = {
-  __typename: 'CoreCommentContent'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreCommentContent_Fragment'}
-
-type ContentBlockFields_CoreCommentDate_Fragment = {
-  __typename: 'CoreCommentDate'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreCommentDate_Fragment'}
-
-type ContentBlockFields_CoreCommentEditLink_Fragment = {
-  __typename: 'CoreCommentEditLink'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreCommentEditLink_Fragment'}
-
-type ContentBlockFields_CoreCommentReplyLink_Fragment = {
-  __typename: 'CoreCommentReplyLink'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreCommentReplyLink_Fragment'}
-
-type ContentBlockFields_CoreCommentTemplate_Fragment = {
-  __typename: 'CoreCommentTemplate'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreCommentTemplate_Fragment'}
-
-type ContentBlockFields_CoreComments_Fragment = {
-  __typename: 'CoreComments'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreComments_Fragment'}
-
-type ContentBlockFields_CoreCommentsPagination_Fragment = {
-  __typename: 'CoreCommentsPagination'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreCommentsPagination_Fragment'}
-
-type ContentBlockFields_CoreCommentsPaginationNext_Fragment = {
-  __typename: 'CoreCommentsPaginationNext'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {
-  ' $fragmentName'?: 'ContentBlockFields_CoreCommentsPaginationNext_Fragment'
-}
-
-type ContentBlockFields_CoreCommentsPaginationNumbers_Fragment = {
-  __typename: 'CoreCommentsPaginationNumbers'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {
-  ' $fragmentName'?: 'ContentBlockFields_CoreCommentsPaginationNumbers_Fragment'
-}
-
-type ContentBlockFields_CoreCommentsPaginationPrevious_Fragment = {
-  __typename: 'CoreCommentsPaginationPrevious'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {
-  ' $fragmentName'?: 'ContentBlockFields_CoreCommentsPaginationPrevious_Fragment'
-}
-
-type ContentBlockFields_CoreCommentsTitle_Fragment = {
-  __typename: 'CoreCommentsTitle'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreCommentsTitle_Fragment'}
-
-type ContentBlockFields_CoreCover_Fragment = {
-  __typename: 'CoreCover'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreCover_Fragment'}
-
-type ContentBlockFields_CoreEmbed_Fragment = {
-  __typename: 'CoreEmbed'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreEmbed_Fragment'}
-
-type ContentBlockFields_CoreFile_Fragment = {
-  __typename: 'CoreFile'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreFile_Fragment'}
-
-type ContentBlockFields_CoreFreeform_Fragment = {
-  __typename: 'CoreFreeform'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreFreeform_Fragment'}
-
-type ContentBlockFields_CoreGallery_Fragment = {
-  __typename: 'CoreGallery'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreGallery_Fragment'}
-
-type ContentBlockFields_CoreGroup_Fragment = {
-  __typename: 'CoreGroup'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreGroup_Fragment'}
-
-type ContentBlockFields_CoreHeading_Fragment = {
-  __typename: 'CoreHeading'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreHeading_Fragment'}
-
-type ContentBlockFields_CoreHomeLink_Fragment = {
-  __typename: 'CoreHomeLink'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreHomeLink_Fragment'}
-
-type ContentBlockFields_CoreHtml_Fragment = {
-  __typename: 'CoreHtml'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreHtml_Fragment'}
-
-type ContentBlockFields_CoreImage_Fragment = {
-  __typename: 'CoreImage'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreImage_Fragment'}
-
-type ContentBlockFields_CoreLatestComments_Fragment = {
-  __typename: 'CoreLatestComments'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreLatestComments_Fragment'}
-
-type ContentBlockFields_CoreLatestPosts_Fragment = {
-  __typename: 'CoreLatestPosts'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreLatestPosts_Fragment'}
-
-type ContentBlockFields_CoreLegacyWidget_Fragment = {
-  __typename: 'CoreLegacyWidget'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreLegacyWidget_Fragment'}
-
-type ContentBlockFields_CoreList_Fragment = {
-  __typename: 'CoreList'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreList_Fragment'}
-
-type ContentBlockFields_CoreListItem_Fragment = {
-  __typename: 'CoreListItem'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreListItem_Fragment'}
-
-type ContentBlockFields_CoreLoginout_Fragment = {
-  __typename: 'CoreLoginout'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreLoginout_Fragment'}
-
-type ContentBlockFields_CoreMediaText_Fragment = {
-  __typename: 'CoreMediaText'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreMediaText_Fragment'}
-
-type ContentBlockFields_CoreMissing_Fragment = {
-  __typename: 'CoreMissing'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreMissing_Fragment'}
-
-type ContentBlockFields_CoreMore_Fragment = {
-  __typename: 'CoreMore'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreMore_Fragment'}
-
-type ContentBlockFields_CoreNavigation_Fragment = {
-  __typename: 'CoreNavigation'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreNavigation_Fragment'}
-
-type ContentBlockFields_CoreNavigationLink_Fragment = {
-  __typename: 'CoreNavigationLink'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreNavigationLink_Fragment'}
-
-type ContentBlockFields_CoreNavigationSubmenu_Fragment = {
-  __typename: 'CoreNavigationSubmenu'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreNavigationSubmenu_Fragment'}
-
-type ContentBlockFields_CoreNextpage_Fragment = {
-  __typename: 'CoreNextpage'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreNextpage_Fragment'}
-
-type ContentBlockFields_CorePageList_Fragment = {
-  __typename: 'CorePageList'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePageList_Fragment'}
-
-type ContentBlockFields_CoreParagraph_Fragment = {
-  __typename: 'CoreParagraph'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreParagraph_Fragment'}
-
-type ContentBlockFields_CorePattern_Fragment = {
-  __typename: 'CorePattern'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePattern_Fragment'}
-
-type ContentBlockFields_CorePostAuthor_Fragment = {
-  __typename: 'CorePostAuthor'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePostAuthor_Fragment'}
-
-type ContentBlockFields_CorePostAuthorBiography_Fragment = {
-  __typename: 'CorePostAuthorBiography'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePostAuthorBiography_Fragment'}
-
-type ContentBlockFields_CorePostComments_Fragment = {
-  __typename: 'CorePostComments'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePostComments_Fragment'}
-
-type ContentBlockFields_CorePostCommentsForm_Fragment = {
-  __typename: 'CorePostCommentsForm'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePostCommentsForm_Fragment'}
-
-type ContentBlockFields_CorePostContent_Fragment = {
-  __typename: 'CorePostContent'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePostContent_Fragment'}
-
-type ContentBlockFields_CorePostDate_Fragment = {
-  __typename: 'CorePostDate'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePostDate_Fragment'}
-
-type ContentBlockFields_CorePostExcerpt_Fragment = {
-  __typename: 'CorePostExcerpt'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePostExcerpt_Fragment'}
-
-type ContentBlockFields_CorePostFeaturedImage_Fragment = {
-  __typename: 'CorePostFeaturedImage'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePostFeaturedImage_Fragment'}
-
-type ContentBlockFields_CorePostNavigationLink_Fragment = {
-  __typename: 'CorePostNavigationLink'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePostNavigationLink_Fragment'}
-
-type ContentBlockFields_CorePostTemplate_Fragment = {
-  __typename: 'CorePostTemplate'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePostTemplate_Fragment'}
-
-type ContentBlockFields_CorePostTerms_Fragment = {
-  __typename: 'CorePostTerms'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePostTerms_Fragment'}
-
-type ContentBlockFields_CorePostTitle_Fragment = {
-  __typename: 'CorePostTitle'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePostTitle_Fragment'}
-
-type ContentBlockFields_CorePreformatted_Fragment = {
-  __typename: 'CorePreformatted'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePreformatted_Fragment'}
-
-type ContentBlockFields_CorePullquote_Fragment = {
-  __typename: 'CorePullquote'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CorePullquote_Fragment'}
-
-type ContentBlockFields_CoreQuery_Fragment = {
-  __typename: 'CoreQuery'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreQuery_Fragment'}
-
-type ContentBlockFields_CoreQueryNoResults_Fragment = {
-  __typename: 'CoreQueryNoResults'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreQueryNoResults_Fragment'}
-
-type ContentBlockFields_CoreQueryPagination_Fragment = {
-  __typename: 'CoreQueryPagination'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreQueryPagination_Fragment'}
-
-type ContentBlockFields_CoreQueryPaginationNext_Fragment = {
-  __typename: 'CoreQueryPaginationNext'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreQueryPaginationNext_Fragment'}
-
-type ContentBlockFields_CoreQueryPaginationNumbers_Fragment = {
-  __typename: 'CoreQueryPaginationNumbers'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {
-  ' $fragmentName'?: 'ContentBlockFields_CoreQueryPaginationNumbers_Fragment'
-}
-
-type ContentBlockFields_CoreQueryPaginationPrevious_Fragment = {
-  __typename: 'CoreQueryPaginationPrevious'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {
-  ' $fragmentName'?: 'ContentBlockFields_CoreQueryPaginationPrevious_Fragment'
-}
-
-type ContentBlockFields_CoreQueryTitle_Fragment = {
-  __typename: 'CoreQueryTitle'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreQueryTitle_Fragment'}
-
-type ContentBlockFields_CoreQuote_Fragment = {
-  __typename: 'CoreQuote'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreQuote_Fragment'}
-
-type ContentBlockFields_CoreReadMore_Fragment = {
-  __typename: 'CoreReadMore'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreReadMore_Fragment'}
-
-type ContentBlockFields_CoreRss_Fragment = {
-  __typename: 'CoreRss'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreRss_Fragment'}
-
-type ContentBlockFields_CoreSearch_Fragment = {
-  __typename: 'CoreSearch'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreSearch_Fragment'}
-
-type ContentBlockFields_CoreSeparator_Fragment = {
-  __typename: 'CoreSeparator'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreSeparator_Fragment'}
-
-type ContentBlockFields_CoreShortcode_Fragment = {
-  __typename: 'CoreShortcode'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreShortcode_Fragment'}
-
-type ContentBlockFields_CoreSiteLogo_Fragment = {
-  __typename: 'CoreSiteLogo'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreSiteLogo_Fragment'}
-
-type ContentBlockFields_CoreSiteTagline_Fragment = {
-  __typename: 'CoreSiteTagline'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreSiteTagline_Fragment'}
-
-type ContentBlockFields_CoreSiteTitle_Fragment = {
-  __typename: 'CoreSiteTitle'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreSiteTitle_Fragment'}
-
-type ContentBlockFields_CoreSocialLink_Fragment = {
-  __typename: 'CoreSocialLink'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreSocialLink_Fragment'}
-
-type ContentBlockFields_CoreSocialLinks_Fragment = {
-  __typename: 'CoreSocialLinks'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreSocialLinks_Fragment'}
-
-type ContentBlockFields_CoreSpacer_Fragment = {
-  __typename: 'CoreSpacer'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreSpacer_Fragment'}
-
-type ContentBlockFields_CoreTable_Fragment = {
-  __typename: 'CoreTable'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreTable_Fragment'}
-
-type ContentBlockFields_CoreTagCloud_Fragment = {
-  __typename: 'CoreTagCloud'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreTagCloud_Fragment'}
-
-type ContentBlockFields_CoreTemplatePart_Fragment = {
-  __typename: 'CoreTemplatePart'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreTemplatePart_Fragment'}
-
-type ContentBlockFields_CoreTermDescription_Fragment = {
-  __typename: 'CoreTermDescription'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreTermDescription_Fragment'}
-
-type ContentBlockFields_CoreTextColumns_Fragment = {
-  __typename: 'CoreTextColumns'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreTextColumns_Fragment'}
-
-type ContentBlockFields_CoreVerse_Fragment = {
-  __typename: 'CoreVerse'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreVerse_Fragment'}
-
-type ContentBlockFields_CoreVideo_Fragment = {
-  __typename: 'CoreVideo'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreVideo_Fragment'}
-
-type ContentBlockFields_CoreWidgetGroup_Fragment = {
-  __typename: 'CoreWidgetGroup'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_CoreWidgetGroup_Fragment'}
-
-type ContentBlockFields_UnknownBlock_Fragment = {
-  __typename: 'UnknownBlock'
-  name?: string | null
-  renderedHtml?: string | null
-  blockEditorCategoryName?: string | null
-} & {' $fragmentName'?: 'ContentBlockFields_UnknownBlock_Fragment'}
-
-export type ContentBlockFieldsFragment =
-  | ContentBlockFields_CoreArchives_Fragment
-  | ContentBlockFields_CoreAudio_Fragment
-  | ContentBlockFields_CoreAvatar_Fragment
-  | ContentBlockFields_CoreBlock_Fragment
-  | ContentBlockFields_CoreButton_Fragment
-  | ContentBlockFields_CoreButtons_Fragment
-  | ContentBlockFields_CoreCalendar_Fragment
-  | ContentBlockFields_CoreCategories_Fragment
-  | ContentBlockFields_CoreCode_Fragment
-  | ContentBlockFields_CoreColumn_Fragment
-  | ContentBlockFields_CoreColumns_Fragment
-  | ContentBlockFields_CoreCommentAuthorName_Fragment
-  | ContentBlockFields_CoreCommentContent_Fragment
-  | ContentBlockFields_CoreCommentDate_Fragment
-  | ContentBlockFields_CoreCommentEditLink_Fragment
-  | ContentBlockFields_CoreCommentReplyLink_Fragment
-  | ContentBlockFields_CoreCommentTemplate_Fragment
-  | ContentBlockFields_CoreComments_Fragment
-  | ContentBlockFields_CoreCommentsPagination_Fragment
-  | ContentBlockFields_CoreCommentsPaginationNext_Fragment
-  | ContentBlockFields_CoreCommentsPaginationNumbers_Fragment
-  | ContentBlockFields_CoreCommentsPaginationPrevious_Fragment
-  | ContentBlockFields_CoreCommentsTitle_Fragment
-  | ContentBlockFields_CoreCover_Fragment
-  | ContentBlockFields_CoreEmbed_Fragment
-  | ContentBlockFields_CoreFile_Fragment
-  | ContentBlockFields_CoreFreeform_Fragment
-  | ContentBlockFields_CoreGallery_Fragment
-  | ContentBlockFields_CoreGroup_Fragment
-  | ContentBlockFields_CoreHeading_Fragment
-  | ContentBlockFields_CoreHomeLink_Fragment
-  | ContentBlockFields_CoreHtml_Fragment
-  | ContentBlockFields_CoreImage_Fragment
-  | ContentBlockFields_CoreLatestComments_Fragment
-  | ContentBlockFields_CoreLatestPosts_Fragment
-  | ContentBlockFields_CoreLegacyWidget_Fragment
-  | ContentBlockFields_CoreList_Fragment
-  | ContentBlockFields_CoreListItem_Fragment
-  | ContentBlockFields_CoreLoginout_Fragment
-  | ContentBlockFields_CoreMediaText_Fragment
-  | ContentBlockFields_CoreMissing_Fragment
-  | ContentBlockFields_CoreMore_Fragment
-  | ContentBlockFields_CoreNavigation_Fragment
-  | ContentBlockFields_CoreNavigationLink_Fragment
-  | ContentBlockFields_CoreNavigationSubmenu_Fragment
-  | ContentBlockFields_CoreNextpage_Fragment
-  | ContentBlockFields_CorePageList_Fragment
-  | ContentBlockFields_CoreParagraph_Fragment
-  | ContentBlockFields_CorePattern_Fragment
-  | ContentBlockFields_CorePostAuthor_Fragment
-  | ContentBlockFields_CorePostAuthorBiography_Fragment
-  | ContentBlockFields_CorePostComments_Fragment
-  | ContentBlockFields_CorePostCommentsForm_Fragment
-  | ContentBlockFields_CorePostContent_Fragment
-  | ContentBlockFields_CorePostDate_Fragment
-  | ContentBlockFields_CorePostExcerpt_Fragment
-  | ContentBlockFields_CorePostFeaturedImage_Fragment
-  | ContentBlockFields_CorePostNavigationLink_Fragment
-  | ContentBlockFields_CorePostTemplate_Fragment
-  | ContentBlockFields_CorePostTerms_Fragment
-  | ContentBlockFields_CorePostTitle_Fragment
-  | ContentBlockFields_CorePreformatted_Fragment
-  | ContentBlockFields_CorePullquote_Fragment
-  | ContentBlockFields_CoreQuery_Fragment
-  | ContentBlockFields_CoreQueryNoResults_Fragment
-  | ContentBlockFields_CoreQueryPagination_Fragment
-  | ContentBlockFields_CoreQueryPaginationNext_Fragment
-  | ContentBlockFields_CoreQueryPaginationNumbers_Fragment
-  | ContentBlockFields_CoreQueryPaginationPrevious_Fragment
-  | ContentBlockFields_CoreQueryTitle_Fragment
-  | ContentBlockFields_CoreQuote_Fragment
-  | ContentBlockFields_CoreReadMore_Fragment
-  | ContentBlockFields_CoreRss_Fragment
-  | ContentBlockFields_CoreSearch_Fragment
-  | ContentBlockFields_CoreSeparator_Fragment
-  | ContentBlockFields_CoreShortcode_Fragment
-  | ContentBlockFields_CoreSiteLogo_Fragment
-  | ContentBlockFields_CoreSiteTagline_Fragment
-  | ContentBlockFields_CoreSiteTitle_Fragment
-  | ContentBlockFields_CoreSocialLink_Fragment
-  | ContentBlockFields_CoreSocialLinks_Fragment
-  | ContentBlockFields_CoreSpacer_Fragment
-  | ContentBlockFields_CoreTable_Fragment
-  | ContentBlockFields_CoreTagCloud_Fragment
-  | ContentBlockFields_CoreTemplatePart_Fragment
-  | ContentBlockFields_CoreTermDescription_Fragment
-  | ContentBlockFields_CoreTextColumns_Fragment
-  | ContentBlockFields_CoreVerse_Fragment
-  | ContentBlockFields_CoreVideo_Fragment
-  | ContentBlockFields_CoreWidgetGroup_Fragment
-  | ContentBlockFields_UnknownBlock_Fragment
-
-type ContentNodeFields_MediaItem_Fragment = {
-  __typename?: 'MediaItem'
-  title?: string | null
-  id: string
-  uri?: string | null
-  desiredSlug?: string | null
-  databaseId: number
-  dateGmt?: string | null
-  isPreview?: boolean | null
-  link?: string | null
-  modifiedGmt?: string | null
-  contentType?: {
-    __typename?: 'ContentNodeToContentTypeConnectionEdge'
-    node: {__typename?: 'ContentType'; id: string; name?: string | null}
-  } | null
-} & {' $fragmentName'?: 'ContentNodeFields_MediaItem_Fragment'}
-
-type ContentNodeFields_Page_Fragment = {
-  __typename?: 'Page'
-  title?: string | null
-  id: string
-  uri?: string | null
-  desiredSlug?: string | null
-  databaseId: number
-  dateGmt?: string | null
-  isPreview?: boolean | null
-  link?: string | null
-  modifiedGmt?: string | null
-  contentType?: {
-    __typename?: 'ContentNodeToContentTypeConnectionEdge'
-    node: {__typename?: 'ContentType'; id: string; name?: string | null}
-  } | null
-} & {' $fragmentName'?: 'ContentNodeFields_Page_Fragment'}
-
-type ContentNodeFields_Post_Fragment = {
-  __typename?: 'Post'
-  title?: string | null
-  id: string
-  uri?: string | null
-  desiredSlug?: string | null
-  databaseId: number
-  dateGmt?: string | null
-  isPreview?: boolean | null
-  link?: string | null
-  modifiedGmt?: string | null
-  contentType?: {
-    __typename?: 'ContentNodeToContentTypeConnectionEdge'
-    node: {__typename?: 'ContentType'; id: string; name?: string | null}
-  } | null
-} & {' $fragmentName'?: 'ContentNodeFields_Post_Fragment'}
-
-export type ContentNodeFieldsFragment =
-  | ContentNodeFields_MediaItem_Fragment
-  | ContentNodeFields_Page_Fragment
-  | ContentNodeFields_Post_Fragment
-
-export type ContentTypeFieldsFragment = {
-  __typename?: 'ContentType'
-  id: string
-  description?: string | null
-  name?: string | null
-  contentNodes?: {
-    __typename?: 'ContentTypeToContentNodeConnection'
-    nodes: Array<
-      | ({__typename?: 'MediaItem'} & {
-          ' $fragmentRefs'?: {
-            ContentNodeFields_MediaItem_Fragment: ContentNodeFields_MediaItem_Fragment
-          }
-        })
-      | ({__typename?: 'Page'} & {
-          ' $fragmentRefs'?: {
-            ContentNodeFields_Page_Fragment: ContentNodeFields_Page_Fragment
-          }
-        })
-      | ({__typename?: 'Post'} & {
-          ' $fragmentRefs'?: {
-            ContentNodeFields_Post_Fragment: ContentNodeFields_Post_Fragment
-          }
-        })
-    >
-    pageInfo?:
-      | ({__typename?: 'WPPageInfo'} & {
-          ' $fragmentRefs'?: {PageInfoFragment: PageInfoFragment}
-        })
-      | null
-  } | null
-} & {' $fragmentName'?: 'ContentTypeFieldsFragment'}
-
 export type FeaturedImageFieldsFragment = {
   __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'
   node: {
@@ -14078,313 +13467,21 @@ export type SettingsFragment = {
   title?: string | null
 } & {' $fragmentName'?: 'SettingsFragment'}
 
-export type MediaItemFieldsFragment = {
-  __typename?: 'MediaItem'
-  id: string
-  altText?: string | null
-  caption?: string | null
-  databaseId: number
-  date?: string | null
-  title?: string | null
-  uri?: string | null
-  sourceUrl?: string | null
-  sizes?: string | null
-  srcSet?: string | null
-  src?: string | null
-  mediaDetails?: {
-    __typename?: 'MediaDetails'
-    height?: number | null
-    width?: number | null
-  } | null
-} & {' $fragmentName'?: 'MediaItemFieldsFragment'}
+export type AllPagesPathsQueryVariables = Exact<{[key: string]: never}>
 
-export type MenuItemsFragment = {
-  __typename?: 'Menu'
-  count?: number | null
-  menuItems?: {
-    __typename?: 'MenuToMenuItemConnection'
-    nodes: Array<{
-      __typename?: 'MenuItem'
-      id: string
-      path?: string | null
-      label?: string | null
-      linkRelationship?: string | null
-      target?: string | null
-      parentId?: string | null
-      childItems?: {
-        __typename?: 'MenuItemToMenuItemConnection'
-        nodes: Array<{
-          __typename?: 'MenuItem'
-          id: string
-          path?: string | null
-          cssClasses?: Array<string | null> | null
-          label?: string | null
-          linkRelationship?: string | null
-          target?: string | null
-          parentId?: string | null
-        }>
-      } | null
-    }>
-  } | null
-} & {' $fragmentName'?: 'MenuItemsFragment'}
-
-export type PageInfoFragment = {
-  __typename?: 'WPPageInfo'
-  endCursor?: string | null
-  hasNextPage: boolean
-  hasPreviousPage: boolean
-  startCursor?: string | null
-} & {' $fragmentName'?: 'PageInfoFragment'}
-
-export type AllContentTypesQueryVariables = Exact<{
-  after?: InputMaybe<Scalars['String']>
-  before?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
-  last?: InputMaybe<Scalars['Int']>
-}>
-
-export type AllContentTypesQuery = {
-  __typename?: 'RootQuery'
-  contentTypes?: {
-    __typename?: 'RootQueryToContentTypeConnection'
-    nodes: Array<
-      {__typename?: 'ContentType'} & {
-        ' $fragmentRefs'?: {
-          ContentTypeFieldsFragment: ContentTypeFieldsFragment
-        }
-      }
-    >
-  } | null
-}
-
-export type AllMediaItemsQueryVariables = Exact<{
-  after?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
-}>
-
-export type AllMediaItemsQuery = {
-  __typename?: 'RootQuery'
-  mediaItems?: {
-    __typename?: 'RootQueryToMediaItemConnection'
-    nodes: Array<
-      {__typename?: 'MediaItem'} & {
-        ' $fragmentRefs'?: {MediaItemFieldsFragment: MediaItemFieldsFragment}
-      }
-    >
-    pageInfo?:
-      | ({__typename?: 'WPPageInfo'} & {
-          ' $fragmentRefs'?: {PageInfoFragment: PageInfoFragment}
-        })
-      | null
-  } | null
-}
-
-export type AllPagesQueryVariables = Exact<{[key: string]: never}>
-
-export type AllPagesQuery = {
+export type AllPagesPathsQuery = {
   __typename?: 'RootQuery'
   pages?: {
     __typename?: 'RootQueryToPageConnection'
-    nodes: Array<{__typename?: 'Page'; slug?: string | null}>
-  } | null
-}
-
-export type ContentNodeBySlugQueryVariables = Exact<{
-  slug: Scalars['String']
-}>
-
-export type ContentNodeBySlugQuery = {
-  __typename?: 'RootQuery'
-  contentNodes?: {
-    __typename?: 'RootQueryToContentNodeConnection'
-    nodes: Array<
-      | ({__typename?: 'MediaItem'} & {
-          ' $fragmentRefs'?: {
-            ContentNodeFields_MediaItem_Fragment: ContentNodeFields_MediaItem_Fragment
-          }
-        })
-      | ({__typename?: 'Page'} & {
-          ' $fragmentRefs'?: {
-            ContentNodeFields_Page_Fragment: ContentNodeFields_Page_Fragment
-          }
-        })
-      | ({__typename?: 'Post'} & {
-          ' $fragmentRefs'?: {
-            ContentNodeFields_Post_Fragment: ContentNodeFields_Post_Fragment
-          }
-        })
-    >
-  } | null
-}
-
-export type ContentNodePreviewByIdQueryVariables = Exact<{
-  id: Scalars['ID']
-}>
-
-export type ContentNodePreviewByIdQuery = {
-  __typename?: 'RootQuery'
-  contentNode?:
-    | ({__typename?: 'MediaItem'} & {
-        ' $fragmentRefs'?: {
-          ContentNodeFields_MediaItem_Fragment: ContentNodeFields_MediaItem_Fragment
-        }
-      })
-    | ({__typename?: 'Page'} & {
-        ' $fragmentRefs'?: {
-          ContentNodeFields_Page_Fragment: ContentNodeFields_Page_Fragment
-        }
-      })
-    | ({__typename?: 'Post'} & {
-        ' $fragmentRefs'?: {
-          ContentNodeFields_Post_Fragment: ContentNodeFields_Post_Fragment
-        }
-      })
-    | null
-}
-
-export type ContentNodesBySearchTermQueryVariables = Exact<{
-  after?: InputMaybe<Scalars['String']>
-  before?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
-  last?: InputMaybe<Scalars['Int']>
-  search: Scalars['String']
-}>
-
-export type ContentNodesBySearchTermQuery = {
-  __typename?: 'RootQuery'
-  contentNodes?: {
-    __typename?: 'RootQueryToContentNodeConnection'
-    nodes: Array<
-      | ({__typename?: 'MediaItem'} & {
-          ' $fragmentRefs'?: {
-            ContentNodeFields_MediaItem_Fragment: ContentNodeFields_MediaItem_Fragment
-          }
-        })
-      | ({__typename?: 'Page'} & {
-          ' $fragmentRefs'?: {
-            ContentNodeFields_Page_Fragment: ContentNodeFields_Page_Fragment
-          }
-        })
-      | ({__typename?: 'Post'} & {
-          ' $fragmentRefs'?: {
-            ContentNodeFields_Post_Fragment: ContentNodeFields_Post_Fragment
-          }
-        })
-    >
-    pageInfo?:
-      | ({__typename?: 'WPPageInfo'} & {
-          ' $fragmentRefs'?: {PageInfoFragment: PageInfoFragment}
-        })
-      | null
-  } | null
-}
-
-export type ContentTypeByNameQueryVariables = Exact<{
-  after?: InputMaybe<Scalars['String']>
-  before?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
-  last?: InputMaybe<Scalars['Int']>
-  name: Scalars['ID']
-}>
-
-export type ContentTypeByNameQuery = {
-  __typename?: 'RootQuery'
-  contentType?:
-    | ({__typename?: 'ContentType'} & {
-        ' $fragmentRefs'?: {
-          ContentTypeFieldsFragment: ContentTypeFieldsFragment
-        }
-      })
-    | null
-}
-
-export type HomepageQueryVariables = Exact<{[key: string]: never}>
-
-export type HomepageQuery = {
-  __typename?: 'RootQuery'
-  nodeByUri?:
-    | {__typename: 'Category'}
-    | {__typename: 'ContentType'; id: string; name?: string | null}
-    | {__typename: 'MediaItem'}
-    | {__typename: 'Page'; id: string; title?: string | null}
-    | {__typename: 'Post'}
-    | {__typename: 'PostFormat'}
-    | {__typename: 'Tag'}
-    | {__typename: 'User'}
-    | null
-}
-
-export type MenuByNameQueryVariables = Exact<{
-  name: Scalars['ID']
-}>
-
-export type MenuByNameQuery = {
-  __typename?: 'RootQuery'
-  menu?: {
-    __typename?: 'Menu'
-    id: string
-    name?: string | null
-    menuItems?: {
-      __typename?: 'MenuToMenuItemConnection'
-      nodes: Array<
-        {
-          __typename?: 'MenuItem'
-          childItems?: {
-            __typename?: 'MenuItemToMenuItemConnection'
-            nodes: Array<
-              {__typename?: 'MenuItem'} & {
-                ' $fragmentRefs'?: {MenuItemFragment: MenuItemFragment}
-              }
-            >
-          } | null
-        } & {' $fragmentRefs'?: {MenuItemFragment: MenuItemFragment}}
-      >
-    } | null
-  } | null
-}
-
-export type MenuItemFragment = {
-  __typename?: 'MenuItem'
-  label?: string | null
-  cssClasses?: Array<string | null> | null
-  target?: string | null
-  url?: string | null
-  id: string
-} & {' $fragmentName'?: 'MenuItemFragment'}
-
-export type PostsListByCategoryNameQueryVariables = Exact<{
-  categoryName: Scalars['String']
-  first?: InputMaybe<Scalars['Int']>
-  after?: InputMaybe<Scalars['String']>
-}>
-
-export type PostsListByCategoryNameQuery = {
-  __typename?: 'RootQuery'
-  posts?: {
-    __typename?: 'RootQueryToPostConnection'
-    pageInfo?: {
-      __typename?: 'WPPageInfo'
-      hasNextPage: boolean
-      endCursor?: string | null
-    } | null
-    nodes: Array<{
-      __typename?: 'Post'
-      id: string
-      uri?: string | null
-      title?: string | null
-      date?: string | null
-      featuredImage?: {
-        __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'
-        node: {__typename?: 'MediaItem'} & {
-          ' $fragmentRefs'?: {MediaItemFieldsFragment: MediaItemFieldsFragment}
-        }
-      } | null
+    edges: Array<{
+      __typename?: 'RootQueryToPageConnectionEdge'
+      node: {__typename?: 'Page'; uri?: string | null}
     }>
   } | null
 }
 
 export type SinglePageQueryVariables = Exact<{
-  slug: Scalars['ID']
+  uri: Scalars['ID']
 }>
 
 export type SinglePageQuery = {
@@ -14392,419 +13489,652 @@ export type SinglePageQuery = {
   page?: {
     __typename?: 'Page'
     title?: string | null
-    content?: string | null
     databaseId: number
     uri?: string | null
-    featuredImage?:
-      | ({__typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'} & {
-          ' $fragmentRefs'?: {
-            FeaturedImageFieldsFragment: FeaturedImageFieldsFragment
-          }
-        })
+    content?: string | null
+    contentBlocks?: Array<
+      | {
+          __typename?: 'CoreArchives'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreAudio'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreAvatar'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreBlock'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreButton'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreButtons'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCalendar'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCategories'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCode'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreColumn'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreColumns'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCommentAuthorName'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCommentContent'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCommentDate'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCommentEditLink'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCommentReplyLink'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCommentTemplate'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreComments'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCommentsPagination'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCommentsPaginationNext'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCommentsPaginationNumbers'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCommentsPaginationPrevious'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCommentsTitle'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreCover'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreEmbed'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreFile'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreFreeform'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreGallery'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreGroup'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreHeading'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreHomeLink'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreHtml'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreImage'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreLatestComments'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreLatestPosts'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreLegacyWidget'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreList'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreListItem'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreLoginout'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreMediaText'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreMissing'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreMore'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreNavigation'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreNavigationLink'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreNavigationSubmenu'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreNextpage'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePageList'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreParagraph'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePattern'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePostAuthor'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePostAuthorBiography'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePostComments'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePostCommentsForm'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePostContent'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePostDate'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePostExcerpt'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePostFeaturedImage'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePostNavigationLink'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePostTemplate'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePostTerms'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePostTitle'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePreformatted'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CorePullquote'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreQuery'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreQueryNoResults'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreQueryPagination'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreQueryPaginationNext'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreQueryPaginationNumbers'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreQueryPaginationPrevious'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreQueryTitle'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreQuote'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreReadMore'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreRss'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreSearch'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreSeparator'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreShortcode'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreSiteLogo'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreSiteTagline'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreSiteTitle'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreSocialLink'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreSocialLinks'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreSpacer'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreTable'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreTagCloud'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreTemplatePart'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreTermDescription'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreTextColumns'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreVerse'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreVideo'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'CoreWidgetGroup'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
+      | {
+          __typename?: 'UnknownBlock'
+          apiVersion?: number | null
+          name?: string | null
+          parentId?: string | null
+          renderedHtml?: string | null
+        }
       | null
+    > | null
   } | null
 }
 
-export type SiteMenusQueryVariables = Exact<{[key: string]: never}>
-
-export type SiteMenusQuery = {
-  __typename?: 'RootQuery'
-  headerMenu?: {
-    __typename?: 'RootQueryToMenuItemConnection'
-    nodes: Array<{
-      __typename?: 'MenuItem'
-      parentId?: string | null
-      url?: string | null
-      key: string
-      title?: string | null
-    }>
-  } | null
-}
-
-export type SiteSettingsQueryVariables = Exact<{[key: string]: never}>
-
-export type SiteSettingsQuery = {
-  __typename?: 'RootQuery'
-  wpSettings?: {
-    __typename?: 'GeneralSettings'
-    title?: string | null
-    description?: string | null
-  } | null
-}
-
-export type TaxonomyArchiveQueryVariables = Exact<{
-  category: Scalars['String']
-}>
-
-export type TaxonomyArchiveQuery = {
-  __typename?: 'RootQuery'
-  posts?: {
-    __typename?: 'RootQueryToPostConnection'
-    nodes: Array<{
-      __typename?: 'Post'
-      title?: string | null
-      excerpt?: string | null
-      uri?: string | null
-      featuredImage?:
-        | ({__typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'} & {
-            ' $fragmentRefs'?: {
-              FeaturedImageFieldsFragment: FeaturedImageFieldsFragment
-            }
-          })
-        | null
-      categories?: {
-        __typename?: 'PostToCategoryConnection'
-        edges: Array<{
-          __typename?: 'PostToCategoryConnectionEdge'
-          node: {
-            __typename?: 'Category'
-            name?: string | null
-            uri?: string | null
-          }
-        }>
-      } | null
-    }>
-  } | null
-}
-
-export type WpControlsQueryVariables = Exact<{
-  uri: Scalars['String']
-}>
-
-export type WpControlsQuery = {
-  __typename?: 'RootQuery'
-  nodeByUri?:
-    | {__typename: 'Category'; id: string}
-    | {__typename: 'ContentType'; id: string}
-    | {__typename: 'MediaItem'; databaseId: number; id: string}
-    | {__typename: 'Page'; databaseId: number; id: string}
-    | {__typename: 'Post'; databaseId: number; id: string}
-    | {__typename: 'PostFormat'; id: string}
-    | {__typename: 'Tag'; id: string}
-    | {__typename: 'User'; id: string}
-    | null
-  viewer?: {
-    __typename?: 'User'
-    id: string
-    nicename?: string | null
-    avatar?: {
-      __typename?: 'Avatar'
-      url?: string | null
-      width?: number | null
-      height?: number | null
-    } | null
-  } | null
-}
-
-export type WpSeoQueryVariables = Exact<{
-  uri: Scalars['String']
-}>
-
-export type WpSeoQuery = {
-  __typename?: 'RootQuery'
-  nodeByUri?:
-    | {
-        __typename?: 'Category'
-        name?: string | null
-        description?: string | null
-        id: string
-      }
-    | {__typename?: 'ContentType'; id: string}
-    | {__typename?: 'MediaItem'; title?: string | null; id: string}
-    | {
-        __typename?: 'Page'
-        title?: string | null
-        content?: string | null
-        excerpt?: string | null
-        id: string
-        featuredImage?: {
-          __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'
-          node: {
-            __typename?: 'MediaItem'
-            id: string
-            sourceUrl?: string | null
-          }
-        } | null
-      }
-    | {
-        __typename?: 'Post'
-        title?: string | null
-        content?: string | null
-        excerpt?: string | null
-        id: string
-        featuredImage?: {
-          __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'
-          node: {
-            __typename?: 'MediaItem'
-            id: string
-            sourceUrl?: string | null
-          }
-        } | null
-      }
-    | {__typename?: 'PostFormat'; id: string}
-    | {__typename?: 'Tag'; id: string}
-    | {__typename?: 'User'; id: string}
-    | null
-}
-
-export const ContentBlockFieldsFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'ContentBlockFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'ContentBlock'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: '__typename'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'renderedHtml'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'blockEditorCategoryName'},
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<ContentBlockFieldsFragment, unknown>
-export const ContentNodeFieldsFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'ContentNodeFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'ContentNode'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'desiredSlug'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentType'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'node'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
-          {
-            kind: 'InlineFragment',
-            typeCondition: {
-              kind: 'NamedType',
-              name: {kind: 'Name', value: 'NodeWithTitle'},
-            },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<ContentNodeFieldsFragment, unknown>
-export const PageInfoFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'PageInfo'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'WPPageInfo'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'hasNextPage'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'hasPreviousPage'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'startCursor'}},
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<PageInfoFragment, unknown>
-export const ContentTypeFieldsFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'ContentTypeFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'ContentType'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentNodes'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'after'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'before'},
-                value: {
-                  kind: 'Variable',
-                  name: {kind: 'Name', value: 'before'},
-                },
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'first'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'last'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'ContentNodeFields'},
-                      },
-                    ],
-                  },
-                },
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'pageInfo'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'PageInfo'},
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'ContentNodeFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'ContentNode'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'desiredSlug'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentType'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'node'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
-          {
-            kind: 'InlineFragment',
-            typeCondition: {
-              kind: 'NamedType',
-              name: {kind: 'Name', value: 'NodeWithTitle'},
-            },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'PageInfo'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'WPPageInfo'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'hasNextPage'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'hasPreviousPage'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'startCursor'}},
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<ContentTypeFieldsFragment, unknown>
 export const FeaturedImageFieldsFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -14881,594 +14211,13 @@ export const SettingsFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<SettingsFragment, unknown>
-export const MediaItemFieldsFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'MediaItemFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'MediaItem'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'caption'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'date'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'mediaDetails'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'height'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'width'}},
-              ],
-            },
-          },
-          {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'sourceUrl'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'size'},
-                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
-              },
-            ],
-          },
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'sizes'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'size'},
-                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
-              },
-            ],
-          },
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'srcSet'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'size'},
-                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
-              },
-            ],
-          },
-          {
-            kind: 'Field',
-            alias: {kind: 'Name', value: 'src'},
-            name: {kind: 'Name', value: 'sourceUrl'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'size'},
-                value: {kind: 'EnumValue', value: 'FULLSCREEN_SMALL'},
-              },
-            ],
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<MediaItemFieldsFragment, unknown>
-export const MenuItemsFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'MenuItems'},
-      typeCondition: {kind: 'NamedType', name: {kind: 'Name', value: 'Menu'}},
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'count'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'menuItems'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'path'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'label'}},
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'linkRelationship'},
-                      },
-                      {kind: 'Field', name: {kind: 'Name', value: 'target'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'parentId'}},
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'childItems'},
-                        selectionSet: {
-                          kind: 'SelectionSet',
-                          selections: [
-                            {
-                              kind: 'Field',
-                              name: {kind: 'Name', value: 'nodes'},
-                              selectionSet: {
-                                kind: 'SelectionSet',
-                                selections: [
-                                  {
-                                    kind: 'Field',
-                                    name: {kind: 'Name', value: 'id'},
-                                  },
-                                  {
-                                    kind: 'Field',
-                                    name: {kind: 'Name', value: 'path'},
-                                  },
-                                  {
-                                    kind: 'Field',
-                                    name: {kind: 'Name', value: 'cssClasses'},
-                                  },
-                                  {
-                                    kind: 'Field',
-                                    name: {kind: 'Name', value: 'label'},
-                                  },
-                                  {
-                                    kind: 'Field',
-                                    name: {
-                                      kind: 'Name',
-                                      value: 'linkRelationship',
-                                    },
-                                  },
-                                  {
-                                    kind: 'Field',
-                                    name: {kind: 'Name', value: 'target'},
-                                  },
-                                  {
-                                    kind: 'Field',
-                                    name: {kind: 'Name', value: 'parentId'},
-                                  },
-                                ],
-                              },
-                            },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<MenuItemsFragment, unknown>
-export const MenuItemFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'MenuItem'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'MenuItem'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'label'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'cssClasses'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'target'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'url'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<MenuItemFragment, unknown>
-export const AllContentTypesDocument = {
+export const AllPagesPathsDocument = {
   kind: 'Document',
   definitions: [
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: {kind: 'Name', value: 'AllContentTypes'},
-      variableDefinitions: [
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'before'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
-          defaultValue: {kind: 'IntValue', value: '1'},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
-        },
-      ],
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentTypes'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'first'},
-                value: {kind: 'IntValue', value: '50'},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'ContentTypeFields'},
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'ContentNodeFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'ContentNode'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'desiredSlug'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentType'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'node'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
-          {
-            kind: 'InlineFragment',
-            typeCondition: {
-              kind: 'NamedType',
-              name: {kind: 'Name', value: 'NodeWithTitle'},
-            },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'PageInfo'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'WPPageInfo'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'hasNextPage'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'hasPreviousPage'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'startCursor'}},
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'ContentTypeFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'ContentType'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentNodes'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'after'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'before'},
-                value: {
-                  kind: 'Variable',
-                  name: {kind: 'Name', value: 'before'},
-                },
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'first'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'last'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'ContentNodeFields'},
-                      },
-                    ],
-                  },
-                },
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'pageInfo'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'PageInfo'},
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<
-  AllContentTypesQuery,
-  AllContentTypesQueryVariables
->
-export const AllMediaItemsDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'AllMediaItems'},
-      variableDefinitions: [
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
-          defaultValue: {kind: 'IntValue', value: '10'},
-        },
-      ],
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'mediaItems'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'after'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'first'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'MediaItemFields'},
-                      },
-                    ],
-                  },
-                },
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'pageInfo'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'PageInfo'},
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'MediaItemFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'MediaItem'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'caption'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'date'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'mediaDetails'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'height'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'width'}},
-              ],
-            },
-          },
-          {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'sourceUrl'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'size'},
-                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
-              },
-            ],
-          },
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'sizes'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'size'},
-                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
-              },
-            ],
-          },
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'srcSet'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'size'},
-                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
-              },
-            ],
-          },
-          {
-            kind: 'Field',
-            alias: {kind: 'Name', value: 'src'},
-            name: {kind: 'Name', value: 'sourceUrl'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'size'},
-                value: {kind: 'EnumValue', value: 'FULLSCREEN_SMALL'},
-              },
-            ],
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'PageInfo'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'WPPageInfo'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'hasNextPage'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'hasPreviousPage'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'startCursor'}},
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<AllMediaItemsQuery, AllMediaItemsQueryVariables>
-export const AllPagesDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'AllPages'},
+      name: {kind: 'Name', value: 'AllPagesPaths'},
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
@@ -15480,835 +14229,17 @@ export const AllPagesDocument = {
               selections: [
                 {
                   kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'slug'}},
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<AllPagesQuery, AllPagesQueryVariables>
-export const ContentNodeBySlugDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'ContentNodeBySlug'},
-      variableDefinitions: [
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'slug'}},
-          type: {
-            kind: 'NonNullType',
-            type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-          },
-        },
-      ],
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentNodes'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'where'},
-                value: {
-                  kind: 'ObjectValue',
-                  fields: [
-                    {
-                      kind: 'ObjectField',
-                      name: {kind: 'Name', value: 'name'},
-                      value: {
-                        kind: 'Variable',
-                        name: {kind: 'Name', value: 'slug'},
-                      },
-                    },
-                  ],
-                },
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'ContentNodeFields'},
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'ContentNodeFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'ContentNode'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'desiredSlug'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentType'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'node'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
-          {
-            kind: 'InlineFragment',
-            typeCondition: {
-              kind: 'NamedType',
-              name: {kind: 'Name', value: 'NodeWithTitle'},
-            },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<
-  ContentNodeBySlugQuery,
-  ContentNodeBySlugQueryVariables
->
-export const ContentNodePreviewByIdDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'ContentNodePreviewById'},
-      variableDefinitions: [
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'id'}},
-          type: {
-            kind: 'NonNullType',
-            type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
-          },
-        },
-      ],
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentNode'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'asPreview'},
-                value: {kind: 'BooleanValue', value: true},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'id'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'id'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'idType'},
-                value: {kind: 'EnumValue', value: 'DATABASE_ID'},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: {kind: 'Name', value: 'ContentNodeFields'},
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'ContentNodeFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'ContentNode'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'desiredSlug'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentType'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'node'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
-          {
-            kind: 'InlineFragment',
-            typeCondition: {
-              kind: 'NamedType',
-              name: {kind: 'Name', value: 'NodeWithTitle'},
-            },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<
-  ContentNodePreviewByIdQuery,
-  ContentNodePreviewByIdQueryVariables
->
-export const ContentNodesBySearchTermDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'ContentNodesBySearchTerm'},
-      variableDefinitions: [
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'before'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'search'}},
-          type: {
-            kind: 'NonNullType',
-            type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-          },
-        },
-      ],
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentNodes'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'after'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'before'},
-                value: {
-                  kind: 'Variable',
-                  name: {kind: 'Name', value: 'before'},
-                },
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'first'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'last'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'where'},
-                value: {
-                  kind: 'ObjectValue',
-                  fields: [
-                    {
-                      kind: 'ObjectField',
-                      name: {kind: 'Name', value: 'search'},
-                      value: {
-                        kind: 'Variable',
-                        name: {kind: 'Name', value: 'search'},
-                      },
-                    },
-                  ],
-                },
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'ContentNodeFields'},
-                      },
-                    ],
-                  },
-                },
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'pageInfo'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'PageInfo'},
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'ContentNodeFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'ContentNode'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'desiredSlug'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentType'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'node'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
-          {
-            kind: 'InlineFragment',
-            typeCondition: {
-              kind: 'NamedType',
-              name: {kind: 'Name', value: 'NodeWithTitle'},
-            },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'PageInfo'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'WPPageInfo'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'hasNextPage'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'hasPreviousPage'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'startCursor'}},
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<
-  ContentNodesBySearchTermQuery,
-  ContentNodesBySearchTermQueryVariables
->
-export const ContentTypeByNameDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'ContentTypeByName'},
-      variableDefinitions: [
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'before'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'name'}},
-          type: {
-            kind: 'NonNullType',
-            type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
-          },
-        },
-      ],
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentType'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'id'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'name'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'idType'},
-                value: {kind: 'EnumValue', value: 'NAME'},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'FragmentSpread',
-                  name: {kind: 'Name', value: 'ContentTypeFields'},
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'ContentNodeFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'ContentNode'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'desiredSlug'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentType'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'node'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'dateGmt'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'isPreview'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'modifiedGmt'}},
-          {
-            kind: 'InlineFragment',
-            typeCondition: {
-              kind: 'NamedType',
-              name: {kind: 'Name', value: 'NodeWithTitle'},
-            },
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'PageInfo'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'WPPageInfo'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'hasNextPage'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'hasPreviousPage'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'startCursor'}},
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'ContentTypeFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'ContentType'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'contentNodes'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'after'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'before'},
-                value: {
-                  kind: 'Variable',
-                  name: {kind: 'Name', value: 'before'},
-                },
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'first'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'last'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'last'}},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'ContentNodeFields'},
-                      },
-                    ],
-                  },
-                },
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'pageInfo'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'PageInfo'},
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<
-  ContentTypeByNameQuery,
-  ContentTypeByNameQueryVariables
->
-export const HomepageDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'Homepage'},
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'nodeByUri'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'uri'},
-                value: {kind: 'StringValue', value: '/', block: false},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: '__typename'}},
-                {
-                  kind: 'InlineFragment',
-                  typeCondition: {
-                    kind: 'NamedType',
-                    name: {kind: 'Name', value: 'ContentType'},
-                  },
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-                    ],
-                  },
-                },
-                {
-                  kind: 'InlineFragment',
-                  typeCondition: {
-                    kind: 'NamedType',
-                    name: {kind: 'Name', value: 'Page'},
-                  },
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<HomepageQuery, HomepageQueryVariables>
-export const MenuByNameDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'MenuByName'},
-      variableDefinitions: [
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'name'}},
-          type: {
-            kind: 'NonNullType',
-            type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
-          },
-        },
-      ],
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'menu'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'id'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'name'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'idType'},
-                value: {kind: 'EnumValue', value: 'NAME'},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'menuItems'},
-                  arguments: [
-                    {
-                      kind: 'Argument',
-                      name: {kind: 'Name', value: 'first'},
-                      value: {kind: 'IntValue', value: '30'},
-                    },
-                    {
-                      kind: 'Argument',
-                      name: {kind: 'Name', value: 'where'},
-                      value: {
-                        kind: 'ObjectValue',
-                        fields: [
-                          {
-                            kind: 'ObjectField',
-                            name: {kind: 'Name', value: 'parentDatabaseId'},
-                            value: {kind: 'IntValue', value: '0'},
-                          },
-                        ],
-                      },
-                    },
-                  ],
+                  name: {kind: 'Name', value: 'edges'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'Field',
-                        name: {kind: 'Name', value: 'nodes'},
+                        name: {kind: 'Name', value: 'node'},
                         selectionSet: {
                           kind: 'SelectionSet',
                           selections: [
-                            {
-                              kind: 'FragmentSpread',
-                              name: {kind: 'Name', value: 'MenuItem'},
-                            },
-                            {
-                              kind: 'Field',
-                              name: {kind: 'Name', value: 'childItems'},
-                              selectionSet: {
-                                kind: 'SelectionSet',
-                                selections: [
-                                  {
-                                    kind: 'Field',
-                                    name: {kind: 'Name', value: 'nodes'},
-                                    selectionSet: {
-                                      kind: 'SelectionSet',
-                                      selections: [
-                                        {
-                                          kind: 'FragmentSpread',
-                                          name: {
-                                            kind: 'Name',
-                                            value: 'MenuItem',
-                                          },
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
-                            },
+                            {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
                           ],
                         },
                       },
@@ -16321,253 +14252,8 @@ export const MenuByNameDocument = {
         ],
       },
     },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'MenuItem'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'MenuItem'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'label'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'cssClasses'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'target'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'url'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-        ],
-      },
-    },
   ],
-} as unknown as DocumentNode<MenuByNameQuery, MenuByNameQueryVariables>
-export const PostsListByCategoryNameDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'PostsListByCategoryName'},
-      variableDefinitions: [
-        {
-          kind: 'VariableDefinition',
-          variable: {
-            kind: 'Variable',
-            name: {kind: 'Name', value: 'categoryName'},
-          },
-          type: {
-            kind: 'NonNullType',
-            type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-          },
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'Int'}},
-          defaultValue: {kind: 'IntValue', value: '10'},
-        },
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-        },
-      ],
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'posts'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'first'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'first'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'after'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'after'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'where'},
-                value: {
-                  kind: 'ObjectValue',
-                  fields: [
-                    {
-                      kind: 'ObjectField',
-                      name: {kind: 'Name', value: 'categoryName'},
-                      value: {
-                        kind: 'Variable',
-                        name: {kind: 'Name', value: 'categoryName'},
-                      },
-                    },
-                    {
-                      kind: 'ObjectField',
-                      name: {kind: 'Name', value: 'orderby'},
-                      value: {
-                        kind: 'ObjectValue',
-                        fields: [
-                          {
-                            kind: 'ObjectField',
-                            name: {kind: 'Name', value: 'field'},
-                            value: {kind: 'EnumValue', value: 'DATE'},
-                          },
-                          {
-                            kind: 'ObjectField',
-                            name: {kind: 'Name', value: 'order'},
-                            value: {kind: 'EnumValue', value: 'DESC'},
-                          },
-                        ],
-                      },
-                    },
-                  ],
-                },
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'pageInfo'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'hasNextPage'},
-                      },
-                      {kind: 'Field', name: {kind: 'Name', value: 'endCursor'}},
-                    ],
-                  },
-                },
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'date'}},
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'featuredImage'},
-                        selectionSet: {
-                          kind: 'SelectionSet',
-                          selections: [
-                            {
-                              kind: 'Field',
-                              name: {kind: 'Name', value: 'node'},
-                              selectionSet: {
-                                kind: 'SelectionSet',
-                                selections: [
-                                  {
-                                    kind: 'FragmentSpread',
-                                    name: {
-                                      kind: 'Name',
-                                      value: 'MediaItemFields',
-                                    },
-                                  },
-                                ],
-                              },
-                            },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'MediaItemFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'MediaItem'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'caption'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'date'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'mediaDetails'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'height'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'width'}},
-              ],
-            },
-          },
-          {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'sourceUrl'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'size'},
-                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
-              },
-            ],
-          },
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'sizes'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'size'},
-                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
-              },
-            ],
-          },
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'srcSet'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'size'},
-                value: {kind: 'EnumValue', value: 'FULLSCREEN_XLARGE'},
-              },
-            ],
-          },
-          {
-            kind: 'Field',
-            alias: {kind: 'Name', value: 'src'},
-            name: {kind: 'Name', value: 'sourceUrl'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'size'},
-                value: {kind: 'EnumValue', value: 'FULLSCREEN_SMALL'},
-              },
-            ],
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<
-  PostsListByCategoryNameQuery,
-  PostsListByCategoryNameQueryVariables
->
+} as unknown as DocumentNode<AllPagesPathsQuery, AllPagesPathsQueryVariables>
 export const SinglePageDocument = {
   kind: 'Document',
   definitions: [
@@ -16578,7 +14264,7 @@ export const SinglePageDocument = {
       variableDefinitions: [
         {
           kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'slug'}},
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'uri'}},
           type: {
             kind: 'NonNullType',
             type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
@@ -16595,7 +14281,7 @@ export const SinglePageDocument = {
               {
                 kind: 'Argument',
                 name: {kind: 'Name', value: 'id'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'slug'}},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'uri'}},
               },
               {
                 kind: 'Argument',
@@ -16617,6 +14303,8 @@ export const SinglePageDocument = {
                     },
                   ],
                 },
+                {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
                 {
                   kind: 'Field',
                   name: {kind: 'Name', value: 'content'},
@@ -16628,66 +14316,22 @@ export const SinglePageDocument = {
                     },
                   ],
                 },
-                {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
                 {
                   kind: 'Field',
-                  name: {kind: 'Name', value: 'featuredImage'},
+                  name: {kind: 'Name', value: 'contentBlocks'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
-                        kind: 'FragmentSpread',
-                        name: {kind: 'Name', value: 'FeaturedImageFields'},
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'apiVersion'},
                       },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'FeaturedImageFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {
-          kind: 'Name',
-          value: 'NodeWithFeaturedImageToMediaItemConnectionEdge',
-        },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'node'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'sourceUrl'},
-                  arguments: [
-                    {
-                      kind: 'Argument',
-                      name: {kind: 'Name', value: 'size'},
-                      value: {kind: 'EnumValue', value: 'LARGE'},
-                    },
-                  ],
-                },
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'mediaDetails'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'height'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'width'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'parentId'}},
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'renderedHtml'},
+                      },
                     ],
                   },
                 },
@@ -16699,514 +14343,3 @@ export const SinglePageDocument = {
     },
   ],
 } as unknown as DocumentNode<SinglePageQuery, SinglePageQueryVariables>
-export const SiteMenusDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'SiteMenus'},
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            alias: {kind: 'Name', value: 'headerMenu'},
-            name: {kind: 'Name', value: 'menuItems'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'where'},
-                value: {
-                  kind: 'ObjectValue',
-                  fields: [
-                    {
-                      kind: 'ObjectField',
-                      name: {kind: 'Name', value: 'location'},
-                      value: {kind: 'EnumValue', value: 'PRIMARY_NAVIGATION'},
-                    },
-                  ],
-                },
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'Field',
-                        alias: {kind: 'Name', value: 'key'},
-                        name: {kind: 'Name', value: 'id'},
-                      },
-                      {kind: 'Field', name: {kind: 'Name', value: 'parentId'}},
-                      {
-                        kind: 'Field',
-                        alias: {kind: 'Name', value: 'title'},
-                        name: {kind: 'Name', value: 'label'},
-                      },
-                      {kind: 'Field', name: {kind: 'Name', value: 'url'}},
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<SiteMenusQuery, SiteMenusQueryVariables>
-export const SiteSettingsDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'SiteSettings'},
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            alias: {kind: 'Name', value: 'wpSettings'},
-            name: {kind: 'Name', value: 'generalSettings'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'description'}},
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<SiteSettingsQuery, SiteSettingsQueryVariables>
-export const TaxonomyArchiveDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'TaxonomyArchive'},
-      variableDefinitions: [
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'category'}},
-          type: {
-            kind: 'NonNullType',
-            type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-          },
-        },
-      ],
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'posts'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'where'},
-                value: {
-                  kind: 'ObjectValue',
-                  fields: [
-                    {
-                      kind: 'ObjectField',
-                      name: {kind: 'Name', value: 'categoryName'},
-                      value: {
-                        kind: 'Variable',
-                        name: {kind: 'Name', value: 'category'},
-                      },
-                    },
-                  ],
-                },
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'title'},
-                        arguments: [
-                          {
-                            kind: 'Argument',
-                            name: {kind: 'Name', value: 'format'},
-                            value: {kind: 'EnumValue', value: 'RENDERED'},
-                          },
-                        ],
-                      },
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'excerpt'},
-                        arguments: [
-                          {
-                            kind: 'Argument',
-                            name: {kind: 'Name', value: 'format'},
-                            value: {kind: 'EnumValue', value: 'RENDERED'},
-                          },
-                        ],
-                      },
-                      {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'featuredImage'},
-                        selectionSet: {
-                          kind: 'SelectionSet',
-                          selections: [
-                            {
-                              kind: 'FragmentSpread',
-                              name: {
-                                kind: 'Name',
-                                value: 'FeaturedImageFields',
-                              },
-                            },
-                          ],
-                        },
-                      },
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'categories'},
-                        selectionSet: {
-                          kind: 'SelectionSet',
-                          selections: [
-                            {
-                              kind: 'Field',
-                              name: {kind: 'Name', value: 'edges'},
-                              selectionSet: {
-                                kind: 'SelectionSet',
-                                selections: [
-                                  {
-                                    kind: 'Field',
-                                    name: {kind: 'Name', value: 'node'},
-                                    selectionSet: {
-                                      kind: 'SelectionSet',
-                                      selections: [
-                                        {
-                                          kind: 'Field',
-                                          name: {kind: 'Name', value: 'name'},
-                                        },
-                                        {
-                                          kind: 'Field',
-                                          name: {kind: 'Name', value: 'uri'},
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ],
-                              },
-                            },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'FeaturedImageFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {
-          kind: 'Name',
-          value: 'NodeWithFeaturedImageToMediaItemConnectionEdge',
-        },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'node'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'sourceUrl'},
-                  arguments: [
-                    {
-                      kind: 'Argument',
-                      name: {kind: 'Name', value: 'size'},
-                      value: {kind: 'EnumValue', value: 'LARGE'},
-                    },
-                  ],
-                },
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'mediaDetails'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'height'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'width'}},
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<
-  TaxonomyArchiveQuery,
-  TaxonomyArchiveQueryVariables
->
-export const WpControlsDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'WpControls'},
-      variableDefinitions: [
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'uri'}},
-          type: {
-            kind: 'NonNullType',
-            type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-          },
-        },
-      ],
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'nodeByUri'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'uri'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'uri'}},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                {kind: 'Field', name: {kind: 'Name', value: '__typename'}},
-                {
-                  kind: 'InlineFragment',
-                  typeCondition: {
-                    kind: 'NamedType',
-                    name: {kind: 'Name', value: 'ContentNode'},
-                  },
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'databaseId'},
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'viewer'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'nicename'}},
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'avatar'},
-                  arguments: [
-                    {
-                      kind: 'Argument',
-                      name: {kind: 'Name', value: 'size'},
-                      value: {kind: 'IntValue', value: '20'},
-                    },
-                  ],
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'url'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'width'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'height'}},
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<WpControlsQuery, WpControlsQueryVariables>
-export const WpSeoDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'WPSeo'},
-      variableDefinitions: [
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'uri'}},
-          type: {
-            kind: 'NonNullType',
-            type: {kind: 'NamedType', name: {kind: 'Name', value: 'String'}},
-          },
-        },
-      ],
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'nodeByUri'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'uri'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'uri'}},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                {
-                  kind: 'InlineFragment',
-                  typeCondition: {
-                    kind: 'NamedType',
-                    name: {kind: 'Name', value: 'NodeWithTitle'},
-                  },
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-                    ],
-                  },
-                },
-                {
-                  kind: 'InlineFragment',
-                  typeCondition: {
-                    kind: 'NamedType',
-                    name: {kind: 'Name', value: 'Category'},
-                  },
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'description'},
-                      },
-                    ],
-                  },
-                },
-                {
-                  kind: 'InlineFragment',
-                  typeCondition: {
-                    kind: 'NamedType',
-                    name: {kind: 'Name', value: 'NodeWithContentEditor'},
-                  },
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'content'}},
-                    ],
-                  },
-                },
-                {
-                  kind: 'InlineFragment',
-                  typeCondition: {
-                    kind: 'NamedType',
-                    name: {kind: 'Name', value: 'NodeWithExcerpt'},
-                  },
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'excerpt'}},
-                    ],
-                  },
-                },
-                {
-                  kind: 'InlineFragment',
-                  typeCondition: {
-                    kind: 'NamedType',
-                    name: {kind: 'Name', value: 'NodeWithFeaturedImage'},
-                  },
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'featuredImage'},
-                        selectionSet: {
-                          kind: 'SelectionSet',
-                          selections: [
-                            {
-                              kind: 'Field',
-                              name: {kind: 'Name', value: 'node'},
-                              selectionSet: {
-                                kind: 'SelectionSet',
-                                selections: [
-                                  {
-                                    kind: 'Field',
-                                    name: {kind: 'Name', value: 'id'},
-                                  },
-                                  {
-                                    kind: 'Field',
-                                    name: {kind: 'Name', value: 'sourceUrl'},
-                                    arguments: [
-                                      {
-                                        kind: 'Argument',
-                                        name: {kind: 'Name', value: 'size'},
-                                        value: {
-                                          kind: 'EnumValue',
-                                          value: 'FULLSCREEN_XLARGE',
-                                        },
-                                      },
-                                    ],
-                                  },
-                                ],
-                              },
-                            },
-                          ],
-                        },
-                      },
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<WpSeoQuery, WpSeoQueryVariables>

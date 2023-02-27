@@ -80,7 +80,7 @@ wp *ARGS:
 wp-query-by-slug slug *ARGS:
   {{ wp }} post list --post_name={{ slug }} {{ ARGS }}
 
-wp-install admin-password theme='logan-center-wp-next-theme':
+wp-install admin-password theme='logan-center-theme':
   cd {{ wp-dir }} && \
     composer install
   {{ wp }} core install \
@@ -123,17 +123,6 @@ _deadnix action +FILES=prj-root:
     --no-lambda-pattern-names \
     {{FILES}}
 
-
-###: SECRETS =======================================================================================
-
-vault-cmd := join( node-modules, "dotenv-vault" )
-
-# [secrets]: 		Run `dotenv-vault` in the specified app scope
-vault app-name *ARGS:
-  cd {{ join( 'apps', app-name ) }} && {{ vault-cmd }} {{ ARGS }}
-
-# [secrets]: 		Push all dotenv vault secrets to remote store
-vault-push-all: (vault "wordpress" "push") (vault "nextjs" "push")
 
 ###: LICENSING =====================================================================================
 

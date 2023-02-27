@@ -1,0 +1,56 @@
+{
+  "name": "@kleinweb/logan-center-wordpress-theme",
+  "private": true,
+  "browserslist": [
+    "extends @roots/browserslist-config"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "bud dev",
+    "build": "bud build",
+    "typecheck": "tsc",
+    "lint": "yarn lint:js && yarn lint:css",
+    "lint:js": "eslint --ext=js,jsx,ts,tsx resources/scripts",
+    "lint:css": "stylelint \"resources/**/*.css\"",
+    "test": "yarn lint",
+    "translate": "yarn translate:pot && yarn translate:update",
+    "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --include=\"app,resources\"",
+    "translate:update": "for filename in ./resources/lang/*.po; do msgmerge -U $filename ./resources/lang/sage.pot; done; rm -f ./resources/lang/*.po~",
+    "translate:compile": "yarn translate:mo && yarn translate:js",
+    "translate:js": "wp i18n make-json ./resources/lang --pretty-print",
+    "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang"
+  },
+  "dependencies": {
+    "@kleinweb/logan-center__tailwind-config": "workspace:*",
+    "@wordpress/blocks": "^12.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/plugin-transform-runtime": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@jeffreyvr/tailwindcss-tailpress": "^2.0.0",
+    "@roots/bud": "6.9.1",
+    "@roots/bud-prettier": "6.9.1",
+    "@roots/bud-stylelint": "6.9.1",
+    "@roots/bud-support": "6.9.1",
+    "@roots/bud-tailwindcss": "6.9.1",
+    "@roots/eslint-config": "6.9.1",
+    "@roots/sage": "6.9.1",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "@types/wordpress__blocks": "^12.0.3",
+    "@wordpress/dependency-extraction-webpack-plugin": "^4.10.0",
+    "babel-loader": "^9.1.2",
+    "postcss": "^8.4.18",
+    "postcss-import": "^14.0.0",
+    "postcss-nested-ancestors": "^2.0.0",
+    "stylelint": "^15.2.0",
+    "stylelint-config-standard": "^30.0.1",
+    "stylelint-webpack-plugin": "^4.1.0",
+    "tailwindcss": "^3.2.0",
+    "webpack": "^5.75.0"
+  }
+}

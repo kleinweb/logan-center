@@ -6,11 +6,14 @@ import {ChevronRight} from 'lucide-react'
 
 import Button, {VARIANTS} from './Button'
 import {Icon} from '../Icons'
+import {Meta} from '@storybook/react'
 
-export default {
+const meta: Meta<typeof Button> = {
   title: 'Atoms/Buttons',
   component: Button,
 }
+
+export default meta
 
 export const DefaultButton = {
   args: {

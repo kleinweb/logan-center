@@ -1,23 +1,25 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+'use client'
+
 import {ReactNode} from 'react'
 
-type Props = {
-  children?: ReactNode
+export type PostBodyProps = {
+  /** Raw post HTML from the CMS. */
   content?: string
+  /**
+   * Optional additional content to display below the post body. Note that
+   * TailwindCSS Typography plugin styles will not be applied.
+   */
+  children?: ReactNode
 }
 
-const PostBody = ({children, content}: Props) => {
+export default function PostBody({children, content}: PostBodyProps) {
   return (
     <div className="mx-auto max-w-2xl">
-      {content ? (
-        <div dangerouslySetInnerHTML={{__html: content}} />
-      ) : (
-        <div>{children}</div>
-      )}
+      <div className="prose" dangerouslySetInnerHTML={{__html: content}} />
+      {children ? <div>{children}</div> : undefined}
     </div>
   )
 }
-
-export default PostBody

@@ -3,6 +3,11 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
+// FIXME: add tests for cross-protocol requests
+// ddev's guest https urls
+// sometimes cause wordpress to become upset when talking to an insecure url on
+// the host machine
+
 import {extractLastTokenFromRoute, getInternalLinkPathname} from './links'
 import {links} from '../wp.config'
 

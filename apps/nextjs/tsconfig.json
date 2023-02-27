@@ -1,7 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "../../packages/tsconfig/nextjs.json",
-  "include": ["types.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "types.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
@@ -12,10 +18,12 @@
       "@components/*": ["./src/components/*"],
       "@molecules/*": ["./src/molecules/*"],
       "@organisms/*": ["./src/organisms/*"],
-      "@pages/*": ["./src/pages/*"],
       "@templates/*": ["./src/templates/*"],
+      "@app/*": ["./src/app/*"],
+      "@src/*": ["./src/*"],
       "@/*": ["./*"]
     },
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "plugins": [{"name": "next"}]
   }
 }

@@ -1,6 +1,8 @@
 ---
 schema: ${GRAPHQL_SCHEMA:./graphql.schema.json}
-documents: 'apps/nextjs/**/*.{graphql,ts,tsx}'
+documents:
+  # Intentionally avoid the generated documents to prevent a feedback loop.
+  - 'apps/nextjs/{lib,src}/**/*.{graphql,ts,tsx}'
 extensions:
   codegen:
     overwrite: true

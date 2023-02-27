@@ -14,10 +14,9 @@ auth.json
 # Application
 web/app/plugins/*
 !web/app/plugins/.gitkeep
-!web/app/plugins/wp-graphql-content-blocks
 web/app/mu-plugins/*/
+!web/app/mu-plugins/klein-core-library
 web/app/themes/*
-!web/app/themes/logan-center-theme
 web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep

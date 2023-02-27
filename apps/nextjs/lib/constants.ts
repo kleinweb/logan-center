@@ -1,16 +1,15 @@
 // SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-/* eslint-disable turbo/no-undeclared-env-vars */
+import wpConfig from '@/wp.config'
 
+export const TU_NAME = 'Temple University'
+/** TU Cherry color in unprefixed hexadecimal format. */
+export const TU_BRAND_COLOR = 'a41e35'
+export const ORG_NAME = 'Klein College of Media and Communication'
 export const SITE_NAME = 'Logan Center for Urban Investigative Reporting'
 
-/**
- * GraphQL server endpoint for this environment.
- *
- * While this is provided for convenience, we also assure TypeScript that
- * this will never be `undefined`. By default, any environment variable has the
- * type `string | undefined`.
- */
-export const GRAPHQL_ENDPOINT = process.env
-  .NEXT_PUBLIC_GRAPHQL_ENDPOINT as string
+/** Base URL route for author archives and profile pages. */
+export const AUTHOR_ROUTES_BASE = '/authors'
+
+export const GRAPHQL_ENDPOINT = wpConfig.endpoints.graphql

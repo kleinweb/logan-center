@@ -1,11 +1,10 @@
 name: Deploy WordPress Backend
 
 on:
-  push:
-    branches:
-      # FIXME: per-branch secrets
-      # - main
-      - develop
+  # push:
+  #   branches:
+  # - main
+  # - develop
 
   workflow_dispatch:
 
@@ -51,11 +50,8 @@ jobs:
           # TODO: expand to longform args
           ARGS: '-v -a -z -k'
           SOURCE: 'apps/wordpress'
-          # FIXME: secret from dotenv-vault
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          # FIXME: secret from dotenv-vault
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          # FIXME: secret from dotenv-vault
           TARGET: ${{ secrets.REMOTE_PATH }}
           # FIXME: wut... use an ignorefile
           EXCLUDE: '.phpcs.xml,.env,.env.sample,acf-export-cpt-fields.json,acf-export-post-fields.json,docker-compose.yml,install.sh,setup.sh,README.md,.git*,.gitattributes,.github/,.gitignore,advanced-cache.php,auth.json,cache/,composer.json,composer.lock,db.php,debug.log,mu-plugins/mu-plugin.php,mysql.sql,node_modules/,object-cache.php,package-lock.json,package.json,themes/twenty*,upgrade/,uploads/,wp-cache-config.php'

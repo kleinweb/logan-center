@@ -1,0 +1,9 @@
+{
+  "intelephense.environment.documentRoot": ".",
+  "intelephense.environment.includePaths": [
+    "../../plugins/**",
+    "../../mu-plugins/**",
+    "../../../wp/**"
+  ],
+  "stylelint.configBasedir": "."
+}

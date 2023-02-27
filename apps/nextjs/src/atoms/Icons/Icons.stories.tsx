@@ -16,11 +16,14 @@ import {
 
 import {HeadingOne} from '../Headings'
 import Icon from './Icon'
+import {Meta} from '@storybook/react'
 
-export default {
+const meta: Meta<typeof Icon> = {
   title: 'Atoms/Icons',
   component: Icon,
 }
+
+export default meta
 
 const allIcons = {
   ChevronDown,

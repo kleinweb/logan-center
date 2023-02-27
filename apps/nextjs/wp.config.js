@@ -2,14 +2,20 @@
 // SPDX-FileCopyrightText: 2022-2023 Temple University
 // SPDX-License-Identifier: GPL-3.0-or-later OR MIT
 
+if (!process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT) {
+  throw new Error(`
+    Please provide a valid URL to a WordPress instance's GraphQL endpoint.
+    Add NEXT_PUBLIC_GRAPHQL_ENDPOINT to your environment variables.
+  `)
+}
+
 // wp.config.js
 // ==============
 // IMPORTANT: wp.config.js is not parsed by Webpack, Babel, or Typescript.
 // Avoid language features that are not available in your target Node.js version.
 // Do not change the file extenstion to .ts.
 
-// Extract the hostname from NEXT_PUBLIC_SERVER_URL for use in `isInternalLink`.
-const {hostname: prodHostname} = new URL(process.env.NEXT_PUBLIC_SERVER_URL)
+const {hostname: serverDomain} = new URL(process.env.NEXT_PUBLIC_SERVER_URL)
 
 module.exports = {
   // Images
@@ -40,23 +46,61 @@ module.exports = {
     // Add additional hostnames to the `internalLinkHosts` array as needed.
     // Extend or rewrite this function if you have more custom needs.
     isInternalLink: (hostname, _pathname) => {
-      const internalLinkHosts = [prodHostname, 'localhost', '127.0.0.1']
+      const internalLinkHosts = [serverDomain, 'localhost', '127.0.0.1']
       return internalLinkHosts.includes(hostname)
     },
   },
 
-  // Name of the WordPress content directory.
-  // In vanilla WordPress, this would be `wp-content`.
-  // In Roots Bedrock, by default, this would be `app`.
-  wordPressContentDirname: 'app',
+  endpoints: {
+    /**
+     * Name of the WordPress site content directory.
+     *
+     * Corresponds to the WordPress `WP_HOME` constant.
+     *
+     * - In vanilla WordPress, this would be `wp-content`.
+     * - In Roots Bedrock this would be `app` or `public`.
+     *
+     * @type string
+     */
+    contentDir: 'app',
 
-  // The WordPress endpoint used for previewing, sitemaps, and other
-  // functionality that we don't want to replicate in Next.js. By default,
-  // assume WPGraphQL is using its default endpoint and just peel off /graphql.
-  // Override this value if WordPress is this assumption is incorrect. Omit
-  // trailing slash.
-  wordPressEndpoint: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT.replace(
-    /\/graphql(\?.*)?$/,
-    '',
-  ),
+    /**
+     * WordPress core URL for this environment.
+     *
+     * Corresponds to the WordPress `SITEURL` constant.
+     *
+     * @readonly
+     * @type string
+     */
+    core: process.env.NEXT_PUBLIC_WORDPRESS_CORE_URL,
+
+    /**
+     * GraphQL endpoint URL for this environment.
+     *
+     * @readonly
+     * @type string
+     */
+    graphql: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT,
+
+    /**
+     * Domain name of the content server for this environment.
+     *
+     * @readonly
+     * @type string
+     */
+    serverDomain,
+
+    /**
+     * Content server URL for this environment.
+     *
+     * Used for previewing, sitemaps, and other functionality that we don't want
+     * to replicate in Next.js. By default, assume WPGraphQL is using its
+     * default endpoint and just peel off /graphql. Override this value if
+     * WordPress is this assumption is incorrect. Omit trailing slash.
+     *
+     * @readonly
+     * @type string
+     */
+    serverUrl: process.env.NEXT_PUBLIC_SERVER_URL,
+  },
 }

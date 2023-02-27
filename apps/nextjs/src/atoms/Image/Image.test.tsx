@@ -7,8 +7,6 @@ import Image from './Image'
 import wpConfig from '@/wp.config'
 import nextConfig from '@/next.config'
 
-const {wordPressContentDirname} = wpConfig
-
 describe('Image', () => {
   const altText =
     'A river otter plays with a set of nesting cups while floating on its back.'
@@ -17,7 +15,7 @@ describe('Image', () => {
   const width = 200
 
   describe('with a WordPress image URL', () => {
-    const src = `/${wordPressContentDirname}/uploads/you-otter-see-this.jpg`
+    const src = `/${wpConfig.endpoints.contentDir}/uploads/you-otter-see-this.jpg`
 
     it('uses native lazy-loading', () => {
       render(<Image alt={altText} height={height} src={src} width={width} />)

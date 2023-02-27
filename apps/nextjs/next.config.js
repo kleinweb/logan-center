@@ -9,17 +9,12 @@
 // Avoid language features that are not available in your target Node.js version.
 // Do not change the file extenstion to .ts.
 
-// const {wordPressEndpoint} = require('./wp.config')
-
 // Next.js currently doesn't have a good way to match all paths including the
 // root, so we need to use a special regex path.
 // const allPathsIncludingRoot = '/:path*{/}?'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // TODO: use this?
-  // analyticsId: '',
-
   // React strict mode
   // =================
   // https://nextjs.org/docs/api-reference/next.config.js/react-strict-mode
@@ -27,10 +22,15 @@ const nextConfig = {
   // Be prepared for future breaking changes in React.
   reactStrictMode: true,
 
+  experimental: {
+    appDir: true,
+  },
+
   // Redirects
   // =========
   // https://nextjs.org/docs/api-reference/next.config.js/redirects
   // FIXME: this probably needs adjustment
+  // FIXME: at the very lest, `wordPressEndpoint` is not correct given the core-in-subdir setup
   // async redirects() {
   //   return [
   //     {
@@ -79,7 +79,33 @@ const nextConfig = {
     // is less than the full width of the screen. Therefore, the sizes in
     // imageSizes should all be smaller than the smallest size in deviceSizes.
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+
+    remotePatterns: [
+      {protocol: 'https', hostname: '**.templelogancenter.org'},
+      {
+        protocol: 'https',
+        hostname: process.env.NEXT_PUBLIC_SERVER_URL
+          ? new URL(process.env.NEXT_PUBLIC_SERVER_URL).hostname
+          : 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.gravatar.com',
+      },
+    ],
   },
+
+  // Trailing slash
+  // ==============
+  // https://nextjs.org/docs/api-reference/next.config.js/trailing-slash
+  //
+  // WPVIP: Setting this value to `true` is not recommended at this time.
+  //
+  // > Next.js has support for trailing slashes, but its implementation is
+  // > buggy.
+  //
+  // <https://github.com/Automattic/vip-go-nextjs-skeleton/tree/example/custom-server-trailing-slash>
+  // trailingSlash: false,
 
   webpack(config) {
     config.module.rules.push({
