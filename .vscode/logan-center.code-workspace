@@ -103,6 +103,12 @@
       "zlib",
       "wordpress"
     ],
+    "stylelint.packageManager": "yarn",
+    "npm.packageManager": "yarn",
+    "eslint.packageManager": "yarn",
+    "stylelint.reportDescriptionlessDisables": true,
+    "stylelint.reportInvalidScopeDisables": true,
+    "stylelint.reportNeedlessDisables": true,
   },
   "extensions": {
     "recommendations": [
