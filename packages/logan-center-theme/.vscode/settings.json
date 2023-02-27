@@ -4,5 +4,6 @@
     "../../plugins/**",
     "../../mu-plugins/**",
     "../../../wp/**"
-  ]
+  ],
+  "stylelint.configBasedir": "."
 }

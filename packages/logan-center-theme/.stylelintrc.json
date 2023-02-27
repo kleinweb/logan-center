@@ -1,6 +1,6 @@
 {
-  "extends": [
-    "@roots/sage/stylelint-config",
-    "@roots/bud-tailwindcss/stylelint-config"
-  ]
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "comment-empty-line-before": null
+  }
 }
