@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "49a294705ecb99104e60089acd5d893e",
+  "content-hash": "522b3c5694bf7f156adde0775db47659",
   "packages": [
     {
       "name": "alleyinteractive/internal-flags",
@@ -5998,23 +5998,41 @@
     },
     {
       "name": "wp-graphql/wp-graphql-acf",
-      "version": "v0.3.5",
+      "version": "v0.6.1",
       "source": {
         "type": "git",
         "url": "https://github.com/wp-graphql/wp-graphql-acf.git",
-        "reference": "11a2a10a4abb51c541fd7b0ba0b81d1491525136"
+        "reference": "8c6a18563bbc6dde276e1a09429b525df54fe2c2"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/wp-graphql/wp-graphql-acf/zipball/11a2a10a4abb51c541fd7b0ba0b81d1491525136",
-        "reference": "11a2a10a4abb51c541fd7b0ba0b81d1491525136",
+        "url": "https://api.github.com/repos/wp-graphql/wp-graphql-acf/zipball/8c6a18563bbc6dde276e1a09429b525df54fe2c2",
+        "reference": "8c6a18563bbc6dde276e1a09429b525df54fe2c2",
         "shasum": ""
       },
+      "require": {
+        "php": "^7.1 || ^8.0"
+      },
       "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
-        "lucatume/wp-browser": "^2.2.",
-        "phpcompatibility/phpcompatibility-wp": "^2.0",
-        "wp-coding-standards/wpcs": "^2.1"
+        "codeception/module-asserts": "^1.0",
+        "codeception/module-cli": "^1.0",
+        "codeception/module-db": "^1.0",
+        "codeception/module-filesystem": "^1.0",
+        "codeception/module-phpbrowser": "^1.0",
+        "codeception/module-rest": "^1.2",
+        "codeception/module-webdriver": "^1.0",
+        "codeception/util-universalframework": "^1.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "lucatume/wp-browser": "^2.4",
+        "phpcompatibility/phpcompatibility-wp": "2.1.0",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan": "^0.12.64",
+        "phpunit/phpunit": "^8.5",
+        "simpod/php-coveralls-mirror": "^3.0",
+        "squizlabs/php_codesniffer": "3.5.4",
+        "szepeviktor/phpstan-wordpress": "^0.7.1",
+        "wp-coding-standards/wpcs": "2.1.1",
+        "wp-graphql/wp-graphql-testcase": "~2.1"
       },
       "type": "wordpress-plugin",
       "autoload": {
@@ -6034,9 +6052,9 @@
       "description": "Advanced Custom Fields bindings for wp-graphql",
       "support": {
         "issues": "https://github.com/wp-graphql/wp-graphql-acf/issues",
-        "source": "https://github.com/wp-graphql/wp-graphql-acf/tree/master"
+        "source": "https://github.com/wp-graphql/wp-graphql-acf/tree/v0.6.1"
       },
-      "time": "2020-07-27T13:32:21+00:00"
+      "time": "2022-09-16T16:50:00+00:00"
     },
     {
       "name": "wpackagist-plugin/autodescription",

@@ -4,8 +4,14 @@
 query SinglePage($uri: ID!) {
   page(id: $uri, idType: URI) {
     title(format: RENDERED)
-    content(format: RENDERED)
     databaseId
     uri
+    content(format: RENDERED)
+    contentBlocks {
+      apiVersion
+      name
+      parentId
+      renderedHtml
+    }
   }
 }

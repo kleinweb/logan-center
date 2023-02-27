@@ -61,7 +61,6 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
     "vlucas/phpdotenv": "^5.5",
-    "wp-graphql/wp-graphql-acf": "^0.3",
     "wpackagist-plugin/email-log": "^2.4",
     "wpackagist-plugin/log-deprecated-notices": "^0.4.1",
     "wpackagist-plugin/query-monitor": "^3.11",
@@ -76,10 +75,11 @@
     "wpackagist-plugin/co-authors-plus": "^3.5",
     "alleyinteractive/internal-flags": "^0.2.0",
     "wpackagist-theme/twentytwentythree": "^1.0",
-    "wp-graphql/wp-graphql": "^1.13",
     "vinkla/headache": "^2.4",
     "kleinweb/logan-center-plugin": "*",
-    "kleinweb/logan-center-theme": "*"
+    "kleinweb/logan-center-theme": "*",
+    "wp-graphql/wp-graphql-acf": "^0.6.1",
+    "wp-graphql/wp-graphql": "^1.13"
   },
   "require-dev": {
     "alleyinteractive/meta-inspector": "^1.1",
