@@ -28,8 +28,8 @@ function action_after_setup_theme()
 
 /**
  * Whitelist blocks for the Gutenberg editor.
- * SEE https://github.com/WordPress/gutenberg/tree/trunk/packages/block-library/src
  *
+ * @see <https://github.com/WordPress/gutenberg/tree/trunk/packages/block-library/src>
  * @param array $allowed_block_types Array of block type slugs.
  * @return array
  */
@@ -45,6 +45,8 @@ function block_whitelist($allowed_block_types)
 
     // Add specific core blocks to whitelist
     $whitelist = [
+        'core/buttons', // NOTE: Requires `core/button`
+        'core/button', // Appears to be useless without `core/buttons`
         'core/embed',
         'core/heading',
         'core/image',
@@ -56,10 +58,6 @@ function block_whitelist($allowed_block_types)
         'core/quote',
         'core/table',
         'core/verse',
-        // 'core/spacer',
-        // TODO: consider supporting since they come up frequently
-        // 'core/buttons', // NOTE: Requires `core/button`
-        // 'core/button', // Appears to be useless without `core/buttons`
     ];
 
     return array_merge($acf_blocks, $whitelist);
