@@ -34,7 +34,7 @@ export default async (app) => {
      * Proxy origin (`WP_HOME`)
      * @see {@link https://bud.js.org/docs/bud.proxy/}
      */
-    .proxy('https://logancenter-wp-next.ddev.site')
+    // .proxy('https://logancenter-wp-next.ddev.site')
 
     /**
      * Development origin

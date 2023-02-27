@@ -37,6 +37,14 @@
       "url": "https://github.com/kleinweb/wp-gql-gutenberg"
     },
     {
+      "type": "vcs",
+      "url": "https://github.com/funkhaus/wp-graphql-cors"
+    },
+    {
+      "type": "path",
+      "url": "../../packages/logan-center-theme"
+    },
+    {
       "type": "path",
       "url": "../../packages/logan-center-plugin"
     }
@@ -71,7 +79,8 @@
     "wpackagist-theme/twentytwentythree": "^1.0",
     "wp-graphql/wp-graphql": "^1.13",
     "vinkla/headache": "^2.4",
-    "kleinweb/logan-center-plugin": "*"
+    "kleinweb/logan-center-plugin": "*",
+    "kleinweb/logan-center-theme": "*"
   },
   "require-dev": {
     "alleyinteractive/meta-inspector": "^1.1",

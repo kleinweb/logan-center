@@ -5,12 +5,16 @@
       "path": "../apps/nextjs"
     },
     {
-      "name": "wordpress",
-      "path": "../apps/wordpress"
+      "name": "wordpress-plugin",
+      "path": "../packages/logan-center-plugin"
     },
     {
       "name": "wordpress-theme",
-      "path": "../apps/wordpress/web/app/themes/logan-center-theme"
+      "path": "../packages/logan-center-theme"
+    },
+    {
+      "name": "wordpress",
+      "path": "../apps/wordpress"
     },
     {
       "name": "logan-center",

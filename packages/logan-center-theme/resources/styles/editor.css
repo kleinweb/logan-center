@@ -1,0 +1,50 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .editor-post-title__input {
+    @apply max-w-content mx-auto mb-6 text-3xl font-extrabold text-neutral-900;
+  }
+}
+
+@layer utilities {
+  /**
+  * Layout styles for centered content areas
+  *
+  * If you are controlling the width of your content area with styles applied
+  * to its container, you can delete the following styles whose selectors begin
+  * with `.page-content >` and `.entry-content >`. For more details, please see
+  * the following:
+  *
+  * https://make.wordpress.org/core/2021/06/29/on-layout-and-content-width-in-wordpress-5-8/
+  */
+  .page-content > *,
+  .entry-content > * {
+    /* Content width from the `theme.json` file */
+    @apply max-w-content mx-auto;
+  }
+
+  .entry-content > .alignwide {
+    /* Wide width from the `theme.json` file */
+    @apply max-w-wide;
+  }
+
+  .entry-content > .alignfull {
+    @apply max-w-none;
+  }
+
+  .entry-content > .alignleft {
+    @apply float-left mr-8;
+  }
+
+  .entry-content > .alignright {
+    @apply float-right ml-8;
+  }
+}
