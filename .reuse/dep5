@@ -12,11 +12,13 @@ Files: *.yaml
 Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: GPL-3.0-or-later
 
-Files: */.env*
+Files: */.editorconfig
+       */.env*
        */.eslintignore
        */.gitignore
        */.htaccess
        */.prettierignore
+       .editorconfig
        .env*
        .eslintignore
        .gitattributes
@@ -39,7 +41,7 @@ Files: *.md
 Copyright: 2022-2023 Temple University <kleinweb@temple.edu>
 License: CC-BY-NC-SA-4.0
 
-Files: apps/wordpress/web/app/themes/logan-center-theme/*
+Files: packages/logan-center-theme/*
 Copyright: 2023 Temple University <kleinweb@temple.edu>
            Roots Software Foundation LLC
 License: GPL-3.0-or-later OR MIT

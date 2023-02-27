@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 import {ApolloLink, HttpLink, from} from '@apollo/client'
 import {onError} from '@apollo/client/link/error'
 import {log, logError} from '@/lib/log'

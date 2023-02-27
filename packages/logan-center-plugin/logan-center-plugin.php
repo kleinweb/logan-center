@@ -1,5 +1,8 @@
 <?php
 
+// SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 /*
  * Plugin Name: Logan Center Plugin
  * Description: Plugin for the Logan Center WordPress site.
@@ -68,6 +71,7 @@ function block_whitelist($allowed_block_types)
  * TODO: can this be added to `editor.js`?
  *
  * @see https://jeanbaptisteaudras.com/en/2020/03/disable-block-editor-default-fullscreen-mode-in-wordpress-5-4/
+ * @see <https://github.com/WordPress/wordpress-develop/blob/09a0db589773cb70da86aeea2ce7f8966f90522f/src/wp-admin/edit-form-blocks.php#L31-L37>
  */
 add_action('enqueue_block_editor_assets', __NAMESPACE__ . '\disable_editor_fullscreen_default');
 function disable_editor_fullscreen_default()
