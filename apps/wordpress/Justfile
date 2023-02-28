@@ -1,30 +1,56 @@
 # SPDX-FileCopyrightText: 2022-2023 Temple University <kleinweb@temple.edu>
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+!include ../../.just/common.justfile
+
 # Load environment variables from the local `.env`
 set dotenv-load
 
-site-title := 'Logan Center for Urban Investigative Reporting'
-wp-siteurl := env_var('WP_SITEURL')
-
 admin-user := 'kleinweb'
-admin-email := 'kleinweb+logancenter@temple.edu'
+wp-theme := 'logan-center-theme'
+wp-env := env_var('WP_ENV')
 
-wp := if env_var('WP_ENV') == 'development' { 'ddev wp' } else { 'wp' }
+wp := if wp-env == 'development' { 'ddev wp' } else { 'wp' }
 
-default:
-  @just --list --unsorted --color=always | rg -v "    default"
+alias cli := wp
 
+# [wp]: 	Run WP-CLI as appropriate to the current environment
 wp *ARGS:
   {{ wp }} {{ ARGS }}
 
-wp-query-by-slug slug *ARGS:
+plugin action *ARGS:
+  just --unstable plugin-{{ action }} {{ ARGS }}
+
+plugin-list:
+  {{ wp }} plugin list
+
+# [plugins]: 		Install, commit, and activate WordPress plugin in one go
+plugin-use name owner='wpackagist-plugin': (plugin-add name owner) (plugin-activate name)
+
+# [plugins]: 		Install WordPress plugin with Composer and commit lock
+plugin-add name owner='wpackagist-plugin':
+  composer require {{ owner }}/{{ name }} && \
+  git add composer.{json,lock} && \
+  git commit --message 'feat(deps|wp:plugins): add `{{ name }}`'
+
+# [plugins]: 		Remove a WordPress plugin
+plugin-rm name owner='wpackagist-plugin':
+  {{ wp }} plugin deactivate {{ name }} && \
+  composer remove {{ owner }}/{{ name }} && \
+  git add composer.{json,lock} && \
+  git commit --message 'chore(deps|wp:plugins): remove plugin `{{ name }}`'
+
+# [plugins]: 		Activate WordPress plugin
+plugin-activate target:
+  {{ wp }} plugin activate {{ target }}
+
+q-slug slug *ARGS:
   {{ wp }} post list --post_name={{ slug }} {{ ARGS }}
 
-wp-install admin-password theme='logan-center-wp-next-theme':
+init admin-password:
   composer install
   {{ wp }} core install \
-    --url={{ quote( wp-siteurl ) }} \
+    --url={{ quote( env_var('WP_SITEURL') ) }} \
     --title={{ quote( site-title ) }} \
     --admin_user='{{ admin-user }}' \
     --admin_password='{{ admin-password }}' \
@@ -32,24 +58,32 @@ wp-install admin-password theme='logan-center-wp-next-theme':
     --skip-email
   {{ wp }} rewrite structure "/%year%/%monthnum%/%day%/%postname%/" && \
   {{ wp }} plugin activate --all && \
-  {{ wp }} theme activate {{ theme }}
+  {{ wp }} theme activate {{ wp-theme }}
 
-provision: _init-posts
+provision: init-posts init-menus
   {{ wp }} option update show_on_front page
-  {{ wp }} option update page_on_front $({{ wp }} post list --post_name=homepage --format=ids)
-  wp option update page_for_posts $({{ wp }} post list --post_name=reports --format=ids)
+  {{ wp }} option update page_on_front \
+    $({{ wp }} post list --post_name=homepage --format=ids)
+  {{ wp }} option update page_for_posts \
+    $({{ wp }} post list --post_name=reports --format=ids)
 
-# _init-users:
+init-test-users:
+  {{ wp }} user create \
+    somecontributor somecontributor@example.edu \
+    --role=contributor --user_pass=password
 
-_init-posts:
+init-posts:
   {{ wp }} post create --post_type="page" --post_title="Homepage" --post_name='homepage' \
     --post_content={{ homepage-post-content }} \
     --post_status='publish'
   {{ wp }} post create --post_type="page" --post_title="Press" --post_status="publish" --post_name=press
-  {{ wp }} post create --post_type="page" --post_title="Reports" --post_status="publish" --post_name=reports
 
-# _init-menus:
-#   {{ wp }} menu create "Header"
-#   {{ wp }} menu create "Footer"
+init-menus:
+  {{ wp }} menu location list
+  {{ wp }} menu create "Header Menu"
+  {{ wp }} menu create "Footer Menu"
+  {{ wp }} menu list
+  {{ wp }} menu location assign 'header-menu' 'primary'
+  {{ wp }} menu location assign 'footer-menu' 'footer'
 
 homepage-post-content := quote('<!-- wp:paragraph --><p>Welcome to the homepage. Feel free to edit this page.</p><!-- /wp:paragraph -->')
