@@ -20,7 +20,7 @@ monophon +ARGS:
     composer --working-dir=$dir {{ ARGS }}; \
   done
 
-composer-all-update: (monophon 'update --lock')
+composer-all-update: (monophon 'update')
 
 # [dev]: 		Run command in app scope
 focus app +ARGS:
