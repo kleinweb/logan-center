@@ -81,7 +81,5 @@
     "tailwindcss-export-config": "^4.1.0",
     "ts-jest": "^29.0.5",
     "typescript": "^4.9.5"
-  },
-  "readme": "ERROR: No README data found!",
-  "_id": "@kleinweb/logan-center-nextjs@0.3.0"
+  }
 }
