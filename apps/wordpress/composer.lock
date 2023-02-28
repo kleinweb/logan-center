@@ -1860,18 +1860,18 @@
     },
     {
       "name": "kleinweb/logan-center-plugin",
-      "version": "dev-hotfix/commit-updated-composer-lock",
+      "version": "dev-develop",
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-plugin",
-        "reference": "0bee31cf6e074c0dd6b6d3fcdb82f9b0ea8e0630"
+        "reference": "1f1f787915dcf44453257f5618b98294332a075d"
       },
       "require": {
         "php": "^8.0",
         "stoutlogic/acf-builder": "^1.12"
       },
       "require-dev": {
-        "squizlabs/php_codesniffer": "3.7.1"
+        "squizlabs/php_codesniffer": "3.7.2"
       },
       "type": "wordpress-plugin",
       "scripts": {
@@ -1903,11 +1903,11 @@
     },
     {
       "name": "kleinweb/logan-center-theme",
-      "version": "dev-hotfix/commit-updated-composer-lock",
+      "version": "dev-develop",
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-theme",
-        "reference": "f26e8662051fb513cd3c536ce745d0e41bd1f7da"
+        "reference": "4b58fe8da74796650d8f9abaea978985563748f4"
       },
       "require": {
         "blade-ui-kit/blade-icons": "^1.5",
@@ -1922,7 +1922,7 @@
         "stoutlogic/acf-builder": "^1.12"
       },
       "require-dev": {
-        "squizlabs/php_codesniffer": "3.7.1"
+        "squizlabs/php_codesniffer": "3.7.2"
       },
       "type": "wordpress-theme",
       "extra": {
