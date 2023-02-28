@@ -25,8 +25,6 @@ node-modules := join(prj-root, "node_modules/.bin")
 nextjs-dir := prj-root / "apps/nextjs"
 wp-dir := prj-root / "apps/wordpress"
 wp-content-dir := wp-dir / "web/app"
-# Project directories containing a Composer manifest file
-composer-pkg-dirs := `fd composer.json -X echo {//}`
 
 # make node/yarn `package.json` runnables available to tasks
 export PATH := join(node-modules, '.bin') + ":" + env_var('PATH')

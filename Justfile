@@ -13,10 +13,14 @@
 # [dev]: 		Install all workspace dependencies
 install:
   yarn install
-  for dir in {{ composer-pkg-dirs }}; do \
-    @printf "=== %s ===\n\n" quote( $dir )  \
-    cd $dir && composer update --lock && composer install \
+
+monophon +ARGS:
+  for dir in `fd composer.json -X echo {//}`; do \
+    printf "\n=== %s ===\n\n" $dir; \
+    composer --working-dir=$dir {{ ARGS }}; \
   done
+
+composer-all-update: (monophon 'update --lock')
 
 # [dev]: 		Run command in app scope
 focus app +ARGS:
