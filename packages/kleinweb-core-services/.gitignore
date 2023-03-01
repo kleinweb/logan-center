@@ -1,29 +1,9 @@
 # SPDX-FileCopyrightText: 2022-2023 Temple University
 # SPDX-License-Identifier: CC0-1.0
 
-###: <https://help.github.com/articles/ignoring-files/>
+###: === //packages/kleinweb-core-services/.gitignore ==================================================
 
-
-###: === //apps/wordpress/.gitignore ===========================================
-#
-#    These rules apply ONLY to this directory and its descendents.
-
-# Composer authentication credentials
-auth.json
-
-# Application
-web/app/plugins/*
-!web/app/plugins/.gitkeep
-web/app/mu-plugins/*
-!web/app/mu-plugins/*.php
-web/app/themes/*
-web/app/upgrade
-web/app/uploads/*
-!web/app/uploads/.gitkeep
-web/app/cache/*
-
-# WordPress
-web/wp
+/vendor
 
 
 ###: === //.gitignore ==========================================================

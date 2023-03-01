@@ -42,6 +42,10 @@
     },
     {
       "type": "path",
+      "url": "../../packages/kleinweb-core-services"
+    },
+    {
+      "type": "path",
       "url": "../../packages/logan-center-theme"
     },
     {
@@ -61,6 +65,7 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
     "vlucas/phpdotenv": "^5.5",
+    "kleinweb/core-services": "*",
     "wpackagist-plugin/email-log": "^2.4",
     "wpackagist-plugin/log-deprecated-notices": "^0.4.1",
     "wpackagist-plugin/query-monitor": "^3.11",

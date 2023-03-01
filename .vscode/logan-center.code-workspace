@@ -13,6 +13,9 @@
       "path": "../apps/wordpress"
     },
     {
+      "path": "../packages/kleinweb-core-services"
+    },
+    {
       "name": "logan-center",
       "path": ".."
     }
