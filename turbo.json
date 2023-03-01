@@ -37,6 +37,24 @@
     },
     "clean": {
       "cache": false
+    },
+    "//#codegen": {
+      "inputs": ["apps/nextjs/lib/graphql/**"],
+      "outputs": ["apps/nextjs/gql/**", "graphql.schema.json"],
+      "env": ["GRAPHQL_SCHEMA"]
+    },
+    "//#codegen:watch": {
+      "inputs": ["apps/nextjs/lib/graphql/**"],
+      "outputs": ["apps/nextjs/gql/**", "graphql.schema.json"],
+      "env": ["GRAPHQL_SCHEMA"]
+    },
+    "@kleinweb/logan-center-nextjs#dev": {
+      "dependsOn": ["copy", "//#codegen:watch"],
+      "cache": false,
+      "persistent": true
+    },
+    "@kleinweb/logan-center-nextjs#build": {
+      "dependsOn": ["^//#codegen"]
     }
   }
 }

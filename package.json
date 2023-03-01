@@ -26,7 +26,7 @@
     "prepare": "husky install",
     "codegen": "graphql-codegen --config .graphqlrc.yml --require dotenv/config",
     "codegen:watch": "yarn run codegen -- --watch",
-    "dev": "concurrently 'yarn run codegen:watch' 'turbo run dev --no-cache --continue'",
+    "dev": "turbo run dev --no-cache --continue",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "clean": "turbo run clean",
