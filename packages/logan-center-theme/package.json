@@ -9,7 +9,6 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "bud dev",
     "build": "bud build",
     "typecheck": "tsc",
     "lint": "yarn lint:js && yarn lint:css",
