@@ -11,6 +11,7 @@ import {
 
 import PageHeader from '@organisms/Page/PageHeader'
 import PostBody from '@organisms/PostBody'
+import {notFound} from 'next/navigation'
 
 export const metadata = {
   // FIXME: generate dynamically: <https://beta.nextjs.org/docs/api-reference/file-conventions/head#dynamic-metadata>
@@ -38,6 +39,9 @@ export default async function SinglePage({params}: {params: {slug: string[]}}) {
     query: SinglePageDocument,
     variables: {uri},
   })
+  if (!data.page) {
+    notFound()
+  }
   const {title, content} = data.page
   return (
     <article>
