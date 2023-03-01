@@ -105,7 +105,7 @@ const nextConfig = {
   // > buggy.
   //
   // <https://github.com/Automattic/vip-go-nextjs-skeleton/tree/example/custom-server-trailing-slash>
-  // trailingSlash: false,
+  trailingSlash: false,
 
   webpack(config) {
     config.module.rules.push({
