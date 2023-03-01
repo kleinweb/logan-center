@@ -1,0 +1,46 @@
+{
+  "name": "kleinweb/core-services",
+  "type": "wordpress-muplugin",
+  "license": "GPL-3.0-or-later",
+  "description": "Shared libraries, service providers, and other junk useful for all Klein College WordPress sites.",
+  "homepage": "https://github.com/kleinweb/",
+  "authors": [
+    {
+      "name": "Klein College of Media and Communication",
+      "email": "kleinweb@temple.edu",
+      "homepage": "https://klein.temple.edu"
+    },
+    {
+      "name": "Chris Montgomery",
+      "email": "chrismont@temple.edu",
+      "homepage": "https://github.com/montchr",
+      "role": "Developer"
+    }
+  ],
+  "keywords": [
+    "wordpress",
+    "wordpress-plugin",
+    "klein-college",
+    "temple-university"
+  ],
+  "require": {
+    "php": "^8.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.7.2"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "lint": [
+      "phpcs --extensions=php --standard=PSR12 app"
+    ],
+    "fix": [
+      "phpcbf --extensions=php --standard=PSR12 app"
+    ]
+  }
+}

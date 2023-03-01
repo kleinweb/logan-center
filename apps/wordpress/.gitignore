@@ -14,8 +14,8 @@ auth.json
 # Application
 web/app/plugins/*
 !web/app/plugins/.gitkeep
-web/app/mu-plugins/*/
-!web/app/mu-plugins/klein-core-library
+web/app/mu-plugins/*
+!web/app/mu-plugins/*.php
 web/app/themes/*
 web/app/upgrade
 web/app/uploads/*

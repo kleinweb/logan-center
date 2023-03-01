@@ -1,12 +1,6 @@
-###: === //packages/logan-center-theme/.gitignore ==================================================
+###: === //packages/logan-center-plugin/.gitignore ==================================================
 
-/node_modules
 /vendor
-/public
-.env
-.budfiles
-npm-debug.log
-yarn-error.log
 
 
 ###: === //.gitignore ==============================================================================

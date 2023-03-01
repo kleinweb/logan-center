@@ -6,7 +6,7 @@
 /*
  * Plugin Name: Logan Center Plugin
  * Description: Plugin for the Logan Center WordPress site.
- * Author: Klein College of Media and Communication
+ * Author: Klein Digital Initiatives
  * Author URI: https://github.com/logancenter
  * Version: 1.0.0
  * Plugin URI: https://github.com/logancenter/logan-center

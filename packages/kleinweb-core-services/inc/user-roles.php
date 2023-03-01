@@ -8,7 +8,7 @@
  *
  * FIXME: The "Site Admin" capabilities need work -- it's currently possible for them to create a new Administrator user.
  *
- * @package klein-core-library
+ * @package kleinweb-core-services
  */
 
 namespace Klein\Core\UserRoles;

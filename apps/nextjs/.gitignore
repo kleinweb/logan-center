@@ -1,4 +1,4 @@
-###: === //apps/nextjs-app/.gitignore ==========================================
+###: === //apps/nextjs/.gitignore ==========================================
 
 # TODO: still an issue on netlify?
 # vercel cannot handle symlinked files, so assets that must be served publicly

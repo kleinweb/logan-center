@@ -4,12 +4,12 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 /**
- * Plugin Name:  Klein Core Library
+ * Plugin Name:  Klein Core Services
  * Plugin URI:   https://github.com/kleinweb
- * Description:  Core library plugin for Klein College WordPress sites.
+ * Description:  Core services plugin for Klein College WordPress sites.
  * Version:      0.1.0
  * Author:       Klein Digital Initiatives
- * Author URI:   https://klein.temple.edu
+ * Author URI:   https://github.com/kleinweb
  * License:      GPL-3.0-or-later
  */
 

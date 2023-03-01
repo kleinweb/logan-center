@@ -42,6 +42,10 @@
     },
     {
       "type": "path",
+      "url": "../../packages/kleinweb-core-services"
+    },
+    {
+      "type": "path",
       "url": "../../packages/logan-center-theme"
     },
     {
@@ -61,25 +65,26 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.1.0",
     "vlucas/phpdotenv": "^5.5",
+    "alleyinteractive/internal-flags": "^0.2.0",
+    "kleinweb/core-services": "*",
+    "kleinweb/logan-center-plugin": "*",
+    "kleinweb/logan-center-theme": "*",
+    "vinkla/headache": "^2.4",
+    "wp-graphql/wp-graphql-acf": "^0.6.1",
+    "wp-graphql/wp-graphql": "^1.13",
+    "wpackagist-plugin/autodescription": "4.2.7.1",
+    "wpackagist-plugin/co-authors-plus": "^3.5",
     "wpackagist-plugin/email-log": "^2.4",
+    "wpackagist-plugin/faustwp": "^0.8.1",
     "wpackagist-plugin/log-deprecated-notices": "^0.4.1",
     "wpackagist-plugin/query-monitor": "^3.11",
     "wpackagist-plugin/rewrite-rules-inspector": "^1.3",
     "wpackagist-plugin/simple-history": "^3.4",
     "wpackagist-plugin/user-switching": "^1.7",
     "wpackagist-plugin/wp-crontrol": "^1.15",
-    "wpengine/advanced-custom-fields-pro": "*",
-    "wpengine/wp-graphql-content-blocks": "dev-upstream-pr-21-composer-package-type",
-    "wpackagist-plugin/autodescription": "4.2.7.1",
-    "wpackagist-plugin/faustwp": "^0.8.1",
-    "wpackagist-plugin/co-authors-plus": "^3.5",
-    "alleyinteractive/internal-flags": "^0.2.0",
     "wpackagist-theme/twentytwentythree": "^1.0",
-    "vinkla/headache": "^2.4",
-    "kleinweb/logan-center-plugin": "*",
-    "kleinweb/logan-center-theme": "*",
-    "wp-graphql/wp-graphql-acf": "^0.6.1",
-    "wp-graphql/wp-graphql": "^1.13"
+    "wpengine/advanced-custom-fields-pro": "*",
+    "wpengine/wp-graphql-content-blocks": "dev-upstream-pr-21-composer-package-type"
   },
   "require-dev": {
     "alleyinteractive/meta-inspector": "^1.1",
@@ -101,7 +106,10 @@
   "extra": {
     "installer-paths": {
       "web/app/mu-plugins/{$name}/": [
-        "type:wordpress-muplugin"
+        "type:wordpress-muplugin",
+        "kleinweb/logan-center-plugin",
+        "wp-graphql/wp-graphql",
+        "wpackagist-plugin/co-authors-plus"
       ],
       "web/app/plugins/{$name}/": [
         "type:wordpress-plugin"

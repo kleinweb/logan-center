@@ -1,15 +1,12 @@
-###: === //packages/logan-center-theme/.gitignore ==================================================
+# SPDX-FileCopyrightText: 2022-2023 Temple University
+# SPDX-License-Identifier: CC0-1.0
 
-/node_modules
+###: === //packages/kleinweb-core-services/.gitignore ==================================================
+
 /vendor
-/public
-.env
-.budfiles
-npm-debug.log
-yarn-error.log
 
 
-###: === //.gitignore ==============================================================================
+###: === //.gitignore ==========================================================
 #
 #    Copy the following section from the repo-root `.gitignore`
 #    to all `.gitignore` files stored in descendent directories:

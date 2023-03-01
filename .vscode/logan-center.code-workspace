@@ -1,20 +1,19 @@
 {
   "folders": [
     {
-      "name": "nextjs",
       "path": "../apps/nextjs"
     },
     {
-      "name": "wordpress-plugin",
       "path": "../packages/logan-center-plugin"
     },
     {
-      "name": "wordpress-theme",
       "path": "../packages/logan-center-theme"
     },
     {
-      "name": "wordpress",
       "path": "../apps/wordpress"
+    },
+    {
+      "path": "../packages/kleinweb-core-services"
     },
     {
       "name": "logan-center",
