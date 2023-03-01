@@ -4669,12 +4669,10 @@ __metadata:
     "@graphql-codegen/client-preset": "npm:2.1.0"
     "@graphql-codegen/introspection": "npm:3.0.1"
     "@graphql-codegen/schema-ast": "npm:3.0.1"
-    "@types/jest": "npm:^29.4.0"
     "@types/node": "npm:^18.14.2"
     "@types/prettier": "npm:^2.7.2"
     commitlint: "npm:^17.4.4"
     concurrently: "npm:^7.6.0"
-    cross-fetch: "npm:^3.1.5"
     dotenv: "npm:16.0.3"
     dotenv-cli: "npm:^7.0.0"
     eslint: "npm:^8.35.0"
@@ -4682,15 +4680,8 @@ __metadata:
     graphql-config: "npm:^4.4.1"
     graphql-tag: "npm:^2.12.6"
     husky: "npm:^8.0.3"
-    jest: "npm:^29.4.3"
     lint-staged: "npm:^13.1.2"
-    next: "npm:13.2.1-canary.0"
     prettier: "npm:^2.8.4"
-    prettier-plugin-tailwindcss: "npm:^0.2.3"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    rimraf: "npm:^4.1.2"
-    ts-jest: "npm:^29.0.5"
     ts-node: "npm:^10.9.1"
     turbo: "npm:^1.8.3"
     typescript: "npm:^4.9.5"
@@ -4743,13 +4734,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/env@npm:13.2.1-canary.0"
-  checksum: 3cb93bad795a6bba430fea36891c3a4f9c285ed51ef57bb9a9779d3cee24fbce590f558ba35e9466d640b9af54f046a7c8ed0efa6c9b9b50298d8e6100c6f01c
-  languageName: node
-  linkType: hard
-
 "@next/env@npm:13.2.2-canary.2":
   version: 13.2.2-canary.2
   resolution: "@next/env@npm:13.2.2-canary.2"
@@ -4773,24 +4757,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-android-arm-eabi@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/swc-android-arm-eabi@npm:13.2.1-canary.0"
-  conditions: os=android & cpu=arm
-  languageName: node
-  linkType: hard
-
 "@next/swc-android-arm-eabi@npm:13.2.2-canary.2":
   version: 13.2.2-canary.2
   resolution: "@next/swc-android-arm-eabi@npm:13.2.2-canary.2"
   conditions: os=android & cpu=arm
-  languageName: node
-  linkType: hard
-
-"@next/swc-android-arm64@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/swc-android-arm64@npm:13.2.1-canary.0"
-  conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
@@ -4801,24 +4771,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-darwin-arm64@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/swc-darwin-arm64@npm:13.2.1-canary.0"
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
 "@next/swc-darwin-arm64@npm:13.2.2-canary.2":
   version: 13.2.2-canary.2
   resolution: "@next/swc-darwin-arm64@npm:13.2.2-canary.2"
   conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"@next/swc-darwin-x64@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/swc-darwin-x64@npm:13.2.1-canary.0"
-  conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
@@ -4829,24 +4785,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-freebsd-x64@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/swc-freebsd-x64@npm:13.2.1-canary.0"
-  conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
 "@next/swc-freebsd-x64@npm:13.2.2-canary.2":
   version: 13.2.2-canary.2
   resolution: "@next/swc-freebsd-x64@npm:13.2.2-canary.2"
   conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"@next/swc-linux-arm-gnueabihf@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/swc-linux-arm-gnueabihf@npm:13.2.1-canary.0"
-  conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
@@ -4857,24 +4799,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-linux-arm64-gnu@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/swc-linux-arm64-gnu@npm:13.2.1-canary.0"
-  conditions: os=linux & cpu=arm64 & libc=glibc
-  languageName: node
-  linkType: hard
-
 "@next/swc-linux-arm64-gnu@npm:13.2.2-canary.2":
   version: 13.2.2-canary.2
   resolution: "@next/swc-linux-arm64-gnu@npm:13.2.2-canary.2"
   conditions: os=linux & cpu=arm64 & libc=glibc
-  languageName: node
-  linkType: hard
-
-"@next/swc-linux-arm64-musl@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/swc-linux-arm64-musl@npm:13.2.1-canary.0"
-  conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
@@ -4885,24 +4813,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-linux-x64-gnu@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/swc-linux-x64-gnu@npm:13.2.1-canary.0"
-  conditions: os=linux & cpu=x64 & libc=glibc
-  languageName: node
-  linkType: hard
-
 "@next/swc-linux-x64-gnu@npm:13.2.2-canary.2":
   version: 13.2.2-canary.2
   resolution: "@next/swc-linux-x64-gnu@npm:13.2.2-canary.2"
   conditions: os=linux & cpu=x64 & libc=glibc
-  languageName: node
-  linkType: hard
-
-"@next/swc-linux-x64-musl@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/swc-linux-x64-musl@npm:13.2.1-canary.0"
-  conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
@@ -4913,13 +4827,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-win32-arm64-msvc@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/swc-win32-arm64-msvc@npm:13.2.1-canary.0"
-  conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
 "@next/swc-win32-arm64-msvc@npm:13.2.2-canary.2":
   version: 13.2.2-canary.2
   resolution: "@next/swc-win32-arm64-msvc@npm:13.2.2-canary.2"
@@ -4927,24 +4834,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/swc-win32-ia32-msvc@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/swc-win32-ia32-msvc@npm:13.2.1-canary.0"
-  conditions: os=win32 & cpu=ia32
-  languageName: node
-  linkType: hard
-
 "@next/swc-win32-ia32-msvc@npm:13.2.2-canary.2":
   version: 13.2.2-canary.2
   resolution: "@next/swc-win32-ia32-msvc@npm:13.2.2-canary.2"
   conditions: os=win32 & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"@next/swc-win32-x64-msvc@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "@next/swc-win32-x64-msvc@npm:13.2.1-canary.0"
-  conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
@@ -18879,77 +18772,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:13.2.1-canary.0":
-  version: 13.2.1-canary.0
-  resolution: "next@npm:13.2.1-canary.0"
-  dependencies:
-    "@next/env": "npm:13.2.1-canary.0"
-    "@next/swc-android-arm-eabi": "npm:13.2.1-canary.0"
-    "@next/swc-android-arm64": "npm:13.2.1-canary.0"
-    "@next/swc-darwin-arm64": "npm:13.2.1-canary.0"
-    "@next/swc-darwin-x64": "npm:13.2.1-canary.0"
-    "@next/swc-freebsd-x64": "npm:13.2.1-canary.0"
-    "@next/swc-linux-arm-gnueabihf": "npm:13.2.1-canary.0"
-    "@next/swc-linux-arm64-gnu": "npm:13.2.1-canary.0"
-    "@next/swc-linux-arm64-musl": "npm:13.2.1-canary.0"
-    "@next/swc-linux-x64-gnu": "npm:13.2.1-canary.0"
-    "@next/swc-linux-x64-musl": "npm:13.2.1-canary.0"
-    "@next/swc-win32-arm64-msvc": "npm:13.2.1-canary.0"
-    "@next/swc-win32-ia32-msvc": "npm:13.2.1-canary.0"
-    "@next/swc-win32-x64-msvc": "npm:13.2.1-canary.0"
-    "@swc/helpers": "npm:0.4.14"
-    caniuse-lite: "npm:^1.0.30001406"
-    postcss: "npm:8.4.14"
-    styled-jsx: "npm:5.1.1"
-  peerDependencies:
-    "@opentelemetry/api": ^1.4.0
-    fibers: ">= 3.1.0"
-    node-sass: ^6.0.0 || ^7.0.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    sass: ^1.3.0
-  dependenciesMeta:
-    "@next/swc-android-arm-eabi":
-      optional: true
-    "@next/swc-android-arm64":
-      optional: true
-    "@next/swc-darwin-arm64":
-      optional: true
-    "@next/swc-darwin-x64":
-      optional: true
-    "@next/swc-freebsd-x64":
-      optional: true
-    "@next/swc-linux-arm-gnueabihf":
-      optional: true
-    "@next/swc-linux-arm64-gnu":
-      optional: true
-    "@next/swc-linux-arm64-musl":
-      optional: true
-    "@next/swc-linux-x64-gnu":
-      optional: true
-    "@next/swc-linux-x64-musl":
-      optional: true
-    "@next/swc-win32-arm64-msvc":
-      optional: true
-    "@next/swc-win32-ia32-msvc":
-      optional: true
-    "@next/swc-win32-x64-msvc":
-      optional: true
-  peerDependenciesMeta:
-    "@opentelemetry/api":
-      optional: true
-    fibers:
-      optional: true
-    node-sass:
-      optional: true
-    sass:
-      optional: true
-  bin:
-    next: dist/bin/next
-  checksum: e14ce1781cb4552a009a5dbed3e21c94ae87de0c2b94c885b6030b4555cc8aedadd670be41f75fc5d4a00ee3df56e97806ad4e390bc7cba69188c4337a089e39
-  languageName: node
-  linkType: hard
-
 "next@npm:13.2.2-canary.2":
   version: 13.2.2-canary.2
   resolution: "next@npm:13.2.2-canary.2"
@@ -21026,61 +20848,6 @@ __metadata:
   dependencies:
     fast-diff: "npm:^1.1.2"
   checksum: e9b17d00ae7f7ec97a905050a2887e3fc9c9bcf94a91a7e24a9e33392df0b7355d8002d8f0d81ffafe4c11716bf973975cca065fec90fa15ec36a98e0a1db624
-  languageName: node
-  linkType: hard
-
-"prettier-plugin-tailwindcss@npm:^0.2.3":
-  version: 0.2.3
-  resolution: "prettier-plugin-tailwindcss@npm:0.2.3"
-  peerDependencies:
-    "@ianvs/prettier-plugin-sort-imports": "*"
-    "@prettier/plugin-php": "*"
-    "@prettier/plugin-pug": "*"
-    "@shopify/prettier-plugin-liquid": "*"
-    "@shufo/prettier-plugin-blade": "*"
-    "@trivago/prettier-plugin-sort-imports": "*"
-    prettier: ">=2.2.0"
-    prettier-plugin-astro: "*"
-    prettier-plugin-css-order: "*"
-    prettier-plugin-import-sort: "*"
-    prettier-plugin-jsdoc: "*"
-    prettier-plugin-organize-attributes: "*"
-    prettier-plugin-organize-imports: "*"
-    prettier-plugin-style-order: "*"
-    prettier-plugin-svelte: "*"
-    prettier-plugin-twig-melody: "*"
-  peerDependenciesMeta:
-    "@ianvs/prettier-plugin-sort-imports":
-      optional: true
-    "@prettier/plugin-php":
-      optional: true
-    "@prettier/plugin-pug":
-      optional: true
-    "@shopify/prettier-plugin-liquid":
-      optional: true
-    "@shufo/prettier-plugin-blade":
-      optional: true
-    "@trivago/prettier-plugin-sort-imports":
-      optional: true
-    prettier-plugin-astro:
-      optional: true
-    prettier-plugin-css-order:
-      optional: true
-    prettier-plugin-import-sort:
-      optional: true
-    prettier-plugin-jsdoc:
-      optional: true
-    prettier-plugin-organize-attributes:
-      optional: true
-    prettier-plugin-organize-imports:
-      optional: true
-    prettier-plugin-style-order:
-      optional: true
-    prettier-plugin-svelte:
-      optional: true
-    prettier-plugin-twig-melody:
-      optional: true
-  checksum: 90fa06f44be9ecfd93053533742d5f5c4b414005c18508ba8533fbf5413c4f23e850c71f7817732b13b68f021f63b9ae205936ae283edf308bfabf8fb7ebf8b8
   languageName: node
   linkType: hard
 
