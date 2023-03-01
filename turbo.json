@@ -11,16 +11,19 @@
   ],
   "pipeline": {
     "copy": {
+      "inputs": ["packages/tu-assets/**"],
       "outputs": ["public/assets/**"]
     },
     "build": {
       "dependsOn": ["copy", "^build"],
+      "inputs": ["src/**", "resources/**", "tailwind.config.*"],
       "outputs": [
         "dist/**",
         ".next/**",
         "build/**",
         "api/**",
-        "public/build/**"
+        "public/**",
+        "theme.json"
       ]
     },
     "lint": {
@@ -31,6 +34,7 @@
       "inputs": ["**/*.tsx", "**/*.ts", "test/**/*.ts"]
     },
     "dev": {
+      "inputs": ["src/**", "resources/**"],
       "dependsOn": ["copy"],
       "cache": false,
       "persistent": true
