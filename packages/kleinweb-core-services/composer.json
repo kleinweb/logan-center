@@ -24,10 +24,16 @@
     "temple-university"
   ],
   "require": {
-    "php": "^8.0"
+    "php": "^8.0",
+    "johnbillion/args": "^1.6"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "3.7.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Klein\\Core\\": "inc/"
+    }
   },
   "config": {
     "optimize-autoloader": true,
