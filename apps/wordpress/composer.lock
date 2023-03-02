@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "5b02aaf73fa891210bc9ce57d67b7a5f",
+  "content-hash": "c2702cb6f4abfe71019ffed60f942b29",
   "packages": [
     {
       "name": "alleyinteractive/internal-flags",
@@ -6426,16 +6426,16 @@
     },
     {
       "name": "wpengine/wp-graphql-content-blocks",
-      "version": "dev-upstream-pr-21-composer-package-type",
+      "version": "dev-main",
       "source": {
         "type": "git",
-        "url": "https://github.com/kleinweb/wp-graphql-content-blocks.git",
-        "reference": "32cd51adb6894b1d93fde248616e5f860471108e"
+        "url": "https://github.com/wpengine/wp-graphql-content-blocks.git",
+        "reference": "b918e2558f8c61490608ded112e18ea3287bf9c6"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/kleinweb/wp-graphql-content-blocks/zipball/32cd51adb6894b1d93fde248616e5f860471108e",
-        "reference": "32cd51adb6894b1d93fde248616e5f860471108e",
+        "url": "https://api.github.com/repos/wpengine/wp-graphql-content-blocks/zipball/b918e2558f8c61490608ded112e18ea3287bf9c6",
+        "reference": "b918e2558f8c61490608ded112e18ea3287bf9c6",
         "shasum": ""
       },
       "require-dev": {
@@ -6447,6 +6447,7 @@
         "wpengine/wpengine-coding-standards": "dev-develop",
         "yoast/phpunit-polyfills": "^1.0"
       },
+      "default-branch": true,
       "type": "wordpress-plugin",
       "autoload": {
         "psr-4": {
@@ -6468,9 +6469,10 @@
       },
       "description": "Plugin that extends WPGraphQL to support querying (Gutenberg) Blocks as data.",
       "support": {
-        "source": "https://github.com/kleinweb/wp-graphql-content-blocks/tree/upstream-pr-21-composer-package-type"
+        "source": "https://github.com/wpengine/wp-graphql-content-blocks/tree/main",
+        "issues": "https://github.com/wpengine/wp-graphql-content-blocks/issues"
       },
-      "time": "2023-02-20T07:52:22+00:00"
+      "time": "2023-03-01T19:06:11+00:00"
     }
   ],
   "packages-dev": [
