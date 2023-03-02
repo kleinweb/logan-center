@@ -51,6 +51,10 @@
     {
       "type": "path",
       "url": "../../packages/logan-center-plugin"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/happyprime/shadow-terms"
     }
   ],
   "require": {
@@ -84,7 +88,8 @@
     "wpackagist-plugin/wp-crontrol": "^1.15",
     "wpackagist-theme/twentytwentythree": "^1.0",
     "wpengine/advanced-custom-fields-pro": "*",
-    "wpengine/wp-graphql-content-blocks": "dev-upstream-pr-21-composer-package-type"
+    "wpengine/wp-graphql-content-blocks": "dev-upstream-pr-21-composer-package-type",
+    "happyprime/shadow-terms": "^1.0"
   },
   "require-dev": {
     "alleyinteractive/meta-inspector": "^1.1",

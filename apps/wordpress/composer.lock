@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "d14b5062276b95315aae9b36776053f0",
+  "content-hash": "4762192f019f0528819a88d1e901706d",
   "packages": [
     {
       "name": "alleyinteractive/internal-flags",
@@ -637,6 +637,40 @@
         }
       ],
       "time": "2021-10-07T12:57:01+00:00"
+    },
+    {
+      "name": "happyprime/shadow-terms",
+      "version": "1.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/happyprime/shadow-terms.git",
+        "reference": "6e7e9cbf08b487a5b45a45ddcc2a22f2796600d0"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/happyprime/shadow-terms/zipball/6e7e9cbf08b487a5b45a45ddcc2a22f2796600d0",
+        "reference": "6e7e9cbf08b487a5b45a45ddcc2a22f2796600d0",
+        "shasum": ""
+      },
+      "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "phpunit/phpunit": "^5 || ^7 || ^8 || ^9",
+        "wp-coding-standards/wpcs": "^2.0",
+        "yoast/phpunit-polyfills": "^1.0"
+      },
+      "type": "wordpress-plugin",
+      "scripts": {
+        "phpcs": ["vendor/bin/phpcs"],
+        "phpcbf": ["vendor/bin/phpcbf"],
+        "phpunit": ["vendor/bin/phpunit"]
+      },
+      "support": {
+        "source": "https://github.com/happyprime/shadow-terms/tree/1.0.0",
+        "issues": "https://github.com/happyprime/shadow-terms/issues"
+      },
+      "time": "2022-11-23T16:02:06+00:00"
     },
     {
       "name": "illuminate/bus",
