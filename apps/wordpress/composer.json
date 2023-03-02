@@ -89,7 +89,8 @@
     "wpackagist-theme/twentytwentythree": "^1.0",
     "wpengine/advanced-custom-fields-pro": "*",
     "wpengine/wp-graphql-content-blocks": "dev-upstream-pr-21-composer-package-type",
-    "happyprime/shadow-terms": "^1.0"
+    "happyprime/shadow-terms": "^1.0",
+    "wpackagist-plugin/turn-comments-off": "^1.2"
   },
   "require-dev": {
     "alleyinteractive/meta-inspector": "^1.1",

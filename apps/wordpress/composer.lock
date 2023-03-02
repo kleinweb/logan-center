@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "4762192f019f0528819a88d1e901706d",
+  "content-hash": "51febc948b72c599908b1453a8035ea0",
   "packages": [
     {
       "name": "alleyinteractive/internal-flags",
@@ -1949,11 +1949,11 @@
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-plugin",
-        "reference": "1f1f787915dcf44453257f5618b98294332a075d"
+        "reference": "183d7ee42aeef69aff093be606b7bcf292ff6385"
       },
       "require": {
         "php": "^8.0",
-        "stoutlogic/acf-builder": "^1.12"
+        "vinkla/extended-acf": "^13.2"
       },
       "require-dev": {
         "squizlabs/php_codesniffer": "3.7.2"
@@ -5768,6 +5768,61 @@
       "time": "2023-01-20T17:44:14+00:00"
     },
     {
+      "name": "vinkla/extended-acf",
+      "version": "13.2.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/vinkla/extended-acf.git",
+        "reference": "d763d3818bd87c73ad4d62535eccd1176ea4784a"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/vinkla/extended-acf/zipball/d763d3818bd87c73ad4d62535eccd1176ea4784a",
+        "reference": "d763d3818bd87c73ad4d62535eccd1176ea4784a",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.0"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "^9.5"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "13.3-dev"
+        }
+      },
+      "autoload": {
+        "files": ["src/helpers.php"],
+        "psr-4": {
+          "Extended\\ACF\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": ["MIT"],
+      "authors": [
+        {
+          "name": "Vincent Klaiber",
+          "email": "hello@doubledip.se"
+        }
+      ],
+      "description": "Register advanced custom fields with object oriented PHP",
+      "keywords": [
+        "acf",
+        "advanced",
+        "custom",
+        "extended",
+        "fields",
+        "wordpress"
+      ],
+      "support": {
+        "issues": "https://github.com/vinkla/extended-acf/issues",
+        "source": "https://github.com/vinkla/extended-acf/tree/13.2.1"
+      },
+      "time": "2023-02-21T08:50:40+00:00"
+    },
+    {
       "name": "vinkla/headache",
       "version": "2.4.0",
       "source": {
@@ -6284,6 +6339,24 @@
       },
       "type": "wordpress-plugin",
       "homepage": "https://wordpress.org/plugins/simple-history/"
+    },
+    {
+      "name": "wpackagist-plugin/turn-comments-off",
+      "version": "1.2.0",
+      "source": {
+        "type": "svn",
+        "url": "https://plugins.svn.wordpress.org/turn-comments-off/",
+        "reference": "tags/1.2.0"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://downloads.wordpress.org/plugin/turn-comments-off.1.2.0.zip"
+      },
+      "require": {
+        "composer/installers": "^1.0 || ^2.0"
+      },
+      "type": "wordpress-plugin",
+      "homepage": "https://wordpress.org/plugins/turn-comments-off/"
     },
     {
       "name": "wpackagist-plugin/user-switching",
