@@ -115,7 +115,10 @@
         "type:wordpress-muplugin",
         "kleinweb/logan-center-plugin",
         "wp-graphql/wp-graphql",
-        "wpackagist-plugin/co-authors-plus"
+        "wp-graphql/wp-graphql-acf",
+        "wpackagist-plugin/co-authors-plus",
+        "wpackagist-plugin/turn-comments-off",
+        "wpengine/advanced-custom-fields-pro"
       ],
       "web/app/plugins/{$name}/": [
         "type:wordpress-plugin"
