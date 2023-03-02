@@ -28,6 +28,7 @@
   },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "laravel/pint": "^1.5",
     "squizlabs/php_codesniffer": "3.7.2",
     "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.8.0"
   },
@@ -51,7 +52,7 @@
       "phpcs --extensions=php --standard=./phpcs.xml src"
     ],
     "fix": [
-      "phpcbf --extensions=php --standard=./phpcs.xml src"
+      "pint src"
     ]
   }
 }

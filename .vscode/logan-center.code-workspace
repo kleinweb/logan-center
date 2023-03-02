@@ -108,6 +108,21 @@
     "stylelint.reportDescriptionlessDisables": true,
     "stylelint.reportInvalidScopeDisables": true,
     "stylelint.reportNeedlessDisables": true,
+    "intelephense.environment.phpVersion": "8.0",
+    "intelephense.environment.shortOpenTag": false,
+    "intelephense.phpdoc.returnVoid": false,
+    "intelephense.references.exclude": [
+      "**/vendor/**",
+      "apps/wordpress/web/app/mu-plugins/logan-center-plugin/**",
+      "apps/wordpress/web/app/mu-plugins/kleinweb-core-services/**",
+      "apps/wordpress/web/app/themes/logan-center-theme/**"
+    ],
+    "intelephense.rename.exclude": [
+      "**/vendor/**",
+      "apps/wordpress/**"
+    ],
+    "laravel-pint.enable": true,
+    "intelephense.format.enable": false,
   },
   "extensions": {
     "recommendations": [
