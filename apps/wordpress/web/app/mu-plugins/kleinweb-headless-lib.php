@@ -46,7 +46,7 @@ function action_after_switch_theme_set_custom_permalinks()
 /**
  * Add useful args to post/page preview URLs
  *
- * @param string   $link URL used for the post preview.
+ * @param string $link URL used for the post preview.
  * @param \WP_Post $post Post object.
  * @return string
  */
@@ -90,7 +90,7 @@ function filter_preview_post_link($link, $post)
  * Includes preview link in post data for a response for Gutenberg preview link to work.
  *
  * @param \WP_REST_Response $response The response object.
- * @param \WP_Post          $post     Post object.
+ * @param \WP_Post $post Post object.
  * @return \WP_REST_Response
  */
 // add_filter(

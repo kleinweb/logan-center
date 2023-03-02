@@ -3,13 +3,15 @@
 // SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-namespace Klein\LoganCenter\Blocks;
-
 /**
  * Gutenberg blocks configuration.
  *
  * @package logan-center-plugin
  */
+
+declare(strict_types=1);
+
+namespace Klein\LoganCenter\Blocks;
 
 add_action('after_setup_theme', __NAMESPACE__ . '\action_after_setup_theme');
 function action_after_setup_theme()

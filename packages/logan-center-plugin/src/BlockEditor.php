@@ -3,13 +3,15 @@
 // SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-namespace Klein\LoganCenter\BlockEditor;
-
 /**
  * Block editor configuration.
  *
  * @package logan-center-plugin
  */
+
+declare(strict_types=1);
+
+namespace Klein\LoganCenter\BlockEditor;
 
 /**
  * Disable the fullscreen editor as user default.

@@ -14,4 +14,18 @@
  * License: GPL-3.0-or-later
  */
 
-require_once __DIR__ . '/vendor/autoload.php';
+declare(strict_types=1);
+
+namespace Klein\LoganCenter;
+
+use Illuminate\Container\Container;
+use Klein\LoganCenter\ContentTypes\Article;
+use Klein\LoganCenter\ContentTypes\Project;
+use Klein\LoganCenter\ContentTypes\Theme;
+
+require_once __DIR__.'/vendor/autoload.php';
+
+$logan_center = new Container();
+$logan_center['contentTypes.article'] = new Article();
+$logan_center['contentTypes.project'] = new Project();
+$logan_center['contentTypes.theme'] = new Theme();

@@ -37,9 +37,6 @@ function after_setup_theme_add_baseline_feature_support()
 add_action('init', __NAMESPACE__ . '\action_init');
 function action_init()
 {
-    // Enable tags for Pages
-    register_taxonomy_for_object_type('post_tag', 'page');
-
     // Enable excerpts for pages
     add_post_type_support('page', 'excerpt');
 
