@@ -1860,19 +1860,25 @@
     },
     {
       "name": "kleinweb/core-services",
-      "version": "dev-develop",
+      "version": "dev-feat/content-types",
       "dist": {
         "type": "path",
         "url": "../../packages/kleinweb-core-services",
-        "reference": "1a31d08e4f7711c7294adb52b4910f386e58ee6d"
+        "reference": "f1c787e7ebb306bda8e4065c76b72902ce21dd75"
       },
       "require": {
+        "johnbillion/args": "^1.6",
         "php": "^8.0"
       },
       "require-dev": {
         "squizlabs/php_codesniffer": "3.7.2"
       },
       "type": "wordpress-muplugin",
+      "autoload": {
+        "psr-4": {
+          "Klein\\Core\\": "inc/"
+        }
+      },
       "scripts": {
         "lint": ["phpcs --extensions=php --standard=PSR12 app"],
         "fix": ["phpcbf --extensions=php --standard=PSR12 app"]
@@ -1905,7 +1911,7 @@
     },
     {
       "name": "kleinweb/logan-center-plugin",
-      "version": "dev-develop",
+      "version": "dev-feat/content-types",
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-plugin",
@@ -1948,7 +1954,7 @@
     },
     {
       "name": "kleinweb/logan-center-theme",
-      "version": "dev-develop",
+      "version": "dev-feat/content-types",
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-theme",
