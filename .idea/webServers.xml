@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="49bf3532-d762-46b6-b824-e17ac7e2186a" name="Logan Center" url="https://logancenter-wp-next.ddev.site/">
+        <fileTransfer mountedRoot="$PROJECT_DIR$/apps/wordpress/web" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>

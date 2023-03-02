@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Next.js" pattern="file[logan-center]:apps/nextjs//*&amp;&amp;!file[logan-center]:apps/nextjs/.turbo//*" />
+</component>
