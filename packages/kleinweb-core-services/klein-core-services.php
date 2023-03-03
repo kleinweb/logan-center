@@ -15,9 +15,6 @@
 
 namespace Klein\Core;
 
-// FIXME: disabled because bugs -- see notes in file
-// require dirname(__FILE__) . '/inc/user-roles.php';
-
 /**
  * Configure baseline feature support.
  */

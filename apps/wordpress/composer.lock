@@ -1949,19 +1949,29 @@
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-plugin",
-        "reference": "183d7ee42aeef69aff093be606b7bcf292ff6385"
+        "reference": "9b535b1c29f16445bd72b747ff6ad533477799f9"
       },
       "require": {
+        "johnbillion/args": "^1.6",
+        "johnbillion/extended-cpts": "^5.0",
         "php": "^8.0",
         "vinkla/extended-acf": "^13.2"
       },
       "require-dev": {
-        "squizlabs/php_codesniffer": "3.7.2"
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "laravel/pint": "^1.5",
+        "squizlabs/php_codesniffer": "3.7.2",
+        "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.8.0"
       },
       "type": "wordpress-plugin",
+      "autoload": {
+        "psr-4": {
+          "Klein\\LoganCenter\\": "src/"
+        }
+      },
       "scripts": {
-        "lint": ["phpcs --extensions=php --standard=PSR12 app"],
-        "fix": ["phpcbf --extensions=php --standard=PSR12 app"]
+        "lint": ["phpcs --extensions=php --standard=./phpcs.xml src"],
+        "fix": ["pint src"]
       },
       "license": ["GPL-3.0-or-later"],
       "authors": [
@@ -6065,16 +6075,16 @@
     },
     {
       "name": "wp-graphql/wp-graphql",
-      "version": "v1.13.9",
+      "version": "v1.13.10",
       "source": {
         "type": "git",
         "url": "https://github.com/wp-graphql/wp-graphql.git",
-        "reference": "24e4ced11a3ea5478baabd0f2db146e60422ab68"
+        "reference": "d5d766d0e92a8706824cb2eef2d40fc30b05e8fa"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/wp-graphql/wp-graphql/zipball/24e4ced11a3ea5478baabd0f2db146e60422ab68",
-        "reference": "24e4ced11a3ea5478baabd0f2db146e60422ab68",
+        "url": "https://api.github.com/repos/wp-graphql/wp-graphql/zipball/d5d766d0e92a8706824cb2eef2d40fc30b05e8fa",
+        "reference": "d5d766d0e92a8706824cb2eef2d40fc30b05e8fa",
         "shasum": ""
       },
       "require": {
@@ -6132,9 +6142,9 @@
       "description": "GraphQL API for WordPress",
       "support": {
         "issues": "https://github.com/wp-graphql/wp-graphql/issues",
-        "source": "https://github.com/wp-graphql/wp-graphql/tree/v1.13.9"
+        "source": "https://github.com/wp-graphql/wp-graphql/tree/v1.13.10"
       },
-      "time": "2023-02-15T23:48:12+00:00"
+      "time": "2023-03-02T20:44:27+00:00"
     },
     {
       "name": "wp-graphql/wp-graphql-acf",
@@ -6514,12 +6524,12 @@
       "source": {
         "type": "git",
         "url": "https://github.com/Roave/SecurityAdvisories.git",
-        "reference": "3a45705887412bb03836d4cf363d4c60fa306e82"
+        "reference": "2f3a048ff643e4aff8308eaeea738c82dfac0a81"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/3a45705887412bb03836d4cf363d4c60fa306e82",
-        "reference": "3a45705887412bb03836d4cf363d4c60fa306e82",
+        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/2f3a048ff643e4aff8308eaeea738c82dfac0a81",
+        "reference": "2f3a048ff643e4aff8308eaeea738c82dfac0a81",
         "shasum": ""
       },
       "conflict": {
@@ -6774,7 +6784,7 @@
         "modx/revolution": "<= 2.8.3-pl|<2.8",
         "mojo42/jirafeau": "<4.4",
         "monolog/monolog": ">=1.8,<1.12",
-        "moodle/moodle": "<4.0.5",
+        "moodle/moodle": "<4.0.6|>=4.1-beta,<4.1.1",
         "mustache/mustache": ">=2,<2.14.1",
         "namshi/jose": "<2.2",
         "neoan3-apps/template": "<1.1.1",
@@ -7090,7 +7100,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2023-03-01T23:04:23+00:00"
+      "time": "2023-03-02T19:04:12+00:00"
     },
     {
       "name": "squizlabs/php_codesniffer",
