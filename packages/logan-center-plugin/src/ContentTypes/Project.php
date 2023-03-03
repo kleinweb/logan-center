@@ -76,6 +76,7 @@ class Project
         $args->default_term = [
             'name' => 'General Coverage',
             'slug' => 'general',
+            'description' => 'Default catch-all Project.',
         ];
 
         return array_merge($args->toArray(), [
