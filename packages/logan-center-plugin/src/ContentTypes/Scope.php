@@ -43,7 +43,7 @@ class Scope
     /**
      * Object types which can be connected to this object type.
      */
-    const CONNECTED_OBJECT_TYPES = [Project::NAME];
+    public const CONNECTED_OBJECT_TYPES = [Article::NAME, Project::NAME];
 
     /**
      * URL base for this taxonomy.
@@ -146,7 +146,8 @@ class Scope
             'manage_terms' => 'nobody',
             'edit_terms' => 'nobody',
             'delete_terms' => 'nobody',
-            'assign_terms' => 'nobody',
+            // TODO: does this need to be assigned explicitly or will it be merged with a sane default?
+            //            'assign_terms' => 'nobody',
         ];
 
         // NOTE(2023-03-02): Currently, "exclusive" only forces a "radio" metabox,
