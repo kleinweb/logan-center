@@ -30,11 +30,7 @@
     },
     {
       "type": "vcs",
-      "url": "https://github.com/kleinweb/wp-graphql-content-blocks"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/kleinweb/wp-gql-gutenberg"
+      "url": "https://github.com/wpengine/wp-graphql-content-blocks"
     },
     {
       "type": "vcs",
@@ -51,6 +47,10 @@
     {
       "type": "path",
       "url": "../../packages/logan-center-plugin"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/happyprime/shadow-terms"
     }
   ],
   "require": {
@@ -84,7 +84,9 @@
     "wpackagist-plugin/wp-crontrol": "^1.15",
     "wpackagist-theme/twentytwentythree": "^1.0",
     "wpengine/advanced-custom-fields-pro": "*",
-    "wpengine/wp-graphql-content-blocks": "dev-upstream-pr-21-composer-package-type"
+    "wpengine/wp-graphql-content-blocks": "dev-main",
+    "happyprime/shadow-terms": "^1.0",
+    "wpackagist-plugin/turn-comments-off": "^1.2"
   },
   "require-dev": {
     "alleyinteractive/meta-inspector": "^1.1",
@@ -109,7 +111,11 @@
         "type:wordpress-muplugin",
         "kleinweb/logan-center-plugin",
         "wp-graphql/wp-graphql",
-        "wpackagist-plugin/co-authors-plus"
+        "wp-graphql/wp-graphql-acf",
+        "wpackagist-plugin/co-authors-plus",
+        "wpackagist-plugin/turn-comments-off",
+        "wpengine/advanced-custom-fields-pro",
+        "wpengine/wp-graphql-content-blocks"
       ],
       "web/app/plugins/{$name}/": [
         "type:wordpress-plugin"

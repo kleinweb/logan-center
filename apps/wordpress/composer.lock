@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "d14b5062276b95315aae9b36776053f0",
+  "content-hash": "c2702cb6f4abfe71019ffed60f942b29",
   "packages": [
     {
       "name": "alleyinteractive/internal-flags",
@@ -637,6 +637,40 @@
         }
       ],
       "time": "2021-10-07T12:57:01+00:00"
+    },
+    {
+      "name": "happyprime/shadow-terms",
+      "version": "1.0.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/happyprime/shadow-terms.git",
+        "reference": "6e7e9cbf08b487a5b45a45ddcc2a22f2796600d0"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/happyprime/shadow-terms/zipball/6e7e9cbf08b487a5b45a45ddcc2a22f2796600d0",
+        "reference": "6e7e9cbf08b487a5b45a45ddcc2a22f2796600d0",
+        "shasum": ""
+      },
+      "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "phpunit/phpunit": "^5 || ^7 || ^8 || ^9",
+        "wp-coding-standards/wpcs": "^2.0",
+        "yoast/phpunit-polyfills": "^1.0"
+      },
+      "type": "wordpress-plugin",
+      "scripts": {
+        "phpcs": ["vendor/bin/phpcs"],
+        "phpcbf": ["vendor/bin/phpcbf"],
+        "phpunit": ["vendor/bin/phpunit"]
+      },
+      "support": {
+        "source": "https://github.com/happyprime/shadow-terms/tree/1.0.0",
+        "issues": "https://github.com/happyprime/shadow-terms/issues"
+      },
+      "time": "2022-11-23T16:02:06+00:00"
     },
     {
       "name": "illuminate/bus",
@@ -1860,19 +1894,25 @@
     },
     {
       "name": "kleinweb/core-services",
-      "version": "dev-develop",
+      "version": "dev-feat/content-types",
       "dist": {
         "type": "path",
         "url": "../../packages/kleinweb-core-services",
-        "reference": "1a31d08e4f7711c7294adb52b4910f386e58ee6d"
+        "reference": "f1c787e7ebb306bda8e4065c76b72902ce21dd75"
       },
       "require": {
+        "johnbillion/args": "^1.6",
         "php": "^8.0"
       },
       "require-dev": {
         "squizlabs/php_codesniffer": "3.7.2"
       },
       "type": "wordpress-muplugin",
+      "autoload": {
+        "psr-4": {
+          "Klein\\Core\\": "inc/"
+        }
+      },
       "scripts": {
         "lint": ["phpcs --extensions=php --standard=PSR12 app"],
         "fix": ["phpcbf --extensions=php --standard=PSR12 app"]
@@ -1905,23 +1945,33 @@
     },
     {
       "name": "kleinweb/logan-center-plugin",
-      "version": "dev-develop",
+      "version": "dev-feat/content-types",
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-plugin",
-        "reference": "1f1f787915dcf44453257f5618b98294332a075d"
+        "reference": "9b535b1c29f16445bd72b747ff6ad533477799f9"
       },
       "require": {
+        "johnbillion/args": "^1.6",
+        "johnbillion/extended-cpts": "^5.0",
         "php": "^8.0",
-        "stoutlogic/acf-builder": "^1.12"
+        "vinkla/extended-acf": "^13.2"
       },
       "require-dev": {
-        "squizlabs/php_codesniffer": "3.7.2"
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "laravel/pint": "^1.5",
+        "squizlabs/php_codesniffer": "3.7.2",
+        "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.8.0"
       },
       "type": "wordpress-plugin",
+      "autoload": {
+        "psr-4": {
+          "Klein\\LoganCenter\\": "src/"
+        }
+      },
       "scripts": {
-        "lint": ["phpcs --extensions=php --standard=PSR12 app"],
-        "fix": ["phpcbf --extensions=php --standard=PSR12 app"]
+        "lint": ["phpcs --extensions=php --standard=./phpcs.xml src"],
+        "fix": ["pint src"]
       },
       "license": ["GPL-3.0-or-later"],
       "authors": [
@@ -1948,7 +1998,7 @@
     },
     {
       "name": "kleinweb/logan-center-theme",
-      "version": "dev-develop",
+      "version": "dev-feat/content-types",
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-theme",
@@ -5728,6 +5778,61 @@
       "time": "2023-01-20T17:44:14+00:00"
     },
     {
+      "name": "vinkla/extended-acf",
+      "version": "13.2.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/vinkla/extended-acf.git",
+        "reference": "d763d3818bd87c73ad4d62535eccd1176ea4784a"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/vinkla/extended-acf/zipball/d763d3818bd87c73ad4d62535eccd1176ea4784a",
+        "reference": "d763d3818bd87c73ad4d62535eccd1176ea4784a",
+        "shasum": ""
+      },
+      "require": {
+        "php": "^8.0"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "^9.5"
+      },
+      "type": "library",
+      "extra": {
+        "branch-alias": {
+          "dev-master": "13.3-dev"
+        }
+      },
+      "autoload": {
+        "files": ["src/helpers.php"],
+        "psr-4": {
+          "Extended\\ACF\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": ["MIT"],
+      "authors": [
+        {
+          "name": "Vincent Klaiber",
+          "email": "hello@doubledip.se"
+        }
+      ],
+      "description": "Register advanced custom fields with object oriented PHP",
+      "keywords": [
+        "acf",
+        "advanced",
+        "custom",
+        "extended",
+        "fields",
+        "wordpress"
+      ],
+      "support": {
+        "issues": "https://github.com/vinkla/extended-acf/issues",
+        "source": "https://github.com/vinkla/extended-acf/tree/13.2.1"
+      },
+      "time": "2023-02-21T08:50:40+00:00"
+    },
+    {
       "name": "vinkla/headache",
       "version": "2.4.0",
       "source": {
@@ -5970,16 +6075,16 @@
     },
     {
       "name": "wp-graphql/wp-graphql",
-      "version": "v1.13.9",
+      "version": "v1.13.10",
       "source": {
         "type": "git",
         "url": "https://github.com/wp-graphql/wp-graphql.git",
-        "reference": "24e4ced11a3ea5478baabd0f2db146e60422ab68"
+        "reference": "d5d766d0e92a8706824cb2eef2d40fc30b05e8fa"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/wp-graphql/wp-graphql/zipball/24e4ced11a3ea5478baabd0f2db146e60422ab68",
-        "reference": "24e4ced11a3ea5478baabd0f2db146e60422ab68",
+        "url": "https://api.github.com/repos/wp-graphql/wp-graphql/zipball/d5d766d0e92a8706824cb2eef2d40fc30b05e8fa",
+        "reference": "d5d766d0e92a8706824cb2eef2d40fc30b05e8fa",
         "shasum": ""
       },
       "require": {
@@ -6037,9 +6142,9 @@
       "description": "GraphQL API for WordPress",
       "support": {
         "issues": "https://github.com/wp-graphql/wp-graphql/issues",
-        "source": "https://github.com/wp-graphql/wp-graphql/tree/v1.13.9"
+        "source": "https://github.com/wp-graphql/wp-graphql/tree/v1.13.10"
       },
-      "time": "2023-02-15T23:48:12+00:00"
+      "time": "2023-03-02T20:44:27+00:00"
     },
     {
       "name": "wp-graphql/wp-graphql-acf",
@@ -6246,6 +6351,24 @@
       "homepage": "https://wordpress.org/plugins/simple-history/"
     },
     {
+      "name": "wpackagist-plugin/turn-comments-off",
+      "version": "1.2.0",
+      "source": {
+        "type": "svn",
+        "url": "https://plugins.svn.wordpress.org/turn-comments-off/",
+        "reference": "tags/1.2.0"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://downloads.wordpress.org/plugin/turn-comments-off.1.2.0.zip"
+      },
+      "require": {
+        "composer/installers": "^1.0 || ^2.0"
+      },
+      "type": "wordpress-plugin",
+      "homepage": "https://wordpress.org/plugins/turn-comments-off/"
+    },
+    {
       "name": "wpackagist-plugin/user-switching",
       "version": "1.7.0",
       "source": {
@@ -6313,16 +6436,16 @@
     },
     {
       "name": "wpengine/wp-graphql-content-blocks",
-      "version": "dev-upstream-pr-21-composer-package-type",
+      "version": "dev-main",
       "source": {
         "type": "git",
-        "url": "https://github.com/kleinweb/wp-graphql-content-blocks.git",
-        "reference": "32cd51adb6894b1d93fde248616e5f860471108e"
+        "url": "https://github.com/wpengine/wp-graphql-content-blocks.git",
+        "reference": "b918e2558f8c61490608ded112e18ea3287bf9c6"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/kleinweb/wp-graphql-content-blocks/zipball/32cd51adb6894b1d93fde248616e5f860471108e",
-        "reference": "32cd51adb6894b1d93fde248616e5f860471108e",
+        "url": "https://api.github.com/repos/wpengine/wp-graphql-content-blocks/zipball/b918e2558f8c61490608ded112e18ea3287bf9c6",
+        "reference": "b918e2558f8c61490608ded112e18ea3287bf9c6",
         "shasum": ""
       },
       "require-dev": {
@@ -6334,6 +6457,7 @@
         "wpengine/wpengine-coding-standards": "dev-develop",
         "yoast/phpunit-polyfills": "^1.0"
       },
+      "default-branch": true,
       "type": "wordpress-plugin",
       "autoload": {
         "psr-4": {
@@ -6355,9 +6479,10 @@
       },
       "description": "Plugin that extends WPGraphQL to support querying (Gutenberg) Blocks as data.",
       "support": {
-        "source": "https://github.com/kleinweb/wp-graphql-content-blocks/tree/upstream-pr-21-composer-package-type"
+        "source": "https://github.com/wpengine/wp-graphql-content-blocks/tree/main",
+        "issues": "https://github.com/wpengine/wp-graphql-content-blocks/issues"
       },
-      "time": "2023-02-20T07:52:22+00:00"
+      "time": "2023-03-01T19:06:11+00:00"
     }
   ],
   "packages-dev": [
@@ -6399,12 +6524,12 @@
       "source": {
         "type": "git",
         "url": "https://github.com/Roave/SecurityAdvisories.git",
-        "reference": "6ab259b93537fda94e80a3e7c545957ce0848052"
+        "reference": "2f3a048ff643e4aff8308eaeea738c82dfac0a81"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/6ab259b93537fda94e80a3e7c545957ce0848052",
-        "reference": "6ab259b93537fda94e80a3e7c545957ce0848052",
+        "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/2f3a048ff643e4aff8308eaeea738c82dfac0a81",
+        "reference": "2f3a048ff643e4aff8308eaeea738c82dfac0a81",
         "shasum": ""
       },
       "conflict": {
@@ -6659,7 +6784,7 @@
         "modx/revolution": "<= 2.8.3-pl|<2.8",
         "mojo42/jirafeau": "<4.4",
         "monolog/monolog": ">=1.8,<1.12",
-        "moodle/moodle": "<4.0.5",
+        "moodle/moodle": "<4.0.6|>=4.1-beta,<4.1.1",
         "mustache/mustache": ">=2,<2.14.1",
         "namshi/jose": "<2.2",
         "neoan3-apps/template": "<1.1.1",
@@ -6719,7 +6844,7 @@
         "phpxmlrpc/extras": "<0.6.1",
         "phpxmlrpc/phpxmlrpc": "<4.9.2",
         "pimcore/data-hub": "<1.2.4",
-        "pimcore/pimcore": "<=10.5.17",
+        "pimcore/pimcore": "<10.5.18",
         "pixelfed/pixelfed": "<=0.11.4",
         "pocketmine/bedrock-protocol": "<8.0.2",
         "pocketmine/pocketmine-mp": "<4.12.5|>= 4.0.0-BETA5, < 4.4.2",
@@ -6975,7 +7100,7 @@
           "type": "tidelift"
         }
       ],
-      "time": "2023-03-01T00:18:15+00:00"
+      "time": "2023-03-02T19:04:12+00:00"
     },
     {
       "name": "squizlabs/php_codesniffer",

@@ -1,0 +1,4 @@
+{
+  "preset": "psr12",
+  "exclude": ["**/vendor/**", "**/mu-plugins/**", "**/web/app/plugins/**"]
+}

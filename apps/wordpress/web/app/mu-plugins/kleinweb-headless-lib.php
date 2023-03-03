@@ -46,7 +46,7 @@ function action_after_switch_theme_set_custom_permalinks()
 /**
  * Add useful args to post/page preview URLs
  *
- * @param string   $link URL used for the post preview.
+ * @param string $link URL used for the post preview.
  * @param \WP_Post $post Post object.
  * @return string
  */
@@ -90,7 +90,7 @@ function filter_preview_post_link($link, $post)
  * Includes preview link in post data for a response for Gutenberg preview link to work.
  *
  * @param \WP_REST_Response $response The response object.
- * @param \WP_Post          $post     Post object.
+ * @param \WP_Post $post Post object.
  * @return \WP_REST_Response
  */
 // add_filter(
@@ -114,10 +114,12 @@ function filter_rest_prepare_preview_link($response, $post)
     return $response;
 }
 
-/**
- * Registers a connection to Co Authors Plus in WPGraphQL
- */
 add_action('plugins_loaded', __NAMESPACE__ . '\action_plugins_loaded_register_coauthors_plus_wpgraphql_connection');
+/**
+ * Registers a connection to Co Authors Plus in WPGraphQL.
+ *
+ * @throws \Exception
+ */
 function action_plugins_loaded_register_coauthors_plus_wpgraphql_connection()
 {
     if (
@@ -133,9 +135,9 @@ function action_plugins_loaded_register_coauthors_plus_wpgraphql_connection()
         'connectionTypeName' => 'PostToAuthorsConnection',
         'resolve' => function (
             \WPGraphQL\Model\Post $source,
-            $args,
-            $context,
-            $info
+                                  $args,
+                                  $context,
+                                  $info
         ) {
             $resolver = new UserConnectionResolver(
                 $source,
@@ -143,11 +145,11 @@ function action_plugins_loaded_register_coauthors_plus_wpgraphql_connection()
                 $context,
                 $info
             );
-            $coauthor_ids = array_map(
-                fn ($coauthor) => $coauthor->ID,
+            $coauthorIds = array_map(
+                fn($coauthor) => $coauthor->ID,
                 get_coauthors($source->ID)
             );
-            $resolver->set_query_arg('include', $coauthor_ids);
+            $resolver->set_query_arg('include', $coauthorIds);
             return $resolver->get_connection();
         },
     ]);
