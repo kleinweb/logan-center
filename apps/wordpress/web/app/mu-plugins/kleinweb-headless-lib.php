@@ -20,6 +20,7 @@ use WPGraphQL\Data\Connection\UserConnectionResolver;
 
 /**
  * Set permlinks on theme activate
+ *
  * @see <https://github.com/wp-graphql/wp-graphql/issues/1612>
  */
 // add_action(
@@ -46,8 +47,8 @@ function action_after_switch_theme_set_custom_permalinks()
 /**
  * Add useful args to post/page preview URLs
  *
- * @param string $link URL used for the post preview.
- * @param \WP_Post $post Post object.
+ * @param  string  $link URL used for the post preview.
+ * @param  \WP_Post  $post Post object.
  * @return string
  */
 // add_filter(
@@ -68,8 +69,8 @@ function filter_preview_post_link($link, $post)
     // Add slug and build path
     if ($post->post_name) {
         // Build out new Preview permalink
-        if (!function_exists('get_sample_permalink')) {
-            require_once ABSPATH . 'wp-admin/includes/post.php';
+        if (! function_exists('get_sample_permalink')) {
+            require_once ABSPATH.'wp-admin/includes/post.php';
         }
 
         $link = get_sample_permalink($post->ID)[0] ?? '';
@@ -89,8 +90,8 @@ function filter_preview_post_link($link, $post)
 /**
  * Includes preview link in post data for a response for Gutenberg preview link to work.
  *
- * @param \WP_REST_Response $response The response object.
- * @param \WP_Post $post Post object.
+ * @param  \WP_REST_Response  $response The response object.
+ * @param  \WP_Post  $post Post object.
  * @return \WP_REST_Response
  */
 // add_filter(
@@ -114,7 +115,7 @@ function filter_rest_prepare_preview_link($response, $post)
     return $response;
 }
 
-add_action('plugins_loaded', __NAMESPACE__ . '\action_plugins_loaded_register_coauthors_plus_wpgraphql_connection');
+add_action('plugins_loaded', __NAMESPACE__.'\action_plugins_loaded_register_coauthors_plus_wpgraphql_connection');
 /**
  * Registers a connection to Co Authors Plus in WPGraphQL.
  *
@@ -123,8 +124,8 @@ add_action('plugins_loaded', __NAMESPACE__ . '\action_plugins_loaded_register_co
 function action_plugins_loaded_register_coauthors_plus_wpgraphql_connection()
 {
     if (
-        !function_exists('register_graphql_connection') ||
-        !function_exists('get_coauthors')
+        ! function_exists('register_graphql_connection') ||
+        ! function_exists('get_coauthors')
     ) {
         return;
     }
@@ -135,9 +136,9 @@ function action_plugins_loaded_register_coauthors_plus_wpgraphql_connection()
         'connectionTypeName' => 'PostToAuthorsConnection',
         'resolve' => function (
             \WPGraphQL\Model\Post $source,
-                                  $args,
-                                  $context,
-                                  $info
+            $args,
+            $context,
+            $info
         ) {
             $resolver = new UserConnectionResolver(
                 $source,
@@ -146,10 +147,11 @@ function action_plugins_loaded_register_coauthors_plus_wpgraphql_connection()
                 $info
             );
             $coauthorIds = array_map(
-                fn($coauthor) => $coauthor->ID,
+                fn ($coauthor) => $coauthor->ID,
                 get_coauthors($source->ID)
             );
             $resolver->set_query_arg('include', $coauthorIds);
+
             return $resolver->get_connection();
         },
     ]);
