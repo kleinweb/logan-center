@@ -23,11 +23,15 @@ use WPGraphQL\Data\Connection\UserConnectionResolver;
  *
  * @see <https://github.com/wp-graphql/wp-graphql/issues/1612>
  */
+add_action(
+    'init',
+    __NAMESPACE__ . '\action_init_set_custom_permalinks'
+);
 // add_action(
 //     'after_switch_theme',
 //     __NAMESPACE__ . '\action_after_switch_theme_set_custom_permalinks'
 // );
-function action_after_switch_theme_set_custom_permalinks()
+function action_init_set_custom_permalinks()
 {
     $current_setting = get_option('permalink_structure');
 
@@ -39,8 +43,8 @@ function action_after_switch_theme_set_custom_permalinks()
     // Save permalinks to a custom setting, force create of rules file
     global $wp_rewrite;
     update_option('rewrite_rules', false);
-    $wp_rewrite->set_permalink_structure('/p/%postname%/');
-    $wp_rewrite->set_category_base('/topics/');
+    $wp_rewrite->set_permalink_structure('/themes/%category%/%postname%/');
+    $wp_rewrite->set_category_base('/themes/');
     $wp_rewrite->flush_rules(true);
 }
 
