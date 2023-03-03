@@ -52,8 +52,6 @@ class Article
         $args = new PostTypeArgs();
         $args->hierarchical = false;
         $args->show_in_feed = true;
-        // <https://developer.wordpress.org/resource/dashicons/#index-card>
-        $args->menu_icon = 'dashicons-index-card';
         // The post type must be exposed to the WP REST API for Gutenberg support.
         $args->show_in_rest = true;
         $args->block_editor = true;
