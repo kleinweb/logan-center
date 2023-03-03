@@ -49,6 +49,7 @@ wp-cli.local.yml
 ##: local data
 .data/
 .direnv/
+.idea/
 *.local
 .netlify
 

@@ -25,8 +25,57 @@
       "*.css": "tailwindcss",
       "dep5": "debian-copyright"
     },
-    "typescript.tsdk": "logan-center/node_modules/typescript/lib",
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "eslint.workingDirectories": ["./packages/*", "./apps/*"],
+    "search.exclude": {
+      "**/.yarn": true,
+      "**/.pnp.*": true
+    },
+    "prettier.prettierPath": "node_modules/prettier/index.js",
+    "npm.packageManager": "yarn",
+    "stylelint.packageManager": "yarn",
+    "eslint.packageManager": "yarn",
+    "prettier.configPath": ".prettierrc.json",
+    "prettier.requireConfig": true,
+    "typescript.tsdk": "node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
+    "stylelint.reportDescriptionlessDisables": true,
+    "stylelint.reportInvalidScopeDisables": true,
+    "stylelint.reportNeedlessDisables": true,
+    "laravel-pint.enable": true,
+    "intelephense.environment.includePaths": ["**/web/app/mu-plugins/**", "**/web/app/plugins/**","**/vendor/**"],
+    "intelephense.files.exclude": [
+      "**/.git/**",
+      "**/.svn/**",
+      "**/.hg/**",
+      "**/CVS/**",
+      "**/.DS_Store/**",
+      "**/node_modules/**",
+      "**/bower_components/**",
+      "**/vendor/**/{Tests,tests}/**",
+      "**/.history/**",
+      "**/vendor/**/vendor/**",
+      "**/mu-plugins/logan-center-plugin/**",
+      "**/mu-plugins/klein-core-services/**",
+      "**/themes/logan-center-theme/**"
+    ],
+    "intelephense.format.enable": false,
+    "intelephense.environment.phpVersion": "8.0",
+    "intelephense.environment.shortOpenTag": false,
+    "intelephense.phpdoc.returnVoid": false,
+    "intelephense.rename.exclude": [
+      "**/vendor/**",
+      "apps/wordpress/web/**"
+    ],
+    "intelephense.references.exclude": [
+      "**/vendor/**",
+      "apps/wordpress/web/app/mu-plugins/logan-center-plugin/**",
+      "apps/wordpress/web/app/mu-plugins/kleinweb-core-services/**",
+      "apps/wordpress/web/app/themes/logan-center-theme/**"
+    ],
     "intelephense.stubs": [
       "apache",
       "bcmath",
@@ -102,27 +151,6 @@
       "zlib",
       "wordpress"
     ],
-    "stylelint.packageManager": "yarn",
-    "npm.packageManager": "yarn",
-    "eslint.packageManager": "yarn",
-    "stylelint.reportDescriptionlessDisables": true,
-    "stylelint.reportInvalidScopeDisables": true,
-    "stylelint.reportNeedlessDisables": true,
-    "intelephense.environment.phpVersion": "8.0",
-    "intelephense.environment.shortOpenTag": false,
-    "intelephense.phpdoc.returnVoid": false,
-    "intelephense.references.exclude": [
-      "**/vendor/**",
-      "apps/wordpress/web/app/mu-plugins/logan-center-plugin/**",
-      "apps/wordpress/web/app/mu-plugins/kleinweb-core-services/**",
-      "apps/wordpress/web/app/themes/logan-center-theme/**"
-    ],
-    "intelephense.rename.exclude": [
-      "**/vendor/**",
-      "apps/wordpress/**"
-    ],
-    "laravel-pint.enable": true,
-    "intelephense.format.enable": false,
   },
   "extensions": {
     "recommendations": [

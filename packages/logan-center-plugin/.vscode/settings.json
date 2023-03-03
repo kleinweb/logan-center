@@ -1,3 +1,4 @@
 {
-  "laravel-pint.fallbackToGlobalBin": false
+  "laravel-pint.fallbackToGlobalBin": false,
+  "laravel-pint.enable": true
 }
