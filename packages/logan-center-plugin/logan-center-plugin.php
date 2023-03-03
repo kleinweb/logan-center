@@ -18,16 +18,16 @@ declare(strict_types=1);
 
 namespace Klein\LoganCenter;
 
-use Illuminate\Container\Container;
-use Klein\LoganCenter\ContentTypes\Article;
-use Klein\LoganCenter\ContentTypes\Builtins;
-use Klein\LoganCenter\ContentTypes\Project;
-use Klein\LoganCenter\ContentTypes\Scope;
+//use Illuminate\Container\Container;
+//use Klein\LoganCenter\ContentTypes\Article;
+//use Klein\LoganCenter\ContentTypes\Builtins;
+//use Klein\LoganCenter\ContentTypes\Project;
+//use Klein\LoganCenter\ContentTypes\Scope;
 
 require_once __DIR__.'/vendor/autoload.php';
 
-$logan_center = new Container();
-$logan_center['contentTypes.builtins'] = new Builtins();
-$logan_center['contentTypes.article'] = new Article();
-$logan_center['contentTypes.project'] = new Project();
-$logan_center['contentTypes.scope'] = new Scope();
+//$logan_center = new Container();
+//$logan_center['contentTypes.builtins'] = new Builtins();
+//$logan_center['contentTypes.article'] = new Article();
+//$logan_center['contentTypes.project'] = new Project();
+//$logan_center['contentTypes.scope'] = new Scope();
