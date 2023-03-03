@@ -41,7 +41,7 @@ add_action('after_setup_theme', 'custom_theme_setup');
  */
 function custom_admin_scripts()
 {
-    wp_enqueue_script('kleinweb-admin', KLEINWEB_BACKEND_PLUGIN_URL.'/resources/js/admin.js', ['jquery'], '1.1', true);
+    wp_enqueue_script('kleinweb-admin', KLEINWEB_BACKEND_PLUGIN_URL . '/resources/js/admin.js', ['jquery'], '1.1', true);
 }
 add_action('admin_enqueue_scripts', 'custom_admin_scripts');
 
@@ -78,7 +78,7 @@ function custom_loginpage_styles()
 {
     wp_enqueue_style(
         'login_css',
-        KLEINWEB_BACKEND_PLUGIN_URL.'/resources/css/login.css',
+        KLEINWEB_BACKEND_PLUGIN_URL . '/resources/css/login.css',
         null,
         KLEINWEB_BACKEND_PLUGIN_VERSION
     );
@@ -92,7 +92,7 @@ function custom_admin_styles()
 {
     wp_enqueue_style(
         'admin-stylesheet',
-        KLEINWEB_BACKEND_PLUGIN_URL.'/resources/css/admin.css',
+        KLEINWEB_BACKEND_PLUGIN_URL . '/resources/css/admin.css',
         null,
         KLEINWEB_BACKEND_PLUGIN_VERSION
     );
@@ -104,7 +104,7 @@ add_action('admin_print_styles', 'custom_admin_styles');
  */
 function custom_site_favicon()
 {
-    echo '<link rel="shortcut icon" href="'.esc_url(KLEINWEB_BACKEND_PLUGIN_URL.'/favicon.png').'" />';
+    echo '<link rel="shortcut icon" href="' . esc_url(KLEINWEB_BACKEND_PLUGIN_URL . '/favicon.png') . '" />';
 }
 add_action('admin_head', 'custom_site_favicon');
 add_action('login_head', 'custom_site_favicon');
@@ -121,11 +121,11 @@ function rss_post_thumbnail($content)
 
     if (has_post_thumbnail($post->ID)) {
         $content =
-            '<p><a href='.
-            get_permalink($post->ID).
-            '>'.
-            get_the_post_thumbnail($post->ID).
-            '</a></p>'.
+            '<p><a href=' .
+            get_permalink($post->ID) .
+            '>' .
+            get_the_post_thumbnail($post->ID) .
+            '</a></p>' .
             $content;
     }
 
@@ -186,7 +186,7 @@ function add_custom_preview_link($link, $post)
     if ($post->post_name) {
         // Build out new Preview permalink
         if (! function_exists('get_sample_permalink')) {
-            require_once ABSPATH.'wp-admin/includes/post.php';
+            require_once ABSPATH . 'wp-admin/includes/post.php';
         }
 
         $link = get_sample_permalink($post->ID)[0] ?? '';
@@ -261,12 +261,13 @@ function set_custom_permalinks()
     // Save permalinks to a custom setting, force create of rules file
     global $wp_rewrite;
     update_option('rewrite_rules', false);
-    $wp_rewrite->set_permalink_structure('/news/p/%postname%/');
-    $wp_rewrite->set_category_base('/news/c/');
+    $wp_rewrite->set_permalink_structure('/themes/%category%/%postname%/');
+    $wp_rewrite->set_category_base('/themes');
     $wp_rewrite->flush_rules(true);
 }
-// add_action(KLEINWEB_BACKEND_PLUGIN_ACTIVATION_HOOK, 'set_custom_permalinks');
-add_action('init', 'set_custom_permalinks');
+
+add_action(KLEINWEB_BACKEND_PLUGIN_ACTIVATION_HOOK, 'set_custom_permalinks');
+// add_action('init', 'set_custom_permalinks');
 
 /**
  * Strip quotes from oEmbed title html attributes
@@ -284,55 +285,154 @@ function filter_oembed_attributes($return, $data, $url)
     // Strip quotes from title
     $title = str_replace('"', '', $data->title ?: '');
 
-    return str_replace('<iframe', '<iframe title="'.$title.'"', $return);
+    return str_replace('<iframe', '<iframe title="' . $title . '"', $return);
 }
 add_filter('oembed_dataparse', 'filter_oembed_attributes', 10, 4);
 
 /**
- * Update kleinweb_home_url option when Site Address(home) is updated.
- * Normally you'd use `update_option_home` here but I guess Flywheel disabled.
+ * Customize WP home URL to point to frontend.
  *
- * @param  string  $option    Name of the option to update.
- * @param  mixed  $old_value The old option value.
- * @param  mixed  $new_value The new option value.
+ * @author Greg Rickaby
+ * @link <https://github.com/gregrickaby/nextjs-wordpress/blob/f165489831126c6a928b8f74fec8779e489ec0b1/packages/nextjs-wordpress-plugin/inc/links.php#LL44-L85C75>
+ * @param  string $url    Complete home URL, including path.
+ * @param  string $path   Path relative to home URL.
+ * @param  string $scheme Context for home URL.
+ * @return string         Frontend home URL.
  */
-function kleinweb_update_home_url($option, $old_value, $new_value)
+function kleinweb_set_headless_home_url( string $url, string $path, $scheme = null )
 {
-    // phpcs:ignore WordPress.Security.NonceVerification.Missing
-    if (empty($_POST['home'])) {
-        return;
+    global $current_screen;
+
+    if (! defined('KLEINWEB_FRONTEND_URL')) {
+        return $url;
     }
 
-    // Remove filter to not cause infinte loop
-    remove_action('update_option', 'kleinweb_update_home_url', 20, 3);
-    // phpcs:ignore WordPress.Security.NonceVerification.Missing
-    update_option('kleinweb_home_url ', $_POST['home'], true);
-}
-add_action('update_option', 'kleinweb_update_home_url', 20, 3);
-
-/**
- * Return the kleinweb_home_url value when code requests the Site Address (URL)
- *
- * @param  string  $url         The complete home URL including scheme and path.
- * @param  string  $path        Path relative to the home URL. Blank string if no path is specified.
- * @param  string|null  $orig_scheme Scheme to give the home URL context. Accepts 'http', 'https', 'relative', 'rest', or null.
- * @return string
- */
-function kleinweb_get_home_url($url, $path, $orig_scheme)
-{
-    $kleinweb_home_url = $orig_scheme !== 'rest' ? get_option('kleinweb_home_url') : get_option('siteurl');
-
-    if (! empty($kleinweb_home_url)) {
-        $url = untrailingslashit($kleinweb_home_url);
-
-        if ($path && is_string($path)) {
-            $url .= '/'.ltrim($path, '/');
-        }
+    // Don't redirect REST requests.
+    if ($scheme === 'rest') {
+        return $url;
     }
+
+    // Don't redirect if in Block Editor.
+    if (( is_string($current_screen) || is_object($current_screen) ) && method_exists($current_screen, 'is_block_editor')) {
+        return $url;
+    }
+
+    // Don't redirect unless in WP admin.
+    if (! \is_admin()) {
+        return $url;
+    }
+
+    $base_url = KLEINWEB_FRONTEND_URL;
+
+    if (! $path) {
+        return $base_url;
+    }
+
+    // Remove excess slash from beginning of path.
+    $path = ltrim($path, '/');
+
+    // We do not support trailing slashes on the frontend.
+    $url = untrailingslashit("{$base_url}{$path}");
 
     return $url;
 }
-add_filter('home_url', 'kleinweb_get_home_url', 99, 3);
+add_filter('home_url', 'kleinweb_set_headless_home_url', 10, 3);
+
+/**
+ * Customize the REST preview link to point to the headless client.
+ *
+ * @author Greg Rickaby
+ * @see <https://github.com/gregrickaby/nextjs-wordpress/blob/f165489831126c6a928b8f74fec8779e489ec0b1/packages/nextjs-wordpress-plugin/inc/links.php#LL87-L123C93>
+ * @param \WP_REST_Response $response Response object.
+ * @param \WP_Post $post Current post object.
+ * @return \WP_REST_Response Response object.
+ */
+function kleinweb_set_headless_rest_preview_link( WP_REST_Response $response, WP_Post $post )
+{
+    if ($post->post_status === 'draft') {
+        // Manually call preview filter for draft posts.
+        $response->data['link'] = \get_preview_post_link($post);
+    } elseif ($post->post_status === 'publish') {
+        // Override view link for published posts.
+        if (! defined('KLEINWEB_FRONTEND_URL')) {
+            return $response;
+        }
+
+        $baseUrl = untrailingslashit(KLEINWEB_FRONTEND_URL);
+        $permalink = \get_permalink($post);
+        $siteUrl = \get_site_url();
+
+        // Replace site URL if present.
+        if (stristr($permalink, $siteUrl) !== false) {
+            $permalink = str_ireplace($siteUrl, $baseUrl, $permalink);
+        }
+
+        // Return URL based on post name.
+        $response->data['link'] = $permalink;
+    }
+
+    return $response;
+}
+add_filter('rest_prepare_page', 'kleinweb_set_headless_rest_preview_link', 10, 2);
+add_filter('rest_prepare_post', 'kleinweb_set_headless_rest_preview_link', 10, 2);
+// add_filter('rest_prepare_page', __NAMESPACE__ . '\set_headless_rest_preview_link', 10, 2);
+// add_filter('rest_prepare_post', __NAMESPACE__ . '\set_headless_rest_preview_link', 10, 2);
+
+/**
+ * Override links within post content on save to point to headless client.
+ *
+ * @param int $post_id Post ID.
+ */
+function kleinweb_override_post_links( $post_id )
+{
+    // Unhook function to avoid infinite loop.
+    \remove_action('save_post', __NAMESPACE__ . '\override_post_links');
+
+    $post = \get_post($post_id);
+
+    if (! $post || ! defined('HEADLESS_FRONTEND_URL')) {
+        return;
+    }
+
+    $post_content = $post->post_content;
+    $backend_domain = \get_site_url();
+
+    // Check if post content contains WP links.
+    if (stripos($post_content, $backend_domain) === false) {
+        return;
+    }
+
+    $frontend_domain = HEADLESS_FRONTEND_URL;
+    $new_post_content = $post_content;
+
+    // Remove excess slash from end of frontend domain.
+    $frontend_domain = rtrim($frontend_domain, '/');
+
+    // Replace WP domain with FE domain.
+    $new_post_content = str_ireplace($backend_domain, $frontend_domain, $post_content);
+
+    // Revert media links.
+    $upload_dir = \wp_upload_dir();
+    $upload_dir = str_ireplace($backend_domain, '', $upload_dir['baseurl']);
+    $new_post_content = str_ireplace("{$frontend_domain}{$upload_dir}", "{$backend_domain}{$upload_dir}", $new_post_content);
+
+    // Revert plugin links.
+    $plugin_dir = defined('WP_PLUGIN_URL') ? WP_PLUGIN_URL : '/wp-content/plugins';
+    $plugin_dir = str_ireplace($backend_domain, '', $plugin_dir);
+    $new_post_content = str_ireplace("{$frontend_domain}{$plugin_dir}", "{$backend_domain}{$plugin_dir}", $new_post_content);
+
+    // Save post.
+    \wp_update_post(
+        [
+            'ID' => $post_id,
+            'post_content' => \wp_slash($new_post_content),
+        ]
+    );
+
+    // Re-hook function.
+    \add_action('save_post', __NAMESPACE__ . '\override_post_links');
+}
+add_action('save_post', __NAMESPACE__ . '\override_post_links');
 
 /**
  * Update the Site Address value in General Settings panel to return kleinweb override
@@ -344,7 +444,7 @@ function kleinweb_filter_home_option($value)
 {
     global $pagenow;
     if ($pagenow === 'options-general.php') {
-        $value = get_option('kleinweb_home_url');
+        $value = KLEINWEB_FRONTEND_URL;
     }
 
     return $value;
@@ -361,6 +461,7 @@ function kleinweb_allow_siteurl_safe_redirect($hosts)
 {
     $wpp = wp_parse_url(site_url());
 
+    // NOTE: this might not be a reliable value -- i've seen 'host' not available in some removed code
     return array_merge($hosts, [$wpp['host']]);
 }
 add_filter('allowed_redirect_hosts', 'kleinweb_allow_siteurl_safe_redirect');

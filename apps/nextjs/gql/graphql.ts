@@ -19,6 +19,12 @@ export type Scalars = {
   BlockAttributesObject: any
 }
 
+/** A Field Group registered by ACF */
+export type AcfFieldGroup = {
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>
+}
+
 /** Avatars are profile images for users. WordPress by default uses the Gravatar service to host and fetch avatars from. */
 export type Avatar = {
   __typename?: 'Avatar'
@@ -76,8 +82,6 @@ export type Category = DatabaseIdentifier &
     categoryId?: Maybe<Scalars['Int']>
     /** Connection between the category type and its children categories. */
     children?: Maybe<CategoryToCategoryConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the Category type and the ContentNode type */
     contentNodes?: Maybe<CategoryToContentNodeConnection>
     /** The number of objects connected to the object */
@@ -116,7 +120,6 @@ export type Category = DatabaseIdentifier &
     taxonomy?: Maybe<CategoryToTaxonomyConnectionEdge>
     /** The name of the taxonomy that the object is associated with */
     taxonomyName?: Maybe<Scalars['String']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The ID of the term group that this term object belongs to */
     termGroupId?: Maybe<Scalars['Int']>
     /** The taxonomy ID that the object is associated with */
@@ -842,121 +845,6 @@ export enum CommentsConnectionOrderbyEnum {
   UserId = 'USER_ID',
 }
 
-/** GraphQL representation of WordPress Conditional Tags. */
-export type ConditionalTags = {
-  __typename?: 'ConditionalTags'
-  /**
-   * Determines whether the query is for an existing archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isArchive?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing attachment page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isAttachment?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing author archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isAuthor?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing category archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isCategory?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing date archive.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isDate?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing day archive.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isDay?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for the front page of the site.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isFrontPage?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for the blog homepage.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isHome?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing month archive.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isMonth?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether this site has more than one author.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isMultiAuthor?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing single page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPage?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether currently in a page template.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPageTemplate?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing post type archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPostTypeArchive?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for a post or page preview.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPreview?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for the Privacy Policy page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPrivacyPolicy?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for a search.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isSearch?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing single post.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isSingle?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing single post of any post type (post, attachment, page, custom post types).
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isSingular?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether a post is sticky.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isSticky?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing tag archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isTag?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing custom taxonomy archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isTax?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing year archive.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isYear?: Maybe<Scalars['Boolean']>
-}
-
 /** A plural connection from one Node Type in the Graph to another Node Type, with support for relational data via &quot;edges&quot;. */
 export type Connection = {
   /** A list of edges (relational context) between connected nodes */
@@ -989,8 +877,6 @@ export type ContentBlock = {
 
 /** Nodes used to manage content */
 export type ContentNode = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** Connection between the ContentNode type and the ContentType type */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
   /** The name of the Content Type the node belongs to */
@@ -1041,7 +927,6 @@ export type ContentNode = {
   status?: Maybe<Scalars['String']>
   /** The template assigned to a node of content */
   template?: Maybe<ContentTemplate>
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -1179,8 +1064,6 @@ export type ContentType = Node &
     __typename?: 'ContentType'
     /** Whether this content type should can be exported. */
     canExport?: Maybe<Scalars['Boolean']>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the ContentType type and the Taxonomy type */
     connectedTaxonomies?: Maybe<ContentTypeToTaxonomyConnection>
     /** Connection between the ContentType type and the ContentNode type */
@@ -1241,7 +1124,6 @@ export type ContentType = Node &
     showInRest?: Maybe<Scalars['Boolean']>
     /** Whether to generate and allow a UI for managing this content type in the admin. */
     showUi?: Maybe<Scalars['Boolean']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The unique resource identifier path */
     uri?: Maybe<Scalars['String']>
   }
@@ -1395,6 +1277,8 @@ export enum ContentTypesOfPostFormatEnum {
 
 /** Allowed Content Types of the Tag taxonomy. */
 export enum ContentTypesOfTagEnum {
+  /** The Type of Content object */
+  Page = 'PAGE',
   /** The Type of Content object */
   Post = 'POST',
 }
@@ -5370,6 +5254,8 @@ export type CreatePageInput = {
   slug?: InputMaybe<Scalars['String']>
   /** The status of the object */
   status?: InputMaybe<PostStatusEnum>
+  /** Set connections between the page and tags */
+  tags?: InputMaybe<PageTagsInput>
   /** The title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -5869,37 +5755,12 @@ export type GeneralSettings = {
   url?: Maybe<Scalars['String']>
 }
 
-/** Input for the generateAuthorizationCode mutation. */
-export type GenerateAuthorizationCodeInput = {
-  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: InputMaybe<Scalars['String']>
-  /** Email for WordPress user */
-  email?: InputMaybe<Scalars['String']>
-  /** Password for WordPress user */
-  password?: InputMaybe<Scalars['String']>
-  /** Username for WordPress user */
-  username?: InputMaybe<Scalars['String']>
-}
-
-/** The payload for the generateAuthorizationCode mutation. */
-export type GenerateAuthorizationCodePayload = {
-  __typename?: 'GenerateAuthorizationCodePayload'
-  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: Maybe<Scalars['String']>
-  /** Authorization code used for requesting refresh/access tokens */
-  code?: Maybe<Scalars['String']>
-  /** Error encountered during user authentication, if any */
-  error?: Maybe<Scalars['String']>
-}
-
 /** Content node with hierarchical (parent/child) relationships */
 export type HierarchicalContentNode = {
   /** Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root). */
   ancestors?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>
   /** Connection between the HierarchicalContentNode type and the ContentNode type */
   children?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** Connection between the ContentNode type and the ContentType type */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
   /** The name of the Content Type the node belongs to */
@@ -5956,7 +5817,6 @@ export type HierarchicalContentNode = {
   status?: Maybe<Scalars['String']>
   /** The template assigned to a node of content */
   template?: Maybe<ContentTemplate>
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -6149,8 +6009,6 @@ export type HierarchicalNode = {
 
 /** Term node with hierarchical (parent/child) relationships */
 export type HierarchicalTermNode = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** The number of objects connected to the object */
   count?: Maybe<Scalars['Int']>
   /** The unique identifier stored in the database */
@@ -6181,7 +6039,6 @@ export type HierarchicalTermNode = {
   slug?: Maybe<Scalars['String']>
   /** The name of the taxonomy that the object is associated with */
   taxonomyName?: Maybe<Scalars['String']>
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The ID of the term group that this term object belongs to */
   termGroupId?: Maybe<Scalars['Int']>
   /** The taxonomy ID that the object is associated with */
@@ -6288,8 +6145,6 @@ export type MediaItem = ContentNode &
     caption?: Maybe<Scalars['String']>
     /** Connection between the HierarchicalContentNode type and the ContentNode type */
     children?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the ContentNode type and the ContentType type */
     contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
     /** The name of the Content Type the node belongs to */
@@ -6306,6 +6161,7 @@ export type MediaItem = ContentNode &
     desiredSlug?: Maybe<Scalars['String']>
     /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
     editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>
+    element?: Maybe<Scalars['String']>
     /** The RSS enclosure for the object */
     enclosure?: Maybe<Scalars['String']>
     /** Connection between the ContentNode type and the EnqueuedScript type */
@@ -6347,6 +6203,8 @@ export type MediaItem = ContentNode &
     modified?: Maybe<Scalars['String']>
     /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
     modifiedGmt?: Maybe<Scalars['String']>
+    /** The next post of the current port */
+    nextMediaItem?: Maybe<NextMediaItemEdge>
     /** The parent of the node. The parent object can be of various types */
     parent?: Maybe<HierarchicalContentNodeToParentContentNodeConnectionEdge>
     /** Database id of the parent node */
@@ -6357,6 +6215,8 @@ export type MediaItem = ContentNode &
     previewRevisionDatabaseId?: Maybe<Scalars['Int']>
     /** Whether the object is a node in the preview state */
     previewRevisionId?: Maybe<Scalars['ID']>
+    /** The previous post of the current post */
+    previousMediaItem?: Maybe<PreviousMediaItemEdge>
     /** The sizes attribute value for an image. */
     sizes?: Maybe<Scalars['String']>
     /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
@@ -6369,7 +6229,6 @@ export type MediaItem = ContentNode &
     status?: Maybe<Scalars['String']>
     /** The template assigned to a node of content */
     template?: Maybe<ContentTemplate>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
     title?: Maybe<Scalars['String']>
     /** The unique resource identifier path */
@@ -6423,6 +6282,24 @@ export type MediaItemEnqueuedStylesheetsArgs = {
 /** The mediaItem type */
 export type MediaItemFileSizeArgs = {
   size?: InputMaybe<MediaItemSizeEnum>
+}
+
+/** The mediaItem type */
+export type MediaItemNextMediaItemArgs = {
+  inSameTerm?: InputMaybe<Scalars['Boolean']>
+  loop?: InputMaybe<Scalars['Boolean']>
+  taxonomy?: InputMaybe<Scalars['String']>
+  termNotIn?: InputMaybe<Scalars['String']>
+  termSlugNotIn?: InputMaybe<Scalars['String']>
+}
+
+/** The mediaItem type */
+export type MediaItemPreviousMediaItemArgs = {
+  inSameTerm?: InputMaybe<Scalars['Boolean']>
+  loop?: InputMaybe<Scalars['Boolean']>
+  taxonomy?: InputMaybe<Scalars['String']>
+  termNotIn?: InputMaybe<Scalars['String']>
+  termSlugNotIn?: InputMaybe<Scalars['String']>
 }
 
 /** The mediaItem type */
@@ -6702,8 +6579,6 @@ export type MenuItemConnectionEdge = {
 
 /** Nodes that can be linked to as Menu Items */
 export type MenuItemLinkable = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** The unique identifier stored in the database */
   databaseId: Scalars['Int']
   /** The unique resource identifier path */
@@ -6712,7 +6587,6 @@ export type MenuItemLinkable = {
   isContentNode: Scalars['Boolean']
   /** Whether the node is a Term */
   isTermNode: Scalars['Boolean']
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -6794,10 +6668,8 @@ export type MenuItemToMenuItemLinkableConnectionEdge = Edge &
 
 /** Registered menu locations */
 export enum MenuLocationEnum {
-  /** Put the menu in the footer location */
-  Footer = 'FOOTER',
-  /** Put the menu in the primary location */
-  Primary = 'PRIMARY',
+  /** Empty menu location */
+  Empty = 'EMPTY',
 }
 
 /** The Type of Identifier used to fetch a single node. Default is "ID". To be used along with the "id" field. */
@@ -7030,6 +6902,24 @@ export enum MimeTypeEnum {
   VideoXMsWmx = 'VIDEO_X_MS_WMX',
 }
 
+export type NextMediaItemEdge = {
+  __typename?: 'NextMediaItemEdge'
+  /** The node of the next item */
+  node?: Maybe<MediaItem>
+}
+
+export type NextPageEdge = {
+  __typename?: 'NextPageEdge'
+  /** The node of the next item */
+  node?: Maybe<Page>
+}
+
+export type NextPostEdge = {
+  __typename?: 'NextPostEdge'
+  /** The node of the next item */
+  node?: Maybe<Post>
+}
+
 /** An object with an ID */
 export type Node = {
   /** The globally unique ID for the object */
@@ -7074,6 +6964,7 @@ export type NodeWithContentBlocksContentBlocksArgs = {
 export type NodeWithContentEditor = {
   /** The content of the post. */
   content?: Maybe<Scalars['String']>
+  encodedContent?: Maybe<Scalars['String']>
   /** The globally unique ID for the object */
   id: Scalars['ID']
 }
@@ -7215,8 +7106,6 @@ export type Page = ContentNode &
     authorId?: Maybe<Scalars['ID']>
     /** Connection between the HierarchicalContentNode type and the ContentNode type */
     children?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** The content of the post. */
     content?: Maybe<Scalars['String']>
     /** List of content blocks */
@@ -7237,6 +7126,7 @@ export type Page = ContentNode &
     editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>
     /** The RSS enclosure for the object */
     enclosure?: Maybe<Scalars['String']>
+    encodedContent?: Maybe<Scalars['String']>
     /** Connection between the ContentNode type and the EnqueuedScript type */
     enqueuedScripts?: Maybe<ContentNodeToEnqueuedScriptConnection>
     /** Connection between the ContentNode type and the EnqueuedStylesheet type */
@@ -7279,6 +7169,8 @@ export type Page = ContentNode &
     modified?: Maybe<Scalars['String']>
     /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
     modifiedGmt?: Maybe<Scalars['String']>
+    /** The next post of the current port */
+    nextPage?: Maybe<NextPageEdge>
     /**
      * The id field matches the WP_Post-&gt;ID field.
      * @deprecated Deprecated in favor of the databaseId field
@@ -7296,6 +7188,8 @@ export type Page = ContentNode &
     previewRevisionDatabaseId?: Maybe<Scalars['Int']>
     /** Whether the object is a node in the preview state */
     previewRevisionId?: Maybe<Scalars['ID']>
+    /** The previous post of the current post */
+    previousPage?: Maybe<PreviousPageEdge>
     /** If the current node is a revision, this field exposes the node this is a revision of. Returns null if the node is not a revision of another node. */
     revisionOf?: Maybe<NodeWithRevisionsToContentNodeConnectionEdge>
     /** Connection between the Page type and the page type */
@@ -7304,9 +7198,12 @@ export type Page = ContentNode &
     slug?: Maybe<Scalars['String']>
     /** The current status of the object */
     status?: Maybe<Scalars['String']>
+    /** Connection between the Page type and the tag type */
+    tags?: Maybe<PageToTagConnection>
     /** The template assigned to a node of content */
     template?: Maybe<ContentTemplate>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
+    /** Connection between the Page type and the TermNode type */
+    terms?: Maybe<PageToTermNodeConnection>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
     title?: Maybe<Scalars['String']>
     /** The unique resource identifier path */
@@ -7363,12 +7260,48 @@ export type PageExcerptArgs = {
 }
 
 /** The page type */
+export type PageNextPageArgs = {
+  inSameTerm?: InputMaybe<Scalars['Boolean']>
+  loop?: InputMaybe<Scalars['Boolean']>
+  taxonomy?: InputMaybe<Scalars['String']>
+  termNotIn?: InputMaybe<Scalars['String']>
+  termSlugNotIn?: InputMaybe<Scalars['String']>
+}
+
+/** The page type */
+export type PagePreviousPageArgs = {
+  inSameTerm?: InputMaybe<Scalars['Boolean']>
+  loop?: InputMaybe<Scalars['Boolean']>
+  taxonomy?: InputMaybe<Scalars['String']>
+  termNotIn?: InputMaybe<Scalars['String']>
+  termSlugNotIn?: InputMaybe<Scalars['String']>
+}
+
+/** The page type */
 export type PageRevisionsArgs = {
   after?: InputMaybe<Scalars['String']>
   before?: InputMaybe<Scalars['String']>
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
   where?: InputMaybe<PageToRevisionConnectionWhereArgs>
+}
+
+/** The page type */
+export type PageTagsArgs = {
+  after?: InputMaybe<Scalars['String']>
+  before?: InputMaybe<Scalars['String']>
+  first?: InputMaybe<Scalars['Int']>
+  last?: InputMaybe<Scalars['Int']>
+  where?: InputMaybe<PageToTagConnectionWhereArgs>
+}
+
+/** The page type */
+export type PageTermsArgs = {
+  after?: InputMaybe<Scalars['String']>
+  before?: InputMaybe<Scalars['String']>
+  first?: InputMaybe<Scalars['Int']>
+  last?: InputMaybe<Scalars['Int']>
+  where?: InputMaybe<PageToTermNodeConnectionWhereArgs>
 }
 
 /** The page type */
@@ -7400,6 +7333,26 @@ export enum PageIdType {
   Id = 'ID',
   /** Identify a resource by the URI. */
   Uri = 'URI',
+}
+
+/** Set relationships between the page to tags */
+export type PageTagsInput = {
+  /** If true, this will append the tag to existing related tags. If false, this will replace existing relationships. Default true. */
+  append?: InputMaybe<Scalars['Boolean']>
+  /** The input list of items to set. */
+  nodes?: InputMaybe<Array<InputMaybe<PageTagsNodeInput>>>
+}
+
+/** List of tags to connect the page to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
+export type PageTagsNodeInput = {
+  /** The description of the tag. This field is used to set a description of the tag if a new one is created during the mutation. */
+  description?: InputMaybe<Scalars['String']>
+  /** The ID of the tag. If present, this will be used to connect to the page. If no existing tag exists with this ID, no connection will be made. */
+  id?: InputMaybe<Scalars['ID']>
+  /** The name of the tag. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field. */
+  name?: InputMaybe<Scalars['String']>
+  /** The slug of the tag. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation. */
+  slug?: InputMaybe<Scalars['String']>
 }
 
 /** Connection between the Page type and the page type */
@@ -7477,8 +7430,158 @@ export type PageToRevisionConnectionWhereArgs = {
   stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
   /** Show posts with a specific status. */
   status?: InputMaybe<PostStatusEnum>
+  /** Tag Slug */
+  tag?: InputMaybe<Scalars['String']>
+  /** Use Tag ID */
+  tagId?: InputMaybe<Scalars['String']>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag slugs, used to display objects from one tag AND another */
+  tagSlugAnd?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Array of tag slugs, used to include objects in ANY specified tags */
+  tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>
+}
+
+/** Connection between the Page type and the tag type */
+export type PageToTagConnection = Connection &
+  TagConnection & {
+    __typename?: 'PageToTagConnection'
+    /** Edges for the PageToTagConnection connection */
+    edges: Array<PageToTagConnectionEdge>
+    /** The nodes of the connection, without the edges */
+    nodes: Array<Tag>
+    /** Information about pagination in a connection. */
+    pageInfo?: Maybe<WpPageInfo>
+  }
+
+/** An edge in a connection */
+export type PageToTagConnectionEdge = Edge &
+  TagConnectionEdge & {
+    __typename?: 'PageToTagConnectionEdge'
+    /** A cursor for use in pagination */
+    cursor?: Maybe<Scalars['String']>
+    /** The item at the end of the edge */
+    node: Tag
+  }
+
+/** Arguments for filtering the PageToTagConnection connection */
+export type PageToTagConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars['String']>
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars['Int']>
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars['Boolean']>
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars['String']>
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars['Boolean']>
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars['Boolean']>
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars['String']>
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars['Boolean']>
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars['Int']>
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars['String']>
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomyId?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars['Boolean']>
+}
+
+/** Connection between the Page type and the TermNode type */
+export type PageToTermNodeConnection = Connection &
+  TermNodeConnection & {
+    __typename?: 'PageToTermNodeConnection'
+    /** Edges for the PageToTermNodeConnection connection */
+    edges: Array<PageToTermNodeConnectionEdge>
+    /** The nodes of the connection, without the edges */
+    nodes: Array<TermNode>
+    /** Information about pagination in a connection. */
+    pageInfo?: Maybe<WpPageInfo>
+  }
+
+/** An edge in a connection */
+export type PageToTermNodeConnectionEdge = Edge &
+  TermNodeConnectionEdge & {
+    __typename?: 'PageToTermNodeConnectionEdge'
+    /** A cursor for use in pagination */
+    cursor?: Maybe<Scalars['String']>
+    /** The item at the end of the edge */
+    node: TermNode
+  }
+
+/** Arguments for filtering the PageToTermNodeConnection connection */
+export type PageToTermNodeConnectionWhereArgs = {
+  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
+  cacheDomain?: InputMaybe<Scalars['String']>
+  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
+  childOf?: InputMaybe<Scalars['Int']>
+  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
+  childless?: InputMaybe<Scalars['Boolean']>
+  /** Retrieve terms where the description is LIKE the input value. Default empty. */
+  descriptionLike?: InputMaybe<Scalars['String']>
+  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
+  exclude?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
+  excludeTree?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
+  hideEmpty?: InputMaybe<Scalars['Boolean']>
+  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
+  hierarchical?: InputMaybe<Scalars['Boolean']>
+  /** Array of term ids to include. Default empty array. */
+  include?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of names to return term(s) for. Default empty. */
+  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Retrieve terms where the name is LIKE the input value. Default empty. */
+  nameLike?: InputMaybe<Scalars['String']>
+  /** Array of object IDs. Results will be limited to terms associated with these objects. */
+  objectIds?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Direction the connection should be ordered in */
+  order?: InputMaybe<OrderEnum>
+  /** Field(s) to order terms by. Defaults to 'name'. */
+  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>
+  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
+  padCounts?: InputMaybe<Scalars['Boolean']>
+  /** Parent term ID to retrieve direct-child terms of. Default empty. */
+  parent?: InputMaybe<Scalars['Int']>
+  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
+  search?: InputMaybe<Scalars['String']>
+  /** Array of slugs to return term(s) for. Default empty. */
+  slug?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** The Taxonomy to filter terms by */
+  taxonomies?: InputMaybe<Array<InputMaybe<TaxonomyEnum>>>
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of term taxonomy IDs, to match when querying terms. */
+  termTaxonomyId?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Whether to prime meta caches for matched terms. Default true. */
+  updateTermMetaCache?: InputMaybe<Scalars['Boolean']>
 }
 
 /** An plugin object */
@@ -7564,8 +7667,6 @@ export type Post = ContentNode &
     authors?: Maybe<PostToAuthorsConnection>
     /** Connection between the Post type and the category type */
     categories?: Maybe<PostToCategoryConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** The content of the post. */
     content?: Maybe<Scalars['String']>
     /** List of content blocks */
@@ -7586,6 +7687,7 @@ export type Post = ContentNode &
     editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>
     /** The RSS enclosure for the object */
     enclosure?: Maybe<Scalars['String']>
+    encodedContent?: Maybe<Scalars['String']>
     /** Connection between the ContentNode type and the EnqueuedScript type */
     enqueuedScripts?: Maybe<ContentNodeToEnqueuedScriptConnection>
     /** Connection between the ContentNode type and the EnqueuedStylesheet type */
@@ -7622,6 +7724,8 @@ export type Post = ContentNode &
     modified?: Maybe<Scalars['String']>
     /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
     modifiedGmt?: Maybe<Scalars['String']>
+    /** The next post of the current port */
+    nextPost?: Maybe<NextPostEdge>
     /** Connection between the Post type and the postFormat type */
     postFormats?: Maybe<PostToPostFormatConnection>
     /**
@@ -7635,6 +7739,8 @@ export type Post = ContentNode &
     previewRevisionDatabaseId?: Maybe<Scalars['Int']>
     /** Whether the object is a node in the preview state */
     previewRevisionId?: Maybe<Scalars['ID']>
+    /** The previous post of the current post */
+    previousPost?: Maybe<PreviousPostEdge>
     /** If the current node is a revision, this field exposes the node this is a revision of. Returns null if the node is not a revision of another node. */
     revisionOf?: Maybe<NodeWithRevisionsToContentNodeConnectionEdge>
     /** Connection between the Post type and the post type */
@@ -7647,7 +7753,6 @@ export type Post = ContentNode &
     tags?: Maybe<PostToTagConnection>
     /** The template assigned to the node */
     template?: Maybe<ContentTemplate>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** Connection between the Post type and the TermNode type */
     terms?: Maybe<PostToTermNodeConnection>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
@@ -7705,12 +7810,30 @@ export type PostExcerptArgs = {
 }
 
 /** The post type */
+export type PostNextPostArgs = {
+  inSameTerm?: InputMaybe<Scalars['Boolean']>
+  loop?: InputMaybe<Scalars['Boolean']>
+  taxonomy?: InputMaybe<Scalars['String']>
+  termNotIn?: InputMaybe<Scalars['String']>
+  termSlugNotIn?: InputMaybe<Scalars['String']>
+}
+
+/** The post type */
 export type PostPostFormatsArgs = {
   after?: InputMaybe<Scalars['String']>
   before?: InputMaybe<Scalars['String']>
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
   where?: InputMaybe<PostToPostFormatConnectionWhereArgs>
+}
+
+/** The post type */
+export type PostPreviousPostArgs = {
+  inSameTerm?: InputMaybe<Scalars['Boolean']>
+  loop?: InputMaybe<Scalars['Boolean']>
+  taxonomy?: InputMaybe<Scalars['String']>
+  termNotIn?: InputMaybe<Scalars['String']>
+  termSlugNotIn?: InputMaybe<Scalars['String']>
 }
 
 /** The post type */
@@ -7787,8 +7910,6 @@ export type PostFormat = DatabaseIdentifier &
   TermNode &
   UniformResourceIdentifiable & {
     __typename?: 'PostFormat'
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the PostFormat type and the ContentNode type */
     contentNodes?: Maybe<PostFormatToContentNodeConnection>
     /** The number of objects connected to the object */
@@ -7826,7 +7947,6 @@ export type PostFormat = DatabaseIdentifier &
     taxonomy?: Maybe<PostFormatToTaxonomyConnectionEdge>
     /** The name of the taxonomy that the object is associated with */
     taxonomyName?: Maybe<Scalars['String']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The ID of the term group that this term object belongs to */
     termGroupId?: Maybe<Scalars['Int']>
     /** The taxonomy ID that the object is associated with */
@@ -8650,6 +8770,24 @@ export type Previewable = {
   previewRevisionId?: Maybe<Scalars['ID']>
 }
 
+export type PreviousMediaItemEdge = {
+  __typename?: 'PreviousMediaItemEdge'
+  /** The node of the previous item */
+  node?: Maybe<MediaItem>
+}
+
+export type PreviousPageEdge = {
+  __typename?: 'PreviousPageEdge'
+  /** The node of the previous item */
+  node?: Maybe<Page>
+}
+
+export type PreviousPostEdge = {
+  __typename?: 'PreviousPostEdge'
+  /** The node of the previous item */
+  node?: Maybe<Post>
+}
+
 /** The reading setting type */
 export type ReadingSettings = {
   __typename?: 'ReadingSettings'
@@ -8793,8 +8931,6 @@ export type RootMutation = {
   deleteTag?: Maybe<DeleteTagPayload>
   /** The deleteUser mutation */
   deleteUser?: Maybe<DeleteUserPayload>
-  /** The generateAuthorizationCode mutation */
-  generateAuthorizationCode?: Maybe<GenerateAuthorizationCodePayload>
   /** Increase the count. */
   increaseCount?: Maybe<Scalars['Int']>
   /** The loginWithCookies mutation */
@@ -8910,13 +9046,18 @@ export type RootMutationDeleteUserArgs = {
 }
 
 /** The root mutation */
-export type RootMutationGenerateAuthorizationCodeArgs = {
-  input: GenerateAuthorizationCodeInput
+export type RootMutationIncreaseCountArgs = {
+  count?: InputMaybe<Scalars['Int']>
 }
 
 /** The root mutation */
-export type RootMutationIncreaseCountArgs = {
-  count?: InputMaybe<Scalars['Int']>
+export type RootMutationLoginWithCookiesArgs = {
+  input: LoginWithCookiesInput
+}
+
+/** The root mutation */
+export type RootMutationLogoutArgs = {
+  input: LogoutInput
 }
 
 /** The root mutation */
@@ -9074,6 +9215,8 @@ export type RootQuery = {
   registeredStylesheets?: Maybe<RootQueryToEnqueuedStylesheetConnection>
   /** Connection between the RootQuery type and the ContentNode type */
   revisions?: Maybe<RootQueryToRevisionsConnection>
+  /** Site Options options. */
+  siteOptions?: Maybe<SiteOptions>
   /** A 0bject */
   tag?: Maybe<Tag>
   /** Connection between the RootQuery type and the tag type */
@@ -9894,6 +10037,18 @@ export type RootQueryToPageConnectionWhereArgs = {
   stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
   /** Show posts with a specific status. */
   status?: InputMaybe<PostStatusEnum>
+  /** Tag Slug */
+  tag?: InputMaybe<Scalars['String']>
+  /** Use Tag ID */
+  tagId?: InputMaybe<Scalars['String']>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag slugs, used to display objects from one tag AND another */
+  tagSlugAnd?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Array of tag slugs, used to include objects in ANY specified tags */
+  tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -10471,6 +10626,44 @@ export type Settings = {
   writingSettingsUseSmilies?: Maybe<Scalars['Boolean']>
 }
 
+/** Site Options options. */
+export type SiteOptions = {
+  __typename?: 'SiteOptions'
+  pageSlug?: Maybe<Scalars['String']>
+  pageTitle?: Maybe<Scalars['String']>
+  /** Added to the GraphQL Schema because the ACF Field Group &quot;Site Options&quot; was set to Show in GraphQL. */
+  siteOptions?: Maybe<SiteOptions_Siteoptions>
+}
+
+/** Field Group */
+export type SiteOptions_Siteoptions = AcfFieldGroup & {
+  __typename?: 'SiteOptions_Siteoptions'
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>
+  /** Enter Google Analytics tracking codes. Uses the gtag.js tracking method. */
+  googleAnalytics?: Maybe<Array<Maybe<SiteOptions_Siteoptions_GoogleAnalytics>>>
+  socialMedia?: Maybe<Array<Maybe<SiteOptions_Siteoptions_SocialMedia>>>
+  /** This image is used when people share the site on social media, unless a more relevant image is found. The ideal size for this image is 1200px wide by 630px high. */
+  socialSharedImage?: Maybe<MediaItem>
+}
+
+/** Field Group */
+export type SiteOptions_Siteoptions_GoogleAnalytics = AcfFieldGroup & {
+  __typename?: 'SiteOptions_Siteoptions_googleAnalytics'
+  code?: Maybe<Scalars['String']>
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>
+}
+
+/** Field Group */
+export type SiteOptions_Siteoptions_SocialMedia = AcfFieldGroup & {
+  __typename?: 'SiteOptions_Siteoptions_socialMedia'
+  /** The name of the ACF Field Group */
+  fieldGroupName?: Maybe<Scalars['String']>
+  platform?: Maybe<Scalars['String']>
+  url?: Maybe<Scalars['String']>
+}
+
 /** The tag type */
 export type Tag = DatabaseIdentifier &
   MenuItemLinkable &
@@ -10478,8 +10671,6 @@ export type Tag = DatabaseIdentifier &
   TermNode &
   UniformResourceIdentifiable & {
     __typename?: 'Tag'
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the Tag type and the ContentNode type */
     contentNodes?: Maybe<TagToContentNodeConnection>
     /** The number of objects connected to the object */
@@ -10504,6 +10695,8 @@ export type Tag = DatabaseIdentifier &
     link?: Maybe<Scalars['String']>
     /** The human friendly name of the object. */
     name?: Maybe<Scalars['String']>
+    /** Connection between the Tag type and the page type */
+    pages?: Maybe<TagToPageConnection>
     /** Connection between the Tag type and the post type */
     posts?: Maybe<TagToPostConnection>
     /** An alphanumeric identifier for the object unique to its type. */
@@ -10517,7 +10710,6 @@ export type Tag = DatabaseIdentifier &
     taxonomy?: Maybe<TagToTaxonomyConnectionEdge>
     /** The name of the taxonomy that the object is associated with */
     taxonomyName?: Maybe<Scalars['String']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The ID of the term group that this term object belongs to */
     termGroupId?: Maybe<Scalars['Int']>
     /** The taxonomy ID that the object is associated with */
@@ -10549,6 +10741,15 @@ export type TagEnqueuedStylesheetsArgs = {
   before?: InputMaybe<Scalars['String']>
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
+}
+
+/** The tag type */
+export type TagPagesArgs = {
+  after?: InputMaybe<Scalars['String']>
+  before?: InputMaybe<Scalars['String']>
+  first?: InputMaybe<Scalars['Int']>
+  last?: InputMaybe<Scalars['Int']>
+  where?: InputMaybe<TagToPageConnectionWhereArgs>
 }
 
 /** The tag type */
@@ -10648,6 +10849,86 @@ export type TagToContentNodeConnectionWhereArgs = {
   stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
   /** Show posts with a specific status. */
   status?: InputMaybe<PostStatusEnum>
+  /** Title of the object */
+  title?: InputMaybe<Scalars['String']>
+}
+
+/** Connection between the Tag type and the page type */
+export type TagToPageConnection = Connection &
+  PageConnection & {
+    __typename?: 'TagToPageConnection'
+    /** Edges for the TagToPageConnection connection */
+    edges: Array<TagToPageConnectionEdge>
+    /** The nodes of the connection, without the edges */
+    nodes: Array<Page>
+    /** Information about pagination in a connection. */
+    pageInfo?: Maybe<WpPageInfo>
+  }
+
+/** An edge in a connection */
+export type TagToPageConnectionEdge = Edge &
+  PageConnectionEdge & {
+    __typename?: 'TagToPageConnectionEdge'
+    /** A cursor for use in pagination */
+    cursor?: Maybe<Scalars['String']>
+    /** The item at the end of the edge */
+    node: Page
+  }
+
+/** Arguments for filtering the TagToPageConnection connection */
+export type TagToPageConnectionWhereArgs = {
+  /** The user that's connected as the author of the object. Use the userId for the author object. */
+  author?: InputMaybe<Scalars['Int']>
+  /** Find objects connected to author(s) in the array of author's userIds */
+  authorIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Find objects connected to the author by the author's nicename */
+  authorName?: InputMaybe<Scalars['String']>
+  /** Find objects NOT connected to author(s) in the array of author's userIds */
+  authorNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars['Boolean']>
+  /** Specific database ID of the object */
+  id?: InputMaybe<Scalars['Int']>
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars['String']>
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** What paramater to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars['ID']>
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars['String']>
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars['String']>
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>
+  /** Tag Slug */
+  tag?: InputMaybe<Scalars['String']>
+  /** Use Tag ID */
+  tagId?: InputMaybe<Scalars['String']>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag slugs, used to display objects from one tag AND another */
+  tagSlugAnd?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Array of tag slugs, used to include objects in ANY specified tags */
+  tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -10862,8 +11143,6 @@ export type TaxonomyToContentTypeConnectionEdge = ContentTypeConnectionEdge &
 
 /** Terms are nodes within a Taxonomy, used to group and relate other nodes. */
 export type TermNode = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** The number of objects connected to the object */
   count?: Maybe<Scalars['Int']>
   /** Identifies the primary key from the database. */
@@ -10890,7 +11169,6 @@ export type TermNode = {
   slug?: Maybe<Scalars['String']>
   /** The name of the taxonomy that the object is associated with */
   taxonomyName?: Maybe<Scalars['String']>
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The ID of the term group that this term object belongs to */
   termGroupId?: Maybe<Scalars['Int']>
   /** The taxonomy ID that the object is associated with */
@@ -11052,15 +11330,12 @@ export type ThemeConnectionEdge = {
 
 /** Any node that has a URI */
 export type UniformResourceIdentifiable = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** The unique resource identifier path */
   id: Scalars['ID']
   /** Whether the node is a Content Node */
   isContentNode: Scalars['Boolean']
   /** Whether the node is a Term */
   isTermNode: Scalars['Boolean']
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -11223,6 +11498,8 @@ export type UpdatePageInput = {
   slug?: InputMaybe<Scalars['String']>
   /** The status of the object */
   status?: InputMaybe<PostStatusEnum>
+  /** Set connections between the page and tags */
+  tags?: InputMaybe<PageTagsInput>
   /** The title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -11449,8 +11726,6 @@ export type User = Commenter &
     capabilities?: Maybe<Array<Maybe<Scalars['String']>>>
     /** Connection between the User type and the Comment type */
     comments?: Maybe<UserToCommentConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Identifies the primary key from the database. */
     databaseId: Scalars['Int']
     /** Description of the user. */
@@ -11497,7 +11772,6 @@ export type User = Commenter &
     roles?: Maybe<UserToUserRoleConnection>
     /** The slug for the user. This field is equivalent to WP_User-&gt;user_nicename */
     slug?: Maybe<Scalars['String']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The unique resource identifier path */
     uri?: Maybe<Scalars['String']>
     /** A website url that is associated with the user. */
@@ -11924,6 +12198,18 @@ export type UserToPageConnectionWhereArgs = {
   stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
   /** Show posts with a specific status. */
   status?: InputMaybe<PostStatusEnum>
+  /** Tag Slug */
+  tag?: InputMaybe<Scalars['String']>
+  /** Use Tag ID */
+  tagId?: InputMaybe<Scalars['String']>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag IDs, used to display objects from one tag OR another */
+  tagNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
+  /** Array of tag slugs, used to display objects from one tag AND another */
+  tagSlugAnd?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
+  /** Array of tag slugs, used to include objects in ANY specified tags */
+  tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>
 }

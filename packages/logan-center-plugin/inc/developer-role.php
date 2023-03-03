@@ -14,15 +14,16 @@ function custom_add_developer_role()
     global $wp_roles;
 
     $role = $wp_roles ?? new WP_Roles();
-    $admin_role = $role->get_role('administrator');
+    $adminRole = $role->get_role('administrator');
 
-    add_role('developer', __('Developer', 'kleinweb'), $admin_role->capabilities);
+    add_role('developer', __('Developer', 'kleinweb'), $adminRole->capabilities);
 
     // Set initial user to Developer
     $user = new WP_User(1);
     $user->set_role('developer');
     $user->add_role('administrator');
 }
+
 // add_action(KLEINWEB_BACKEND_PLUGIN_ACTIVATION_HOOK, 'custom_add_developer_role');
 add_action('init', 'custom_add_developer_role');
 

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 /**
  * Misc Graph QL functions, mostly filters used to extend the Schema
- *
- * @package KleinBackend
  */
 
 /**
@@ -58,6 +56,7 @@ function add_encoded_content_field()
             'resolve' => static function ($post) {
                 // phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
                 $content = get_post($post->databaseId)->post_content;
+
                 return ! empty($content) ? apply_filters('the_content', $content) : null;
             },
         ]
@@ -68,8 +67,8 @@ add_action('graphql_register_types', 'add_encoded_content_field');
 /**
  * Make all menus publicly accessible regardless of whether they are assigned to a location.
  *
- * @param bool   $is_private   If the data is private.
- * @param string $model_name   Name of the model the filter is currently being executed in.
+ * @param  bool  $is_private   If the data is private.
+ * @param  string  $model_name   Name of the model the filter is currently being executed in.
  * @return bool
  */
 function enable_public_menus($is_private, $model_name)
@@ -77,6 +76,7 @@ function enable_public_menus($is_private, $model_name)
     if ($model_name === 'MenuObject' || $model_name === 'MenuItemObject') {
         return false;
     }
+
     return $is_private;
 }
 add_filter('graphql_data_is_private', 'enable_public_menus', 10, 2);
@@ -89,7 +89,7 @@ add_filter('graphql_data_is_private', 'enable_public_menus', 10, 2);
  * SEE https://developer.wordpress.org/reference/functions/rest_send_cors_headers/
  * SEE https://github.com/funkhaus/wp-graphql-cors/blob/master/includes/process-request.php
  *
- * @param array $headers Array of headers to filter.
+ * @param  array  $headers Array of headers to filter.
  * @return array
  */
 function set_wpgql_cors_response_headers($headers)
@@ -109,11 +109,7 @@ function set_wpgql_cors_response_headers($headers)
             site_url(),
         ];
 
-        // Add kleinweb home url to allowed origin.
-        $kleinweb_home_url = get_option('kleinweb_home_url');
-        if ($kleinweb_home_url) {
-            $allowed_origins[] = $kleinweb_home_url;
-        }
+        $allowed_origins[] = KLEINWEB_FRONTEND_URL;
 
         $allowed_origins = apply_filters('kleinweb_allowed_origins', $allowed_origins);
 
@@ -131,7 +127,7 @@ function set_wpgql_cors_response_headers($headers)
     // Allow certain header types. Respect the defauls from WP-GQL too.
     $access_control_allow_headers = apply_filters(
         'graphql_access_control_allow_headers',
-        [ 'Authorization', 'Content-Type', 'Preview' ]
+        ['Authorization', 'Content-Type', 'Preview']
     );
     $headers['Access-Control-Allow-Headers'] = implode(
         ', ',
@@ -174,7 +170,7 @@ add_action('admin_init', 'restrict_gql_endpoint_cors_settings_field', 11);
 /**
  * Restrict GraphQL endpoint access setting field markup.
  *
- * @param array $args Arguments for markup.
+ * @param  array  $args Arguments for markup.
  */
 function restrict_gql_endpoint_cors_field(array $args)
 {
@@ -194,7 +190,7 @@ function gql_register_next_post()
 {
     $post_types = WPGraphQL::get_allowed_post_types();
 
-    if (empty($post_types) || !is_array($post_types)) {
+    if (empty($post_types) || ! is_array($post_types)) {
         return;
     }
 
@@ -206,7 +202,7 @@ function gql_register_next_post()
 
         // Register a new Edge Type
         register_graphql_type(
-            'Next' . $ucfirst . 'Edge',
+            'Next'.$ucfirst.'Edge',
             [
                 'fields' => [
                     'node' => [
@@ -229,9 +225,9 @@ function gql_register_next_post()
         // Register the next{$type} field
         register_graphql_field(
             $ucfirst,
-            'next' . $ucfirst,
+            'next'.$ucfirst,
             [
-                'type' => 'Next' . $ucfirst . 'Edge',
+                'type' => 'Next'.$ucfirst.'Edge',
                 'description' => __(
                     'The next post of the current port',
                     'kleinweb'
@@ -276,6 +272,7 @@ function gql_register_next_post()
                     $taxonomy = $args['taxonomy'] ?? 'category';
                     $excluded_term_ids = $args['termNotIn'] ?? '';
                     $excluded_term_slugs = $args['termSlugNotIn'] ?? '';
+
                     return kleinweb_get_next_prev_post($post, true, $loop, $in_same_term, $excluded_term_ids, $excluded_term_slugs, $taxonomy);
                 },
             ]
@@ -291,7 +288,7 @@ function gql_register_previous_post()
 {
     $post_types = WPGraphQL::get_allowed_post_types();
 
-    if (empty($post_types) || !is_array($post_types)) {
+    if (empty($post_types) || ! is_array($post_types)) {
         return;
     }
 
@@ -303,7 +300,7 @@ function gql_register_previous_post()
 
         // Register a new Edge Type
         register_graphql_type(
-            'Previous' . $ucfirst . 'Edge',
+            'Previous'.$ucfirst.'Edge',
             [
                 'fields' => [
                     'node' => [
@@ -326,9 +323,9 @@ function gql_register_previous_post()
         // Register the next{$type} field
         register_graphql_field(
             $ucfirst,
-            'previous' . $ucfirst,
+            'previous'.$ucfirst,
             [
-                'type' => 'Previous' . $ucfirst . 'Edge',
+                'type' => 'Previous'.$ucfirst.'Edge',
                 'description' => __(
                     'The previous post of the current post',
                     'kleinweb'
@@ -373,6 +370,7 @@ function gql_register_previous_post()
                     $taxonomy = $args['taxonomy'] ?? 'category';
                     $excluded_term_ids = $args['termNotIn'] ?? '';
                     $excluded_term_slugs = $args['termSlugNotIn'] ?? '';
+
                     return kleinweb_get_next_prev_post($post, false, $loop, $in_same_term, $excluded_term_ids, $excluded_term_slugs, $taxonomy);
                 },
             ]
@@ -455,6 +453,7 @@ function kleinweb_get_next_prev_post(
                 if ($term) {
                     return $term->term_id;
                 }
+
                 return false;
             },
             $excluded_term_slugs
@@ -472,6 +471,7 @@ function kleinweb_get_next_prev_post(
     // If looping, and we won't have $adjacent_post above so get boundry post now
     if ($loop) {
         $boundary_post = get_boundary_post($in_same_term, $excluded_term_ids, $is_next, $taxonomy);
+
         return $boundary_post[0]->ID ?? null;
     }
 
@@ -481,7 +481,7 @@ function kleinweb_get_next_prev_post(
 /**
  * Set the default ordering of quieres in WP-GQL
  *
- * @param array $query_args The args that will be passed to the WP_Query.
+ * @param  array  $query_args The args that will be passed to the WP_Query.
  * @return array
  */
 function custom_default_where_args($query_args)
@@ -506,6 +506,7 @@ function custom_default_where_args($query_args)
     // Is anything else, so set to menu_order
     $query_args['orderby'] = 'menu_order';
     $query_args['order'] = 'ASC';
+
     return $query_args;
 }
 add_filter('graphql_post_object_connection_query_args', 'custom_default_where_args', 10, 1);

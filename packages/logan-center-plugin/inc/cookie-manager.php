@@ -12,10 +12,10 @@ define('KLEINWEB_COOKIE_SETTING_SAMESITE', 'kleinweb_cookie_samesite');
 define('KLEINWEB_COOKIE_SETTING_DOMAIN', 'kleinweb_cookie_domain');
 
 // Init global secure variables.
-global $kleinweb_secure, $kleinweb_secure_logged_in_cookie, $kleinweb_send_auth_cookies;
-$kleinweb_secure = is_ssl();
-$kleinweb_secure_logged_in_cookie = $kleinweb_secure && wp_parse_url(get_option('home'), PHP_URL_SCHEME) === 'https';
-$kleinweb_send_auth_cookies = true;
+global $kleinwebSecure, $kleinwebSecureLoggedInCookie, $kleinwebSendAuthCookies;
+$kleinwebSecure = is_ssl();
+$kleinwebSecureLoggedInCookie = $kleinwebSecure && wp_parse_url(KLEINWEB_FRONTEND_URL, PHP_URL_SCHEME) === 'https';
+$kleinwebSendAuthCookies = true;
 
 /**
  * Init $kleinweb_secure with site secure value.
@@ -27,8 +27,8 @@ $kleinweb_send_auth_cookies = true;
  */
 function kleinweb_secure_auth_cookie($secure, $user_id)
 {
-    global $kleinweb_secure;
-    $kleinweb_secure = $secure;
+    global $kleinwebSecure;
+    $kleinwebSecure = $secure;
     return $secure;
 }
 add_filter('secure_auth_cookie', 'kleinweb_secure_auth_cookie', PHP_INT_MAX, 2);
@@ -44,9 +44,9 @@ add_filter('secure_auth_cookie', 'kleinweb_secure_auth_cookie', PHP_INT_MAX, 2);
  */
 function kleinweb_secure_logged_in_cookie($secure_logged_in_cookie, $user_id, $secure)
 {
-    global $kleinweb_secure_logged_in_cookie, $kleinweb_send_auth_cookies;
-    $kleinweb_secure_logged_in_cookie = $secure_logged_in_cookie;
-    $kleinweb_send_auth_cookies = false;
+    global $kleinwebSecureLoggedInCookie, $kleinwebSendAuthCookies;
+    $kleinwebSecureLoggedInCookie = $secure_logged_in_cookie;
+    $kleinwebSendAuthCookies = false;
     return $secure_logged_in_cookie;
 }
 add_filter('secure_logged_in_cookie', 'kleinweb_secure_logged_in_cookie', PHP_INT_MAX, 3);
@@ -68,7 +68,7 @@ add_filter('secure_logged_in_cookie', 'kleinweb_secure_logged_in_cookie', PHP_IN
  */
 function kleinweb_set_auth_cookie($auth_cookie, $expire, $expiration, $user_id, $scheme, $token)
 {
-    global $kleinweb_secure;
+    global $kleinwebSecure;
 
     $same_site = get_option(KLEINWEB_COOKIE_SETTING_SAMESITE, 'None'); // Lax|Strict|None.
     $cookie_domain = get_option(KLEINWEB_COOKIE_SETTING_DOMAIN, COOKIE_DOMAIN);
@@ -76,7 +76,7 @@ function kleinweb_set_auth_cookie($auth_cookie, $expire, $expiration, $user_id, 
         $cookie_domain = COOKIE_DOMAIN;
     }
 
-    $auth_cookie_name = $kleinweb_secure ? SECURE_AUTH_COOKIE : AUTH_COOKIE;
+    $auth_cookie_name = $kleinwebSecure ? SECURE_AUTH_COOKIE : AUTH_COOKIE;
 
     if (version_compare(PHP_VERSION, '7.3.0') >= 0) {
         setcookie(
@@ -86,7 +86,7 @@ function kleinweb_set_auth_cookie($auth_cookie, $expire, $expiration, $user_id, 
                 'expires' => $expire,
                 'path' => PLUGINS_COOKIE_PATH,
                 'domain' => $cookie_domain,
-                'secure' => $kleinweb_secure,
+                'secure' => $kleinwebSecure,
                 'httponly' => true,
                 'samesite' => $same_site,
             ]
@@ -99,14 +99,14 @@ function kleinweb_set_auth_cookie($auth_cookie, $expire, $expiration, $user_id, 
                 'expires' => $expire,
                 'path' => ADMIN_COOKIE_PATH,
                 'domain' => $cookie_domain,
-                'secure' => $kleinweb_secure,
+                'secure' => $kleinwebSecure,
                 'httponly' => true,
                 'samesite' => $same_site,
             ]
         );
     } else {
-        setcookie($auth_cookie_name, $auth_cookie, $expire, PLUGINS_COOKIE_PATH, $cookie_domain, $kleinweb_secure, true);
-        setcookie($auth_cookie_name, $auth_cookie, $expire, ADMIN_COOKIE_PATH, $cookie_domain, $kleinweb_secure, true);
+        setcookie($auth_cookie_name, $auth_cookie, $expire, PLUGINS_COOKIE_PATH, $cookie_domain, $kleinwebSecure, true);
+        setcookie($auth_cookie_name, $auth_cookie, $expire, ADMIN_COOKIE_PATH, $cookie_domain, $kleinwebSecure, true);
     }
 }
 add_action('set_auth_cookie', 'kleinweb_set_auth_cookie', 10, 6);
@@ -118,8 +118,8 @@ add_action('set_auth_cookie', 'kleinweb_set_auth_cookie', 10, 6);
  */
 function kleinweb_clear_auth_cookie($cookie_domain = '')
 {
-    global $kleinweb_send_auth_cookies;
-    $kleinweb_send_auth_cookies = false;
+    global $kleinwebSendAuthCookies;
+    $kleinwebSendAuthCookies = false;
 
     if ($cookie_domain === '') {
         $cookie_domain = get_option(KLEINWEB_COOKIE_SETTING_DOMAIN, COOKIE_DOMAIN);
@@ -151,7 +151,7 @@ add_action('clear_auth_cookie', 'kleinweb_clear_auth_cookie');
  */
 function kleinweb_set_logged_in_cookie($logged_in_cookie, $expire, $expiration, $user_id, $scheme, $token)
 {
-    global $kleinweb_secure_logged_in_cookie;
+    global $kleinwebSecureLoggedInCookie;
 
     $same_site = get_option(KLEINWEB_COOKIE_SETTING_SAMESITE, 'None'); // Lax|Strict|None.
     $cookie_domain = get_option(KLEINWEB_COOKIE_SETTING_DOMAIN, COOKIE_DOMAIN);
@@ -167,7 +167,7 @@ function kleinweb_set_logged_in_cookie($logged_in_cookie, $expire, $expiration, 
                 'expires' => $expire,
                 'path' => COOKIEPATH,
                 'domain' => $cookie_domain,
-                'secure' => $kleinweb_secure_logged_in_cookie,
+                'secure' => $kleinwebSecureLoggedInCookie,
                 'httponly' => true,
                 'samesite' => $same_site,
             ]
@@ -181,16 +181,16 @@ function kleinweb_set_logged_in_cookie($logged_in_cookie, $expire, $expiration, 
                     'expires' => $expire,
                     'path' => SITECOOKIEPATH,
                     'domain' => $cookie_domain,
-                    'secure' => $kleinweb_secure_logged_in_cookie,
+                    'secure' => $kleinwebSecureLoggedInCookie,
                     'httponly' => true,
                     'samesite' => $same_site,
                 ]
             );
         }
     } else {
-        setcookie(LOGGED_IN_COOKIE, $logged_in_cookie, $expire, COOKIEPATH, $cookie_domain, $kleinweb_secure_logged_in_cookie, true);
+        setcookie(LOGGED_IN_COOKIE, $logged_in_cookie, $expire, COOKIEPATH, $cookie_domain, $kleinwebSecureLoggedInCookie, true);
         if (COOKIEPATH !== SITECOOKIEPATH) {
-            setcookie(LOGGED_IN_COOKIE, $logged_in_cookie, $expire, SITECOOKIEPATH, $cookie_domain, $kleinweb_secure_logged_in_cookie, true);
+            setcookie(LOGGED_IN_COOKIE, $logged_in_cookie, $expire, SITECOOKIEPATH, $cookie_domain, $kleinwebSecureLoggedInCookie, true);
         }
     }
 }
@@ -203,8 +203,8 @@ add_action('set_logged_in_cookie', 'kleinweb_set_logged_in_cookie', 10, 6);
  */
 function kleinweb_send_auth_cookies($send)
 {
-    global $kleinweb_send_auth_cookies;
-    return $kleinweb_send_auth_cookies;
+    global $kleinwebSendAuthCookies;
+    return $kleinwebSendAuthCookies;
 }
 add_filter('send_auth_cookies', 'kleinweb_send_auth_cookies');
 
@@ -342,7 +342,7 @@ function kleinweb_setting_samesite_callback_function($val)
             <option value="<?php echo esc_attr($valid_value); ?>"  <?php echo esc_attr($valid_value === $option_value ? ' selected ' : ''); ?> <?php disabled(! is_ssl() && ($valid_value === 'None')); ?> > <?php echo esc_html($valid_value); ?> </option>
                                       <?php
         endforeach;
-    ?>
+        ?>
     </select>
     <?php if (version_compare(PHP_VERSION, '7.3.0') < 0) : ?>
         <p class="description" style="color: red;">

@@ -19,39 +19,39 @@ class Acf
     private string $prefix = 'kleinweb';
 
     /**
-     * Custom location rule "CPT Parent" surfix.
+     * Custom location rule "CPT Parent" suffix.
      */
-    private string $surfix_parent = 'parent';
+    private string $suffixParent = 'parent';
 
     /**
-     * Custom location rule "CPT belongs to tree" surfix.
+     * Custom location rule "CPT belongs to tree" suffix.
      */
-    private string $surfix_tree = 'tree';
+    private string $suffixTree = 'tree';
 
     /**
      * Location rule name for post is tree.
      */
-    private string $post_is_tree = 'post-is-tree';
+    private string $postIsTree = 'post-is-tree';
 
     /**
      * Location rule name for page is tree.
      */
-    private string $page_is_tree = 'page-is-tree';
+    private string $pageIsTree = 'page-is-tree';
 
     /**
      * Location rule name for post has child.
      */
-    private string $post_has_child = 'post-has-child';
+    private string $postHasChild = 'post-has-child';
 
     /**
      * Location rule name for page has child.
      */
-    private string $page_has_child = 'page-has-child';
+    private string $pageHasChild = 'page-has-child';
 
     /**
      * Custom post types array. Used for caching purpose.
      */
-    private array $cpt_array;
+    private array $cptArray;
 
     /**
      * Constructor.
@@ -63,18 +63,18 @@ class Acf
         add_filter('acf/location/rule_types', [$this, 'location_rule_types']);
 
         // Adds custom location rule types for post and page tree.
-        add_filter('acf/location/rule_values/'.$this->post_is_tree, [$this, 'tree_location_rules_values'], 10, 2);
-        add_filter('acf/location/rule_values/'.$this->page_is_tree, [$this, 'tree_location_rules_values'], 10, 2);
+        add_filter('acf/location/rule_values/' . $this->postIsTree, [$this, 'tree_location_rules_values'], 10, 2);
+        add_filter('acf/location/rule_values/' . $this->pageIsTree, [$this, 'tree_location_rules_values'], 10, 2);
 
-        add_filter('acf/location/rule_match/'.$this->post_is_tree, [$this, 'tree_location_rule_match'], 10, 3);
-        add_filter('acf/location/rule_match/'.$this->page_is_tree, [$this, 'tree_location_rule_match'], 10, 3);
+        add_filter('acf/location/rule_match/' . $this->postIsTree, [$this, 'tree_location_rule_match'], 10, 3);
+        add_filter('acf/location/rule_match/' . $this->pageIsTree, [$this, 'tree_location_rule_match'], 10, 3);
 
         // Adds custom location rule types for post and page has children.
-        add_filter('acf/location/rule_values/'.$this->post_has_child, [$this, 'has_child_location_rules_values'], 10, 2);
-        add_filter('acf/location/rule_values/'.$this->page_has_child, [$this, 'has_child_location_rules_values'], 10, 2);
+        add_filter('acf/location/rule_values/' . $this->postHasChild, [$this, 'has_child_location_rules_values'], 10, 2);
+        add_filter('acf/location/rule_values/' . $this->pageHasChild, [$this, 'has_child_location_rules_values'], 10, 2);
 
-        add_filter('acf/location/rule_match/'.$this->post_has_child, [$this, 'has_child_location_rule_match'], 10, 3);
-        add_filter('acf/location/rule_match/'.$this->page_has_child, [$this, 'has_child_location_rule_match'], 10, 3);
+        add_filter('acf/location/rule_match/' . $this->postHasChild, [$this, 'has_child_location_rule_match'], 10, 3);
+        add_filter('acf/location/rule_match/' . $this->pageHasChild, [$this, 'has_child_location_rule_match'], 10, 3);
 
         // Adds custom location rule types.
         add_filter('acf/location/rule_values', [$this, 'cpt_location_rule_values'], 10, 2);
@@ -122,7 +122,7 @@ class Acf
 
         // Use CPTs, or page.
         $post_types[] = 'page';
-        if ($this->post_is_tree === $rule['param']) {
+        if ($this->postIsTree === $rule['param']) {
             $post_types = array_keys(get_post_types($args));
         }
 
@@ -140,7 +140,7 @@ class Acf
         $slugs = [];
         foreach ($pages as $page) {
             // Value => Label.
-            $slugs['post_id_'.$page->ID] = $page->post_type.': '.$page->post_title;
+            $slugs['post_id_' . $page->ID] = $page->post_type . ': ' . $page->post_title;
         }
 
         return array_merge($values, $slugs);
@@ -163,7 +163,7 @@ class Acf
 
         // Current and selected vars.
         $current_post = get_post($screen['post_id']);
-        $tree_id = (int) str_replace('post_id_', '', $rule['value']);
+        $tree_id = (int)str_replace('post_id_', '', $rule['value']);
 
         // Is current post in the selected tree?
         $ancestors = get_ancestors($current_post->ID, $current_post->post_type);
@@ -254,12 +254,12 @@ class Acf
         }
 
         // Adds Tree rule types to Post and Page.
-        $types['Post'][$this->post_is_tree] = 'Post belongs to tree';
-        $types['Page'][$this->page_is_tree] = 'Page belongs to tree';
+        $types['Post'][$this->postIsTree] = 'Post belongs to tree';
+        $types['Page'][$this->pageIsTree] = 'Page belongs to tree';
 
         // Adds Tree rule types to Post and Page.
-        $types['Post'][$this->post_has_child] = 'Post has children';
-        $types['Page'][$this->page_has_child] = 'Page has children';
+        $types['Post'][$this->postHasChild] = 'Post has children';
+        $types['Page'][$this->pageHasChild] = 'Page has children';
 
         return $types;
     }
@@ -318,15 +318,15 @@ class Acf
 
         $rule_arr = $this->parse_key($rule['param']);
         if ($rule_arr && $rule_arr['cpt_name'] === $post_type) {
-            switch ($rule_arr['surfix']) {
-                case $this->surfix_parent:
+            switch ($rule_arr['suffix']) {
+                case $this->suffixParent:
                     $parent = get_post_parent($post_id);
                     if ($parent) {
                         return $parent->ID === $rule['value'];
                     }
 
                     return false;
-                case $this->surfix_tree:
+                case $this->suffixTree:
                     $ancestors = get_ancestors($post_id, $post_type, 'post_type');
                     $ancestor_id = $rule['value'];
                     $in_tree = ($ancestor_id === $post_id) || in_array($ancestor_id, $ancestors);
@@ -354,7 +354,7 @@ class Acf
     private function get_cpt_array()
     {
         // Caching the query for a better performance.
-        if (is_null($this->cpt_array)) {
+        if (is_null($this->cptArray)) {
             $cpt_arr = get_post_types(
                 [
                     '_builtin' => false, // Custom post types only.
@@ -364,26 +364,26 @@ class Acf
                 'objects'
             );
 
-            $this->cpt_array = [];
+            $this->cptArray = [];
             foreach ($cpt_arr as $cpt) {
-                $this->cpt_array[] = [
+                $this->cptArray[] = [
                     'name' => $cpt->name,
                     'label' => $cpt->label,
                     'rules' => [
                         'parent' => [
                             'key' => $this->get_key_parent($cpt->name),
-                            'label' => $cpt->label.' Parent',
+                            'label' => $cpt->label . ' Parent',
                         ],
                         'tree' => [
                             'key' => $this->get_key_tree($cpt->name),
-                            'label' => $cpt->label.' belongs to tree',
+                            'label' => $cpt->label . ' belongs to tree',
                         ],
                     ],
                 ];
             }
         }
 
-        return $this->cpt_array;
+        return $this->cptArray;
     }
 
     /**
@@ -394,7 +394,7 @@ class Acf
      */
     private function get_key_parent($cpt_name)
     {
-        return $this->prefix.'_'.$cpt_name.'_'.$this->surfix_parent;
+        return $this->prefix . '_' . $cpt_name . '_' . $this->suffixParent;
     }
 
     /**
@@ -405,14 +405,14 @@ class Acf
      */
     private function get_key_tree($cpt_name)
     {
-        return $this->prefix.'_'.$cpt_name.'_'.$this->surfix_tree;
+        return $this->prefix . '_' . $cpt_name . '_' . $this->suffixTree;
     }
 
     /**
      * Check if key is for custom location rule by comparing key.
      *
      * @param  string  $key String to check if custom key.
-     * @return bool false|array [cpt_name, surfix]
+     * @return bool false|array [cpt_name, suffix]
      */
     private function parse_key($key)
     {
@@ -426,12 +426,12 @@ class Acf
         // remove prefix.
         array_shift($arr);
 
-        $surfix = array_pop($arr);
+        $suffix = array_pop($arr);
         $cpt_name = implode('_', $arr);
 
         return [
             'cpt_name' => $cpt_name,
-            'surfix' => $surfix,
+            'suffix' => $suffix,
         ];
     }
 
@@ -446,7 +446,7 @@ class Acf
     {
         $uri = get_page_uri($post);
 
-        return '<span title="/'.$uri.'">'.$text.'</span>';
+        return '<span title="/' . $uri . '">' . $text . '</span>';
     }
 }
 
