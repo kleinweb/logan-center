@@ -7,24 +7,26 @@ declare(strict_types=1);
 
 namespace Klein\LoganCenter\ContentTypes;
 
+use ExtCPTs\Args\Taxonomy as TaxonomyArgs;
 use Klein\LoganCenter\Concerns\OnInit;
 use Klein\LoganCenter\Concerns\RegistersTaxonomy;
 
 class Scope
 {
-    use OnInit, RegistersTaxonomy;
+    use OnInit;
+    use RegistersTaxonomy;
 
     /**
      * Object type slug.
      */
-    const NAME = 'scope';
+    public const NAME = 'scope';
 
     /**
      * Display labels for the object type.
      */
-    const LABELS = [
-        'singular' => 'Scope',
-        'plural' => 'Scopes',
+    public const LABELS = [
+        'singular' => 'Theme',
+        'plural' => 'Themes',
     ];
 
     /**
@@ -32,7 +34,7 @@ class Scope
      *
      * N.B. All other terms in the taxonomy will be deleted!
      */
-    const ALLOWED_TERMS = [
+    public const ALLOWED_TERMS = [
         'education' => 'Education Disparities',
         'gun-violence' => 'Gun Violence',
         'housing' => 'Housing',
@@ -93,9 +95,7 @@ class Scope
                 continue;
             }
             $allowedTermsArgs = new \Args\wp_insert_term();
-            // TODO: perhaps expose these through some central admin UI field?
-            //       also, these will need to be way more than just a name and
-            //       description one day...
+            // TODO: perhaps expose these through some central admin UI field
             // $termArgs->description = '';
             $allowedTermsArgs->slug = $name;
             wp_insert_term($label, self::NAME, $allowedTermsArgs->toArray());
@@ -133,7 +133,7 @@ class Scope
      */
     public function getTaxonomyRegistrarArgs(): array
     {
-        $args = new \ExtCPTs\Args\Taxonomy;
+        $args = new TaxonomyArgs();
         $args->show_in_rest = true;
         $args->description = 'Themes of investigative coverage within which Projects are Scoped.';
         $args->hierarchical = false;
@@ -149,7 +149,8 @@ class Scope
             'assign_terms' => 'nobody',
         ];
 
-        // NOTE(2023-03-02): Currently, `exclusive` only forces a `radio` metabox, but it can be circumvented in the quick edit UI.
+        // NOTE(2023-03-02): Currently, "exclusive" only forces a "radio" metabox,
+        // but it can be circumvented in the quick edit UI.
         // <https://github.com/johnbillion/extended-cpts/blob/e50e32113136646e48968ec15ef860d166328729/src/Args/Taxonomy.php#L49-L59>
         $args->exclusive = true;
 
