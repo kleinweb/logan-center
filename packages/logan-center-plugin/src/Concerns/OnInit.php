@@ -14,4 +14,6 @@ trait OnInit
     {
         add_action('init', [$this, 'onInit']);
     }
+
+    abstract public function onInit(): void;
 }
