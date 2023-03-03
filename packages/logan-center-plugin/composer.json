@@ -35,7 +35,10 @@
   "autoload": {
     "psr-4": {
       "Klein\\LoganCenter\\": "src/"
-    }
+    },
+    "files": [
+      "lib/utils.php"
+    ]
   },
   "config": {
     "optimize-autoloader": true,

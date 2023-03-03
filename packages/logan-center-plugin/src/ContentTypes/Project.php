@@ -33,9 +33,21 @@ class Project
      */
     public const CONNECTED_OBJECT_TYPES = [Article::NAME];
 
+    protected static $rewrite_slug = 'project';
+
     public function __construct()
     {
         $this->setupActions();
+    }
+
+    public static function getCoreObject(): \WP_Taxonomy
+    {
+        return get_taxonomy(self::NAME);
+    }
+
+    public static function getRewriteSlug(): string
+    {
+        return self::$rewrite_slug;
     }
 
     public function registerTaxonomy(): void
@@ -56,14 +68,19 @@ class Project
         $args = new \ExtCPTs\Args\Taxonomy();
 
         $args->description = 'Collections of individual Reports describing a facet of a Scope.';
-        // <https://developer.wordpress.org/resource/dashicons/#index-card>
-        // TODO: move to top level of menu?
-        // $args->menu_icon = 'dashicons-index-card';
         $args->show_admin_column = true;
         $args->show_in_rest = true;
-        $args->hierarchical = true;
+        $args->hierarchical = false;
         $args->exclusive = true;
         $args->meta_box = 'radio';
+        $args->query_var = self::getRewriteSlug();
+        $args->rewrite = [
+            'slug' => self::getRewriteSlug(),
+            'with_front' => true,
+            'hierarchical' => false,
+
+        ];
+
         // FIXME: unfortunately there seem to be some very recent
         // gutenberg-related issues surrounding the ability to *require*
         // selection of a term, where a "No <TERM NAME>" object becomes the

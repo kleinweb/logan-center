@@ -17,7 +17,7 @@ class Scope
     /**
      * Object type slug.
      */
-    const NAME = 'reporting_scope';
+    const NAME = 'scope';
 
     /**
      * Display labels for the object type.
@@ -43,6 +43,15 @@ class Scope
      */
     const CONNECTED_OBJECT_TYPES = [Project::NAME];
 
+    /**
+     * URL base for this taxonomy.
+     *
+     * @var string
+     */
+    protected static $rewrite_base = 'scopes';
+
+    protected static $rewrite_slug = 'scope';
+
     public function __construct()
     {
         $this->setupActions();
@@ -61,6 +70,16 @@ class Scope
         $this->registerTaxonomy();
         $this->createAllowedTerms();
         $this->deleteDisallowedTerms();
+    }
+
+    public static function getCoreObject(): \WP_Taxonomy
+    {
+        return get_taxonomy(self::NAME);
+    }
+
+    public static function getRewriteSlug(): string
+    {
+        return self::$rewrite_slug;
     }
 
     /**
@@ -105,7 +124,7 @@ class Scope
             self::NAME,
             self::CONNECTED_OBJECT_TYPES,
             $this->getTaxonomyRegistrarArgs(),
-            self::LABELS + ['slug' => 'scope']
+            self::LABELS
         );
     }
 
@@ -118,6 +137,8 @@ class Scope
         $args->show_in_rest = true;
         $args->description = 'Themes of investigative coverage within which Projects are Scoped.';
         $args->hierarchical = false;
+        $args->query_var = self::getRewriteSlug();
+        $args->rewrite = ['slug' => self::getRewriteSlug()];
 
         // These bogus capabilities intentionally prevent all users from
         // changing the terms in the controlled taxonomy.

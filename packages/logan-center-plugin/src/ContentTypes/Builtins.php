@@ -16,8 +16,6 @@ namespace Klein\LoganCenter\ContentTypes;
  *   side effects, but we can hide it as much as possible. It's still possible
  *   to reach the default post editor by visiting the URL directly, but there
  *   would be no point since we never display them anywhere.
- *
- * @package logan-center-plugin
  */
 class Builtins
 {
@@ -28,15 +26,15 @@ class Builtins
 
     private function setupActions(): void
     {
-        add_action('init', [ $this, 'onInit' ]);
-        add_action('admin_menu', [ $this, 'removeBuiltinPostType' ]);
-        add_action('admin_bar_menu', [ $this, 'removeNewPostFromAdminBar' ], 999);
+        add_action('init', [$this, 'onInit']);
+        add_action('admin_menu', [$this, 'removeBuiltinPostType']);
+        add_action('admin_bar_menu', [$this, 'removeNewPostFromAdminBar'], 999);
     }
 
     /**
      * Loads all necessary admin bar items.
      *
-     * @param \WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance, passed by reference.
+     * @param  \WP_Admin_Bar  $wp_admin_bar The WP_Admin_Bar instance, passed by reference.
      */
     public function removeNewPostFromAdminBar(\WP_Admin_Bar $wp_admin_bar): void
     {
@@ -46,7 +44,7 @@ class Builtins
     /**
      * Fires before the administration menu loads in the admin.
      *
-     * @param string $context Empty context.
+     * @param  string  $context Empty context.
      */
     public function removeBuiltinPostType(string $context): void
     {
@@ -59,5 +57,6 @@ class Builtins
     public function onInit(): void
     {
         unregister_taxonomy_for_object_type('post_tag', 'page');
+        remove_post_type_support('attachment', 'trackbacks');
     }
 }

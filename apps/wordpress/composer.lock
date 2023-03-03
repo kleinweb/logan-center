@@ -1894,7 +1894,7 @@
     },
     {
       "name": "kleinweb/core-services",
-      "version": "dev-feat/content-types",
+      "version": "dev-feat/url-structs",
       "dist": {
         "type": "path",
         "url": "../../packages/kleinweb-core-services",
@@ -1945,11 +1945,11 @@
     },
     {
       "name": "kleinweb/logan-center-plugin",
-      "version": "dev-feat/content-types",
+      "version": "dev-feat/url-structs",
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-plugin",
-        "reference": "9b535b1c29f16445bd72b747ff6ad533477799f9"
+        "reference": "9cd4fb5692d6e9d152f6bc7c7aaa5a1a1728ecce"
       },
       "require": {
         "johnbillion/args": "^1.6",
@@ -1967,7 +1967,8 @@
       "autoload": {
         "psr-4": {
           "Klein\\LoganCenter\\": "src/"
-        }
+        },
+        "files": ["lib/utils.php"]
       },
       "scripts": {
         "lint": ["phpcs --extensions=php --standard=./phpcs.xml src"],
@@ -1998,7 +1999,7 @@
     },
     {
       "name": "kleinweb/logan-center-theme",
-      "version": "dev-feat/content-types",
+      "version": "dev-feat/url-structs",
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-theme",
