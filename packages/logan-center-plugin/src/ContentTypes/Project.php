@@ -55,7 +55,7 @@ class Project
     {
         $args = new \ExtCPTs\Args\Taxonomy();
 
-        $args->description = 'Organized collections of individual reports investigating a facet of a Theme.';
+        $args->description = 'Collections of individual Reports describing a facet of a Scope.';
         // <https://developer.wordpress.org/resource/dashicons/#index-card>
         // TODO: move to top level of menu?
         // $args->menu_icon = 'dashicons-index-card';

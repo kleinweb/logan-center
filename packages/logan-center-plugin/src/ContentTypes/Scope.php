@@ -10,21 +10,21 @@ namespace Klein\LoganCenter\ContentTypes;
 use Klein\LoganCenter\Concerns\OnInit;
 use Klein\LoganCenter\Concerns\RegistersTaxonomy;
 
-class Theme
+class Scope
 {
     use OnInit, RegistersTaxonomy;
 
     /**
      * Object type slug.
      */
-    const NAME = 'reporting_theme';
+    const NAME = 'reporting_scope';
 
     /**
      * Display labels for the object type.
      */
     const LABELS = [
-        'singular' => 'Theme',
-        'plural' => 'Themes',
+        'singular' => 'Scope',
+        'plural' => 'Scopes',
     ];
 
     /**
@@ -105,7 +105,7 @@ class Theme
             self::NAME,
             self::CONNECTED_OBJECT_TYPES,
             $this->getTaxonomyRegistrarArgs(),
-            self::LABELS + ['slug' => 'theme']
+            self::LABELS + ['slug' => 'scope']
         );
     }
 
@@ -116,7 +116,7 @@ class Theme
     {
         $args = new \ExtCPTs\Args\Taxonomy;
         $args->show_in_rest = true;
-        $args->description = 'Areas of investigation into which Projects are grouped.';
+        $args->description = 'Themes of investigative coverage within which Projects are Scoped.';
         $args->hierarchical = false;
 
         // These bogus capabilities intentionally prevent all users from

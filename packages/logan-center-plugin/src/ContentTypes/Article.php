@@ -55,7 +55,7 @@ class Article
         // The post type must be exposed to the WP REST API for Gutenberg support.
         $args->show_in_rest = true;
         $args->block_editor = true;
-        // Disable post archives -- Articles have no meaning outside of a Project or Theme.
+        // Disable post archives -- Articles have no meaning outside of a Project or Scope.
         $args->has_archive = false;
         // Display Project in post list column
         $args->admin_cols = ['project' => $projectArgs];
