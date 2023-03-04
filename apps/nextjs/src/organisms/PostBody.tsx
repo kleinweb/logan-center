@@ -3,6 +3,7 @@
 
 'use client'
 
+import clsx from 'clsx'
 import {ReactNode} from 'react'
 
 export type PostBodyProps = {
@@ -18,7 +19,17 @@ export type PostBodyProps = {
 export default function PostBody({children, content}: PostBodyProps) {
   return (
     <div className="mx-auto max-w-2xl">
-      <div className="prose" dangerouslySetInnerHTML={{__html: content}} />
+      <div
+        className={clsx(
+          'prose mx-10',
+          // <h2> styles :=>
+          [
+            'prose-h2:text-red-600 prose-h2:uppercase prose-h2:tracking-wider',
+            'prose-h2:text-lg prose-h2:md:text-2xl',
+          ],
+        )}
+        dangerouslySetInnerHTML={{__html: content}}
+      />
       {children ? <div>{children}</div> : undefined}
     </div>
   )

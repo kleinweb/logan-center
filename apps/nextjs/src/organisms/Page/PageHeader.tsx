@@ -19,7 +19,7 @@ export default function PageHeader({title}) {
       <div className={clsx(styles.container, 'order-2')}>
         <PageTitle>{title}</PageTitle>
       </div>
-      <div className="mb-8 sm:mx-0 md:mb-16">
+      <div className="mb-0 sm:mx-0 md:mb-16">
         <MotifBackground className="h-28" />
       </div>
     </div>
