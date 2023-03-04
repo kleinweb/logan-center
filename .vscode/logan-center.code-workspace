@@ -38,7 +38,6 @@
     "npm.packageManager": "yarn",
     "stylelint.packageManager": "yarn",
     "eslint.packageManager": "yarn",
-    "prettier.configPath": ".prettierrc.json",
     "prettier.requireConfig": true,
     "typescript.tsdk": "logan-center/node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
