@@ -40,7 +40,7 @@
     "eslint.packageManager": "yarn",
     "prettier.configPath": ".prettierrc.json",
     "prettier.requireConfig": true,
-    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.tsdk": "logan-center/node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "stylelint.reportDescriptionlessDisables": true,
     "stylelint.reportInvalidScopeDisables": true,
