@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "aa0e4b37931910fcbe02426bed61a139",
+  "content-hash": "75720dc73db92ca10297b81b2902cbd9",
   "packages": [
     {
       "name": "alleyinteractive/internal-flags",
@@ -2405,7 +2405,7 @@
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-core-plugin",
-        "reference": "70f46734cc3d462dedff4cdf823ddc61197c5dd5"
+        "reference": "60eced4604e629e7eb3235b2cae851406a45eb11"
       },
       "require": {
         "johnbillion/args": "^1.6",
@@ -2414,16 +2414,20 @@
         "vinkla/extended-acf": "^13.2"
       },
       "require-dev": {
+        "axepress/wp-graphql-stubs": "^1.13",
         "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
         "kleinweb/kleinweb-php-standards": "*",
+        "php-stubs/acf-pro-stubs": "^6.0",
+        "php-stubs/wordpress-stubs": "^6.1",
+        "php-stubs/wp-cli-stubs": "^2.7",
         "squizlabs/php_codesniffer": "3.7.2"
       },
       "type": "wordpress-plugin",
       "autoload": {
         "psr-4": {
-          "LoganCenter\\Core\\": "inc/"
+          "Klein\\LoganCenter\\": "src/"
         },
-        "files": ["lib/utils.php"]
+        "files": ["src/helpers.php"]
       },
       "scripts": {
         "lint": ["phpcs --standard=Kleinweb"],
@@ -2447,59 +2451,6 @@
         }
       ],
       "description": "Plugin providing core functionality for the Logan Center backend.",
-      "homepage": "https://github.com/kleinweb/logan-center",
-      "keywords": [
-        "headless-wordpress",
-        "temple-university",
-        "wordpress",
-        "wordpress-plugin"
-      ],
-      "support": {
-        "issues": "https://github.com/kleinweb/logan-center/issues"
-      },
-      "transport-options": {
-        "relative": true
-      }
-    },
-    {
-      "name": "kleinweb/logan-center-plugin",
-      "version": "dev-fix/post-previews-yet-another-way",
-      "dist": {
-        "type": "path",
-        "url": "../../packages/logan-center-plugin",
-        "reference": "849be647154699e1c6abd4cbcae253cbad6f4a12"
-      },
-      "require": {
-        "johnbillion/args": "^1.6",
-        "johnbillion/extended-cpts": "^5.0",
-        "php": "^8.0",
-        "vinkla/extended-acf": "^13.2"
-      },
-      "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-        "kleinweb/kleinweb-php-standards": "*",
-        "squizlabs/php_codesniffer": "3.7.2"
-      },
-      "type": "wordpress-plugin",
-      "autoload": {
-        "psr-4": {
-          "Klein\\LoganCenter\\": "src/"
-        },
-        "files": ["lib/utils.php"]
-      },
-      "scripts": {
-        "lint": ["phpcs --standard=Kleinweb"],
-        "fix": ["phpcbf --standard=Kleinweb"]
-      },
-      "license": ["GPL-3.0-or-later"],
-      "authors": [
-        {
-          "name": "Klein College of Media and Communication",
-          "email": "kleinweb@temple.edu",
-          "homepage": "https://klein.temple.edu"
-        }
-      ],
-      "description": "Minimally-functional WordPress plugin for the Logan Center for Urban Investigative Reporting",
       "homepage": "https://github.com/kleinweb/logan-center",
       "keywords": [
         "headless-wordpress",

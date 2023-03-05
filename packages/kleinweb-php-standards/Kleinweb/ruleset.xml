@@ -58,24 +58,24 @@
     sake of maintaining its notorious compatibility with ancient PHP versions. At the time of
     writing, they don't support PHP 8 in any released version of the standards, hence our tracking
     of the upstream `develop` branch. So we use the PHPCS rules, but carefully. -->
-    <rule ref="WordPress">
-        <exclude name="Generic.Arrays.DisallowShortArraySyntax" />
-        <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
-        <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
-        <exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments" />
-        <exclude name="Universal.Arrays.DisallowShortArraySyntax.Found" />
-        <exclude name="Universal.Operators.DisallowShortTernary.Found" />
-        <exclude name="WordPress.PHP.DisallowShortTernary.Found" />
-    </rule>
+<!--    <rule ref="WordPress">-->
+<!--        <exclude name="Generic.Arrays.DisallowShortArraySyntax" />-->
+<!--        <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />-->
+<!--        <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />-->
+<!--        <exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments" />-->
+<!--        <exclude name="Universal.Arrays.DisallowShortArraySyntax.Found" />-->
+<!--        <exclude name="Universal.Operators.DisallowShortTernary.Found" />-->
+<!--        <exclude name="WordPress.PHP.DisallowShortTernary.Found" />-->
+<!--    </rule>-->
 
-    <rule ref="WordPress.NamingConventions.ValidHookName">
-        <properties>
-            <property name="additionalWordDelimiters" value="/" />
-        </properties>
-    </rule>
+<!--    <rule ref="WordPress.NamingConventions.ValidHookName">-->
+<!--        <properties>-->
+<!--            <property name="additionalWordDelimiters" value="/" />-->
+<!--        </properties>-->
+<!--    </rule>-->
 
-    <rule ref="PHPCompatibilityWP" />
-    <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found" />
+<!--    <rule ref="PHPCompatibilityWP" />-->
+<!--    <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found" />-->
 
     <!-- We should be cognizant of long lines, but handle it case-by-case -->
     <rule ref="Generic.Files.LineLength.TooLong">

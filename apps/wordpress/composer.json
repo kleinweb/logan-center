@@ -42,11 +42,11 @@
     },
     {
       "type": "path",
-      "url": "../../packages/logan-center-theme"
+      "url": "../../packages/logan-center-core-plugin"
     },
     {
       "type": "path",
-      "url": "../../packages/logan-center-plugin"
+      "url": "../../packages/logan-center-theme"
     },
     {
       "type": "path",
@@ -72,7 +72,6 @@
     "alleyinteractive/internal-flags": "^0.2.0",
     "kleinweb/core-services": "*",
     "kleinweb/logan-center-core-plugin": "*",
-    "kleinweb/logan-center-plugin": "*",
     "kleinweb/logan-center-theme": "*",
     "vinkla/headache": "^2.4",
     "wp-graphql/wp-graphql-acf": "^0.6.1",
@@ -108,7 +107,8 @@
     "allow-plugins": {
       "alleyinteractive/composer-wordpress-autoloader": true,
       "composer/installers": true,
-      "roots/wordpress-core-installer": true
+      "roots/wordpress-core-installer": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
     }
   },
   "minimum-stability": "dev",
@@ -117,7 +117,7 @@
     "installer-paths": {
       "web/app/mu-plugins/{$name}/": [
         "type:wordpress-muplugin",
-        "kleinweb/logan-center-plugin",
+        "kleinweb/logan-center-core-plugin",
         "wp-graphql/wp-graphql",
         "wp-graphql/wp-graphql-acf",
         "wpackagist-plugin/co-authors-plus",

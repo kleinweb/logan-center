@@ -6,6 +6,8 @@
 
 namespace App;
 
+use WP_Admin_Bar;
+
 use function Roots\bundle;
 
 /**
@@ -53,7 +55,6 @@ add_action(
          * @link https://roots.io/plugins/soil/
          */
         add_theme_support('soil', [
-            // This one is quite helpful for a headless site.
             // <https://web.archive.org/web/20180529232418/http://www.456bereastreet.com/archive/201010/how_to_make_wordpress_urls_root_relative/>
             // Includes workaround for <https://github.com/roots/acorn/issues/226#issuecomment-1270450510>
             'relative-urls' => php_sapi_name() !== 'cli',
@@ -163,16 +164,16 @@ function action_widgets_init()
  */
 add_action(
     'admin_bar_menu',
-    function (\WP_Admin_Bar $menu) {
-        $menu->remove_node('comments'); // Comments
-        $menu->remove_node('customize'); // Customize
-        $menu->remove_node('dashboard'); // Dashboard
-        $menu->remove_node('menus'); // Menus
+    function (WP_Admin_Bar $menu) {
+        $menu->remove_node('comments');    // Comments
+        $menu->remove_node('customize');   // Customize
+        $menu->remove_node('dashboard');   // Dashboard
+        $menu->remove_node('menus');       // Menus
         $menu->remove_node('new-content'); // New Content
-        $menu->remove_node('search'); // Search
-        $menu->remove_node('themes'); // Themes
-        $menu->remove_node('updates'); // Updates
-        $menu->remove_node('widgets'); // Widgets
+        $menu->remove_node('search');      // Search
+        $menu->remove_node('themes');      // Themes
+        $menu->remove_node('updates');     // Updates
+        $menu->remove_node('widgets');     // Widgets
 
         // $menu->remove_node('edit'); // Edit
         // $menu->remove_node('site-name'); // Site Name
@@ -190,7 +191,7 @@ add_action('wp_dashboard_setup', function () {
     global $wp_meta_boxes;
 
     unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity']); // Activity
-    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']); // WordPress Events and News
+    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);    // WordPress Events and News
 
     // unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']); // At a Glance
     // unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_site_health']); // Site Health Status
