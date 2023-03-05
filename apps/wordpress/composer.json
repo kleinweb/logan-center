@@ -86,7 +86,8 @@
     "wpengine/advanced-custom-fields-pro": "*",
     "wpengine/wp-graphql-content-blocks": "dev-main",
     "happyprime/shadow-terms": "^1.0",
-    "wpackagist-plugin/turn-comments-off": "^1.2"
+    "wpackagist-plugin/turn-comments-off": "^1.2",
+    "stayallive/wp-sentry": "^6.7"
   },
   "require-dev": {
     "alleyinteractive/meta-inspector": "^1.1",

@@ -3,9 +3,11 @@
   "globalDependencies": ["**/.env"],
   "globalEnv": [
     "NEXT_PUBLIC_GRAPHQL_ENDPOINT",
+    "NEXT_PUBLIC_SENTRY_DSN",
     "NEXT_PUBLIC_SERVER_URL",
     "NEXT_PUBLIC_WORDPRESS_CORE_URL",
     "NODE_ENV",
+    "SENTRY_DSN",
     "WORDPRESS_AUTH_REFRESH_TOKEN",
     "WORDPRESS_PREVIEW_SECRET"
   ],

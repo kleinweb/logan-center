@@ -26,3 +26,4 @@ ini_set('display_errors', '1');
 Config::define('DISALLOW_FILE_MODS', false);
 
 Config::define('GRAPHQL_DEBUG', true);
+Config::define('JETPACK_DEV_DEBUG', true);

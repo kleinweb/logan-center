@@ -24,7 +24,7 @@ namespace Klein\LoganCenter;
 //use Klein\LoganCenter\ContentTypes\Project;
 //use Klein\LoganCenter\ContentTypes\Scope;
 
-require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 //$logan_center = new Container();
 //$logan_center['contentTypes.builtins'] = new Builtins();
