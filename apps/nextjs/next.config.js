@@ -9,6 +9,12 @@
 // Avoid language features that are not available in your target Node.js version.
 // Do not change the file extenstion to .ts.
 
+// This file sets a custom webpack configuration to use your Next.js app
+// with Sentry.
+// https://nextjs.org/docs/api-reference/next.config.js/introduction
+// https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
+const {withSentryConfig} = require('@sentry/nextjs')
+
 // Next.js currently doesn't have a good way to match all paths including the
 // root, so we need to use a special regex path.
 // const allPathsIncludingRoot = '/:path*{/}?'
@@ -118,3 +124,9 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+
+module.exports = withSentryConfig(
+  module.exports,
+  {silent: true},
+  {hideSourcemaps: false},
+)

@@ -13,9 +13,9 @@
  * can.
  */
 
-use function Env\env;
-
 use Roots\WPConfig\Config;
+
+use function Env\env;
 
 /**
  * Directory containing all of the site's files
@@ -120,6 +120,17 @@ Config::define('SCRIPT_DEBUG', false);
 ini_set('display_errors', '0');
 
 /**
+ * Sentry Exporter Settings
+ *
+ * @see <https://github.com/stayallive/wp-sentry>
+ */
+Config::define('WP_SENTRY_PHP_DSN', env('WP_SENTRY_DSN'));
+Config::define('WP_SENTRY_SEND_DEFAULT_PII', true);
+Config::define('WP_SENTRY_ENV', WP_ENV);
+// For fine-tuning, if necessary.
+// Config::define('WP_SENTRY_ERROR_TYPES', E_ALL & ~E_DEPRECATED & ~E_NOTICE & ~E_USER_DEPRECATED);
+
+/**
  * Allow WordPress to detect HTTPS when used behind a reverse proxy or a load balancer
  * See https://codex.wordpress.org/Function_Reference/is_ssl#Notes
  */
@@ -134,6 +145,27 @@ if (file_exists($env_config)) {
 }
 
 Config::apply();
+
+
+/**
+ * Bootstrap Sentry
+ *
+ * Because Sentry is a monitoring tool, it should be loaded as early as possible
+ * to capture info about the full environment -- that is, it should be loaded
+ * before WordPress core bootstraps the application.
+ *
+ * This early loading follows the recommendations of the WP-Sentry "plugin".
+ *
+ * @see <https://github.com/stayallive/wp-sentry#loading-sentry-before-wordpress>
+ */
+$wp_sentry_path = (defined('WP_CONTENT_DIR'))
+    ? WP_CONTENT_DIR . '/plugins/wp-sentry/wp-sentry.php'
+    : $webroot_dir . '/app/plugins/wp-sentry/wp-sentry.php';
+// Do not crash in case the plugin is not installed.
+if (file_exists($wp_sentry_path)) {
+    require_once $wp_sentry_path;
+}
+
 
 /**
  * Bootstrap WordPress

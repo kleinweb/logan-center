@@ -52,6 +52,7 @@ wp-cli.local.yml
 .idea/
 *.local
 .netlify
+.sentryclirc
 
 ##: secrets
 auth.json
