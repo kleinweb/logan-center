@@ -5,13 +5,6 @@
 
 
 ###: === //.gitignore ==========================================================
-#
-#    Copy the following section from the repo-root `.gitignore`
-#    to all `.gitignore` files stored in descendent directories:
-#
-#       $ fd --hidden --no-ignore --exclude vendor --exclude node_modules '.gitignore'
-#
-#    This duplication ensures that each package/project/app follows the same rules.
 
 ##: build artifacts
 build/
