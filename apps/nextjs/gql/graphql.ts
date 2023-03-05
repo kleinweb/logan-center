@@ -1396,8 +1396,6 @@ export enum ContentTypesOfPostFormatEnum {
 /** Allowed Content Types of the Tag taxonomy. */
 export enum ContentTypesOfTagEnum {
   /** The Type of Content object */
-  Page = 'PAGE',
-  /** The Type of Content object */
   Post = 'POST',
 }
 
@@ -1834,7 +1832,7 @@ export type CoreCodeAttributes = {
   /** The &quot;lock&quot; field on the &quot;CoreCode&quot; block */
   lock?: Maybe<Scalars['BlockAttributesObject']>
   /** The &quot;style&quot; field on the &quot;CoreCode&quot; block */
-  style?: Maybe<Scalars['String']>
+  style?: Maybe<Scalars['BlockAttributesObject']>
   /** The &quot;textColor&quot; field on the &quot;CoreCode&quot; block */
   textColor?: Maybe<Scalars['String']>
 }
@@ -1886,7 +1884,7 @@ export type CoreColumnAttributes = {
   /** The &quot;lock&quot; field on the &quot;CoreColumn&quot; block */
   lock?: Maybe<Scalars['BlockAttributesObject']>
   /** The &quot;style&quot; field on the &quot;CoreColumn&quot; block */
-  style?: Maybe<Scalars['String']>
+  style?: Maybe<Scalars['BlockAttributesObject']>
   /** The &quot;textColor&quot; field on the &quot;CoreColumn&quot; block */
   textColor?: Maybe<Scalars['String']>
   /** The &quot;verticalAlignment&quot; field on the &quot;CoreColumn&quot; block */
@@ -1951,586 +1949,6 @@ export type CoreColumnsAttributes = {
   textColor?: Maybe<Scalars['String']>
   /** The &quot;verticalAlignment&quot; field on the &quot;CoreColumns&quot; block */
   verticalAlignment?: Maybe<Scalars['String']>
-}
-
-/** A block used for editing the site */
-export type CoreCommentAuthorName = ContentBlock & {
-  __typename?: 'CoreCommentAuthorName'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CoreCommentAuthorNameAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CoreCommentAuthorNameAttributes = {
-  __typename?: 'CoreCommentAuthorNameAttributes'
-  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentAuthorName&quot; block */
-  backgroundColor?: Maybe<Scalars['String']>
-  /** The &quot;className&quot; field on the &quot;CoreCommentAuthorName&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentAuthorName&quot; block */
-  fontFamily?: Maybe<Scalars['String']>
-  /** The &quot;fontSize&quot; field on the &quot;CoreCommentAuthorName&quot; block */
-  fontSize?: Maybe<Scalars['String']>
-  /** The &quot;gradient&quot; field on the &quot;CoreCommentAuthorName&quot; block */
-  gradient?: Maybe<Scalars['String']>
-  /** The &quot;isLink&quot; field on the &quot;CoreCommentAuthorName&quot; block */
-  isLink?: Maybe<Scalars['Boolean']>
-  /** The &quot;linkTarget&quot; field on the &quot;CoreCommentAuthorName&quot; block */
-  linkTarget?: Maybe<Scalars['String']>
-  /** The &quot;lock&quot; field on the &quot;CoreCommentAuthorName&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;style&quot; field on the &quot;CoreCommentAuthorName&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;textAlign&quot; field on the &quot;CoreCommentAuthorName&quot; block */
-  textAlign?: Maybe<Scalars['String']>
-  /** The &quot;textColor&quot; field on the &quot;CoreCommentAuthorName&quot; block */
-  textColor?: Maybe<Scalars['String']>
-}
-
-/** A block used for editing the site */
-export type CoreCommentContent = ContentBlock & {
-  __typename?: 'CoreCommentContent'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CoreCommentContentAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CoreCommentContentAttributes = {
-  __typename?: 'CoreCommentContentAttributes'
-  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentContent&quot; block */
-  backgroundColor?: Maybe<Scalars['String']>
-  /** The &quot;className&quot; field on the &quot;CoreCommentContent&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentContent&quot; block */
-  fontFamily?: Maybe<Scalars['String']>
-  /** The &quot;fontSize&quot; field on the &quot;CoreCommentContent&quot; block */
-  fontSize?: Maybe<Scalars['String']>
-  /** The &quot;gradient&quot; field on the &quot;CoreCommentContent&quot; block */
-  gradient?: Maybe<Scalars['String']>
-  /** The &quot;lock&quot; field on the &quot;CoreCommentContent&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;style&quot; field on the &quot;CoreCommentContent&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;textAlign&quot; field on the &quot;CoreCommentContent&quot; block */
-  textAlign?: Maybe<Scalars['String']>
-  /** The &quot;textColor&quot; field on the &quot;CoreCommentContent&quot; block */
-  textColor?: Maybe<Scalars['String']>
-}
-
-/** A block used for editing the site */
-export type CoreCommentDate = ContentBlock & {
-  __typename?: 'CoreCommentDate'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CoreCommentDateAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CoreCommentDateAttributes = {
-  __typename?: 'CoreCommentDateAttributes'
-  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentDate&quot; block */
-  backgroundColor?: Maybe<Scalars['String']>
-  /** The &quot;className&quot; field on the &quot;CoreCommentDate&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentDate&quot; block */
-  fontFamily?: Maybe<Scalars['String']>
-  /** The &quot;fontSize&quot; field on the &quot;CoreCommentDate&quot; block */
-  fontSize?: Maybe<Scalars['String']>
-  /** The &quot;format&quot; field on the &quot;CoreCommentDate&quot; block */
-  format?: Maybe<Scalars['String']>
-  /** The &quot;gradient&quot; field on the &quot;CoreCommentDate&quot; block */
-  gradient?: Maybe<Scalars['String']>
-  /** The &quot;isLink&quot; field on the &quot;CoreCommentDate&quot; block */
-  isLink?: Maybe<Scalars['Boolean']>
-  /** The &quot;lock&quot; field on the &quot;CoreCommentDate&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;style&quot; field on the &quot;CoreCommentDate&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;textColor&quot; field on the &quot;CoreCommentDate&quot; block */
-  textColor?: Maybe<Scalars['String']>
-}
-
-/** A block used for editing the site */
-export type CoreCommentEditLink = ContentBlock & {
-  __typename?: 'CoreCommentEditLink'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CoreCommentEditLinkAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CoreCommentEditLinkAttributes = {
-  __typename?: 'CoreCommentEditLinkAttributes'
-  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentEditLink&quot; block */
-  backgroundColor?: Maybe<Scalars['String']>
-  /** The &quot;className&quot; field on the &quot;CoreCommentEditLink&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentEditLink&quot; block */
-  fontFamily?: Maybe<Scalars['String']>
-  /** The &quot;fontSize&quot; field on the &quot;CoreCommentEditLink&quot; block */
-  fontSize?: Maybe<Scalars['String']>
-  /** The &quot;gradient&quot; field on the &quot;CoreCommentEditLink&quot; block */
-  gradient?: Maybe<Scalars['String']>
-  /** The &quot;linkTarget&quot; field on the &quot;CoreCommentEditLink&quot; block */
-  linkTarget?: Maybe<Scalars['String']>
-  /** The &quot;lock&quot; field on the &quot;CoreCommentEditLink&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;style&quot; field on the &quot;CoreCommentEditLink&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;textAlign&quot; field on the &quot;CoreCommentEditLink&quot; block */
-  textAlign?: Maybe<Scalars['String']>
-}
-
-/** A block used for editing the site */
-export type CoreCommentReplyLink = ContentBlock & {
-  __typename?: 'CoreCommentReplyLink'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CoreCommentReplyLinkAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CoreCommentReplyLinkAttributes = {
-  __typename?: 'CoreCommentReplyLinkAttributes'
-  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentReplyLink&quot; block */
-  backgroundColor?: Maybe<Scalars['String']>
-  /** The &quot;className&quot; field on the &quot;CoreCommentReplyLink&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentReplyLink&quot; block */
-  fontFamily?: Maybe<Scalars['String']>
-  /** The &quot;fontSize&quot; field on the &quot;CoreCommentReplyLink&quot; block */
-  fontSize?: Maybe<Scalars['String']>
-  /** The &quot;gradient&quot; field on the &quot;CoreCommentReplyLink&quot; block */
-  gradient?: Maybe<Scalars['String']>
-  /** The &quot;lock&quot; field on the &quot;CoreCommentReplyLink&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;style&quot; field on the &quot;CoreCommentReplyLink&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;textAlign&quot; field on the &quot;CoreCommentReplyLink&quot; block */
-  textAlign?: Maybe<Scalars['String']>
-}
-
-/** A block used for editing the site */
-export type CoreCommentTemplate = ContentBlock & {
-  __typename?: 'CoreCommentTemplate'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CoreCommentTemplateAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CoreCommentTemplateAttributes = {
-  __typename?: 'CoreCommentTemplateAttributes'
-  /** The &quot;align&quot; field on the &quot;CoreCommentTemplate&quot; block */
-  align?: Maybe<Scalars['String']>
-  /** The &quot;className&quot; field on the &quot;CoreCommentTemplate&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentTemplate&quot; block */
-  fontFamily?: Maybe<Scalars['String']>
-  /** The &quot;fontSize&quot; field on the &quot;CoreCommentTemplate&quot; block */
-  fontSize?: Maybe<Scalars['String']>
-  /** The &quot;lock&quot; field on the &quot;CoreCommentTemplate&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;style&quot; field on the &quot;CoreCommentTemplate&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
-}
-
-/** A block used for editing the site */
-export type CoreComments = ContentBlock & {
-  __typename?: 'CoreComments'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CoreCommentsAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CoreCommentsAttributes = {
-  __typename?: 'CoreCommentsAttributes'
-  /** The &quot;align&quot; field on the &quot;CoreComments&quot; block */
-  align?: Maybe<Scalars['String']>
-  /** The &quot;backgroundColor&quot; field on the &quot;CoreComments&quot; block */
-  backgroundColor?: Maybe<Scalars['String']>
-  /** The &quot;className&quot; field on the &quot;CoreComments&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;fontFamily&quot; field on the &quot;CoreComments&quot; block */
-  fontFamily?: Maybe<Scalars['String']>
-  /** The &quot;fontSize&quot; field on the &quot;CoreComments&quot; block */
-  fontSize?: Maybe<Scalars['String']>
-  /** The &quot;gradient&quot; field on the &quot;CoreComments&quot; block */
-  gradient?: Maybe<Scalars['String']>
-  /** The &quot;legacy&quot; field on the &quot;CoreComments&quot; block */
-  legacy?: Maybe<Scalars['Boolean']>
-  /** The &quot;lock&quot; field on the &quot;CoreComments&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;style&quot; field on the &quot;CoreComments&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;tagName&quot; field on the &quot;CoreComments&quot; block */
-  tagName?: Maybe<Scalars['String']>
-  /** The &quot;textColor&quot; field on the &quot;CoreComments&quot; block */
-  textColor?: Maybe<Scalars['String']>
-}
-
-/** A block used for editing the site */
-export type CoreCommentsPagination = ContentBlock & {
-  __typename?: 'CoreCommentsPagination'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CoreCommentsPaginationAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CoreCommentsPaginationAttributes = {
-  __typename?: 'CoreCommentsPaginationAttributes'
-  /** The &quot;align&quot; field on the &quot;CoreCommentsPagination&quot; block */
-  align?: Maybe<Scalars['String']>
-  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentsPagination&quot; block */
-  backgroundColor?: Maybe<Scalars['String']>
-  /** The &quot;className&quot; field on the &quot;CoreCommentsPagination&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentsPagination&quot; block */
-  fontFamily?: Maybe<Scalars['String']>
-  /** The &quot;fontSize&quot; field on the &quot;CoreCommentsPagination&quot; block */
-  fontSize?: Maybe<Scalars['String']>
-  /** The &quot;gradient&quot; field on the &quot;CoreCommentsPagination&quot; block */
-  gradient?: Maybe<Scalars['String']>
-  /** The &quot;layout&quot; field on the &quot;CoreCommentsPagination&quot; block */
-  layout?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;lock&quot; field on the &quot;CoreCommentsPagination&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;paginationArrow&quot; field on the &quot;CoreCommentsPagination&quot; block */
-  paginationArrow?: Maybe<Scalars['String']>
-  /** The &quot;style&quot; field on the &quot;CoreCommentsPagination&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;textColor&quot; field on the &quot;CoreCommentsPagination&quot; block */
-  textColor?: Maybe<Scalars['String']>
-}
-
-/** A block used for editing the site */
-export type CoreCommentsPaginationNext = ContentBlock & {
-  __typename?: 'CoreCommentsPaginationNext'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CoreCommentsPaginationNextAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CoreCommentsPaginationNextAttributes = {
-  __typename?: 'CoreCommentsPaginationNextAttributes'
-  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
-  backgroundColor?: Maybe<Scalars['String']>
-  /** The &quot;className&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
-  fontFamily?: Maybe<Scalars['String']>
-  /** The &quot;fontSize&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
-  fontSize?: Maybe<Scalars['String']>
-  /** The &quot;gradient&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
-  gradient?: Maybe<Scalars['String']>
-  /** The &quot;label&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
-  label?: Maybe<Scalars['String']>
-  /** The &quot;lock&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;style&quot; field on the &quot;CoreCommentsPaginationNext&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
-}
-
-/** A block used for editing the site */
-export type CoreCommentsPaginationNumbers = ContentBlock & {
-  __typename?: 'CoreCommentsPaginationNumbers'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CoreCommentsPaginationNumbersAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CoreCommentsPaginationNumbersAttributes = {
-  __typename?: 'CoreCommentsPaginationNumbersAttributes'
-  /** The &quot;className&quot; field on the &quot;CoreCommentsPaginationNumbers&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentsPaginationNumbers&quot; block */
-  fontFamily?: Maybe<Scalars['String']>
-  /** The &quot;fontSize&quot; field on the &quot;CoreCommentsPaginationNumbers&quot; block */
-  fontSize?: Maybe<Scalars['String']>
-  /** The &quot;lock&quot; field on the &quot;CoreCommentsPaginationNumbers&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;style&quot; field on the &quot;CoreCommentsPaginationNumbers&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
-}
-
-/** A block used for editing the site */
-export type CoreCommentsPaginationPrevious = ContentBlock & {
-  __typename?: 'CoreCommentsPaginationPrevious'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CoreCommentsPaginationPreviousAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CoreCommentsPaginationPreviousAttributes = {
-  __typename?: 'CoreCommentsPaginationPreviousAttributes'
-  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
-  backgroundColor?: Maybe<Scalars['String']>
-  /** The &quot;className&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
-  fontFamily?: Maybe<Scalars['String']>
-  /** The &quot;fontSize&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
-  fontSize?: Maybe<Scalars['String']>
-  /** The &quot;gradient&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
-  gradient?: Maybe<Scalars['String']>
-  /** The &quot;label&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
-  label?: Maybe<Scalars['String']>
-  /** The &quot;lock&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;style&quot; field on the &quot;CoreCommentsPaginationPrevious&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
-}
-
-/** A block used for editing the site */
-export type CoreCommentsTitle = ContentBlock & {
-  __typename?: 'CoreCommentsTitle'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CoreCommentsTitleAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CoreCommentsTitleAttributes = {
-  __typename?: 'CoreCommentsTitleAttributes'
-  /** The &quot;align&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  align?: Maybe<Scalars['String']>
-  /** The &quot;backgroundColor&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  backgroundColor?: Maybe<Scalars['String']>
-  /** The &quot;borderColor&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  borderColor?: Maybe<Scalars['String']>
-  /** The &quot;className&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;fontFamily&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  fontFamily?: Maybe<Scalars['String']>
-  /** The &quot;fontSize&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  fontSize?: Maybe<Scalars['String']>
-  /** The &quot;gradient&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  gradient?: Maybe<Scalars['String']>
-  /** The &quot;level&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  level?: Maybe<Scalars['Float']>
-  /** The &quot;lock&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;showCommentsCount&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  showCommentsCount?: Maybe<Scalars['Boolean']>
-  /** The &quot;showPostTitle&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  showPostTitle?: Maybe<Scalars['Boolean']>
-  /** The &quot;style&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;textAlign&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  textAlign?: Maybe<Scalars['String']>
-  /** The &quot;textColor&quot; field on the &quot;CoreCommentsTitle&quot; block */
-  textColor?: Maybe<Scalars['String']>
 }
 
 /** A block used for editing the site */
@@ -3054,57 +2472,13 @@ export type CoreImageAttributes = {
   /** The &quot;src&quot; field on the &quot;CoreImage&quot; block */
   src?: Maybe<Scalars['String']>
   /** The &quot;style&quot; field on the &quot;CoreImage&quot; block */
-  style?: Maybe<Scalars['String']>
+  style?: Maybe<Scalars['BlockAttributesObject']>
   /** The &quot;title&quot; field on the &quot;CoreImage&quot; block */
   title?: Maybe<Scalars['String']>
   /** The &quot;url&quot; field on the &quot;CoreImage&quot; block */
   url?: Maybe<Scalars['String']>
   /** The &quot;width&quot; field on the &quot;CoreImage&quot; block */
   width?: Maybe<Scalars['Float']>
-}
-
-/** A block used for editing the site */
-export type CoreLatestComments = ContentBlock & {
-  __typename?: 'CoreLatestComments'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CoreLatestCommentsAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CoreLatestCommentsAttributes = {
-  __typename?: 'CoreLatestCommentsAttributes'
-  /** The &quot;align&quot; field on the &quot;CoreLatestComments&quot; block */
-  align?: Maybe<Scalars['String']>
-  /** The &quot;className&quot; field on the &quot;CoreLatestComments&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;commentsToShow&quot; field on the &quot;CoreLatestComments&quot; block */
-  commentsToShow?: Maybe<Scalars['Float']>
-  /** The &quot;displayAvatar&quot; field on the &quot;CoreLatestComments&quot; block */
-  displayAvatar?: Maybe<Scalars['Boolean']>
-  /** The &quot;displayDate&quot; field on the &quot;CoreLatestComments&quot; block */
-  displayDate?: Maybe<Scalars['Boolean']>
-  /** The &quot;displayExcerpt&quot; field on the &quot;CoreLatestComments&quot; block */
-  displayExcerpt?: Maybe<Scalars['Boolean']>
-  /** The &quot;lock&quot; field on the &quot;CoreLatestComments&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
 }
 
 /** A block used for editing the site */
@@ -4014,52 +3388,6 @@ export type CorePostCommentsAttributes = {
   /** The &quot;textAlign&quot; field on the &quot;CorePostComments&quot; block */
   textAlign?: Maybe<Scalars['String']>
   /** The &quot;textColor&quot; field on the &quot;CorePostComments&quot; block */
-  textColor?: Maybe<Scalars['String']>
-}
-
-/** A block used for editing the site */
-export type CorePostCommentsForm = ContentBlock & {
-  __typename?: 'CorePostCommentsForm'
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** Attributes of the %s Block Type */
-  attributes?: Maybe<CorePostCommentsFormAttributes>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
-/** Attributes of the %s Block Type */
-export type CorePostCommentsFormAttributes = {
-  __typename?: 'CorePostCommentsFormAttributes'
-  /** The &quot;backgroundColor&quot; field on the &quot;CorePostCommentsForm&quot; block */
-  backgroundColor?: Maybe<Scalars['String']>
-  /** The &quot;className&quot; field on the &quot;CorePostCommentsForm&quot; block */
-  className?: Maybe<Scalars['String']>
-  /** The &quot;fontSize&quot; field on the &quot;CorePostCommentsForm&quot; block */
-  fontSize?: Maybe<Scalars['String']>
-  /** The &quot;gradient&quot; field on the &quot;CorePostCommentsForm&quot; block */
-  gradient?: Maybe<Scalars['String']>
-  /** The &quot;lock&quot; field on the &quot;CorePostCommentsForm&quot; block */
-  lock?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;style&quot; field on the &quot;CorePostCommentsForm&quot; block */
-  style?: Maybe<Scalars['BlockAttributesObject']>
-  /** The &quot;textAlign&quot; field on the &quot;CorePostCommentsForm&quot; block */
-  textAlign?: Maybe<Scalars['String']>
-  /** The &quot;textColor&quot; field on the &quot;CorePostCommentsForm&quot; block */
   textColor?: Maybe<Scalars['String']>
 }
 
@@ -6026,8 +5354,6 @@ export type CreatePageInput = {
   authorId?: InputMaybe<Scalars['ID']>
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
   clientMutationId?: InputMaybe<Scalars['String']>
-  /** The comment status for the object */
-  commentStatus?: InputMaybe<Scalars['String']>
   /** The content of the object */
   content?: InputMaybe<Scalars['String']>
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
@@ -6044,8 +5370,6 @@ export type CreatePageInput = {
   slug?: InputMaybe<Scalars['String']>
   /** The status of the object */
   status?: InputMaybe<PostStatusEnum>
-  /** Set connections between the page and tags */
-  tags?: InputMaybe<PageTagsInput>
   /** The title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -6090,8 +5414,6 @@ export type CreatePostInput = {
   categories?: InputMaybe<PostCategoriesInput>
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
   clientMutationId?: InputMaybe<Scalars['String']>
-  /** The comment status for the object */
-  commentStatus?: InputMaybe<Scalars['String']>
   /** The content of the object */
   content?: InputMaybe<Scalars['String']>
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
@@ -6102,10 +5424,6 @@ export type CreatePostInput = {
   menuOrder?: InputMaybe<Scalars['Int']>
   /** The password used to protect the content of the object */
   password?: InputMaybe<Scalars['String']>
-  /** The ping status for the object */
-  pingStatus?: InputMaybe<Scalars['String']>
-  /** URLs that have been pinged. */
-  pinged?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Set connections between the post and postFormats */
   postFormats?: InputMaybe<PostPostFormatsInput>
   /** The slug of the object */
@@ -6116,8 +5434,6 @@ export type CreatePostInput = {
   tags?: InputMaybe<PostTagsInput>
   /** The title of the object */
   title?: InputMaybe<Scalars['String']>
-  /** URLs queued to be pinged. */
-  toPing?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
 /** The payload for the createPost mutation. */
@@ -6918,7 +6234,6 @@ export type MediaItem = ContentNode &
   HierarchicalNode &
   Node &
   NodeWithAuthor &
-  NodeWithComments &
   NodeWithTemplate &
   NodeWithTitle &
   UniformResourceIdentifiable & {
@@ -6937,12 +6252,6 @@ export type MediaItem = ContentNode &
     caption?: Maybe<Scalars['String']>
     /** Connection between the HierarchicalContentNode type and the ContentNode type */
     children?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>
-    /** The number of comments. Even though WPGraphQL denotes this field as an integer, in WordPress this field should be saved as a numeric string for compatibility. */
-    commentCount?: Maybe<Scalars['Int']>
-    /** Whether the comments are open or closed for this particular post. */
-    commentStatus?: Maybe<Scalars['String']>
-    /** Connection between the MediaItem type and the Comment type */
-    comments?: Maybe<MediaItemToCommentConnection>
     /** @deprecated Deprecated in favor of using Next.js pages */
     conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the ContentNode type and the ContentType type */
@@ -7052,15 +6361,6 @@ export type MediaItemChildrenArgs = {
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
   where?: InputMaybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs>
-}
-
-/** The mediaItem type */
-export type MediaItemCommentsArgs = {
-  after?: InputMaybe<Scalars['String']>
-  before?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
-  last?: InputMaybe<Scalars['Int']>
-  where?: InputMaybe<MediaItemToCommentConnectionWhereArgs>
 }
 
 /** The mediaItem type */
@@ -7212,90 +6512,6 @@ export enum MediaItemStatusEnum {
   Private = 'PRIVATE',
   /** Objects with the trash status */
   Trash = 'TRASH',
-}
-
-/** Connection between the MediaItem type and the Comment type */
-export type MediaItemToCommentConnection = CommentConnection &
-  Connection & {
-    __typename?: 'MediaItemToCommentConnection'
-    /** Edges for the MediaItemToCommentConnection connection */
-    edges: Array<MediaItemToCommentConnectionEdge>
-    /** The nodes of the connection, without the edges */
-    nodes: Array<Comment>
-    /** Information about pagination in a connection. */
-    pageInfo?: Maybe<WpPageInfo>
-  }
-
-/** An edge in a connection */
-export type MediaItemToCommentConnectionEdge = CommentConnectionEdge &
-  Edge & {
-    __typename?: 'MediaItemToCommentConnectionEdge'
-    /** A cursor for use in pagination */
-    cursor?: Maybe<Scalars['String']>
-    /** The item at the end of the edge */
-    node: Comment
-  }
-
-/** Arguments for filtering the MediaItemToCommentConnection connection */
-export type MediaItemToCommentConnectionWhereArgs = {
-  /** Comment author email address. */
-  authorEmail?: InputMaybe<Scalars['String']>
-  /** Array of author IDs to include comments for. */
-  authorIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of author IDs to exclude comments for. */
-  authorNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Comment author URL. */
-  authorUrl?: InputMaybe<Scalars['String']>
-  /** Array of comment IDs to include. */
-  commentIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of IDs of users whose unapproved comments will be returned by the query regardless of status. */
-  commentNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Include comments of a given type. */
-  commentType?: InputMaybe<Scalars['String']>
-  /** Include comments from a given array of comment types. */
-  commentTypeIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-  /** Exclude comments from a given array of comment types. */
-  commentTypeNotIn?: InputMaybe<Scalars['String']>
-  /** Content object author ID to limit results by. */
-  contentAuthor?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of author IDs to retrieve comments for. */
-  contentAuthorIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of author IDs *not* to retrieve comments for. */
-  contentAuthorNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Limit results to those affiliated with a given content object ID. */
-  contentId?: InputMaybe<Scalars['ID']>
-  /** Array of content object IDs to include affiliated comments for. */
-  contentIdIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of content object IDs to exclude affiliated comments for. */
-  contentIdNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Content object name (i.e. slug ) to retrieve affiliated comments for. */
-  contentName?: InputMaybe<Scalars['String']>
-  /** Content Object parent ID to retrieve affiliated comments for. */
-  contentParent?: InputMaybe<Scalars['Int']>
-  /** Array of content object statuses to retrieve affiliated comments for. Pass 'any' to match any value. */
-  contentStatus?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
-  /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
-  contentType?: InputMaybe<Array<InputMaybe<ContentTypeEnum>>>
-  /** Array of IDs or email addresses of users whose unapproved comments will be returned by the query regardless of $status. Default empty */
-  includeUnapproved?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Karma score to retrieve matching comments for. */
-  karma?: InputMaybe<Scalars['Int']>
-  /** The cardinality of the order of the connection */
-  order?: InputMaybe<OrderEnum>
-  /** Field to order the comments by. */
-  orderby?: InputMaybe<CommentsConnectionOrderbyEnum>
-  /** Parent ID of comment to retrieve children of. */
-  parent?: InputMaybe<Scalars['Int']>
-  /** Array of parent IDs of comments to retrieve children for. */
-  parentIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of parent IDs of comments *not* to retrieve children for. */
-  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Search term(s) to retrieve matching comments for. */
-  search?: InputMaybe<Scalars['String']>
-  /** Comment status to limit results by. */
-  status?: InputMaybe<Scalars['String']>
-  /** Include comments for a specific user ID. */
-  userId?: InputMaybe<Scalars['ID']>
 }
 
 /** Details of an available size for a media item */
@@ -7807,16 +7023,6 @@ export type NodeWithAuthorToUserConnectionEdge = Edge &
     node: User
   }
 
-/** A node that can have comments associated with it */
-export type NodeWithComments = {
-  /** The number of comments. Even though WPGraphQL denotes this field as an integer, in WordPress this field should be saved as a numeric string for compatibility. */
-  commentCount?: Maybe<Scalars['Int']>
-  /** Whether the comments are open or closed for this particular post. */
-  commentStatus?: Maybe<Scalars['String']>
-  /** The globally unique ID for the object */
-  id: Scalars['ID']
-}
-
 /** Node that has content blocks associated with it */
 export type NodeWithContentBlocks = {
   /** List of content blocks */
@@ -7928,18 +7134,6 @@ export type NodeWithTitleTitleArgs = {
   format?: InputMaybe<PostObjectFieldFormatEnum>
 }
 
-/** A node that can have trackbacks and pingbacks */
-export type NodeWithTrackbacks = {
-  /** The globally unique ID for the object */
-  id: Scalars['ID']
-  /** Whether the pings are open or closed for this particular post. */
-  pingStatus?: Maybe<Scalars['String']>
-  /** URLs that have been pinged. */
-  pinged?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** URLs queued to be pinged. */
-  toPing?: Maybe<Array<Maybe<Scalars['String']>>>
-}
-
 /** A singular connection from one Node to another, with support for relational data on the &quot;edge&quot; of the connection. */
 export type OneToOneConnection = {
   /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
@@ -7964,7 +7158,6 @@ export type Page = ContentNode &
   MenuItemLinkable &
   Node &
   NodeWithAuthor &
-  NodeWithComments &
   NodeWithContentBlocks &
   NodeWithContentEditor &
   NodeWithExcerpt &
@@ -7986,12 +7179,6 @@ export type Page = ContentNode &
     authorId?: Maybe<Scalars['ID']>
     /** Connection between the HierarchicalContentNode type and the ContentNode type */
     children?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>
-    /** The number of comments. Even though WPGraphQL denotes this field as an integer, in WordPress this field should be saved as a numeric string for compatibility. */
-    commentCount?: Maybe<Scalars['Int']>
-    /** Whether the comments are open or closed for this particular post. */
-    commentStatus?: Maybe<Scalars['String']>
-    /** Connection between the Page type and the Comment type */
-    comments?: Maybe<PageToCommentConnection>
     /** @deprecated Deprecated in favor of using Next.js pages */
     conditionalTags?: Maybe<ConditionalTags>
     /** The content of the post. */
@@ -8081,13 +7268,9 @@ export type Page = ContentNode &
     slug?: Maybe<Scalars['String']>
     /** The current status of the object */
     status?: Maybe<Scalars['String']>
-    /** Connection between the Page type and the tag type */
-    tags?: Maybe<PageToTagConnection>
     /** The template assigned to a node of content */
     template?: Maybe<ContentTemplate>
     templates?: Maybe<Array<Maybe<Scalars['String']>>>
-    /** Connection between the Page type and the TermNode type */
-    terms?: Maybe<PageToTermNodeConnection>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
     title?: Maybe<Scalars['String']>
     /** The unique resource identifier path */
@@ -8110,15 +7293,6 @@ export type PageChildrenArgs = {
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
   where?: InputMaybe<HierarchicalContentNodeToContentNodeChildrenConnectionWhereArgs>
-}
-
-/** The page type */
-export type PageCommentsArgs = {
-  after?: InputMaybe<Scalars['String']>
-  before?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
-  last?: InputMaybe<Scalars['Int']>
-  where?: InputMaybe<PageToCommentConnectionWhereArgs>
 }
 
 /** The page type */
@@ -8162,24 +7336,6 @@ export type PageRevisionsArgs = {
 }
 
 /** The page type */
-export type PageTagsArgs = {
-  after?: InputMaybe<Scalars['String']>
-  before?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
-  last?: InputMaybe<Scalars['Int']>
-  where?: InputMaybe<PageToTagConnectionWhereArgs>
-}
-
-/** The page type */
-export type PageTermsArgs = {
-  after?: InputMaybe<Scalars['String']>
-  before?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
-  last?: InputMaybe<Scalars['Int']>
-  where?: InputMaybe<PageToTermNodeConnectionWhereArgs>
-}
-
-/** The page type */
 export type PageTitleArgs = {
   format?: InputMaybe<PostObjectFieldFormatEnum>
 }
@@ -8208,110 +7364,6 @@ export enum PageIdType {
   Id = 'ID',
   /** Identify a resource by the URI. */
   Uri = 'URI',
-}
-
-/** Set relationships between the page to tags */
-export type PageTagsInput = {
-  /** If true, this will append the tag to existing related tags. If false, this will replace existing relationships. Default true. */
-  append?: InputMaybe<Scalars['Boolean']>
-  /** The input list of items to set. */
-  nodes?: InputMaybe<Array<InputMaybe<PageTagsNodeInput>>>
-}
-
-/** List of tags to connect the page to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists. */
-export type PageTagsNodeInput = {
-  /** The description of the tag. This field is used to set a description of the tag if a new one is created during the mutation. */
-  description?: InputMaybe<Scalars['String']>
-  /** The ID of the tag. If present, this will be used to connect to the page. If no existing tag exists with this ID, no connection will be made. */
-  id?: InputMaybe<Scalars['ID']>
-  /** The name of the tag. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field. */
-  name?: InputMaybe<Scalars['String']>
-  /** The slug of the tag. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation. */
-  slug?: InputMaybe<Scalars['String']>
-}
-
-/** Connection between the Page type and the Comment type */
-export type PageToCommentConnection = CommentConnection &
-  Connection & {
-    __typename?: 'PageToCommentConnection'
-    /** Edges for the PageToCommentConnection connection */
-    edges: Array<PageToCommentConnectionEdge>
-    /** The nodes of the connection, without the edges */
-    nodes: Array<Comment>
-    /** Information about pagination in a connection. */
-    pageInfo?: Maybe<WpPageInfo>
-  }
-
-/** An edge in a connection */
-export type PageToCommentConnectionEdge = CommentConnectionEdge &
-  Edge & {
-    __typename?: 'PageToCommentConnectionEdge'
-    /** A cursor for use in pagination */
-    cursor?: Maybe<Scalars['String']>
-    /** The item at the end of the edge */
-    node: Comment
-  }
-
-/** Arguments for filtering the PageToCommentConnection connection */
-export type PageToCommentConnectionWhereArgs = {
-  /** Comment author email address. */
-  authorEmail?: InputMaybe<Scalars['String']>
-  /** Array of author IDs to include comments for. */
-  authorIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of author IDs to exclude comments for. */
-  authorNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Comment author URL. */
-  authorUrl?: InputMaybe<Scalars['String']>
-  /** Array of comment IDs to include. */
-  commentIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of IDs of users whose unapproved comments will be returned by the query regardless of status. */
-  commentNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Include comments of a given type. */
-  commentType?: InputMaybe<Scalars['String']>
-  /** Include comments from a given array of comment types. */
-  commentTypeIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-  /** Exclude comments from a given array of comment types. */
-  commentTypeNotIn?: InputMaybe<Scalars['String']>
-  /** Content object author ID to limit results by. */
-  contentAuthor?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of author IDs to retrieve comments for. */
-  contentAuthorIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of author IDs *not* to retrieve comments for. */
-  contentAuthorNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Limit results to those affiliated with a given content object ID. */
-  contentId?: InputMaybe<Scalars['ID']>
-  /** Array of content object IDs to include affiliated comments for. */
-  contentIdIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of content object IDs to exclude affiliated comments for. */
-  contentIdNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Content object name (i.e. slug ) to retrieve affiliated comments for. */
-  contentName?: InputMaybe<Scalars['String']>
-  /** Content Object parent ID to retrieve affiliated comments for. */
-  contentParent?: InputMaybe<Scalars['Int']>
-  /** Array of content object statuses to retrieve affiliated comments for. Pass 'any' to match any value. */
-  contentStatus?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
-  /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
-  contentType?: InputMaybe<Array<InputMaybe<ContentTypeEnum>>>
-  /** Array of IDs or email addresses of users whose unapproved comments will be returned by the query regardless of $status. Default empty */
-  includeUnapproved?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Karma score to retrieve matching comments for. */
-  karma?: InputMaybe<Scalars['Int']>
-  /** The cardinality of the order of the connection */
-  order?: InputMaybe<OrderEnum>
-  /** Field to order the comments by. */
-  orderby?: InputMaybe<CommentsConnectionOrderbyEnum>
-  /** Parent ID of comment to retrieve children of. */
-  parent?: InputMaybe<Scalars['Int']>
-  /** Array of parent IDs of comments to retrieve children for. */
-  parentIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of parent IDs of comments *not* to retrieve children for. */
-  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Search term(s) to retrieve matching comments for. */
-  search?: InputMaybe<Scalars['String']>
-  /** Comment status to limit results by. */
-  status?: InputMaybe<Scalars['String']>
-  /** Include comments for a specific user ID. */
-  userId?: InputMaybe<Scalars['ID']>
 }
 
 /** Connection between the Page type and the page type */
@@ -8389,158 +7441,8 @@ export type PageToRevisionConnectionWhereArgs = {
   stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
   /** Show posts with a specific status. */
   status?: InputMaybe<PostStatusEnum>
-  /** Tag Slug */
-  tag?: InputMaybe<Scalars['String']>
-  /** Use Tag ID */
-  tagId?: InputMaybe<Scalars['String']>
-  /** Array of tag IDs, used to display objects from one tag OR another */
-  tagIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of tag IDs, used to display objects from one tag OR another */
-  tagNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of tag slugs, used to display objects from one tag AND another */
-  tagSlugAnd?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-  /** Array of tag slugs, used to include objects in ANY specified tags */
-  tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>
-}
-
-/** Connection between the Page type and the tag type */
-export type PageToTagConnection = Connection &
-  TagConnection & {
-    __typename?: 'PageToTagConnection'
-    /** Edges for the PageToTagConnection connection */
-    edges: Array<PageToTagConnectionEdge>
-    /** The nodes of the connection, without the edges */
-    nodes: Array<Tag>
-    /** Information about pagination in a connection. */
-    pageInfo?: Maybe<WpPageInfo>
-  }
-
-/** An edge in a connection */
-export type PageToTagConnectionEdge = Edge &
-  TagConnectionEdge & {
-    __typename?: 'PageToTagConnectionEdge'
-    /** A cursor for use in pagination */
-    cursor?: Maybe<Scalars['String']>
-    /** The item at the end of the edge */
-    node: Tag
-  }
-
-/** Arguments for filtering the PageToTagConnection connection */
-export type PageToTagConnectionWhereArgs = {
-  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-  cacheDomain?: InputMaybe<Scalars['String']>
-  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-  childOf?: InputMaybe<Scalars['Int']>
-  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-  childless?: InputMaybe<Scalars['Boolean']>
-  /** Retrieve terms where the description is LIKE the input value. Default empty. */
-  descriptionLike?: InputMaybe<Scalars['String']>
-  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-  exclude?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-  excludeTree?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-  hideEmpty?: InputMaybe<Scalars['Boolean']>
-  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-  hierarchical?: InputMaybe<Scalars['Boolean']>
-  /** Array of term ids to include. Default empty array. */
-  include?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of names to return term(s) for. Default empty. */
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-  /** Retrieve terms where the name is LIKE the input value. Default empty. */
-  nameLike?: InputMaybe<Scalars['String']>
-  /** Array of object IDs. Results will be limited to terms associated with these objects. */
-  objectIds?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Direction the connection should be ordered in */
-  order?: InputMaybe<OrderEnum>
-  /** Field(s) to order terms by. Defaults to 'name'. */
-  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>
-  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-  padCounts?: InputMaybe<Scalars['Boolean']>
-  /** Parent term ID to retrieve direct-child terms of. Default empty. */
-  parent?: InputMaybe<Scalars['Int']>
-  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-  search?: InputMaybe<Scalars['String']>
-  /** Array of slugs to return term(s) for. Default empty. */
-  slug?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-  /** Array of term taxonomy IDs, to match when querying terms. */
-  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of term taxonomy IDs, to match when querying terms. */
-  termTaxonomyId?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Whether to prime meta caches for matched terms. Default true. */
-  updateTermMetaCache?: InputMaybe<Scalars['Boolean']>
-}
-
-/** Connection between the Page type and the TermNode type */
-export type PageToTermNodeConnection = Connection &
-  TermNodeConnection & {
-    __typename?: 'PageToTermNodeConnection'
-    /** Edges for the PageToTermNodeConnection connection */
-    edges: Array<PageToTermNodeConnectionEdge>
-    /** The nodes of the connection, without the edges */
-    nodes: Array<TermNode>
-    /** Information about pagination in a connection. */
-    pageInfo?: Maybe<WpPageInfo>
-  }
-
-/** An edge in a connection */
-export type PageToTermNodeConnectionEdge = Edge &
-  TermNodeConnectionEdge & {
-    __typename?: 'PageToTermNodeConnectionEdge'
-    /** A cursor for use in pagination */
-    cursor?: Maybe<Scalars['String']>
-    /** The item at the end of the edge */
-    node: TermNode
-  }
-
-/** Arguments for filtering the PageToTermNodeConnection connection */
-export type PageToTermNodeConnectionWhereArgs = {
-  /** Unique cache key to be produced when this query is stored in an object cache. Default is 'core'. */
-  cacheDomain?: InputMaybe<Scalars['String']>
-  /** Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0. */
-  childOf?: InputMaybe<Scalars['Int']>
-  /** True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false. */
-  childless?: InputMaybe<Scalars['Boolean']>
-  /** Retrieve terms where the description is LIKE the input value. Default empty. */
-  descriptionLike?: InputMaybe<Scalars['String']>
-  /** Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array. */
-  exclude?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array. */
-  excludeTree?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Whether to hide terms not assigned to any posts. Accepts true or false. Default false */
-  hideEmpty?: InputMaybe<Scalars['Boolean']>
-  /** Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true. */
-  hierarchical?: InputMaybe<Scalars['Boolean']>
-  /** Array of term ids to include. Default empty array. */
-  include?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of names to return term(s) for. Default empty. */
-  name?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-  /** Retrieve terms where the name is LIKE the input value. Default empty. */
-  nameLike?: InputMaybe<Scalars['String']>
-  /** Array of object IDs. Results will be limited to terms associated with these objects. */
-  objectIds?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Direction the connection should be ordered in */
-  order?: InputMaybe<OrderEnum>
-  /** Field(s) to order terms by. Defaults to 'name'. */
-  orderby?: InputMaybe<TermObjectsConnectionOrderbyEnum>
-  /** Whether to pad the quantity of a term's children in the quantity of each term's "count" object variable. Default false. */
-  padCounts?: InputMaybe<Scalars['Boolean']>
-  /** Parent term ID to retrieve direct-child terms of. Default empty. */
-  parent?: InputMaybe<Scalars['Int']>
-  /** Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty. */
-  search?: InputMaybe<Scalars['String']>
-  /** Array of slugs to return term(s) for. Default empty. */
-  slug?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-  /** The Taxonomy to filter terms by */
-  taxonomies?: InputMaybe<Array<InputMaybe<TaxonomyEnum>>>
-  /** Array of term taxonomy IDs, to match when querying terms. */
-  termTaxonomId?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of term taxonomy IDs, to match when querying terms. */
-  termTaxonomyId?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Whether to prime meta caches for matched terms. Default true. */
-  updateTermMetaCache?: InputMaybe<Scalars['Boolean']>
 }
 
 /** An plugin object */
@@ -8606,7 +7508,6 @@ export type Post = ContentNode &
   MenuItemLinkable &
   Node &
   NodeWithAuthor &
-  NodeWithComments &
   NodeWithContentBlocks &
   NodeWithContentEditor &
   NodeWithExcerpt &
@@ -8614,7 +7515,6 @@ export type Post = ContentNode &
   NodeWithRevisions &
   NodeWithTemplate &
   NodeWithTitle &
-  NodeWithTrackbacks &
   Previewable &
   UniformResourceIdentifiable & {
     __typename?: 'Post'
@@ -8628,12 +7528,6 @@ export type Post = ContentNode &
     authors?: Maybe<PostToAuthorsConnection>
     /** Connection between the Post type and the category type */
     categories?: Maybe<PostToCategoryConnection>
-    /** The number of comments. Even though WPGraphQL denotes this field as an integer, in WordPress this field should be saved as a numeric string for compatibility. */
-    commentCount?: Maybe<Scalars['Int']>
-    /** Whether the comments are open or closed for this particular post. */
-    commentStatus?: Maybe<Scalars['String']>
-    /** Connection between the Post type and the Comment type */
-    comments?: Maybe<PostToCommentConnection>
     /** @deprecated Deprecated in favor of using Next.js pages */
     conditionalTags?: Maybe<ConditionalTags>
     /** The content of the post. */
@@ -8692,10 +7586,6 @@ export type Post = ContentNode &
     modified?: Maybe<Scalars['String']>
     /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
     modifiedGmt?: Maybe<Scalars['String']>
-    /** Whether the pings are open or closed for this particular post. */
-    pingStatus?: Maybe<Scalars['String']>
-    /** URLs that have been pinged. */
-    pinged?: Maybe<Array<Maybe<Scalars['String']>>>
     /** Connection between the Post type and the postFormat type */
     postFormats?: Maybe<PostToPostFormatConnection>
     /**
@@ -8726,8 +7616,6 @@ export type Post = ContentNode &
     terms?: Maybe<PostToTermNodeConnection>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
     title?: Maybe<Scalars['String']>
-    /** URLs queued to be pinged. */
-    toPing?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The unique resource identifier path */
     uri?: Maybe<Scalars['String']>
   }
@@ -8747,15 +7635,6 @@ export type PostCategoriesArgs = {
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
   where?: InputMaybe<PostToCategoryConnectionWhereArgs>
-}
-
-/** The post type */
-export type PostCommentsArgs = {
-  after?: InputMaybe<Scalars['String']>
-  before?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
-  last?: InputMaybe<Scalars['Int']>
-  where?: InputMaybe<PostToCommentConnectionWhereArgs>
 }
 
 /** The post type */
@@ -9363,90 +8242,6 @@ export type PostToCategoryConnectionWhereArgs = {
   termTaxonomyId?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
   /** Whether to prime meta caches for matched terms. Default true. */
   updateTermMetaCache?: InputMaybe<Scalars['Boolean']>
-}
-
-/** Connection between the Post type and the Comment type */
-export type PostToCommentConnection = CommentConnection &
-  Connection & {
-    __typename?: 'PostToCommentConnection'
-    /** Edges for the PostToCommentConnection connection */
-    edges: Array<PostToCommentConnectionEdge>
-    /** The nodes of the connection, without the edges */
-    nodes: Array<Comment>
-    /** Information about pagination in a connection. */
-    pageInfo?: Maybe<WpPageInfo>
-  }
-
-/** An edge in a connection */
-export type PostToCommentConnectionEdge = CommentConnectionEdge &
-  Edge & {
-    __typename?: 'PostToCommentConnectionEdge'
-    /** A cursor for use in pagination */
-    cursor?: Maybe<Scalars['String']>
-    /** The item at the end of the edge */
-    node: Comment
-  }
-
-/** Arguments for filtering the PostToCommentConnection connection */
-export type PostToCommentConnectionWhereArgs = {
-  /** Comment author email address. */
-  authorEmail?: InputMaybe<Scalars['String']>
-  /** Array of author IDs to include comments for. */
-  authorIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of author IDs to exclude comments for. */
-  authorNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Comment author URL. */
-  authorUrl?: InputMaybe<Scalars['String']>
-  /** Array of comment IDs to include. */
-  commentIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of IDs of users whose unapproved comments will be returned by the query regardless of status. */
-  commentNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Include comments of a given type. */
-  commentType?: InputMaybe<Scalars['String']>
-  /** Include comments from a given array of comment types. */
-  commentTypeIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-  /** Exclude comments from a given array of comment types. */
-  commentTypeNotIn?: InputMaybe<Scalars['String']>
-  /** Content object author ID to limit results by. */
-  contentAuthor?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of author IDs to retrieve comments for. */
-  contentAuthorIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of author IDs *not* to retrieve comments for. */
-  contentAuthorNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Limit results to those affiliated with a given content object ID. */
-  contentId?: InputMaybe<Scalars['ID']>
-  /** Array of content object IDs to include affiliated comments for. */
-  contentIdIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of content object IDs to exclude affiliated comments for. */
-  contentIdNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Content object name (i.e. slug ) to retrieve affiliated comments for. */
-  contentName?: InputMaybe<Scalars['String']>
-  /** Content Object parent ID to retrieve affiliated comments for. */
-  contentParent?: InputMaybe<Scalars['Int']>
-  /** Array of content object statuses to retrieve affiliated comments for. Pass 'any' to match any value. */
-  contentStatus?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
-  /** Content object type or array of types to retrieve affiliated comments for. Pass 'any' to match any value. */
-  contentType?: InputMaybe<Array<InputMaybe<ContentTypeEnum>>>
-  /** Array of IDs or email addresses of users whose unapproved comments will be returned by the query regardless of $status. Default empty */
-  includeUnapproved?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Karma score to retrieve matching comments for. */
-  karma?: InputMaybe<Scalars['Int']>
-  /** The cardinality of the order of the connection */
-  order?: InputMaybe<OrderEnum>
-  /** Field to order the comments by. */
-  orderby?: InputMaybe<CommentsConnectionOrderbyEnum>
-  /** Parent ID of comment to retrieve children of. */
-  parent?: InputMaybe<Scalars['Int']>
-  /** Array of parent IDs of comments to retrieve children for. */
-  parentIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of parent IDs of comments *not* to retrieve children for. */
-  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Search term(s) to retrieve matching comments for. */
-  search?: InputMaybe<Scalars['String']>
-  /** Comment status to limit results by. */
-  status?: InputMaybe<Scalars['String']>
-  /** Include comments for a specific user ID. */
-  userId?: InputMaybe<Scalars['ID']>
 }
 
 /** Connection between the Post type and the postFormat type */
@@ -11049,18 +9844,6 @@ export type RootQueryToPageConnectionWhereArgs = {
   stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
   /** Show posts with a specific status. */
   status?: InputMaybe<PostStatusEnum>
-  /** Tag Slug */
-  tag?: InputMaybe<Scalars['String']>
-  /** Use Tag ID */
-  tagId?: InputMaybe<Scalars['String']>
-  /** Array of tag IDs, used to display objects from one tag OR another */
-  tagIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of tag IDs, used to display objects from one tag OR another */
-  tagNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of tag slugs, used to display objects from one tag AND another */
-  tagSlugAnd?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-  /** Array of tag slugs, used to include objects in ANY specified tags */
-  tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -11671,8 +10454,6 @@ export type Tag = DatabaseIdentifier &
     link?: Maybe<Scalars['String']>
     /** The human friendly name of the object. */
     name?: Maybe<Scalars['String']>
-    /** Connection between the Tag type and the page type */
-    pages?: Maybe<TagToPageConnection>
     /** Connection between the Tag type and the post type */
     posts?: Maybe<TagToPostConnection>
     /** An alphanumeric identifier for the object unique to its type. */
@@ -11718,15 +10499,6 @@ export type TagEnqueuedStylesheetsArgs = {
   before?: InputMaybe<Scalars['String']>
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
-}
-
-/** The tag type */
-export type TagPagesArgs = {
-  after?: InputMaybe<Scalars['String']>
-  before?: InputMaybe<Scalars['String']>
-  first?: InputMaybe<Scalars['Int']>
-  last?: InputMaybe<Scalars['Int']>
-  where?: InputMaybe<TagToPageConnectionWhereArgs>
 }
 
 /** The tag type */
@@ -11826,86 +10598,6 @@ export type TagToContentNodeConnectionWhereArgs = {
   stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
   /** Show posts with a specific status. */
   status?: InputMaybe<PostStatusEnum>
-  /** Title of the object */
-  title?: InputMaybe<Scalars['String']>
-}
-
-/** Connection between the Tag type and the page type */
-export type TagToPageConnection = Connection &
-  PageConnection & {
-    __typename?: 'TagToPageConnection'
-    /** Edges for the TagToPageConnection connection */
-    edges: Array<TagToPageConnectionEdge>
-    /** The nodes of the connection, without the edges */
-    nodes: Array<Page>
-    /** Information about pagination in a connection. */
-    pageInfo?: Maybe<WpPageInfo>
-  }
-
-/** An edge in a connection */
-export type TagToPageConnectionEdge = Edge &
-  PageConnectionEdge & {
-    __typename?: 'TagToPageConnectionEdge'
-    /** A cursor for use in pagination */
-    cursor?: Maybe<Scalars['String']>
-    /** The item at the end of the edge */
-    node: Page
-  }
-
-/** Arguments for filtering the TagToPageConnection connection */
-export type TagToPageConnectionWhereArgs = {
-  /** The user that's connected as the author of the object. Use the userId for the author object. */
-  author?: InputMaybe<Scalars['Int']>
-  /** Find objects connected to author(s) in the array of author's userIds */
-  authorIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Find objects connected to the author by the author's nicename */
-  authorName?: InputMaybe<Scalars['String']>
-  /** Find objects NOT connected to author(s) in the array of author's userIds */
-  authorNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Filter the connection based on dates */
-  dateQuery?: InputMaybe<DateQueryInput>
-  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
-  hasPassword?: InputMaybe<Scalars['Boolean']>
-  /** Specific database ID of the object */
-  id?: InputMaybe<Scalars['Int']>
-  /** Array of IDs for the objects to retrieve */
-  in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Get objects with a specific mimeType property */
-  mimeType?: InputMaybe<MimeTypeEnum>
-  /** Slug / post_name of the object */
-  name?: InputMaybe<Scalars['String']>
-  /** Specify objects to retrieve. Use slugs */
-  nameIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** What paramater to use to order the objects by. */
-  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>
-  /** Use ID to return only children. Use 0 to return only top-level items */
-  parent?: InputMaybe<Scalars['ID']>
-  /** Specify objects whose parent is in an array */
-  parentIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Specify posts whose parent is not in an array */
-  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Show posts with a specific password. */
-  password?: InputMaybe<Scalars['String']>
-  /** Show Posts based on a keyword search */
-  search?: InputMaybe<Scalars['String']>
-  /** Retrieve posts where post status is in an array. */
-  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
-  /** Show posts with a specific status. */
-  status?: InputMaybe<PostStatusEnum>
-  /** Tag Slug */
-  tag?: InputMaybe<Scalars['String']>
-  /** Use Tag ID */
-  tagId?: InputMaybe<Scalars['String']>
-  /** Array of tag IDs, used to display objects from one tag OR another */
-  tagIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of tag IDs, used to display objects from one tag OR another */
-  tagNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of tag slugs, used to display objects from one tag AND another */
-  tagSlugAnd?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-  /** Array of tag slugs, used to include objects in ANY specified tags */
-  tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -12463,8 +11155,6 @@ export type UpdatePageInput = {
   authorId?: InputMaybe<Scalars['ID']>
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
   clientMutationId?: InputMaybe<Scalars['String']>
-  /** The comment status for the object */
-  commentStatus?: InputMaybe<Scalars['String']>
   /** The content of the object */
   content?: InputMaybe<Scalars['String']>
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
@@ -12483,8 +11173,6 @@ export type UpdatePageInput = {
   slug?: InputMaybe<Scalars['String']>
   /** The status of the object */
   status?: InputMaybe<PostStatusEnum>
-  /** Set connections between the page and tags */
-  tags?: InputMaybe<PageTagsInput>
   /** The title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -12531,8 +11219,6 @@ export type UpdatePostInput = {
   categories?: InputMaybe<PostCategoriesInput>
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
   clientMutationId?: InputMaybe<Scalars['String']>
-  /** The comment status for the object */
-  commentStatus?: InputMaybe<Scalars['String']>
   /** The content of the object */
   content?: InputMaybe<Scalars['String']>
   /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
@@ -12545,10 +11231,6 @@ export type UpdatePostInput = {
   menuOrder?: InputMaybe<Scalars['Int']>
   /** The password used to protect the content of the object */
   password?: InputMaybe<Scalars['String']>
-  /** The ping status for the object */
-  pingStatus?: InputMaybe<Scalars['String']>
-  /** URLs that have been pinged. */
-  pinged?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Set connections between the post and postFormats */
   postFormats?: InputMaybe<PostPostFormatsInput>
   /** The slug of the object */
@@ -12559,8 +11241,6 @@ export type UpdatePostInput = {
   tags?: InputMaybe<PostTagsInput>
   /** The title of the object */
   title?: InputMaybe<Scalars['String']>
-  /** URLs queued to be pinged. */
-  toPing?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
 }
 
 /** The payload for the updatePost mutation. */
@@ -12925,7 +11605,11 @@ export enum UserRoleEnum {
   /** User role with specific capabilities */
   Administrator = 'ADMINISTRATOR',
   /** User role with specific capabilities */
+  Developer = 'DEVELOPER',
+  /** User role with specific capabilities */
   Editor = 'EDITOR',
+  /** User role with specific capabilities */
+  GuestAuthor = 'GUEST_AUTHOR',
   /** User role with specific capabilities */
   SiteAdministrator = 'SITE_ADMINISTRATOR',
 }
@@ -13190,18 +11874,6 @@ export type UserToPageConnectionWhereArgs = {
   stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>
   /** Show posts with a specific status. */
   status?: InputMaybe<PostStatusEnum>
-  /** Tag Slug */
-  tag?: InputMaybe<Scalars['String']>
-  /** Use Tag ID */
-  tagId?: InputMaybe<Scalars['String']>
-  /** Array of tag IDs, used to display objects from one tag OR another */
-  tagIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of tag IDs, used to display objects from one tag OR another */
-  tagNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>
-  /** Array of tag slugs, used to display objects from one tag AND another */
-  tagSlugAnd?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
-  /** Array of tag slugs, used to include objects in ANY specified tags */
-  tagSlugIn?: InputMaybe<Array<InputMaybe<Scalars['String']>>>
   /** Title of the object */
   title?: InputMaybe<Scalars['String']>
 }
@@ -13571,90 +12243,6 @@ export type SinglePageQuery = {
           renderedHtml?: string | null
         }
       | {
-          __typename?: 'CoreCommentAuthorName'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCommentContent'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCommentDate'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCommentEditLink'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCommentReplyLink'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCommentTemplate'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreComments'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCommentsPagination'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCommentsPaginationNext'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCommentsPaginationNumbers'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCommentsPaginationPrevious'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCommentsTitle'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
           __typename?: 'CoreCover'
           apiVersion?: number | null
           name?: string | null
@@ -13719,13 +12307,6 @@ export type SinglePageQuery = {
         }
       | {
           __typename?: 'CoreImage'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreLatestComments'
           apiVersion?: number | null
           name?: string | null
           parentId?: string | null
@@ -13852,13 +12433,6 @@ export type SinglePageQuery = {
         }
       | {
           __typename?: 'CorePostComments'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePostCommentsForm'
           apiVersion?: number | null
           name?: string | null
           parentId?: string | null
