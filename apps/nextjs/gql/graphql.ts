@@ -6206,6 +6206,42 @@ export type HierarchicalTermNodeEnqueuedStylesheetsArgs = {
   last?: InputMaybe<Scalars['Int']>
 }
 
+/** Input for the loginWithCookies mutation. */
+export type LoginWithCookiesInput = {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars['String']>
+  /** Input your user/e-mail. */
+  login: Scalars['String']
+  /** Input your password. */
+  password: Scalars['String']
+  /** Whether to "remember" the user. Increases the time that the cookie will be kept. Default false. */
+  rememberMe?: InputMaybe<Scalars['Boolean']>
+}
+
+/** The payload for the loginWithCookies mutation. */
+export type LoginWithCookiesPayload = {
+  __typename?: 'LoginWithCookiesPayload'
+  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']>
+  /** Login operation status */
+  status?: Maybe<Scalars['String']>
+}
+
+/** Input for the logout mutation. */
+export type LogoutInput = {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars['String']>
+}
+
+/** The payload for the logout mutation. */
+export type LogoutPayload = {
+  __typename?: 'LogoutPayload'
+  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']>
+  /** Logout operation status */
+  status?: Maybe<Scalars['String']>
+}
+
 /** File details for a Media Item */
 export type MediaDetails = {
   __typename?: 'MediaDetails'
@@ -8761,6 +8797,10 @@ export type RootMutation = {
   generateAuthorizationCode?: Maybe<GenerateAuthorizationCodePayload>
   /** Increase the count. */
   increaseCount?: Maybe<Scalars['Int']>
+  /** The loginWithCookies mutation */
+  loginWithCookies?: Maybe<LoginWithCookiesPayload>
+  /** The logout mutation */
+  logout?: Maybe<LogoutPayload>
   /** The registerUser mutation */
   registerUser?: Maybe<RegisterUserPayload>
   /** The resetUserPassword mutation */
@@ -8877,6 +8917,16 @@ export type RootMutationGenerateAuthorizationCodeArgs = {
 /** The root mutation */
 export type RootMutationIncreaseCountArgs = {
   count?: InputMaybe<Scalars['Int']>
+}
+
+/** The root mutation */
+export type RootMutationLoginWithCookiesArgs = {
+  input: LoginWithCookiesInput
+}
+
+/** The root mutation */
+export type RootMutationLogoutArgs = {
+  input: LogoutInput
 }
 
 /** The root mutation */

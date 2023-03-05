@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "74a9429c03f1e0acfd3782efd33d69e0",
+  "content-hash": "d0913e981a8ee86b201efeb69a96fed6",
   "packages": [
     {
       "name": "alleyinteractive/internal-flags",
@@ -631,6 +631,34 @@
         }
       ],
       "time": "2022-02-20T15:07:15+00:00"
+    },
+    {
+      "name": "funkhaus/wp-graphql-cors",
+      "version": "2.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/funkhaus/wp-graphql-cors.git",
+        "reference": "58d0d90a4106a05c286534322b98bbe21d7ce3eb"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/funkhaus/wp-graphql-cors/zipball/58d0d90a4106a05c286534322b98bbe21d7ce3eb",
+        "reference": "58d0d90a4106a05c286534322b98bbe21d7ce3eb",
+        "shasum": ""
+      },
+      "type": "wordpress-plugin",
+      "license": ["GNU General Public License v3.0"],
+      "authors": [
+        {
+          "name": "Funkhaus",
+          "email": "whatsup@funkhaus.us"
+        }
+      ],
+      "support": {
+        "source": "https://github.com/funkhaus/wp-graphql-cors/tree/2.1",
+        "issues": "https://github.com/funkhaus/wp-graphql-cors/issues"
+      },
+      "time": "2022-08-19T13:59:39+00:00"
     },
     {
       "name": "graham-campbell/result-type",
@@ -2321,7 +2349,7 @@
     },
     {
       "name": "kleinweb/core-services",
-      "version": "dev-feat/use-sentry",
+      "version": "dev-fix/post-previews",
       "dist": {
         "type": "path",
         "url": "../../packages/kleinweb-core-services",
@@ -2372,7 +2400,7 @@
     },
     {
       "name": "kleinweb/logan-center-plugin",
-      "version": "dev-feat/use-sentry",
+      "version": "dev-fix/post-previews",
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-plugin",
@@ -2426,7 +2454,7 @@
     },
     {
       "name": "kleinweb/logan-center-theme",
-      "version": "dev-feat/use-sentry",
+      "version": "dev-fix/post-previews",
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-theme",
