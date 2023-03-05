@@ -89,7 +89,7 @@
     "wpackagist-plugin/wp-crontrol": "^1.15",
     "wpackagist-theme/twentytwentythree": "^1.0",
     "wpengine/advanced-custom-fields-pro": "*",
-    "wpengine/wp-graphql-content-blocks": "dev-main",
+    "wpengine/wp-graphql-content-blocks": "dev-main#97bb00e",
     "happyprime/shadow-terms": "^1.0",
     "wpackagist-plugin/turn-comments-off": "^1.2",
     "stayallive/wp-sentry": "^6.7",
