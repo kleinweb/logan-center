@@ -1,0 +1,15 @@
+{
+  "name": "kleinweb/logan-center",
+  "type": "project",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Klein Digital Initiatives",
+      "email": "kleinweb@temple.edu"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require-dev": {
+    "laravel/pint": "^1.5"
+  }
+}

@@ -150,6 +150,8 @@
       "zlib",
       "wordpress"
     ],
+    "laravel-pint.fallbackToGlobalBin": false,
+    "laravel-pint.preset": "psr12",
   },
   "extensions": {
     "recommendations": [
