@@ -16,6 +16,9 @@
       "path": "../packages/kleinweb-core-services"
     },
     {
+      "path": "../packages/kleinweb-php-standards"
+    },
+    {
       "name": "logan-center",
       "path": ".."
     }
@@ -44,7 +47,6 @@
     "stylelint.reportDescriptionlessDisables": true,
     "stylelint.reportInvalidScopeDisables": true,
     "stylelint.reportNeedlessDisables": true,
-    "laravel-pint.enable": false,
     "intelephense.environment.includePaths": ["**/web/app/mu-plugins/**", "**/web/app/plugins/**","**/vendor/**"],
     "intelephense.files.exclude": [
       "**/.git/**",
@@ -64,7 +66,7 @@
     "intelephense.format.enable": false,
     "intelephense.environment.phpVersion": "8.0",
     "intelephense.environment.shortOpenTag": false,
-    "intelephense.phpdoc.returnVoid": false,
+    "intelephense.phpdoc.returnVoid": true,
     "intelephense.rename.exclude": [
       "**/vendor/**",
       "apps/wordpress/web/**"
@@ -149,10 +151,7 @@
       "zip",
       "zlib",
       "wordpress"
-    ],
-    "laravel-pint.fallbackToGlobalBin": false,
-    "laravel-pint.preset": "psr12",
-    "phpsab.snifferShowSources": true,
+    ]
   },
   "extensions": {
     "recommendations": [

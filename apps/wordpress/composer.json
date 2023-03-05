@@ -49,6 +49,10 @@
       "url": "../../packages/logan-center-plugin"
     },
     {
+      "type": "path",
+      "url": "../../packages/kleinweb-php-standards"
+    },
+    {
       "type": "vcs",
       "url": "https://github.com/happyprime/shadow-terms"
     }
@@ -67,6 +71,7 @@
     "vlucas/phpdotenv": "^5.5",
     "alleyinteractive/internal-flags": "^0.2.0",
     "kleinweb/core-services": "*",
+    "kleinweb/logan-center-core-plugin": "*",
     "kleinweb/logan-center-plugin": "*",
     "kleinweb/logan-center-theme": "*",
     "vinkla/headache": "^2.4",
@@ -93,6 +98,7 @@
   "require-dev": {
     "alleyinteractive/meta-inspector": "^1.1",
     "squizlabs/php_codesniffer": "^3.7.1",
+    "kleinweb/kleinweb-php-standards": "*",
     "roave/security-advisories": "dev-latest",
     "wpackagist-plugin/block-xray-attributes": "^1.2"
   },
@@ -130,13 +136,13 @@
   },
   "scripts": {
     "lint": [
-      "phpcs --extensions=php --standard=PSR12"
+      "phpcs --standard=Kleinweb"
     ],
     "fix": [
-      "phpcbf --extensions=php --standard=PSR12"
+      "phpcbf --standard=Kleinweb"
     ],
     "test": [
-      "phpcs"
+      "@lint"
     ],
     "post-root-package-install": [
       "php -r \"copy('.env.example', '.env');\""

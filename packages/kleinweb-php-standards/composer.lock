@@ -4,120 +4,8 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "860f9bb9a3c2473a7374c720556d18d0",
+  "content-hash": "fac282d16f351365766183dd9b0d49be",
   "packages": [
-    {
-      "name": "johnbillion/args",
-      "version": "1.6.0",
-      "source": {
-        "type": "git",
-        "url": "https://github.com/johnbillion/args.git",
-        "reference": "0a94706015471d72d6c227ff494a002a6275b28b"
-      },
-      "dist": {
-        "type": "zip",
-        "url": "https://api.github.com/repos/johnbillion/args/zipball/0a94706015471d72d6c227ff494a002a6275b28b",
-        "reference": "0a94706015471d72d6c227ff494a002a6275b28b",
-        "shasum": ""
-      },
-      "require": {
-        "php": ">=7.4"
-      },
-      "require-dev": {
-        "ergebnis/json-printer": "^3.2",
-        "ergebnis/phpstan-rules": "^1.0",
-        "humanmade/coding-standards": "^1.1",
-        "johnbillion/falsey-assertequals-detector": "^3",
-        "phpdocumentor/reflection": "~4.0 || ~5.0",
-        "phpstan/phpstan": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.0",
-        "phpstan/phpstan-strict-rules": "^1.1",
-        "phpunit/phpunit": "^9.0",
-        "roots/wordpress-core-installer": "^1.0.0",
-        "roots/wordpress-full": "~6.1.0"
-      },
-      "type": "library",
-      "extra": {
-        "args-shapes": [
-          "--function=\"\\get_categories()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/category.php",
-          "--function=\"\\get_comments()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/comment.php",
-          "--function=\"\\get_posts()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/post.php",
-          "--function=\"\\get_tags()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/category.php",
-          "--function=\"\\get_terms()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/taxonomy.php",
-          "--function=\"\\get_users()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/user.php",
-          "--function=\"\\paginate_links()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/general-template.php",
-          "--function=\"\\register_block_type()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/blocks.php",
-          "--function=\"\\register_meta()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/meta.php",
-          "--function=\"\\register_post_meta()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/post.php",
-          "--function=\"\\register_post_status()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/post.php",
-          "--function=\"\\register_post_type()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/post.php",
-          "--function=\"\\register_rest_field()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/rest-api.php",
-          "--function=\"\\register_taxonomy()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/taxonomy.php",
-          "--function=\"\\register_term_meta()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/taxonomy.php",
-          "--function=\"\\wp_count_terms()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/taxonomy.php",
-          "--function=\"\\wp_die()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/functions.php",
-          "--function=\"\\wp_dropdown_categories()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/category-template.php",
-          "--function=\"\\wp_dropdown_languages()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/l10n.php",
-          "--function=\"\\wp_generate_tag_cloud()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/category-template.php",
-          "--function=\"\\wp_get_nav_menus()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/nav-menu.php",
-          "--function=\"\\wp_get_object_terms()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/taxonomy.php",
-          "--function=\"\\wp_insert_post()\" --param=postarr --file=vendor/wordpress/wordpress/wp-includes/post.php",
-          "--function=\"\\wp_insert_term()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/taxonomy.php",
-          "--function=\"\\wp_insert_user()\" --param=userdata --file=vendor/wordpress/wordpress/wp-includes/user.php",
-          "--function=\"\\wp_nav_menu()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/nav-menu-template.php",
-          "--function=\"\\wp_remote_get()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/http.php",
-          "--function=\"\\wp_remote_head()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/http.php",
-          "--function=\"\\wp_remote_post()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/http.php",
-          "--function=\"\\wp_remote_request()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/http.php",
-          "--function=\"\\wp_safe_remote_get()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/http.php",
-          "--function=\"\\wp_safe_remote_head()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/http.php",
-          "--function=\"\\wp_safe_remote_post()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/http.php",
-          "--function=\"\\wp_safe_remote_request()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/http.php",
-          "--function=\"\\wp_update_post()\" --param=postarr --file=vendor/wordpress/wordpress/wp-includes/post.php",
-          "--function=\"\\wp_update_term()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/taxonomy.php",
-          "--function=\"\\wp_update_user()\" --param=userdata --file=vendor/wordpress/wordpress/wp-includes/user.php",
-          "--method=\"\\WP_Block_Type::__construct()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/class-wp-block-type.php",
-          "--method=\"\\WP_Comment_Query::__construct()\" --param=query --file=vendor/wordpress/wordpress/wp-includes/class-wp-comment-query.php",
-          "--method=\"\\WP_Customize_Control::__construct()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/class-wp-customize-control.php",
-          "--method=\"\\WP_Customize_Manager::__construct()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/class-wp-customize-manager.php",
-          "--method=\"\\WP_Customize_Panel::__construct()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/class-wp-customize-panel.php",
-          "--method=\"\\WP_Customize_Section::__construct()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/class-wp-customize-section.php",
-          "--method=\"\\WP_Customize_Setting::__construct()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/class-wp-customize-setting.php",
-          "--method=\"\\WP_Http::request()\" --param=args --file=vendor/wordpress/wordpress/wp-includes/class-wp-http.php",
-          "--method=\"\\WP_Query::parse_query()\" --param=query --file=vendor/wordpress/wordpress/wp-includes/class-wp-query.php",
-          "--method=\"\\WP_Term_Query::__construct()\" --param=query --file=vendor/wordpress/wordpress/wp-includes/class-wp-term-query.php",
-          "--method=\"\\WP_User_Query::prepare_query()\" --param=query --file=vendor/wordpress/wordpress/wp-includes/class-wp-user-query.php"
-        ],
-        "wordpress-install-dir": "vendor/wordpress/wordpress"
-      },
-      "autoload": {
-        "psr-4": {
-          "Args\\": "src/"
-        }
-      },
-      "notification-url": "https://packagist.org/downloads/",
-      "license": ["GPL-2.0+"],
-      "authors": [
-        {
-          "name": "John Blackbourn",
-          "homepage": "https://johnblackbourn.com/"
-        }
-      ],
-      "description": "I don't want to get into an argument about this.",
-      "support": {
-        "issues": "https://github.com/johnbillion/args/issues",
-        "source": "https://github.com/johnbillion/args/tree/1.6.0"
-      },
-      "funding": [
-        {
-          "url": "https://github.com/sponsors/johnbillion",
-          "type": "github"
-        }
-      ],
-      "time": "2022-11-10T14:09:31+00:00"
-    }
-  ],
-  "packages-dev": [
     {
       "name": "dealerdirect/phpcodesniffer-composer-installer",
       "version": "v1.0.0",
@@ -193,31 +81,6 @@
         "source": "https://github.com/PHPCSStandards/composer-installer"
       },
       "time": "2023-01-05T11:28:13+00:00"
-    },
-    {
-      "name": "kleinweb/kleinweb-php-standards",
-      "version": "dev-fix/post-previews-yet-another-way",
-      "dist": {
-        "type": "path",
-        "url": "../../packages/kleinweb-php-standards",
-        "reference": "0f67d94883591a35e469b88f9e1ab5c07bda09f8"
-      },
-      "require": {
-        "dealerdirect/phpcodesniffer-composer-installer": "*",
-        "php": ">=8.0",
-        "phpcompatibility/php-compatibility": "*",
-        "phpcompatibility/phpcompatibility-paragonie": "*",
-        "phpcompatibility/phpcompatibility-wp": "*",
-        "squizlabs/php_codesniffer": "*",
-        "wp-coding-standards/wpcs": "dev-develop"
-      },
-      "type": "phpcodesniffer-standard",
-      "license": ["GPL-3.0-or-later"],
-      "description": "PHP coding standards for Klein Digitial Initiatives",
-      "keywords": ["phpcs", "static analysis"],
-      "transport-options": {
-        "relative": true
-      }
     },
     {
       "name": "phpcompatibility/php-compatibility",
@@ -613,13 +476,16 @@
       "time": "2023-01-13T13:37:27+00:00"
     }
   ],
+  "packages-dev": [],
   "aliases": [],
-  "minimum-stability": "dev",
-  "stability-flags": [],
-  "prefer-stable": true,
+  "minimum-stability": "stable",
+  "stability-flags": {
+    "wp-coding-standards/wpcs": 20
+  },
+  "prefer-stable": false,
   "prefer-lowest": false,
   "platform": {
-    "php": "^8.0"
+    "php": ">=8.0"
   },
   "platform-dev": [],
   "plugin-api-version": "2.3.0"
