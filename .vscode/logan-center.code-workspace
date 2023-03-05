@@ -44,7 +44,7 @@
     "stylelint.reportDescriptionlessDisables": true,
     "stylelint.reportInvalidScopeDisables": true,
     "stylelint.reportNeedlessDisables": true,
-    "laravel-pint.enable": true,
+    "laravel-pint.enable": false,
     "intelephense.environment.includePaths": ["**/web/app/mu-plugins/**", "**/web/app/plugins/**","**/vendor/**"],
     "intelephense.files.exclude": [
       "**/.git/**",
@@ -152,6 +152,7 @@
     ],
     "laravel-pint.fallbackToGlobalBin": false,
     "laravel-pint.preset": "psr12",
+    "phpsab.snifferShowSources": true,
   },
   "extensions": {
     "recommendations": [

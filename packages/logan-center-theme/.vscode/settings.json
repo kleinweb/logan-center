@@ -5,6 +5,5 @@
     "../../mu-plugins/**",
     "../../../wp/**"
   ],
-  "stylelint.configBasedir": ".",
-  "laravel-pint.enable": true
+  "stylelint.configBasedir": "."
 }
