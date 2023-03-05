@@ -34,7 +34,7 @@ node_modules/
 .next/
 
 ##: php: composer
-**/vendor
+vendor
 
 # wp-cli
 wp-cli.local.yml
@@ -42,7 +42,7 @@ wp-cli.local.yml
 ##: local data
 .data/
 .direnv/
-.idea/
+.idea
 *.local
 .netlify
 .sentryclirc
