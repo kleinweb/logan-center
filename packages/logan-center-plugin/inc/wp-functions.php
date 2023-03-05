@@ -224,64 +224,6 @@ add_filter('rest_prepare_post', 'kleinweb_preview_link_in_rest_response', 10, 2)
 add_filter('rest_prepare_page', 'kleinweb_preview_link_in_rest_response', 10, 2);
 
 /**
- * This function auto saves drafts posts, to force them to get a URL for previews to work.
- * See: https://wordpress.stackexchange.com/questions/218168/how-to-make-draft-posts-or-posts-in-review-accessible-via-full-url-slug
- *
- * @param  int  $post_id Post ID.
- * @param  \WP_Post  $post Post object.
- * @param  bool  $update Whether this is an existing post being updated.
- */
-function auto_set_post_status($post_id, $post, $update)
-{
-    if ($post->post_status !== 'draft' || $post->post_name) {
-        return;
-    }
-
-    // Un-hook to prevent infinite loop
-    remove_action('save_post', 'auto_set_post_status', 13, 3);
-
-    if (is_plugin_active('funkhaus-netlify-deploy/netlify-deploy.php')) {
-        remove_action('save_post', 'nd_debounce_deploy', 20, 1);
-    }
-
-    if (is_plugin_active('funkhaus-cache-purge/cache-purge.php')) {
-        remove_action('save_post', 'cp_purge_cache', 20, 1);
-    }
-
-    // Set the post to publish so it gets the slug is saved to post_name
-    wp_update_post(
-        [
-            'ID' => $post_id,
-            'post_status' => 'publish',
-            'post_date' => '',
-        ]
-    );
-
-    // Immediately put it back to draft status
-    wp_update_post(
-        [
-            'ID' => $post_id,
-            'post_status' => 'draft',
-            'post_date' => '',
-        ]
-    );
-
-    // Re-hook save
-    add_action('save_post', 'auto_set_post_status', 13, 3);
-
-    if (is_plugin_active('funkhaus-netlify-deploy/netlify-deploy.php')) {
-        add_action('save_post', 'nd_debounce_deploy', 20, 1);
-    }
-
-    if (! is_plugin_active('funkhaus-cache-purge/ cache-purge.php')) {
-        return;
-    }
-
-    add_action('save_post', 'cp_purge_cache', 20, 1);
-}
-add_action('save_post', 'auto_set_post_status', 13, 3);
-
-/**
  * Polyfill functions to not throw errors on ACF import
  */
 function kleinweb_polyfill_functions()
