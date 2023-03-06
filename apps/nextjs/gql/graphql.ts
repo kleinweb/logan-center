@@ -76,8 +76,6 @@ export type Category = DatabaseIdentifier &
     categoryId?: Maybe<Scalars['Int']>
     /** Connection between the category type and its children categories. */
     children?: Maybe<CategoryToCategoryConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the Category type and the ContentNode type */
     contentNodes?: Maybe<CategoryToContentNodeConnection>
     /** The number of objects connected to the object */
@@ -116,7 +114,6 @@ export type Category = DatabaseIdentifier &
     taxonomy?: Maybe<CategoryToTaxonomyConnectionEdge>
     /** The name of the taxonomy that the object is associated with */
     taxonomyName?: Maybe<Scalars['String']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The ID of the term group that this term object belongs to */
     termGroupId?: Maybe<Scalars['Int']>
     /** The taxonomy ID that the object is associated with */
@@ -842,121 +839,6 @@ export enum CommentsConnectionOrderbyEnum {
   UserId = 'USER_ID',
 }
 
-/** GraphQL representation of WordPress Conditional Tags. */
-export type ConditionalTags = {
-  __typename?: 'ConditionalTags'
-  /**
-   * Determines whether the query is for an existing archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isArchive?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing attachment page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isAttachment?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing author archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isAuthor?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing category archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isCategory?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing date archive.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isDate?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing day archive.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isDay?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for the front page of the site.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isFrontPage?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for the blog homepage.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isHome?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing month archive.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isMonth?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether this site has more than one author.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isMultiAuthor?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing single page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPage?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether currently in a page template.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPageTemplate?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing post type archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPostTypeArchive?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for a post or page preview.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPreview?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for the Privacy Policy page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isPrivacyPolicy?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for a search.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isSearch?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing single post.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isSingle?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing single post of any post type (post, attachment, page, custom post types).
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isSingular?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether a post is sticky.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isSticky?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing tag archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isTag?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing custom taxonomy archive page.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isTax?: Maybe<Scalars['Boolean']>
-  /**
-   * Determines whether the query is for an existing year archive.
-   * @deprecated Deprecated in favor of using Next.js pages
-   */
-  isYear?: Maybe<Scalars['Boolean']>
-}
-
 /** A plural connection from one Node Type in the Graph to another Node Type, with support for relational data via &quot;edges&quot;. */
 export type Connection = {
   /** A list of edges (relational context) between connected nodes */
@@ -965,32 +847,8 @@ export type Connection = {
   nodes: Array<Node>
 }
 
-/** Blocks that can be edited to create content and layouts */
-export type ContentBlock = {
-  /** The API version of the Gutenberg Block */
-  apiVersion?: Maybe<Scalars['Int']>
-  /** The name of the category the Block belongs to */
-  blockEditorCategoryName?: Maybe<Scalars['String']>
-  /** CSS Classnames to apply to the block */
-  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
-  /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-  /** Whether the block is Dynamic (server rendered) */
-  isDynamic: Scalars['Boolean']
-  /** The name of the Block */
-  name?: Maybe<Scalars['String']>
-  /** The id of the Block */
-  nodeId?: Maybe<Scalars['String']>
-  /** The parent id of the Block */
-  parentId?: Maybe<Scalars['String']>
-  /** The rendered HTML for the block */
-  renderedHtml?: Maybe<Scalars['String']>
-}
-
 /** Nodes used to manage content */
 export type ContentNode = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** Connection between the ContentNode type and the ContentType type */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
   /** The name of the Content Type the node belongs to */
@@ -1041,7 +899,6 @@ export type ContentNode = {
   status?: Maybe<Scalars['String']>
   /** The template assigned to a node of content */
   template?: Maybe<ContentTemplate>
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -1179,8 +1036,6 @@ export type ContentType = Node &
     __typename?: 'ContentType'
     /** Whether this content type should can be exported. */
     canExport?: Maybe<Scalars['Boolean']>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the ContentType type and the Taxonomy type */
     connectedTaxonomies?: Maybe<ContentTypeToTaxonomyConnection>
     /** Connection between the ContentType type and the ContentNode type */
@@ -1241,7 +1096,6 @@ export type ContentType = Node &
     showInRest?: Maybe<Scalars['Boolean']>
     /** Whether to generate and allow a UI for managing this content type in the admin. */
     showUi?: Maybe<Scalars['Boolean']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The unique resource identifier path */
     uri?: Maybe<Scalars['String']>
   }
@@ -1400,7 +1254,7 @@ export enum ContentTypesOfTagEnum {
 }
 
 /** A block used for editing the site */
-export type CoreArchives = ContentBlock & {
+export type CoreArchives = EditorBlock & {
   __typename?: 'CoreArchives'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -1411,7 +1265,7 @@ export type CoreArchives = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -1450,7 +1304,7 @@ export type CoreArchivesAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreAudio = ContentBlock & {
+export type CoreAudio = EditorBlock & {
   __typename?: 'CoreAudio'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -1461,7 +1315,7 @@ export type CoreAudio = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -1500,7 +1354,7 @@ export type CoreAudioAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreAvatar = ContentBlock & {
+export type CoreAvatar = EditorBlock & {
   __typename?: 'CoreAvatar'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -1511,7 +1365,7 @@ export type CoreAvatar = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -1548,7 +1402,7 @@ export type CoreAvatarAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreBlock = ContentBlock & {
+export type CoreBlock = EditorBlock & {
   __typename?: 'CoreBlock'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -1559,7 +1413,7 @@ export type CoreBlock = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -1582,7 +1436,7 @@ export type CoreBlockAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreButton = ContentBlock & {
+export type CoreButton = EditorBlock & {
   __typename?: 'CoreButton'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -1593,7 +1447,7 @@ export type CoreButton = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -1644,7 +1498,7 @@ export type CoreButtonAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreButtons = ContentBlock & {
+export type CoreButtons = EditorBlock & {
   __typename?: 'CoreButtons'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -1655,7 +1509,7 @@ export type CoreButtons = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -1688,7 +1542,7 @@ export type CoreButtonsAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreCalendar = ContentBlock & {
+export type CoreCalendar = EditorBlock & {
   __typename?: 'CoreCalendar'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -1699,7 +1553,7 @@ export type CoreCalendar = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -1734,7 +1588,7 @@ export type CoreCalendarAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreCategories = ContentBlock & {
+export type CoreCategories = EditorBlock & {
   __typename?: 'CoreCategories'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -1745,7 +1599,7 @@ export type CoreCategories = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -1786,7 +1640,7 @@ export type CoreCategoriesAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreCode = ContentBlock & {
+export type CoreCode = EditorBlock & {
   __typename?: 'CoreCode'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -1797,7 +1651,7 @@ export type CoreCode = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -1838,7 +1692,7 @@ export type CoreCodeAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreColumn = ContentBlock & {
+export type CoreColumn = EditorBlock & {
   __typename?: 'CoreColumn'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -1849,7 +1703,7 @@ export type CoreColumn = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -1894,7 +1748,7 @@ export type CoreColumnAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreColumns = ContentBlock & {
+export type CoreColumns = EditorBlock & {
   __typename?: 'CoreColumns'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -1905,7 +1759,7 @@ export type CoreColumns = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -1952,7 +1806,7 @@ export type CoreColumnsAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreCover = ContentBlock & {
+export type CoreCover = EditorBlock & {
   __typename?: 'CoreCover'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -1963,7 +1817,7 @@ export type CoreCover = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2028,7 +1882,7 @@ export type CoreCoverAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreEmbed = ContentBlock & {
+export type CoreEmbed = EditorBlock & {
   __typename?: 'CoreEmbed'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2039,7 +1893,7 @@ export type CoreEmbed = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2078,7 +1932,7 @@ export type CoreEmbedAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreFile = ContentBlock & {
+export type CoreFile = EditorBlock & {
   __typename?: 'CoreFile'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2089,7 +1943,7 @@ export type CoreFile = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2134,7 +1988,7 @@ export type CoreFileAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreFreeform = ContentBlock & {
+export type CoreFreeform = EditorBlock & {
   __typename?: 'CoreFreeform'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2145,7 +1999,7 @@ export type CoreFreeform = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2168,7 +2022,7 @@ export type CoreFreeformAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreGallery = ContentBlock & {
+export type CoreGallery = EditorBlock & {
   __typename?: 'CoreGallery'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2179,7 +2033,7 @@ export type CoreGallery = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2228,7 +2082,7 @@ export type CoreGalleryAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreGroup = ContentBlock & {
+export type CoreGroup = EditorBlock & {
   __typename?: 'CoreGroup'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2239,7 +2093,7 @@ export type CoreGroup = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2282,7 +2136,7 @@ export type CoreGroupAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreHeading = ContentBlock & {
+export type CoreHeading = EditorBlock & {
   __typename?: 'CoreHeading'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2293,7 +2147,7 @@ export type CoreHeading = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2338,7 +2192,7 @@ export type CoreHeadingAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreHomeLink = ContentBlock & {
+export type CoreHomeLink = EditorBlock & {
   __typename?: 'CoreHomeLink'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2349,7 +2203,7 @@ export type CoreHomeLink = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2380,7 +2234,7 @@ export type CoreHomeLinkAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreHtml = ContentBlock & {
+export type CoreHtml = EditorBlock & {
   __typename?: 'CoreHtml'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2391,7 +2245,7 @@ export type CoreHtml = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2414,7 +2268,7 @@ export type CoreHtmlAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreImage = ContentBlock & {
+export type CoreImage = EditorBlock & {
   __typename?: 'CoreImage'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2425,7 +2279,7 @@ export type CoreImage = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2482,7 +2336,7 @@ export type CoreImageAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreLatestPosts = ContentBlock & {
+export type CoreLatestPosts = EditorBlock & {
   __typename?: 'CoreLatestPosts'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2493,7 +2347,7 @@ export type CoreLatestPosts = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2558,7 +2412,7 @@ export type CoreLatestPostsAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreLegacyWidget = ContentBlock & {
+export type CoreLegacyWidget = EditorBlock & {
   __typename?: 'CoreLegacyWidget'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2569,7 +2423,7 @@ export type CoreLegacyWidget = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2596,7 +2450,7 @@ export type CoreLegacyWidgetAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreList = ContentBlock & {
+export type CoreList = EditorBlock & {
   __typename?: 'CoreList'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2607,7 +2461,7 @@ export type CoreList = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2654,7 +2508,7 @@ export type CoreListAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreListItem = ContentBlock & {
+export type CoreListItem = EditorBlock & {
   __typename?: 'CoreListItem'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2665,7 +2519,7 @@ export type CoreListItem = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2692,7 +2546,7 @@ export type CoreListItemAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreLoginout = ContentBlock & {
+export type CoreLoginout = EditorBlock & {
   __typename?: 'CoreLoginout'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2703,7 +2557,7 @@ export type CoreLoginout = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2730,7 +2584,7 @@ export type CoreLoginoutAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreMediaText = ContentBlock & {
+export type CoreMediaText = EditorBlock & {
   __typename?: 'CoreMediaText'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2741,7 +2595,7 @@ export type CoreMediaText = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2812,7 +2666,7 @@ export type CoreMediaTextAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreMissing = ContentBlock & {
+export type CoreMissing = EditorBlock & {
   __typename?: 'CoreMissing'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2823,7 +2677,7 @@ export type CoreMissing = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2850,7 +2704,7 @@ export type CoreMissingAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreMore = ContentBlock & {
+export type CoreMore = EditorBlock & {
   __typename?: 'CoreMore'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2861,7 +2715,7 @@ export type CoreMore = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2886,7 +2740,7 @@ export type CoreMoreAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreNavigation = ContentBlock & {
+export type CoreNavigation = EditorBlock & {
   __typename?: 'CoreNavigation'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2897,7 +2751,7 @@ export type CoreNavigation = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -2966,7 +2820,7 @@ export type CoreNavigationAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreNavigationLink = ContentBlock & {
+export type CoreNavigationLink = EditorBlock & {
   __typename?: 'CoreNavigationLink'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -2977,7 +2831,7 @@ export type CoreNavigationLink = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3026,7 +2880,7 @@ export type CoreNavigationLinkAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreNavigationSubmenu = ContentBlock & {
+export type CoreNavigationSubmenu = EditorBlock & {
   __typename?: 'CoreNavigationSubmenu'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3037,7 +2891,7 @@ export type CoreNavigationSubmenu = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3080,7 +2934,7 @@ export type CoreNavigationSubmenuAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreNextpage = ContentBlock & {
+export type CoreNextpage = EditorBlock & {
   __typename?: 'CoreNextpage'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3091,7 +2945,7 @@ export type CoreNextpage = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3112,7 +2966,7 @@ export type CoreNextpageAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePageList = ContentBlock & {
+export type CorePageList = EditorBlock & {
   __typename?: 'CorePageList'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3123,7 +2977,7 @@ export type CorePageList = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3146,7 +3000,7 @@ export type CorePageListAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreParagraph = ContentBlock & {
+export type CoreParagraph = EditorBlock & {
   __typename?: 'CoreParagraph'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3157,7 +3011,7 @@ export type CoreParagraph = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3204,7 +3058,7 @@ export type CoreParagraphAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePattern = ContentBlock & {
+export type CorePattern = EditorBlock & {
   __typename?: 'CorePattern'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3215,7 +3069,7 @@ export type CorePattern = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3240,7 +3094,7 @@ export type CorePatternAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePostAuthor = ContentBlock & {
+export type CorePostAuthor = EditorBlock & {
   __typename?: 'CorePostAuthor'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3251,7 +3105,7 @@ export type CorePostAuthor = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3296,7 +3150,7 @@ export type CorePostAuthorAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePostAuthorBiography = ContentBlock & {
+export type CorePostAuthorBiography = EditorBlock & {
   __typename?: 'CorePostAuthorBiography'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3307,7 +3161,7 @@ export type CorePostAuthorBiography = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3344,7 +3198,7 @@ export type CorePostAuthorBiographyAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePostComments = ContentBlock & {
+export type CorePostComments = EditorBlock & {
   __typename?: 'CorePostComments'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3355,7 +3209,7 @@ export type CorePostComments = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3392,7 +3246,7 @@ export type CorePostCommentsAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePostContent = ContentBlock & {
+export type CorePostContent = EditorBlock & {
   __typename?: 'CorePostContent'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3403,7 +3257,7 @@ export type CorePostContent = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3436,7 +3290,7 @@ export type CorePostContentAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePostDate = ContentBlock & {
+export type CorePostDate = EditorBlock & {
   __typename?: 'CorePostDate'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3447,7 +3301,7 @@ export type CorePostDate = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3490,7 +3344,7 @@ export type CorePostDateAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePostExcerpt = ContentBlock & {
+export type CorePostExcerpt = EditorBlock & {
   __typename?: 'CorePostExcerpt'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3501,7 +3355,7 @@ export type CorePostExcerpt = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3542,7 +3396,7 @@ export type CorePostExcerptAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePostFeaturedImage = ContentBlock & {
+export type CorePostFeaturedImage = EditorBlock & {
   __typename?: 'CorePostFeaturedImage'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3553,7 +3407,7 @@ export type CorePostFeaturedImage = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3606,7 +3460,7 @@ export type CorePostFeaturedImageAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePostNavigationLink = ContentBlock & {
+export type CorePostNavigationLink = EditorBlock & {
   __typename?: 'CorePostNavigationLink'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3617,7 +3471,7 @@ export type CorePostNavigationLink = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3660,7 +3514,7 @@ export type CorePostNavigationLinkAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePostTemplate = ContentBlock & {
+export type CorePostTemplate = EditorBlock & {
   __typename?: 'CorePostTemplate'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3671,7 +3525,7 @@ export type CorePostTemplate = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3704,7 +3558,7 @@ export type CorePostTemplateAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePostTerms = ContentBlock & {
+export type CorePostTerms = EditorBlock & {
   __typename?: 'CorePostTerms'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3715,7 +3569,7 @@ export type CorePostTerms = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3760,7 +3614,7 @@ export type CorePostTermsAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePostTitle = ContentBlock & {
+export type CorePostTitle = EditorBlock & {
   __typename?: 'CorePostTitle'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3771,7 +3625,7 @@ export type CorePostTitle = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3818,7 +3672,7 @@ export type CorePostTitleAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePreformatted = ContentBlock & {
+export type CorePreformatted = EditorBlock & {
   __typename?: 'CorePreformatted'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3829,7 +3683,7 @@ export type CorePreformatted = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3866,7 +3720,7 @@ export type CorePreformattedAttributes = {
 }
 
 /** A block used for editing the site */
-export type CorePullquote = ContentBlock & {
+export type CorePullquote = EditorBlock & {
   __typename?: 'CorePullquote'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3877,7 +3731,7 @@ export type CorePullquote = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3922,7 +3776,7 @@ export type CorePullquoteAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreQuery = ContentBlock & {
+export type CoreQuery = EditorBlock & {
   __typename?: 'CoreQuery'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3933,7 +3787,7 @@ export type CoreQuery = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -3978,7 +3832,7 @@ export type CoreQueryAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreQueryNoResults = ContentBlock & {
+export type CoreQueryNoResults = EditorBlock & {
   __typename?: 'CoreQueryNoResults'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -3989,7 +3843,7 @@ export type CoreQueryNoResults = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4026,7 +3880,7 @@ export type CoreQueryNoResultsAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreQueryPagination = ContentBlock & {
+export type CoreQueryPagination = EditorBlock & {
   __typename?: 'CoreQueryPagination'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4037,7 +3891,7 @@ export type CoreQueryPagination = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4078,7 +3932,7 @@ export type CoreQueryPaginationAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreQueryPaginationNext = ContentBlock & {
+export type CoreQueryPaginationNext = EditorBlock & {
   __typename?: 'CoreQueryPaginationNext'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4089,7 +3943,7 @@ export type CoreQueryPaginationNext = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4124,7 +3978,7 @@ export type CoreQueryPaginationNextAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreQueryPaginationNumbers = ContentBlock & {
+export type CoreQueryPaginationNumbers = EditorBlock & {
   __typename?: 'CoreQueryPaginationNumbers'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4135,7 +3989,7 @@ export type CoreQueryPaginationNumbers = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4168,7 +4022,7 @@ export type CoreQueryPaginationNumbersAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreQueryPaginationPrevious = ContentBlock & {
+export type CoreQueryPaginationPrevious = EditorBlock & {
   __typename?: 'CoreQueryPaginationPrevious'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4179,7 +4033,7 @@ export type CoreQueryPaginationPrevious = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4214,7 +4068,7 @@ export type CoreQueryPaginationPreviousAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreQueryTitle = ContentBlock & {
+export type CoreQueryTitle = EditorBlock & {
   __typename?: 'CoreQueryTitle'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4225,7 +4079,7 @@ export type CoreQueryTitle = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4272,7 +4126,7 @@ export type CoreQueryTitleAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreQuote = ContentBlock & {
+export type CoreQuote = EditorBlock & {
   __typename?: 'CoreQuote'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4283,7 +4137,7 @@ export type CoreQuote = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4324,7 +4178,7 @@ export type CoreQuoteAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreReadMore = ContentBlock & {
+export type CoreReadMore = EditorBlock & {
   __typename?: 'CoreReadMore'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4335,7 +4189,7 @@ export type CoreReadMore = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4376,7 +4230,7 @@ export type CoreReadMoreAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreRss = ContentBlock & {
+export type CoreRss = EditorBlock & {
   __typename?: 'CoreRss'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4387,7 +4241,7 @@ export type CoreRss = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4428,7 +4282,7 @@ export type CoreRssAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreSearch = ContentBlock & {
+export type CoreSearch = EditorBlock & {
   __typename?: 'CoreSearch'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4439,7 +4293,7 @@ export type CoreSearch = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4496,7 +4350,7 @@ export type CoreSearchAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreSeparator = ContentBlock & {
+export type CoreSeparator = EditorBlock & {
   __typename?: 'CoreSeparator'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4507,7 +4361,7 @@ export type CoreSeparator = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4540,7 +4394,7 @@ export type CoreSeparatorAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreShortcode = ContentBlock & {
+export type CoreShortcode = EditorBlock & {
   __typename?: 'CoreShortcode'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4551,7 +4405,7 @@ export type CoreShortcode = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4574,7 +4428,7 @@ export type CoreShortcodeAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreSiteLogo = ContentBlock & {
+export type CoreSiteLogo = EditorBlock & {
   __typename?: 'CoreSiteLogo'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4585,7 +4439,7 @@ export type CoreSiteLogo = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4620,7 +4474,7 @@ export type CoreSiteLogoAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreSiteTagline = ContentBlock & {
+export type CoreSiteTagline = EditorBlock & {
   __typename?: 'CoreSiteTagline'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4631,7 +4485,7 @@ export type CoreSiteTagline = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4670,7 +4524,7 @@ export type CoreSiteTaglineAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreSiteTitle = ContentBlock & {
+export type CoreSiteTitle = EditorBlock & {
   __typename?: 'CoreSiteTitle'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4681,7 +4535,7 @@ export type CoreSiteTitle = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4726,7 +4580,7 @@ export type CoreSiteTitleAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreSocialLink = ContentBlock & {
+export type CoreSocialLink = EditorBlock & {
   __typename?: 'CoreSocialLink'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4737,7 +4591,7 @@ export type CoreSocialLink = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4766,7 +4620,7 @@ export type CoreSocialLinkAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreSocialLinks = ContentBlock & {
+export type CoreSocialLinks = EditorBlock & {
   __typename?: 'CoreSocialLinks'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4777,7 +4631,7 @@ export type CoreSocialLinks = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4828,7 +4682,7 @@ export type CoreSocialLinksAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreSpacer = ContentBlock & {
+export type CoreSpacer = EditorBlock & {
   __typename?: 'CoreSpacer'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4839,7 +4693,7 @@ export type CoreSpacer = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4868,7 +4722,7 @@ export type CoreSpacerAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreTable = ContentBlock & {
+export type CoreTable = EditorBlock & {
   __typename?: 'CoreTable'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4879,7 +4733,7 @@ export type CoreTable = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4922,7 +4776,7 @@ export type CoreTableAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreTagCloud = ContentBlock & {
+export type CoreTagCloud = EditorBlock & {
   __typename?: 'CoreTagCloud'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4933,7 +4787,7 @@ export type CoreTagCloud = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -4970,7 +4824,7 @@ export type CoreTagCloudAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreTemplatePart = ContentBlock & {
+export type CoreTemplatePart = EditorBlock & {
   __typename?: 'CoreTemplatePart'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -4981,7 +4835,7 @@ export type CoreTemplatePart = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -5014,7 +4868,7 @@ export type CoreTemplatePartAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreTermDescription = ContentBlock & {
+export type CoreTermDescription = EditorBlock & {
   __typename?: 'CoreTermDescription'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -5025,7 +4879,7 @@ export type CoreTermDescription = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -5062,7 +4916,7 @@ export type CoreTermDescriptionAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreTextColumns = ContentBlock & {
+export type CoreTextColumns = EditorBlock & {
   __typename?: 'CoreTextColumns'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -5073,7 +4927,7 @@ export type CoreTextColumns = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -5100,7 +4954,7 @@ export type CoreTextColumnsAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreVerse = ContentBlock & {
+export type CoreVerse = EditorBlock & {
   __typename?: 'CoreVerse'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -5111,7 +4965,7 @@ export type CoreVerse = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -5150,7 +5004,7 @@ export type CoreVerseAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreVideo = ContentBlock & {
+export type CoreVideo = EditorBlock & {
   __typename?: 'CoreVideo'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -5161,7 +5015,7 @@ export type CoreVideo = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -5208,7 +5062,7 @@ export type CoreVideoAttributes = {
 }
 
 /** A block used for editing the site */
-export type CoreWidgetGroup = ContentBlock & {
+export type CoreWidgetGroup = EditorBlock & {
   __typename?: 'CoreWidgetGroup'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -5219,7 +5073,7 @@ export type CoreWidgetGroup = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -5756,6 +5610,28 @@ export type Edge = {
   node: Node
 }
 
+/** Blocks that can be edited to create content and layouts */
+export type EditorBlock = {
+  /** The API version of the Gutenberg Block */
+  apiVersion?: Maybe<Scalars['Int']>
+  /** The name of the category the Block belongs to */
+  blockEditorCategoryName?: Maybe<Scalars['String']>
+  /** CSS Classnames to apply to the block */
+  cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
+  /** The inner blocks of the Block */
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
+  /** Whether the block is Dynamic (server rendered) */
+  isDynamic: Scalars['Boolean']
+  /** The name of the Block */
+  name?: Maybe<Scalars['String']>
+  /** The id of the Block */
+  nodeId?: Maybe<Scalars['String']>
+  /** The parent id of the Block */
+  parentId?: Maybe<Scalars['String']>
+  /** The rendered HTML for the block */
+  renderedHtml?: Maybe<Scalars['String']>
+}
+
 /** Asset enqueued by the CMS */
 export type EnqueuedAsset = {
   /** @todo */
@@ -5869,37 +5745,12 @@ export type GeneralSettings = {
   url?: Maybe<Scalars['String']>
 }
 
-/** Input for the generateAuthorizationCode mutation. */
-export type GenerateAuthorizationCodeInput = {
-  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: InputMaybe<Scalars['String']>
-  /** Email for WordPress user */
-  email?: InputMaybe<Scalars['String']>
-  /** Password for WordPress user */
-  password?: InputMaybe<Scalars['String']>
-  /** Username for WordPress user */
-  username?: InputMaybe<Scalars['String']>
-}
-
-/** The payload for the generateAuthorizationCode mutation. */
-export type GenerateAuthorizationCodePayload = {
-  __typename?: 'GenerateAuthorizationCodePayload'
-  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: Maybe<Scalars['String']>
-  /** Authorization code used for requesting refresh/access tokens */
-  code?: Maybe<Scalars['String']>
-  /** Error encountered during user authentication, if any */
-  error?: Maybe<Scalars['String']>
-}
-
 /** Content node with hierarchical (parent/child) relationships */
 export type HierarchicalContentNode = {
   /** Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root). */
   ancestors?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>
   /** Connection between the HierarchicalContentNode type and the ContentNode type */
   children?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** Connection between the ContentNode type and the ContentType type */
   contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
   /** The name of the Content Type the node belongs to */
@@ -5956,7 +5807,6 @@ export type HierarchicalContentNode = {
   status?: Maybe<Scalars['String']>
   /** The template assigned to a node of content */
   template?: Maybe<ContentTemplate>
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -6149,8 +5999,6 @@ export type HierarchicalNode = {
 
 /** Term node with hierarchical (parent/child) relationships */
 export type HierarchicalTermNode = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** The number of objects connected to the object */
   count?: Maybe<Scalars['Int']>
   /** The unique identifier stored in the database */
@@ -6181,7 +6029,6 @@ export type HierarchicalTermNode = {
   slug?: Maybe<Scalars['String']>
   /** The name of the taxonomy that the object is associated with */
   taxonomyName?: Maybe<Scalars['String']>
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The ID of the term group that this term object belongs to */
   termGroupId?: Maybe<Scalars['Int']>
   /** The taxonomy ID that the object is associated with */
@@ -6204,6 +6051,42 @@ export type HierarchicalTermNodeEnqueuedStylesheetsArgs = {
   before?: InputMaybe<Scalars['String']>
   first?: InputMaybe<Scalars['Int']>
   last?: InputMaybe<Scalars['Int']>
+}
+
+/** Input for the loginWithCookies mutation. */
+export type LoginWithCookiesInput = {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars['String']>
+  /** Input your user/e-mail. */
+  login: Scalars['String']
+  /** Input your password. */
+  password: Scalars['String']
+  /** Whether to "remember" the user. Increases the time that the cookie will be kept. Default false. */
+  rememberMe?: InputMaybe<Scalars['Boolean']>
+}
+
+/** The payload for the loginWithCookies mutation. */
+export type LoginWithCookiesPayload = {
+  __typename?: 'LoginWithCookiesPayload'
+  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']>
+  /** Login operation status */
+  status?: Maybe<Scalars['String']>
+}
+
+/** Input for the logout mutation. */
+export type LogoutInput = {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars['String']>
+}
+
+/** The payload for the logout mutation. */
+export type LogoutPayload = {
+  __typename?: 'LogoutPayload'
+  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']>
+  /** Logout operation status */
+  status?: Maybe<Scalars['String']>
 }
 
 /** File details for a Media Item */
@@ -6252,8 +6135,6 @@ export type MediaItem = ContentNode &
     caption?: Maybe<Scalars['String']>
     /** Connection between the HierarchicalContentNode type and the ContentNode type */
     children?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the ContentNode type and the ContentType type */
     contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
     /** The name of the Content Type the node belongs to */
@@ -6333,7 +6214,6 @@ export type MediaItem = ContentNode &
     status?: Maybe<Scalars['String']>
     /** The template assigned to a node of content */
     template?: Maybe<ContentTemplate>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
     title?: Maybe<Scalars['String']>
     /** The unique resource identifier path */
@@ -6488,6 +6368,8 @@ export enum MediaItemSizeEnum {
   MediumLarge = 'MEDIUM_LARGE',
   /** MediaItem with the medium-preview size */
   MediumPreview = 'MEDIUM_PREVIEW',
+  /** MediaItem with the nineteen-twenty size */
+  NineteenTwenty = 'NINETEEN_TWENTY',
   /** MediaItem with the post-thumbnail size */
   PostThumbnail = 'POST_THUMBNAIL',
   /** MediaItem with the small-preview size */
@@ -6666,8 +6548,6 @@ export type MenuItemConnectionEdge = {
 
 /** Nodes that can be linked to as Menu Items */
 export type MenuItemLinkable = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** The unique identifier stored in the database */
   databaseId: Scalars['Int']
   /** The unique resource identifier path */
@@ -6676,7 +6556,6 @@ export type MenuItemLinkable = {
   isContentNode: Scalars['Boolean']
   /** Whether the node is a Term */
   isTermNode: Scalars['Boolean']
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
@@ -6758,10 +6637,10 @@ export type MenuItemToMenuItemLinkableConnectionEdge = Edge &
 
 /** Registered menu locations */
 export enum MenuLocationEnum {
-  /** Put the menu in the footer location */
-  Footer = 'FOOTER',
-  /** Put the menu in the primary location */
-  Primary = 'PRIMARY',
+  /** Put the menu in the footer-menu location */
+  FooterMenu = 'FOOTER_MENU',
+  /** Put the menu in the header-menu location */
+  HeaderMenu = 'HEADER_MENU',
 }
 
 /** The Type of Identifier used to fetch a single node. Default is "ID". To be used along with the "id" field. */
@@ -7023,17 +6902,6 @@ export type NodeWithAuthorToUserConnectionEdge = Edge &
     node: User
   }
 
-/** Node that has content blocks associated with it */
-export type NodeWithContentBlocks = {
-  /** List of content blocks */
-  contentBlocks?: Maybe<Array<Maybe<ContentBlock>>>
-}
-
-/** Node that has content blocks associated with it */
-export type NodeWithContentBlocksContentBlocksArgs = {
-  flat?: InputMaybe<Scalars['Boolean']>
-}
-
 /** A node that supports the content editor */
 export type NodeWithContentEditor = {
   /** The content of the post. */
@@ -7045,6 +6913,17 @@ export type NodeWithContentEditor = {
 /** A node that supports the content editor */
 export type NodeWithContentEditorContentArgs = {
   format?: InputMaybe<PostObjectFieldFormatEnum>
+}
+
+/** Node that has content blocks associated with it */
+export type NodeWithEditorBlocks = {
+  /** List of editor blocks */
+  editorBlocks?: Maybe<Array<Maybe<EditorBlock>>>
+}
+
+/** Node that has content blocks associated with it */
+export type NodeWithEditorBlocksEditorBlocksArgs = {
+  flat?: InputMaybe<Scalars['Boolean']>
 }
 
 /** A node that can have an excerpt */
@@ -7158,8 +7037,8 @@ export type Page = ContentNode &
   MenuItemLinkable &
   Node &
   NodeWithAuthor &
-  NodeWithContentBlocks &
   NodeWithContentEditor &
+  NodeWithEditorBlocks &
   NodeWithExcerpt &
   NodeWithFeaturedImage &
   NodeWithPageAttributes &
@@ -7179,12 +7058,8 @@ export type Page = ContentNode &
     authorId?: Maybe<Scalars['ID']>
     /** Connection between the HierarchicalContentNode type and the ContentNode type */
     children?: Maybe<HierarchicalContentNodeToContentNodeChildrenConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** The content of the post. */
     content?: Maybe<Scalars['String']>
-    /** List of content blocks */
-    contentBlocks?: Maybe<Array<Maybe<ContentBlock>>>
     /** Connection between the ContentNode type and the ContentType type */
     contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
     /** The name of the Content Type the node belongs to */
@@ -7199,6 +7074,8 @@ export type Page = ContentNode &
     desiredSlug?: Maybe<Scalars['String']>
     /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
     editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>
+    /** List of editor blocks */
+    editorBlocks?: Maybe<Array<Maybe<EditorBlock>>>
     /** The RSS enclosure for the object */
     enclosure?: Maybe<Scalars['String']>
     /** Connection between the ContentNode type and the EnqueuedScript type */
@@ -7270,7 +7147,6 @@ export type Page = ContentNode &
     status?: Maybe<Scalars['String']>
     /** The template assigned to a node of content */
     template?: Maybe<ContentTemplate>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
     title?: Maybe<Scalars['String']>
     /** The unique resource identifier path */
@@ -7301,7 +7177,7 @@ export type PageContentArgs = {
 }
 
 /** The page type */
-export type PageContentBlocksArgs = {
+export type PageEditorBlocksArgs = {
   flat?: InputMaybe<Scalars['Boolean']>
 }
 
@@ -7508,8 +7384,8 @@ export type Post = ContentNode &
   MenuItemLinkable &
   Node &
   NodeWithAuthor &
-  NodeWithContentBlocks &
   NodeWithContentEditor &
+  NodeWithEditorBlocks &
   NodeWithExcerpt &
   NodeWithFeaturedImage &
   NodeWithRevisions &
@@ -7528,12 +7404,8 @@ export type Post = ContentNode &
     authors?: Maybe<PostToAuthorsConnection>
     /** Connection between the Post type and the category type */
     categories?: Maybe<PostToCategoryConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** The content of the post. */
     content?: Maybe<Scalars['String']>
-    /** List of content blocks */
-    contentBlocks?: Maybe<Array<Maybe<ContentBlock>>>
     /** Connection between the ContentNode type and the ContentType type */
     contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>
     /** The name of the Content Type the node belongs to */
@@ -7548,6 +7420,8 @@ export type Post = ContentNode &
     desiredSlug?: Maybe<Scalars['String']>
     /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
     editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>
+    /** List of editor blocks */
+    editorBlocks?: Maybe<Array<Maybe<EditorBlock>>>
     /** The RSS enclosure for the object */
     enclosure?: Maybe<Scalars['String']>
     /** Connection between the ContentNode type and the EnqueuedScript type */
@@ -7611,7 +7485,6 @@ export type Post = ContentNode &
     tags?: Maybe<PostToTagConnection>
     /** The template assigned to the node */
     template?: Maybe<ContentTemplate>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** Connection between the Post type and the TermNode type */
     terms?: Maybe<PostToTermNodeConnection>
     /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
@@ -7643,7 +7516,7 @@ export type PostContentArgs = {
 }
 
 /** The post type */
-export type PostContentBlocksArgs = {
+export type PostEditorBlocksArgs = {
   flat?: InputMaybe<Scalars['Boolean']>
 }
 
@@ -7751,8 +7624,6 @@ export type PostFormat = DatabaseIdentifier &
   TermNode &
   UniformResourceIdentifiable & {
     __typename?: 'PostFormat'
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the PostFormat type and the ContentNode type */
     contentNodes?: Maybe<PostFormatToContentNodeConnection>
     /** The number of objects connected to the object */
@@ -7790,7 +7661,6 @@ export type PostFormat = DatabaseIdentifier &
     taxonomy?: Maybe<PostFormatToTaxonomyConnectionEdge>
     /** The name of the taxonomy that the object is associated with */
     taxonomyName?: Maybe<Scalars['String']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The ID of the term group that this term object belongs to */
     termGroupId?: Maybe<Scalars['Int']>
     /** The taxonomy ID that the object is associated with */
@@ -8757,10 +8627,12 @@ export type RootMutation = {
   deleteTag?: Maybe<DeleteTagPayload>
   /** The deleteUser mutation */
   deleteUser?: Maybe<DeleteUserPayload>
-  /** The generateAuthorizationCode mutation */
-  generateAuthorizationCode?: Maybe<GenerateAuthorizationCodePayload>
   /** Increase the count. */
   increaseCount?: Maybe<Scalars['Int']>
+  /** The loginWithCookies mutation */
+  loginWithCookies?: Maybe<LoginWithCookiesPayload>
+  /** The logout mutation */
+  logout?: Maybe<LogoutPayload>
   /** The registerUser mutation */
   registerUser?: Maybe<RegisterUserPayload>
   /** The resetUserPassword mutation */
@@ -8870,13 +8742,18 @@ export type RootMutationDeleteUserArgs = {
 }
 
 /** The root mutation */
-export type RootMutationGenerateAuthorizationCodeArgs = {
-  input: GenerateAuthorizationCodeInput
+export type RootMutationIncreaseCountArgs = {
+  count?: InputMaybe<Scalars['Int']>
 }
 
 /** The root mutation */
-export type RootMutationIncreaseCountArgs = {
-  count?: InputMaybe<Scalars['Int']>
+export type RootMutationLoginWithCookiesArgs = {
+  input: LoginWithCookiesInput
+}
+
+/** The root mutation */
+export type RootMutationLogoutArgs = {
+  input: LogoutInput
 }
 
 /** The root mutation */
@@ -10428,8 +10305,6 @@ export type Tag = DatabaseIdentifier &
   TermNode &
   UniformResourceIdentifiable & {
     __typename?: 'Tag'
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Connection between the Tag type and the ContentNode type */
     contentNodes?: Maybe<TagToContentNodeConnection>
     /** The number of objects connected to the object */
@@ -10467,7 +10342,6 @@ export type Tag = DatabaseIdentifier &
     taxonomy?: Maybe<TagToTaxonomyConnectionEdge>
     /** The name of the taxonomy that the object is associated with */
     taxonomyName?: Maybe<Scalars['String']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The ID of the term group that this term object belongs to */
     termGroupId?: Maybe<Scalars['Int']>
     /** The taxonomy ID that the object is associated with */
@@ -10812,8 +10686,6 @@ export type TaxonomyToContentTypeConnectionEdge = ContentTypeConnectionEdge &
 
 /** Terms are nodes within a Taxonomy, used to group and relate other nodes. */
 export type TermNode = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** The number of objects connected to the object */
   count?: Maybe<Scalars['Int']>
   /** Identifies the primary key from the database. */
@@ -10840,7 +10712,6 @@ export type TermNode = {
   slug?: Maybe<Scalars['String']>
   /** The name of the taxonomy that the object is associated with */
   taxonomyName?: Maybe<Scalars['String']>
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The ID of the term group that this term object belongs to */
   termGroupId?: Maybe<Scalars['Int']>
   /** The taxonomy ID that the object is associated with */
@@ -11002,21 +10873,18 @@ export type ThemeConnectionEdge = {
 
 /** Any node that has a URI */
 export type UniformResourceIdentifiable = {
-  /** @deprecated Deprecated in favor of using Next.js pages */
-  conditionalTags?: Maybe<ConditionalTags>
   /** The unique resource identifier path */
   id: Scalars['ID']
   /** Whether the node is a Content Node */
   isContentNode: Scalars['Boolean']
   /** Whether the node is a Term */
   isTermNode: Scalars['Boolean']
-  templates?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The unique resource identifier path */
   uri?: Maybe<Scalars['String']>
 }
 
 /** A block used for resolving blocks not found in the WordPress registry */
-export type UnknownBlock = ContentBlock & {
+export type UnknownBlock = EditorBlock & {
   __typename?: 'UnknownBlock'
   /** The API version of the Gutenberg Block */
   apiVersion?: Maybe<Scalars['Int']>
@@ -11025,7 +10893,7 @@ export type UnknownBlock = ContentBlock & {
   /** CSS Classnames to apply to the block */
   cssClassNames?: Maybe<Array<Maybe<Scalars['String']>>>
   /** The inner blocks of the Block */
-  innerBlocks?: Maybe<Array<Maybe<ContentBlock>>>
+  innerBlocks?: Maybe<Array<Maybe<EditorBlock>>>
   /** Whether the block is Dynamic (server rendered) */
   isDynamic: Scalars['Boolean']
   /** The name of the block */
@@ -11399,8 +11267,6 @@ export type User = Commenter &
     capabilities?: Maybe<Array<Maybe<Scalars['String']>>>
     /** Connection between the User type and the Comment type */
     comments?: Maybe<UserToCommentConnection>
-    /** @deprecated Deprecated in favor of using Next.js pages */
-    conditionalTags?: Maybe<ConditionalTags>
     /** Identifies the primary key from the database. */
     databaseId: Scalars['Int']
     /** Description of the user. */
@@ -11447,7 +11313,6 @@ export type User = Commenter &
     roles?: Maybe<UserToUserRoleConnection>
     /** The slug for the user. This field is equivalent to WP_User-&gt;user_nicename */
     slug?: Maybe<Scalars['String']>
-    templates?: Maybe<Array<Maybe<Scalars['String']>>>
     /** The unique resource identifier path */
     uri?: Maybe<Scalars['String']>
     /** A website url that is associated with the user. */
@@ -12164,7 +12029,7 @@ export type SinglePageQuery = {
     databaseId: number
     uri?: string | null
     content?: string | null
-    contentBlocks?: Array<
+    editorBlocks?: Array<
       | {
           __typename?: 'CoreArchives'
           apiVersion?: number | null
@@ -12892,7 +12757,7 @@ export const SinglePageDocument = {
                 },
                 {
                   kind: 'Field',
-                  name: {kind: 'Name', value: 'contentBlocks'},
+                  name: {kind: 'Name', value: 'editorBlocks'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [

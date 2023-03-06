@@ -1,14 +1,23 @@
 {
-  "name": "kleinweb/logan-center-plugin",
+  "name": "kleinweb/logan-center-core-plugin",
   "type": "wordpress-plugin",
-  "license": "GPL-3.0-or-later",
-  "description": "Minimally-functional WordPress plugin for the Logan Center for Urban Investigative Reporting",
+  "license": "GPL-3.0-or-later OR MIT",
+  "description": "Plugin providing core functionality for the Logan Center backend.",
   "homepage": "https://github.com/kleinweb/logan-center",
   "authors": [
     {
-      "name": "Klein College of Media and Communication",
+      "name": "Klein Digital Initiatives",
       "email": "kleinweb@temple.edu",
       "homepage": "https://klein.temple.edu"
+    },
+    {
+      "name": "Chris Montgomery",
+      "email": "chrismont@temple.edu",
+      "role": "Developer"
+    },
+    {
+      "name": "Greg Rickaby",
+      "email": "greg@gregrickaby.com"
     }
   ],
   "keywords": [
@@ -27,17 +36,26 @@
     "vinkla/extended-acf": "^13.2"
   },
   "require-dev": {
+    "axepress/wp-graphql-stubs": "^1.13",
     "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-    "laravel/pint": "^1.5",
-    "squizlabs/php_codesniffer": "3.7.2",
-    "szepeviktor/phpcs-psr-12-neutron-hybrid-ruleset": "^0.8.0"
+    "kleinweb/kleinweb-php-standards": "*",
+    "php-stubs/acf-pro-stubs": "^6.0",
+    "php-stubs/wordpress-stubs": "^6.1",
+    "php-stubs/wp-cli-stubs": "^2.7",
+    "squizlabs/php_codesniffer": "3.7.2"
   },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../../packages/kleinweb-php-standards"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "Klein\\LoganCenter\\": "src/"
     },
     "files": [
-      "lib/utils.php"
+      "src/helpers.php"
     ]
   },
   "config": {
@@ -52,10 +70,10 @@
   "prefer-stable": true,
   "scripts": {
     "lint": [
-      "phpcs --extensions=php --standard=./phpcs.xml src"
+      "phpcs --standard=Kleinweb"
     ],
     "fix": [
-      "pint src"
+      "phpcbf --standard=Kleinweb"
     ]
   }
 }

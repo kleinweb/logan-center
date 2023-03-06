@@ -59,6 +59,7 @@ export default function getApolloLink() {
           ...debug,
           cacheStatus: response?.headers?.get('x-cache'),
           cacheAge: response?.headers?.get('age'),
+          credentials: 'include',
           payloadSize: response?.body?.bytesWritten,
           requestDurationInMs: Date.now() - startTime,
         }

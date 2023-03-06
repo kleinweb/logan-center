@@ -29,21 +29,21 @@ $root_dir = dirname(__DIR__);
  *
  * @var string
  */
-$webroot_dir = $root_dir . '/web';
+$webroot_dir = $root_dir.'/web';
 
 /**
  * Use Dotenv to set required environment variables and load .env file in root
  * .env.local will override .env if it exists
  */
-$env_files = file_exists($root_dir . '/.env.local')
+$env_files = file_exists($root_dir.'/.env.local')
     ? ['.env', '.env.local']
     : ['.env'];
 
 $dotenv = Dotenv\Dotenv::createUnsafeImmutable($root_dir, $env_files, false);
-if (file_exists($root_dir . '/.env')) {
+if (file_exists($root_dir.'/.env')) {
     $dotenv->load();
-    $dotenv->required(['WP_HOME', 'WP_SITEURL']);
-    if (!env('DATABASE_URL')) {
+    $dotenv->required(['WP_HOME', 'WP_SITEURL', 'NEXT_FRONTEND_URL']);
+    if (! env('DATABASE_URL')) {
         $dotenv->required(['DB_NAME', 'DB_USER', 'DB_PASSWORD']);
     }
 }
@@ -59,13 +59,15 @@ define('WP_ENV', env('WP_ENV') ?: 'production');
  */
 Config::define('WP_HOME', env('WP_HOME'));
 Config::define('WP_SITEURL', env('WP_SITEURL'));
+// TODO: fallback to the WP_SITEURL domain without subdomain since WP should be hosted on subdomain
+Config::define('NEXT_FRONTEND_URL', env('NEXT_FRONTEND_URL'));
 
 /**
  * Custom Content Directory
  */
 Config::define('CONTENT_DIR', '/app');
-Config::define('WP_CONTENT_DIR', $webroot_dir . Config::get('CONTENT_DIR'));
-Config::define('WP_CONTENT_URL', Config::get('WP_HOME') . Config::get('CONTENT_DIR'));
+Config::define('WP_CONTENT_DIR', $webroot_dir.Config::get('CONTENT_DIR'));
+Config::define('WP_CONTENT_URL', Config::get('WP_HOME').Config::get('CONTENT_DIR'));
 
 /**
  * DB settings
@@ -138,7 +140,7 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROT
     $_SERVER['HTTPS'] = 'on';
 }
 
-$env_config = __DIR__ . '/environments/' . WP_ENV . '.php';
+$env_config = __DIR__.'/environments/'.WP_ENV.'.php';
 
 if (file_exists($env_config)) {
     require_once $env_config;
@@ -170,6 +172,6 @@ if (file_exists($wp_sentry_path)) {
 /**
  * Bootstrap WordPress
  */
-if (!defined('ABSPATH')) {
-    define('ABSPATH', $webroot_dir . '/wp/');
+if (! defined('ABSPATH')) {
+    define('ABSPATH', $webroot_dir.'/wp/');
 }
