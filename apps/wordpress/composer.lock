@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "e45617b1973619f586525d7852dc14b0",
+  "content-hash": "dd7b911d462500a32df32e9e9976f8db",
   "packages": [
     {
       "name": "alleyinteractive/internal-flags",
@@ -7735,12 +7735,12 @@
       "source": {
         "type": "git",
         "url": "https://github.com/wpengine/wp-graphql-content-blocks.git",
-        "reference": "97bb00e"
+        "reference": "97bb00e3c3c2556808c248d9890d129bf8631ac0"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/wpengine/wp-graphql-content-blocks/zipball/97bb00e",
-        "reference": "97bb00e",
+        "url": "https://api.github.com/repos/wpengine/wp-graphql-content-blocks/zipball/97bb00e3c3c2556808c248d9890d129bf8631ac0",
+        "reference": "97bb00e3c3c2556808c248d9890d129bf8631ac0",
         "shasum": ""
       },
       "require-dev": {

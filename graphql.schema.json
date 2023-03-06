@@ -9,45 +9,6 @@
     "subscriptionType": null,
     "types": [
       {
-        "kind": "INTERFACE",
-        "name": "AcfFieldGroup",
-        "description": "A Field Group registered by ACF",
-        "fields": [
-          {
-            "name": "fieldGroupName",
-            "description": "The name of the ACF Field Group",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": [
-          {
-            "kind": "OBJECT",
-            "name": "SiteOptions_Siteoptions",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "SiteOptions_Siteoptions_googleAnalytics",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "SiteOptions_Siteoptions_socialMedia",
-            "ofType": null
-          }
-        ]
-      },
-      {
         "kind": "OBJECT",
         "name": "Avatar",
         "description": "Avatars are profile images for users. WordPress by default uses the Gravatar service to host and fetch avatars from.",
@@ -5025,16 +4986,6 @@
           },
           {
             "kind": "OBJECT",
-            "name": "PageToTagConnection",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "PageToTermNodeConnection",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
             "name": "PostFormatToContentNodeConnection",
             "ofType": null
           },
@@ -5180,11 +5131,6 @@
           },
           {
             "kind": "OBJECT",
-            "name": "TagToPageConnection",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
             "name": "TagToPostConnection",
             "ofType": null
           },
@@ -5241,523 +5187,6 @@
           {
             "kind": "OBJECT",
             "name": "UserToUserRoleConnection",
-            "ofType": null
-          }
-        ]
-      },
-      {
-        "kind": "INTERFACE",
-        "name": "ContentBlock",
-        "description": "Blocks that can be edited to create content and layouts",
-        "fields": [
-          {
-            "name": "apiVersion",
-            "description": "The API version of the Gutenberg Block",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "blockEditorCategoryName",
-            "description": "The name of the category the Block belongs to",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "cssClassNames",
-            "description": "CSS Classnames to apply to the block",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "innerBlocks",
-            "description": "The inner blocks of the Block",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "INTERFACE",
-                "name": "ContentBlock",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "isDynamic",
-            "description": "Whether the block is Dynamic (server rendered)",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": "The name of the Block",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "nodeId",
-            "description": "The id of the Block",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "parentId",
-            "description": "The parent id of the Block",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "renderedHtml",
-            "description": "The rendered HTML for the block",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": [
-          {
-            "kind": "OBJECT",
-            "name": "CoreArchives",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreAudio",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreAvatar",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreBlock",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreButton",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreButtons",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreCalendar",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreCategories",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreCode",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreColumn",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreColumns",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreCover",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreEmbed",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreFile",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreFreeform",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreGallery",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreGroup",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreHeading",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreHomeLink",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreHtml",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreImage",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreLatestPosts",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreLegacyWidget",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreList",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreListItem",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreLoginout",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreMediaText",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreMissing",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreMore",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreNavigation",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreNavigationLink",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreNavigationSubmenu",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreNextpage",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePageList",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreParagraph",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePattern",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePostAuthor",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePostAuthorBiography",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePostComments",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePostContent",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePostDate",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePostExcerpt",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePostFeaturedImage",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePostNavigationLink",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePostTemplate",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePostTerms",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePostTitle",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePreformatted",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CorePullquote",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreQuery",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreQueryNoResults",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreQueryPagination",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreQueryPaginationNext",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreQueryPaginationNumbers",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreQueryPaginationPrevious",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreQueryTitle",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreQuote",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreReadMore",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreRss",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreSearch",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreSeparator",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreShortcode",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreSiteLogo",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreSiteTagline",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreSiteTitle",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreSocialLink",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreSocialLinks",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreSpacer",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreTable",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreTagCloud",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreTemplatePart",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreTermDescription",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreTextColumns",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreVerse",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreVideo",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "CoreWidgetGroup",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "UnknownBlock",
             "ofType": null
           }
         ]
@@ -8242,12 +7671,6 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "PAGE",
-            "description": "The Type of Content object",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "POST",
             "description": "The Type of Content object",
             "isDeprecated": false,
@@ -8322,7 +7745,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -8398,7 +7821,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -8602,7 +8025,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -8678,7 +8101,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -8882,7 +8305,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -8958,7 +8381,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -9150,7 +8573,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -9226,7 +8649,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -9334,7 +8757,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -9410,7 +8833,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -9686,7 +9109,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -9762,7 +9185,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -9930,7 +9353,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -10006,7 +9429,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -10186,7 +9609,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -10262,7 +9685,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -10478,7 +9901,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -10554,7 +9977,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -10770,7 +10193,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -10846,7 +10269,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -11086,7 +10509,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -11162,7 +10585,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -11414,7 +10837,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -11490,7 +10913,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -11850,7 +11273,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -11926,7 +11349,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -12130,7 +11553,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -12206,7 +11629,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -12446,7 +11869,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -12522,7 +11945,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -12630,7 +12053,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -12706,7 +12129,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -12970,7 +12393,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -13046,7 +12469,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -13274,7 +12697,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -13350,7 +12773,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -13590,7 +13013,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -13666,7 +13089,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -13822,7 +13245,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -13898,7 +13321,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -14006,7 +13429,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -14082,7 +13505,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -14394,7 +13817,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -14470,7 +13893,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -14830,7 +14253,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -14906,7 +14329,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -15038,7 +14461,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -15114,7 +14537,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -15366,7 +14789,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -15442,7 +14865,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -15574,7 +14997,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -15650,7 +15073,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -15782,7 +15205,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -15858,7 +15281,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -16254,7 +15677,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -16330,7 +15753,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -16462,7 +15885,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -16538,7 +15961,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -16658,7 +16081,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -16734,7 +16157,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -17118,7 +16541,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -17194,7 +16617,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -17458,7 +16881,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -17534,7 +16957,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -17762,7 +17185,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -17838,7 +17261,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -17934,7 +17357,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -18010,7 +17433,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -18118,7 +17541,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -18194,7 +17617,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -18446,7 +17869,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -18522,7 +17945,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -18642,7 +18065,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -18718,7 +18141,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -18958,7 +18381,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -19034,7 +18457,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -19226,7 +18649,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -19302,7 +18725,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -19494,7 +18917,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -19570,7 +18993,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -19738,7 +19161,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -19814,7 +19237,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -20042,7 +19465,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -20118,7 +19541,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -20334,7 +19757,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -20410,7 +19833,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -20698,7 +20121,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -20774,7 +20197,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -21002,7 +20425,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -21078,7 +20501,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -21246,7 +20669,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -21322,7 +20745,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -21562,7 +20985,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -21638,7 +21061,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -21890,7 +21313,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -21966,7 +21389,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -22158,7 +21581,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -22234,7 +21657,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -22474,7 +21897,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -22550,7 +21973,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -22790,7 +22213,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -22866,7 +22289,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -23058,7 +22481,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -23134,7 +22557,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -23350,7 +22773,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -23426,7 +22849,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -23606,7 +23029,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -23682,7 +23105,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -23850,7 +23273,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -23926,7 +23349,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -24106,7 +23529,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -24182,7 +23605,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -24434,7 +23857,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -24510,7 +23933,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -24726,7 +24149,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -24802,7 +24225,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -25018,7 +24441,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -25094,7 +24517,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -25310,7 +24733,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -25386,7 +24809,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -25698,7 +25121,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -25774,7 +25197,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -25942,7 +25365,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -26018,7 +25441,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -26126,7 +25549,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -26202,7 +25625,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -26382,7 +25805,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -26458,7 +25881,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -26662,7 +26085,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -26738,7 +26161,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -26978,7 +26401,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -27054,7 +26477,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -27198,7 +26621,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -27274,7 +26697,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -27550,7 +26973,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -27626,7 +27049,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -27770,7 +27193,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -27846,7 +27269,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -28074,7 +27497,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -28150,7 +27573,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -28342,7 +27765,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -28418,7 +27841,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -28586,7 +28009,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -28662,7 +28085,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -28854,7 +28277,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -28930,7 +28353,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -29062,7 +28485,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -29138,7 +28561,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -29342,7 +28765,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -29418,7 +28841,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -29670,7 +29093,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -29746,7 +29169,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -30458,18 +29881,6 @@
             "type": {
               "kind": "ENUM",
               "name": "PostStatusEnum",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tags",
-            "description": "Set connections between the page and tags",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "PageTagsInput",
               "ofType": null
             },
             "defaultValue": null,
@@ -32543,16 +31954,6 @@
           },
           {
             "kind": "OBJECT",
-            "name": "PageToTagConnectionEdge",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "PageToTermNodeConnectionEdge",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
             "name": "PostFormatToContentNodeConnectionEdge",
             "ofType": null
           },
@@ -32708,11 +32109,6 @@
           },
           {
             "kind": "OBJECT",
-            "name": "TagToPageConnectionEdge",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
             "name": "TagToPostConnectionEdge",
             "ofType": null
           },
@@ -32774,6 +32170,523 @@
           {
             "kind": "OBJECT",
             "name": "UserToUserRoleConnectionEdge",
+            "ofType": null
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "EditorBlock",
+        "description": "Blocks that can be edited to create content and layouts",
+        "fields": [
+          {
+            "name": "apiVersion",
+            "description": "The API version of the Gutenberg Block",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Int",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "blockEditorCategoryName",
+            "description": "The name of the category the Block belongs to",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "cssClassNames",
+            "description": "CSS Classnames to apply to the block",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "innerBlocks",
+            "description": "The inner blocks of the Block",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "EditorBlock",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isDynamic",
+            "description": "Whether the block is Dynamic (server rendered)",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "name",
+            "description": "The name of the Block",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "nodeId",
+            "description": "The id of the Block",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "parentId",
+            "description": "The parent id of the Block",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "renderedHtml",
+            "description": "The rendered HTML for the block",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "CoreArchives",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreAudio",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreAvatar",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreBlock",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreButton",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreButtons",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreCalendar",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreCategories",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreCode",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreColumn",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreColumns",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreCover",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreEmbed",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreFile",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreFreeform",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreGallery",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreGroup",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreHeading",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreHomeLink",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreHtml",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreImage",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreLatestPosts",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreLegacyWidget",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreList",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreListItem",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreLoginout",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreMediaText",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreMissing",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreMore",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreNavigation",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreNavigationLink",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreNavigationSubmenu",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreNextpage",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePageList",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreParagraph",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePattern",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePostAuthor",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePostAuthorBiography",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePostComments",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePostContent",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePostDate",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePostExcerpt",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePostFeaturedImage",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePostNavigationLink",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePostTemplate",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePostTerms",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePostTitle",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePreformatted",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CorePullquote",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreQuery",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreQueryNoResults",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreQueryPagination",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreQueryPaginationNext",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreQueryPaginationNumbers",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreQueryPaginationPrevious",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreQueryTitle",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreQuote",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreReadMore",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreRss",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreSearch",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreSeparator",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreShortcode",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreSiteLogo",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreSiteTagline",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreSiteTitle",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreSocialLink",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreSocialLinks",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreSpacer",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreTable",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreTagCloud",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreTemplatePart",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreTermDescription",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreTextColumns",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreVerse",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreVideo",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "CoreWidgetGroup",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "UnknownBlock",
             "ofType": null
           }
         ]
@@ -36147,18 +36060,6 @@
             "deprecationReason": null
           },
           {
-            "name": "element",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "enclosure",
             "description": "The RSS enclosure for the object",
             "args": [],
@@ -36514,79 +36415,6 @@
             "deprecationReason": null
           },
           {
-            "name": "nextMediaItem",
-            "description": "The next post of the current port",
-            "args": [
-              {
-                "name": "inSameTerm",
-                "description": "Whether post should be in a same taxonomy term. Default value: false",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "loop",
-                "description": "Whether to return boundary post if on first or last. Default value: true",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "taxonomy",
-                "description": "Taxonomy, if inSameTerm is true",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "termNotIn",
-                "description": "Comma-separated list of excluded term IDs.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "termSlugNotIn",
-                "description": "Comma-separated list of excluded term slugs.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "NextMediaItemEdge",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "parent",
             "description": "The parent of the node. The parent object can be of various types",
             "args": [],
@@ -36641,79 +36469,6 @@
             "type": {
               "kind": "SCALAR",
               "name": "ID",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "previousMediaItem",
-            "description": "The previous post of the current post",
-            "args": [
-              {
-                "name": "inSameTerm",
-                "description": "Whether post should be in a same taxonomy term. Default value: false",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "loop",
-                "description": "Whether to return boundary post if on first or last. Default value: true",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "taxonomy",
-                "description": "Taxonomy, if inSameTerm is true",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "termNotIn",
-                "description": "Comma-separated list of excluded term IDs.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "termSlugNotIn",
-                "description": "Comma-separated list of excluded term slugs.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "PreviousMediaItemEdge",
               "ofType": null
             },
             "isDeprecated": false,
@@ -37315,6 +37070,12 @@
           {
             "name": "MEDIUM_PREVIEW",
             "description": "MediaItem with the medium-preview size",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "NINETEEN_TWENTY",
+            "description": "MediaItem with the nineteen-twenty size",
             "isDeprecated": false,
             "deprecationReason": null
           },
@@ -38849,8 +38610,14 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "EMPTY",
-            "description": "Empty menu location",
+            "name": "FOOTER_MENU",
+            "description": "Put the menu in the footer-menu location",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "HEADER_MENU",
+            "description": "Put the menu in the header-menu location",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -39635,75 +39402,6 @@
         "possibleTypes": null
       },
       {
-        "kind": "OBJECT",
-        "name": "NextMediaItemEdge",
-        "description": "",
-        "fields": [
-          {
-            "name": "node",
-            "description": "The node of the next item",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "MediaItem",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "NextPageEdge",
-        "description": "",
-        "fields": [
-          {
-            "name": "node",
-            "description": "The node of the next item",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Page",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "NextPostEdge",
-        "description": "",
-        "fields": [
-          {
-            "name": "node",
-            "description": "The node of the next item",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Post",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
         "kind": "INTERFACE",
         "name": "Node",
         "description": "An object with an ID",
@@ -39963,57 +39661,6 @@
       },
       {
         "kind": "INTERFACE",
-        "name": "NodeWithContentBlocks",
-        "description": "Node that has content blocks associated with it",
-        "fields": [
-          {
-            "name": "contentBlocks",
-            "description": "List of content blocks",
-            "args": [
-              {
-                "name": "flat",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "INTERFACE",
-                "name": "ContentBlock",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": [
-          {
-            "kind": "OBJECT",
-            "name": "Page",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
-            "name": "Post",
-            "ofType": null
-          }
-        ]
-      },
-      {
-        "kind": "INTERFACE",
         "name": "NodeWithContentEditor",
         "description": "A node that supports the content editor",
         "fields": [
@@ -40034,18 +39681,6 @@
                 "deprecationReason": null
               }
             ],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "encodedContent",
-            "description": "",
-            "args": [],
             "type": {
               "kind": "SCALAR",
               "name": "String",
@@ -40079,6 +39714,57 @@
             "ofType": null
           }
         ],
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "Page",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "Post",
+            "ofType": null
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "NodeWithEditorBlocks",
+        "description": "Node that has content blocks associated with it",
+        "fields": [
+          {
+            "name": "editorBlocks",
+            "description": "List of editor blocks",
+            "args": [
+              {
+                "name": "flat",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "EditorBlock",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
         "enumValues": null,
         "possibleTypes": [
           {
@@ -40978,35 +40664,6 @@
             "deprecationReason": null
           },
           {
-            "name": "contentBlocks",
-            "description": "List of content blocks",
-            "args": [
-              {
-                "name": "flat",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "INTERFACE",
-                "name": "ContentBlock",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "contentType",
             "description": "Connection between the ContentNode type and the ContentType type",
             "args": [],
@@ -41099,20 +40756,37 @@
             "deprecationReason": null
           },
           {
-            "name": "enclosure",
-            "description": "The RSS enclosure for the object",
-            "args": [],
+            "name": "editorBlocks",
+            "description": "List of editor blocks",
+            "args": [
+              {
+                "name": "flat",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "EditorBlock",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "encodedContent",
-            "description": "",
+            "name": "enclosure",
+            "description": "The RSS enclosure for the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -41510,79 +41184,6 @@
             "deprecationReason": null
           },
           {
-            "name": "nextPage",
-            "description": "The next post of the current port",
-            "args": [
-              {
-                "name": "inSameTerm",
-                "description": "Whether post should be in a same taxonomy term. Default value: false",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "loop",
-                "description": "Whether to return boundary post if on first or last. Default value: true",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "taxonomy",
-                "description": "Taxonomy, if inSameTerm is true",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "termNotIn",
-                "description": "Comma-separated list of excluded term IDs.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "termSlugNotIn",
-                "description": "Comma-separated list of excluded term slugs.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "NextPageEdge",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "pageId",
             "description": "The id field matches the WP_Post-&gt;ID field.",
             "args": [],
@@ -41665,79 +41266,6 @@
             "type": {
               "kind": "SCALAR",
               "name": "ID",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "previousPage",
-            "description": "The previous post of the current post",
-            "args": [
-              {
-                "name": "inSameTerm",
-                "description": "Whether post should be in a same taxonomy term. Default value: false",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "loop",
-                "description": "Whether to return boundary post if on first or last. Default value: true",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "taxonomy",
-                "description": "Taxonomy, if inSameTerm is true",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "termNotIn",
-                "description": "Comma-separated list of excluded term IDs.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "termSlugNotIn",
-                "description": "Comma-separated list of excluded term slugs.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "PreviousPageEdge",
               "ofType": null
             },
             "isDeprecated": false,
@@ -41853,158 +41381,12 @@
             "deprecationReason": null
           },
           {
-            "name": "tags",
-            "description": "Connection between the Page type and the tag type",
-            "args": [
-              {
-                "name": "after",
-                "description": "Cursor used along with the \"first\" argument to reference where in the dataset to get data",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "before",
-                "description": "Cursor used along with the \"last\" argument to reference where in the dataset to get data",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "first",
-                "description": "The number of items to return after the referenced \"after\" cursor",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "last",
-                "description": "The number of items to return before the referenced \"before\" cursor",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "where",
-                "description": "Arguments for filtering the connection",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "PageToTagConnectionWhereArgs",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "PageToTagConnection",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "template",
             "description": "The template assigned to a node of content",
             "args": [],
             "type": {
               "kind": "INTERFACE",
               "name": "ContentTemplate",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "terms",
-            "description": "Connection between the Page type and the TermNode type",
-            "args": [
-              {
-                "name": "after",
-                "description": "Cursor used along with the \"first\" argument to reference where in the dataset to get data",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "before",
-                "description": "Cursor used along with the \"last\" argument to reference where in the dataset to get data",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "first",
-                "description": "The number of items to return after the referenced \"after\" cursor",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "last",
-                "description": "The number of items to return before the referenced \"before\" cursor",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "where",
-                "description": "Arguments for filtering the connection",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "PageToTermNodeConnectionWhereArgs",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "PageToTermNodeConnection",
               "ofType": null
             },
             "isDeprecated": false,
@@ -42087,12 +41469,12 @@
           },
           {
             "kind": "INTERFACE",
-            "name": "NodeWithContentBlocks",
+            "name": "NodeWithContentEditor",
             "ofType": null
           },
           {
             "kind": "INTERFACE",
-            "name": "NodeWithContentEditor",
+            "name": "NodeWithEditorBlocks",
             "ofType": null
           },
           {
@@ -42215,11 +41597,6 @@
           },
           {
             "kind": "OBJECT",
-            "name": "TagToPageConnection",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
             "name": "UserToPageConnection",
             "ofType": null
           }
@@ -42286,11 +41663,6 @@
           },
           {
             "kind": "OBJECT",
-            "name": "TagToPageConnectionEdge",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
             "name": "UserToPageConnectionEdge",
             "ofType": null
           }
@@ -42323,104 +41695,6 @@
             "deprecationReason": null
           }
         ],
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "PageTagsInput",
-        "description": "Set relationships between the page to tags",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "append",
-            "description": "If true, this will append the tag to existing related tags. If false, this will replace existing relationships. Default true.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "nodes",
-            "description": "The input list of items to set.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "INPUT_OBJECT",
-                "name": "PageTagsNodeInput",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "PageTagsNodeInput",
-        "description": "List of tags to connect the page to. If an ID is set, it will be used to create the connection. If not, it will look for a slug. If neither are valid existing terms, and the site is configured to allow terms to be created during post mutations, a term will be created using the Name if it exists in the input, then fallback to the slug if it exists.",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "description",
-            "description": "The description of the tag. This field is used to set a description of the tag if a new one is created during the mutation.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "id",
-            "description": "The ID of the tag. If present, this will be used to connect to the page. If no existing tag exists with this ID, no connection will be made.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "ID",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": "The name of the tag. This field is used to create a new term, if term creation is enabled in nested mutations, and if one does not already exist with the provided slug or ID or if a slug or ID is not provided. If no name is included and a term is created, the creation will fallback to the slug field.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "slug",
-            "description": "The slug of the tag. If no ID is present, this field will be used to make a connection. If no existing term exists with this slug, this field will be used as a fallback to the Name field when creating a new term to connect to, if term creation is enabled as a nested mutation.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
         "possibleTypes": null
       },
       {
@@ -42893,969 +42167,11 @@
             "deprecationReason": null
           },
           {
-            "name": "tag",
-            "description": "Tag Slug",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagId",
-            "description": "Use Tag ID",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagIn",
-            "description": "Array of tag IDs, used to display objects from one tag OR another",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagNotIn",
-            "description": "Array of tag IDs, used to display objects from one tag OR another",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagSlugAnd",
-            "description": "Array of tag slugs, used to display objects from one tag AND another",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagSlugIn",
-            "description": "Array of tag slugs, used to include objects in ANY specified tags",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "title",
             "description": "Title of the object",
             "type": {
               "kind": "SCALAR",
               "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PageToTagConnection",
-        "description": "Connection between the Page type and the tag type",
-        "fields": [
-          {
-            "name": "edges",
-            "description": "Edges for the PageToTagConnection connection",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "PageToTagConnectionEdge",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "nodes",
-            "description": "The nodes of the connection, without the edges",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "Tag",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pageInfo",
-            "description": "Information about pagination in a connection.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "WPPageInfo",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Connection",
-            "ofType": null
-          },
-          {
-            "kind": "INTERFACE",
-            "name": "TagConnection",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PageToTagConnectionEdge",
-        "description": "An edge in a connection",
-        "fields": [
-          {
-            "name": "cursor",
-            "description": "A cursor for use in pagination",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "node",
-            "description": "The item at the end of the edge",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Tag",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Edge",
-            "ofType": null
-          },
-          {
-            "kind": "INTERFACE",
-            "name": "TagConnectionEdge",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "PageToTagConnectionWhereArgs",
-        "description": "Arguments for filtering the PageToTagConnection connection",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "cacheDomain",
-            "description": "Unique cache key to be produced when this query is stored in an object cache. Default is 'core'.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "childOf",
-            "description": "Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "childless",
-            "description": "True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "descriptionLike",
-            "description": "Retrieve terms where the description is LIKE the input value. Default empty.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "exclude",
-            "description": "Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "excludeTree",
-            "description": "Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "hideEmpty",
-            "description": "Whether to hide terms not assigned to any posts. Accepts true or false. Default false",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "hierarchical",
-            "description": "Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "include",
-            "description": "Array of term ids to include. Default empty array.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": "Array of names to return term(s) for. Default empty.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "nameLike",
-            "description": "Retrieve terms where the name is LIKE the input value. Default empty.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "objectIds",
-            "description": "Array of object IDs. Results will be limited to terms associated with these objects.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "order",
-            "description": "Direction the connection should be ordered in",
-            "type": {
-              "kind": "ENUM",
-              "name": "OrderEnum",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "orderby",
-            "description": "Field(s) to order terms by. Defaults to 'name'.",
-            "type": {
-              "kind": "ENUM",
-              "name": "TermObjectsConnectionOrderbyEnum",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "padCounts",
-            "description": "Whether to pad the quantity of a term's children in the quantity of each term's \"count\" object variable. Default false.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "parent",
-            "description": "Parent term ID to retrieve direct-child terms of. Default empty.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "search",
-            "description": "Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "slug",
-            "description": "Array of slugs to return term(s) for. Default empty.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "termTaxonomId",
-            "description": "Array of term taxonomy IDs, to match when querying terms.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "termTaxonomyId",
-            "description": "Array of term taxonomy IDs, to match when querying terms.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "updateTermMetaCache",
-            "description": "Whether to prime meta caches for matched terms. Default true.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PageToTermNodeConnection",
-        "description": "Connection between the Page type and the TermNode type",
-        "fields": [
-          {
-            "name": "edges",
-            "description": "Edges for the PageToTermNodeConnection connection",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "PageToTermNodeConnectionEdge",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "nodes",
-            "description": "The nodes of the connection, without the edges",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INTERFACE",
-                    "name": "TermNode",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pageInfo",
-            "description": "Information about pagination in a connection.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "WPPageInfo",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Connection",
-            "ofType": null
-          },
-          {
-            "kind": "INTERFACE",
-            "name": "TermNodeConnection",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PageToTermNodeConnectionEdge",
-        "description": "An edge in a connection",
-        "fields": [
-          {
-            "name": "cursor",
-            "description": "A cursor for use in pagination",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "node",
-            "description": "The item at the end of the edge",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "INTERFACE",
-                "name": "TermNode",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Edge",
-            "ofType": null
-          },
-          {
-            "kind": "INTERFACE",
-            "name": "TermNodeConnectionEdge",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "PageToTermNodeConnectionWhereArgs",
-        "description": "Arguments for filtering the PageToTermNodeConnection connection",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "cacheDomain",
-            "description": "Unique cache key to be produced when this query is stored in an object cache. Default is 'core'.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "childOf",
-            "description": "Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "childless",
-            "description": "True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "descriptionLike",
-            "description": "Retrieve terms where the description is LIKE the input value. Default empty.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "exclude",
-            "description": "Array of term ids to exclude. If $include is non-empty, $exclude is ignored. Default empty array.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "excludeTree",
-            "description": "Array of term ids to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "hideEmpty",
-            "description": "Whether to hide terms not assigned to any posts. Accepts true or false. Default false",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "hierarchical",
-            "description": "Whether to include terms that have non-empty descendants (even if $hide_empty is set to true). Default true.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "include",
-            "description": "Array of term ids to include. Default empty array.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": "Array of names to return term(s) for. Default empty.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "nameLike",
-            "description": "Retrieve terms where the name is LIKE the input value. Default empty.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "objectIds",
-            "description": "Array of object IDs. Results will be limited to terms associated with these objects.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "order",
-            "description": "Direction the connection should be ordered in",
-            "type": {
-              "kind": "ENUM",
-              "name": "OrderEnum",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "orderby",
-            "description": "Field(s) to order terms by. Defaults to 'name'.",
-            "type": {
-              "kind": "ENUM",
-              "name": "TermObjectsConnectionOrderbyEnum",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "padCounts",
-            "description": "Whether to pad the quantity of a term's children in the quantity of each term's \"count\" object variable. Default false.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "parent",
-            "description": "Parent term ID to retrieve direct-child terms of. Default empty.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "search",
-            "description": "Search criteria to match terms. Will be SQL-formatted with wildcards before and after. Default empty.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "slug",
-            "description": "Array of slugs to return term(s) for. Default empty.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "taxonomies",
-            "description": "The Taxonomy to filter terms by",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "TaxonomyEnum",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "termTaxonomId",
-            "description": "Array of term taxonomy IDs, to match when querying terms.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "termTaxonomyId",
-            "description": "Array of term taxonomy IDs, to match when querying terms.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "updateTermMetaCache",
-            "description": "Whether to prime meta caches for matched terms. Default true.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
               "ofType": null
             },
             "defaultValue": null,
@@ -44372,35 +42688,6 @@
             "deprecationReason": null
           },
           {
-            "name": "contentBlocks",
-            "description": "List of content blocks",
-            "args": [
-              {
-                "name": "flat",
-                "description": null,
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "INTERFACE",
-                "name": "ContentBlock",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "contentType",
             "description": "Connection between the ContentNode type and the ContentType type",
             "args": [],
@@ -44493,20 +42780,37 @@
             "deprecationReason": null
           },
           {
-            "name": "enclosure",
-            "description": "The RSS enclosure for the object",
-            "args": [],
+            "name": "editorBlocks",
+            "description": "List of editor blocks",
+            "args": [
+              {
+                "name": "flat",
+                "description": null,
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              }
+            ],
             "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INTERFACE",
+                "name": "EditorBlock",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "encodedContent",
-            "description": "",
+            "name": "enclosure",
+            "description": "The RSS enclosure for the object",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -44860,79 +43164,6 @@
             "deprecationReason": null
           },
           {
-            "name": "nextPost",
-            "description": "The next post of the current port",
-            "args": [
-              {
-                "name": "inSameTerm",
-                "description": "Whether post should be in a same taxonomy term. Default value: false",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "loop",
-                "description": "Whether to return boundary post if on first or last. Default value: true",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "taxonomy",
-                "description": "Taxonomy, if inSameTerm is true",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "termNotIn",
-                "description": "Comma-separated list of excluded term IDs.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "termSlugNotIn",
-                "description": "Comma-separated list of excluded term slugs.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "NextPostEdge",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "postFormats",
             "description": "Connection between the Post type and the postFormat type",
             "args": [
@@ -45052,79 +43283,6 @@
             "type": {
               "kind": "SCALAR",
               "name": "ID",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "previousPost",
-            "description": "The previous post of the current post",
-            "args": [
-              {
-                "name": "inSameTerm",
-                "description": "Whether post should be in a same taxonomy term. Default value: false",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "loop",
-                "description": "Whether to return boundary post if on first or last. Default value: true",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "taxonomy",
-                "description": "Taxonomy, if inSameTerm is true",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "termNotIn",
-                "description": "Comma-separated list of excluded term IDs.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "termSlugNotIn",
-                "description": "Comma-separated list of excluded term slugs.",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "PreviousPostEdge",
               "ofType": null
             },
             "isDeprecated": false,
@@ -45464,12 +43622,12 @@
           },
           {
             "kind": "INTERFACE",
-            "name": "NodeWithContentBlocks",
+            "name": "NodeWithContentEditor",
             "ofType": null
           },
           {
             "kind": "INTERFACE",
-            "name": "NodeWithContentEditor",
+            "name": "NodeWithEditorBlocks",
             "ofType": null
           },
           {
@@ -50825,75 +48983,6 @@
       },
       {
         "kind": "OBJECT",
-        "name": "PreviousMediaItemEdge",
-        "description": "",
-        "fields": [
-          {
-            "name": "node",
-            "description": "The node of the previous item",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "MediaItem",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PreviousPageEdge",
-        "description": "",
-        "fields": [
-          {
-            "name": "node",
-            "description": "The node of the previous item",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Page",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PreviousPostEdge",
-        "description": "",
-        "fields": [
-          {
-            "name": "node",
-            "description": "The node of the previous item",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "Post",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
         "name": "ReadingSettings",
         "description": "The reading setting type",
         "fields": [
@@ -54101,18 +52190,6 @@
             "type": {
               "kind": "OBJECT",
               "name": "RootQueryToRevisionsConnection",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "siteOptions",
-            "description": "Site Options options.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "SiteOptions",
               "ofType": null
             },
             "isDeprecated": false,
@@ -57765,94 +55842,6 @@
             "deprecationReason": null
           },
           {
-            "name": "tag",
-            "description": "Tag Slug",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagId",
-            "description": "Use Tag ID",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagIn",
-            "description": "Array of tag IDs, used to display objects from one tag OR another",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagNotIn",
-            "description": "Array of tag IDs, used to display objects from one tag OR another",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagSlugAnd",
-            "description": "Array of tag slugs, used to display objects from one tag AND another",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagSlugIn",
-            "description": "Array of tag slugs, used to include objects in ANY specified tags",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "title",
             "description": "Title of the object",
             "type": {
@@ -61392,220 +59381,6 @@
         "possibleTypes": null
       },
       {
-        "kind": "OBJECT",
-        "name": "SiteOptions",
-        "description": "Site Options options.",
-        "fields": [
-          {
-            "name": "pageSlug",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pageTitle",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "siteOptions",
-            "description": "Added to the GraphQL Schema because the ACF Field Group &quot;Site Options&quot; was set to Show in GraphQL.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "SiteOptions_Siteoptions",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "SiteOptions_Siteoptions",
-        "description": "Field Group",
-        "fields": [
-          {
-            "name": "fieldGroupName",
-            "description": "The name of the ACF Field Group",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "googleAnalytics",
-            "description": "Enter Google Analytics tracking codes. Uses the gtag.js tracking method.",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "SiteOptions_Siteoptions_googleAnalytics",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "socialMedia",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "SiteOptions_Siteoptions_socialMedia",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "socialSharedImage",
-            "description": "This image is used when people share the site on social media, unless a more relevant image is found. The ideal size for this image is 1200px wide by 630px high.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "MediaItem",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "AcfFieldGroup",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "SiteOptions_Siteoptions_googleAnalytics",
-        "description": "Field Group",
-        "fields": [
-          {
-            "name": "code",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "fieldGroupName",
-            "description": "The name of the ACF Field Group",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "AcfFieldGroup",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "SiteOptions_Siteoptions_socialMedia",
-        "description": "Field Group",
-        "fields": [
-          {
-            "name": "fieldGroupName",
-            "description": "The name of the ACF Field Group",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "platform",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "url",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "AcfFieldGroup",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
         "kind": "SCALAR",
         "name": "String",
         "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
@@ -61940,79 +59715,6 @@
             "deprecationReason": null
           },
           {
-            "name": "pages",
-            "description": "Connection between the Tag type and the page type",
-            "args": [
-              {
-                "name": "after",
-                "description": "Cursor used along with the \"first\" argument to reference where in the dataset to get data",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "before",
-                "description": "Cursor used along with the \"last\" argument to reference where in the dataset to get data",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "first",
-                "description": "The number of items to return after the referenced \"after\" cursor",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "last",
-                "description": "The number of items to return before the referenced \"before\" cursor",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Int",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              },
-              {
-                "name": "where",
-                "description": "Arguments for filtering the connection",
-                "type": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "TagToPageConnectionWhereArgs",
-                  "ofType": null
-                },
-                "defaultValue": null,
-                "isDeprecated": false,
-                "deprecationReason": null
-              }
-            ],
-            "type": {
-              "kind": "OBJECT",
-              "name": "TagToPageConnection",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "posts",
             "description": "Connection between the Tag type and the post type",
             "args": [
@@ -62267,11 +59969,6 @@
         "possibleTypes": [
           {
             "kind": "OBJECT",
-            "name": "PageToTagConnection",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
             "name": "PostToTagConnection",
             "ofType": null
           },
@@ -62326,11 +60023,6 @@
         ],
         "enumValues": null,
         "possibleTypes": [
-          {
-            "kind": "OBJECT",
-            "name": "PageToTagConnectionEdge",
-            "ofType": null
-          },
           {
             "kind": "OBJECT",
             "name": "PostToTagConnectionEdge",
@@ -62753,525 +60445,6 @@
               "kind": "ENUM",
               "name": "PostStatusEnum",
               "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "title",
-            "description": "Title of the object",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "TagToPageConnection",
-        "description": "Connection between the Tag type and the page type",
-        "fields": [
-          {
-            "name": "edges",
-            "description": "Edges for the TagToPageConnection connection",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "TagToPageConnectionEdge",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "nodes",
-            "description": "The nodes of the connection, without the edges",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "Page",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "pageInfo",
-            "description": "Information about pagination in a connection.",
-            "args": [],
-            "type": {
-              "kind": "OBJECT",
-              "name": "WPPageInfo",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Connection",
-            "ofType": null
-          },
-          {
-            "kind": "INTERFACE",
-            "name": "PageConnection",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
-        "name": "TagToPageConnectionEdge",
-        "description": "An edge in a connection",
-        "fields": [
-          {
-            "name": "cursor",
-            "description": "A cursor for use in pagination",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "node",
-            "description": "The item at the end of the edge",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Page",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Edge",
-            "ofType": null
-          },
-          {
-            "kind": "INTERFACE",
-            "name": "PageConnectionEdge",
-            "ofType": null
-          }
-        ],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "TagToPageConnectionWhereArgs",
-        "description": "Arguments for filtering the TagToPageConnection connection",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "author",
-            "description": "The user that's connected as the author of the object. Use the userId for the author object.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "authorIn",
-            "description": "Find objects connected to author(s) in the array of author's userIds",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "authorName",
-            "description": "Find objects connected to the author by the author's nicename",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "authorNotIn",
-            "description": "Find objects NOT connected to author(s) in the array of author's userIds",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "dateQuery",
-            "description": "Filter the connection based on dates",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "DateQueryInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "hasPassword",
-            "description": "True for objects with passwords; False for objects without passwords; null for all objects with or without passwords",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Boolean",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "id",
-            "description": "Specific database ID of the object",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Int",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "in",
-            "description": "Array of IDs for the objects to retrieve",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "mimeType",
-            "description": "Get objects with a specific mimeType property",
-            "type": {
-              "kind": "ENUM",
-              "name": "MimeTypeEnum",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "name",
-            "description": "Slug / post_name of the object",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "nameIn",
-            "description": "Specify objects to retrieve. Use slugs",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "notIn",
-            "description": "Specify IDs NOT to retrieve. If this is used in the same query as \"in\", it will be ignored",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "orderby",
-            "description": "What paramater to use to order the objects by.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "INPUT_OBJECT",
-                "name": "PostObjectsConnectionOrderbyInput",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "parent",
-            "description": "Use ID to return only children. Use 0 to return only top-level items",
-            "type": {
-              "kind": "SCALAR",
-              "name": "ID",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "parentIn",
-            "description": "Specify objects whose parent is in an array",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "parentNotIn",
-            "description": "Specify posts whose parent is not in an array",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "password",
-            "description": "Show posts with a specific password.",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "search",
-            "description": "Show Posts based on a keyword search",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "stati",
-            "description": "Retrieve posts where post status is in an array.",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "PostStatusEnum",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "status",
-            "description": "Show posts with a specific status.",
-            "type": {
-              "kind": "ENUM",
-              "name": "PostStatusEnum",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tag",
-            "description": "Tag Slug",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagId",
-            "description": "Use Tag ID",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagIn",
-            "description": "Array of tag IDs, used to display objects from one tag OR another",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagNotIn",
-            "description": "Array of tag IDs, used to display objects from one tag OR another",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagSlugAnd",
-            "description": "Array of tag slugs, used to display objects from one tag AND another",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagSlugIn",
-            "description": "Array of tag slugs, used to include objects in ANY specified tags",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -64975,11 +62148,6 @@
         "possibleTypes": [
           {
             "kind": "OBJECT",
-            "name": "PageToTermNodeConnection",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
             "name": "PostToTermNodeConnection",
             "ofType": null
           },
@@ -65034,11 +62202,6 @@
         ],
         "enumValues": null,
         "possibleTypes": [
-          {
-            "kind": "OBJECT",
-            "name": "PageToTermNodeConnectionEdge",
-            "ofType": null
-          },
           {
             "kind": "OBJECT",
             "name": "PostToTermNodeConnectionEdge",
@@ -65860,7 +63023,7 @@
               "name": null,
               "ofType": {
                 "kind": "INTERFACE",
-                "name": "ContentBlock",
+                "name": "EditorBlock",
                 "ofType": null
               }
             },
@@ -65936,7 +63099,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "ContentBlock",
+            "name": "EditorBlock",
             "ofType": null
           }
         ],
@@ -66661,18 +63824,6 @@
             "type": {
               "kind": "ENUM",
               "name": "PostStatusEnum",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tags",
-            "description": "Set connections between the page and tags",
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "PageTagsInput",
               "ofType": null
             },
             "defaultValue": null,
@@ -70809,94 +67960,6 @@
               "kind": "ENUM",
               "name": "PostStatusEnum",
               "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tag",
-            "description": "Tag Slug",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagId",
-            "description": "Use Tag ID",
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagIn",
-            "description": "Array of tag IDs, used to display objects from one tag OR another",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagNotIn",
-            "description": "Array of tag IDs, used to display objects from one tag OR another",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagSlugAnd",
-            "description": "Array of tag slugs, used to display objects from one tag AND another",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "tagSlugIn",
-            "description": "Array of tag slugs, used to include objects in ANY specified tags",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
             },
             "defaultValue": null,
             "isDeprecated": false,

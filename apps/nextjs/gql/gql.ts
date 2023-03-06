@@ -19,7 +19,7 @@ const documents = {
     types.SettingsFragmentDoc,
   'query AllPagesPaths {\n  pages {\n    edges {\n      node {\n        uri\n      }\n    }\n  }\n}':
     types.AllPagesPathsDocument,
-  'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title(format: RENDERED)\n    databaseId\n    uri\n    content(format: RENDERED)\n    contentBlocks {\n      apiVersion\n      name\n      parentId\n      renderedHtml\n    }\n  }\n}':
+  'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title(format: RENDERED)\n    databaseId\n    uri\n    content(format: RENDERED)\n    editorBlocks {\n      apiVersion\n      name\n      parentId\n      renderedHtml\n    }\n  }\n}':
     types.SinglePageDocument,
 }
 
@@ -59,8 +59,8 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title(format: RENDERED)\n    databaseId\n    uri\n    content(format: RENDERED)\n    contentBlocks {\n      apiVersion\n      name\n      parentId\n      renderedHtml\n    }\n  }\n}',
-): (typeof documents)['query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title(format: RENDERED)\n    databaseId\n    uri\n    content(format: RENDERED)\n    contentBlocks {\n      apiVersion\n      name\n      parentId\n      renderedHtml\n    }\n  }\n}']
+  source: 'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title(format: RENDERED)\n    databaseId\n    uri\n    content(format: RENDERED)\n    editorBlocks {\n      apiVersion\n      name\n      parentId\n      renderedHtml\n    }\n  }\n}',
+): (typeof documents)['query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    title(format: RENDERED)\n    databaseId\n    uri\n    content(format: RENDERED)\n    editorBlocks {\n      apiVersion\n      name\n      parentId\n      renderedHtml\n    }\n  }\n}']
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {}
