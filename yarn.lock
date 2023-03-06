@@ -4595,7 +4595,7 @@ __metadata:
     "@types/testing-library__jest-dom": "npm:^5.14.5"
     "@typescript-eslint/eslint-plugin": "npm:^5.54.0"
     "@typescript-eslint/parser": "npm:^5.54.0"
-    "@wordpress/i18n": "npm:4.27.0"
+    "@wordpress/i18n": "npm:4.28.0"
     autoprefixer: "npm:^10.4.13"
     chromatic: "npm:^6.17.1"
     class-variance-authority: "npm:^0.4.0"
@@ -9265,6 +9265,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@wordpress/hooks@npm:^3.28.0":
+  version: 3.28.0
+  resolution: "@wordpress/hooks@npm:3.28.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.16.0"
+  checksum: 16ffea1037d799739844e65a631ad40f88f072645703954d6b8ba67345b8cc945cb0396356a8cc40b278b2a0938b23eb3851ded224968a95f418dee0618215b6
+  languageName: node
+  linkType: hard
+
 "@wordpress/html-entities@npm:^3.27.0":
   version: 3.27.0
   resolution: "@wordpress/html-entities@npm:3.27.0"
@@ -9274,7 +9283,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wordpress/i18n@npm:4.27.0, @wordpress/i18n@npm:^4.27.0":
+"@wordpress/i18n@npm:4.28.0":
+  version: 4.28.0
+  resolution: "@wordpress/i18n@npm:4.28.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.16.0"
+    "@wordpress/hooks": "npm:^3.28.0"
+    gettext-parser: "npm:^1.3.1"
+    memize: "npm:^1.1.0"
+    sprintf-js: "npm:^1.1.1"
+    tannin: "npm:^1.2.0"
+  bin:
+    pot-to-php: tools/pot-to-php.js
+  checksum: 830bb2a9ec8c7191ad5a371e1d40b10f3fe7162ccb36c3a09a7a05f688f5a2bff1a03c6ca3aacc531d7ef179a386dc9a161148d44e8608065ceec523ebcdf5ed
+  languageName: node
+  linkType: hard
+
+"@wordpress/i18n@npm:^4.27.0":
   version: 4.27.0
   resolution: "@wordpress/i18n@npm:4.27.0"
   dependencies:
