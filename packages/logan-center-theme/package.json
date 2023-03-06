@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@kleinweb/logan-center__tailwind-config": "workspace:*",
-    "@wordpress/blocks": "^12.4.0"
+    "@wordpress/blocks": "^12.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
@@ -41,7 +41,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "@types/wordpress__blocks": "^12.0.3",
-    "@wordpress/dependency-extraction-webpack-plugin": "^4.10.0",
+    "@wordpress/dependency-extraction-webpack-plugin": "^4.11.0",
     "babel-loader": "^9.1.2",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
