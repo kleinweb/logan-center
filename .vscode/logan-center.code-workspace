@@ -34,8 +34,12 @@
     },
     "eslint.workingDirectories": ["./packages/*", "./apps/*"],
     "search.exclude": {
+      "**/.direnv": true,
+      "**/.next": true,
+      "**/.pnp.*": true,
+      "**/.turbo": true,
       "**/.yarn": true,
-      "**/.pnp.*": true
+      "**/vendor": true
     },
     "prettier.prettierPath": "node_modules/prettier/index.js",
     "npm.packageManager": "yarn",
