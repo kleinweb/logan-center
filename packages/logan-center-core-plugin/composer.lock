@@ -373,7 +373,7 @@
     },
     {
       "name": "kleinweb/kleinweb-php-standards",
-      "version": "dev-fix/post-previews-yet-another-way",
+      "version": "dev-develop",
       "dist": {
         "type": "path",
         "url": "../../packages/kleinweb-php-standards",

@@ -2349,7 +2349,7 @@
     },
     {
       "name": "kleinweb/core-services",
-      "version": "dev-fix/post-previews-yet-another-way",
+      "version": "dev-develop",
       "dist": {
         "type": "path",
         "url": "../../packages/kleinweb-core-services",
@@ -2401,7 +2401,7 @@
     },
     {
       "name": "kleinweb/logan-center-core-plugin",
-      "version": "dev-fix/post-previews-yet-another-way",
+      "version": "dev-develop",
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-core-plugin",
@@ -2467,7 +2467,7 @@
     },
     {
       "name": "kleinweb/logan-center-theme",
-      "version": "dev-fix/post-previews-yet-another-way",
+      "version": "dev-develop",
       "dist": {
         "type": "path",
         "url": "../../packages/logan-center-theme",
@@ -7735,12 +7735,12 @@
       "source": {
         "type": "git",
         "url": "https://github.com/wpengine/wp-graphql-content-blocks.git",
-        "reference": "97bb00e3c3c2556808c248d9890d129bf8631ac0"
+        "reference": "8a4f42f31623aacc318a5b9bb081f6be5e6d332b"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/wpengine/wp-graphql-content-blocks/zipball/97bb00e3c3c2556808c248d9890d129bf8631ac0",
-        "reference": "97bb00e3c3c2556808c248d9890d129bf8631ac0",
+        "url": "https://api.github.com/repos/wpengine/wp-graphql-content-blocks/zipball/8a4f42f31623aacc318a5b9bb081f6be5e6d332b",
+        "reference": "8a4f42f31623aacc318a5b9bb081f6be5e6d332b",
         "shasum": ""
       },
       "require-dev": {
@@ -7774,10 +7774,10 @@
       },
       "description": "Plugin that extends WPGraphQL to support querying (Gutenberg) Blocks as data.",
       "support": {
-        "source": "https://github.com/wpengine/wp-graphql-content-blocks/tree/main",
+        "source": "https://github.com/wpengine/wp-graphql-content-blocks/tree/c370682",
         "issues": "https://github.com/wpengine/wp-graphql-content-blocks/issues"
       },
-      "time": "2023-03-03T20:35:59+00:00"
+      "time": "2023-03-06T16:23:41+00:00"
     }
   ],
   "packages-dev": [
@@ -7891,7 +7891,7 @@
     },
     {
       "name": "kleinweb/kleinweb-php-standards",
-      "version": "dev-fix/post-previews-yet-another-way",
+      "version": "dev-develop",
       "dist": {
         "type": "path",
         "url": "../../packages/kleinweb-php-standards",
