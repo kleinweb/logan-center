@@ -8,8 +8,5 @@
       "email": "kleinweb@temple.edu"
     }
   ],
-  "minimum-stability": "dev",
-  "require-dev": {
-    "laravel/pint": "^1.5"
-  }
+  "minimum-stability": "dev"
 }
