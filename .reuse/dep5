@@ -25,6 +25,7 @@ Files: */.editorconfig
        .gitignore
        .gitmodules
        .prettierignore
+       *.properties
        .vscode/*
        .yarn/*
        *.json
