@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import HomePage from './client-home'
+import HomePage from './HomePage.client'
 
 export default async function Page() {
   // Fetch data directly in a Server Component

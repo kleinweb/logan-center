@@ -7,7 +7,7 @@ import SiteHeader from '@organisms/SiteHeader'
 import {KleinBanner} from '@organisms/KleinBanner'
 import SiteFooter from '@organisms/SiteFooter'
 
-import {Providers} from './providers'
+import {Providers} from './Providers.client'
 
 import '@/src/styles/globals.css'
 import {styles} from '@molecules/utils'
