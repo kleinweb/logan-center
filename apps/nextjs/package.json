@@ -23,6 +23,7 @@
     "@kleinweb/logan-center__tailwind-config": "workspace:*",
     "@kleinweb/tu-assets": "workspace:*",
     "@radix-ui/react-separator": "^1.0.1",
+    "@sentry/nextjs": "^7.40.0",
     "@wordpress/i18n": "4.27.0",
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",

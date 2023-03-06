@@ -13,9 +13,9 @@
  * can.
  */
 
-use function Env\env;
-
 use Roots\WPConfig\Config;
+
+use function Env\env;
 
 /**
  * Directory containing all of the site's files
@@ -29,21 +29,21 @@ $root_dir = dirname(__DIR__);
  *
  * @var string
  */
-$webroot_dir = $root_dir . '/web';
+$webroot_dir = $root_dir.'/web';
 
 /**
  * Use Dotenv to set required environment variables and load .env file in root
  * .env.local will override .env if it exists
  */
-$env_files = file_exists($root_dir . '/.env.local')
+$env_files = file_exists($root_dir.'/.env.local')
     ? ['.env', '.env.local']
     : ['.env'];
 
 $dotenv = Dotenv\Dotenv::createUnsafeImmutable($root_dir, $env_files, false);
-if (file_exists($root_dir . '/.env')) {
+if (file_exists($root_dir.'/.env')) {
     $dotenv->load();
-    $dotenv->required(['WP_HOME', 'WP_SITEURL']);
-    if (!env('DATABASE_URL')) {
+    $dotenv->required(['WP_HOME', 'WP_SITEURL', 'NEXT_FRONTEND_URL']);
+    if (! env('DATABASE_URL')) {
         $dotenv->required(['DB_NAME', 'DB_USER', 'DB_PASSWORD']);
     }
 }
@@ -59,13 +59,15 @@ define('WP_ENV', env('WP_ENV') ?: 'production');
  */
 Config::define('WP_HOME', env('WP_HOME'));
 Config::define('WP_SITEURL', env('WP_SITEURL'));
+// TODO: fallback to the WP_SITEURL domain without subdomain since WP should be hosted on subdomain
+Config::define('NEXT_FRONTEND_URL', env('NEXT_FRONTEND_URL'));
 
 /**
  * Custom Content Directory
  */
 Config::define('CONTENT_DIR', '/app');
-Config::define('WP_CONTENT_DIR', $webroot_dir . Config::get('CONTENT_DIR'));
-Config::define('WP_CONTENT_URL', Config::get('WP_HOME') . Config::get('CONTENT_DIR'));
+Config::define('WP_CONTENT_DIR', $webroot_dir.Config::get('CONTENT_DIR'));
+Config::define('WP_CONTENT_URL', Config::get('WP_HOME').Config::get('CONTENT_DIR'));
 
 /**
  * DB settings
@@ -120,6 +122,17 @@ Config::define('SCRIPT_DEBUG', false);
 ini_set('display_errors', '0');
 
 /**
+ * Sentry Exporter Settings
+ *
+ * @see <https://github.com/stayallive/wp-sentry>
+ */
+Config::define('WP_SENTRY_PHP_DSN', env('WP_SENTRY_DSN'));
+Config::define('WP_SENTRY_SEND_DEFAULT_PII', true);
+Config::define('WP_SENTRY_ENV', WP_ENV);
+// For fine-tuning, if necessary.
+// Config::define('WP_SENTRY_ERROR_TYPES', E_ALL & ~E_DEPRECATED & ~E_NOTICE & ~E_USER_DEPRECATED);
+
+/**
  * Allow WordPress to detect HTTPS when used behind a reverse proxy or a load balancer
  * See https://codex.wordpress.org/Function_Reference/is_ssl#Notes
  */
@@ -127,7 +140,7 @@ if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROT
     $_SERVER['HTTPS'] = 'on';
 }
 
-$env_config = __DIR__ . '/environments/' . WP_ENV . '.php';
+$env_config = __DIR__.'/environments/'.WP_ENV.'.php';
 
 if (file_exists($env_config)) {
     require_once $env_config;
@@ -135,9 +148,30 @@ if (file_exists($env_config)) {
 
 Config::apply();
 
+
+/**
+ * Bootstrap Sentry
+ *
+ * Because Sentry is a monitoring tool, it should be loaded as early as possible
+ * to capture info about the full environment -- that is, it should be loaded
+ * before WordPress core bootstraps the application.
+ *
+ * This early loading follows the recommendations of the WP-Sentry "plugin".
+ *
+ * @see <https://github.com/stayallive/wp-sentry#loading-sentry-before-wordpress>
+ */
+$wp_sentry_path = (defined('WP_CONTENT_DIR'))
+    ? WP_CONTENT_DIR . '/plugins/wp-sentry/wp-sentry.php'
+    : $webroot_dir . '/app/plugins/wp-sentry/wp-sentry.php';
+// Do not crash in case the plugin is not installed.
+if (file_exists($wp_sentry_path)) {
+    require_once $wp_sentry_path;
+}
+
+
 /**
  * Bootstrap WordPress
  */
-if (!defined('ABSPATH')) {
-    define('ABSPATH', $webroot_dir . '/wp/');
+if (! defined('ABSPATH')) {
+    define('ABSPATH', $webroot_dir.'/wp/');
 }

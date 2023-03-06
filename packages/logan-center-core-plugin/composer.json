@@ -1,0 +1,79 @@
+{
+  "name": "kleinweb/logan-center-core-plugin",
+  "type": "wordpress-plugin",
+  "license": "GPL-3.0-or-later OR MIT",
+  "description": "Plugin providing core functionality for the Logan Center backend.",
+  "homepage": "https://github.com/kleinweb/logan-center",
+  "authors": [
+    {
+      "name": "Klein Digital Initiatives",
+      "email": "kleinweb@temple.edu",
+      "homepage": "https://klein.temple.edu"
+    },
+    {
+      "name": "Chris Montgomery",
+      "email": "chrismont@temple.edu",
+      "role": "Developer"
+    },
+    {
+      "name": "Greg Rickaby",
+      "email": "greg@gregrickaby.com"
+    }
+  ],
+  "keywords": [
+    "wordpress",
+    "wordpress-plugin",
+    "headless-wordpress",
+    "temple-university"
+  ],
+  "support": {
+    "issues": "https://github.com/kleinweb/logan-center/issues"
+  },
+  "require": {
+    "php": "^8.0",
+    "johnbillion/args": "^1.6",
+    "johnbillion/extended-cpts": "^5.0",
+    "vinkla/extended-acf": "^13.2"
+  },
+  "require-dev": {
+    "axepress/wp-graphql-stubs": "^1.13",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "kleinweb/kleinweb-php-standards": "*",
+    "php-stubs/acf-pro-stubs": "^6.0",
+    "php-stubs/wordpress-stubs": "^6.1",
+    "php-stubs/wp-cli-stubs": "^2.7",
+    "squizlabs/php_codesniffer": "3.7.2"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../../packages/kleinweb-php-standards"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Klein\\LoganCenter\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "scripts": {
+    "lint": [
+      "phpcs --standard=Kleinweb"
+    ],
+    "fix": [
+      "phpcbf --standard=Kleinweb"
+    ]
+  }
+}

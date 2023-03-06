@@ -7,7 +7,7 @@ query SinglePage($uri: ID!) {
     databaseId
     uri
     content(format: RENDERED)
-    contentBlocks {
+    editorBlocks {
       apiVersion
       name
       parentId

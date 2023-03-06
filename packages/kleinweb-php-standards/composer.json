@@ -1,0 +1,24 @@
+{
+  "name": "kleinweb/kleinweb-php-standards",
+  "description": "PHP coding standards for Klein Digitial Initiatives",
+  "type": "phpcodesniffer-standard",
+  "keywords": [
+    "phpcs",
+    "static analysis"
+  ],
+  "license": "GPL-3.0-or-later",
+  "require": {
+    "php": ">=8.0",
+    "squizlabs/php_codesniffer": "*",
+    "dealerdirect/phpcodesniffer-composer-installer": "*",
+    "phpcompatibility/php-compatibility": "*",
+    "phpcompatibility/phpcompatibility-paragonie": "*",
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "wp-coding-standards/wpcs": "dev-develop"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}
