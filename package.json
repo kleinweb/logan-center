@@ -1,6 +1,6 @@
 {
   "name": "@kleinweb/logan-center",
-  "packageManager": "yarn@4.0.0-rc.39",
+  "packageManager": "yarn@4.0.0-rc.40",
   "version": "0.3.0",
   "license": "GPL-3.0-or-later",
   "private": true,
@@ -42,7 +42,7 @@
     "dotenv": "16.0.3",
     "dotenv-cli": "^7.0.0",
     "graphql": "^16.6.0",
-    "graphql-config": "^4.4.1",
+    "graphql-config": "^4.5.0",
     "graphql-tag": "^2.12.6"
   },
   "devDependencies": {
@@ -50,13 +50,13 @@
     "@graphql-codegen/client-preset": "2.1.0",
     "@graphql-codegen/introspection": "3.0.1",
     "@graphql-codegen/schema-ast": "3.0.1",
-    "@types/node": "^18.14.2",
+    "@types/node": "^18.14.6",
     "@types/prettier": "^2.7.2",
     "commitlint": "^17.4.4",
     "concurrently": "^7.6.0",
     "eslint": "^8.35.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.1.2",
+    "lint-staged": "^13.1.4",
     "prettier": "^2.8.4",
     "ts-node": "^10.9.1",
     "turbo": "^1.8.3",
