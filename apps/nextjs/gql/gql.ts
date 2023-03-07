@@ -13,28 +13,26 @@ import {TypedDocumentNode as DocumentNode} from '@graphql-typed-document-node/co
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-  'fragment CoverImageFields on MediaItem {\n  altText\n  caption\n  description\n  link\n  mediaDetails {\n    ...MediaItemDetails\n  }\n  mediaItemUrl\n  mediaType\n  sourceUrl\n  title\n  uri\n}':
-    types.CoverImageFieldsFragmentDoc,
-  'fragment Settings on GeneralSettings {\n  dateFormat\n  description\n  language\n  timeFormat\n  title\n}':
+  '\n  fragment Settings on GeneralSettings {\n    dateFormat\n    description\n    language\n    timeFormat\n    title\n  }\n':
     types.SettingsFragmentDoc,
-  'fragment MediaItemDetails on MediaDetails {\n  file\n  width\n  height\n  meta {\n    caption\n    copyright\n    credit\n    title\n  }\n}':
-    types.MediaItemDetailsFragmentDoc,
-  'fragment SinglePageFields on Page {\n  title(format: RENDERED)\n  databaseId\n  uri\n  content(format: RENDERED)\n  editorBlocks {\n    apiVersion\n    name\n    parentId\n    renderedHtml\n  }\n}':
-    types.SinglePageFieldsFragmentDoc,
-  'fragment TermSummary on TermNode {\n  databaseId\n  description\n  id\n  name\n  uri\n}':
-    types.TermSummaryFragmentDoc,
-  'fragment ThumbnailImageFields on NodeWithFeaturedImageToMediaItemConnectionEdge {\n  node {\n    altText\n    sourceUrl(size: LARGE)\n    mediaDetails {\n      height\n      width\n    }\n  }\n}':
+  '\n  fragment CoverImageFields on MediaItem {\n    altText\n    caption\n    description\n    link\n    mediaDetails {\n      ...MediaItemDetails\n    }\n    mediaItemUrl\n    mediaType\n    sourceUrl\n    title\n    uri\n  }\n':
+    types.CoverImageFieldsFragmentDoc,
+  '\n  fragment ThumbnailImageFields on MediaItem {\n    altText\n    sourceUrl(size: LARGE)\n    mediaDetails {\n      height\n      width\n    }\n  }\n':
     types.ThumbnailImageFieldsFragmentDoc,
-  'query AllPagesPaths {\n  pages {\n    edges {\n      node {\n        uri\n      }\n    }\n  }\n}':
-    types.AllPagesPathsDocument,
-  'query CategoryByUri($id: ID!) {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n  }\n}':
-    types.CategoryByUriDocument,
-  'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    ...SinglePageFields\n  }\n}':
+  '\n  fragment MediaItemDetails on MediaDetails {\n    file\n    width\n    height\n    meta {\n      caption\n      copyright\n      credit\n      title\n    }\n  }\n':
+    types.MediaItemDetailsFragmentDoc,
+  '\n  fragment SinglePageFields on Page {\n    title(format: RENDERED)\n    databaseId\n    uri\n    content(format: RENDERED)\n    editorBlocks {\n      apiVersion\n      name\n      parentId\n      renderedHtml\n    }\n  }\n':
+    types.SinglePageFieldsFragmentDoc,
+  '\n  fragment TermSummary on TermNode {\n    databaseId\n    description\n    id\n    name\n    uri\n  }\n':
+    types.TermSummaryFragmentDoc,
+  '\n  query AllPages {\n    pages {\n      nodes {\n        uri\n      }\n    }\n  }\n':
+    types.AllPagesDocument,
+  '\n  query SinglePage($uri: ID!) {\n    page(id: $uri, idType: URI) {\n      ...SinglePageFields\n    }\n  }\n':
     types.SinglePageDocument,
-  'query ThemesLandingPage {\n  themes: categories(where: {parent: 0, excludeTree: "1"}) {\n    nodes {\n      databaseId\n      description\n      id\n      name\n      uri\n    }\n  }\n}':
-    types.ThemesLandingPageDocument,
-  'query Project($id: ID!) {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n    ancestors {\n      edges {\n        node {\n          slug\n          name\n          link\n          uri\n          databaseId\n          description\n        }\n      }\n    }\n    parentDatabaseId\n    uri\n    posts {\n      edges {\n        node {\n          authors {\n            edges {\n              node {\n                databaseId\n                description\n                email\n                firstName\n                lastName\n                nickname\n                nicename\n                name\n                slug\n                uri\n              }\n            }\n          }\n          dateGmt\n          excerpt\n          featuredImage {\n            node {\n              altText\n              sizes(size: POST_THUMBNAIL)\n            }\n          }\n          slug\n          title(format: RENDERED)\n          uri\n        }\n      }\n    }\n  }\n}':
-    types.ProjectDocument,
+  '\n  query CategoryByUri($id: ID!) {\n    category(id: $id, idType: URI) {\n      description\n      databaseId\n      name\n      slug\n    }\n  }\n':
+    types.CategoryByUriDocument,
+  '\n  query ProjectSummary($id: ID!) {\n    category(id: $id, idType: URI) {\n      description\n      databaseId\n      name\n      slug\n      ancestors {\n        edges {\n          node {\n            slug\n            name\n            link\n            uri\n            databaseId\n            description\n          }\n        }\n      }\n      parentDatabaseId\n      uri\n      posts {\n        edges {\n          node {\n            authors {\n              edges {\n                node {\n                  databaseId\n                  description\n                  email\n                  firstName\n                  lastName\n                  nickname\n                  nicename\n                  name\n                  slug\n                  uri\n                }\n              }\n            }\n            dateGmt\n            excerpt\n            featuredImage {\n              node {\n                altText\n                sizes(size: POST_THUMBNAIL)\n              }\n            }\n            slug\n            title(format: RENDERED)\n            uri\n          }\n        }\n      }\n    }\n  }\n':
+    types.ProjectSummaryDocument,
 }
 
 /**
@@ -55,68 +53,62 @@ export function graphql(source: string): unknown
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment CoverImageFields on MediaItem {\n  altText\n  caption\n  description\n  link\n  mediaDetails {\n    ...MediaItemDetails\n  }\n  mediaItemUrl\n  mediaType\n  sourceUrl\n  title\n  uri\n}',
-): (typeof documents)['fragment CoverImageFields on MediaItem {\n  altText\n  caption\n  description\n  link\n  mediaDetails {\n    ...MediaItemDetails\n  }\n  mediaItemUrl\n  mediaType\n  sourceUrl\n  title\n  uri\n}']
+  source: '\n  fragment Settings on GeneralSettings {\n    dateFormat\n    description\n    language\n    timeFormat\n    title\n  }\n',
+): (typeof documents)['\n  fragment Settings on GeneralSettings {\n    dateFormat\n    description\n    language\n    timeFormat\n    title\n  }\n']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment Settings on GeneralSettings {\n  dateFormat\n  description\n  language\n  timeFormat\n  title\n}',
-): (typeof documents)['fragment Settings on GeneralSettings {\n  dateFormat\n  description\n  language\n  timeFormat\n  title\n}']
+  source: '\n  fragment CoverImageFields on MediaItem {\n    altText\n    caption\n    description\n    link\n    mediaDetails {\n      ...MediaItemDetails\n    }\n    mediaItemUrl\n    mediaType\n    sourceUrl\n    title\n    uri\n  }\n',
+): (typeof documents)['\n  fragment CoverImageFields on MediaItem {\n    altText\n    caption\n    description\n    link\n    mediaDetails {\n      ...MediaItemDetails\n    }\n    mediaItemUrl\n    mediaType\n    sourceUrl\n    title\n    uri\n  }\n']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment MediaItemDetails on MediaDetails {\n  file\n  width\n  height\n  meta {\n    caption\n    copyright\n    credit\n    title\n  }\n}',
-): (typeof documents)['fragment MediaItemDetails on MediaDetails {\n  file\n  width\n  height\n  meta {\n    caption\n    copyright\n    credit\n    title\n  }\n}']
+  source: '\n  fragment ThumbnailImageFields on MediaItem {\n    altText\n    sourceUrl(size: LARGE)\n    mediaDetails {\n      height\n      width\n    }\n  }\n',
+): (typeof documents)['\n  fragment ThumbnailImageFields on MediaItem {\n    altText\n    sourceUrl(size: LARGE)\n    mediaDetails {\n      height\n      width\n    }\n  }\n']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment SinglePageFields on Page {\n  title(format: RENDERED)\n  databaseId\n  uri\n  content(format: RENDERED)\n  editorBlocks {\n    apiVersion\n    name\n    parentId\n    renderedHtml\n  }\n}',
-): (typeof documents)['fragment SinglePageFields on Page {\n  title(format: RENDERED)\n  databaseId\n  uri\n  content(format: RENDERED)\n  editorBlocks {\n    apiVersion\n    name\n    parentId\n    renderedHtml\n  }\n}']
+  source: '\n  fragment MediaItemDetails on MediaDetails {\n    file\n    width\n    height\n    meta {\n      caption\n      copyright\n      credit\n      title\n    }\n  }\n',
+): (typeof documents)['\n  fragment MediaItemDetails on MediaDetails {\n    file\n    width\n    height\n    meta {\n      caption\n      copyright\n      credit\n      title\n    }\n  }\n']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment TermSummary on TermNode {\n  databaseId\n  description\n  id\n  name\n  uri\n}',
-): (typeof documents)['fragment TermSummary on TermNode {\n  databaseId\n  description\n  id\n  name\n  uri\n}']
+  source: '\n  fragment SinglePageFields on Page {\n    title(format: RENDERED)\n    databaseId\n    uri\n    content(format: RENDERED)\n    editorBlocks {\n      apiVersion\n      name\n      parentId\n      renderedHtml\n    }\n  }\n',
+): (typeof documents)['\n  fragment SinglePageFields on Page {\n    title(format: RENDERED)\n    databaseId\n    uri\n    content(format: RENDERED)\n    editorBlocks {\n      apiVersion\n      name\n      parentId\n      renderedHtml\n    }\n  }\n']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'fragment ThumbnailImageFields on NodeWithFeaturedImageToMediaItemConnectionEdge {\n  node {\n    altText\n    sourceUrl(size: LARGE)\n    mediaDetails {\n      height\n      width\n    }\n  }\n}',
-): (typeof documents)['fragment ThumbnailImageFields on NodeWithFeaturedImageToMediaItemConnectionEdge {\n  node {\n    altText\n    sourceUrl(size: LARGE)\n    mediaDetails {\n      height\n      width\n    }\n  }\n}']
+  source: '\n  fragment TermSummary on TermNode {\n    databaseId\n    description\n    id\n    name\n    uri\n  }\n',
+): (typeof documents)['\n  fragment TermSummary on TermNode {\n    databaseId\n    description\n    id\n    name\n    uri\n  }\n']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query AllPagesPaths {\n  pages {\n    edges {\n      node {\n        uri\n      }\n    }\n  }\n}',
-): (typeof documents)['query AllPagesPaths {\n  pages {\n    edges {\n      node {\n        uri\n      }\n    }\n  }\n}']
+  source: '\n  query AllPages {\n    pages {\n      nodes {\n        uri\n      }\n    }\n  }\n',
+): (typeof documents)['\n  query AllPages {\n    pages {\n      nodes {\n        uri\n      }\n    }\n  }\n']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query CategoryByUri($id: ID!) {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n  }\n}',
-): (typeof documents)['query CategoryByUri($id: ID!) {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n  }\n}']
+  source: '\n  query SinglePage($uri: ID!) {\n    page(id: $uri, idType: URI) {\n      ...SinglePageFields\n    }\n  }\n',
+): (typeof documents)['\n  query SinglePage($uri: ID!) {\n    page(id: $uri, idType: URI) {\n      ...SinglePageFields\n    }\n  }\n']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    ...SinglePageFields\n  }\n}',
-): (typeof documents)['query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    ...SinglePageFields\n  }\n}']
+  source: '\n  query CategoryByUri($id: ID!) {\n    category(id: $id, idType: URI) {\n      description\n      databaseId\n      name\n      slug\n    }\n  }\n',
+): (typeof documents)['\n  query CategoryByUri($id: ID!) {\n    category(id: $id, idType: URI) {\n      description\n      databaseId\n      name\n      slug\n    }\n  }\n']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query ThemesLandingPage {\n  themes: categories(where: {parent: 0, excludeTree: "1"}) {\n    nodes {\n      databaseId\n      description\n      id\n      name\n      uri\n    }\n  }\n}',
-): (typeof documents)['query ThemesLandingPage {\n  themes: categories(where: {parent: 0, excludeTree: "1"}) {\n    nodes {\n      databaseId\n      description\n      id\n      name\n      uri\n    }\n  }\n}']
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(
-  source: 'query Project($id: ID!) {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n    ancestors {\n      edges {\n        node {\n          slug\n          name\n          link\n          uri\n          databaseId\n          description\n        }\n      }\n    }\n    parentDatabaseId\n    uri\n    posts {\n      edges {\n        node {\n          authors {\n            edges {\n              node {\n                databaseId\n                description\n                email\n                firstName\n                lastName\n                nickname\n                nicename\n                name\n                slug\n                uri\n              }\n            }\n          }\n          dateGmt\n          excerpt\n          featuredImage {\n            node {\n              altText\n              sizes(size: POST_THUMBNAIL)\n            }\n          }\n          slug\n          title(format: RENDERED)\n          uri\n        }\n      }\n    }\n  }\n}',
-): (typeof documents)['query Project($id: ID!) {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n    ancestors {\n      edges {\n        node {\n          slug\n          name\n          link\n          uri\n          databaseId\n          description\n        }\n      }\n    }\n    parentDatabaseId\n    uri\n    posts {\n      edges {\n        node {\n          authors {\n            edges {\n              node {\n                databaseId\n                description\n                email\n                firstName\n                lastName\n                nickname\n                nicename\n                name\n                slug\n                uri\n              }\n            }\n          }\n          dateGmt\n          excerpt\n          featuredImage {\n            node {\n              altText\n              sizes(size: POST_THUMBNAIL)\n            }\n          }\n          slug\n          title(format: RENDERED)\n          uri\n        }\n      }\n    }\n  }\n}']
+  source: '\n  query ProjectSummary($id: ID!) {\n    category(id: $id, idType: URI) {\n      description\n      databaseId\n      name\n      slug\n      ancestors {\n        edges {\n          node {\n            slug\n            name\n            link\n            uri\n            databaseId\n            description\n          }\n        }\n      }\n      parentDatabaseId\n      uri\n      posts {\n        edges {\n          node {\n            authors {\n              edges {\n                node {\n                  databaseId\n                  description\n                  email\n                  firstName\n                  lastName\n                  nickname\n                  nicename\n                  name\n                  slug\n                  uri\n                }\n              }\n            }\n            dateGmt\n            excerpt\n            featuredImage {\n              node {\n                altText\n                sizes(size: POST_THUMBNAIL)\n              }\n            }\n            slug\n            title(format: RENDERED)\n            uri\n          }\n        }\n      }\n    }\n  }\n',
+): (typeof documents)['\n  query ProjectSummary($id: ID!) {\n    category(id: $id, idType: URI) {\n      description\n      databaseId\n      name\n      slug\n      ancestors {\n        edges {\n          node {\n            slug\n            name\n            link\n            uri\n            databaseId\n            description\n          }\n        }\n      }\n      parentDatabaseId\n      uri\n      posts {\n        edges {\n          node {\n            authors {\n              edges {\n                node {\n                  databaseId\n                  description\n                  email\n                  firstName\n                  lastName\n                  nickname\n                  nicename\n                  name\n                  slug\n                  uri\n                }\n              }\n            }\n            dateGmt\n            excerpt\n            featuredImage {\n              node {\n                altText\n                sizes(size: POST_THUMBNAIL)\n              }\n            }\n            slug\n            title(format: RENDERED)\n            uri\n          }\n        }\n      }\n    }\n  }\n']
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {}

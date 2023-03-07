@@ -42,6 +42,7 @@ export default async function SinglePage({params}: {params: {slug: string[]}}) {
   if (!data.page) {
     notFound()
   }
+  // FIXME: seems fragments are broken here too, where they were previously working...
   const {title, content} = data.page
   return (
     <article>

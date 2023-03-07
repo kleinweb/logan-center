@@ -11981,6 +11981,15 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars['Boolean']>
 }
 
+export type SettingsFragment = {
+  __typename?: 'GeneralSettings'
+  dateFormat?: string | null
+  description?: string | null
+  language?: string | null
+  timeFormat?: string | null
+  title?: string | null
+} & {' $fragmentName'?: 'SettingsFragment'}
+
 export type CoverImageFieldsFragment = {
   __typename?: 'MediaItem'
   altText?: string | null
@@ -11999,14 +12008,16 @@ export type CoverImageFieldsFragment = {
     | null
 } & {' $fragmentName'?: 'CoverImageFieldsFragment'}
 
-export type SettingsFragment = {
-  __typename?: 'GeneralSettings'
-  dateFormat?: string | null
-  description?: string | null
-  language?: string | null
-  timeFormat?: string | null
-  title?: string | null
-} & {' $fragmentName'?: 'SettingsFragment'}
+export type ThumbnailImageFieldsFragment = {
+  __typename?: 'MediaItem'
+  altText?: string | null
+  sourceUrl?: string | null
+  mediaDetails?: {
+    __typename?: 'MediaDetails'
+    height?: number | null
+    width?: number | null
+  } | null
+} & {' $fragmentName'?: 'ThumbnailImageFieldsFragment'}
 
 export type MediaItemDetailsFragment = {
   __typename?: 'MediaDetails'
@@ -12604,31 +12615,27 @@ export type TermSummaryFragment =
   | TermSummary_PostFormat_Fragment
   | TermSummary_Tag_Fragment
 
-export type ThumbnailImageFieldsFragment = {
-  __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'
-  node: {
-    __typename?: 'MediaItem'
-    altText?: string | null
-    sourceUrl?: string | null
-    mediaDetails?: {
-      __typename?: 'MediaDetails'
-      height?: number | null
-      width?: number | null
-    } | null
-  }
-} & {' $fragmentName'?: 'ThumbnailImageFieldsFragment'}
+export type AllPagesQueryVariables = Exact<{[key: string]: never}>
 
-export type AllPagesPathsQueryVariables = Exact<{[key: string]: never}>
-
-export type AllPagesPathsQuery = {
+export type AllPagesQuery = {
   __typename?: 'RootQuery'
   pages?: {
     __typename?: 'RootQueryToPageConnection'
-    edges: Array<{
-      __typename?: 'RootQueryToPageConnectionEdge'
-      node: {__typename?: 'Page'; uri?: string | null}
-    }>
+    nodes: Array<{__typename?: 'Page'; uri?: string | null}>
   } | null
+}
+
+export type SinglePageQueryVariables = Exact<{
+  uri: Scalars['ID']
+}>
+
+export type SinglePageQuery = {
+  __typename?: 'RootQuery'
+  page?:
+    | ({__typename?: 'Page'} & {
+        ' $fragmentRefs'?: {SinglePageFieldsFragment: SinglePageFieldsFragment}
+      })
+    | null
 }
 
 export type CategoryByUriQueryVariables = Exact<{
@@ -12646,41 +12653,11 @@ export type CategoryByUriQuery = {
   } | null
 }
 
-export type SinglePageQueryVariables = Exact<{
-  uri: Scalars['ID']
-}>
-
-export type SinglePageQuery = {
-  __typename?: 'RootQuery'
-  page?:
-    | ({__typename?: 'Page'} & {
-        ' $fragmentRefs'?: {SinglePageFieldsFragment: SinglePageFieldsFragment}
-      })
-    | null
-}
-
-export type ThemesLandingPageQueryVariables = Exact<{[key: string]: never}>
-
-export type ThemesLandingPageQuery = {
-  __typename?: 'RootQuery'
-  themes?: {
-    __typename?: 'RootQueryToCategoryConnection'
-    nodes: Array<{
-      __typename?: 'Category'
-      databaseId: number
-      description?: string | null
-      id: string
-      name?: string | null
-      uri?: string | null
-    }>
-  } | null
-}
-
-export type ProjectQueryVariables = Exact<{
+export type ProjectSummaryQueryVariables = Exact<{
   id: Scalars['ID']
 }>
 
-export type ProjectQuery = {
+export type ProjectSummaryQuery = {
   __typename?: 'RootQuery'
   category?: {
     __typename?: 'Category'
@@ -12749,6 +12726,29 @@ export type ProjectQuery = {
   } | null
 }
 
+export const SettingsFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'Settings'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'GeneralSettings'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'dateFormat'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'language'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'timeFormat'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<SettingsFragment, unknown>
 export const MediaItemDetailsFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -12852,29 +12852,47 @@ export const CoverImageFieldsFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<CoverImageFieldsFragment, unknown>
-export const SettingsFragmentDoc = {
+export const ThumbnailImageFieldsFragmentDoc = {
   kind: 'Document',
   definitions: [
     {
       kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'Settings'},
+      name: {kind: 'Name', value: 'ThumbnailImageFields'},
       typeCondition: {
         kind: 'NamedType',
-        name: {kind: 'Name', value: 'GeneralSettings'},
+        name: {kind: 'Name', value: 'MediaItem'},
       },
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'dateFormat'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'language'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'timeFormat'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'sourceUrl'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'size'},
+                value: {kind: 'EnumValue', value: 'LARGE'},
+              },
+            ],
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'mediaDetails'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'height'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'width'}},
+              ],
+            },
+          },
         ],
       },
     },
   ],
-} as unknown as DocumentNode<SettingsFragment, unknown>
+} as unknown as DocumentNode<ThumbnailImageFieldsFragment, unknown>
 export const SinglePageFieldsFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -12950,66 +12968,13 @@ export const TermSummaryFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<TermSummaryFragment, unknown>
-export const ThumbnailImageFieldsFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'ThumbnailImageFields'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {
-          kind: 'Name',
-          value: 'NodeWithFeaturedImageToMediaItemConnectionEdge',
-        },
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'node'},
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'sourceUrl'},
-                  arguments: [
-                    {
-                      kind: 'Argument',
-                      name: {kind: 'Name', value: 'size'},
-                      value: {kind: 'EnumValue', value: 'LARGE'},
-                    },
-                  ],
-                },
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'mediaDetails'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {kind: 'Field', name: {kind: 'Name', value: 'height'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'width'}},
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<ThumbnailImageFieldsFragment, unknown>
-export const AllPagesPathsDocument = {
+export const AllPagesDocument = {
   kind: 'Document',
   definitions: [
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: {kind: 'Name', value: 'AllPagesPaths'},
+      name: {kind: 'Name', value: 'AllPages'},
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
@@ -13021,20 +12986,11 @@ export const AllPagesPathsDocument = {
               selections: [
                 {
                   kind: 'Field',
-                  name: {kind: 'Name', value: 'edges'},
+                  name: {kind: 'Name', value: 'nodes'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'node'},
-                        selectionSet: {
-                          kind: 'SelectionSet',
-                          selections: [
-                            {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-                          ],
-                        },
-                      },
+                      {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
                     ],
                   },
                 },
@@ -13045,57 +13001,7 @@ export const AllPagesPathsDocument = {
       },
     },
   ],
-} as unknown as DocumentNode<AllPagesPathsQuery, AllPagesPathsQueryVariables>
-export const CategoryByUriDocument = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'OperationDefinition',
-      operation: 'query',
-      name: {kind: 'Name', value: 'CategoryByUri'},
-      variableDefinitions: [
-        {
-          kind: 'VariableDefinition',
-          variable: {kind: 'Variable', name: {kind: 'Name', value: 'id'}},
-          type: {
-            kind: 'NonNullType',
-            type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
-          },
-        },
-      ],
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {
-            kind: 'Field',
-            name: {kind: 'Name', value: 'category'},
-            arguments: [
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'id'},
-                value: {kind: 'Variable', name: {kind: 'Name', value: 'id'}},
-              },
-              {
-                kind: 'Argument',
-                name: {kind: 'Name', value: 'idType'},
-                value: {kind: 'EnumValue', value: 'URI'},
-              },
-            ],
-            selectionSet: {
-              kind: 'SelectionSet',
-              selections: [
-                {kind: 'Field', name: {kind: 'Name', value: 'description'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'slug'}},
-              ],
-            },
-          },
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<CategoryByUriQuery, CategoryByUriQueryVariables>
+} as unknown as DocumentNode<AllPagesQuery, AllPagesQueryVariables>
 export const SinglePageDocument = {
   kind: 'Document',
   definitions: [
@@ -13193,64 +13099,48 @@ export const SinglePageDocument = {
     },
   ],
 } as unknown as DocumentNode<SinglePageQuery, SinglePageQueryVariables>
-export const ThemesLandingPageDocument = {
+export const CategoryByUriDocument = {
   kind: 'Document',
   definitions: [
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: {kind: 'Name', value: 'ThemesLandingPage'},
+      name: {kind: 'Name', value: 'CategoryByUri'},
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'id'}},
+          type: {
+            kind: 'NonNullType',
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
+          },
+        },
+      ],
       selectionSet: {
         kind: 'SelectionSet',
         selections: [
           {
             kind: 'Field',
-            alias: {kind: 'Name', value: 'themes'},
-            name: {kind: 'Name', value: 'categories'},
+            name: {kind: 'Name', value: 'category'},
             arguments: [
               {
                 kind: 'Argument',
-                name: {kind: 'Name', value: 'where'},
-                value: {
-                  kind: 'ObjectValue',
-                  fields: [
-                    {
-                      kind: 'ObjectField',
-                      name: {kind: 'Name', value: 'parent'},
-                      value: {kind: 'IntValue', value: '0'},
-                    },
-                    {
-                      kind: 'ObjectField',
-                      name: {kind: 'Name', value: 'excludeTree'},
-                      value: {kind: 'StringValue', value: '1', block: false},
-                    },
-                  ],
-                },
+                name: {kind: 'Name', value: 'id'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'id'}},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'idType'},
+                value: {kind: 'EnumValue', value: 'URI'},
               },
             ],
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'nodes'},
-                  selectionSet: {
-                    kind: 'SelectionSet',
-                    selections: [
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'databaseId'},
-                      },
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'description'},
-                      },
-                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-                    ],
-                  },
-                },
+                {kind: 'Field', name: {kind: 'Name', value: 'description'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'slug'}},
               ],
             },
           },
@@ -13258,17 +13148,14 @@ export const ThemesLandingPageDocument = {
       },
     },
   ],
-} as unknown as DocumentNode<
-  ThemesLandingPageQuery,
-  ThemesLandingPageQueryVariables
->
-export const ProjectDocument = {
+} as unknown as DocumentNode<CategoryByUriQuery, CategoryByUriQueryVariables>
+export const ProjectSummaryDocument = {
   kind: 'Document',
   definitions: [
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: {kind: 'Name', value: 'Project'},
+      name: {kind: 'Name', value: 'ProjectSummary'},
       variableDefinitions: [
         {
           kind: 'VariableDefinition',
@@ -13572,4 +13459,4 @@ export const ProjectDocument = {
       },
     },
   ],
-} as unknown as DocumentNode<ProjectQuery, ProjectQueryVariables>
+} as unknown as DocumentNode<ProjectSummaryQuery, ProjectSummaryQueryVariables>
