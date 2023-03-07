@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+query ThemesLandingPage {
+  # - All top-level Categories
+  # - Exclude "Uncategorized" Category tree
+  themes: categories(where: {parent: 0, excludeTree: "1"}) {
+    edges {
+      node {
+        ...TermSummary
+      }
+    }
+  }
+  # FIXME: this is not possible because of category base
+  # so there needs to be another way to set description etc.
+  # page(id: "/themes", idType: URI) {
+  #   ...SinglePageFields
+  # }
+}

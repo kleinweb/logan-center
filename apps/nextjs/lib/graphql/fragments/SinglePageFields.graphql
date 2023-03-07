@@ -1,0 +1,12 @@
+fragment SinglePageFields on Page {
+  title(format: RENDERED)
+  databaseId
+  uri
+  content(format: RENDERED)
+  editorBlocks {
+    apiVersion
+    name
+    parentId
+    renderedHtml
+  }
+}

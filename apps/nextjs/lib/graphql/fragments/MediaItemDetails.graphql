@@ -1,0 +1,11 @@
+fragment MediaItemDetails on MediaDetails {
+  file
+  width
+  height
+  meta {
+    caption
+    copyright
+    credit
+    title
+  }
+}

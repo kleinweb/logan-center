@@ -1,8 +1,10 @@
 # SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-query SinglePage($uri: ID!) {
-  page(id: $uri, idType: URI) {
-    ...SinglePageFields
-  }
+fragment TermSummary on TermNode {
+  databaseId
+  description
+  id
+  name
+  uri
 }

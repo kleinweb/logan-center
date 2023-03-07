@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 # FIXME: causes a frustrating total fatal error
-fragment FeaturedImageFields on NodeWithFeaturedImageToMediaItemConnectionEdge {
+fragment ThumbnailImageFields on NodeWithFeaturedImageToMediaItemConnectionEdge {
   node {
     altText
     sourceUrl(size: LARGE)
