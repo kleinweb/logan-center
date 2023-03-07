@@ -11981,7 +11981,630 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars['Boolean']>
 }
 
-export type FeaturedImageFieldsFragment = {
+export type CoverImageFieldsFragment = {
+  __typename?: 'MediaItem'
+  altText?: string | null
+  caption?: string | null
+  description?: string | null
+  link?: string | null
+  mediaItemUrl?: string | null
+  mediaType?: string | null
+  sourceUrl?: string | null
+  title?: string | null
+  uri?: string | null
+  mediaDetails?:
+    | ({__typename?: 'MediaDetails'} & {
+        ' $fragmentRefs'?: {MediaItemDetailsFragment: MediaItemDetailsFragment}
+      })
+    | null
+} & {' $fragmentName'?: 'CoverImageFieldsFragment'}
+
+export type SettingsFragment = {
+  __typename?: 'GeneralSettings'
+  dateFormat?: string | null
+  description?: string | null
+  language?: string | null
+  timeFormat?: string | null
+  title?: string | null
+} & {' $fragmentName'?: 'SettingsFragment'}
+
+export type MediaItemDetailsFragment = {
+  __typename?: 'MediaDetails'
+  file?: string | null
+  width?: number | null
+  height?: number | null
+  meta?: {
+    __typename?: 'MediaItemMeta'
+    caption?: string | null
+    copyright?: string | null
+    credit?: string | null
+    title?: string | null
+  } | null
+} & {' $fragmentName'?: 'MediaItemDetailsFragment'}
+
+export type SinglePageFieldsFragment = {
+  __typename?: 'Page'
+  title?: string | null
+  databaseId: number
+  uri?: string | null
+  content?: string | null
+  editorBlocks?: Array<
+    | {
+        __typename?: 'CoreArchives'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreAudio'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreAvatar'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreBlock'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreButton'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreButtons'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreCalendar'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreCategories'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreCode'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreColumn'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreColumns'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreCover'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreEmbed'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreFile'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreFreeform'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreGallery'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreGroup'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreHeading'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreHomeLink'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreHtml'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreImage'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreLatestPosts'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreLegacyWidget'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreList'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreListItem'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreLoginout'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreMediaText'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreMissing'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreMore'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreNavigation'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreNavigationLink'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreNavigationSubmenu'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreNextpage'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePageList'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreParagraph'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePattern'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePostAuthor'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePostAuthorBiography'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePostComments'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePostContent'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePostDate'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePostExcerpt'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePostFeaturedImage'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePostNavigationLink'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePostTemplate'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePostTerms'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePostTitle'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePreformatted'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CorePullquote'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreQuery'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreQueryNoResults'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreQueryPagination'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreQueryPaginationNext'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreQueryPaginationNumbers'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreQueryPaginationPrevious'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreQueryTitle'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreQuote'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreReadMore'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreRss'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreSearch'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreSeparator'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreShortcode'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreSiteLogo'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreSiteTagline'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreSiteTitle'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreSocialLink'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreSocialLinks'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreSpacer'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreTable'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreTagCloud'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreTemplatePart'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreTermDescription'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreTextColumns'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreVerse'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreVideo'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'CoreWidgetGroup'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | {
+        __typename?: 'UnknownBlock'
+        apiVersion?: number | null
+        name?: string | null
+        parentId?: string | null
+        renderedHtml?: string | null
+      }
+    | null
+  > | null
+} & {' $fragmentName'?: 'SinglePageFieldsFragment'}
+
+type TermSummary_Category_Fragment = {
+  __typename?: 'Category'
+  databaseId: number
+  description?: string | null
+  id: string
+  name?: string | null
+  uri?: string | null
+} & {' $fragmentName'?: 'TermSummary_Category_Fragment'}
+
+type TermSummary_PostFormat_Fragment = {
+  __typename?: 'PostFormat'
+  databaseId: number
+  description?: string | null
+  id: string
+  name?: string | null
+  uri?: string | null
+} & {' $fragmentName'?: 'TermSummary_PostFormat_Fragment'}
+
+type TermSummary_Tag_Fragment = {
+  __typename?: 'Tag'
+  databaseId: number
+  description?: string | null
+  id: string
+  name?: string | null
+  uri?: string | null
+} & {' $fragmentName'?: 'TermSummary_Tag_Fragment'}
+
+export type TermSummaryFragment =
+  | TermSummary_Category_Fragment
+  | TermSummary_PostFormat_Fragment
+  | TermSummary_Tag_Fragment
+
+export type ThumbnailImageFieldsFragment = {
   __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'
   node: {
     __typename?: 'MediaItem'
@@ -11993,16 +12616,7 @@ export type FeaturedImageFieldsFragment = {
       width?: number | null
     } | null
   }
-} & {' $fragmentName'?: 'FeaturedImageFieldsFragment'}
-
-export type SettingsFragment = {
-  __typename?: 'GeneralSettings'
-  dateFormat?: string | null
-  description?: string | null
-  language?: string | null
-  timeFormat?: string | null
-  title?: string | null
-} & {' $fragmentName'?: 'SettingsFragment'}
+} & {' $fragmentName'?: 'ThumbnailImageFieldsFragment'}
 
 export type AllPagesPathsQueryVariables = Exact<{[key: string]: never}>
 
@@ -12023,563 +12637,252 @@ export type SinglePageQueryVariables = Exact<{
 
 export type SinglePageQuery = {
   __typename?: 'RootQuery'
-  page?: {
-    __typename?: 'Page'
-    title?: string | null
-    databaseId: number
-    uri?: string | null
-    content?: string | null
-    editorBlocks?: Array<
-      | {
-          __typename?: 'CoreArchives'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreAudio'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreAvatar'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreBlock'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreButton'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreButtons'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCalendar'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCategories'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCode'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreColumn'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreColumns'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreCover'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreEmbed'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreFile'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreFreeform'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreGallery'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreGroup'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreHeading'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreHomeLink'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreHtml'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreImage'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreLatestPosts'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreLegacyWidget'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreList'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreListItem'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreLoginout'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreMediaText'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreMissing'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreMore'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreNavigation'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreNavigationLink'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreNavigationSubmenu'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreNextpage'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePageList'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreParagraph'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePattern'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePostAuthor'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePostAuthorBiography'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePostComments'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePostContent'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePostDate'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePostExcerpt'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePostFeaturedImage'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePostNavigationLink'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePostTemplate'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePostTerms'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePostTitle'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePreformatted'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CorePullquote'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreQuery'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreQueryNoResults'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreQueryPagination'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreQueryPaginationNext'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreQueryPaginationNumbers'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreQueryPaginationPrevious'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreQueryTitle'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreQuote'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreReadMore'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreRss'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreSearch'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreSeparator'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreShortcode'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreSiteLogo'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreSiteTagline'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreSiteTitle'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreSocialLink'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreSocialLinks'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreSpacer'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreTable'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreTagCloud'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreTemplatePart'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreTermDescription'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreTextColumns'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreVerse'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreVideo'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'CoreWidgetGroup'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | {
-          __typename?: 'UnknownBlock'
-          apiVersion?: number | null
-          name?: string | null
-          parentId?: string | null
-          renderedHtml?: string | null
-        }
-      | null
-    > | null
+  page?:
+    | ({__typename?: 'Page'} & {
+        ' $fragmentRefs'?: {SinglePageFieldsFragment: SinglePageFieldsFragment}
+      })
+    | null
+}
+
+export type ThemesLandingPageQueryVariables = Exact<{[key: string]: never}>
+
+export type ThemesLandingPageQuery = {
+  __typename?: 'RootQuery'
+  themes?: {
+    __typename?: 'RootQueryToCategoryConnection'
+    edges: Array<{
+      __typename?: 'RootQueryToCategoryConnectionEdge'
+      node: {__typename?: 'Category'} & {
+        ' $fragmentRefs'?: {
+          TermSummary_Category_Fragment: TermSummary_Category_Fragment
+        }
+      }
+    }>
   } | null
 }
 
-export const FeaturedImageFieldsFragmentDoc = {
+export type SingleThemePageQueryVariables = Exact<{
+  id?: InputMaybe<Scalars['ID']>
+}>
+
+export type SingleThemePageQuery = {
+  __typename?: 'RootQuery'
+  category?: {
+    __typename?: 'Category'
+    description?: string | null
+    databaseId: number
+    name?: string | null
+    slug?: string | null
+  } | null
+}
+
+export const MediaItemDetailsFragmentDoc = {
   kind: 'Document',
   definitions: [
     {
       kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'FeaturedImageFields'},
+      name: {kind: 'Name', value: 'MediaItemDetails'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'MediaDetails'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'file'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'width'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'height'}},
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'meta'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'caption'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'copyright'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'credit'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<MediaItemDetailsFragment, unknown>
+export const CoverImageFieldsFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'CoverImageFields'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'MediaItem'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'altText'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'caption'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'link'}},
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'mediaDetails'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'FragmentSpread',
+                  name: {kind: 'Name', value: 'MediaItemDetails'},
+                },
+              ],
+            },
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'mediaItemUrl'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'mediaType'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'sourceUrl'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'MediaItemDetails'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'MediaDetails'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'file'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'width'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'height'}},
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'meta'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'caption'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'copyright'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'credit'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<CoverImageFieldsFragment, unknown>
+export const SettingsFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'Settings'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'GeneralSettings'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'dateFormat'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'language'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'timeFormat'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'title'}},
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<SettingsFragment, unknown>
+export const SinglePageFieldsFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'SinglePageFields'},
+      typeCondition: {kind: 'NamedType', name: {kind: 'Name', value: 'Page'}},
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'title'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'format'},
+                value: {kind: 'EnumValue', value: 'RENDERED'},
+              },
+            ],
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'content'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'format'},
+                value: {kind: 'EnumValue', value: 'RENDERED'},
+              },
+            ],
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'editorBlocks'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'apiVersion'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'parentId'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'renderedHtml'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<SinglePageFieldsFragment, unknown>
+export const TermSummaryFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'TermSummary'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'TermNode'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<TermSummaryFragment, unknown>
+export const ThumbnailImageFieldsFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'ThumbnailImageFields'},
       typeCondition: {
         kind: 'NamedType',
         name: {
@@ -12626,30 +12929,7 @@ export const FeaturedImageFieldsFragmentDoc = {
       },
     },
   ],
-} as unknown as DocumentNode<FeaturedImageFieldsFragment, unknown>
-export const SettingsFragmentDoc = {
-  kind: 'Document',
-  definitions: [
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'Settings'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'GeneralSettings'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'dateFormat'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'language'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'timeFormat'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'title'}},
-        ],
-      },
-    },
-  ],
-} as unknown as DocumentNode<SettingsFragment, unknown>
+} as unknown as DocumentNode<ThumbnailImageFieldsFragment, unknown>
 export const AllPagesPathsDocument = {
   kind: 'Document',
   definitions: [
@@ -12732,44 +13012,120 @@ export const SinglePageDocument = {
               kind: 'SelectionSet',
               selections: [
                 {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'title'},
-                  arguments: [
+                  kind: 'FragmentSpread',
+                  name: {kind: 'Name', value: 'SinglePageFields'},
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'SinglePageFields'},
+      typeCondition: {kind: 'NamedType', name: {kind: 'Name', value: 'Page'}},
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'title'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'format'},
+                value: {kind: 'EnumValue', value: 'RENDERED'},
+              },
+            ],
+          },
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'content'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'format'},
+                value: {kind: 'EnumValue', value: 'RENDERED'},
+              },
+            ],
+          },
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'editorBlocks'},
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'apiVersion'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'parentId'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'renderedHtml'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<SinglePageQuery, SinglePageQueryVariables>
+export const ThemesLandingPageDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: {kind: 'Name', value: 'ThemesLandingPage'},
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            alias: {kind: 'Name', value: 'themes'},
+            name: {kind: 'Name', value: 'categories'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'where'},
+                value: {
+                  kind: 'ObjectValue',
+                  fields: [
                     {
-                      kind: 'Argument',
-                      name: {kind: 'Name', value: 'format'},
-                      value: {kind: 'EnumValue', value: 'RENDERED'},
+                      kind: 'ObjectField',
+                      name: {kind: 'Name', value: 'parent'},
+                      value: {kind: 'IntValue', value: '0'},
+                    },
+                    {
+                      kind: 'ObjectField',
+                      name: {kind: 'Name', value: 'excludeTree'},
+                      value: {kind: 'StringValue', value: '1', block: false},
                     },
                   ],
                 },
-                {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-                {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
                 {
                   kind: 'Field',
-                  name: {kind: 'Name', value: 'content'},
-                  arguments: [
-                    {
-                      kind: 'Argument',
-                      name: {kind: 'Name', value: 'format'},
-                      value: {kind: 'EnumValue', value: 'RENDERED'},
-                    },
-                  ],
-                },
-                {
-                  kind: 'Field',
-                  name: {kind: 'Name', value: 'editorBlocks'},
+                  name: {kind: 'Name', value: 'edges'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'Field',
-                        name: {kind: 'Name', value: 'apiVersion'},
-                      },
-                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-                      {kind: 'Field', name: {kind: 'Name', value: 'parentId'}},
-                      {
-                        kind: 'Field',
-                        name: {kind: 'Name', value: 'renderedHtml'},
+                        name: {kind: 'Name', value: 'node'},
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'FragmentSpread',
+                              name: {kind: 'Name', value: 'TermSummary'},
+                            },
+                          ],
+                        },
                       },
                     ],
                   },
@@ -12780,5 +13136,77 @@ export const SinglePageDocument = {
         ],
       },
     },
+    {
+      kind: 'FragmentDefinition',
+      name: {kind: 'Name', value: 'TermSummary'},
+      typeCondition: {
+        kind: 'NamedType',
+        name: {kind: 'Name', value: 'TermNode'},
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+        ],
+      },
+    },
   ],
-} as unknown as DocumentNode<SinglePageQuery, SinglePageQueryVariables>
+} as unknown as DocumentNode<
+  ThemesLandingPageQuery,
+  ThemesLandingPageQueryVariables
+>
+export const SingleThemePageDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: {kind: 'Name', value: 'SingleThemePage'},
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'id'}},
+          type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
+          defaultValue: {kind: 'StringValue', value: '', block: false},
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'category'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'id'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'id'}},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'idType'},
+                value: {kind: 'EnumValue', value: 'URI'},
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'description'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'slug'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  SingleThemePageQuery,
+  SingleThemePageQueryVariables
+>
