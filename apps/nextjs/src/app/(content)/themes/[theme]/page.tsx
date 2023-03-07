@@ -1,12 +1,10 @@
 // SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import {SingleThemePageDocument, SingleThemePageQuery} from '@/gql/graphql'
+import {CategoryByUriDocument, CategoryByUriQuery} from '@/gql/graphql'
 import getApolloClient from '@/lib/graphql/client'
-import {Metadata, NextPageContext} from 'next'
-import {RouteMeta} from 'next/dist/build/webpack/loaders/get-module-build-info'
+import {Metadata} from 'next'
 import {notFound} from 'next/navigation'
-import {Router} from 'next/router'
 import * as React from 'react'
 
 export type SingleThemePageProps = {
@@ -17,8 +15,8 @@ export type SingleThemePageProps = {
 
 const fetchPageData = async (slug: string) => {
   const baseUrl = '/themes'
-  const res = await getApolloClient().query<SingleThemePageQuery>({
-    query: SingleThemePageDocument,
+  const res = await getApolloClient().query<CategoryByUriQuery>({
+    query: CategoryByUriDocument,
     variables: {id: `${baseUrl}/${slug}`},
   })
   return res

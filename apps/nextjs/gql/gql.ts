@@ -27,12 +27,14 @@ const documents = {
     types.ThumbnailImageFieldsFragmentDoc,
   'query AllPagesPaths {\n  pages {\n    edges {\n      node {\n        uri\n      }\n    }\n  }\n}':
     types.AllPagesPathsDocument,
+  'query CategoryByUri($id: ID!) {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n  }\n}':
+    types.CategoryByUriDocument,
   'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    ...SinglePageFields\n  }\n}':
     types.SinglePageDocument,
-  'query ThemesLandingPage {\n  themes: categories(where: {parent: 0, excludeTree: "1"}) {\n    edges {\n      node {\n        ...TermSummary\n      }\n    }\n  }\n}':
+  'query ThemesLandingPage {\n  themes: categories(where: {parent: 0, excludeTree: "1"}) {\n    nodes {\n      databaseId\n      description\n      id\n      name\n      uri\n    }\n  }\n}':
     types.ThemesLandingPageDocument,
-  'query SingleThemePage($id: ID = "") {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n  }\n}':
-    types.SingleThemePageDocument,
+  'query Project($id: ID!) {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n    ancestors {\n      edges {\n        node {\n          slug\n          name\n          link\n          uri\n          databaseId\n          description\n        }\n      }\n    }\n    parentDatabaseId\n    uri\n    posts {\n      edges {\n        node {\n          authors {\n            edges {\n              node {\n                databaseId\n                description\n                email\n                firstName\n                lastName\n                nickname\n                nicename\n                name\n                slug\n                uri\n              }\n            }\n          }\n          dateGmt\n          excerpt\n          featuredImage {\n            node {\n              altText\n              sizes(size: POST_THUMBNAIL)\n            }\n          }\n          slug\n          title(format: RENDERED)\n          uri\n        }\n      }\n    }\n  }\n}':
+    types.ProjectDocument,
 }
 
 /**
@@ -95,20 +97,26 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
+  source: 'query CategoryByUri($id: ID!) {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n  }\n}',
+): (typeof documents)['query CategoryByUri($id: ID!) {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n  }\n}']
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
   source: 'query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    ...SinglePageFields\n  }\n}',
 ): (typeof documents)['query SinglePage($uri: ID!) {\n  page(id: $uri, idType: URI) {\n    ...SinglePageFields\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query ThemesLandingPage {\n  themes: categories(where: {parent: 0, excludeTree: "1"}) {\n    edges {\n      node {\n        ...TermSummary\n      }\n    }\n  }\n}',
-): (typeof documents)['query ThemesLandingPage {\n  themes: categories(where: {parent: 0, excludeTree: "1"}) {\n    edges {\n      node {\n        ...TermSummary\n      }\n    }\n  }\n}']
+  source: 'query ThemesLandingPage {\n  themes: categories(where: {parent: 0, excludeTree: "1"}) {\n    nodes {\n      databaseId\n      description\n      id\n      name\n      uri\n    }\n  }\n}',
+): (typeof documents)['query ThemesLandingPage {\n  themes: categories(where: {parent: 0, excludeTree: "1"}) {\n    nodes {\n      databaseId\n      description\n      id\n      name\n      uri\n    }\n  }\n}']
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: 'query SingleThemePage($id: ID = "") {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n  }\n}',
-): (typeof documents)['query SingleThemePage($id: ID = "") {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n  }\n}']
+  source: 'query Project($id: ID!) {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n    ancestors {\n      edges {\n        node {\n          slug\n          name\n          link\n          uri\n          databaseId\n          description\n        }\n      }\n    }\n    parentDatabaseId\n    uri\n    posts {\n      edges {\n        node {\n          authors {\n            edges {\n              node {\n                databaseId\n                description\n                email\n                firstName\n                lastName\n                nickname\n                nicename\n                name\n                slug\n                uri\n              }\n            }\n          }\n          dateGmt\n          excerpt\n          featuredImage {\n            node {\n              altText\n              sizes(size: POST_THUMBNAIL)\n            }\n          }\n          slug\n          title(format: RENDERED)\n          uri\n        }\n      }\n    }\n  }\n}',
+): (typeof documents)['query Project($id: ID!) {\n  category(id: $id, idType: URI) {\n    description\n    databaseId\n    name\n    slug\n    ancestors {\n      edges {\n        node {\n          slug\n          name\n          link\n          uri\n          databaseId\n          description\n        }\n      }\n    }\n    parentDatabaseId\n    uri\n    posts {\n      edges {\n        node {\n          authors {\n            edges {\n              node {\n                databaseId\n                description\n                email\n                firstName\n                lastName\n                nickname\n                nicename\n                name\n                slug\n                uri\n              }\n            }\n          }\n          dateGmt\n          excerpt\n          featuredImage {\n            node {\n              altText\n              sizes(size: POST_THUMBNAIL)\n            }\n          }\n          slug\n          title(format: RENDERED)\n          uri\n        }\n      }\n    }\n  }\n}']
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {}

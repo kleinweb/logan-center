@@ -1,11 +1,11 @@
 // SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import {ThemePageProps} from '../../page'
-import {ProjectPageProps} from '../page'
+import {SingleThemePageProps} from '../../page'
+import {SingleProjectPageProps} from '../page'
 
-export type ReportPageProps = ThemePageProps &
-  ProjectPageProps & {params: {report: string}}
+export type ReportPageProps = SingleThemePageProps &
+  SingleProjectPageProps & {params: {report: string}}
 
 // TODO: <https://beta.nextjs.org/docs/api-reference/generate-static-params>
 // export async function generateStaticParams() {

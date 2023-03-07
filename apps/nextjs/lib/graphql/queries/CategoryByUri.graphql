@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2023 Temple University <kleinweb@temple.edu>
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-query SingleThemePage($id: ID = "") {
+query CategoryByUri($id: ID!) {
   category(id: $id, idType: URI) {
     description
     databaseId

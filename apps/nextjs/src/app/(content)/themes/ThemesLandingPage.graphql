@@ -5,12 +5,17 @@ query ThemesLandingPage {
   # - All top-level Categories
   # - Exclude "Uncategorized" Category tree
   themes: categories(where: {parent: 0, excludeTree: "1"}) {
-    edges {
-      node {
-        ...TermSummary
-      }
+    nodes {
+      databaseId
+      description
+      id
+      name
+      uri
+      # FIXME: this SHOULD work, but the resulting type seems wrong and i can't access the data...
+      # ...TermSummary
     }
   }
+
   # FIXME: this is not possible because of category base
   # so there needs to be another way to set description etc.
   # page(id: "/themes", idType: URI) {

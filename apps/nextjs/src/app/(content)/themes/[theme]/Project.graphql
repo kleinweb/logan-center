@@ -1,0 +1,55 @@
+query Project($id: ID!) {
+  category(id: $id, idType: URI) {
+    description
+    databaseId
+    name
+    slug
+    ancestors {
+      edges {
+        node {
+          slug
+          name
+          link
+          uri
+          databaseId
+          description
+        }
+      }
+    }
+    parentDatabaseId
+    uri
+    posts {
+      edges {
+        node {
+          authors {
+            edges {
+              node {
+                databaseId
+                description
+                email
+                firstName
+                lastName
+                nickname
+                nicename
+                name
+                slug
+                uri
+              }
+            }
+          }
+          dateGmt
+          excerpt
+          featuredImage {
+            node {
+              altText
+              sizes(size: POST_THUMBNAIL)
+            }
+          }
+          slug
+          title(format: RENDERED)
+          uri
+        }
+      }
+    }
+  }
+}

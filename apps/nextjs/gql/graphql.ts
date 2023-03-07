@@ -12631,6 +12631,21 @@ export type AllPagesPathsQuery = {
   } | null
 }
 
+export type CategoryByUriQueryVariables = Exact<{
+  id: Scalars['ID']
+}>
+
+export type CategoryByUriQuery = {
+  __typename?: 'RootQuery'
+  category?: {
+    __typename?: 'Category'
+    description?: string | null
+    databaseId: number
+    name?: string | null
+    slug?: string | null
+  } | null
+}
+
 export type SinglePageQueryVariables = Exact<{
   uri: Scalars['ID']
 }>
@@ -12650,22 +12665,22 @@ export type ThemesLandingPageQuery = {
   __typename?: 'RootQuery'
   themes?: {
     __typename?: 'RootQueryToCategoryConnection'
-    edges: Array<{
-      __typename?: 'RootQueryToCategoryConnectionEdge'
-      node: {__typename?: 'Category'} & {
-        ' $fragmentRefs'?: {
-          TermSummary_Category_Fragment: TermSummary_Category_Fragment
-        }
-      }
+    nodes: Array<{
+      __typename?: 'Category'
+      databaseId: number
+      description?: string | null
+      id: string
+      name?: string | null
+      uri?: string | null
     }>
   } | null
 }
 
-export type SingleThemePageQueryVariables = Exact<{
-  id?: InputMaybe<Scalars['ID']>
+export type ProjectQueryVariables = Exact<{
+  id: Scalars['ID']
 }>
 
-export type SingleThemePageQuery = {
+export type ProjectQuery = {
   __typename?: 'RootQuery'
   category?: {
     __typename?: 'Category'
@@ -12673,6 +12688,64 @@ export type SingleThemePageQuery = {
     databaseId: number
     name?: string | null
     slug?: string | null
+    parentDatabaseId?: number | null
+    uri?: string | null
+    ancestors?: {
+      __typename?: 'CategoryToAncestorsCategoryConnection'
+      edges: Array<{
+        __typename?: 'CategoryToAncestorsCategoryConnectionEdge'
+        node: {
+          __typename?: 'Category'
+          slug?: string | null
+          name?: string | null
+          link?: string | null
+          uri?: string | null
+          databaseId: number
+          description?: string | null
+        }
+      }>
+    } | null
+    posts?: {
+      __typename?: 'CategoryToPostConnection'
+      edges: Array<{
+        __typename?: 'CategoryToPostConnectionEdge'
+        node: {
+          __typename?: 'Post'
+          dateGmt?: string | null
+          excerpt?: string | null
+          slug?: string | null
+          title?: string | null
+          uri?: string | null
+          authors?: {
+            __typename?: 'PostToAuthorsConnection'
+            edges: Array<{
+              __typename?: 'PostToAuthorsConnectionEdge'
+              node: {
+                __typename?: 'User'
+                databaseId: number
+                description?: string | null
+                email?: string | null
+                firstName?: string | null
+                lastName?: string | null
+                nickname?: string | null
+                nicename?: string | null
+                name?: string | null
+                slug?: string | null
+                uri?: string | null
+              }
+            }>
+          } | null
+          featuredImage?: {
+            __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge'
+            node: {
+              __typename?: 'MediaItem'
+              altText?: string | null
+              sizes?: string | null
+            }
+          } | null
+        }
+      }>
+    } | null
   } | null
 }
 
@@ -12973,6 +13046,56 @@ export const AllPagesPathsDocument = {
     },
   ],
 } as unknown as DocumentNode<AllPagesPathsQuery, AllPagesPathsQueryVariables>
+export const CategoryByUriDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: {kind: 'Name', value: 'CategoryByUri'},
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: {kind: 'Variable', name: {kind: 'Name', value: 'id'}},
+          type: {
+            kind: 'NonNullType',
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: {kind: 'Name', value: 'category'},
+            arguments: [
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'id'},
+                value: {kind: 'Variable', name: {kind: 'Name', value: 'id'}},
+              },
+              {
+                kind: 'Argument',
+                name: {kind: 'Name', value: 'idType'},
+                value: {kind: 'EnumValue', value: 'URI'},
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {kind: 'Field', name: {kind: 'Name', value: 'description'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                {kind: 'Field', name: {kind: 'Name', value: 'slug'}},
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<CategoryByUriQuery, CategoryByUriQueryVariables>
 export const SinglePageDocument = {
   kind: 'Document',
   definitions: [
@@ -13110,23 +13233,21 @@ export const ThemesLandingPageDocument = {
               selections: [
                 {
                   kind: 'Field',
-                  name: {kind: 'Name', value: 'edges'},
+                  name: {kind: 'Name', value: 'nodes'},
                   selectionSet: {
                     kind: 'SelectionSet',
                     selections: [
                       {
                         kind: 'Field',
-                        name: {kind: 'Name', value: 'node'},
-                        selectionSet: {
-                          kind: 'SelectionSet',
-                          selections: [
-                            {
-                              kind: 'FragmentSpread',
-                              name: {kind: 'Name', value: 'TermSummary'},
-                            },
-                          ],
-                        },
+                        name: {kind: 'Name', value: 'databaseId'},
                       },
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'description'},
+                      },
+                      {kind: 'Field', name: {kind: 'Name', value: 'id'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'name'}},
+                      {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
                     ],
                   },
                 },
@@ -13136,42 +13257,26 @@ export const ThemesLandingPageDocument = {
         ],
       },
     },
-    {
-      kind: 'FragmentDefinition',
-      name: {kind: 'Name', value: 'TermSummary'},
-      typeCondition: {
-        kind: 'NamedType',
-        name: {kind: 'Name', value: 'TermNode'},
-      },
-      selectionSet: {
-        kind: 'SelectionSet',
-        selections: [
-          {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'description'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'id'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'name'}},
-          {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
-        ],
-      },
-    },
   ],
 } as unknown as DocumentNode<
   ThemesLandingPageQuery,
   ThemesLandingPageQueryVariables
 >
-export const SingleThemePageDocument = {
+export const ProjectDocument = {
   kind: 'Document',
   definitions: [
     {
       kind: 'OperationDefinition',
       operation: 'query',
-      name: {kind: 'Name', value: 'SingleThemePage'},
+      name: {kind: 'Name', value: 'Project'},
       variableDefinitions: [
         {
           kind: 'VariableDefinition',
           variable: {kind: 'Variable', name: {kind: 'Name', value: 'id'}},
-          type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
-          defaultValue: {kind: 'StringValue', value: '', block: false},
+          type: {
+            kind: 'NonNullType',
+            type: {kind: 'NamedType', name: {kind: 'Name', value: 'ID'}},
+          },
         },
       ],
       selectionSet: {
@@ -13199,6 +13304,267 @@ export const SingleThemePageDocument = {
                 {kind: 'Field', name: {kind: 'Name', value: 'databaseId'}},
                 {kind: 'Field', name: {kind: 'Name', value: 'name'}},
                 {kind: 'Field', name: {kind: 'Name', value: 'slug'}},
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'ancestors'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'edges'},
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'Field',
+                              name: {kind: 'Name', value: 'node'},
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'slug'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'name'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'link'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'uri'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'databaseId'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'description'},
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'parentDatabaseId'},
+                },
+                {kind: 'Field', name: {kind: 'Name', value: 'uri'}},
+                {
+                  kind: 'Field',
+                  name: {kind: 'Name', value: 'posts'},
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: {kind: 'Name', value: 'edges'},
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'Field',
+                              name: {kind: 'Name', value: 'node'},
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'authors'},
+                                    selectionSet: {
+                                      kind: 'SelectionSet',
+                                      selections: [
+                                        {
+                                          kind: 'Field',
+                                          name: {kind: 'Name', value: 'edges'},
+                                          selectionSet: {
+                                            kind: 'SelectionSet',
+                                            selections: [
+                                              {
+                                                kind: 'Field',
+                                                name: {
+                                                  kind: 'Name',
+                                                  value: 'node',
+                                                },
+                                                selectionSet: {
+                                                  kind: 'SelectionSet',
+                                                  selections: [
+                                                    {
+                                                      kind: 'Field',
+                                                      name: {
+                                                        kind: 'Name',
+                                                        value: 'databaseId',
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: 'Field',
+                                                      name: {
+                                                        kind: 'Name',
+                                                        value: 'description',
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: 'Field',
+                                                      name: {
+                                                        kind: 'Name',
+                                                        value: 'email',
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: 'Field',
+                                                      name: {
+                                                        kind: 'Name',
+                                                        value: 'firstName',
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: 'Field',
+                                                      name: {
+                                                        kind: 'Name',
+                                                        value: 'lastName',
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: 'Field',
+                                                      name: {
+                                                        kind: 'Name',
+                                                        value: 'nickname',
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: 'Field',
+                                                      name: {
+                                                        kind: 'Name',
+                                                        value: 'nicename',
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: 'Field',
+                                                      name: {
+                                                        kind: 'Name',
+                                                        value: 'name',
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: 'Field',
+                                                      name: {
+                                                        kind: 'Name',
+                                                        value: 'slug',
+                                                      },
+                                                    },
+                                                    {
+                                                      kind: 'Field',
+                                                      name: {
+                                                        kind: 'Name',
+                                                        value: 'uri',
+                                                      },
+                                                    },
+                                                  ],
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'dateGmt'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'excerpt'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {
+                                      kind: 'Name',
+                                      value: 'featuredImage',
+                                    },
+                                    selectionSet: {
+                                      kind: 'SelectionSet',
+                                      selections: [
+                                        {
+                                          kind: 'Field',
+                                          name: {kind: 'Name', value: 'node'},
+                                          selectionSet: {
+                                            kind: 'SelectionSet',
+                                            selections: [
+                                              {
+                                                kind: 'Field',
+                                                name: {
+                                                  kind: 'Name',
+                                                  value: 'altText',
+                                                },
+                                              },
+                                              {
+                                                kind: 'Field',
+                                                name: {
+                                                  kind: 'Name',
+                                                  value: 'sizes',
+                                                },
+                                                arguments: [
+                                                  {
+                                                    kind: 'Argument',
+                                                    name: {
+                                                      kind: 'Name',
+                                                      value: 'size',
+                                                    },
+                                                    value: {
+                                                      kind: 'EnumValue',
+                                                      value: 'POST_THUMBNAIL',
+                                                    },
+                                                  },
+                                                ],
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'slug'},
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'title'},
+                                    arguments: [
+                                      {
+                                        kind: 'Argument',
+                                        name: {kind: 'Name', value: 'format'},
+                                        value: {
+                                          kind: 'EnumValue',
+                                          value: 'RENDERED',
+                                        },
+                                      },
+                                    ],
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {kind: 'Name', value: 'uri'},
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
               ],
             },
           },
@@ -13206,7 +13572,4 @@ export const SingleThemePageDocument = {
       },
     },
   ],
-} as unknown as DocumentNode<
-  SingleThemePageQuery,
-  SingleThemePageQueryVariables
->
+} as unknown as DocumentNode<ProjectQuery, ProjectQueryVariables>
