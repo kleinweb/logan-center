@@ -100,7 +100,7 @@
     "kleinweb/kleinweb-php-standards": "*",
     "roave/security-advisories": "dev-latest",
     "wpackagist-plugin/block-xray-attributes": "^1.2",
-    "spatie/laravel-ignition": "^1.6"
+    "spatie/laravel-ignition": "^2.0"
   },
   "config": {
     "optimize-autoloader": true,
