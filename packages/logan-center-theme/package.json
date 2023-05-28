@@ -32,7 +32,7 @@
     "@babel/preset-env": "^7.20.2",
     "@jeffreyvr/tailwindcss-tailpress": "^2.0.0",
     "@roots/bud": "6.9.1",
-    "@roots/bud-prettier": "6.9.1",
+    "@roots/bud-prettier": "6.12.3",
     "@roots/bud-stylelint": "6.9.1",
     "@roots/bud-support": "6.9.1",
     "@roots/bud-tailwindcss": "6.9.1",
