@@ -35,7 +35,7 @@
     "@roots/bud-prettier": "6.9.1",
     "@roots/bud-stylelint": "6.9.1",
     "@roots/bud-support": "6.9.1",
-    "@roots/bud-tailwindcss": "6.9.1",
+    "@roots/bud-tailwindcss": "6.12.3",
     "@roots/eslint-config": "6.9.1",
     "@roots/sage": "6.9.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
