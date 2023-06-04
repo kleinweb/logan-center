@@ -3548,14 +3548,14 @@ __metadata:
   linkType: hard
 
 "@graphql-codegen/cli@npm:^3.2.1":
-  version: 3.2.1
-  resolution: "@graphql-codegen/cli@npm:3.2.1"
+  version: 3.3.1
+  resolution: "@graphql-codegen/cli@npm:3.3.1"
   dependencies:
     "@babel/generator": "npm:^7.18.13"
     "@babel/template": "npm:^7.18.10"
     "@babel/types": "npm:^7.18.13"
     "@graphql-codegen/core": "npm:^3.1.0"
-    "@graphql-codegen/plugin-helpers": "npm:^4.1.0"
+    "@graphql-codegen/plugin-helpers": "npm:^4.2.0"
     "@graphql-tools/apollo-engine-loader": "npm:^7.3.6"
     "@graphql-tools/code-file-loader": "npm:^7.3.17"
     "@graphql-tools/git-loader": "npm:^7.2.13"
@@ -3570,12 +3570,12 @@ __metadata:
     "@whatwg-node/fetch": "npm:^0.8.0"
     chalk: "npm:^4.1.0"
     cosmiconfig: "npm:^7.0.0"
-    cosmiconfig-typescript-loader: "npm:^4.3.0"
     debounce: "npm:^1.2.0"
     detect-indent: "npm:^6.0.0"
-    graphql-config: "npm:^4.4.0"
+    graphql-config: "npm:^4.5.0"
     inquirer: "npm:^8.0.0"
     is-glob: "npm:^4.0.1"
+    jiti: "npm:^1.17.1"
     json-to-pretty-yaml: "npm:^1.2.2"
     listr2: "npm:^4.0.5"
     log-symbols: "npm:^4.0.0"
@@ -3583,7 +3583,6 @@ __metadata:
     shell-quote: "npm:^1.7.3"
     string-env-interpolation: "npm:^1.0.1"
     ts-log: "npm:^2.2.3"
-    ts-node: "npm:^10.9.1"
     tslib: "npm:^2.4.0"
     yaml: "npm:^1.10.0"
     yargs: "npm:^17.0.0"
@@ -3594,7 +3593,7 @@ __metadata:
     graphql-code-generator: cjs/bin.js
     graphql-codegen: cjs/bin.js
     graphql-codegen-esm: esm/bin.js
-  checksum: 3376e3caf593e0a5d252a22e3c0c6b6e12593347df99f1bf1a2afdfb4ed44cf2349285ee7efffff7dc9c27d4b66ba6ac5345f9b2260a9ad019033dd2ad712421
+  checksum: b5ca8412037040500f345665c81ecfd640c7f3c3b2abed64b9fad0f1cd35d77299ef3b2bd95029b6758a6036f049c7a3d3565340fb723d079cc7987aa7bd3806
   languageName: node
   linkType: hard
 
@@ -3676,6 +3675,22 @@ __metadata:
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: f58de8bc7734bfb767b278896176b3de7cb8f2990db2637078568b292c19932f791dba52620c2c77247fa172aa6f845646591b4969f5bec558a39975208807c4
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/plugin-helpers@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "@graphql-codegen/plugin-helpers@npm:4.2.0"
+  dependencies:
+    "@graphql-tools/utils": "npm:^9.0.0"
+    change-case-all: "npm:1.0.15"
+    common-tags: "npm:1.8.2"
+    import-from: "npm:4.0.0"
+    lodash: "npm:~4.17.0"
+    tslib: "npm:~2.5.0"
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: d67c93aaa41667d715b2984141a334b4e52c550b1e6881ee5365df143660a3948374b937e0985fc3226fe16e8179769b4cef527d80427f7d21bb71a32a0c71f9
   languageName: node
   linkType: hard
 
@@ -11043,9 +11058,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001400, caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001426, caniuse-lite@npm:^1.0.30001449":
-  version: 1.0.30001460
-  resolution: "caniuse-lite@npm:1.0.30001460"
-  checksum: a7df43762033c3840790f86e6b48f9ccb88f24fc87c102ffc68e536b6269a6609b9c9f335b0cec7b040c5edf10d6f9025b8a27d832b9b2d8dc9edd2a3ad89104
+  version: 1.0.30001494
+  resolution: "caniuse-lite@npm:1.0.30001494"
+  checksum: 0f88119f15362fb86d05b780218d3153c1b9cf2a8e5e7c897209962a88bfe0be9971cf65ebbcdc2e907b0190c1b50ad5744e994afcd4174af2ec9741eb268c54
   languageName: node
   linkType: hard
 
@@ -11950,7 +11965,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig-typescript-loader@npm:*, cosmiconfig-typescript-loader@npm:^4.0.0, cosmiconfig-typescript-loader@npm:^4.3.0":
+"cosmiconfig-typescript-loader@npm:*, cosmiconfig-typescript-loader@npm:^4.0.0":
   version: 4.3.0
   resolution: "cosmiconfig-typescript-loader@npm:4.3.0"
   peerDependencies:
@@ -17140,6 +17155,15 @@ __metadata:
   bin:
     jiti: bin/jiti.js
   checksum: 24863e6f7e69e0759eae4932abb05110684b9cd40bb296ef1ba28eabfabafc7c4c58b7a5deeb82ef8d42180e97da9ac1cbcc26216dab7816e66e57dc585275d0
+  languageName: node
+  linkType: hard
+
+"jiti@npm:^1.17.1":
+  version: 1.18.2
+  resolution: "jiti@npm:1.18.2"
+  bin:
+    jiti: bin/jiti.js
+  checksum: d2204dd32c4012a3f801cb5538da56673308363ec7ca84974d1ccf37c565c67db421688ebd6d70a8ed274b26a8a205176f9e53699b43c6c2d2c3d7c4284d657d
   languageName: node
   linkType: hard
 
