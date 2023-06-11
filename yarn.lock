@@ -4658,7 +4658,7 @@ __metadata:
     graphql-tag: "npm:^2.12.6"
     jest: "npm:^29.5.0"
     jest-environment-jsdom: "npm:^29.5.0"
-    lucide-react: "npm:^0.124.0"
+    lucide-react: "npm:^0.242.0"
     next: "npm:^13.2.4-canary.4"
     postcss: "npm:^8.4.21"
     react: "npm:^18.2.0"
@@ -18114,12 +18114,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-react@npm:^0.124.0":
-  version: 0.124.0
-  resolution: "lucide-react@npm:0.124.0"
+"lucide-react@npm:^0.242.0":
+  version: 0.242.0
+  resolution: "lucide-react@npm:0.242.0"
   peerDependencies:
     react: ^16.5.1 || ^17.0.0 || ^18.0.0
-  checksum: b8df7492c88a7cfce5be93720736a0ad48bb1b195b399b6af73cc468e5badfe70824c2244b6c4ac4c03d48c63e0b70552d3fe49e09fd3e4c954554fd4b6133d0
+  checksum: ed3dab5454fe65ed22894252130b4e74356266d5f8f3859e5d715c5a95eb212e6ac3d647c5df2802ff6516668c28c49a38d9508fcbf33040c211ea79750880d7
   languageName: node
   linkType: hard
 
